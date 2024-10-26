@@ -1,0 +1,59 @@
+.Surface {
+    position: relative;
+    color: hsla(var(--surface-fg), var(--o-surface-fg));
+    background-color: hsla(var(--surface-bg), var(--o-surface-bg));
+    border-width: var(--surface-border-width);
+    border-style: var(--surface-border-style);
+    border-color: hsla(var(--surface-border-color), var(--o-surface-border));
+    border-radius: var(--surface-border-radius);
+    box-shadow: var(--surface-box-shadow-rest-size)
+        hsla(var(--surface-box-shadow-color), var(--o-surface-shawdow));
+    /* transition: background-color 0.5s ease-in; */
+}
+
+.Surface *::selection {
+    color: hsla(var(--surface-selection-fg), var(--o-surface-fg));
+    background-color: hsla(var(--surface-selection-bg), var(--o-surface-fg));
+}
+
+/* TODO missing a mew more tokens for interactive surfaces!!! border, focus outline, etc... */
+
+.Surface[data-is-interactive='true']:hover {
+    background-color: hsla(var(--surface-bg-hover), var(--o-surface-bg-hover));
+    border: var(--surface-border-hover);
+    box-shadow: var(--surface-box-shadow-hover-size)
+        hsla(var(--surface-box-shadow-color), var(--o-surface-shawdow));
+}
+
+.Surface[data-is-interactive='true']:active,
+.Surface[data-is-interactive='true'][data-is-active='true'] {
+    background-color: hsla(var(--surface-bg-active), var(--o-surface-bg-active));
+    border: var(--surface-border-active);
+    box-shadow: var(--surface-box-shadow-active-size)
+        hsla(var(--surface-box-shadow-color), var(--o-surface-shawdow));
+}
+
+/* TODO generalize to [data-nui-debug] and enable debug via context */
+
+.Surface-debug::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: attr(data-nui-surface);
+    background-color: hsla(var(--color-debug), var(--o-debug-bg));
+    color: hsla(var(--color-base-fg), var(--o-debug-fg));
+    font-family: var(--data-type-family);
+    font-size: var(--data-type-size-xs);
+    pointer-events: none;
+}
+
+.Surface-debug::before {
+    position: absolute;
+    inset: 2px;
+    display: block;
+    content: '';
+    pointer-events: none;
+    border: 1px dashed hsla(var(--color-debug), var(--o-debug-fg));
+    border-radius: var(--surface-border-radius);
+}

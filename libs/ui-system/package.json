@@ -1,0 +1,42 @@
+{
+  "name": "@noodlestan/ui-system",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "vite build",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "dev": "vite build --watch",
+    "ci": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@solid-primitives/map": "0.4.11",
+    "@solid-primitives/refs": "1.0.8",
+    "@solid-primitives/set": "0.4.11",
+    "@solid-primitives/transition-group": "1.0.5",
+    "solid-services": "4.3.2",
+    "ts-deepmerge": "7.0.0"
+  },
+  "peerDependencies": {
+    "@solidjs/router": "0.10.6",
+    "lucide-solid": "^0.438.0",
+    "solid-js": "1.9.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.1",
+    "@solidjs/testing-library": "^0.8.6",
+    "@types/babel__core": "^7.20.5",
+    "@types/svgo": "^3.0.0",
+    "@vitest/coverage-v8": "^1.2.2",
+    "jsdom": "^24.0.0",
+    "typescript": "^4.9.5",
+    "vite": "^4.1.1",
+    "vite-plugin-solid": "^2.5.0",
+    "vitest": "^1.6.0"
+  }
+}

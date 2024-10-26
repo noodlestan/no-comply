@@ -1,0 +1,7 @@
+.NUI-Theme-base.NUI-Surface {
+    --data-value-fg-color: var(--color-base-fg);
+    --data-focus-color: var(--color-outline);
+    --data-hover-border-color: var(--color-outline);
+    --data-modified-color-fg: var(--color-modified);
+    --data-modified-color-border: var(--color-modified);
+}

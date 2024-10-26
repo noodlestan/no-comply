@@ -1,0 +1,13 @@
+.FocusTrap--contents {
+    height: 100%;
+}
+
+.FocusTrap--Input {
+    width: 0px;
+    height: 0px;
+    border: none;
+    font-size: 50px;
+    position: absolute;
+    top: -200px;
+    opacity: 0;
+}

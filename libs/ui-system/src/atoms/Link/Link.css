@@ -1,0 +1,33 @@
+.Link {
+    color: hsla(var(--color-i-rest), var(--o-action-fg));
+    cursor: default;
+    text-decoration: underline;
+    pointer-events: all;
+}
+
+.Link:not(.Link-is-disabled) {
+    cursor: pointer;
+}
+
+.Link:not(.Link-is-disabled):hover {
+    color: hsla(var(--color-i-hover), var(--o-action-fg));
+    text-decoration: underline;
+}
+
+.Link-is-disabled {
+    color: hsla(var(--color-i-disabled), var(--o-action-fg));
+    cursor: not-allowed;
+}
+
+.Link:focus,
+.Link:focus-visible {
+    border-radius: var(--outline-radius);
+    outline-offset: var(--outline-offset);
+    outline-style: var(--outline-style);
+    outline-width: var(--outline-width);
+    outline-color: hsla(var(--color-outline), var(--o-surface-outline));
+}
+
+.Link:active {
+    outline-offset: var(--outline-offset--active);
+}

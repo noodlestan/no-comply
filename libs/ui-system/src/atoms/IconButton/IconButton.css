@@ -1,0 +1,57 @@
+.Button.IconButton {
+    width: var(--icon-button-size);
+    height: var(--icon-button-size);
+    min-width: var(--icon-button-size);
+    min-height: var(--icon-button-size);
+    max-width: var(--icon-button-size);
+    max-height: var(--icon-button-size);
+    padding: 0;
+    flex-grow: 0;
+}
+
+.IconButton--icon {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.Button.IconButton svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* for DevX sake */
+}
+
+.Button.IconButton-size-xs {
+    /* TODO HACK fix when clamp is removed (xs, 2xs, .. need to  be bigger) */
+    --icon-button-size: calc(1.1 * var(--size-2xs));
+    border-radius: var(--action-border-radius-s);
+}
+
+.Button.IconButton-size-s {
+    --icon-button-size: var(--size-xs);
+    padding: calc(0.1 * var(--size-xs));
+    border-radius: var(--action-border-radius-s);
+}
+
+.Button.IconButton-size-m {
+    --icon-button-size: var(--size-s);
+    padding: var(--space-gap--1);
+}
+
+.Button.IconButton-size-l {
+    --icon-button-size: var(--size-m);
+    padding: var(--space-gap--1);
+}
+
+.Button.IconButton:focus,
+.Button.IconButton:focus-visible {
+    outline-offset: var(--outline-offset);
+}
+
+.Button.IconButton:active {
+    outline-offset: var(--outline-offset--active);
+}
