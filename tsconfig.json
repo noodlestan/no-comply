@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    /* Projects */
+    /* Language and Environment */
+    "target": "es2016",
+    "lib": ["es6"],
+    /* Modules */
+    "module": "commonjs",
+    "rootDir": ".",
+    /* JavaScript Support */
+    "allowJs": true,
+    /* Emit */
+    "outDir": "dist",
+    "sourceMap": true,
+    /* Interop Constraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    /* Type Checking */
+    "strict": true,
+    "noImplicitAny": true,
+    /* Completeness */
+    "skipLibCheck": true,
+    "paths": {
+      "*": ["./node_modules/*"]
+    }
+  },
+  "include": ["packages/", "config"]
+}
