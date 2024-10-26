@@ -1,0 +1,176 @@
+.NUI-Theme-base.NUI-Surface {
+    --o-surface-fg-opaque: var(--o-opaque);
+    --o-surface-fg-translucid: var(--o-translucid);
+    --o-surface-fg-mid: var(--o-mid);
+    --o-surface-fg-faded: var(--o-faded);
+    --o-surface-fg-ghost: var(--o-ghost);
+    --o-surface-fg-transparent: var(--o-transparent);
+
+    --o-surface-bg-opaque: var(--o-opaque);
+    --o-surface-bg-translucid: var(--o-translucid);
+    --o-surface-bg-mid: var(--o-mid);
+    --o-surface-bg-faded: var(--o-faded);
+    --o-surface-bg-ghost: var(--o-ghost);
+    --o-surface-bg-transparent: var(--o-transparent);
+
+    --o-surface-fg: var(--o-surface-fg-opaque);
+    --o-surface-border: var(--o-surface-fg-opaque);
+
+    --o-surface-bg: var(--o-surface-bg-opaque);
+    --o-surface-bg-overlay: var(--o-surface-bg-mid);
+    --o-surface-bg-hover: var(--o-surface-bg-opaque);
+    --o-surface-bg-active: var(--o-surface-bg-opaque);
+    --o-surface-outline: var(--o-surface-fg-opaque);
+    --o-surface-shadow: var(--o-surface-bg-translucid);
+
+    --color-debug: var(--color-sw-6-hue), var(--color-light-2);
+    --o-debug-fg: var(--o-surface-bg-translucid);
+    --o-debug-bg: var(--o-surface-bg-overlay);
+
+    --surface-fg-hue-sat: var(--color-fg-hue), var(--color-fg-sat);
+    --surface-fg-light: var(--color-base-fg-light);
+    --surface-fg: var(--surface-fg-hue-sat), var(--surface-fg-light);
+
+    --surface-mid-light: var(--color-mid-fg-light);
+
+    --surface-bg-hue-sat: var(--color-bg-hue), var(--color-bg-sat);
+    --surface-bg-light: var(--color-base-bg-light);
+    --surface-bg: var(--surface-bg-hue-sat), var(--surface-bg-light);
+
+    --surface-bg-hover-hue-sat: var(--surface-bg-hue-sat);
+    --surface-bg-hover-light: var(--surface-bg-light);
+    --surface-bg-hover: var(--surface-bg-hover-hue-sat), var(--surface-bg-hover-light);
+
+    --surface-bg-active-hue-sat: var(--surface-bg-hue-sat);
+    --surface-bg-active-light: var(--surface-bg-light);
+    --surface-bg-active: var(--surface-bg-active-hue-sat), var(--surface-bg-active-light);
+
+    --color-primary-hue-sat: var(--surface-fg-hue-sat); /* white/black */
+    --color-primary-light: var(--surface-fg-light);
+    --color-primary: var(--color-primary-hue-sat), var(--color-primary-light);
+
+    --surface-selection-bg: var(--surface-fg);
+    --surface-selection-fg: var(--surface-bg);
+
+    --color-focused-hue-sat: var(--color-sw-8-hue), var(--color-sw-8-sat); /* blue */
+    --color-focused: var(--color-focused-hue-sat), var(--surface-mid-light);
+
+    --color-modified-hue-sat: var(--color-sw-4-hue), var(--color-sw-4-sat); /* pink */
+    --color-modified: var(--color-modified-hue-sat), var(--color-fg-light-6);
+
+    --color-selected-hue-sat: var(--color-sw-14-hue), var(--color-sw-14-sat); /* orange */
+    --color-selected: var(--color-selected-hue-sat), var(--surface-mid-light);
+
+    --color-brand-hue-sat: var(--color-sw-11-hue), var(--color-sw-11-sat); /* green */
+    --color-brand: var(--color-brand-hue-sat), var(--surface-mid-light);
+
+    --color-muted-hue-sat: var(--surface-fg-hue-sat); /* primary muted */
+    --color-muted-light: var(--color-light-7);
+    --color-muted: var(--color-muted-hue-sat), var(--color-muted-light);
+
+    --color-faded-hue-sat: var(--surface-fg-hue-sat); /* primary faded */
+    --color-faded-light: var(--color-light-6);
+    --color-faded: var(--color-faded-hue-sat), var(--color-faded-light);
+
+    --color-passive-hue-sat: var(--color-sw-0-hue), var(--color-sw-0-sat); /* gray */
+    --color-passive: var(--color-passive-hue-sat), var(--surface-mid-light);
+
+    --color-neutral-hue-sat: var(--color-sw-9-hue), var(--color-sw-9-sat); /* indigo */
+    --color-neutral: var(--color-neutral-hue-sat), var(--surface-mid-light);
+
+    --color-good-hue-sat: var(--color-sw-10-hue), var(--color-sw-10-sat); /* teal */
+    --color-good: var(--color-good-hue-sat), var(--surface-mid-light);
+
+    --color-meh-hue-sat: var(--color-sw-15-hue), var(--color-sw-15-sat); /* orangered */
+    --color-meh: var(--color-meh-hue-sat), var(--surface-mid-light);
+
+    --color-bad-hue-sat: var(--color-sw-2-hue), var(--color-sw-2-sat); /* red */
+    --color-bad: var(--color-bad-hue-sat), var(--surface-mid-light);
+
+    --color-i-rest-hue-sat: var(--color-sw-11-hue), var(--color-sw-11-sat); /* green */
+    --color-i-rest-light: var(--color-fg-light-6);
+    --color-i-rest: var(--color-i-rest-hue-sat), var(--color-i-rest-light);
+
+    --color-i-hover-hue-sat: var(--color-i-rest-hue-sat); /* green */
+    --color-i-hover-light: var(--color-fg-light-4);
+    --color-i-hover: var(--color-i-hover-hue-sat), var(--color-i-hover-light);
+
+    --color-i-active-hue-sat: var(--color-primary-hue-sat); /* primary */
+    --color-i-active-light: var(--color-primary-light);
+    --color-i-active: var(--color-i-active-hue-sat), var(--color-i-active-light);
+
+    --color-i-disabled-hue-sat: var(--color-sw-0-hue), var(--color-sw-0-sat); /* gray */
+    --color-i-disabled-light: var(--color-mid-fg-light);
+    --color-i-disabled: var(--color-i-disabled-hue-sat), var(--color-i-disabled-light);
+
+    --surface-bg-overlay: var(--color-base-bg-hue-sat), var(--color-bg-light-5);
+
+    --surface-border-width: 0;
+    --surface-border-width-thin: 1px;
+    --surface-border-width-base: 2px;
+    --surface-border-width-large: 4px;
+    --surface-border-style: solid;
+    --surface-border: var(--surface-border-width) var(--surface-border-style);
+
+    --surface-border-hue-sat: var(--surface-fg-hue-sat);
+    --surface-border-light: var(--color-light-1);
+    --surface-border-color: var(--surface-border-hue-sat), var(--surface-border-light);
+
+    --surface-border-hover: var(--surface-border-hover-width) var(--surface-border-hover-style);
+    --surface-border-active: var(--surface-border-active-width) var(--surface-border-active-style);
+
+    --surface-border-resizable: var(--surface-border-width-large) var(--surface-border-style);
+    --surface-border-resizable-color: var(--surface-border-hue-sat), var(--color-light-3);
+
+    --surface-border-radius: 0;
+
+    --surface-box-shadow-size-solid: 0px 0px 0px 1px;
+    --surface-box-shadow-size-tight: 0px 0px 2px 1px;
+    --surface-box-shadow-size-wide: 0px 1px 4px 2px;
+    --surface-box-shadow-size-none: 0;
+
+    --surface-box-shadow-rest-size: 0;
+    --surface-box-shadow-hover-size: var(--surface-box-shadow-size-tight);
+    --surface-box-shadow-active-size: var(--surface-box-shadow-size-tight);
+
+    --surface-box-shadow-hue-sat: var(--color-bg-hue), var(--color-bg-sat);
+    --surface-box-shadow-light: var(--color-bg-light-3);
+    --surface-box-shadow-color: var(--surface-box-shadow-hue-sat), var(--surface-box-shadow-light);
+
+    --color-outline: var(--color-focused);
+}
+
+.NUI-Theme-base.NUI-Surface-inverse {
+    --surface-bg-light: var(--color-bg-light-0);
+}
+
+.NUI-Theme-base.NUI-Surface-page {
+    --surface-bg-light: var(--color-bg-light-4);
+    --surface-divider-base-color: var(--surface-fg-hue-sat), var(--color-light-4);
+    --surface-divider-muted-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
+    --surface-divider-alt-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
+}
+
+.NUI-Theme-base.NUI-Surface-banner {
+    --surface-bg-hue-sat: var(--color-passive-hue-sat);
+    --surface-bg-light: var(--color-light-1);
+    --surface-border-radius: var(--radius-xs);
+    --o-surface-bg: var(--o-surface-bg-translucid);
+    --o-surface-bg-hover: var(--o-surface-bg-opaque);
+}
+
+.NUI-Theme-base.NUI-Surface-card {
+    --surface-bg-light: var(--color-bg-light-2);
+    --surface-bg-hover-light: var(--color-bg-light-0);
+    --surface-border-radius: var(--radius-s);
+}
+
+.NUI-Theme-base.NUI-Surface-dialog {
+    --surface-border-hue-sat: var(--surface-fg-hue-sat);
+    --surface-border-light: var(--color-fg-light-3);
+    --surface-border-style: solid;
+    --surface-border-width: var(--surface-border-width-large);
+    --surface-border-radius: var(--radius-m);
+    --surface-box-shadow-size: 0px 2px 5px 2px;
+    --surface-box-shadow-color: var(--surface-border-hue-sat), var(--color-fg-light-3);
+}

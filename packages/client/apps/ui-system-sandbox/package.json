@@ -1,0 +1,36 @@
+{
+  "name": "@noodlestan/app-ui-system-sandbox",
+  "private": true,
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "ci": "tsc --noEmit",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "serve": "node scripts/serve.js"
+  },
+  "devDependencies": {
+    "@types/three": "^0.165.0",
+    "csstype": "^3.1.2",
+    "typescript": "^4.9.5",
+    "vite": "^4.5.1",
+    "vite-plugin-solid": "^2.5.0",
+    "vite-plugin-solid-svg": "^0.6.1",
+    "vite-plugin-top-level-await": "^1.4.4",
+    "vite-plugin-wasm": "^3.3.0"
+  },
+  "dependencies": {
+    "@noodlestan/ui-system": "0.0.1",
+    "@solid-primitives/intersection-observer": "2.1.3",
+    "@solid-primitives/resize-observer": "2.0.22",
+    "@solid-primitives/storage": "2.1.2",
+    "@solidjs/router": "0.10.6",
+    "dotenv": "16.4.1",
+    "lucide-solid": "0.453.0",
+    "solid-js": "1.9.1",
+    "solid-services": "4.3.2",
+    "solidjs-use": "2.3.0",
+    "three": "0.165.0"
+  }
+}
