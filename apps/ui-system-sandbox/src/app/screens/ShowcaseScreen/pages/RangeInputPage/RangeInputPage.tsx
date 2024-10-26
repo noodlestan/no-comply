@@ -1,0 +1,112 @@
+import { RangeInput } from '@noodlestan/ui-system';
+import { Component, createSignal } from 'solid-js';
+
+import { findComponent } from '../../../../../data';
+import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
+
+import './RangeInputPage.css';
+
+export const RangeInputPage: Component = () => {
+    const [emptyValue, setEmptyValue] = createSignal('');
+    const [value, setValue] = createSignal('Foobar');
+    const [numValue, setNumValue] = createSignal('15');
+
+    const handleValueChange = (value: string) => {
+        console.info('onChangeValue', value);
+        setValue(value);
+    };
+
+    const handleConfirmValue = (value: string) => {
+        console.info('onConfirmValue', value);
+        setValue(value);
+    };
+
+    const handleCancelValue = () => {
+        console.info('onCancelValue');
+    };
+
+    const COMPONENT = findComponent('RangeInput');
+
+    return (
+        <DemoPage classList={{ RangeInputPage: true }} title="RangeInput">
+            <ComponentMeta component={COMPONENT} />
+            <DemoGroup title="defaults">
+                <DemoItem>
+                    <RangeInput value={emptyValue()} onChangeValue={setEmptyValue} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="value">
+                <DemoItem title="updated via onChangeValue()">
+                    <RangeInput value={value()} onChangeValue={setValue} />
+                </DemoItem>
+                <DemoItem title="updated via onConfirmValue()" note="press ENTER or ESC">
+                    <RangeInput value={value()} onConfirmValue={handleConfirmValue} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="size">
+                <DemoItem title="xl">
+                    <RangeInput value={value()} onChangeValue={setValue} size="xl" />
+                </DemoItem>
+                <DemoItem title="l">
+                    <RangeInput value={value()} onChangeValue={setValue} size="l" />
+                </DemoItem>
+                <DemoItem title="m">
+                    <RangeInput value={value()} onChangeValue={setValue} size="m" />
+                </DemoItem>
+                <DemoItem title="s">
+                    <RangeInput value={value()} onChangeValue={setValue} size="s" />
+                </DemoItem>
+                <DemoItem title="xs">
+                    <RangeInput value={value()} onChangeValue={setValue} size="xs" />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="length">
+                <DemoItem title="full">
+                    <RangeInput value={value()} onChangeValue={setValue} length="full" />
+                </DemoItem>
+                <DemoItem title="l">
+                    <RangeInput value={value()} onChangeValue={setValue} length="l" />
+                </DemoItem>
+                <DemoItem title="m">
+                    <RangeInput value={value()} onChangeValue={setValue} length="m" />
+                </DemoItem>
+                <DemoItem title="s">
+                    <RangeInput value={value()} onChangeValue={setValue} length="s" />
+                </DemoItem>
+                <DemoItem title="3">
+                    <RangeInput value={value()} onChangeValue={setValue} length={3} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="min/max">
+                <DemoItem title="1/10">
+                    <RangeInput value={numValue()} onChangeValue={setNumValue} min={1} max={10} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="disabled">
+                <DemoItem>
+                    <RangeInput value={value()} disabled />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="onChangeValue">
+                <DemoItem note="see console log">
+                    <RangeInput value={value()} onChangeValue={handleValueChange} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="onConfirmValue">
+                <DemoItem note="see console log">
+                    <RangeInput value={value()} onConfirmValue={handleConfirmValue} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="onCancelValue">
+                <DemoItem note="see console log">
+                    <RangeInput value={value()} onCancelValue={handleCancelValue} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="classList">
+                <DemoItem note="Should override text color">
+                    <RangeInput value="Foobar" classList={{ override: true }} />
+                </DemoItem>
+            </DemoGroup>
+        </DemoPage>
+    );
+};

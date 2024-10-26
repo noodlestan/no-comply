@@ -1,0 +1,9 @@
+.ShowcaseScreen {
+    outline: none;
+    height: 100%;
+}
+
+.ShowcaseScreen > .Surface {
+    width: 100%;
+    height: 100vh;
+}

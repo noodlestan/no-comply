@@ -1,0 +1,13 @@
+.ErrorScreen {
+    height: 100vh;
+    padding-top: var(--space-pad-3);
+    padding-bottom: var(--scale-xl);
+    width: auto;
+}
+
+.ErrorScreen--Icon {
+    color: hsla(var(--error-icon-hue), var(--color-sat), var(--color-light-7));
+    min-height: var(--scale-l);
+    min-width: var(--scale-l);
+    transition: color 0.1s ease;
+}
