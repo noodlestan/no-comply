@@ -1,25 +1,40 @@
-# Noodlestan UI System Monorepo
+# Noodlestan UI System
 
-Welcome to Noodlestand UI system
+> Design System built with [SolidJS](https://www.solidjs.com/)
 
-This monorepo contains:
+## Development
 
-- Ui System library
-- Ui System sandbox
+Recommended software:
 
-## Getting started
+- [Node.js](https://nodejs.org/)
+- [NVM](https://github.com/nvm-sh/nvm)
+- [VS Code](https://code.visualstudio.com/)
+- [VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [VS Code Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
-1 - first make sure you're using the correct node version
-`nvm use`
+### What's in this repo
 
-2 - install dependencies
-`npm install`
+- UI System library
+- UI System sandbox application
 
-## How to contribute
+### Getting started
 
-We welcome contributions! If you'd like to contribute please visit us at [Noodlestan discord](https://discord.com/invite/rhFSHe7T), post your idea, report a bug, ask for improvements or just come a say hi 👋
-No have no walls on Noodlestan, we welcome everyone to become a citizen.
+First make sure you are using the correct node version by running `nvm use`.
 
-## MIT Licence
+Install dependencies with `npm install`.
 
-Publish under a [MIT licence](https://noodlestan.mit-license.org/)
+Run `npm run dev` in UI System sandbox application: `packages/client/apps/ui-system-sandbox/package.json`.
+
+### Contributing
+
+👐 **We welcome contributions!**
+
+If you'd like to contribute please visit us at [Noodlestan discord](https://discord.com/invite/rhFSHe7T), post your idea, report a bug, ask for improvements or just come to say hi! 👋
+
+**Pre-commit:** [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) should run automatically before every commit and lint all code. Under the hood it runs `npm run lint` and `npm run ci`. Run these to inspect error details.
+
+## MIT License
+
+Copyright (c) 2024 [Noodlestan](https://noodlestan.org/).
+
+Published under a [MIT license](https://noodlestan.mit-license.org/).
