@@ -4,7 +4,7 @@
 
 ## Development
 
-Recommended software:
+System requirements:
 
 - [Node.js](https://nodejs.org/)
 - [NVM](https://github.com/nvm-sh/nvm)
