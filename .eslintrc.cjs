@@ -1,4 +1,4 @@
-const config = require('./eslint/index.cjs');
+const config = require('@noodlestan/eslint-config');
 
 module.exports = {
     ...config,
