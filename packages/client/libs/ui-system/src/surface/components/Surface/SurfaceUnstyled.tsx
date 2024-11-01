@@ -23,19 +23,25 @@ export const SurfaceUnstyled: Component<
 
     const handleFocus: JSX.FocusEventHandler<HTMLDivElement, FocusEvent> = ev => {
         setIsActive(true);
-        typeof props.onFocus === 'function' && props.onFocus(ev);
+        if (typeof props.onFocus === 'function') {
+            props.onFocus(ev);
+        }
     };
 
     const handleBlur: JSX.FocusEventHandler<HTMLDivElement, FocusEvent> = ev => {
         setIsActive(false);
-        typeof props.onBlur === 'function' && props.onBlur(ev);
+        if (typeof props.onBlur === 'function') {
+            props.onBlur(ev);
+        }
     };
 
     const handleKeyDown: JSX.EventHandler<HTMLDivElement, KeyboardEvent> = ev => {
         if (ev.key === 'Enter') {
             props.onTap?.();
         } else {
-            typeof props.onKeyDown === 'function' && props.onKeyDown(ev);
+            if (typeof props.onKeyDown === 'function') {
+                props.onKeyDown(ev);
+            }
         }
     };
 
@@ -43,7 +49,9 @@ export const SurfaceUnstyled: Component<
         if (!props.onTap && ev.key === 'Enter') {
             props.onClick?.();
         } else {
-            typeof props.onKeyPress === 'function' && props.onKeyPress(ev);
+            if (typeof props.onKeyPress === 'function') {
+                props.onKeyPress(ev);
+            }
         }
     };
 

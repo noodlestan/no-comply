@@ -24,7 +24,11 @@ export function createTreeState(
     };
 
     const toggleExpanded = (id: string) => {
-        expanded.has(id) ? expanded.delete(id) : expanded.add(id);
+        if (expanded.has(id)) {
+            expanded.delete(id);
+        } else {
+            expanded.add(id);
+        }
     };
 
     const collapse = (id: string | string[]) => {

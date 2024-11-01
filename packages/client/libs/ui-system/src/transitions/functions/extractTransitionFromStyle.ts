@@ -1,5 +1,4 @@
 const TRANSITION_REGEXP =
-    // eslint-disable-next-line security/detect-unsafe-regex
     /^(?:(?:(?!,)([a-zA-Z-]+)\s+(\d+ms|\d+s)(?:\s+([a-zA-Z-]+))?)(?:,\s*)?)+$/;
 
 export const extractTransitionFromStyle = (

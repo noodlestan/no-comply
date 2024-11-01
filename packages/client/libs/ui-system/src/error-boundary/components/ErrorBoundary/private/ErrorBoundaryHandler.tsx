@@ -13,7 +13,9 @@ export type ErrorBoundaryHandlerProps = {
 export const ErrorBoundaryHandler: Component<ErrorBoundaryHandlerProps> = props => {
     createEffect(() => {
         console.error(props.error);
-        props.onError && props.onError(props.error);
+        if (props.onError) {
+            props.onError(props.error);
+        }
     });
     return <Dynamic component={props.fallback} error={props.error} reset={props.reset} />;
 };

@@ -6,9 +6,7 @@ import { Component, Show, createSignal, onMount } from 'solid-js';
 
 import './SizeItem.css';
 
-type SizeItemProps = {
-    // source: TokenSource;
-};
+type SizeItemProps = object;
 
 export const SizeItem: Component<SizeItemProps> = () => {
     let spanRef!: HTMLSpanElement;

@@ -44,7 +44,11 @@ export const FocusTrap: Component<FocusTrapProps> = props => {
     const handleKeyDown = (ev: KeyboardEvent) => {
         if (ev.code === 'Tab') {
             ev.preventDefault();
-            ev.shiftKey ? focusLast() : focusFirst();
+            if (ev.shiftKey) {
+                focusLast();
+            } else {
+                focusFirst();
+            }
         }
     };
 
