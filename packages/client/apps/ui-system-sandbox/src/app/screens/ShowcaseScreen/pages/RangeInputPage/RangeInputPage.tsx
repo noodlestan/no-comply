@@ -82,9 +82,19 @@ export const RangeInputPage: Component = () => {
                     <RangeInput value={numValue()} onChangeValue={setNumValue} min={1} max={10} />
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="modified">
+                <DemoItem>
+                    <RangeInput value={value()} modified />
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem>
                     <RangeInput value={value()} disabled />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="invalid">
+                <DemoItem>
+                    <RangeInput value={value()} invalid />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onChangeValue">

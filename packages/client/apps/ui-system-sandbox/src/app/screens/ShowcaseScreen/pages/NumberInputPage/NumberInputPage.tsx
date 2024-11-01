@@ -8,8 +8,7 @@ import './NumberInputPage.css';
 
 export const NumberInputPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal('');
-    const [value, setValue] = createSignal('Foobar');
-    const [numValue, setNumValue] = createSignal('15');
+    const [value, setValue] = createSignal('15');
 
     const handleValueChange = (value: string) => {
         console.info('onChangeValue', value);
@@ -97,12 +96,22 @@ export const NumberInputPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="min/max">
                 <DemoItem title="1/10">
-                    <NumberInput value={numValue()} onChangeValue={setNumValue} min={1} max={10} />
+                    <NumberInput value={value()} onChangeValue={setValue} min={1} max={10} />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="modified">
+                <DemoItem>
+                    <NumberInput value={value()} modified />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem>
                     <NumberInput value={value()} disabled />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="invalid">
+                <DemoItem>
+                    <NumberInput value={value()} invalid />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onChangeValue">

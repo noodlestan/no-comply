@@ -56,7 +56,7 @@
     --color-focused: var(--color-focused-hue-sat), var(--surface-mid-light);
 
     --color-modified-hue-sat: var(--color-sw-4-hue), var(--color-sw-4-sat); /* pink */
-    --color-modified: var(--color-modified-hue-sat), var(--color-fg-light-6);
+    --color-modified: var(--color-modified-hue-sat), var(--surface-mid-light);
 
     --color-selected-hue-sat: var(--color-sw-14-hue), var(--color-sw-14-sat); /* orange */
     --color-selected: var(--color-selected-hue-sat), var(--surface-mid-light);
@@ -69,7 +69,7 @@
     --color-muted: var(--color-muted-hue-sat), var(--color-muted-light);
 
     --color-faded-hue-sat: var(--surface-fg-hue-sat); /* primary faded */
-    --color-faded-light: var(--color-light-6);
+    --color-faded-light: var(--color-light-5);
     --color-faded: var(--color-faded-hue-sat), var(--color-faded-light);
 
     --color-passive-hue-sat: var(--color-sw-0-hue), var(--color-sw-0-sat); /* gray */

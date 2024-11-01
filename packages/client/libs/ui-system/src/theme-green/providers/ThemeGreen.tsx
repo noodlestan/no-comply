@@ -12,6 +12,8 @@ import '../styles/base/radius.css';
 import '../styles/base/space.css';
 import '../styles/base/type.css';
 import '../styles/base/surfaces.css';
+import '../styles/base/cards.css';
+import '../styles/base/pills.css';
 import '../styles/base/layout.css';
 import '../styles/base/scrollbars.css';
 

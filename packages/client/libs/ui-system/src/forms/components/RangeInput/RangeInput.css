@@ -10,6 +10,7 @@
     color: hsla(var(--input-fg), var(--o-input-fg));
     background-color: transparent;
     border-radius: var(--input-border-radius);
+    pointer-events: all;
     appearance: none;
     cursor: pointer;
 }
@@ -24,11 +25,6 @@
     background-color: hsla(var(--input-track-hover-color), var(--o-input-fg));
 }
 
-.RangeInput.RangeInput-is-disabled::-webkit-slider-runnable-track,
-.RangeInput.RangeInput-is-disabled:hover::-webkit-slider-runnable-track {
-    background-color: hsla(var(--input-track-disabled-color), var(--o-input-fg));
-}
-
 .RangeInput::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -37,6 +33,10 @@
     background-color: hsla(var(--input-handle-rest-color), var(--o-input-fg));
     border-radius: 50%;
     margin-top: -4px;
+}
+
+.RangeInput:not(.RangeInput-is-disabled):hover::-webkit-slider-thumb {
+    background-color: hsla(var(--input-handle-hover-color), var(--o-input-fg));
 }
 
 .RangeInput-size-xs {
@@ -104,8 +104,9 @@
     width: 33px;
 }
 
-.RangeInput:not(.RangeInput-is-disabled):hover::-webkit-slider-thumb {
-    background-color: hsla(var(--input-handle-hover-color), var(--o-input-fg));
+.RangeInput:focus,
+.RangeInput:focus-visible {
+    outline: none;
 }
 
 .RangeInput:not(.RangeInput-is-disabled):focus::-webkit-slider-thumb {
@@ -116,21 +117,21 @@
     outline-color: hsla(var(--color-outline), var(--o-surface-outline));
 }
 
-.RangeInput:not(.RangeInput-is-disabled).RangeInput-is-modified::-webkit-slider-thumb,
-.RangeInput:not(.RangeInput-is-disabled).RangeInput-is-modified:hover::-webkit-slider-thumb {
-    background-color: hsla(var(--color-modified), var(--o-input-fg));
+.RangeInput-is-modified:not(.RangeInput-is-disabled)::-webkit-slider-thumb,
+.RangeInput-is-modified:not(.RangeInput-is-disabled):hover::-webkit-slider-thumb {
+    background-color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
+}
+
+.RangeInput-is-invalid:not(.RangeInput-is-disabled)::-webkit-slider-thumb,
+.RangeInput-is-invalid:not(.RangeInput-is-disabled):hover::-webkit-slider-thumb {
+    background-color: hsla(var(--data-error-fg-color), var(--o-input-fg));
+}
+
+.RangeInput.RangeInput-is-disabled {
+    cursor: not-allowed;
 }
 
 .RangeInput.RangeInput-is-disabled::-webkit-slider-thumb,
 .RangeInput.RangeInput-is-disabled:hover::-webkit-slider-thumb {
     background-color: hsla(var(--input-handle-disabled-color), var(--o-input-fg));
-}
-
-.RangeInput:focus,
-.RangeInput:focus-visible {
-    outline: none;
-}
-
-.RangeInput.RangeInput-is-disabled {
-    cursor: not-allowed;
 }

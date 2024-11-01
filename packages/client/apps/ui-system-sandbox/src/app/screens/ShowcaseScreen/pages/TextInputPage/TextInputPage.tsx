@@ -62,7 +62,7 @@ export const TextInputPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="placeholder">
                 <DemoItem>
-                    <TextInput placeholder="E.g.: Foobar" />
+                    <TextInput placeholder="E.g§.: Foobar" />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="size">
@@ -108,8 +108,16 @@ export const TextInputPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="maxLength">
-                <DemoItem title="6" note="input resized when length='auto'">
+                <DemoItem title="10">
                     <TextInput value={value()} onChangeValue={setValue} maxLength={6} />
+                </DemoItem>
+                <DemoItem title="10" note="input resized when length='auto'">
+                    <TextInput
+                        value={value()}
+                        onChangeValue={setValue}
+                        length="auto"
+                        maxLength={6}
+                    />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="min/max">
@@ -123,9 +131,19 @@ export const TextInputPage: Component = () => {
                     />
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="modified">
+                <DemoItem>
+                    <TextInput value={value()} modified />
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem>
                     <TextInput value={value()} disabled />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="invalid">
+                <DemoItem>
+                    <TextInput value={value()} invalid />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onChangeValue">

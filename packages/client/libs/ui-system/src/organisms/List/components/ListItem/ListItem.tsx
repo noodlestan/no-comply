@@ -12,6 +12,7 @@ type ListItemProps = {
     items: ObjectWithId[];
     item: ObjectWithId;
     state: ListState;
+    disabled?: boolean;
     component?: ListItemComponent | undefined;
 };
 
@@ -24,10 +25,16 @@ export const ListItem: Component<ListItemProps> = props => {
     };
 
     const selectItem = () => {
+        if (props.disabled) {
+            return;
+        }
         setSelection([props.item]);
     };
 
     const selectItemsUntil = () => {
+        if (props.disabled) {
+            return;
+        }
         const firstSelected = getFirstSelected();
         if (firstSelected) {
             batch(() => {
@@ -42,6 +49,9 @@ export const ListItem: Component<ListItemProps> = props => {
     };
 
     const toggleItemSelected = () => {
+        if (props.disabled) {
+            return;
+        }
         toggleSelected(props.item);
     };
 

@@ -41,10 +41,22 @@ export const CheckboxPage: Component = () => {
                     <Checkbox checked={value()} onChangeValue={setValue} size="s" />
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="modified">
+                <DemoItem row>
+                    <Checkbox checked modified />
+                    <Checkbox modified />
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem row>
-                    <Checkbox checked={value()} disabled />
+                    <Checkbox checked disabled />
                     <Checkbox disabled />
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="invalid">
+                <DemoItem row>
+                    <Checkbox checked invalid />
+                    <Checkbox invalid />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onChangeValue">

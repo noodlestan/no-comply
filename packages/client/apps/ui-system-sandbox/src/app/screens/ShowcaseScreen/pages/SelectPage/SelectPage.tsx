@@ -110,9 +110,23 @@ export const SelectPage: Component = () => {
                     </Select>
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="modified">
+                <DemoItem>
+                    <Select value={value()} modified>
+                        <Options />
+                    </Select>
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem>
                     <Select value={value()} disabled>
+                        <Options />
+                    </Select>
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="invalid">
+                <DemoItem>
+                    <Select value={value()} invalid>
                         <Options />
                     </Select>
                 </DemoItem>

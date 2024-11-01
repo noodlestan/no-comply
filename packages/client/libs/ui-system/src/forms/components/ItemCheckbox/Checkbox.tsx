@@ -12,8 +12,10 @@ export type CheckboxProps = {
     checked?: boolean;
     size?: CheckboxSize;
     label?: string;
-    onChangeValue?: (value: boolean) => void;
+    modified?: boolean;
     disabled?: boolean;
+    invalid?: boolean;
+    onChangeValue?: (value: boolean) => void;
     classList?: { [key: string]: boolean };
 };
 
@@ -70,6 +72,8 @@ export const Checkbox: Component<CheckboxProps> = props => {
         Checkbox: true,
         [`Checkbox-size-${size()}`]: true,
         'Checkbox-is-disabled': Boolean(props.disabled),
+        'Checkbox-is-invalid': Boolean(props.invalid),
+        'Checkbox-is-modified': Boolean(props.modified),
         'Checkbox-is-checked': !!props.checked,
         'Checkbox-is-focused': isFocused(),
     });

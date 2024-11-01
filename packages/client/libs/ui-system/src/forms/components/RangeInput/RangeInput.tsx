@@ -16,7 +16,7 @@ export type RangeInputProps = {
     autoConfirm?: boolean;
     modified?: boolean;
     disabled?: boolean;
-    error?: boolean;
+    invalid?: boolean;
     onChangeValue?: (value: string) => void;
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
@@ -45,19 +45,24 @@ export const RangeInput: Component<RangeInputProps> = props => {
     const size = () => props.size || defaultProps.size;
     const length = () => props.length || defaultProps.length;
 
+    const [, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
-    const value = () => localValue() ?? (props.value || '0');
+
+    const currentValue = () => {
+        const local = localValue();
+        return local !== undefined ? local : props.value || '';
+    };
+
     const isModified = () => {
-        if (props.modified) {
-            return true;
-        }
-        const value = localValue();
-        return value !== undefined && value !== props.value;
+        const local = localValue();
+        return local !== undefined && local !== props.value;
     };
 
     const confirm = () => {
-        props.onConfirmValue?.(value());
-        setLocalValue(undefined);
+        if (isModified() || props.modified) {
+            props.onConfirmValue?.(currentValue());
+            setLocalValue(undefined);
+        }
     };
 
     const cancel = () => {
@@ -73,7 +78,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
     };
 
     const handleFocus = () => {
-        setLocalValue(props.value);
+        setWasTouched(true);
     };
 
     const handleBlur = () => {
@@ -86,13 +91,19 @@ export const RangeInput: Component<RangeInputProps> = props => {
 
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
-        if (ev.key === 'Escape') {
-            cancel();
-        } else if (ev.key === 'Enter') {
+        if (ev.key === 'Enter') {
             confirm();
-        } else if (localValue() === undefined) {
-            setLocalValue(props.value);
+        } else if (ev.key === 'Escape') {
+            cancel();
         }
+    };
+
+    const handleKeyUp = (ev: KeyboardEvent) => {
+        ev.stopImmediatePropagation();
+    };
+
+    const handleKeyPress = (ev: KeyboardEvent) => {
+        ev.stopImmediatePropagation();
     };
 
     const handlers = {
@@ -100,14 +111,16 @@ export const RangeInput: Component<RangeInputProps> = props => {
         onFocus: handleFocus,
         onBlur: handleBlur,
         onKeyDown: handleKeyDown,
+        onKeyUp: handleKeyUp,
+        onKeyPress: handleKeyPress,
     };
 
     const classList = () => ({
         ...props.classList,
         RangeInput: true,
         'RangeInput-is-disabled': Boolean(props.disabled),
-        'RangeInput-has-error': Boolean(props.error),
-        'RangeInput-is-modified': isModified(),
+        'RangeInput-is-invalid': Boolean(props.invalid),
+        'RangeInput-is-modified': isModified() || props.modified,
         [`RangeInput-size-${size()}`]: true,
     });
 
@@ -120,7 +133,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
             min={String(props.min)}
             max={String(props.max)}
             step={props.step}
-            value={value()}
+            value={currentValue()}
             disabled={props.disabled}
             {...handlers}
             classList={classList()}

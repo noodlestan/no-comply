@@ -6,11 +6,23 @@
     padding: 3px;
 }
 
+.Checkbox input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    outline: none;
+}
+
 .Checkbox--control {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: hsla(var(--input-bg), var(--o-input-bg));
+    background-color: hsla(var(--input-bg), var(--o-input-fg));
     border: var(--input-checkbox-border);
     border-color: hsla(var(--input-checkbox-border-color), var(--o-input-border));
     border-radius: var(--input-border-radius);
@@ -46,13 +58,7 @@
 }
 
 .Checkbox.Checkbox-is-checked .Checkbox--control {
-    background-color: hsla(var(--color-selected), var(--o-surface-fg-opaque));
-}
-
-.Checkbox.Checkbox-is-disabled .Checkbox--control {
-    color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
-    background-color: hsla(var(--action-disabled-bg-color), var(--o-action-bg));
-    cursor: default;
+    background-color: hsla(var(--color-selected), var(--o-input-fg));
 }
 
 .Checkbox.Checkbox-is-checked svg,
@@ -67,14 +73,24 @@
     outline-color: hsla(var(--color-outline), var(--o-surface-outline));
 }
 
-.Checkbox input {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    outline: none;
+.Checkbox.Checkbox-is-modified .Checkbox--control {
+    border-color: hsla(var(--data-modified-border-color), var(--o-surface-outline));
+}
+
+.Checkbox-is-modified.Checkbox-is-checked:not(.Checkbox-is-disabled) .Checkbox--control {
+    background-color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
+}
+
+.Checkbox.Checkbox-is-invalid .Checkbox--control {
+    border-color: hsla(var(--data-error-border-color), var(--o-surface-outline));
+}
+
+.Checkbox-is-invalid.Checkbox-is-checked:not(.Checkbox-is-disabled) .Checkbox--control {
+    background-color: hsla(var(--data-error-fg-color), var(--o-input-fg));
+}
+
+.Checkbox.Checkbox-is-disabled .Checkbox--control {
+    color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
+    background-color: hsla(var(--action-disabled-bg-color), var(--o-action-bg));
+    cursor: default;
 }

@@ -17,12 +17,14 @@ type ListProps = {
     component?: ListItemComponent;
     enter?: () => TransitionAPI;
     leave?: () => TransitionAPI;
+    disabled?: boolean;
     classList?: { [key: string]: boolean };
 };
 
 const ListItems: Component<{
     items: ObjectWithId[];
     state: ListState;
+    disabled?: boolean;
     component?: ListItemComponent;
 }> = props => {
     return (
@@ -33,6 +35,7 @@ const ListItems: Component<{
                     item={item}
                     state={props.state}
                     component={props.component}
+                    disabled={props.disabled}
                 />
             )}
         </For>
@@ -53,7 +56,12 @@ export const List: Component<ListProps> = props => {
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div ref={treeListRef} classList={classList()} onKeyUp={handlers.onKeyDown}>
             <Show when={!props.enter && !props.leave}>
-                <ListItems items={props.items} state={props.state} component={props.component} />
+                <ListItems
+                    items={props.items}
+                    state={props.state}
+                    component={props.component}
+                    disabled={props.disabled}
+                />
             </Show>
             <Show when={props.enter || props.leave}>
                 {(() => {
@@ -61,6 +69,7 @@ export const List: Component<ListProps> = props => {
                         <ListItems
                             items={props.items}
                             state={props.state}
+                            disabled={props.disabled}
                             component={props.component}
                         />
                     ));

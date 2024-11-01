@@ -34,9 +34,9 @@
 }
 
 .Focusable [data-ui-focusable-hover] {
-    color: hsla(var(--action-plain-rest-fg-color), var(--o-action-fg));
+    color: hsla(var(--color-i-rest), var(--o-action-fg));
 }
 
 .Focusable:hover [data-ui-focusable-hover] {
-    color: hsla(var(--action-plain-hover-fg-color), var(--o-action-fg));
+    color: hsla(var(--color-i-hover), var(--o-action-fg));
 }

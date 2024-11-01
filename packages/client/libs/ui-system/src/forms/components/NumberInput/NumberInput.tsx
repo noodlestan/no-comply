@@ -18,7 +18,7 @@ export type NumberInputProps = {
     autoConfirm?: boolean;
     modified?: boolean;
     disabled?: boolean;
-    error?: boolean;
+    invalid?: boolean;
     onChangeValue?: (value: string) => void;
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
@@ -50,19 +50,24 @@ export const NumberInput: Component<NumberInputProps> = props => {
     const size = () => props.size || defaultProps.size;
     const length = () => props.length || defaultProps.length;
 
+    const [, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
-    const value = () => localValue() ?? (props.value || '');
+
+    const currentValue = () => {
+        const local = localValue();
+        return local !== undefined ? local : props.value || '';
+    };
+
     const isModified = () => {
-        if (props.modified) {
-            return true;
-        }
-        const value = localValue();
-        return value !== undefined && value !== props.value;
+        const local = localValue();
+        return local !== undefined && local !== props.value;
     };
 
     const confirm = () => {
-        props.onConfirmValue?.(value());
-        setLocalValue(undefined);
+        if (isModified() || props.modified) {
+            props.onConfirmValue?.(currentValue());
+            setLocalValue(undefined);
+        }
     };
 
     const cancel = () => {
@@ -78,7 +83,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
     };
 
     const handleFocus = () => {
-        setLocalValue(props.value);
+        setWasTouched(true);
     };
 
     const handleBlur = () => {
@@ -91,12 +96,10 @@ export const NumberInput: Component<NumberInputProps> = props => {
 
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
-        if (ev.key === 'Escape') {
-            cancel();
-        } else if (ev.key === 'Enter') {
+        if (ev.key === 'Enter') {
             confirm();
-        } else if (localValue() === undefined) {
-            setLocalValue(props.value);
+        } else if (ev.key === 'Escape') {
+            cancel();
         }
     };
 
@@ -121,8 +124,8 @@ export const NumberInput: Component<NumberInputProps> = props => {
         ...props.classList,
         NumberInput: true,
         'NumberInput-is-disabled': Boolean(props.disabled),
-        'NumberInput-has-error': Boolean(props.error),
-        'NumberInput-is-modified': isModified(),
+        'NumberInput-is-invalid': Boolean(props.invalid),
+        'NumberInput-is-modified': isModified() || props.modified,
         [`NumberInput-size-${size()}`]: true,
     });
 
@@ -136,7 +139,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
             min={props.min}
             max={props.max}
             step={props.step}
-            value={value()}
+            value={currentValue()}
             disabled={props.disabled}
             {...handlers}
             classList={classList()}

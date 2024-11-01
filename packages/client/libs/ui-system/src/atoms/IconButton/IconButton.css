@@ -27,7 +27,8 @@
 
 .Button.IconButton-size-xs {
     /* TODO HACK fix when clamp is removed (xs, 2xs, .. need to  be bigger) */
-    --icon-button-size: calc(1.1 * var(--size-2xs));
+    padding: 1px;
+    --icon-button-size: calc(1.25 * var(--size-2xs));
     border-radius: var(--action-border-radius-s);
 }
 

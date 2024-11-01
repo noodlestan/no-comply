@@ -121,7 +121,7 @@ export const TreeListNodeItem: Component<TreeListNodeItemProps> = props => {
                 data-node-id={props.node.id}
                 data-is-expandable={Boolean(props.level && props.node.children?.length)}
             >
-                <Flex direction="row" align="center" tag="span">
+                <Flex direction="row" align="center">
                     <Show when={hasToggle()}>
                         <div class="TreeListNodeItem--toggle">
                             <TreeListExpandButton
@@ -130,7 +130,7 @@ export const TreeListNodeItem: Component<TreeListNodeItemProps> = props => {
                             />
                         </div>
                     </Show>
-                    <div class="TreeListNodeItem--pill">
+                    <Flex full classList={{ 'TreeListNodeItem--pill': true }}>
                         <Show when={isFolder() && props.level}>
                             <Dynamic
                                 component={folderComponent(componentProps())}
@@ -143,7 +143,7 @@ export const TreeListNodeItem: Component<TreeListNodeItemProps> = props => {
                                 {...componentProps()}
                             />
                         </Show>
-                    </div>
+                    </Flex>
                 </Flex>
             </Focusable>
         </Flex>

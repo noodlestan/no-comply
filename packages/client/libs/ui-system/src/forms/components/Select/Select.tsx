@@ -11,7 +11,9 @@ export type SelectProps = {
     placeholder?: string;
     size?: SelectSize;
     length?: number | SelectLength;
+    modified?: boolean;
     disabled?: boolean;
+    invalid?: boolean;
     onChangeValue?: (id: string) => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
@@ -65,6 +67,8 @@ export const Select: Component<SelectProps> = props => {
         ...props.classList,
         Select: true,
         'Select-is-disabled': props.disabled,
+        'Select-is-invalid': Boolean(props.invalid),
+        'Select-is-modified': Boolean(props.modified),
         [`Select-size-${size()}`]: true,
     });
 

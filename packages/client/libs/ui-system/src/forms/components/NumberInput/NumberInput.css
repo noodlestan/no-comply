@@ -24,50 +24,57 @@
 }
 
 .NumberInput-size-xs {
-    padding: 0 var(--space-pad--1);
     height: var(--size-xs);
+    padding: 0 var(--space-pad--1);
     font-size: var(--data-type-size-xs);
     font-weight: var(--data-type-weight-s);
 }
 .NumberInput-size-s {
-    padding: 0 var(--space-pad--1);
     height: var(--size-xs);
+    padding: 0 var(--space-pad--1);
     font-size: var(--data-type-size-s);
     font-weight: var(--data-type-weight-m);
 }
 
 .NumberInput-size-m {
     height: var(--size-s);
+    padding: 0 var(--space-pad-0);
     font-size: var(--data-type-size-m);
     font-weight: var(--data-type-weight-m);
 }
 
 .NumberInput-size-l {
-    padding: 0 var(--space-pad-1);
     height: var(--size-l);
+    padding: 0 var(--space-pad-1);
     font-size: var(--data-type-size-l);
     font-weight: var(--data-type-weight-l);
 }
 
 .NumberInput-size-xl {
-    padding: 0 var(--space-pad-2);
     height: var(--size-xl);
+    padding: 0 var(--space-pad-2);
     font-size: var(--data-type-size-xl);
     font-weight: var(--data-type-weight-l);
 }
 
 .NumberInput:focus,
 .NumberInput:focus-visible {
-    color: hsla(var(--data-focus-color), var(--o-surface-fg));
-    border-style: solid;
-    border-width: var(--outline-width);
-    border-color: hsla(var(--data-focus-color), var(--o-surface-border));
-    outline: none;
+    color: hsla(var(--data-focused-fg-color), var(--o-surface-fg));
+    border-color: hsla(var(--input-border-focused-color), var(--o-input-border));
+    outline-offset: var(--outline-offset);
+    outline-style: var(--outline-style);
+    outline-width: var(--outline-width);
+    outline-color: hsla(var(--color-outline), var(--o-surface-outline));
 }
 
 .NumberInput-is-modified:not(.NumberInput-is-disabled) {
-    color: hsla(var(--data-modified-color-fg), var(--o-input-fg));
-    border-color: hsla(var(--data-modified-color-border), var(--o-input-border));
+    color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
+    border-color: hsla(var(--data-modified-border-color), var(--o-input-border));
+}
+
+.NumberInput-is-invalid:not(.NumberInput-is-disabled) {
+    color: hsla(var(--data-error-fg-color), var(--o-input-fg));
+    border-color: hsla(var(--data-error-border-color), var(--o-input-border));
 }
 
 .NumberInput.NumberInput-is-disabled {
