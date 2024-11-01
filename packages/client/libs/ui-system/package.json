@@ -1,12 +1,19 @@
 {
   "name": "@noodlestan/ui-system",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "type": "module",
   "files": [
-    "src"
+    "src",
+    "LICENSE-MIT"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/ui-system"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./src/index.ts",
   "scripts": {
     "build": "vite build",
@@ -24,7 +31,7 @@
   },
   "peerDependencies": {
     "@solidjs/router": "0.10.6",
-    "lucide-solid": "^0.438.0",
+    "lucide-solid": "^0.453.0",
     "solid-js": "1.9.1"
   },
   "devDependencies": {
@@ -33,8 +40,8 @@
     "@types/svgo": "^3.0.0",
     "@vitest/coverage-v8": "^1.2.2",
     "jsdom": "^24.0.0",
-    "typescript": "^4.9.5",
-    "vite": "^4.1.1",
+    "typescript": "^5.6.3",
+    "vite": "^4.5.1",
     "vite-plugin-solid": "^2.5.0",
     "vitest": "^1.6.0"
   }
