@@ -23,18 +23,17 @@
     "ci": "npm run ci:libs && npm run ci:apps"
   },
   "devDependencies": {
-    "@types/eslint": "9.6.1",
-    "@types/node": "22.8.1",
+    "@noodlestan/eslint-config": "0.0.2",
     "@typescript-eslint/eslint-plugin": "8.11.0",
-    "@typescript-eslint/parser": "8.11.0",
-    "dotenv": "^16.3.1",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-solid": "^0.14.3",
-    "lefthook": "^1.5.5",
-    "prettier": "^3.3.3",
+    "dotenv": "16.3.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-prettier": "5.2.1",
+    "eslint-plugin-solid": "0.14.3",
+    "eslint": "8.57.1",
+    "lefthook": "1.5.5",
+    "prettier": "3.3.3",
     "typescript": "5.6.3"
   }
 }
