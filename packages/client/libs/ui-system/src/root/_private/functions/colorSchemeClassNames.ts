@@ -1,5 +1,5 @@
 import { NUI_COLOR_SCHEME_PREFIX } from '../../constants';
-import { useColorSchemeContext } from '../../providers/ColorSchemeProvider';
+import { useColorSchemeContext } from '../../providers';
 
 import { makeNuiClassName } from './makeNuiClassName';
 

@@ -1,6 +1,6 @@
 import { Component, JSX } from 'solid-js';
 
-import { FocusContext } from './private/FocusContext';
+import { FocusContext } from './private';
 import { FocusServiceAPI } from './types';
 
 type FocusProviderProps = {

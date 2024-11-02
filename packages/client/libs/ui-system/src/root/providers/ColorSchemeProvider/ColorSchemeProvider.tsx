@@ -1,6 +1,6 @@
 import { Accessor, Component, JSX, createContext, createEffect, useContext } from 'solid-js';
 
-import { colorSchemeStore } from '../../_private/stores/colorSchemeStore';
+import { colorSchemeStore } from '../../_private';
 import { ThemesError } from '../../errors';
 import { ColorSchemeName } from '../../types';
 

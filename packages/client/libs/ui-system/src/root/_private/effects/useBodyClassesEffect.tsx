@@ -1,7 +1,7 @@
 import { createEffect } from 'solid-js';
 
-import { contextClassNames } from '../../helpers/contextClassNames';
-import { isNuiClassName } from '../functions/isNuiClassName';
+import { contextClassNames } from '../../helpers';
+import { isNuiClassName } from '../functions';
 
 export const useBodyClassesEffect = (classList?: () => { [key: string]: boolean }): void => {
     const updateClassList = () => {

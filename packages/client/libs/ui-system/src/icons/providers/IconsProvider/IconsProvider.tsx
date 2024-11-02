@@ -1,6 +1,6 @@
 import { Component, JSX } from 'solid-js';
 
-import { IconsContext } from './private/IconsContext';
+import { IconsContext } from './private';
 import { IconsAPI } from './types';
 
 type IconsProviderProps = {

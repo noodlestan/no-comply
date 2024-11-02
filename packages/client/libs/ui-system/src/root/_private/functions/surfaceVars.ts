@@ -1,6 +1,5 @@
-import { getColorStyleByHue } from '../../../functions';
-import { getOpacityScale } from '../../../functions/style/getOpacityScale';
-import { useSettings } from '../../../providers/SettingsProvider';
+import { getColorStyleByHue, getOpacityScale } from '../../../functions';
+import { useSettings } from '../../../providers';
 
 export const surfaceVars = (): Record<string, string | undefined> => {
     const { getValue } = useSettings();

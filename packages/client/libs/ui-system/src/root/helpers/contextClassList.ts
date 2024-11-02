@@ -1,7 +1,8 @@
-import { classListFromClassNames } from '../_private/functions/classListFromClassNames';
-import { ClassList } from '../_private/functions/types';
+import { ClassList } from '../_private';
 
 import { contextClassNames } from './contextClassNames';
+
+import { classListFromClassNames } from './';
 
 export const contextClassList = (): ClassList => {
     return classListFromClassNames(contextClassNames());

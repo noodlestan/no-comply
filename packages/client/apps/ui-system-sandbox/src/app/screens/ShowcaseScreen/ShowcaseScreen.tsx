@@ -3,7 +3,7 @@ import { Component, JSX, Show, createSignal, onCleanup, onMount } from 'solid-js
 
 import { Spinner } from '../../atoms';
 import { PageLayout } from '../../layouts';
-import { MainNav } from '../../navigation/components/MainNav/MainNav';
+import { MainNav } from '../../navigation';
 
 import './ShowcaseScreen.css';
 

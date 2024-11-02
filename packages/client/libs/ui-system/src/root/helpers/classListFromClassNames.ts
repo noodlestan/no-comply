@@ -1,4 +1,4 @@
-import { ClassList } from './types';
+import { ClassList } from '../_private';
 
 export const classListFromClassNames = (classNames: (string | undefined)[]): ClassList =>
     classNames.reduce(

@@ -1,8 +1,7 @@
 import { inject } from '../../../providers';
 import type { TransitionState } from '../../../transitions';
 import { TransitionGroupsService } from '../../../transitions';
-import { TRANSITION_GROUP } from '../../private/constants';
-import { modalsStore } from '../../private/stores/ModalsStore';
+import { TRANSITION_GROUP, modalsStore } from '../../private';
 import type { ModalOptions } from '../../types';
 
 interface ModalsServiceInterface {

@@ -1,7 +1,7 @@
 import { AlertTriangleIcon, InfoIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { Component, JSX } from 'solid-js';
 
-import { Icon } from '../../icons/components/Icon';
+import { Icon } from '../../icons';
 import { Surface } from '../../surface';
 
 import './Banner.css';

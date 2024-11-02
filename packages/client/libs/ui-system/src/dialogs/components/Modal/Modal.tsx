@@ -5,8 +5,7 @@ import { Portal } from 'solid-js/web';
 
 import { inject } from '../../../providers';
 import { useModalShowEffect, useTransitionClassList } from '../../hooks';
-import { MODAL_Z_INDEX } from '../../private/constants';
-import { ModalProvider } from '../../private/providers/ModalProvider';
+import { MODAL_Z_INDEX, ModalProvider } from '../../private';
 import { ModalsService } from '../../services';
 import { FocusTrap } from '../FocusTrap';
 import { Overlay } from '../Overlay';

@@ -1,7 +1,7 @@
 import { Component, Show } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
-import { modalsStore } from '../../private/stores/ModalsStore';
+import { modalsStore } from '../../private';
 import { Overlay } from '../Overlay';
 
 export const ModalOverlay: Component = () => {

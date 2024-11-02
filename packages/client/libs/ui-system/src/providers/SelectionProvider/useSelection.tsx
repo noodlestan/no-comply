@@ -2,7 +2,7 @@ import { useContext } from 'solid-js';
 
 import { ObjectWithId } from '../../types';
 
-import { SelectionContext } from './private/SelectionContext';
+import { SelectionContext } from './private';
 import { ObjectFilter, SelectionAPI } from './types';
 
 export const useSelection = (filter?: ObjectFilter): SelectionAPI => {

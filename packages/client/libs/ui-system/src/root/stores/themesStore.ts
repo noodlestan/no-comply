@@ -1,6 +1,6 @@
 import { Accessor, createSignal } from 'solid-js';
 
-import { ThemesError } from '../errors/ThemesError';
+import { ThemesError } from '../errors';
 import { SystemTheme } from '../types';
 
 const [themes, setThemes] = createSignal<SystemTheme[]>([]);

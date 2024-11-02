@@ -1,6 +1,6 @@
 import { Component, JSX } from 'solid-js';
 
-import { SettingsContext } from './private/SettingsContext';
+import { SettingsContext } from './private';
 import { SettingsAPI } from './types';
 
 type SettingsProviderProps = {

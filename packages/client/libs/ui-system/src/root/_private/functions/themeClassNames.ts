@@ -1,5 +1,5 @@
 import { NUI_THEME_PREFIX } from '../../constants';
-import { useThemeContext } from '../../providers/ThemeProvider';
+import { useThemeContext } from '../../providers';
 import { themesStore } from '../../stores';
 import { SystemTheme } from '../../types';
 

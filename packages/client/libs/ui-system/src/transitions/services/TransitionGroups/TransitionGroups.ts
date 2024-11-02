@@ -1,5 +1,5 @@
 import { DEFAULT_TRANSITION_MS, TRANSITION_ACTIVE, TRANSITION_END } from '../../constants';
-import { transitionGroupsStore } from '../../private/stores/TransitionGroupsStore';
+import { transitionGroupsStore } from '../../private';
 import type { TransitionOptions, TransitionState } from '../../types';
 
 interface TransitionGroupsServiceInterface {

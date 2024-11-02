@@ -1,4 +1,3 @@
-export * from './classListFromClassNames';
 export * from './colorSchemeClassNames';
 export * from './isNuiClassName';
 export * from './makeNuiClassName';

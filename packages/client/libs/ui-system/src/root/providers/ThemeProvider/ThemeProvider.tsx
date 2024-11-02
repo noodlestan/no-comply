@@ -1,8 +1,8 @@
 import { Component, JSX, createContext, useContext } from 'solid-js';
 
-import { useSettings } from '../../../providers/SettingsProvider';
+import { useSettings } from '../../../providers';
 import { ThemesError } from '../../errors';
-import { themesStore } from '../../stores/themesStore';
+import { themesStore } from '../../stores';
 import { SystemTheme } from '../../types';
 import { TokensProvider } from '../TokensProvider';
 

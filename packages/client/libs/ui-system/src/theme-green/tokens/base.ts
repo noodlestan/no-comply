@@ -1,4 +1,4 @@
-import { TokenMap } from '../../root/types';
+import { TokenMap } from '../../root';
 
 import { color } from './base/color';
 import { surfaces } from './base/surfaces';

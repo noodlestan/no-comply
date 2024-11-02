@@ -1,6 +1,6 @@
 import { Component, JSX } from 'solid-js';
 
-import { AppServicesContext } from './private/AppServicesContext';
+import { AppServicesContext } from './private';
 import { AppServicesAPI } from './types';
 
 type AppServicesProviderProps = {

@@ -1,7 +1,7 @@
 import { ServiceInitializer } from 'solid-services';
 import { beforeEach, describe, expect, it } from 'vitest';
 
-import { getMock, resetMocks } from '../private/registry';
+import { getMock, resetMocks } from '../private';
 
 import { mock } from './mock';
 

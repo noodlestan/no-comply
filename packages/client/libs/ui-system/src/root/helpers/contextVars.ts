@@ -1,4 +1,4 @@
-import { surfaceVars } from '../_private/functions';
+import { surfaceVars } from '../_private';
 
 export const contextVars = (): Record<string, string | undefined> => {
     return {

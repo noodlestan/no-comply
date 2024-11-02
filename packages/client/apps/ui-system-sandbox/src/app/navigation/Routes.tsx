@@ -1,7 +1,6 @@
 import { Route } from '@solidjs/router';
 import { Component } from 'solid-js';
 
-import { ShowcaseScreen } from '../screens';
 import {
     BannerPage,
     ButtonPage,
@@ -19,11 +18,12 @@ import {
     NumberInputPage,
     RangeInputPage,
     SelectPage,
+    ShowcaseScreen,
     SurfacePage,
     TextInputPage,
     TextPage,
     WelcomePage,
-} from '../screens/ShowcaseScreen';
+} from '../screens';
 
 export const Routes: Component = () => {
     // const Routes = useRoutes(routes);

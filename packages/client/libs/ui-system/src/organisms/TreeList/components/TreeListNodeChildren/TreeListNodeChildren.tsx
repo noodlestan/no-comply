@@ -1,6 +1,6 @@
 import { Component } from 'solid-js';
 
-import { TreeNode, TreeNodeItemComponent, TreeState } from '../../types'; // Import the types
+import { TreeNode, TreeNodeItemComponent, TreeState } from '../../types';
 import { TreeListNode } from '../TreeListNode';
 
 import './TreeListNodeChildren.css';

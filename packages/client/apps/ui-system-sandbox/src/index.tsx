@@ -1,7 +1,7 @@
 import { RootProvider, ThemeGreen, createSettings } from '@noodlestan/ui-system';
 import { render } from 'solid-js/web';
 
-import { App } from './app/App';
+import { App } from './app';
 import { SystemUIProvider, createSystemUIContext } from './providers';
 
 const root = document.getElementById('root') as HTMLElement;

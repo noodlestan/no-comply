@@ -1,6 +1,6 @@
 import { Accessor, createSignal } from 'solid-js';
 
-import { surfacesStore } from '../../stores/surfacesStore';
+import { surfacesStore } from '../../stores';
 import { SystemSurface } from '../../types';
 
 const [surface, setSurface] = createSignal<string>('');

@@ -1,4 +1,4 @@
-import { SystemSurface, SystemTheme } from '../root/types';
+import { SystemSurface, SystemTheme } from '../root';
 
 import { base } from './tokens/base';
 import { invert } from './tokens/invert';

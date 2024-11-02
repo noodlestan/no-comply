@@ -1,6 +1,6 @@
 import { Component, JSX } from 'solid-js';
 
-import { SelectionContext } from './private/SelectionContext';
+import { SelectionContext } from './private';
 import { SelectionAPI } from './types';
 
 type SelectionProviderProps = {

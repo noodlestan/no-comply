@@ -1,6 +1,6 @@
 import { useContext } from 'solid-js';
 
-import { FocusContext } from './private/FocusContext';
+import { FocusContext } from './private';
 import { FocusClientAPI, FocusTarget } from './types';
 
 export const useFocus = (target: FocusTarget): FocusClientAPI => {

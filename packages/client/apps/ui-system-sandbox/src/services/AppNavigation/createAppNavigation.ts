@@ -1,6 +1,6 @@
 import { useNavigate } from '@solidjs/router';
 
-import { ROUTES } from '../../app/navigation';
+import { ROUTES } from '../../app';
 
 import { AppNavigationAPI } from './types';
 

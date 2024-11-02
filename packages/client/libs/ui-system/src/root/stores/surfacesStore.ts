@@ -1,6 +1,6 @@
 import { Accessor, createSignal } from 'solid-js';
 
-import { ThemesError } from '../errors/ThemesError';
+import { ThemesError } from '../errors';
 import { SystemSurface } from '../types';
 
 const [surfaces, setSurfaces] = createSignal<SystemSurface[]>([]);

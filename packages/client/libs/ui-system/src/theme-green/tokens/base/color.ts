@@ -1,4 +1,4 @@
-import { TokenMap } from '../../../root/types';
+import { TokenMap } from '../../../root';
 
 export const color: TokenMap = {
     /* globals: saturation and levels */

@@ -1,4 +1,4 @@
-import { resetMocks as reset } from '../private/registry';
+import { resetMocks as reset } from '../private';
 
 export function resetMocks(): void {
     reset();

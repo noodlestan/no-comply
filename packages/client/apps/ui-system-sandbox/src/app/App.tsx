@@ -2,11 +2,11 @@ import { Flex } from '@noodlestan/ui-system';
 import { Router } from '@solidjs/router';
 import { Component, JSX, Show } from 'solid-js';
 
-import { AppServicesProvider, createAppServices, useAppServices } from '../providers/AppServices';
+import { AppServicesProvider, createAppServices, useAppServices } from '../providers';
 
-import { Routes } from './navigation/Routes';
-import { ErrorBoundaryScreen } from './screens/ErrorBoundaryScreen/ErrorBoundaryScreen';
-import { AppSplash } from './splash/AppSplash';
+import { Routes } from './navigation';
+import { ErrorBoundaryScreen } from './screens';
+import { AppSplash } from './splash';
 
 import './App.css';
 

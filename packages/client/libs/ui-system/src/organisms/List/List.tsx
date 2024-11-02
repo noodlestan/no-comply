@@ -5,8 +5,7 @@ import { TransitionAPI } from '../../transitions';
 import { ObjectWithId } from '../../types';
 
 import { ListItem } from './components';
-import { createListKeyboardController } from './functions';
-import { createListTransitionController } from './functions/createListTransitionController';
+import { createListKeyboardController, createListTransitionController } from './functions';
 import { ListItemComponent, ListState } from './types';
 
 import './List.css';

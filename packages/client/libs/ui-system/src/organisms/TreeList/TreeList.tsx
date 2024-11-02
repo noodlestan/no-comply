@@ -1,7 +1,7 @@
 import { Component } from 'solid-js';
 
-import { TreeListNode } from './components/TreeListNode/TreeListNode';
-import { createTreeListKeyboardController } from './functions/createTreeListKeyboardController';
+import { TreeListNode } from './components';
+import { createTreeListKeyboardController } from './functions/';
 import { TreeNode, TreeNodeItemComponent, TreeState } from './types';
 
 import './TreeList.css';

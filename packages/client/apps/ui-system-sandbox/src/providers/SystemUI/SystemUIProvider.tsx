@@ -1,7 +1,7 @@
 import { SettingsAPI, SettingsProvider } from '@noodlestan/ui-system';
 import { Component, JSX } from 'solid-js';
 
-import { SystemUIContext } from './private/SystemUIContext';
+import { SystemUIContext } from './private';
 import { SystemUIContextState } from './types';
 
 type SystemUIProviderProps = SystemUIContextState & {

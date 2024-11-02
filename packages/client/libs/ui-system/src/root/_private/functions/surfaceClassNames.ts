@@ -1,6 +1,6 @@
 import { NUI_SURFACE_PREFIX } from '../../constants';
-import { useSurfacesContext } from '../../providers/SurfaceProvider';
-import { surfacesStore } from '../../stores/surfacesStore';
+import { useSurfacesContext } from '../../providers';
+import { surfacesStore } from '../../stores';
 import { SystemSurface } from '../../types';
 
 import { makeNuiClassName } from './makeNuiClassName';

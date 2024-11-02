@@ -1,7 +1,6 @@
 import { merge } from 'ts-deepmerge';
 
-import { themesStore } from '../stores';
-import { surfacesStore } from '../stores/surfacesStore';
+import { surfacesStore, themesStore } from '../stores';
 import { ColorSchemeName, SystemSurface, SystemTheme, TokenMap } from '../types';
 
 export const contextTokens = (

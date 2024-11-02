@@ -2,8 +2,7 @@ import { Component, JSX } from 'solid-js';
 
 import { FocusTrap } from '../../../dialogs';
 import { ServiceProvider } from '../../../providers';
-import { useBodyClassesEffect } from '../../_private/effects/useBodyClassesEffect';
-import { useBodyStylesEffect } from '../../_private/effects/useBodyStylesEffect';
+import { useBodyClassesEffect, useBodyStylesEffect } from '../../_private';
 import { ColorSchemeName } from '../../types';
 import { ColorSchemeProvider } from '../ColorSchemeProvider';
 import { SurfaceProvider } from '../SurfaceProvider';

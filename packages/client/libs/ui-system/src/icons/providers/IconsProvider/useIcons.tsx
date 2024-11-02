@@ -1,6 +1,6 @@
 import { useContext } from 'solid-js';
 
-import { IconsContext } from './private/IconsContext';
+import { IconsContext } from './private';
 import { IconsAPI } from './types';
 
 export const useIcons = (): IconsAPI => {
