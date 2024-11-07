@@ -26,6 +26,10 @@ export const createUIControllerParentAPI = <T extends UIControllerChildAPI = UIC
     };
 
     const unsetActiveChild = () => {
+        const overridingChildChild = getOverridingChild();
+        if (overridingChildChild) {
+            overridingChildChild.endOverriding();
+        }
         const activeChild = getActiveChild();
         if (activeChild) {
             activeChild.deactivate();

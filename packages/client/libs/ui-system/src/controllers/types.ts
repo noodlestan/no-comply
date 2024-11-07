@@ -55,9 +55,12 @@ export type UIControllerContainer<T extends UIControllerChildAPI = UIControllerC
 export type UIControllerChildAPI = {
     name: UIControllerName;
     isActive: Accessor<boolean>;
+    isOverriding: Accessor<boolean>;
     isSuspended: Accessor<boolean>;
     activate: () => void;
     deactivate: () => void;
+    startOverriding: () => void;
+    endOverriding: () => void;
     suspend: () => void;
     resume: () => void;
 };

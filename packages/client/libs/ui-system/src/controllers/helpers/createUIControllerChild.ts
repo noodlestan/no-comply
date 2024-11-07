@@ -24,16 +24,12 @@ export const createUIControllerChild = <T extends UIControllerChildAPI = UIContr
 
     const childOverrideStarted = (child: UIControllerName) => {
         controllerAPI.childOverrideStarted(child);
-        if (!childControllerAPI.isActive()) {
-            parent.childOverrideStarted(child);
-        }
+        childControllerAPI.startOverriding();
     };
 
     const childOverrideEnded = (child: UIControllerName) => {
         controllerAPI.childOverrideEnded(child);
-        if (!childControllerAPI.isActive()) {
-            parent.childOverrideEnded(child);
-        }
+        childControllerAPI.endOverriding();
     };
 
     const deactivate = () => {
