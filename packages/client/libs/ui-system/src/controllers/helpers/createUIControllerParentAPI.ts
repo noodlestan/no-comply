@@ -5,13 +5,23 @@ import {
     UIControllerContainer,
     UIControllerName,
     UIControllerParentAPI,
+    UIControllerParentImplementation,
+    UIControllerParentPrivate,
 } from '../types';
+
+type UIControllerParentAPIState = {
+    map: UIControllerParentImplementation;
+};
 
 export const createUIControllerParentAPI = <T extends UIControllerChildAPI = UIControllerChildAPI>(
     container: UIControllerContainer<T>,
-): UIControllerParentAPI<T> => {
+): [UIControllerParentAPI<T>, UIControllerParentPrivate] => {
     const [getActiveChild, setActiveChild] = createSignal<T>();
     const [getOverridingChild, setOverridingChild] = createSignal<T>();
+
+    const state: UIControllerParentAPIState = {
+        map: {},
+    };
 
     const childDidActivate = (child: UIControllerName) => {
         const activatingChild = container.getController(child);
@@ -81,5 +91,12 @@ export const createUIControllerParentAPI = <T extends UIControllerChildAPI = UIC
         childOverrideEnded,
     };
 
-    return api;
+    const setImplementation = (map: UIControllerParentImplementation) => {
+        state.map = map;
+    };
+
+    const privateAPI: UIControllerParentPrivate = {
+        setImplementation,
+    };
+    return [api, privateAPI];
 };

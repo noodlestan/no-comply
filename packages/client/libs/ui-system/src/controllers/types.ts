@@ -65,6 +65,19 @@ export type UIControllerChildAPI = {
     resume: () => void;
 };
 
+export type UIControllerChildImplementation = {
+    onActivate?: () => void;
+    onDeactivate?: () => void;
+    onStartOverriding?: () => void;
+    onEndOverriding?: () => void;
+    onSuspend?: () => void;
+    onResume?: () => void;
+};
+
+export type UIControllerChildPrivate = {
+    setImplementation: (implementation: UIControllerChildImplementation) => void;
+};
+
 export type UIControllerParentAPI<T extends UIControllerChildAPI = UIControllerChildAPI> = {
     getActiveChild: Accessor<T | undefined>;
     getOverridingChild: Accessor<T | undefined>;
@@ -74,10 +87,21 @@ export type UIControllerParentAPI<T extends UIControllerChildAPI = UIControllerC
     childOverrideEnded: (child: UIControllerName) => void;
 };
 
+export type UIControllerParentImplementation = {
+    childDidActivate?: (child: UIControllerName) => void;
+    unsetActiveChild?: () => void;
+    childOverrideStarted?: (child: UIControllerName) => void;
+    childOverrideEnded?: (child: UIControllerName) => void;
+};
+
+export type UIControllerParentPrivate = {
+    setImplementation: (implementation: UIControllerParentImplementation) => void;
+};
+
 export type UIControllerParent<T extends UIControllerChildAPI = UIControllerChildAPI> =
     UIControllerParentAPI<T> & {
         container: UIControllerContainer<T>;
     };
 
-export type UIControllerChild<T extends UIControllerChildAPI = UIControllerChildAPI> =
+export type UIController<T extends UIControllerChildAPI = UIControllerChildAPI> =
     UIControllerParent<T> & UIControllerChildAPI;

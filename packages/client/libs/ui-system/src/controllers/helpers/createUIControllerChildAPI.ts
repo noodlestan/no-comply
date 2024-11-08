@@ -1,16 +1,31 @@
 import { batch, createSignal } from 'solid-js';
 
-import { UIControllerChildAPI, UIControllerName, UIControllerParentAPI } from '../types';
+import {
+    UIControllerChildAPI,
+    UIControllerChildImplementation,
+    UIControllerChildPrivate,
+    UIControllerName,
+    UIControllerParentAPI,
+} from '../types';
+
+type UIControllerChildAPIState = {
+    map: UIControllerChildImplementation;
+};
 
 export const createUIControllerChildAPI = (
     parent: UIControllerParentAPI,
     name: UIControllerName,
-): UIControllerChildAPI => {
+): [UIControllerChildAPI, UIControllerChildPrivate] => {
     const [isActive, setIsActive] = createSignal(false);
     const [isOverriding, setIsOverriding] = createSignal(false);
     const [isSuspended, setIsSuspended] = createSignal(false);
 
+    const state: UIControllerChildAPIState = {
+        map: {},
+    };
+
     const activate = () => {
+        state.map.onActivate?.();
         batch(() => {
             setIsActive(true);
             setIsSuspended(false);
@@ -19,6 +34,7 @@ export const createUIControllerChildAPI = (
     };
 
     const deactivate = () => {
+        state.map.onDeactivate?.();
         batch(() => {
             setIsActive(false);
             setIsSuspended(false);
@@ -27,21 +43,25 @@ export const createUIControllerChildAPI = (
 
     const startOverriding = () => {
         if (!isActive() && !isOverriding() && !isSuspended()) {
+            state.map.onStartOverriding?.();
             setIsOverriding(true);
             parent.childOverrideStarted(name);
         }
     };
 
     const endOverriding = () => {
+        state.map.onEndOverriding?.();
         setIsOverriding(false);
         parent.childOverrideEnded(name);
     };
 
     const suspend = () => {
+        state.map.onSuspend?.();
         setIsSuspended(true);
     };
 
     const resume = () => {
+        state.map.onResume?.();
         setIsSuspended(false);
     };
 
@@ -58,5 +78,13 @@ export const createUIControllerChildAPI = (
         resume,
     };
 
-    return api;
+    const setImplementation = (map: UIControllerChildImplementation) => {
+        state.map = map;
+    };
+
+    const privateAPI: UIControllerChildPrivate = {
+        setImplementation,
+    };
+
+    return [api, privateAPI];
 };
