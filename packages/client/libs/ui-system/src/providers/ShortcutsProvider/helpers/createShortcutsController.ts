@@ -7,16 +7,17 @@ import {
     ShortcutCommandController,
     ShortcutControllerMessage,
     ShortcutsControllerAPI,
+    ShortcutsService,
 } from '../types';
-import { useShortcuts } from '../useShortcuts';
 
 export const createShortcutsController = (
+    service: ShortcutsService,
     meta: UIControllerMetaWithShortcuts,
     controllerOrControllerMap:
         | ShortcutCommandController
         | Record<UIControllerCommand, ShortcutCommandController>,
 ): ShortcutsControllerAPI => {
-    const { addController, addShortcuts, removeController, removeShortcuts } = useShortcuts();
+    const { addController, addShortcuts, removeController, removeShortcuts } = service;
 
     const errorPrefix = `Controller "${meta.name}"`;
 
