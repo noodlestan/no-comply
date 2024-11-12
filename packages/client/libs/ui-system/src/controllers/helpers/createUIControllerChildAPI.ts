@@ -50,9 +50,11 @@ export const createUIControllerChildAPI = (
     };
 
     const endOverriding = () => {
-        state.map.onEndOverriding?.();
-        setIsOverriding(false);
-        parent.childOverrideEnded(name);
+        if (isOverriding()) {
+            state.map.onEndOverriding?.();
+            setIsOverriding(false);
+            parent.childOverrideEnded(name);
+        }
     };
 
     const suspend = () => {
