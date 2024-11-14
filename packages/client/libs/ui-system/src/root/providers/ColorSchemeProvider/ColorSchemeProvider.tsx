@@ -9,9 +9,7 @@ type ColorSchemeContextState = {
     setColorScheme: (name: ColorSchemeName) => void;
 };
 
-export const ColorSchemeContext = createContext<ColorSchemeContextState>(
-    {} as ColorSchemeContextState,
-);
+export const ColorSchemeContext = createContext<ColorSchemeContextState>();
 
 export const useColorSchemeContext = (): ColorSchemeContextState => {
     const context = useContext(ColorSchemeContext);
