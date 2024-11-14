@@ -4,20 +4,23 @@ import './DataValue.css';
 
 export type DataValueSize = 'xs' | 's' | 'm' | 'l';
 export type DataValueLength = 's' | 'm' | 'l' | 'full' | 'auto';
+export type DataValueAlign = 'left' | 'right';
 
 export type DataValueProps = {
     id?: string;
     size?: DataValueSize;
     length?: number | DataValueLength;
+    align?: DataValueAlign;
     wrap?: boolean;
     onClick?: () => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
 
-const defaultProps: Pick<DataValueProps, 'size' | 'length'> = {
+const defaultProps: Pick<DataValueProps, 'size' | 'length' | 'align'> = {
     size: 'm',
     length: 'auto',
+    align: 'left',
 };
 
 const makeLength = (length: number | DataValueLength): string => {
@@ -53,7 +56,8 @@ export const DataValue: Component<DataValueProps> = props => {
     const classList = () => ({
         ...props.classList,
         DataValue: true,
-        [`DataValue-is-interactive`]: !!props.onClick,
+        [`DataValue-align-right`]: props.align === 'right',
+        [`DataValue-is-interactive`]: Boolean(props.onClick),
         [`DataValue-size-${size()}`]: true,
         [`DataValue-wrap`]: !!props.wrap,
     });

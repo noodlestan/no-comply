@@ -14,6 +14,9 @@
     pointer-events: all;
     user-select: text;
 }
+.DataValue-align-right {
+    text-align: right;
+}
 
 .DataValue-wrap {
     white-space: normal;
