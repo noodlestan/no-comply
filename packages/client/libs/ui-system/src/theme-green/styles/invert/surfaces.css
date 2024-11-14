@@ -1,13 +1,13 @@
-.NUI-Theme-base.NUI-Surface.NUI-ColorScheme-light {
+.NUI-ColorScheme-light.NUI-Theme-base.NUI-Surface {
     --color-i-rest-light: var(--color-fg-light-4);
     --color-i-hover-light: var(--color-fg-light-2);
 }
 
-.NUI-Theme-base.NUI-Surface-page {
+.NUI-ColorScheme-light.NUI-Theme-base.NUI-Surface-page {
     --surface-bg-light: var(--color-bg-light-1);
 }
 
-.NUI-Theme-base.NUI-Surface-inverse.NUI-ColorScheme-light {
+.NUI-ColorScheme-light.NUI-Theme-base.NUI-Surface-inverse {
     --color-light-max: 98%;
     --color-light-9: 90%;
     --color-light-8: 82%;
@@ -42,7 +42,7 @@
     --color-fg-light-6: 77%;
 }
 
-.NUI-Theme-base.NUI-Surface-banner.NUI-ColorScheme-light {
+.NUI-ColorScheme-light.NUI-Theme-base.NUI-Surface-banner {
     /* A - bg */
 
     --color-bg-light-0: 1%;
