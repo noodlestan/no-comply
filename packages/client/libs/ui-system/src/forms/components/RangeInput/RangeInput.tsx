@@ -20,6 +20,7 @@ export type RangeInputProps = {
     onChangeValue?: (value: string) => void;
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
+    ref?: (el: HTMLInputElement) => void;
     classList?: { [key: string]: boolean };
 };
 
@@ -136,6 +137,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
             value={currentValue()}
             disabled={props.disabled}
             {...handlers}
+            ref={props.ref}
             classList={classList()}
             style={style()}
         />

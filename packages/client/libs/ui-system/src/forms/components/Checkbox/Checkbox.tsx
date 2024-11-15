@@ -16,6 +16,7 @@ export type CheckboxProps = {
     disabled?: boolean;
     invalid?: boolean;
     onChangeValue?: (value: boolean) => void;
+    ref?: (el: HTMLInputElement) => void;
     classList?: { [key: string]: boolean };
 };
 
@@ -28,6 +29,11 @@ export const Checkbox: Component<CheckboxProps> = props => {
 
     const size = () => props.size || defaultProps.size;
     const [isFocused, setIsFocused] = createSignal<boolean>(false);
+
+    const setInputRef = (ref: HTMLInputElement) => {
+        inputRef = ref;
+        props.ref?.(ref);
+    };
 
     const handleChange = () => {
         props.onChangeValue?.(!props.checked);
@@ -83,7 +89,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
             <span classList={{ 'Checkbox--control': true }}>
                 <CheckIcon />
                 <input
-                    ref={inputRef}
+                    ref={setInputRef}
                     type="checkbox"
                     checked={props.checked}
                     disabled={props.disabled}

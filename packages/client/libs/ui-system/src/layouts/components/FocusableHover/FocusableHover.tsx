@@ -4,6 +4,7 @@ import { Dynamic } from 'solid-js/web';
 import { FocusableProps, FocusableTag } from '../Focusable';
 
 export type FocusableHoverProps = {
+    ref?: (el: Element) => void;
     tag?: FocusableTag;
     children?: JSX.Element;
 };
@@ -20,7 +21,7 @@ export const FocusableHover: Component<FocusableHoverProps> = props => {
     });
 
     return (
-        <Dynamic component={tag()} classList={classList()} data-ui-focusable-hover>
+        <Dynamic component={tag()} classList={classList()} ref={props.ref} data-ui-focusable-hover>
             {props.children}
         </Dynamic>
     );

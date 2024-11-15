@@ -7,6 +7,7 @@ export type LinkProps = {
     onClick?: () => void;
     onTap?: () => void;
     disabled?: boolean;
+    ref?: (el: Element) => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
@@ -53,6 +54,7 @@ export const Link: Component<LinkProps> = props => {
             onMouseDown={handleMouseDown}
             onTouchStart={handleTap}
             onKeyDown={handleKeyDown}
+            ref={props.ref}
             classList={classList()}
         >
             {props.children}

@@ -15,6 +15,7 @@ export type SelectProps = {
     disabled?: boolean;
     invalid?: boolean;
     onChangeValue?: (id: string) => void;
+    ref?: (el: HTMLSelectElement) => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
@@ -80,6 +81,7 @@ export const Select: Component<SelectProps> = props => {
             value={props.value || ''}
             disabled={props.disabled}
             {...handlers}
+            ref={props.ref}
             classList={classList()}
             style={style()}
         >

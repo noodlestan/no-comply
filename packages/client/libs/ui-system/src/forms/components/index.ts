@@ -1,4 +1,4 @@
-export * from './ItemCheckbox';
+export * from './Checkbox';
 export * from './Fieldset';
 export * from './FieldsetLabel';
 export * from './Label';

@@ -3,6 +3,7 @@ import { Component, JSX } from 'solid-js';
 import './Screen.css';
 
 export type ScreenProps = {
+    ref?: (el: HTMLDivElement) => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
@@ -13,5 +14,9 @@ export const Screen: Component<ScreenProps> = props => {
         Screen: true,
     });
 
-    return <div classList={classList()}>{props.children}</div>;
+    return (
+        <div classList={classList()} ref={props.ref}>
+            {props.children}
+        </div>
+    );
 };

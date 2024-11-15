@@ -30,8 +30,12 @@ export const Focusable: Component<FocusableProps> = props => {
     const [isFocused, setIsFocused] = createSignal<boolean>(false);
 
     const id = uuid();
-
     const tag = () => props.tag || defaultProps.tag;
+
+    const setButtonRef = (ref: ButtonElement) => {
+        buttonRef = ref;
+        props.ref?.(ref);
+    };
 
     const handleMouseDown = (ev: MouseEvent) => {
         ev.preventDefault();
@@ -83,9 +87,7 @@ export const Focusable: Component<FocusableProps> = props => {
         >
             <Button
                 {...buttonProps}
-                ref={el => {
-                    buttonRef = el;
-                }}
+                ref={setButtonRef}
                 variant="transparent"
                 onFocus={handleFocus}
                 onBlur={handleBlur}

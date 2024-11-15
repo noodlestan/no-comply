@@ -22,6 +22,7 @@ export type BannerProps = {
     variant?: BannerVariant;
     size?: BannerSize;
     length?: BannerLength;
+    ref?: (el: Element) => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
@@ -47,7 +48,7 @@ export const Banner: Component<BannerProps> = props => {
     });
 
     return (
-        <Surface variant="banner" classList={classList()}>
+        <Surface variant="banner" classList={classList()} ref={props.ref}>
             <div class="Banner--Contents">
                 <Icon size={size()} icon={svg()} />
                 {props.children}

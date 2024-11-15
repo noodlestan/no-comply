@@ -22,6 +22,7 @@ export type TextInputProps = {
     onChangeValue?: (value: string) => void;
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
+    ref?: (el: HTMLInputElement) => void;
     classList?: { [key: string]: boolean };
 };
 
@@ -142,6 +143,7 @@ export const TextInput: Component<TextInputProps> = props => {
             value={currentValue()}
             disabled={props.disabled}
             {...handlers}
+            ref={props.ref}
             classList={classList()}
             style={style()}
         />

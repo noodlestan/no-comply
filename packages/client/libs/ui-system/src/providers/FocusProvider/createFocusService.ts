@@ -7,8 +7,8 @@ export const createFocusService = (): FocusServiceAPI => {
     const setTarget = (target: FocusTarget, handler: () => void) => {
         targetMap.set(target.targetName, handler);
         if (currentTarget?.targetName === target.targetName) {
-            handler();
             currentTarget = undefined;
+            handler();
         }
     };
 

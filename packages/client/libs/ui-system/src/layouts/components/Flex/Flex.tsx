@@ -27,6 +27,7 @@ export type FlexProps = {
     truncate?: boolean;
     full?: boolean;
     role?: JSX.HTMLAttributes<HTMLDivElement>['role'];
+    ref?: (el: Element) => void;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
@@ -52,10 +53,11 @@ export const Flex: Component<FlexProps> = props => {
     const elementProps = (): JSX.HTMLAttributes<HTMLDivElement> => {
         if (props.role) {
             return {
+                ref: props.ref,
                 role: props.role,
             };
         }
-        return {};
+        return { ref: props.ref };
     };
 
     const classList = () => ({

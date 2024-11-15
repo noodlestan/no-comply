@@ -7,6 +7,7 @@ export type SurfaceUnstyledProps = {
     onTap?: () => void;
     isInteractive?: boolean;
     disabled?: boolean;
+    ref?: (el: Element) => void;
     classList?: { [key: string]: boolean };
     style?: { [key: string]: string | undefined };
     children?: JSX.Element;
@@ -74,7 +75,7 @@ export const SurfaceUnstyled: Component<
             tabindex={tabindex()}
             classList={props.classList}
             style={props.style}
-            data-is-interactive={!!tabindex() || props.isInteractive}
+            data-is-interactive={Boolean(tabindex()) || props.isInteractive}
             data-is-active={isActive()}
             data-is-disabled={props.disabled}
         >

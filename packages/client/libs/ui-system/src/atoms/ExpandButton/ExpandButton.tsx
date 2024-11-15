@@ -9,7 +9,7 @@ import './ExpandButton.css';
 
 type ExpandButtonSize = 'xs' | 's' | 'm';
 
-export type ExpandButtonProps = Pick<ButtonProps, 'onClick' | 'onBlur' | 'classList'> & {
+export type ExpandButtonProps = Pick<ButtonProps, 'onClick' | 'onBlur' | 'classList' | 'ref'> & {
     size: ExpandButtonSize;
     isExpanded: boolean;
     rounded?: boolean;
