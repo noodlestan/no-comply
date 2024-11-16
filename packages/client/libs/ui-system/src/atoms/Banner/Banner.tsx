@@ -1,10 +1,11 @@
 import { AlertTriangleIcon, InfoIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { Component, JSX } from 'solid-js';
 
+import { createClassListMapper, mapClassName } from '../../functions';
 import { Icon } from '../../icons';
 import { Surface } from '../../surface';
 
-import './Banner.css';
+import styles from './Banner.module.css';
 
 export type BannerVariant = 'passive' | 'info' | 'warning' | 'danger' | 'success';
 export type BannerSize = 's' | 'm';
@@ -39,17 +40,22 @@ export const Banner: Component<BannerProps> = props => {
     const length = () => props.length || defaultProps.length;
     const svg = () => VARIANT_ICON_MAP[(variant && variant()) || 'passive'];
 
-    const classList = () => ({
-        ...props.classList,
+    const localClasses = createClassListMapper(styles, () => ({
         Banner: true,
+        [`Banner--Surface`]: true,
         [`Banner-variant-${variant()}`]: true,
         [`Banner-size-${size()}`]: true,
         [`Banner-length-${length()}`]: true,
+    }));
+
+    const classList = () => ({
+        ...props.classList,
+        ...localClasses(),
     });
 
     return (
         <Surface variant="banner" classList={classList()} ref={props.ref}>
-            <div class="Banner--Contents">
+            <div class={mapClassName(styles, 'Banner--Contents')}>
                 <Icon size={size()} icon={svg()} />
                 {props.children}
             </div>
