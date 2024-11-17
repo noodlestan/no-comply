@@ -58,11 +58,14 @@ export const Select: Component<SelectProps> = props => {
         ev.stopImmediatePropagation();
     };
 
-    const handlers = {
-        onChange: handleChange,
-        onKeyDown: handleKeyDown,
-        onKeyUp: handleKeyUp,
-    };
+    // NOTE: using spread operator in `<select>` causes expected selected option to not be selected
+    // because attributes/children are commited to the DOM in a different order
+    // See: https://github.com/solidjs/solid/issues/1754
+    // const handlers = {
+    //     onChange: handleChange,
+    //     onKeyDown: handleKeyDown,
+    //     onKeyUp: handleKeyUp,
+    // };
 
     const classList = () => ({
         ...props.classList,
@@ -78,12 +81,13 @@ export const Select: Component<SelectProps> = props => {
     return (
         <select
             id={props.id}
-            value={props.value || ''}
             disabled={props.disabled}
-            {...handlers}
-            ref={props.ref}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyUp}
             classList={classList()}
             style={style()}
+            value={props.value || ''}
         >
             <Show when={!!props.placeholder}>
                 <option value="">{props.placeholder}</option>

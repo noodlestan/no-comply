@@ -1,4 +1,4 @@
-import { RangeInput } from '@noodlestan/ui-system';
+import { DataItem, RangeInput } from '@noodlestan/ui-system';
 import { Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -9,7 +9,7 @@ import './RangeInputPage.css';
 export const RangeInputPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal('');
     const [value, setValue] = createSignal('Foobar');
-    const [numValue, setNumValue] = createSignal('15');
+    const [numValue, setNumValue] = createSignal('5');
 
     const handleValueChange = (value: string) => {
         console.info('onChangeValue', value);
@@ -31,11 +31,13 @@ export const RangeInputPage: Component = () => {
         <DemoPage classList={{ RangeInputPage: true }} title="RangeInput">
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
+                <DataItem label="value">{emptyValue()}</DataItem>
                 <DemoItem>
                     <RangeInput value={emptyValue()} onChangeValue={setEmptyValue} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="value">
+                <DataItem label="value">{value()}</DataItem>
                 <DemoItem title="updated via onChangeValue()">
                     <RangeInput value={value()} onChangeValue={setValue} />
                 </DemoItem>
@@ -78,6 +80,7 @@ export const RangeInputPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="min/max">
+                <DataItem label="value">{numValue()}</DataItem>
                 <DemoItem title="1/10">
                     <RangeInput value={numValue()} onChangeValue={setNumValue} min={1} max={10} />
                 </DemoItem>

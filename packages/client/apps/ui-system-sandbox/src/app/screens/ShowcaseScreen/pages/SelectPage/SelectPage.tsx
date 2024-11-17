@@ -1,4 +1,4 @@
-import { Select } from '@noodlestan/ui-system';
+import { DataItem, Select } from '@noodlestan/ui-system';
 import { Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -18,7 +18,7 @@ const Options: Component = () => {
 
 export const SelectPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal('');
-    const [value, setValue] = createSignal('foo');
+    const [value, setValue] = createSignal('bar');
 
     const handleValueChange = (value: string) => {
         console.info('onChangeValue', value);
@@ -31,22 +31,29 @@ export const SelectPage: Component = () => {
         <DemoPage classList={{ SelectPage: true }} title="Select">
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
+                <DataItem label="value">{emptyValue() || 'undefined'}</DataItem>
                 <DemoItem>
                     <Select value={emptyValue()} onChangeValue={setEmptyValue}>
                         <Options />
                     </Select>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="value">
-                <DemoItem title="updated via onChangeValue()">
-                    <Select value={value()} onChangeValue={setValue}>
+            <DemoGroup title="placeholder">
+                <DataItem label="value">{emptyValue() || 'undefined'}</DataItem>
+                <DemoItem>
+                    <Select
+                        placeholder="Chose wisely"
+                        value={emptyValue()}
+                        onChangeValue={setEmptyValue}
+                    >
                         <Options />
                     </Select>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="placeholder">
-                <DemoItem>
-                    <Select placeholder="Chose wisely">
+            <DemoGroup title="value">
+                <DataItem label="value">{value()}</DataItem>
+                <DemoItem title="updated via onChangeValue()">
+                    <Select value={value()} onChangeValue={setValue}>
                         <Options />
                     </Select>
                 </DemoItem>
