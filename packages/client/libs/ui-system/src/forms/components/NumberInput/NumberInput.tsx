@@ -1,9 +1,16 @@
 import { Component, JSX, createSignal } from 'solid-js';
 
-import './NumberInput.css';
+import { VALID_KEYS } from './constants';
+import {
+    hasDecimalSymbol,
+    isCopyPasteKeyboardEvent,
+    isDecimalSymbol,
+    isNumberSymbol,
+    makeStyle,
+} from './functions';
+import { NumberInputLength, NumberInputSize } from './types';
 
-export type NumberInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-export type NumberInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
+import './NumberInput.css';
 
 export type NumberInputProps = {
     id?: string;
@@ -31,23 +38,9 @@ const defaultProps: Pick<NumberInputProps, 'size' | 'length'> = {
     length: 'auto',
 };
 
-const makeLength = (length: number | NumberInputLength, maxLength?: number): string => {
-    if (typeof length === 'number') {
-        return `${length}em`;
-    }
-    if (length === 'auto' && maxLength) {
-        return `${maxLength * 0.63 + 0.5}em`;
-    }
-    if (length === 'full') {
-        return '100%';
-    }
-    return `var(--input-length-${length})`;
-};
-
-const makeStyle = (length?: NumberInputLength | number, maxLength?: number) =>
-    length ? { '--input-length': makeLength(length, maxLength) } : {};
-
 export const NumberInput: Component<NumberInputProps> = props => {
+    let inputRef: HTMLInputElement;
+
     const size = () => props.size || defaultProps.size;
     const length = () => props.length || defaultProps.length;
 
@@ -76,11 +69,15 @@ export const NumberInput: Component<NumberInputProps> = props => {
         props.onCancelValue?.();
     };
 
+    const updateLocalValue = (value: string) => {
+        setLocalValue(value);
+        props.onChangeValue?.(value);
+    };
+
     const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
         const target = event.target as HTMLInputElement;
         const v = target?.value || '';
-        setLocalValue(v);
-        props.onChangeValue?.(v);
+        updateLocalValue(v);
     };
 
     const handleFocus = () => {
@@ -95,8 +92,64 @@ export const NumberInput: Component<NumberInputProps> = props => {
         }
     };
 
+    const setInputRef = (ref: HTMLInputElement) => {
+        inputRef = ref;
+        props.ref?.(ref);
+    };
+
+    const isCaretAtStart = () => {
+        return inputRef.selectionStart === 0;
+    };
+
+    const canNotTypeMinus = (value: string) => {
+        return !isCaretAtStart() || value?.includes('-');
+    };
+
+    const incrementValue = (value: number) => {
+        value++;
+        updateLocalValue(value.toString());
+    };
+
+    const decrementValue = (value: number) => {
+        value--;
+        updateLocalValue(value.toString());
+    };
+
+    const handleInputKey = (ev: KeyboardEvent) => {
+        if (isCopyPasteKeyboardEvent(ev)) {
+            return;
+        }
+        const value = currentValue();
+        if (!VALID_KEYS.includes(ev.key) && !isNumberSymbol(ev.key)) {
+            ev.preventDefault();
+        }
+
+        if (isDecimalSymbol(ev.key) && hasDecimalSymbol(value)) {
+            ev.preventDefault();
+        }
+        if (ev.key === '-' && canNotTypeMinus(value)) {
+            ev.preventDefault();
+        }
+        if (value.includes('-') && isCaretAtStart() && ev.key !== 'ArrowRight') {
+            ev.preventDefault();
+        }
+        if (ev.key === 'ArrowUp') {
+            const val = Number(value);
+            if (!isNaN(val)) {
+                incrementValue(val);
+            }
+        }
+        if (ev.key === 'ArrowDown') {
+            const val = Number(value);
+            if (!isNaN(val)) {
+                decrementValue(val);
+            }
+        }
+    };
+
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
+        handleInputKey(ev);
         if (ev.key === 'Enter') {
             confirm();
         } else if (ev.key === 'Escape') {
@@ -135,7 +188,9 @@ export const NumberInput: Component<NumberInputProps> = props => {
     return (
         <input
             id={props.id}
-            type="number"
+            type="text"
+            inputMode="decimal"
+            pattern="[0-9]"
             placeholder={props.placeholder}
             min={props.min}
             max={props.max}
@@ -143,7 +198,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
             value={currentValue()}
             disabled={props.disabled}
             {...handlers}
-            ref={props.ref}
+            ref={setInputRef}
             classList={classList()}
             style={style()}
         />

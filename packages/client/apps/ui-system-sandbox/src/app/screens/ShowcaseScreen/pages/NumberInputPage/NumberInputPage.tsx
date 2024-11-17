@@ -1,4 +1,4 @@
-import { NumberInput } from '@noodlestan/ui-system';
+import { Banner, DataItem, NumberInput } from '@noodlestan/ui-system';
 import { Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -29,6 +29,10 @@ export const NumberInputPage: Component = () => {
     return (
         <DemoPage classList={{ NumberInputPage: true }} title="NumberInput">
             <ComponentMeta component={COMPONENT} />
+            <Banner>
+                <DataItem label="Raw value">{value()}</DataItem>
+                <DataItem label="Number value">{Number(value())}</DataItem>
+            </Banner>
             <DemoGroup title="defaults">
                 <DemoItem>
                     <NumberInput value={emptyValue()} onChangeValue={setEmptyValue} />
