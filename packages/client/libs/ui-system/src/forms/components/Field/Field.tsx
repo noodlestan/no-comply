@@ -3,16 +3,18 @@ import { Component, JSX } from 'solid-js';
 import { Flex } from '../../../layouts';
 import { FieldsetLabel, FieldsetLabelSize } from '../FieldsetLabel';
 
-import './Fieldset.css';
+import './Field.css';
 
-export type FieldsetProps = {
+// TODO
+
+export type FieldProps = {
     label: string;
     size?: FieldsetLabelSize;
     classList?: { [key: string]: boolean };
     children?: JSX.Element;
 };
 
-export const Fieldset: Component<FieldsetProps> = props => {
+export const Field: Component<FieldProps> = props => {
     const classList = () => ({
         ...props.classList,
         Fieldset: true,
