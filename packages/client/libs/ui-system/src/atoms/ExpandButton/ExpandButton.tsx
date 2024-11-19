@@ -1,7 +1,7 @@
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 import { Component } from 'solid-js';
 
-import { IconComponent, IconSize } from '../../icons';
+import { IconComponent } from '../../icons';
 import { ButtonProps } from '../Button';
 import { IconButton } from '../IconButton';
 
@@ -10,7 +10,7 @@ import './ExpandButton.css';
 type ExpandButtonSize = 'xs' | 's' | 'm';
 
 export type ExpandButtonProps = Pick<ButtonProps, 'onClick' | 'onBlur' | 'classList' | 'ref'> & {
-    size: ExpandButtonSize;
+    size?: ExpandButtonSize;
     isExpanded: boolean;
     rounded?: boolean;
     expanded?: IconComponent;
@@ -21,14 +21,6 @@ export type ExpandButtonProps = Pick<ButtonProps, 'onClick' | 'onBlur' | 'classL
 const defaultProps: Pick<ExpandButtonProps, 'size'> = {
     size: 's',
 };
-
-export const MAP_SIZE_TO_ICON_SIZE: Record<ExpandButtonSize, IconSize> = {
-    xs: 'xs',
-    s: 's',
-    m: 'm',
-};
-
-const iconSizeFromSize = (size: ExpandButtonSize): IconSize => MAP_SIZE_TO_ICON_SIZE[size];
 
 export const ExpandButton: Component<ExpandButtonProps> = props => {
     const size = () => props.size || defaultProps.size;
@@ -56,7 +48,7 @@ export const ExpandButton: Component<ExpandButtonProps> = props => {
         <IconButton
             {...props}
             classList={classList()}
-            size={iconSizeFromSize(size())}
+            size={size()}
             icon={icon()}
             variant="plain"
             label={label()}

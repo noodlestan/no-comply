@@ -21,7 +21,7 @@ export type CheckboxProps = {
 };
 
 const defaultProps: Pick<CheckboxProps, 'size'> = {
-    size: 'm',
+    size: 's',
 };
 
 export const Checkbox: Component<CheckboxProps> = props => {

@@ -35,7 +35,7 @@ export type ButtonProps = {
 
 const defaultProps: Pick<ButtonProps, 'variant' | 'size' | 'length'> = {
     variant: 'primary',
-    size: 'm',
+    size: 's',
     length: 'auto',
 };
 
