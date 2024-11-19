@@ -18,11 +18,12 @@ export type DataItemProps = {
     icon?: IconComponent | JSX.Element;
     onClick?: () => void;
     classList?: { [key: string]: boolean };
+    value?: JSX.Element;
     children?: JSX.Element;
 };
 
 const defaultProps: Pick<DataItemProps, 'size'> = {
-    size: 'm',
+    size: 's',
 };
 
 export const DataItem: Component<DataItemProps> = props => {
@@ -66,9 +67,8 @@ export const DataItem: Component<DataItemProps> = props => {
                 size={props.size}
                 length={props.length}
                 onClick={props.onClick}
-            >
-                {props.children}
-            </DataValue>
+                value={props.value ?? props.children}
+            />
             <Show when={props.units}>
                 <Label size={props.size}>{props.units}</Label>
             </Show>
