@@ -11,7 +11,7 @@ export type FieldsetLabelProps = {
 };
 
 const defaultProps: Pick<FieldsetLabelProps, 'size'> = {
-    size: 'm',
+    size: 's',
 };
 
 export const FieldsetLabel: Component<FieldsetLabelProps> = props => {

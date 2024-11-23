@@ -21,7 +21,7 @@ export type SelectProps = {
 };
 
 const defaultProps: Pick<SelectProps, 'size' | 'length'> = {
-    size: 'm',
+    size: 's',
     length: 'full',
 };
 

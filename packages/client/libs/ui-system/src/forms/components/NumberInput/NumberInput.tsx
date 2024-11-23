@@ -36,7 +36,7 @@ export type NumberInputProps = {
 };
 
 const defaultProps: Pick<NumberInputProps, 'size' | 'length'> = {
-    size: 'm',
+    size: 's',
     length: 'auto',
 };
 

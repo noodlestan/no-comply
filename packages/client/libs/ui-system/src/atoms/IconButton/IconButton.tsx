@@ -10,7 +10,7 @@ export type IconButtonProps = Omit<ButtonProps, 'length' | 'children'> & {
 };
 
 const defaultProps: Pick<IconButtonProps, 'size'> = {
-    size: 'm',
+    size: 's',
 };
 
 export const IconButton: Component<IconButtonProps> = props => {

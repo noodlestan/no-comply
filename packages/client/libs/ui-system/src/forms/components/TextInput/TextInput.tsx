@@ -27,7 +27,7 @@ export type TextInputProps = {
 };
 
 const defaultProps: Pick<TextInputProps, 'size' | 'length'> = {
-    size: 'm',
+    size: 's',
     length: 'auto',
 };
 

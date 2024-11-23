@@ -25,7 +25,7 @@ export type RangeInputProps = {
 };
 
 const defaultProps: Pick<RangeInputProps, 'size' | 'length'> = {
-    size: 'm',
+    size: 's',
     length: 'auto',
 };
 

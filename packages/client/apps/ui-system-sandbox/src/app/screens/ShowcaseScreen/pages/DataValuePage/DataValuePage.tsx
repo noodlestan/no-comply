@@ -21,42 +21,47 @@ export const DataValuePage: Component = () => {
                     <DataValue>{DATA_VALUE}</DataValue>
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="value">
+                <DemoItem note="value is an alias for children">
+                    <DataValue value={DATA_VALUE} />
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="size">
                 <DemoItem title="l">
-                    <DataValue size="l">{DATA_VALUE}</DataValue>
+                    <DataValue size="l" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="m">
-                    <DataValue size="m">{DATA_VALUE}</DataValue>
+                    <DataValue size="m" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="s">
-                    <DataValue size="s">{DATA_VALUE}</DataValue>
+                    <DataValue size="s" value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="length">
                 <DemoItem title="full">
-                    <DataValue length="full">{DATA_VALUE}</DataValue>
+                    <DataValue length="full" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="l">
-                    <DataValue length="l">{DATA_VALUE}</DataValue>
+                    <DataValue length="l" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="m">
-                    <DataValue length="m">{DATA_VALUE}</DataValue>
+                    <DataValue length="m" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="s">
-                    <DataValue length="s">{DATA_VALUE}</DataValue>
+                    <DataValue length="s" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="auto">
-                    <DataValue length="auto">{DATA_VALUE}</DataValue>
+                    <DataValue length="auto" value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onClick">
                 <DemoItem note="See console log">
-                    <DataValue onClick={handleClick}>{DATA_VALUE}</DataValue>
+                    <DataValue onClick={handleClick} value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <DataValue classList={{ override: true }}>{DATA_VALUE}</DataValue>
+                    <DataValue classList={{ override: true }} value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

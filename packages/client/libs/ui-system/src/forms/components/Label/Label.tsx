@@ -12,7 +12,7 @@ export type LabelProps = {
 };
 
 const defaultProps: Pick<LabelProps, 'size'> = {
-    size: 'm',
+    size: 's',
 };
 
 export const Label: Component<LabelProps> = props => {

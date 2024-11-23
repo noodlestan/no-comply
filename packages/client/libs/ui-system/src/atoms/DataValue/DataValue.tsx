@@ -14,11 +14,12 @@ export type DataValueProps = {
     wrap?: boolean;
     onClick?: () => void;
     classList?: { [key: string]: boolean };
+    value?: JSX.Element;
     children?: JSX.Element;
 };
 
 const defaultProps: Pick<DataValueProps, 'size' | 'length' | 'align'> = {
-    size: 'm',
+    size: 's',
     length: 'auto',
     align: 'left',
 };
@@ -75,7 +76,7 @@ export const DataValue: Component<DataValueProps> = props => {
             classList={classList()}
             style={style()}
         >
-            {props.children}
+            {props.value ?? props.children}
         </div>
     );
 };

@@ -5,7 +5,7 @@ import { IconProps } from './types';
 import './Icon.css';
 
 const defaultProps: Pick<IconProps, 'size'> = {
-    size: 'm',
+    size: 's',
 };
 
 export const Icon: Component<IconProps> = props => {

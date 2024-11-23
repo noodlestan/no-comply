@@ -3,8 +3,6 @@ import { Component, JSX } from 'solid-js';
 import { Flex, FlexDirection } from '../../../layouts';
 import { FieldsetLabel, FieldsetLabelSize } from '../FieldsetLabel';
 
-import './Fieldset.css';
-
 export type FieldsetProps = {
     label: string;
     direction?: FlexDirection;

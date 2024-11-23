@@ -1,2 +1,2 @@
-export type { FieldsetProps } from './Fieldset';
-export { Fieldset } from './Fieldset';
+export type { FieldProps as FieldsetProps } from './Field';
+export { Field as Fieldset } from './Field';
