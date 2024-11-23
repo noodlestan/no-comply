@@ -9,3 +9,5 @@ export const VALID_KEYS = [
     '-',
     '.',
 ];
+
+export const ROUND_PRECISION = 10000;

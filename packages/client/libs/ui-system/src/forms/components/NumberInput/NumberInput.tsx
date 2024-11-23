@@ -2,10 +2,12 @@ import { Component, JSX, createSignal } from 'solid-js';
 
 import { VALID_KEYS } from './constants';
 import {
+    calcStepMultiplier,
+    getValueRounded,
     hasDecimalSymbol,
     isDecimalSymbol,
-    isKeyboardEventPermitted,
     isNumberSymbol,
+    isTextEditingShortcut,
     makeStyle,
 } from './functions';
 import { NumberInputLength, NumberInputSize } from './types';
@@ -105,27 +107,36 @@ export const NumberInput: Component<NumberInputProps> = props => {
         return !isCaretAtStart() || value?.includes('-');
     };
 
-    const incrementValue = (value: number, incrementValue = 1) => {
-        const val = value + incrementValue;
-        const newValue = Math.min(val, props.max ?? Infinity);
-        updateLocalValue(newValue.toString());
+    const clampedValue = (incremented: number) => {
+        const min = props.min ?? -Infinity;
+        const max = props.max ?? Infinity;
+        return Math.min(max, Math.max(min, incremented));
     };
 
-    const decrementValue = (value: number, incrementValue = 1) => {
-        const val = value - incrementValue;
-        const newValue = Math.max(val, props.min ?? -Infinity);
-        updateLocalValue(newValue.toString());
+    const incrementValue = (value: number, by: number) => {
+        const incremented = getValueRounded(value + by);
+        const clamped = clampedValue(incremented);
+        updateLocalValue(clamped.toString());
+    };
+
+    const decrementValue = (value: number, by: number) => {
+        const decremented = getValueRounded(value - by);
+        const clamped = clampedValue(decremented);
+        updateLocalValue(clamped.toString());
     };
 
     const handleInputKey = (ev: KeyboardEvent) => {
-        if (isKeyboardEventPermitted(ev)) {
+        if (isTextEditingShortcut(ev)) {
             return;
         }
+
         const value = currentValue();
+        const step = props.step ?? 1;
+        const multiplier = calcStepMultiplier(ev, step);
+
         if (!VALID_KEYS.includes(ev.key) && !isNumberSymbol(ev.key)) {
             ev.preventDefault();
         }
-
         if (isDecimalSymbol(ev.key) && hasDecimalSymbol(value)) {
             ev.preventDefault();
         }
@@ -135,16 +146,17 @@ export const NumberInput: Component<NumberInputProps> = props => {
         if (value.includes('-') && isCaretAtStart() && ev.key !== 'ArrowRight') {
             ev.preventDefault();
         }
+
         if (ev.key === 'ArrowUp') {
             const val = Number(value);
             if (!isNaN(val)) {
-                incrementValue(val);
+                incrementValue(val, multiplier);
             }
         }
         if (ev.key === 'ArrowDown') {
             const val = Number(value);
             if (!isNaN(val)) {
-                decrementValue(val);
+                decrementValue(val, multiplier);
             }
         }
     };

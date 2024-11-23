@@ -103,6 +103,26 @@ export const NumberInputPage: Component = () => {
                     <NumberInput value={value()} onChangeValue={setValue} min={1} max={10} />
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="steps">
+                <DemoItem title="0.1" note="min: -1, max: 1">
+                    <NumberInput
+                        value={value()}
+                        onChangeValue={setValue}
+                        step={0.1}
+                        min={-1}
+                        max={1}
+                    />
+                </DemoItem>
+                <DemoItem title="5" note="min: 0, max: 50">
+                    <NumberInput
+                        value={value()}
+                        onChangeValue={setValue}
+                        step={5}
+                        min={0}
+                        max={50}
+                    />
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="modified">
                 <DemoItem>
                     <NumberInput value={value()} modified />
