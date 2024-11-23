@@ -1,7 +1,7 @@
 {
   "name": "@noodlestan/app-ui-system-sandbox",
   "private": true,
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -21,7 +21,7 @@
     "vite-plugin-wasm": "^3.3.0"
   },
   "dependencies": {
-    "@noodlestan/ui-system": "0.0.8",
+    "@noodlestan/ui-system": "0.0.9",
     "@solid-primitives/intersection-observer": "2.1.3",
     "@solid-primitives/resize-observer": "2.0.22",
     "@solid-primitives/storage": "2.1.2",
