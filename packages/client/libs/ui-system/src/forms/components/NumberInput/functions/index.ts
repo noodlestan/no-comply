@@ -1,4 +1,4 @@
-export * from './isCopyPasteKeyboardEvent';
+export * from './isKeyboardEventPermitted';
 export * from './isDecimalSymbol';
 export * from './isNumberSymbol';
 export * from './hasDecimalSymbol';

@@ -3,8 +3,8 @@ import { Component, JSX, createSignal } from 'solid-js';
 import { VALID_KEYS } from './constants';
 import {
     hasDecimalSymbol,
-    isCopyPasteKeyboardEvent,
     isDecimalSymbol,
+    isKeyboardEventPermitted,
     isNumberSymbol,
     makeStyle,
 } from './functions';
@@ -105,18 +105,20 @@ export const NumberInput: Component<NumberInputProps> = props => {
         return !isCaretAtStart() || value?.includes('-');
     };
 
-    const incrementValue = (value: number) => {
-        value++;
-        updateLocalValue(value.toString());
+    const incrementValue = (value: number, incrementValue = 1) => {
+        const val = value + incrementValue;
+        const newValue = Math.min(val, props.max ?? Infinity);
+        updateLocalValue(newValue.toString());
     };
 
-    const decrementValue = (value: number) => {
-        value--;
-        updateLocalValue(value.toString());
+    const decrementValue = (value: number, incrementValue = 1) => {
+        const val = value - incrementValue;
+        const newValue = Math.max(val, props.min ?? -Infinity);
+        updateLocalValue(newValue.toString());
     };
 
     const handleInputKey = (ev: KeyboardEvent) => {
-        if (isCopyPasteKeyboardEvent(ev)) {
+        if (isKeyboardEventPermitted(ev)) {
             return;
         }
         const value = currentValue();
