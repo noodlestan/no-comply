@@ -1,3 +1,10 @@
 .MainNav .NavLink {
     padding: var(--space-pad-0);
 }
+
+.Header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: hsla(var(--surface-bg), var(--o-surface-bg));
+}
