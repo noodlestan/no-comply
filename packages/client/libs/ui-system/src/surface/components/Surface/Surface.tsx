@@ -15,7 +15,7 @@ export type SurfaceProps = SurfaceUnstyledProps & {
 };
 
 const SurfaceElement: Component<SurfaceProps> = props => {
-    const [locals, childProps] = splitProps(props, ['variant']);
+    const [locals, childProps] = splitProps(props, ['variant', 'style']);
 
     const classList = () => ({
         ...props.classList,
@@ -25,6 +25,7 @@ const SurfaceElement: Component<SurfaceProps> = props => {
     });
 
     const style = () => ({
+        ...locals.style,
         ...contextVars(),
     });
 
