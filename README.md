@@ -29,7 +29,7 @@ Run `npm run dev` in UI System sandbox application: `packages/client/apps/ui-sys
 
 👐 **We welcome contributions!**
 
-If you'd like to contribute please visit us at [Noodlestan discord](https://discord.com/invite/rhFSHe7T), post your idea, report a bug, ask for improvements or just come to say hi! 👋
+If you'd like to contribute please visit us at [Noodlestan discord](https://discord.gg/b8DkbJSF9z), post your idea, report a bug, ask for improvements or just come to say hi! 👋
 
 **Pre-commit:** [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) should run automatically before every commit and lint all code. Under the hood it runs `npm run lint` and `npm run ci`. Run these to inspect error details.
 
