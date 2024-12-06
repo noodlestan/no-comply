@@ -34,6 +34,31 @@ const defaultProps: Pick<BannerProps, 'variant' | 'size' | 'length'> = {
     length: 'full',
 };
 
+/**
+ * A customizable Banner component.
+ *
+ * @remarks
+ * This component can be use to show important information.
+ *
+ * @example
+ * ```tsx
+ * <Banner variant="info" size="s" lenght="compact">
+ *  <BannerContents />
+ * <Banner>
+ * ```
+ * @param {('variant'|'size'|'length'| 'ref'|'classList'| 'children')} props - The component props.
+ * @param {('passive' | 'info' | 'warning' | 'danger' | 'success')} [props.variant='passive'] - The style variant of the banner.
+ * @param {('s'|'m'|)} [props.size='m'] - The size the banner.
+ * @param {('compact'|'full')} props.lenght - Function to handle click events.
+ * @param {(el: HTMLButtonElement) => void} [props.ref] - A ref callback to access the underlying banner.
+ * @param {Record<string, boolean>} [props.classList] - Additional custom class names for the banner.
+ * @param {JSX.Element | JSX.Element[]} [props.children] - Slot content for the banner
+ *
+ * @group Banner
+ * @returns {JSX.Element}
+ *
+ * @see {@link https://noodlestan.example.com/components/banner | Design Guidelines}
+ */
 export const Banner: Component<BannerProps> = props => {
     const variant = () => props.variant || defaultProps.variant;
     const size = () => props.size || defaultProps.size;
