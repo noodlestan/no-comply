@@ -1,6 +1,12 @@
 # Noodlestan UI System
 
-> Design System built with [SolidJS](https://www.solidjs.com/)
+> Component library and UI services built with [SolidJS](https://www.solidjs.com/).
+
+## Noodlestan Collective 🐘
+
+We are an open collective of people dedicated to the design and software crafts: UX, design, code, web, 3d, audio, the works.
+
+Learn more about us and our projects at [Noodlestan.org](https://noodlestan.org), join us on [Noodlestan's Discord](https://discord.gg/b8DkbJSF9z) server, or drop us a line at hello@noodlestan.org.
 
 ## Development
 
@@ -29,9 +35,9 @@ Run `npm run dev` in UI System sandbox application: `packages/client/apps/ui-sys
 
 👐 **We welcome contributions!**
 
-If you'd like to contribute please visit us at [Noodlestan discord](https://discord.gg/b8DkbJSF9z) or drop a line at `hello@noodlestan.org`. Post your idea, report a bug, ask for improvements or just come to say hi! 👋
+If would like to share your ideas, report a bug, ask for improvements - or simply say hi! 👋 - don't hesitate to join us on [Noodlestan's Discord](https://discord.gg/b8DkbJSF9z) or to drop us a line at `hello@noodlestan.org`.
 
-**Pre-commit:** [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) should run automatically before every commit and lint all code. Under the hood it runs `npm run lint` and `npm run ci`. Run these to inspect error details.
+**Pre-commit:** [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) runs automatically before every commit and lints all code. Under the hood it runs `npm run lint` and `npm run ci`. Run these to inspect error details.
 
 ## MIT License
 

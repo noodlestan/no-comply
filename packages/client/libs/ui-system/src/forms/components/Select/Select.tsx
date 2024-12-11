@@ -59,7 +59,7 @@ export const Select: Component<SelectProps> = props => {
     };
 
     // NOTE: using spread operator in `<select>` causes expected selected option to not be selected
-    // because attributes/children are commited to the DOM in a different order
+    // because attributes/children are committed to the DOM in a different order
     // See: https://github.com/solidjs/solid/issues/1754
     // const handlers = {
     //     onChange: handleChange,

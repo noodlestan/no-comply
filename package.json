@@ -1,16 +1,17 @@
 {
   "name": "ui-system",
   "version": "0.0.11",
+  "description": "Component library and UI services built with SolidJS.",
+  "author": "Noodlestan Collective",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/noodlestan/ui-system"
-  },
+  "private": true,
   "workspaces": [
     "packages/client/apps/*",
     "packages/client/libs/*"
   ],
-  "private": true,
+  "engines": {
+    "node": "20.10.0"
+  },
   "scripts": {
     "lint": "prettier . -c && eslint .",
     "lint:silent": "prettier . -c --log-level silent && eslint .",
@@ -35,8 +36,5 @@
     "lefthook": "1.5.5",
     "prettier": "3.3.3",
     "typescript": "5.6.3"
-  },
-  "engines": {
-    "node": "20.10.0"
   }
 }

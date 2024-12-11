@@ -1,2 +1,2 @@
-export * from './createTransitionAtrribute';
+export * from './createTransitionAttribute';
 export * from './extractTransitionFromStyle';
