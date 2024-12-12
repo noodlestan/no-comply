@@ -1,4 +1,4 @@
-# Design Decisions
+# Designer Decisions
 
 > A library for modeling design decisions.
 
