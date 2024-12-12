@@ -1,3 +1,12 @@
-import { makeVitestConfig } from '../../../../config/vitest.config';
+import { defineConfig } from 'vitest/config';
 
-export default makeVitestConfig();
+export default defineConfig({
+    resolve: {
+        conditions: ['development', 'browser'],
+    },
+    test: {
+        coverage: {
+            exclude: ['**/meta/*', '**/index.ts'],
+        },
+    },
+});

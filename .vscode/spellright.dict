@@ -41,3 +41,10 @@ vite
 rethrow
 subdir
 readdir
+svg
+esnext
+wasm
+devtools
+monorepo
+deps
+autoname
