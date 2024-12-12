@@ -7,9 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite build && vite preview",
     "ci": "tsc --noEmit",
-    "lint": "prettier . -c && eslint . && tsc --noEmit",
-    "serve": "node scripts/serve.js"
+    "lint": "prettier . -c && eslint . && tsc --noEmit"
   },
   "dependencies": {
     "@noodlestan/ui-system": "0.0.11",
