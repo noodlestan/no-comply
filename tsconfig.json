@@ -15,5 +15,5 @@
     }
   },
   "include": ["packages/", "config/"],
-  "exclude": ["**/scripts/"]
+  "exclude": ["**/scripts/", "**/coverage/"]
 }
