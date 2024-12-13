@@ -38,6 +38,7 @@ pids
 .env
 
 # Build directories
+**/generated
 **/dist
 
 # Test directories

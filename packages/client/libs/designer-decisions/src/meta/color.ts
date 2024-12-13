@@ -18,7 +18,7 @@ export const ColorDecisionTypes: DecisionTypeMeta[] = [
         factory: createColorSaturationDecision,
         models: [
             {
-                model: 'static-value',
+                model: 'explicit',
                 description: 'Defines the saturation of a color as a percentage.',
             },
         ],
@@ -32,7 +32,7 @@ export const ColorDecisionTypes: DecisionTypeMeta[] = [
         factory: createColorLightnessDecision,
         models: [
             {
-                model: 'static-value',
+                model: 'explicit',
                 description: 'Defines the lightness of a color as a percentage.',
             },
         ],
@@ -46,7 +46,7 @@ export const ColorDecisionTypes: DecisionTypeMeta[] = [
         factory: createColorHueDecision,
         models: [
             {
-                model: 'static-value',
+                model: 'explicit',
                 description: 'Defines the hue of a color as degrees on the color wheel.',
             },
         ],
@@ -60,7 +60,7 @@ export const ColorDecisionTypes: DecisionTypeMeta[] = [
         factory: createColorValueDecision,
         models: [
             {
-                model: 'static-value',
+                model: 'explicit',
                 description: 'Defines a color value (either RGB, HSL, or other formats).',
             },
         ],
@@ -74,13 +74,13 @@ export const ColorDecisionTypes: DecisionTypeMeta[] = [
         factory: createColorLightnessScaleDecision,
         models: [
             {
-                model: 'linear-stepped-range',
+                model: 'linear-range',
                 description:
-                    'Defines a linear stepped range for lightness from a start to end percentage with specified steps.',
+                    'Defines a lightness scale interpolating linearly between two lightness values.',
             },
             {
-                model: 'static-value',
-                description: 'Defines a static lightness scale with multiple percentage values.',
+                model: 'explicit',
+                description: 'Defines a lightness scale with arbitrary percentage values.',
             },
         ],
     },
@@ -93,16 +93,15 @@ export const ColorDecisionTypes: DecisionTypeMeta[] = [
         factory: createColorScaleDecision,
         models: [
             {
-                model: 'linear-stepped-range',
-                description:
-                    'Defines a linear gradient scale interpolating a number of steps between two colors.',
+                model: 'linear-range',
+                description: 'Defines a gradient scale interpolating linearly between two colors.',
             },
             {
-                model: 'static-value',
-                description: 'Defines a static color scale with multiple color values.',
+                model: 'explicit',
+                description: 'Defines a color scale with arbitrary color values.',
             },
             {
-                model: 'stepped-modifier',
+                model: 'modifier',
                 description:
                     'Defines a color scale by successively applying a modifier to the previous step.',
             },

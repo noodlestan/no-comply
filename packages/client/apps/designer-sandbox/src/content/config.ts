@@ -1,42 +1,39 @@
 import { docsSchema } from '@astrojs/starlight/schema';
-import { file } from 'astro/loaders'; // Not available with legacy API
+import { DecisionTypes } from '@noodlestan/designer-decisions';
 import { defineCollection, z } from 'astro:content';
 
-const decisions = defineCollection({
+const decisionPages = DecisionTypes.map(decision => ({
+    title: decision.name,
+    id: decision.type,
+    category: decision.category,
+    domain: decision.domain,
+    type: decision.type,
+    name: decision.name,
+    description: decision.description,
+    models: decision.models,
+}));
+
+const decisionTypes = defineCollection({
     loader: async () => {
-        return [
-            {
-                id: 'type-b',
-                title: 'type-b',
-            },
-            {
-                id: 'type-c',
-                title: 'type-c',
-            },
-            {
-                id: 'type-d',
-                title: 'type-d',
-            },
-            {
-                id: 'type-e',
-                title: 'type-e',
-            },
-        ];
+        return decisionPages;
     },
     schema: z.object({
         title: z.string(),
-    }),
-});
-
-const models = defineCollection({
-    loader: file('src/data/models.json'),
-    schema: z.object({
-        title: z.string(),
+        category: z.string(),
+        domain: z.string(),
+        type: z.string(),
+        name: z.string(),
+        description: z.string(),
+        models: z.array(
+            z.object({
+                model: z.string(),
+                description: z.string(),
+            }),
+        ),
     }),
 });
 
 export const collections = {
     docs: defineCollection({ schema: docsSchema() }),
-    decisions,
-    models,
+    decisionTypes,
 };

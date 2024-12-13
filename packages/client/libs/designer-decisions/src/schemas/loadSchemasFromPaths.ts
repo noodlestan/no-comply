@@ -1,5 +1,4 @@
-import { loadSchemaFromFile } from './private/loadSchemaFromFile';
-import { loadSchemasFromDirectory } from './private/loadSchemasFromDirectory';
+import { loadSchemaFromFile, loadSchemasFromDirectory } from './private';
 import { SchemaData, SchemaId, SchemaMap } from './types';
 
 export const loadSchemasFromPaths = async (paths: string[]): Promise<SchemaMap> => {

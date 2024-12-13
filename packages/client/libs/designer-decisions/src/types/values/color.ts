@@ -1,4 +1,4 @@
-import { ColorSpaceName } from '../primitives';
+import { ColorSpaceName } from '../primitives/primitives';
 
 export type HueValue = {
     getValue(): number;

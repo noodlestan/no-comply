@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    // "noEmitOnError": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "types": ["node", "mocha"]
+  }
+}

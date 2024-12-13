@@ -7,7 +7,8 @@
   "private": true,
   "workspaces": [
     "packages/client/apps/*",
-    "packages/client/libs/*"
+    "packages/client/libs/*",
+    "packages/cli/*"
   ],
   "engines": {
     "node": "20.10.0"
@@ -15,12 +16,14 @@
   "scripts": {
     "lint": "prettier . -c && eslint .",
     "lint:silent": "prettier . -c --log-level silent && eslint .",
+    "ci:cli-desginer-generators": "npm run --prefix packages/cli/designer-generators ci",
+    "ci:cli": "npm run ci:cli-desginer-generators",
     "ci:lib-desginer-decisions": "npm run --prefix packages/client/libs/designer-decisions ci",
     "ci:lib-ui-system": "npm run --prefix packages/client/libs/ui-system ci",
     "ci:libs": "npm run ci:lib-desginer-decisions && npm run ci:lib-ui-system",
     "ci:app-ui-system-sandbox": "npm run --prefix packages/client/apps/ui-system-sandbox ci",
     "ci:apps": "npm run ci:app-ui-system-sandbox",
-    "ci": "npm run ci:libs && npm run ci:apps"
+    "ci": "npm run ci:libs && npm run ci:cli && npm run ci:apps"
   },
   "devDependencies": {
     "@noodlestan/eslint-config": "0.0.3",

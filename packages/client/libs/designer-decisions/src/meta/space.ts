@@ -11,8 +11,8 @@ export const SpaceDecisionTypes: DecisionTypeMeta[] = [
         factory: createSpaceValueDecision,
         models: [
             {
-                model: 'static-value',
-                description: 'Defines a static space value.',
+                model: 'explicit',
+                description: 'Defines a space value.',
             },
         ],
     },
@@ -25,18 +25,18 @@ export const SpaceDecisionTypes: DecisionTypeMeta[] = [
         factory: createSpaceScaleDecision,
         models: [
             {
-                model: 'linear-stepped-range',
+                model: 'linear-range',
                 description:
-                    'Defines a linear scale interpolating a number of steps between two space values.',
+                    'Defines a space scale interpolating linearly between two space values.',
             },
             {
-                model: 'static-value',
-                description: 'Defines a static space scale with multiple distance values.',
+                model: 'explicit',
+                description: 'Defines a space scale with arbitrary space values.',
             },
             {
-                model: 'stepped-modifier',
+                model: 'modifier',
                 description:
-                    'Defines a space scale by successively applying a modifier to previous step.',
+                    'Defines a space scale by successively applying a modifier to the previous step.',
             },
         ],
     },
