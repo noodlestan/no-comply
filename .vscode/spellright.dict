@@ -49,3 +49,7 @@ monorepo
 deps
 autoname
 astrojs
+viz
+md
+withastro
+zod

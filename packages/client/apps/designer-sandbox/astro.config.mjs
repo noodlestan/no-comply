@@ -1,25 +1,19 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
 export default defineConfig({
+    experimental: { contentLayer: true },
     integrations: [
         starlight({
-            title: 'My Docs',
+            title: '[Sandbox]',
             social: {
-                github: 'https://github.com/withastro/starlight',
+                github: 'https://github.com/noodlestan',
+                discord: 'https://discord.gg/b8DkbJSF9z',
             },
             sidebar: [
                 {
-                    label: 'Guides',
-                    items: [
-                        // Each item here is one entry in the navigation menu.
-                        { label: 'Example Guide', slug: 'guides/example' },
-                    ],
-                },
-                {
-                    label: 'Reference',
-                    autogenerate: { directory: 'reference' },
+                    label: 'Viz',
+                    items: [{ label: 'Example', slug: 'viz/example' }],
                 },
             ],
         }),

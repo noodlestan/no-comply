@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+import { getCollection } from 'astro:content';
+const decision = await getCollection('decisions');
+---
+
+<StarlightPage frontmatter={{ title: 'Decisions' }}>
+
+<ul>
+    {decision.map(decision => (
+        <li>
+            <a href={`/decisions/${decision.id}`}>{decision.data.title}</a>
+        </li>
+    ))}
+</ul>
+
+</StarlightPage>

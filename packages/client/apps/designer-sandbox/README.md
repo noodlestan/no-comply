@@ -27,5 +27,3 @@ npm run dev
 Copyright (c) 2024 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).
-
-## 👀 Want to learn more?
