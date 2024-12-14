@@ -15,6 +15,10 @@ export default defineConfig({
                     label: 'Viz',
                     items: [{ label: 'Example', slug: 'viz/example' }],
                 },
+                {
+                    label: 'Decision Types',
+                    link: 'decision-types',
+                },
             ],
         }),
     ],

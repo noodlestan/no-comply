@@ -20,6 +20,16 @@ npm run dev
 
 - [Starlight](https://starlight.astro.build/) / [Astro](https://docs.astro.build)
 
+### Troubleshooting
+
+#### `<item> is of type any`
+
+Seeing warnings around `getCollection()` invocations?
+
+Run `npm run sync` to force Astro to update collection typings.
+
+bar
+
 ### Noodles
 
 ## MIT License

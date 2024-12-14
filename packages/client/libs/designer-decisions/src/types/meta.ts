@@ -10,6 +10,6 @@ export type DecisionTypeMeta = {
 
 export type DecisionModelMeta = {
     model: string;
-    schema?: string;
+    name: string;
     description: string;
 };

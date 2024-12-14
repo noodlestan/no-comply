@@ -2,10 +2,12 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
 import { getCollection } from 'astro:content';
+import { sidebar } from '../sidebar';
+
 const decisionTypes = await getCollection('decisionTypes');
 ---
 
-<StarlightPage frontmatter={{ title: 'Decisions' }}>
+<StarlightPage frontmatter={{ title: 'Decisions' }} sidebar={sidebar}>
     <ul>
         {
             decisionTypes.map(decisionType => (

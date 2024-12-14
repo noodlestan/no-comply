@@ -1,0 +1,43 @@
+[
+  {
+    "type": "color-value/explicit",
+    "name": "Curcuma Foreground",
+    "description": "Strongest shade of Curcuma",
+    "usage": {
+      "intendedFor": ["Foreground elements"],
+      "notFor": ["Icons"]
+    },
+    "params": {
+      "value": "#0F0B02"
+    }
+  },
+  {
+    "type": "color-value/explicit",
+    "name": "Curcuma Foreground",
+    "description": "Strongest shade of Curcuma",
+    "usage": {
+      "intendedFor": ["Foreground elements"],
+      "notFor": ["Icons"]
+    },
+    "params": {
+      "value": "#0F0B02"
+    }
+  },
+  {
+    "type": "color-scale/explicit",
+    "name": "Curcuma Palette",
+    "params": {
+      "values": [
+        "#312506",
+        "#564109",
+        "#7D5E0A",
+        "#A57B0A",
+        "#CF9908",
+        "#FAB705",
+        "#FCC941",
+        "#FDDA7C",
+        "#FEEBB9"
+      ]
+    }
+  }
+]
