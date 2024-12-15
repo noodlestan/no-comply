@@ -1,0 +1,44 @@
+{
+  "name": "@noodlestan/designer-decisions",
+  "version": "0.0.1",
+  "description": "Modeling design decisions.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/ui-system"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "LICENSE-MIT"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "dev": "vite build --watch",
+    "test": "vitest --run --coverage",
+    "ci": "tsc --noEmit && npm run test"
+  },
+  "dependencies": {
+    "ts-deepmerge": "7.0.0",
+    "typescript-json-schema": "^0.65.1"
+  },
+  "peerDependencies": {
+    "solid-js": "1.9.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.1",
+    "@solidjs/testing-library": "^0.8.6",
+    "@vitest/coverage-v8": "^1.2.2",
+    "jsdom": "^24.0.0",
+    "json-schema-to-zod": "^2.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "vite": "^4.5.1",
+    "vite-plugin-solid": "^2.5.0",
+    "vitest": "^1.6.0"
+  }
+}

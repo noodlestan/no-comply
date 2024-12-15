@@ -38,10 +38,11 @@ pids
 .env
 
 # Build directories
+**/generated
 **/dist
 
 # Test directories
-coverage/
+**/coverage
 
 # Asset directories and data files
 resources/assets

@@ -1,8 +1,15 @@
 import { IconComponent } from '../../icons';
 
-export type SettingType = 'boolean' | 'number' | 'range' | 'string' | 'options' | 'color-hue';
+export type SettingType =
+    | 'params'
+    | 'boolean'
+    | 'number'
+    | 'range'
+    | 'string'
+    | 'options'
+    | 'color-hue';
 
-export type SettingValue = string | number | boolean;
+export type SettingValue = object | string | number | boolean;
 
 export type SettingGroup = {
     name: string;
@@ -27,6 +34,14 @@ export type BaseSetting = {
     defaultValue: SettingValue;
     description: string;
     value?: SettingValue;
+};
+
+export type ParamsSetting<V extends object = object, P extends object = object> = BaseSetting & {
+    type: 'params';
+    schema: string;
+    defaultValue: V;
+    params?: P;
+    value?: V;
 };
 
 export type BooleanSetting = BaseSetting & {
@@ -65,8 +80,6 @@ export type OptionsSetting = BaseSetting & {
 };
 
 export type ColorHueSetting = BaseSetting & {
-    id: string;
-    name: string;
     type: 'color-hue';
     defaultValue: number;
     lightness: string;
@@ -79,6 +92,7 @@ export type Setting =
     | RangeSetting
     | StringSetting
     | OptionsSetting
+    | ParamsSetting
     | ColorHueSetting;
 
 export type SettingsAPI = {

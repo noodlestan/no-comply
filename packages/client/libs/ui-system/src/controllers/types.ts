@@ -8,7 +8,7 @@ export type UIContextValue = boolean | string | undefined;
 
 export type UIContextMap = Record<UIContextKey, UIContextValue>;
 
-export type ShortcutId = string; // e.g.: 'editor-session.spawn-despawn'
+export type ShortcutId = string;
 
 export type UIShortcut = {
     id: ShortcutId;

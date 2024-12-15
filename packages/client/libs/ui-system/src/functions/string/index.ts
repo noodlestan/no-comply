@@ -1,1 +1,1 @@
-export * from './capitalise';
+export * from './capitalize';

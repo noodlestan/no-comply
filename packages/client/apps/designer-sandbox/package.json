@@ -1,0 +1,23 @@
+{
+  "name": "@noodlestan/designer-sandbox",
+  "version": "0.0.1",
+  "description": "Sandbox application to develop, showcase and document UI System features.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "sync": "astro sync",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.29.3",
+    "@noodlestan/designer-decisions": "0.0.1",
+    "astro": "4.16.10",
+    "sharp": "0.32.5"
+  }
+}

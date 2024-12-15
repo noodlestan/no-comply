@@ -1,12 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 // import { resolve } from 'path';
 
-import type { UserConfig } from 'vite';
+import type { PluginOption, UserConfig } from 'vite';
 import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
-import SolidSVG from 'vite-plugin-solid-svg';
-import topLevelAwait from 'vite-plugin-top-level-await';
-import wasm from 'vite-plugin-wasm';
 
 /* TODO devtools issue with monorepo? fails on import
 
@@ -22,17 +18,18 @@ No known conditions for "./vite" specifier in "solid-devtools" package [plugin e
       */
 // import devtools from 'solid-devtools/vite';
 
-export const makeViteConfig = (dir: string, config: UserConfig = {}): UserConfig => {
+export const makeViteConfig = (
+    dir: string,
+    config: UserConfig = {},
+    plugins?: PluginOption[],
+): UserConfig => {
     return defineConfig({
         ...config,
         plugins: [
             // devtools({
             //     autoname: true,
             // }),
-            solidPlugin(),
-            SolidSVG(),
-            wasm(),
-            topLevelAwait(),
+            ...(plugins || []),
         ],
         // resolve: {
         //     alias: [{ find: '@', replacement: resolve(dir, 'src') }],
