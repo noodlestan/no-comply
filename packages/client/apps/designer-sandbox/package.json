@@ -17,6 +17,7 @@
   "dependencies": {
     "@astrojs/starlight": "0.29.3",
     "@noodlestan/designer-decisions": "0.0.1",
+    "@noodlestan/designer-schemas": "0.0.1",
     "astro": "4.16.10",
     "sharp": "0.32.5"
   }
