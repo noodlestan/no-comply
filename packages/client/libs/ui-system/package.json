@@ -35,7 +35,7 @@
   "peerDependencies": {
     "@solidjs/router": "0.10.6",
     "lucide-solid": "0.453.0",
-    "solid-js": "1.9.1"
+    "solid-js": "1.9.3"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",

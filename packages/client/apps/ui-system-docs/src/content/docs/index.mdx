@@ -1,0 +1,30 @@
+---
+title: Welcome to Noodlestan UI
+description: Get started building your docs site with Starlight.
+template: splash
+hero:
+    title: Noodlestan System UI Library
+    tagline: Everything you need to build a website. Fast, accessible, and easy-to-use.
+    actions:
+        - text: Get started
+          icon: right-arrow
+          link: /getting-started
+        - text: View on GitHub
+          icon: external
+          variant: minimal
+          link: https://github.com/withastro/starlight
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Text, Button } from '@noodlestan/ui-system';
+import MyComponent from '../../components/MyComponent.astro';
+
+## First Page
+
+<MyComponent>
+    <CardGrid stagger>
+        <LinkCard title="Components" href="/features" />
+        <LinkCard title="Api Reference" href="/api" />
+        <LinkCard title="Markdown, Markdoc, and MDX" href="/getting-started" />
+    </CardGrid>
+</MyComponent>
