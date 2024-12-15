@@ -31,13 +31,18 @@ Run `npm run dev` in the UI System sandbox application: `packages/client/apps/ui
 
 Libraries:
 
-- [UI System](./packages/client/libs/ui-system/)- component library (themes, components, controllers, and more)
-- [Designer Decisions](./packages/client/libs/designer-decisions/) - a library for modeling design decisions
+- [UI System](./packages/client/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
+- [Designer Decisions](./packages/client/libs/designer-decisions/README.md) - library for modeling design decisions
+- [Designer Schemas](./packages/client/libs/designer-schemas/README.md) - collection of JSON schemas to validate design decision inputs
+
+Cli tools:
+
+- [Designer Generators](./packages/cli/designer-generators/README.md) - generates schemas for design decision, validators, and transformations.
 
 Apps:
 
-- [UI System Sandbox](./packages/client/apps/ui-system-sandbox/) - for developing and testing UI System features
-- [Designer Sandbox](./packages/client/apps/designer-sandbox/) - for developing _Designer_ features
+- [UI System Sandbox](./packages/client/apps/ui-system-sandbox/README.md) - for developing and testing UI System features
+- [Designer Sandbox](./packages/client/apps/designer-sandbox/README.md) - for developing _Designer_ features
 
 ### Stack
 
