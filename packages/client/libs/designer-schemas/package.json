@@ -1,7 +1,7 @@
 {
-  "name": "@noodlestan/designer-decisions",
+  "name": "@noodlestan/designer-schemas",
   "version": "0.0.1",
-  "description": "Modeling design decisions.",
+  "description": "A collection of JSON schemas to validate design decision inputs.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
@@ -13,20 +13,27 @@
   "main": "./src/index.ts",
   "files": [
     "src",
-    "LICENSE-MIT"
+    "schemas"
   ],
+  "exports": {
+    ".": "./src/index.ts",
+    "./schemas/*": "./schemas/*"
+  },
   "scripts": {
     "build": "vite build",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
     "dev": "vite build --watch",
-    "test": "vitest --run --coverage",
+    "test": "echo nothing to test",
     "ci": "tsc --noEmit && npm run test"
   },
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",
+    "@solidjs/testing-library": "^0.8.6",
     "@vitest/coverage-v8": "^1.2.2",
+    "jsdom": "^24.0.0",
     "json-schema-to-zod": "^2.5.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",

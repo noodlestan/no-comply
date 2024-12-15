@@ -10,6 +10,7 @@
     "build:schemas": "ts-node commands/schemas/generate.ts",
     "build": "npm run build:schemas && vite build",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
     "test": "mocha -r ts-node/register 'src/**/*.test.ts'",
     "test:watch": "mocha -w -r ts-node/register ---watch-files 'src/**/*.ts' 'src/**/*.test.ts'",
     "ci": "tsc --noEmit && npm run test && npm run build:schemas"

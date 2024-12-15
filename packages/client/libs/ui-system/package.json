@@ -20,6 +20,7 @@
   "scripts": {
     "build": "vite build",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
     "dev": "vite build --watch",
     "ci": "tsc --noEmit"
   },
