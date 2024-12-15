@@ -18,20 +18,25 @@ export default defineConfig({
             plugins: [
                 // Generate the documentation.
                 starlightTypeDoc({
-                    entryPoints: ['../../libs/ui-system/src/*'],
+                    entryPoints: [
+                        '../../libs/ui-system/src/controllers',
+                        '../../libs/ui-system/src/functions',
+                        '../../libs/ui-system/src/providers',
+                    ],
                     tsconfig: '../../libs/ui-system/tsconfig.json',
                     typeDoc: {
                         options: {
                             navigation: {
-                                includeCategories: false,
+                                includeCategories: true,
                                 includeGroups: true,
-                                excludeReferences: true,
+                                excludeReferences: false,
                                 includeFolders: false,
                             },
                         },
                         entryFileName: 'index',
                         excludeExternals: true,
                         categorizeByGroup: true,
+                        groupOrder: ['Functions', 'Types'],
                     },
                 }),
             ],
@@ -46,10 +51,7 @@ export default defineConfig({
                 },
                 typeDocSidebarGroup,
             ],
-            customCss: [
-                // Relative path to your custom CSS file
-                './src/styles/custom.css',
-            ],
+            customCss: ['./src/styles/custom.css'],
         }),
         solidJs(),
     ],
