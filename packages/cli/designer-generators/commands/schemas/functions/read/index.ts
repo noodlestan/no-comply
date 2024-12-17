@@ -1,6 +1,0 @@
-// @index(['./*.{ts,tsx}', '!./*.test.ts', '!./*.test.tsx', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './createProgramForTypes';
-export * from './findTypeFiles';
-export * from './makeDecisionTypeSchemaId';
-export * from './makePrimitiveSchemaId';
-export * from './traverseProgramSymbols';

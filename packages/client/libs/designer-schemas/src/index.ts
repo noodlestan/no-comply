@@ -1,4 +1,2 @@
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-export const SCHEMA_PATH = resolve(dirname(fileURLToPath(import.meta.url)), '../schemas');
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './constants';

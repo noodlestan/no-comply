@@ -20,6 +20,22 @@ const { decisionType } = Astro.props;
 const { Content } = await render(decisionType);
 
 const samples = decisions.filter(d => d.data.type.startsWith(decisionType.id));
+
+
+const headings = [
+    {
+        depth: 2,
+        slug: 'models',
+        text: 'Decision models'
+    }
+]
+if (samples.length) {
+    headings.unshift({
+        depth: 2,
+        slug: 'samples',
+        text: 'Samples'
+    })
+}
 ---
 
 <StarlightPage frontmatter={decisionType.data} sidebar={sidebar}>
@@ -33,7 +49,7 @@ const samples = decisions.filter(d => d.data.type.startsWith(decisionType.id));
         {decisionType.data.description}
     </blockquote>
 
-    <h3>Models</h3>
+    <h3 id="models">Models</h3>
     {
         decisionType.data.models.map(model => (
             <li>
@@ -45,7 +61,7 @@ const samples = decisions.filter(d => d.data.type.startsWith(decisionType.id));
 
     {(samples.length) ?
         <>
-            <h3>Samples</h3>
+            <h3 id="samples">Samples</h3>
             {
                 samples.map(decision => (
                     <li>

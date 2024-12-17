@@ -8,6 +8,7 @@
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "noImplicitAny": true
   }

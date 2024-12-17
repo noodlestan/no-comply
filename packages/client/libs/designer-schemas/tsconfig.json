@@ -1,9 +1,16 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["vite/client"],
-    "paths": {
-      // "@/*": ["./src/*"]
-    }
-  }
+    "skipLibCheck": true, // problems in vitest, @vitest/utils, svgo
+    "jsxImportSource": "solid-js",
+    "jsx": "preserve",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "include": ["scripts/**/*"]
 }

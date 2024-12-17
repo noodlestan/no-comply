@@ -1,6 +1,5 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './decision-types';
-export * from './decisions';
+export * from './decision-inputs';
+export * from './decision-values';
 export * from './meta';
-export * from './primitives';
-export * from './values';
+export * from './primitive-values';

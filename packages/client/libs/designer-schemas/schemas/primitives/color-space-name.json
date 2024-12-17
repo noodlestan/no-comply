@@ -1,6 +1,0 @@
-{
-  "$id": "primitives/color-space-name",
-  "enum": ["hsl", "hsv", "rgb"],
-  "type": "string",
-  "$schema": "http://json-schema.org/draft-07/schema#"
-}

@@ -1,0 +1,70 @@
+{
+  "$id": "urn:designer:decision-types:color-lightness-scale/linear-range",
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "const": "color-lightness-scale/linear-range"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "intendedFor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notFor": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "params": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "number"
+        },
+        "to": {
+          "type": "number"
+        },
+        "steps": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "from",
+        "steps",
+        "to"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "params",
+    "type"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

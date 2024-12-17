@@ -1,0 +1,31 @@
+---
+title: Capturing Decisions
+description: Decisions
+---
+
+## Write decisions in JSON.
+
+```json
+[{}]
+```
+
+**References:**
+
+-   [Decision types](/decision-types)
+
+## Loading and validating
+
+```ts
+const decisions createDecisionLoader(['../directory'], '[]')
+console.log(decisions.hasErrors(), decisions.allErrors(), decisions.all())
+```
+
+**References:**
+
+-   [Generator API](/generator-api)
+
+## Schemas
+
+**References:**
+
+-   [Generator API](/schemas)

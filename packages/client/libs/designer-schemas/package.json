@@ -9,25 +9,36 @@
     "type": "git",
     "url": "https://github.com/noodlestan/ui-system"
   },
-  "type": "module",
-  "main": "./src/index.ts",
+  "main": "dist/index.js",
+  "module": "src/index.ts",
+  "sideEffects": false,
   "files": [
+    "dist",
     "src",
-    "schemas"
+    "LICENSE-MIT"
   ],
   "exports": {
-    ".": "./src/index.ts",
-    "./schemas/*": "./schemas/*"
+    ".": {
+      "import": "./src/index.ts",
+      "require": "./dist/index.js"
+    },
+    "./schemas": "./schemas"
   },
   "scripts": {
-    "build": "vite build",
+    "build:clean": "rm -rf dist",
+    "build:schemas": "ts-node --project tsconfig.cli.json scripts/generate.ts",
+    "build:cjs": "tsc --project tsconfig.build.json",
+    "build": "npm run build:clean && npm run build:cjs && npm run build:schemas",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "dev": "vite build --watch",
     "test": "echo nothing to test",
-    "ci": "tsc --noEmit && npm run test"
+    "ci": "npm run build && npm run test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@noodlestan/designer-generators": "0.0.1",
+    "@noodlestan/designer-decisions": "0.0.1"
+  },
   "peerDependencies": {},
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",

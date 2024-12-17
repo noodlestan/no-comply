@@ -34,26 +34,41 @@ const frontmatter = {
     ...decisionType.data,
     title: decisionType.data.name + ' / ' + model.name,
 };
+
+const headings = [
+    {
+        depth: 2,
+        slug: 'models',
+        text: 'Decision models'
+    }
+]
+if (samples.length) {
+    headings.unshift({
+        depth: 2,
+        slug: 'samples',
+        text: 'Samples'
+    })
+}
 ---
 
-<StarlightPage frontmatter={frontmatter} sidebar={sidebar}>
+<StarlightPage frontmatter={frontmatter} sidebar={sidebar} headings={headings}>
     <p>
         <Badge variant="tip" text={decisionType.data.domain} />
         <Badge variant="note" text={decisionType.data.category} />
     </p>
 
+    <p>model: <code>{model.schemaId}</code></p>
+    <blockquote>
+        {model.description}
+    </blockquote>
     <blockquote>
         <p>type: <a href={`/decision-types/${decisionType.id}`}>{decisionType.data.name}</a></p>
         {decisionType.data.description}
     </blockquote>
-    <p>model: <code>{model.model}</code></p>
-    <blockquote>
-        {model.description}
-    </blockquote>
 
     {(samples.length) ?
         <>
-            <h3>Samples</h3>
+            <h3 id="samples">Samples</h3>
             {
                 samples.map(decision => (
                     <li>
@@ -68,7 +83,7 @@ const frontmatter = {
         : <></>
     }
 
-    <h3>{decisionType.data.name} Models</h3>
+    <h3 id="models">{decisionType.data.name} Models</h3>
     {
         decisionType.data.models.map(m => (
             <li>
