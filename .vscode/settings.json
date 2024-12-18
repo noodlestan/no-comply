@@ -6,7 +6,8 @@
     "typescript",
     "typescriptreact",
     "html",
-    "css"
+    "css",
+    "mdx"
   ],
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
@@ -48,5 +49,10 @@
   },
   "[mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "spellright.parserByClass": {
+    "mdx": {
+      "parser": "markdown"
+    }
   }
 }

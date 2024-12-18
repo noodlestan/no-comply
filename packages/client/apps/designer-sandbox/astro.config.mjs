@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { sidebar } from './sidebar.static.mjs';
 
 export default defineConfig({
     experimental: { contentLayer: true },
@@ -11,10 +12,7 @@ export default defineConfig({
                 discord: 'https://discord.gg/b8DkbJSF9z',
             },
             sidebar: [
-                {
-                    label: 'Viz',
-                    items: [{ label: 'Example', slug: 'viz/example' }],
-                },
+                ...sidebar,
                 {
                     label: 'Decision Types',
                     link: 'decision-types',

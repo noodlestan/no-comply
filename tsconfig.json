@@ -15,5 +15,5 @@
     }
   },
   "include": ["packages/", "config/"],
-  "exclude": ["**/node_modules/", "**/dist/", "**/coverage/", "**/*.config.mjs"]
+  "exclude": ["**/node_modules/", "**/dist/", "**/*.cjs", "**/coverage/", "**/*.config.mjs"]
 }

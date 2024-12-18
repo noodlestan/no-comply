@@ -18,6 +18,8 @@ export const makeViteConfig = (
             port: 3000,
         },
         build: {
+            outDir: 'dist/esm/',
+            emptyOutDir: true,
             target: 'esnext',
             lib: {
                 entry: resolve(dir, 'src/index.ts'),

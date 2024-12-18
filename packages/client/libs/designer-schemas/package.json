@@ -19,16 +19,17 @@
   ],
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./dist/index.js"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js"
     },
     "./schemas": "./schemas"
   },
   "scripts": {
     "build:clean": "rm -rf dist",
     "build:schemas": "ts-node --project tsconfig.cli.json scripts/generate.ts",
+    "build:esm": "vite build",
     "build:cjs": "tsc --project tsconfig.build.json",
-    "build": "npm run build:clean && npm run build:cjs && npm run build:schemas",
+    "build": "npm run build:clean && npm run build:esm && npm run build:cjs && npm run build:schemas",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "dev": "vite build --watch",

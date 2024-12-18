@@ -1,5 +1,7 @@
 import { getCollection } from 'astro:content';
 
+import { sidebar as staticSidebar } from '../../sidebar.static.mjs';
+
 const decisionTypes = await getCollection('decisionTypes');
 
 const decisionTypesHeader = {
@@ -12,10 +14,7 @@ const decisionTypeItems = decisionTypes.map(d => ({
 }));
 
 export const sidebar = [
-    {
-        label: 'Viz',
-        items: [{ label: 'Example', slug: 'viz/example' }],
-    },
+    ...staticSidebar,
     {
         label: 'Decision Types',
         items: [decisionTypesHeader, ...decisionTypeItems],

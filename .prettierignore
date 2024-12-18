@@ -1,3 +1,5 @@
 .astro/
 .coverage/
-schemas/
+**/schemas/urn/
+**/src/content/docs/api/
+

@@ -17,10 +17,7 @@
       "type": "string"
     },
     "contexts": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "$ref": "urn:designer:primitives:decision-contexts-input"
     },
     "usage": {
       "type": "object",

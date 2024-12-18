@@ -1,4 +1,4 @@
-import { ColorSpaceName } from '../decision-inputs/primitives/primitives';
+import { ColorSpaceName } from '../decision-inputs';
 
 export type HueValue = {
     getValue(): number;

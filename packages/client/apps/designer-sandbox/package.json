@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "build:astro": "astro build",
-    "build:decisions": "node scripts/build-decisions.cjs",
+    "build:decisions": "node scripts/build-decisions.js",
     "build": "npm run build:decisions && npm run build:astro",
     "preview": "astro preview",
     "astro": "astro",

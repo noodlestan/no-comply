@@ -2,9 +2,8 @@
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { LinkCard, Badge, Icon } from '@astrojs/starlight/components';
 import { getCollection } from 'astro:content';
-import { sidebar } from '../../../sidebar';
+import { sidebar } from '../../../navigation/sidebar';
 
-const decisionTypes = await getCollection('decisionTypes');
 const decisions = await getCollection('decisions');
 
 export async function getStaticPaths() {
@@ -25,8 +24,6 @@ export async function getStaticPaths() {
 
 
 const { decisionType, model } = Astro.props;
-
-console.log(decisions, decisionType.id + '/' + model.model)
 
 const samples = decisions.filter(d => d.data.type === decisionType.id + '/' + model.model);
 

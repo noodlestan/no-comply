@@ -4,7 +4,7 @@ import {
     PercentageInput,
     SignedDegreesInput,
     SignedPercentageInput,
-} from '../primitives/primitives';
+} from '../primitives';
 
 import { DecisionInput } from './base';
 

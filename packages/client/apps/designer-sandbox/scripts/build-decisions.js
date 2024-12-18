@@ -1,7 +1,7 @@
-const path = require('path');
+import path from 'path';
 
-const { createDecisionLoader, formatValidationError } = require('@noodlestan/designer-decisions');
-const { DESIGNER_DECISIONS_SCHEMAS } = require('@noodlestan/designer-schemas');
+import { createDecisionLoader, formatValidationError } from '@noodlestan/designer-decisions';
+import { DESIGNER_DECISIONS_SCHEMAS } from '@noodlestan/designer-schemas';
 
 const DECISION_DATA = path.resolve('./data/decisions');
 

@@ -1,4 +1,4 @@
-import { SignedSpaceInput, SpaceInput } from '../primitives/primitives';
+import { SignedSpaceInput, SpaceInput } from '../primitives';
 
 import { DecisionInput } from './base';
 
