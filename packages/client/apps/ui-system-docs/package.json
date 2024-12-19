@@ -1,23 +1,20 @@
 {
-  "name": "",
-  "type": "module",
+  "name": "@noodlestan/ui-system-docs",
   "version": "0.0.1",
+  "description": "Sandbox application to develop, showcase and document UI System features.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
   "scripts": {
+    "build:clean": "rm -rf dist",
     "build:astro": "astro build",
     "build": "npm run build:astro",
     "preview": "astro preview",
+    "start": "npm run build && astro preview",
     "astro": "astro",
     "sync": "astro sync",
     "dev": "astro dev",
-    "ci": "npm run build"
-  },
-  "devDependencies": {
-    "csstype": "^3.1.2",
-    "vite": "^4.5.1",
-    "vite-plugin-solid": "^2.5.0",
-    "vite-plugin-solid-svg": "^0.6.1",
-    "vite-plugin-top-level-await": "^1.4.4",
-    "vite-plugin-wasm": "^3.3.0"
+    "ci": "npm run build:clean && astro check && npm run build"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -28,7 +25,7 @@
     "@solid-primitives/resize-observer": "2.0.22",
     "@solid-primitives/storage": "2.1.2",
     "@solidjs/router": "0.10.6",
-    "astro": "^4.16.10",
+    "astro": "4.16.18",
     "lucide-solid": "0.453.0",
     "sharp": "^0.32.5",
     "solid-js": "^1.9.3",
@@ -38,5 +35,12 @@
     "typedoc": "^0.27.2",
     "typedoc-plugin-markdown": "^4.3.0",
     "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "csstype": "^3.1.2",
+    "vite": "^4.5.1",
+    "vite-plugin-solid": "^2.5.0",
+    "vite-plugin-solid-svg": "^0.6.1",
+    "vite-plugin-top-level-await": "^1.4.4"
   }
 }

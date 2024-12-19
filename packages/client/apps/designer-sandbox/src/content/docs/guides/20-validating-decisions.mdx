@@ -1,7 +1,9 @@
 ---
 title: Validating Decisions
-slug: guides/20-validating-design-decisions-with-schemas
+slug: guides/validating-design-decisions-with-schemas
 description: How to validate design decisions with JSON schemas and validators
+sidebar:
+    order: 20
 ---
 
 import { FileTree } from '@astrojs/starlight/components';
@@ -45,13 +47,13 @@ Add a script
 import path from 'path';
 
 import { createDecisionLoader, formatValidationError } from '@noodlestan/designer-decisions';
-import { DESIGNER_DECISIONS_SCHEMAS } from '@noodlestan/designer-schemas';
+import { DECISION_SCHEMAS } from '@noodlestan/designer-schemas';
 
 const DECISION_DATA = path.resolve('./data/decisions');
 
 const decisionLoader = createDecisionLoader(
     [DECISION_DATA],
-    [DESIGNER_DECISIONS_SCHEMAS],
+    [DECISION_SCHEMAS],
     async moduleName => `../../../../node_modules/${moduleName}`,
 );
 

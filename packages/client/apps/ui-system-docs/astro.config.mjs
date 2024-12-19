@@ -25,14 +25,6 @@ export default defineConfig({
                     ],
                     tsconfig: '../../libs/ui-system/tsconfig.json',
                     typeDoc: {
-                        options: {
-                            navigation: {
-                                includeCategories: true,
-                                includeGroups: true,
-                                excludeReferences: false,
-                                includeFolders: false,
-                            },
-                        },
                         entryFileName: 'index',
                         excludeExternals: true,
                         categorizeByGroup: true,

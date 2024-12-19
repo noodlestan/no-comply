@@ -9,32 +9,31 @@
     "type": "git",
     "url": "https://github.com/noodlestan/ui-system"
   },
-  "main": "dist/index.js",
-  "module": "src/index.ts",
-  "sideEffects": false,
   "files": [
     "dist",
     "src",
     "LICENSE-MIT"
   ],
+  "type": "module",
+  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.mjs",
+      "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
     "./schemas": "./schemas"
   },
   "scripts": {
     "build:clean": "rm -rf dist",
-    "build:schemas": "ts-node --project tsconfig.cli.json scripts/generate.ts",
-    "build:esm": "vite build",
-    "build:cjs": "tsc --project tsconfig.build.json",
-    "build": "npm run build:clean && npm run build:esm && npm run build:cjs && npm run build:schemas",
+    "build:lib": "vite build",
+    "build:types": "tsc --project tsconfig.esm.json --emitDeclarationOnly && tsc --project tsconfig.cjs.json --emitDeclarationOnly",
+    "build": "npm run build:lib && npm run build:types",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "dev": "vite build --watch",
     "test": "echo nothing to test",
-    "ci": "npm run build && npm run test"
+    "ci": "npm run build:clean && npm run build && npm run test"
   },
   "dependencies": {
     "@noodlestan/designer-generators": "0.0.1",
@@ -47,7 +46,6 @@
     "@vitest/coverage-v8": "^1.2.2",
     "jsdom": "^24.0.0",
     "json-schema-to-zod": "^2.5.0",
-    "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
     "vite": "^4.5.1",
     "vite-plugin-solid": "^2.5.0",

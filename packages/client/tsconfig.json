@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
     "skipLibCheck": true, // problems in vitest, @vitest/utils, svgo
-    "jsxImportSource": "solid-js",
-    "jsx": "preserve",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",

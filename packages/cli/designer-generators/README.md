@@ -6,7 +6,7 @@
 
 ### Getting started
 
-Make sure you [README](../../../../README.md) first.
+Make sure you [README](../../../README.md) first.
 
 Launch the application in dev mode:
 

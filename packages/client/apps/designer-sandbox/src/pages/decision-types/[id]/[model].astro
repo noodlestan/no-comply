@@ -1,10 +1,11 @@
 ---
-import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
-import { LinkCard, Badge, Icon } from '@astrojs/starlight/components';
 import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { Badge, LinkCard } from '@astrojs/starlight/components';
+import { type DecisionModelMeta } from '@noodlestan/designer-decisions';
+
 import { sidebar } from '../../../navigation/sidebar';
 
-const decisions = await getCollection('decisions');
 
 export async function getStaticPaths() {
     const decisionTypes = await getCollection('decisionTypes');
@@ -25,6 +26,7 @@ export async function getStaticPaths() {
 
 const { decisionType, model } = Astro.props;
 
+const decisions = await getCollection('decisions');
 const samples = decisions.filter(d => d.data.type === decisionType.id + '/' + model.model);
 
 const frontmatter = {
@@ -82,7 +84,7 @@ if (samples.length) {
 
     <h3 id="models">{decisionType.data.name} Models</h3>
     {
-        decisionType.data.models.map(m => (
+        decisionType.data.models.map((m: DecisionModelMeta) => (
             <li>
                 {(m.model === model.model) ? <>👉</> : ''}
                 <a href={`/decision-types/${decisionType.id}/${m.model}`}>{m.name}</a>

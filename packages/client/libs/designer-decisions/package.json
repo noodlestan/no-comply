@@ -20,12 +20,11 @@
   "scripts": {
     "build:clean": "rm -rf dist",
     "build:cjs": "tsc --project tsconfig.build.json",
-    "build:watch": "tsc -w --project tsconfig.build.json",
-    "build": "npm run build:clean && npm run build:cjs",
+    "build": "npm run build:cjs",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "test": "vitest --run --coverage",
-    "ci": "npm run build && npm run test"
+    "ci": "npm run build:clean && npm run build && npm run test"
   },
   "dependencies": {
     "ajv": "^8.17.1"

@@ -1,9 +1,11 @@
 ---
 title: Examples
 description: Examples of design decisions documented with designer components.
+sidebar:
+    label: Index
 ---
 
-import { LinkCard, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import { CardGrid, LinkButton, LinkCard } from '@astrojs/starlight/components';
 
 <CardGrid>
     <LinkCard
@@ -13,17 +15,17 @@ import { LinkCard, CardGrid, LinkButton } from '@astrojs/starlight/components';
     />
     <LinkCard
         title="Space"
-        href="/examples/space"
         description="📐 Space values and scales. Covers spacing units, paddings, margins, gaps, and measurements for responsive design."
     />
+    {/* href="/examples/space" */}
     <LinkCard
         title="Typography"
-        href="/examples/typography"
         description="🅰️ Typefaces, font families, font variants, and scales."
     />
+    {/* href="/examples/typography" */}
     <LinkCard
         title="Contexts"
-        href="/examples/context"
         description="🫥 Color schemes, themes, devices, containers, surfaces, and custom contexts. Used to scope and adapt design decisions to specific usage scenarios."
     />
+    {/* href="/examples/context" */}
 </CardGrid>

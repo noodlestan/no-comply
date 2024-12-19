@@ -1,21 +1,23 @@
-import { ColorSpaceName } from '../decision-inputs';
+import { ColorInput, ColorSpaceName } from '../decision-inputs';
 
 export type HueValue = {
-    getValue(): number;
+    get(): number;
 };
 
 export type SaturationValue = {
-    getValue(): number;
+    get(): number;
 };
 
 export type LightnessValue = {
-    getValue(): number;
+    get(): number;
 };
 
 export type AlphaValue = {
-    getValue(): number;
+    get(): number;
 };
 
 export type ColorValue = {
-    getColorString(space: ColorSpaceName): string;
+    get(): string;
+    getSpace(space: ColorSpaceName): ColorInput;
+    getString(space: ColorSpaceName): string;
 };

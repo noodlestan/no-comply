@@ -1,25 +1,25 @@
 import { ColorValue, HueValue, LightnessValue, SaturationValue } from '../primitive-values/color';
 
 export type HueDecision = {
-    value: HueValue;
+    value: () => HueValue;
 };
 
 export type SaturationDecision = {
-    value: SaturationValue;
+    value: () => SaturationValue;
 };
 
 export type LightnessDecision = {
-    value: LightnessValue;
+    value: () => LightnessValue;
 };
 
 export type LightnessScaleDecision = {
-    value: LightnessValue[];
+    value: () => LightnessValue[];
 };
 
 export type ColorValueDecision = {
-    value: ColorValue;
+    value: () => ColorValue;
 };
 
 export type ColorScaleDecision = {
-    value: ColorValue[];
+    value: () => ColorValue[];
 };

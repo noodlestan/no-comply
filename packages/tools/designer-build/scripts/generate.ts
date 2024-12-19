@@ -1,13 +1,13 @@
 import { DESIGNER_DECISIONS_SCHEMA_CONFIG } from '@noodlestan/designer-decisions';
 import { createSchemaGenerator } from '@noodlestan/designer-generators';
 
-const TARGET_DIR = './schemas';
+const TARGET_DIR = '../../client/libs/designer-schemas/schemas';
 const SCHEMAS = [DESIGNER_DECISIONS_SCHEMA_CONFIG];
 
 async function run() {
     try {
         const resolver = async (moduleName: string) => {
-            return `../../../../node_modules/${moduleName}`;
+            return `../../../node_modules/${moduleName}`;
         };
         const generator = createSchemaGenerator(TARGET_DIR, SCHEMAS, resolver);
         generator.on('event', event => {

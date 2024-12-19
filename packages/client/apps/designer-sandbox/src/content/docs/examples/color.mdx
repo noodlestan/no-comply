@@ -5,15 +5,44 @@ sidebar:
 description: Examples of color decisions documented with designer components.
 ---
 
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import { ShowColorValueDecision } from '@noodlestan/designer-shows/astro';
 
-<LinkButton href="/decision-types">All decision types</LinkButton>
+import { Card, CardGrid, Code, LinkButton } from '@astrojs/starlight/components';
+import Color from '../../../components/Color/Color.astro';
+
+The `<ShowColorValueDecision>` component allows you to document a color decision.
+
+The only mandatory argument is `d`, the decision `name`, `id` or `token`.
+
+<Code code={`<ShowColorValueDecision d="Green Foreground" />`} title={'page.mdx'} lang="astro" />
 
 <CardGrid>
-    <Card title="color" icon="open-book">
-        Color 1
-    </Card>
-    <Card title="color" icon="open-book">
-        Color 1
-    </Card>
+    <ShowColorValueDecision d="Green Foreground" />
+</CardGrid>
+
+You may also want to display the decision value by adding the `value` flag.
+
+<Code code={`<Color d="Green Foreground" value/>`} title={'page.mdx'} lang="astro" />
+
+<CardGrid>
+    <Color d="Green Foreground" value />
+</CardGrid>
+
+In the case of color decisions, you may want to display the value in
+several color spaces at the same time
+
+<CardGrid>
+    <Color d="Green Foreground" value={['rgb', 'hsl']} />
+</CardGrid>
+
+You may also display additional information such as
+
+-   the underlying decision model and params
+-   application guidelines.
+
+<Code code={`<Color d="Green Foreground" name model params>`} title={'page.mdx'} lang="astro" />
+
+<CardGrid>
+    <Color d="Green Foreground" name model params />
+    <Color d="Green Foreground" contexts usage />
 </CardGrid>

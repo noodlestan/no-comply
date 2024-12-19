@@ -18,11 +18,12 @@
     "LICENSE-MIT"
   ],
   "scripts": {
+    "build:clean": "rm -rf dist",
     "build": "vite build",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "dev": "vite build --watch",
-    "ci": "tsc --noEmit"
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {
     "@solid-primitives/map": "0.4.11",

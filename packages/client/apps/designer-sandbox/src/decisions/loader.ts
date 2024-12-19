@@ -1,13 +1,13 @@
 import path from 'node:path';
 
 import { createDecisionLoader, formatValidationError } from '@noodlestan/designer-decisions';
-import { DESIGNER_DECISIONS_SCHEMAS } from '@noodlestan/designer-schemas';
+import { DECISION_SCHEMAS } from '@noodlestan/designer-schemas';
 
 const DECISION_DATA = path.resolve('./data/decisions');
 
 export const decisionLoader = createDecisionLoader(
     [DECISION_DATA],
-    [DESIGNER_DECISIONS_SCHEMAS],
+    [DECISION_SCHEMAS],
     async (moduleName: string) => `../../../../node_modules/${moduleName}`,
 );
 

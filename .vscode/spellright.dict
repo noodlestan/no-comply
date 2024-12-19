@@ -57,3 +57,5 @@ esm
 rimraf
 zods
 stringify
+endindex
+cjs

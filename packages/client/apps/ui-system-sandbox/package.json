@@ -5,13 +5,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "build:clean": "rm -rf dist",
     "build": "vite build",
-    "lint": "prettier . -c && eslint . && tsc --noEmit",
-    "lint:fix": "prettier . -c --write && eslint . --fix",
     "preview": "vite preview",
     "start": "vite build && vite preview",
-    "ci": "tsc --noEmit"
+    "dev": "vite",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {
     "@noodlestan/ui-system": "0.0.11",

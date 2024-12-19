@@ -1,0 +1,19 @@
+{
+  "name": "@noodlestan/designer-build",
+  "version": "0.0.1",
+  "description": "Build tools for designer schemas.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:schemas": "ts-node scripts/generate.ts"
+  },
+  "dependencies": {
+    "@noodlestan/designer-generators": "0.0.1",
+    "@noodlestan/designer-decisions": "0.0.1"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
