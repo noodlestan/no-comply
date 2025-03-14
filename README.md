@@ -25,24 +25,17 @@ First make sure you are using the correct node version by running `nvm use`.
 
 Install dependencies with `npm install`.
 
-Run `npm run dev` in the UI System sandbox application: `packages/client/apps/ui-system-sandbox/`.
+Run `npm run dev` in the UI System sandbox application: `apps/ui-system-sandbox/`.
 
 ### In this repository
 
 Libraries:
 
-- [UI System](./packages/client/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
-- [Designer Decisions](./packages/client/libs/designer-decisions/README.md) - library for modeling design decisions
-- [Designer Schemas](./packages/client/libs/designer-schemas/README.md) - collection of JSON schemas to validate design decision inputs
-
-Cli tools:
-
-- [Designer Generators](./packages/cli/designer-generators/README.md) - generates schemas for design decision, validators, and transformations.
+- [UI System](https://github.com/noodlestan/ui-system/blob/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
 
 Apps:
 
-- [UI System Sandbox](./packages/client/apps/ui-system-sandbox/README.md) - for developing and testing UI System features
-- [Designer Sandbox](./packages/client/apps/designer-sandbox/README.md) - for developing _Designer_ features
+- [UI System Sandbox](https://github.com/noodlestan/ui-system/blob/apps/ui-system-sandbox/README.md) - for developing and testing UI System features
 
 ### Stack
 
