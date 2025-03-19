@@ -52,11 +52,11 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = props => (
                 <Fieldset label="Login">
                     <Flex gap="s">
                         <Label>Username</Label>
-                        <TextInput value="username" />
+                        <TextInput size="m" value="username" />
                     </Flex>
                     <Flex gap="s">
                         <Label>Password</Label>
-                        <TextInput value="password" type="password" />
+                        <TextInput size="m" value="password" type="password" />
                     </Flex>
                 </Fieldset>
                 <Flex direction="row" gap="m">

@@ -1,11 +1,9 @@
-import { resolveElements } from '@solid-primitives/refs';
-import { Component, For, Show } from 'solid-js';
+import { Component, For } from 'solid-js';
 
-import { TransitionAPI } from '../../transitions';
 import { ObjectWithId } from '../../types';
 
 import { ListItem } from './components';
-import { createListKeyboardController, createListTransitionController } from './functions';
+import { createListKeyboardController } from './functions';
 import { ListItemComponent, ListState } from './types';
 
 import './List.css';
@@ -14,8 +12,6 @@ type ListProps = {
     items: ObjectWithId[];
     state: ListState;
     component?: ListItemComponent;
-    enter?: () => TransitionAPI;
-    leave?: () => TransitionAPI;
     disabled?: boolean;
     classList?: { [key: string]: boolean };
 };
@@ -54,32 +50,12 @@ export const List: Component<ListProps> = props => {
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div ref={treeListRef} classList={classList()} onKeyUp={handlers.onKeyDown}>
-            <Show when={!props.enter && !props.leave}>
-                <ListItems
-                    items={props.items}
-                    state={props.state}
-                    component={props.component}
-                    disabled={props.disabled}
-                />
-            </Show>
-            <Show when={props.enter || props.leave}>
-                {(() => {
-                    const resolved = resolveElements(() => (
-                        <ListItems
-                            items={props.items}
-                            state={props.state}
-                            disabled={props.disabled}
-                            component={props.component}
-                        />
-                    ));
-                    const transition = createListTransitionController(
-                        resolved.toArray,
-                        props.enter,
-                        props.leave,
-                    );
-                    return <>{transition.items()}</>;
-                })()}
-            </Show>
+            <ListItems
+                items={props.items}
+                state={props.state}
+                component={props.component}
+                disabled={props.disabled}
+            />
         </div>
     );
 };

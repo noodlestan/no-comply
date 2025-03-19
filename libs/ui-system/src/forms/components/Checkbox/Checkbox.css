@@ -27,7 +27,7 @@
     border-color: hsla(var(--input-checkbox-border-color), var(--o-input-border));
     border-radius: var(--input-border-radius);
     cursor: pointer;
-    transition: background-color ease var(--transition-normal);
+    transition: background-color ease var(--animation-duration-short);
 }
 
 .Checkbox svg {
@@ -39,7 +39,7 @@
     pointer-events: none; /* for DevX sake */
     stroke-width: var(--input-checkbox-stroke);
     color: transparent;
-    transition: color ease var(--transition-normal);
+    transition: color ease var(--animation-duration-short);
 }
 
 .Checkbox-size-s {

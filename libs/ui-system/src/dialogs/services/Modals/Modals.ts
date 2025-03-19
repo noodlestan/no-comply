@@ -1,14 +1,10 @@
-import { inject } from '../../../providers';
-import type { TransitionState } from '../../../transitions';
-import { TransitionGroupsService } from '../../../transitions';
-import { TRANSITION_GROUP, modalsStore } from '../../private';
+import { modalsStore } from '../../private';
 import type { ModalOptions } from '../../types';
 
-interface ModalsServiceInterface {
+export interface ModalsServiceAPI {
     addModal: (id: string, options: ModalOptions) => void;
     deleteModal: (id: string) => void;
     getModalIndex: (id: string) => number;
-    getModalTransition: (id: string) => TransitionState | undefined;
     isModalCurrent: (id: string) => boolean;
     isModalDimmed: (id: string) => boolean;
     isModalVisible: (id: string) => boolean;
@@ -17,8 +13,6 @@ interface ModalsServiceInterface {
 const {
     addModal,
     deleteModal,
-    getCurrentModal,
-    getHiddenModal,
     getModal,
     getModalIndex,
     isModalCurrent,
@@ -26,19 +20,9 @@ const {
     isModalVisible,
 } = modalsStore;
 
-export const createModalsService = (): ModalsServiceInterface => {
-    const { getTransition, createTransition, resetTransitionGroup } =
-        // TODO replace by useTransitionGroups()
-        inject(TransitionGroupsService);
-
+export const createModalsService = (): ModalsServiceAPI => {
     return {
         addModal: (id: string, options: ModalOptions) => {
-            resetTransitionGroup(TRANSITION_GROUP);
-            const currentModal = getCurrentModal();
-            if (currentModal) {
-                createTransition(TRANSITION_GROUP, currentModal.id, 'hide', {});
-            }
-            createTransition(TRANSITION_GROUP, id, 'in', {});
             addModal(id, options);
         },
         deleteModal: (id: string) => {
@@ -46,15 +30,9 @@ export const createModalsService = (): ModalsServiceInterface => {
             if (!modal) {
                 return;
             }
-            const hiddenModal = modal.current ? getHiddenModal() : undefined;
-            if (hiddenModal) {
-                createTransition(TRANSITION_GROUP, hiddenModal.id, 'unhide', {});
-            }
-            createTransition(TRANSITION_GROUP, id, 'out', {});
             deleteModal(id);
         },
         getModalIndex: (id: string) => getModalIndex(id),
-        getModalTransition: (id: string) => getTransition(TRANSITION_GROUP, id),
         isModalCurrent,
         isModalDimmed,
         isModalVisible,

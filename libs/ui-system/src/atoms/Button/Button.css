@@ -16,8 +16,8 @@
     border-radius: var(--action-border-radius-base);
     text-decoration: none;
     transition:
-        color ease var(--transition-normal),
-        background-color ease var(--transition-normal);
+        color ease var(--animation-duration-short),
+        background-color ease var(--animation-duration-short);
 }
 
 .Button-styled.Button-size-xs,

@@ -1,6 +1,6 @@
-# UI System Sandbox
+# Context UI Sandbox
 
-> Sandbox application to develop, showcase and document UI System features.
+> Sandbox application to develop, showcase and document Context UI features.
 
 ## Development
 

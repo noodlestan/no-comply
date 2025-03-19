@@ -1,7 +1,8 @@
 import { Component, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { Flex, Focusable } from '../../../../layouts';
+import { Focusable } from '../../../../focus';
+import { Flex } from '../../../../layouts';
 import { resolveFolderItemComponent, resolveNodeItemComponent } from '../../functions';
 import { getTreeSelectionUntil, isFolderItem } from '../../helpers';
 import { TreeNode, TreeNodeComponentProps, TreeNodeItemComponent, TreeState } from '../../types';

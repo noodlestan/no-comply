@@ -1,8 +1,7 @@
 import { Component, JSX } from 'solid-js';
 
-import { FocusTrap } from '../../../dialogs';
 import { ServiceProvider } from '../../../providers';
-import { useBodyClassesEffect, useBodyStylesEffect } from '../../_private';
+import { useBodyClassesEffect, useBodyStylesEffect } from '../../private';
 import { ColorSchemeName } from '../../types';
 import { ColorSchemeProvider } from '../ColorSchemeProvider';
 import { SurfaceProvider } from '../SurfaceProvider';
@@ -35,7 +34,7 @@ export const RootProvider: Component<RootProviderProps> = props => {
                     <SurfaceProvider surface={props.surface} shallow>
                         <TokensProvider>
                             <BodyEffect classList={props.classList} />
-                            <FocusTrap show>{props.children}</FocusTrap>
+                            {props.children}
                         </TokensProvider>
                     </SurfaceProvider>
                 </ThemeProvider>

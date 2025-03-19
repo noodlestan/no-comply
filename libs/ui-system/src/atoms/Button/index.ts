@@ -1,9 +1,2 @@
-export type {
-    ButtonTag,
-    ButtonElement,
-    ButtonVariant,
-    ButtonSize,
-    ButtonLength,
-    ButtonProps,
-} from './Button';
-export { Button } from './Button';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './Button';

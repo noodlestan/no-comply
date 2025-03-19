@@ -1,3 +1,4 @@
-export type { NumberInputProps } from './NumberInput';
-export type { NumberInputLength, NumberInputSize } from './types';
-export { NumberInput } from './NumberInput';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './constants';
+export * from './NumberInput';
+export * from './types';

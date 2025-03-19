@@ -1,0 +1,9 @@
+@layer theme-base {
+    @layer patterns {
+        @layer cards {
+            .NUI-Theme-base {
+                --card-border-radius: var(--radius-m);
+            }
+        }
+    }
+}

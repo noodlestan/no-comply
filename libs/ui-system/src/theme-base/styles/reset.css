@@ -1,0 +1,17 @@
+@layer theme-base {
+    @layer reset {
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            view-transition-name: none;
+        }
+
+        ::view-transition {
+            pointer-events: none;
+        }
+    }
+}

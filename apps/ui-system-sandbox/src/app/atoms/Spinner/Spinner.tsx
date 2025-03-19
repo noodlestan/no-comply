@@ -1,5 +1,4 @@
-import { FadeIn } from '@noodlestan/ui-system';
-import { ApertureIcon } from 'lucide-solid';
+import { CircleDashedIcon } from 'lucide-solid';
 import { Component, Show } from 'solid-js';
 
 import './Spinner.css';
@@ -19,11 +18,9 @@ export const Spinner: Component<SpinnerProps> = props => {
     return (
         <Show when={props.when}>
             <span classList={classList()}>
-                <FadeIn delay={0}>
-                    <span class="Spinner--Icon">
-                        <ApertureIcon />
-                    </span>
-                </FadeIn>
+                <span class="Spinner--Icon">
+                    <CircleDashedIcon />
+                </span>
             </span>
         </Show>
     );

@@ -1,7 +1,6 @@
 import { Accessor, createEffect, on, onCleanup } from 'solid-js';
 
-import { inject } from '../../providers';
-import { ModalsService } from '../services';
+import { ModalsServiceAPI } from '../services';
 import { ModalOptions } from '../types';
 
 export const useModalShowEffect = (
@@ -10,7 +9,7 @@ export const useModalShowEffect = (
     options: ModalOptions,
 ): void => {
     // TODO replace by useModals()
-    const { addModal, deleteModal } = inject(ModalsService);
+    const { addModal, deleteModal } = {} as ModalsServiceAPI;
 
     onCleanup(() => {
         if (show()) {

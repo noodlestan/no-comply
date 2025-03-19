@@ -1,2 +1,2 @@
-export type { DividerVariant, DividerLength, DividerProps } from './Divider';
-export { Divider } from './Divider';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './Divider';

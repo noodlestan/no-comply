@@ -1,20 +1,17 @@
 import { Accessor, Component, JSX, createContext } from 'solid-js';
 
-import { TransitionState } from '../../../../transitions';
 import { ModalOptions } from '../../../types';
 
 export type ModalContextState = {
     id: string;
     options: ModalOptions;
     current: Accessor<boolean>;
-    transition: Accessor<TransitionState | undefined>;
 };
 
 export const ModalContext = createContext<ModalContextState>({
     id: '',
     options: {},
     current: () => false,
-    transition: () => undefined,
 });
 
 type ModalProviderProps = ModalContextState & {

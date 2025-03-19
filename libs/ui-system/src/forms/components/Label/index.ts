@@ -1,2 +1,2 @@
-export type { LabelProps, LabelSize } from './Label';
-export { Label } from './Label';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './Label';

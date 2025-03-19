@@ -1,4 +1,4 @@
-# Noodlestan UI System
+# Noodlestan Context UI
 
 > Component library and UI services built with [SolidJS](https://www.solidjs.com/).
 
@@ -25,17 +25,17 @@ First make sure you are using the correct node version by running `nvm use`.
 
 Install dependencies with `npm install`.
 
-Run `npm run dev` in the UI System sandbox application: `apps/ui-system-sandbox/`.
+Run `npm run dev` in the Context UI sandbox application: `apps/ui-system-sandbox/`.
 
 ### In this repository
 
 Libraries:
 
-- [UI System](https://github.com/noodlestan/ui-system/blob/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
+- [Context UI](https://github.com/noodlestan/ui-system/blob/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
 
 Apps:
 
-- [UI System Sandbox](https://github.com/noodlestan/ui-system/blob/apps/ui-system-sandbox/README.md) - for developing and testing UI System features
+- [Context UI Sandbox](https://github.com/noodlestan/ui-system/blob/apps/ui-system-sandbox/README.md) - for developing and testing Context UI features
 
 ### Stack
 

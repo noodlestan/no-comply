@@ -1,2 +1,2 @@
-export type { FieldProps as FieldsetProps } from './Field';
-export { Field as Fieldset } from './Field';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './Field';

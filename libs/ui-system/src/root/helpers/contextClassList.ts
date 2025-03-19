@@ -1,4 +1,4 @@
-import { ClassList } from '../_private';
+import { ClassList } from '../private';
 
 import { contextClassNames } from './contextClassNames';
 

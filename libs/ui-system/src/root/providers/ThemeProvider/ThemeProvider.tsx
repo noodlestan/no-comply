@@ -1,12 +1,9 @@
 import { Component, JSX, createContext, useContext } from 'solid-js';
 
-import { useSettings } from '../../../providers';
 import { ThemesError } from '../../errors';
 import { themesStore } from '../../stores';
 import { SystemTheme } from '../../types';
 import { TokensProvider } from '../TokensProvider';
-
-import { THEME_SETTINGS, THEME_SETTINGS_GROUPS } from './constants';
 
 type ThemeContextState = { theme: () => SystemTheme };
 
@@ -28,10 +25,6 @@ type ThemeProviderProps = {
 
 export const ThemeProvider: Component<ThemeProviderProps> = props => {
     const { themeByName } = themesStore;
-    const { addSettings, addGroups } = useSettings();
-
-    addSettings(THEME_SETTINGS);
-    addGroups(THEME_SETTINGS_GROUPS);
 
     const value = () => ({ theme: () => themeByName(props.theme) });
 

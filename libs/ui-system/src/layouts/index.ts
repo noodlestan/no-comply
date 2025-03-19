@@ -1,14 +1,2 @@
-export type {
-    FlexAlign,
-    FlexDirection,
-    FlexGap,
-    FlexPadding,
-    FlexJustify,
-    FlexProps,
-    FlexOverflow,
-    ScreenProps,
-    FocusableProps,
-    FocusableTag,
-    FocusableHoverProps,
-} from './components';
-export { Flex, Screen, Focusable, FocusableHover } from './components';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './components';

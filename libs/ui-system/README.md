@@ -1,4 +1,4 @@
-# UI System
+# Context UI
 
 > Component library and UI services built with [SolidJS](https://www.solidjs.com/).
 

@@ -1,0 +1,8 @@
+/* @index(['./*.css'], f => `@import '${f.path}.css';`) */
+@import './actions.css';
+@import './cards.css';
+@import './data.css';
+@import './dividers.css';
+@import './forms.css';
+@import './layout.css';
+@import './pills.css';

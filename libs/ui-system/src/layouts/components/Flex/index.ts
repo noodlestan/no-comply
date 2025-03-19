@@ -1,10 +1,3 @@
-export type {
-    FlexAlign,
-    FlexDirection,
-    FlexGap,
-    FlexPadding,
-    FlexJustify,
-    FlexOverflow,
-} from './types';
-export type { FlexProps } from './Flex';
-export { Flex } from './Flex';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './Flex';
+export * from './types';

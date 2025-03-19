@@ -1,2 +1,2 @@
-export type { RangeInputProps, RangeInputLength, RangeInputSize } from './RangeInput';
-export { RangeInput } from './RangeInput';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './RangeInput';

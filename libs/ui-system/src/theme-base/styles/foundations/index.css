@@ -1,0 +1,10 @@
+/* @index(['./*.css'], f => `@import '${f.path}.css';`) */
+@import './color.css';
+@import './motion.css';
+@import './opacity.css';
+@import './outline.css';
+/* @import './palettes.css'; */
+@import './radius.css';
+@import './scrollbars.css';
+@import './space.css';
+@import './typography.css';

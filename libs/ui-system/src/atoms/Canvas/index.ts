@@ -1,2 +1,2 @@
-export type { CanvasProps } from './Canvas';
-export { Canvas } from './Canvas';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './Canvas';

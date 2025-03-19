@@ -1,5 +1,7 @@
-import { RootProvider, ThemeGreen, createSettings } from '@noodlestan/ui-system';
+import { RootProvider, ThemeBase, createSettings } from '@noodlestan/ui-system';
 import { render } from 'solid-js/web';
+
+import './styles/reset.css';
 
 import { App } from './app';
 import { SystemUIProvider, createSystemUIContext } from './providers';
@@ -20,7 +22,7 @@ render(() => {
     return (
         <SystemUIProvider {...systemUIContext} themeSettings={themeSettings}>
             {/* <ThemeStudio /> */}
-            <ThemeGreen />
+            <ThemeBase />
             <RootProvider colorScheme={colorScheme()} theme="base" surface="stage">
                 <App />
             </RootProvider>

@@ -1,2 +1,2 @@
-export type { IconButtonProps } from './IconButton';
-export { IconButton } from './IconButton';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './IconButton';

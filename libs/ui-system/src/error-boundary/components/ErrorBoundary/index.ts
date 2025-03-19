@@ -1,2 +1,3 @@
-export type { ErrorBoundaryProps } from './ErrorBoundary';
-export { ErrorBoundary } from './ErrorBoundary';
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './ErrorBoundary';
+export * from './types';
