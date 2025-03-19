@@ -43,7 +43,7 @@ const Root: Component<RootProps> = props => {
     const appServices = createAppServices();
     return (
         <ErrorBoundaryScreen>
-            <AppServicesProvider value={appServices}>
+            <AppServicesProvider appServices={appServices}>
                 <Main>{props.children}</Main>
             </AppServicesProvider>
         </ErrorBoundaryScreen>

@@ -5,12 +5,12 @@ import { FocusTargetConsumerAPI, FocusTargetId } from '../../services';
 import { FocusProviderContext } from './private';
 
 export const useFocusTarget = (target: FocusTargetId): FocusTargetConsumerAPI => {
-    const api = useContext(FocusProviderContext);
-    if (!('setTarget' in api)) {
+    const context = useContext(FocusProviderContext);
+    if (!context) {
         throw new Error('useFocus() must be wrapped in <FocusServiceProvider/>');
     }
 
-    const setFocus = () => api.setFocus(target);
+    const setFocus = () => context.setFocus(target);
 
     return [setFocus];
 };

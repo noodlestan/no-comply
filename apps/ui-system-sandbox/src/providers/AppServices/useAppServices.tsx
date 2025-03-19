@@ -4,9 +4,9 @@ import { AppServicesContext } from './private';
 import { AppServicesAPI } from './types';
 
 export const useAppServices = (): AppServicesAPI => {
-    const api = useContext(AppServicesContext);
-    if (!('ready' in api)) {
+    const context = useContext(AppServicesContext);
+    if (!context) {
         throw new Error('useAppServices() must be wrapped in <AppServicesProvider/>');
     }
-    return api;
+    return context;
 };

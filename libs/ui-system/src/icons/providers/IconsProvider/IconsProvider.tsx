@@ -9,5 +9,6 @@ type IconsProviderProps = {
 };
 
 export const IconsProvider: Component<IconsProviderProps> = props => {
+    // eslint-disable-next-line solid/reactivity
     return <IconsContext.Provider value={props.icons}>{props.children}</IconsContext.Provider>;
 };

@@ -10,6 +10,7 @@ type SelectionProviderProps = {
 
 export const SelectionProvider: Component<SelectionProviderProps> = props => {
     return (
+        // eslint-disable-next-line solid/reactivity
         <SelectionContext.Provider value={props.selection}>
             {props.children}
         </SelectionContext.Provider>

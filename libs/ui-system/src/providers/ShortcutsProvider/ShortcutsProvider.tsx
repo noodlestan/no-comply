@@ -4,13 +4,14 @@ import { ShortcutsContext } from './private';
 import { ShortcutsService } from './types';
 
 type SettingsProviderProps = {
-    keyboardShortcuts: ShortcutsService;
+    shortcutsService: ShortcutsService;
     children?: JSX.Element;
 };
 
 export const ShortcutsProvider: Component<SettingsProviderProps> = props => {
     return (
-        <ShortcutsContext.Provider value={props.keyboardShortcuts}>
+        // eslint-disable-next-line solid/reactivity
+        <ShortcutsContext.Provider value={props.shortcutsService}>
             {props.children}
         </ShortcutsContext.Provider>
     );

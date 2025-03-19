@@ -5,11 +5,11 @@ import { themesStore } from '../../stores';
 import { SystemTheme } from '../../types';
 import { TokensProvider } from '../TokensProvider';
 
-type ThemeContextState = { theme: () => SystemTheme };
+type ThemeContextAPI = { theme: () => SystemTheme };
 
-export const ThemeContext = createContext<ThemeContextState>();
+export const ThemeContext = createContext<ThemeContextAPI>();
 
-export const useThemeContext = (): ThemeContextState => {
+export const useThemeContext = (): ThemeContextAPI => {
     const context = useContext(ThemeContext);
     if (!context) {
         throw new ThemesError(`No ThemeContext found`);

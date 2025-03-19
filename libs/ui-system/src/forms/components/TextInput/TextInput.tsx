@@ -51,7 +51,7 @@ export const TextInput: Component<TextInputProps> = props => {
     const size = () => props.size || defaultProps.size;
     const length = () => props.length || defaultProps.length;
 
-    const [, setWasTouched] = createSignal<boolean>();
+    const [wasTouched, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
 
     const currentValue = () => {
@@ -127,6 +127,7 @@ export const TextInput: Component<TextInputProps> = props => {
         'TextInput-is-disabled': props.disabled,
         'TextInput-is-invalid': Boolean(props.invalid),
         'TextInput-is-modified': isModified() || props.modified,
+        'TextInput-was-touched': wasTouched(),
         [`TextInput-size-${size()}`]: true,
     });
 

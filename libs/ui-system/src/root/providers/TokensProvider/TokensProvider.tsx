@@ -7,11 +7,11 @@ import { useColorSchemeContext } from '../ColorSchemeProvider';
 import { useSurfacesContext } from '../SurfaceProvider';
 import { useThemeContext } from '../ThemeProvider';
 
-type TokensContextState = { tokens: TokenMap };
+type TokensContextAPI = { tokens: TokenMap };
 
-export const TokensContext = createContext<TokensContextState>();
+export const TokensContext = createContext<TokensContextAPI>();
 
-export const useTokensContext = (): TokensContextState => {
+export const useTokensContext = (): TokensContextAPI => {
     const context = useContext(TokensContext);
     if (!context) {
         throw new ThemesError(`No TokensContext found`);

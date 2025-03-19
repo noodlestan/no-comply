@@ -46,7 +46,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
     const size = () => props.size || defaultProps.size;
     const length = () => props.length || defaultProps.length;
 
-    const [, setWasTouched] = createSignal<boolean>();
+    const [wasTouched, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
 
     const currentValue = () => {
@@ -122,6 +122,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
         'RangeInput-is-disabled': Boolean(props.disabled),
         'RangeInput-is-invalid': Boolean(props.invalid),
         'RangeInput-is-modified': isModified() || props.modified,
+        'RangeInput-is-touched': wasTouched(),
         [`RangeInput-size-${size()}`]: true,
     });
 

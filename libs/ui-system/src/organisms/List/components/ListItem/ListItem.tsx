@@ -18,6 +18,7 @@ type ListItemProps = {
 
 export const ListItem: Component<ListItemProps> = props => {
     const { getFirstSelected, isSelected, select, toggleSelected, clearSelection, setSelection } =
+        // eslint-disable-next-line solid/reactivity
         props.state;
 
     const component = (cProps: ListItemComponentProps) => {

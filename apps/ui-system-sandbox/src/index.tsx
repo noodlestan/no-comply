@@ -1,10 +1,10 @@
-import { RootProvider, ThemeBase, createSettings } from '@noodlestan/ui-system';
+import { RootProvider, SettingsProvider, ThemeBase, createSettings } from '@noodlestan/ui-system';
 import { render } from 'solid-js/web';
-
-import './styles/reset.css';
 
 import { App } from './app';
 import { SystemUIProvider, createSystemUIContext } from './providers';
+
+import './styles/reset.css';
 
 const root = document.getElementById('root') as HTMLElement;
 
@@ -20,12 +20,14 @@ render(() => {
     const { colorScheme } = systemUIContext;
 
     return (
-        <SystemUIProvider {...systemUIContext} themeSettings={themeSettings}>
-            {/* <ThemeStudio /> */}
-            <ThemeBase />
-            <RootProvider colorScheme={colorScheme()} theme="base" surface="stage">
-                <App />
-            </RootProvider>
+        <SystemUIProvider systemUI={systemUIContext}>
+            <SettingsProvider settings={themeSettings}>
+                {/* <ThemeStudio /> */}
+                <ThemeBase />
+                <RootProvider colorScheme={colorScheme()} theme="base" surface="stage">
+                    <App />
+                </RootProvider>
+            </SettingsProvider>
         </SystemUIProvider>
     );
 }, root);

@@ -1,6 +1,5 @@
 import { Component, JSX } from 'solid-js';
 
-import { ServiceProvider } from '../../../providers';
 import { useBodyClassesEffect, useBodyStylesEffect } from '../../private';
 import { ColorSchemeName } from '../../types';
 import { ColorSchemeProvider } from '../ColorSchemeProvider';
@@ -28,17 +27,15 @@ const BodyEffect: Component<BodyClassNameEffectProps> = props => {
 
 export const RootProvider: Component<RootProviderProps> = props => {
     return (
-        <ServiceProvider>
-            <ColorSchemeProvider>
-                <ThemeProvider theme={props.theme} shallow>
-                    <SurfaceProvider surface={props.surface} shallow>
-                        <TokensProvider>
-                            <BodyEffect classList={props.classList} />
-                            {props.children}
-                        </TokensProvider>
-                    </SurfaceProvider>
-                </ThemeProvider>
-            </ColorSchemeProvider>
-        </ServiceProvider>
+        <ColorSchemeProvider>
+            <ThemeProvider theme={props.theme} shallow>
+                <SurfaceProvider surface={props.surface} shallow>
+                    <TokensProvider>
+                        <BodyEffect classList={props.classList} />
+                        {props.children}
+                    </TokensProvider>
+                </SurfaceProvider>
+            </ThemeProvider>
+        </ColorSchemeProvider>
     );
 };

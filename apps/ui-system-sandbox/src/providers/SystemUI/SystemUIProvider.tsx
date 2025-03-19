@@ -1,18 +1,16 @@
-import { SettingsAPI, SettingsProvider } from '@noodlestan/ui-system';
 import { Component, JSX } from 'solid-js';
 
 import { SystemUIContext } from './private';
-import { SystemUIContextState } from './types';
+import { SystemUIContextAPI } from './types';
 
-type SystemUIProviderProps = SystemUIContextState & {
-    themeSettings: SettingsAPI;
+type SystemUIProviderProps = {
+    systemUI: SystemUIContextAPI;
     children?: JSX.Element;
 };
 
 export const SystemUIProvider: Component<SystemUIProviderProps> = props => {
     return (
-        <SystemUIContext.Provider value={props}>
-            <SettingsProvider settings={props.themeSettings}>{props.children}</SettingsProvider>
-        </SystemUIContext.Provider>
+        // eslint-disable-next-line solid/reactivity
+        <SystemUIContext.Provider value={props.systemUI}>{props.children}</SystemUIContext.Provider>
     );
 };

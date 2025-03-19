@@ -4,10 +4,10 @@ import { ContextsContext } from './private';
 import { ContextsService } from './types';
 
 export const useContexts = (): ContextsService => {
-    const api = useContext(ContextsContext);
-    if (!('setContext' in api)) {
+    const context = useContext(ContextsContext);
+    if (!context) {
         throw new Error('useContexts() must be wrapped in <ContextsProvider/>');
     }
 
-    return api;
+    return context;
 };

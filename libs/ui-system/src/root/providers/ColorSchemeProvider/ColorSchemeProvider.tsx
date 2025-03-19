@@ -4,14 +4,14 @@ import { ThemesError } from '../../errors';
 import { colorSchemeStore } from '../../private';
 import { ColorSchemeName } from '../../types';
 
-type ColorSchemeContextState = {
+type ColorSchemeContextAPI = {
     colorScheme: Accessor<ColorSchemeName>;
     setColorScheme: (name: ColorSchemeName) => void;
 };
 
-export const ColorSchemeContext = createContext<ColorSchemeContextState>();
+export const ColorSchemeContext = createContext<ColorSchemeContextAPI>();
 
-export const useColorSchemeContext = (): ColorSchemeContextState => {
+export const useColorSchemeContext = (): ColorSchemeContextAPI => {
     const context = useContext(ColorSchemeContext);
     if (!context) {
         throw new ThemesError(`No ColorSchemeContext found`);
@@ -26,7 +26,7 @@ type ColorSchemeProviderProps = {
 
 export const ColorSchemeProvider: Component<ColorSchemeProviderProps> = props => {
     const { colorScheme, setColorScheme } = colorSchemeStore;
-    const context: ColorSchemeContextState = {
+    const context: ColorSchemeContextAPI = {
         colorScheme,
         setColorScheme: name => setColorScheme(name),
     };

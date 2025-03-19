@@ -2,4 +2,4 @@ import { createContext } from 'solid-js';
 
 import { ContextsService } from '../types';
 
-export const ContextsContext = createContext<ContextsService>({} as ContextsService);
+export const ContextsContext = createContext<ContextsService>();

@@ -4,10 +4,10 @@ import { IconsContext } from './private';
 import { IconsAPI } from './types';
 
 export const useIcons = (): IconsAPI => {
-    const api = useContext(IconsContext);
-    if (!('getIcon' in api)) {
+    const context = useContext(IconsContext);
+    if (!context) {
         throw new Error('useIcons() must be wrapped in <IconsProvider/>');
     }
 
-    return api;
+    return context;
 };

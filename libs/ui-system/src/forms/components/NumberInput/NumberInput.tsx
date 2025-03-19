@@ -46,7 +46,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
     const size = () => props.size || defaultProps.size;
     const length = () => props.length || defaultProps.length;
 
-    const [, setWasTouched] = createSignal<boolean>();
+    const [wasTouched, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
 
     const currentValue = () => {
@@ -194,6 +194,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
         'NumberInput-is-disabled': Boolean(props.disabled),
         'NumberInput-is-invalid': Boolean(props.invalid),
         'NumberInput-is-modified': isModified() || props.modified,
+        'NumberInput-is-touched': wasTouched(),
         [`NumberInput-size-${size()}`]: true,
     });
 
@@ -212,6 +213,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
             value={currentValue()}
             disabled={props.disabled}
             {...handlers}
+            // eslint-disable-next-line solid/reactivity
             ref={setInputRef}
             classList={classList()}
             style={style()}

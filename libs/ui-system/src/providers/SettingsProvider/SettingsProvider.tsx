@@ -10,6 +10,7 @@ type SettingsProviderProps = {
 
 export const SettingsProvider: Component<SettingsProviderProps> = props => {
     return (
+        // eslint-disable-next-line solid/reactivity
         <SettingsContext.Provider value={props.settings}>{props.children}</SettingsContext.Provider>
     );
 };

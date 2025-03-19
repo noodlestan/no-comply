@@ -5,7 +5,7 @@ import { FocusContextAPI, FocusContextOptions } from './types';
 
 export const createFocusContext = (options: FocusContextOptions = {}): FocusContextAPI => {
     const parent = useContext(FocusParentContext);
-    if (!('createChildContext' in parent)) {
+    if (!parent) {
         throw new Error('useFocusContext() must be wrapped in <FocusContextProvider/>');
     }
 

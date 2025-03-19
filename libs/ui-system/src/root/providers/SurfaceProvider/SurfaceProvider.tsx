@@ -5,11 +5,11 @@ import { surfacesStore } from '../../stores/surfacesStore';
 import { SystemSurface } from '../../types';
 import { TokensProvider } from '../TokensProvider';
 
-type SurfaceContextState = { surface: () => SystemSurface };
+type SurfaceContextAPI = { surface: () => SystemSurface };
 
-export const SurfaceContext = createContext<SurfaceContextState>();
+export const SurfaceContext = createContext<SurfaceContextAPI>();
 
-export const useSurfacesContext = (): SurfaceContextState => {
+export const useSurfacesContext = (): SurfaceContextAPI => {
     const context = useContext(SurfaceContext);
     if (!context) {
         throw new ThemesError(`No SurfaceContext found`);

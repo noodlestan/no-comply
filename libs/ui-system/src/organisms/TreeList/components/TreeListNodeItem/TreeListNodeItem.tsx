@@ -32,6 +32,7 @@ export const TreeListNodeItem: Component<TreeListNodeItemProps> = props => {
         getSelection,
         toggleSelected,
         setSelection,
+        // eslint-disable-next-line solid/reactivity
     } = props.state;
 
     const isFolder = () => isFolderItem(props.node.object);

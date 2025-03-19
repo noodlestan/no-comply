@@ -89,6 +89,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
             <span classList={{ 'Checkbox--control': true }}>
                 <CheckIcon />
                 <input
+                    // eslint-disable-next-line solid/reactivity
                     ref={setInputRef}
                     type="checkbox"
                     checked={props.checked}

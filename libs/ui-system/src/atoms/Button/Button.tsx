@@ -121,7 +121,7 @@ export const Button: Component<ButtonProps> = props => {
         }
     };
 
-    const handlers = {
+    const handlers = () => ({
         onClick: handleClick,
         onFocus: props.onFocus,
         onBlur: props.onBlur,
@@ -129,15 +129,16 @@ export const Button: Component<ButtonProps> = props => {
         onTouchStart: handleMouseDown,
         onKeyDown: handleKeyDown,
         onKeyPress: handleKeyPress,
-    };
+    });
 
-    const dataProps = (
-        props: Record<string, unknown>,
-    ): Record<string, string | boolean | undefined> => {
+    const dataProps = (): Record<string, string | boolean | undefined> => {
         const dataAttributes: Record<string, string | boolean | undefined> = {};
         for (const key in props) {
             if (key.startsWith('data-')) {
-                dataAttributes[key] = props[key] as string | boolean | undefined;
+                dataAttributes[key] = props[key as keyof ButtonProps] as
+                    | string
+                    | boolean
+                    | undefined;
             }
         }
         return dataAttributes;
@@ -183,8 +184,8 @@ export const Button: Component<ButtonProps> = props => {
                     {...commonProps()}
                     href={props.href}
                     target={target()}
-                    {...dataProps(props)}
-                    {...handlers}
+                    {...dataProps()}
+                    {...handlers()}
                     {...ariaProps()}
                 >
                     {props.children}
@@ -195,8 +196,8 @@ export const Button: Component<ButtonProps> = props => {
                     ref={props.ref}
                     {...commonProps()}
                     disabled={props.disabled}
-                    {...dataProps(props)}
-                    {...handlers}
+                    {...dataProps()}
+                    {...handlers()}
                     {...ariaProps()}
                 >
                     {props.children}
@@ -208,8 +209,8 @@ export const Button: Component<ButtonProps> = props => {
                     classList={classList()}
                     style={style()}
                     tabIndex={!props.disabled ? 0 : undefined}
-                    {...dataProps(props)}
-                    {...handlers}
+                    {...dataProps()}
+                    {...handlers()}
                     {...ariaProps()}
                 >
                     {props.children}

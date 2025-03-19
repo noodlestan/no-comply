@@ -1,5 +1,5 @@
 import { createContext } from 'solid-js';
 
-import { SystemUIContextState } from '../types';
+import { SystemUIContextAPI } from '../types';
 
-export const SystemUIContext = createContext<SystemUIContextState>({} as SystemUIContextState);
+export const SystemUIContext = createContext<SystemUIContextAPI>();

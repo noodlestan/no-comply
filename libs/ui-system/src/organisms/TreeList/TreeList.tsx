@@ -24,6 +24,7 @@ export const TreeList: Component<TreeListProps> = props => {
     const { handlers } = createTreeListKeyboardController(
         () => treeListRef,
         () => props.root,
+        // eslint-disable-next-line solid/reactivity
         props.state,
     );
 
