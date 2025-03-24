@@ -1,7 +1,7 @@
 {
-  "name": "@noodlestan/ui-system",
+  "name": "@noodlestan/context-ui-dev",
   "version": "0.0.11",
-  "description": "Component library and UI services built with SolidJS.",
+  "description": "Instrumentation and debug tools for Context UI.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,
@@ -27,16 +27,9 @@
     "dev": "vite build --watch",
     "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
-  "dependencies": {
-    "@solid-primitives/map": "0.4.11",
-    "@solid-primitives/refs": "1.0.8",
-    "@solid-primitives/set": "0.4.11",
-    "solid-services": "4.3.2",
-    "ts-deepmerge": "7.0.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "html-parse-string": "^0.0.9",
-    "i18next": "^24.2.3",
+    "@noodlestan/ui-system": "^0.0.11",
     "lucide-solid": "^0.453.0",
     "solid-js": "^1.9.5"
   },

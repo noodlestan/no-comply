@@ -1,0 +1,9 @@
+.DebugDrawer {
+    position: absolute;
+    bottom: 0;
+    width: 90vw;
+    left: 5vw;
+    max-height: 90vh;
+    overflow-x: scroll;
+    background-color: #789;
+}
