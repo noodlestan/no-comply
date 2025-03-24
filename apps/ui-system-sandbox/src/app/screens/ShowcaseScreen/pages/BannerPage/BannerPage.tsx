@@ -1,5 +1,5 @@
-import { Banner, BannerMessage, BannerProps, Button } from '@noodlestan/ui-system';
-import { Component } from 'solid-js';
+import { Banner, BannerMessage, type BannerProps, Button } from '@noodlestan/ui-system';
+import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';

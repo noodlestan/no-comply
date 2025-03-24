@@ -1,5 +1,5 @@
 import { createTreeBaseNode, generateTreeNodeUniqueId } from '../functions';
-import { TreeFolder, TreeItem, TreeNode, TreeNodeItemComponent } from '../types';
+import type { TreeFolder, TreeItem, TreeNode, TreeNodeItemComponent } from '../types';
 
 export const createTreeNode = (
     item: TreeItem,

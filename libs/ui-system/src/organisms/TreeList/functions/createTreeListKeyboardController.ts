@@ -1,6 +1,6 @@
-import { Accessor } from 'solid-js';
+import type { Accessor } from 'solid-js';
 
-import { TreeListKeyboardControllerAPI, TreeNode, TreeState } from '../types';
+import type { TreeListKeyboardControllerAPI, TreeNode, TreeState } from '../types';
 
 export function createTreeListKeyboardController(
     treeElement: Accessor<Element | undefined>,
@@ -55,12 +55,16 @@ export function createTreeListKeyboardController(
         switch (ev.key) {
             case 'ArrowUp': {
                 const prevNode = nodes[Math.max(0, nodeIndex - 1)];
-                focusElement(prevNode);
+                if (prevNode) {
+                    focusElement(prevNode);
+                }
                 break;
             }
             case 'ArrowDown': {
                 const nextNode = nodes[Math.min(nodes.length - 1, nodeIndex + 1)];
-                focusElement(nextNode);
+                if (nextNode) {
+                    focusElement(nextNode);
+                }
                 break;
             }
             case 'ArrowLeft': {

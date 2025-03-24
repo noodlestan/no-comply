@@ -1,6 +1,6 @@
 import type { SurfaceProps } from '@noodlestan/ui-system';
 import { Flex, Label, Surface, Text } from '@noodlestan/ui-system';
-import { Component, JSX, splitProps } from 'solid-js';
+import { type Component, type JSX, splitProps } from 'solid-js';
 
 import './SurfaceVariantExample.css';
 
@@ -10,17 +10,17 @@ type SurfaceVariantProps = SurfaceProps & {
 };
 
 export const SurfaceVariant: Component<SurfaceVariantProps> = props => {
-    const [localProps, surfaceProps] = splitProps(props, ['onVariant', 'children']);
+    const [locals, surfaceProps] = splitProps(props, ['onVariant', 'children']);
 
     return (
         <Flex gap="s" classList={{ SurfaceVariantExample: true }}>
             <Label>{surfaceProps.variant}</Label>
-            <Surface variant={localProps.onVariant}>
+            <Surface variant={locals.onVariant}>
                 <Flex padding="l" gap="m">
                     <Surface {...surfaceProps}>
-                        <Flex>{localProps.children}</Flex>
+                        <Flex>{locals.children}</Flex>
                     </Surface>
-                    <Text size="xs">(on {localProps.onVariant})</Text>
+                    <Text size="xs">(on {locals.onVariant})</Text>
                 </Flex>
             </Surface>
         </Flex>

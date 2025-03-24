@@ -1,5 +1,5 @@
 import { DataItem, RangeInput } from '@noodlestan/ui-system';
-import { Component, createSignal } from 'solid-js';
+import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';

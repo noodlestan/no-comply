@@ -1,6 +1,6 @@
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
-import { TreeNodeComponentProps } from '../../types';
+import type { TreeNodeComponentProps } from '../../types';
 
 import './TreeListDefaultNodeComponent.css';
 

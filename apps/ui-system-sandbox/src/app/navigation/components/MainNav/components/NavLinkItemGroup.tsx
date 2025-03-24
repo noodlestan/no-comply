@@ -1,8 +1,8 @@
 import { Display, Flex, NavLink } from '@noodlestan/ui-system';
-import { Component, For } from 'solid-js';
+import { type Component, For } from 'solid-js';
 
 import { ROUTES } from '../../../constants';
-import { NavLinkGroup } from '../types';
+import type { NavLinkGroup } from '../types';
 
 type NavLinkItemGroupProps = NavLinkGroup;
 

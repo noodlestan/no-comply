@@ -1,7 +1,7 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
-import { IconComponent } from '../../icons';
-import { Button, ButtonProps } from '../Button';
+import type { IconComponent } from '../../icons';
+import { Button, type ButtonProps } from '../Button';
 
 import './IconButton.css';
 

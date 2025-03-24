@@ -1,8 +1,7 @@
-import { Component, JSX } from 'solid-js';
-// import { ErrorBoundary as Boundary, Component, JSX, children } from 'solid-js';
+import { ErrorBoundary as Boundary, type Component, type JSX } from 'solid-js';
 
-// import { ErrorBoundaryHandler } from './private';
-import { ErrorBoundaryFallbackProps } from './types';
+import { ErrorBoundaryHandler } from './private';
+import type { ErrorBoundaryFallbackProps } from './types';
 
 export type ErrorBoundaryProps = {
     fallback: Component<ErrorBoundaryFallbackProps>;
@@ -18,12 +17,12 @@ export type ErrorBoundaryProps = {
 
 export const ErrorBoundary: Component<ErrorBoundaryProps> = props => {
     return (
-        // <Boundary
-        //     fallback={(err, reset) => (
-        //         <ErrorBoundaryHandler fallback={props.fallback} error={err} reset={reset} />
-        //     )}
-        // >
-        <>{props.children}</>
-        // </Boundary>
+        <Boundary
+            fallback={(err, reset) => (
+                <ErrorBoundaryHandler fallback={props.fallback} error={err} reset={reset} />
+            )}
+        >
+            <>{props.children}</>
+        </Boundary>
     );
 };

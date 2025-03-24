@@ -1,6 +1,6 @@
 import { Icon } from '@noodlestan/ui-system';
 import { ClockIcon, SettingsIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import './ExampleNano.css';
 

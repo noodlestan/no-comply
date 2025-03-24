@@ -1,12 +1,13 @@
 import { ChevronDownIcon, ChevronRightIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { ExpandButton } from '../../../../atoms';
+import type { ClassList } from '../../../../dom';
 
 type TreeListExpandButtonProps = {
     isExpanded: boolean;
     onClick: (ev: Event) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 export const TreeListExpandButton: Component<TreeListExpandButtonProps> = props => {

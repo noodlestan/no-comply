@@ -1,4 +1,4 @@
-import { FocusServiceAPI, FocusTargetId } from './types';
+import type { FocusServiceAPI, FocusTargetId } from './types';
 
 export const createFocusService = (): FocusServiceAPI => {
     let currentTarget: FocusTargetId | undefined;

@@ -1,4 +1,6 @@
-import { Component } from 'solid-js';
+import type { Component } from 'solid-js';
+
+import type { ClassList } from '../../dom';
 
 import './Divider.css';
 
@@ -8,7 +10,7 @@ export type DividerLength = 's' | 'm' | 'l' | 'full';
 export type DividerProps = {
     variant?: DividerVariant;
     length?: number | DividerLength;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 const defaultProps: Pick<DividerProps, 'variant' | 'length'> = {

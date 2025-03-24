@@ -12,7 +12,7 @@ import {
     TextInput,
 } from '@noodlestan/ui-system';
 import { ClockIcon, LockIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import './ExampleLarge.css';
 

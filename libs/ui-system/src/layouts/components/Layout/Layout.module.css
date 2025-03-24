@@ -1,0 +1,55 @@
+.Layout {
+    display: block;
+}
+
+.Layout-padding-none {
+    padding: 0;
+}
+
+.Layout-padding-xs {
+    padding: var(--space-pad--1);
+}
+
+.Layout-padding-s {
+    padding: var(--space-pad-0);
+}
+
+.Layout-padding-m {
+    padding: var(--space-pad-1);
+}
+
+.Layout-padding-l {
+    padding: var(--space-pad-2);
+}
+
+.Layout-padding-xl {
+    padding: var(--space-pad-3);
+}
+
+.Layout-stretch-full,
+.Layout-stretch-width {
+    width: 100%;
+    min-width: 100%;
+}
+
+.Layout-stretch-full,
+.Layout-stretch-height {
+    height: 100%;
+    min-height: 100%;
+}
+
+.Layout-overflow-auto {
+    overflow: auto;
+}
+
+.Layout-overflow-x-auto {
+    overflow-x: auto;
+}
+
+.Layout-overflow-y-auto {
+    overflow-y: auto;
+}
+
+.Layout-overflow-hidden {
+    overflow: hidden;
+}

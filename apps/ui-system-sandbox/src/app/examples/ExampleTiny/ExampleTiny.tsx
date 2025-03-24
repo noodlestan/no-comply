@@ -1,6 +1,6 @@
 import { Display, Icon, IconButton } from '@noodlestan/ui-system';
 import { ClockIcon, SettingsIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import './ExampleTiny.css';
 

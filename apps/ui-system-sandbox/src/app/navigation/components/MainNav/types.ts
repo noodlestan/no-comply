@@ -1,4 +1,4 @@
-import { ComponentName } from '../../../../data';
+import type { ComponentName } from '../../../../data';
 
 export type ItemLink = {
     component: ComponentName;

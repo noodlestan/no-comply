@@ -1,4 +1,6 @@
-import { Component, JSX, createSignal } from 'solid-js';
+import { type Component, type JSX, createSignal } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import './RangeInput.css';
 
@@ -21,7 +23,7 @@ export type RangeInputProps = {
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 const defaultProps: Pick<RangeInputProps, 'size' | 'length'> = {

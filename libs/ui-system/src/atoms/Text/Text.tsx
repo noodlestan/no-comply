@@ -1,5 +1,7 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
+
+import type { ClassList } from '../../dom';
 
 import './Text.css';
 
@@ -22,7 +24,7 @@ export type TextProps = {
     color?: TextColor;
     tag?: string;
     nowrap?: boolean;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

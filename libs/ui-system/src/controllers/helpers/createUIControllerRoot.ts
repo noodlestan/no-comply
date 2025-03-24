@@ -1,4 +1,4 @@
-import { UIControllerChildAPI, UIControllerContainer, UIControllerParent } from '../types';
+import type { UIControllerChildAPI, UIControllerContainer, UIControllerParent } from '../types';
 
 import { createUIControllerParentAPI } from './createUIControllerParentAPI';
 

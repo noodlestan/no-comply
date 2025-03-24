@@ -1,4 +1,4 @@
-import { IconComponent, IconMap } from '../../types';
+import type { IconComponent, IconMap } from '../../types';
 
 export type IconsAPI = {
     addIcon: (name: string, icon: IconComponent) => void;

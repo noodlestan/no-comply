@@ -1,7 +1,7 @@
-import { Accessor, createEffect, on, onCleanup } from 'solid-js';
+import { type Accessor, createEffect, on, onCleanup } from 'solid-js';
 
-import { ModalsServiceAPI } from '../services';
-import { ModalOptions } from '../types';
+import { type ModalsServiceAPI } from '../services';
+import { type ModalOptions } from '../types';
 
 export const useModalShowEffect = (
     show: Accessor<boolean>,

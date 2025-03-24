@@ -1,9 +1,9 @@
-import { Component, JSX, createSignal, splitProps } from 'solid-js';
+import { type Component, type JSX, createSignal, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { Button, ButtonElement, ButtonProps } from '../../../atoms';
-import { uuid } from '../../../functions';
-import { DataAttributes } from '../../../types';
+import { Button, type ButtonElement, type ButtonProps } from '../../../atoms';
+import { type ClassList, type DataAttributes } from '../../../dom';
+import { uuid } from '../../../private';
 
 import './Focusable.css';
 
@@ -14,7 +14,7 @@ export type FocusableProps = Omit<
     'label' | 'onFocus' | 'onBlur' | 'classList' | 'tag' | 'role'
 > & {
     label: string;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     tag?: FocusableTag;
     role?: JSX.HTMLAttributes<HTMLDivElement>['role'];
     children?: JSX.Element;

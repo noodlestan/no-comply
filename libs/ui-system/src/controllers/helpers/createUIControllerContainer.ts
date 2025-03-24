@@ -1,6 +1,6 @@
 import { ReactiveMap } from '@solid-primitives/map';
 
-import { UIControllerChildAPI, UIControllerContainer, UIControllerName } from '../types';
+import type { UIControllerChildAPI, UIControllerContainer, UIControllerName } from '../types';
 
 export const createUIControllerContainer = <
     T extends UIControllerChildAPI = UIControllerChildAPI,

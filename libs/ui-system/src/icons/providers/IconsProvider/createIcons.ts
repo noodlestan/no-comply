@@ -1,6 +1,6 @@
-import { IconComponent, IconMap } from '../../types';
+import type { IconComponent, IconMap } from '../../types';
 
-import { IconsAPI } from './types';
+import type { IconsAPI } from './types';
 
 export const createIcons = (): IconsAPI => {
     console.info('createIcons()');
@@ -13,7 +13,7 @@ export const createIcons = (): IconsAPI => {
 
     const addIcons = (map: IconMap): void => {
         for (const key in map) {
-            iconMap[key] = map[key];
+            iconMap[key] = map[key] as IconComponent;
         }
     };
 
@@ -21,7 +21,7 @@ export const createIcons = (): IconsAPI => {
         if (!(name in iconMap)) {
             throw new Error(`Unknown icon "${name}".`);
         }
-        return iconMap[name];
+        return iconMap[name] as IconComponent;
     };
 
     const api: IconsAPI = {

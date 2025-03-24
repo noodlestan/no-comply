@@ -1,6 +1,6 @@
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
-import { IconProps } from './types';
+import type { IconProps } from './types';
 
 import './Icon.css';
 

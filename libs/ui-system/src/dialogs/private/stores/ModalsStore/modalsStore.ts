@@ -1,8 +1,8 @@
-import { Accessor, createSignal } from 'solid-js';
+import { type Accessor, createSignal } from 'solid-js';
 
 import type { ModalOptions } from '../../../types';
 
-import { ModalState } from './types';
+import type { ModalState } from './types';
 import {
     addModal,
     deleteModal,

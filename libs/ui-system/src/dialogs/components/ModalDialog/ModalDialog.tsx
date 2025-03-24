@@ -1,4 +1,4 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
 import { Surface } from '../../../surface';
 import { Modal } from '../Modal';
@@ -28,7 +28,7 @@ const Dialog: Component<Omit<ModalDialogProps, 'onClose'>> = props => {
 
     return (
         <Surface variant="dialog" classList={classList()}>
-            <div role="dialog" aria-hidden={!props.show} aria-modal="true" tabindex="-1">
+            <div role="dialog" aria-hidden={!props.show} aria-modal="true" tabIndex="-1">
                 {props.children}
             </div>
         </Surface>

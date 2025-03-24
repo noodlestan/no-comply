@@ -1,4 +1,6 @@
-import { Component, JSX, Show } from 'solid-js';
+import { type Component, type JSX, Show } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import './Select.css';
 
@@ -16,7 +18,7 @@ export type SelectProps = {
     invalid?: boolean;
     onChangeValue?: (id: string) => void;
     ref?: (el: HTMLSelectElement) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

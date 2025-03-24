@@ -1,10 +1,10 @@
 import { FolderClosedIcon, FolderOpenIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import { Display } from '../../../../atoms';
 import { Icon } from '../../../../icons';
 import { Flex } from '../../../../layouts';
-import { TreeFolder, TreeNodeComponentProps } from '../../types';
+import type { TreeFolder, TreeNodeComponentProps } from '../../types';
 
 import './TreeListDefaultFolderComponent.css';
 

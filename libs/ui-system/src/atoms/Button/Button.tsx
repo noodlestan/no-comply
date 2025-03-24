@@ -1,6 +1,6 @@
-import { Component, JSX, Show } from 'solid-js';
+import { type Component, type JSX, Show } from 'solid-js';
 
-import { DataAttributes } from '../../types';
+import type { ClassList, DataAttributes } from '../../dom';
 
 import './Button.css';
 
@@ -28,7 +28,7 @@ export type ButtonProps = {
     target?: string;
     tag?: ButtonTag;
     role?: JSX.HTMLAttributes<HTMLDivElement>['role'];
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     ref?: (el: ButtonElement) => void;
     children?: JSX.Element;
 } & DataAttributes;
@@ -162,7 +162,7 @@ export const Button: Component<ButtonProps> = props => {
         if (props.role || props.tag !== 'auto') {
             return {
                 ...label,
-                role: props.role || 'region',
+                role: props.role,
             };
         }
         return label;

@@ -1,6 +1,6 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
-import { FocusServiceAPI } from '../../services';
+import { type FocusServiceAPI } from '../../services';
 
 import { FocusProviderContext } from './private';
 

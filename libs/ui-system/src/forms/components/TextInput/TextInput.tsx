@@ -1,4 +1,6 @@
-import { Component, JSX, createSignal } from 'solid-js';
+import { type Component, type JSX, createSignal } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import './TextInput.css';
 
@@ -23,7 +25,7 @@ export type TextInputProps = {
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 const defaultProps: Pick<TextInputProps, 'size' | 'length'> = {

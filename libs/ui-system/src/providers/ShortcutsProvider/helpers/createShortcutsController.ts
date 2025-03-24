@@ -1,9 +1,9 @@
-import {
+import type {
     UIControllerCommand,
     UIControllerMessage,
     UIControllerMetaWithShortcuts,
 } from '../../../controllers';
-import {
+import type {
     ShortcutCommandController,
     ShortcutControllerMessage,
     ShortcutsControllerAPI,

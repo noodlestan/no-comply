@@ -1,11 +1,11 @@
-import { Display, Flex, Surface } from '@noodlestan/ui-system';
-import { Component, JSX } from 'solid-js';
+import { type ClassList, Display, Flex, Surface } from '@noodlestan/ui-system';
+import type { Component, JSX } from 'solid-js';
 
 import './DemoGroup.css';
 
 type DemoGroupProps = {
     title: string;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

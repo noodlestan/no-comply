@@ -1,6 +1,6 @@
-import { Accessor, createSignal } from 'solid-js';
+import { type Accessor, createSignal } from 'solid-js';
 
-import { FocusTarget } from '../providers';
+import type { FocusTarget } from '../providers';
 
 type RefSignal = [Accessor<FocusTarget | undefined>, (el: HTMLElement) => void];
 

@@ -1,8 +1,13 @@
-import { ShortcutId, UICommandController, UIControllerName, UIShortcut } from '../../controllers';
-import { ContextsService } from '../ContextsProvider';
+import type {
+    ShortcutId,
+    UICommandController,
+    UIControllerName,
+    UIShortcut,
+} from '../../controllers';
+import type { ContextsService } from '../ContextsProvider';
 
 import { getEventKeyBinding, isKeyboardShortcut } from './helpers';
-import {
+import type {
     KeyboardShortcut,
     ShortcutControllerMessage,
     ShortcutKeyBinding,

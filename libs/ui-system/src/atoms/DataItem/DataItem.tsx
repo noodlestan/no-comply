@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
-import { Component, JSX, Show } from 'solid-js';
+import { type Component, type JSX, Show } from 'solid-js';
 
+import type { ClassList } from '../../dom';
 import { Label } from '../../forms';
-import { Icon, IconComponent } from '../../icons';
-import { DataValue, DataValueLength } from '../DataValue';
+import { Icon, type IconComponent } from '../../icons';
+import { DataValue, type DataValueLength } from '../DataValue';
 
 import './DataItem.css';
 
@@ -17,7 +18,7 @@ export type DataItemProps = {
     units?: string;
     icon?: IconComponent | JSX.Element;
     onClick?: () => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     value?: JSX.Element;
     children?: JSX.Element;
 };

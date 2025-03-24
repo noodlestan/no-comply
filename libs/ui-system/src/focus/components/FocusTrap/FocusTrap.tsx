@@ -1,4 +1,4 @@
-import { Component, JSX, createEffect, createUniqueId } from 'solid-js';
+import { type Component, type JSX, createEffect, createUniqueId } from 'solid-js';
 
 import './FocusTrap.css';
 
@@ -68,6 +68,7 @@ export const FocusTrap: Component<FocusTrapProps> = props => {
                 onFocus={handleBeforeFocus}
                 onKeyDown={handleKeyDown}
                 value="ouch"
+                aria-hidden="true"
             />
             <div class="FocusTrap--contents" ref={containerRef}>
                 {props.children}
@@ -79,6 +80,7 @@ export const FocusTrap: Component<FocusTrapProps> = props => {
                 onFocus={handleAfterocus}
                 onKeyDown={handleKeyDown}
                 value="ouch"
+                aria-hidden="true"
             />
         </>
     );

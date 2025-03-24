@@ -1,11 +1,16 @@
-import { Component, Show } from 'solid-js';
+import { type Component, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import { Focusable } from '../../../../focus';
 import { Flex } from '../../../../layouts';
 import { resolveFolderItemComponent, resolveNodeItemComponent } from '../../functions';
 import { getTreeSelectionUntil, isFolderItem } from '../../helpers';
-import { TreeNode, TreeNodeComponentProps, TreeNodeItemComponent, TreeState } from '../../types';
+import type {
+    TreeNode,
+    TreeNodeComponentProps,
+    TreeNodeItemComponent,
+    TreeState,
+} from '../../types';
 import { TreeListDefaultFolderComponent } from '../TreeListDefaultFolderComponent';
 import { TreeListDefaultNodeComponent } from '../TreeListDefaultNodeComponent';
 import { TreeListExpandButton } from '../TreeListExpandButton';
@@ -132,7 +137,7 @@ export const TreeListNodeItem: Component<TreeListNodeItemProps> = props => {
                             />
                         </div>
                     </Show>
-                    <Flex full classList={{ 'TreeListNodeItem--pill': true }}>
+                    <Flex stretch="width" classList={{ 'TreeListNodeItem--pill': true }}>
                         <Show when={isFolder() && props.level}>
                             <Dynamic
                                 component={folderComponent(componentProps())}

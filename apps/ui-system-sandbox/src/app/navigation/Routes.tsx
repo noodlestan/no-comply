@@ -1,5 +1,5 @@
 import { Route } from '@solidjs/router';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import {
     BannerPage,

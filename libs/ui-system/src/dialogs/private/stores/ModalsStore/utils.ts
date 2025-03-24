@@ -1,4 +1,4 @@
-import { ModalState } from './types';
+import type { ModalState } from './types';
 
 export const deleteModal = (items: Array<ModalState>, id: string): Array<ModalState> => {
     return items.filter(item => item.id !== id);

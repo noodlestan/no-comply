@@ -23,13 +23,9 @@
         html,
         body,
         #root {
-            height: 100%;
-        }
-
-        #root {
             width: 100%;
-            overflow-x: hidden;
-            overflow-y: auto;
+            height: 100%;
+            overflow: hidden;
         }
     }
 }

@@ -10,7 +10,7 @@ import {
     TextInput,
 } from '@noodlestan/ui-system';
 import { LockIcon, UnlockIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import './ExampleMedium.css';
 

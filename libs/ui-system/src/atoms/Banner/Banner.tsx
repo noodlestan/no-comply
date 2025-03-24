@@ -1,7 +1,7 @@
 import { AlertTriangleIcon, InfoIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
-import { createClassListMapper, mapClassName } from '../../functions';
+import { type ClassList, createClassList, mapClassName } from '../../dom';
 import { Icon } from '../../icons';
 import { Surface } from '../../surface';
 
@@ -24,7 +24,7 @@ export type BannerProps = {
     size?: BannerSize;
     length?: BannerLength;
     ref?: (el: Element) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 
@@ -40,18 +40,18 @@ export const Banner: Component<BannerProps> = props => {
     const length = () => props.length || defaultProps.length;
     const svg = () => VARIANT_ICON_MAP[(variant && variant()) || 'passive'];
 
-    const localClasses = createClassListMapper(styles, () => ({
-        Banner: true,
-        [`Banner--Surface`]: true,
-        [`Banner-variant-${variant()}`]: true,
-        [`Banner-size-${size()}`]: true,
-        [`Banner-length-${length()}`]: true,
-    }));
-
-    const classList = () => ({
-        ...props.classList,
-        ...localClasses(),
-    });
+    const classList = () =>
+        createClassList(
+            styles,
+            {
+                Banner: true,
+                [`Banner--Surface`]: true,
+                [`Banner-variant-${variant()}`]: true,
+                [`Banner-size-${size()}`]: true,
+                [`Banner-length-${length()}`]: true,
+            },
+            props.classList,
+        );
 
     return (
         <Surface variant="banner" classList={classList()} ref={props.ref}>

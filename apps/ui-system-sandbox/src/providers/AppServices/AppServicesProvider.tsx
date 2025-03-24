@@ -1,7 +1,17 @@
-import { Component, JSX } from 'solid-js';
+import {
+    ContextsProvider,
+    FocusServiceProvider,
+    SettingsProvider,
+    ShortcutsProvider,
+    createContextsService,
+    createFocusService,
+    createSettingsService,
+    createShortcutsService,
+} from '@noodlestan/ui-system';
+import { type Component, type JSX, onCleanup } from 'solid-js';
 
 import { AppServicesContext } from './private';
-import { AppServicesAPI } from './types';
+import type { AppServicesAPI } from './types';
 
 type AppServicesProviderProps = {
     appServices: AppServicesAPI;
@@ -9,10 +19,31 @@ type AppServicesProviderProps = {
 };
 
 export const AppServicesProvider: Component<AppServicesProviderProps> = props => {
+    const settings = createSettingsService();
+    const focus = createFocusService();
+    const contexts = createContextsService();
+    const shortcuts = createShortcutsService(contexts);
+
+    // eslint-disable-next-line solid/reactivity
+    const appServices = props.appServices;
+
+    onCleanup(() => {
+        focus.dispose();
+        shortcuts.dispose();
+        contexts.dispose();
+    });
+
     return (
-        // eslint-disable-next-line solid/reactivity
-        <AppServicesContext.Provider value={props.appServices}>
-            {props.children}
-        </AppServicesContext.Provider>
+        <SettingsProvider settings={settings}>
+            <AppServicesContext.Provider value={appServices}>
+                <FocusServiceProvider focusService={focus}>
+                    <ShortcutsProvider shortcutsService={shortcuts}>
+                        <ContextsProvider contextsService={contexts}>
+                            {props.children}
+                        </ContextsProvider>
+                    </ShortcutsProvider>
+                </FocusServiceProvider>
+            </AppServicesContext.Provider>
+        </SettingsProvider>
     );
 };

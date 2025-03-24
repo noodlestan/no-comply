@@ -1,4 +1,6 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
+
+import type { ClassList } from '../../dom';
 
 import './Link.css';
 
@@ -8,7 +10,7 @@ export type LinkProps = {
     onTap?: () => void;
     disabled?: boolean;
     ref?: (el: Element) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

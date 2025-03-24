@@ -1,5 +1,5 @@
 import { Flex, Label, Surface, Text } from '@noodlestan/ui-system';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoPage, SurfaceVariant } from '../../../../components';

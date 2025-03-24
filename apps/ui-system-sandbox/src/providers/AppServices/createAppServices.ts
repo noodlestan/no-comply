@@ -1,6 +1,6 @@
 import { createAppNavigation } from '../../services';
 
-import { AppServicesAPI } from './types';
+import type { AppServicesAPI } from './types';
 
 export const createAppServices = (): AppServicesAPI => {
     const navigation = createAppNavigation();

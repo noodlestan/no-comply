@@ -1,6 +1,6 @@
-import { SelectionAPI } from '../../../providers';
-import { ObjectWithId } from '../../../types';
-import { ListState } from '../types';
+import type { SelectionAPI } from '../../../providers';
+import type { ObjectWithId } from '../../../types';
+import type { ListState } from '../types';
 
 export function createListState(selection: SelectionAPI): ListState {
     console.info('createTreeState()');

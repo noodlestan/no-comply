@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { DataItem, Flex, Surface } from '@noodlestan/ui-system';
 import { createResizeObserver } from '@solid-primitives/resize-observer';
-import { Component, Show, createSignal, onMount } from 'solid-js';
+import { type Component, Show, createSignal, onMount } from 'solid-js';
 
 import './SizeItem.css';
 

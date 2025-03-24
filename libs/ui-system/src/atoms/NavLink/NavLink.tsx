@@ -1,7 +1,6 @@
-import { useLocation } from '@solidjs/router';
-import { Component, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 
-import { Link, LinkProps } from '../Link';
+import { Link, type LinkProps } from '../Link';
 
 import './NavLink.css';
 
@@ -23,7 +22,7 @@ const defaultProps: Pick<NavLinkProps, 'exact' | 'size'> = {
 export const NavLink: Component<NavLinkProps> = props => {
     const [locals, linkProps] = splitProps(props, ['exact', 'active', 'classList']);
 
-    const location = useLocation();
+    // const location = useLocation();
 
     const size = () => props.size || defaultProps.size;
     const exact = () => ('exact' in props ? props.exact : defaultProps.exact);

@@ -1,4 +1,4 @@
-import { Component, onMount } from 'solid-js';
+import { type Component, onMount } from 'solid-js';
 
 import './Canvas.css';
 
@@ -19,7 +19,7 @@ export const Canvas: Component<CanvasProps> = props => {
 
     return (
         <div classList={classList()}>
-            <canvas tabindex="0" ref={canvasRef} />
+            <canvas tabIndex="0" ref={canvasRef} />
         </div>
     );
 };

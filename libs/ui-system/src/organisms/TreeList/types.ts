@@ -1,7 +1,7 @@
 import { ReactiveSet } from '@solid-primitives/set';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
-import { ObjectWithId } from '../../types';
+import type { ObjectWithId } from '../../types';
 
 export type TreeState = {
     expanded: ReactiveSet<string>;

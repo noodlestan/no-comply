@@ -1,3 +1,8 @@
-export type ContextId = {
-    ctxId: string;
-};
+export type {
+    ContextId,
+    ContextFactory,
+    ContextValue,
+    BaseContext,
+    ContextNode,
+    ContextOwnerAPI,
+} from './private';

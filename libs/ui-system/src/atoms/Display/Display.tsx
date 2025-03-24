@@ -1,5 +1,7 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
+
+import { type ClassList } from '../../dom';
 
 import './Display.css';
 
@@ -23,7 +25,8 @@ export type DisplayProps = {
     color?: DisplayColor;
     tag?: string;
     nowrap?: boolean;
-    classList?: { [key: string]: boolean };
+    id?: string;
+    classList?: ClassList;
     children?: JSX.Element;
 };
 
@@ -68,7 +71,7 @@ export const Display: Component<DisplayProps> = props => {
     });
 
     return (
-        <Dynamic component={tag()} classList={classList()}>
+        <Dynamic component={tag()} id={props.id} classList={classList()}>
             {props.children}
         </Dynamic>
     );

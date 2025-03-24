@@ -1,7 +1,7 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
 import { ContextsContext } from './private';
-import { ContextsService } from './types';
+import type { ContextsService } from './types';
 
 type SettingsProviderProps = {
     contextsService: ContextsService;

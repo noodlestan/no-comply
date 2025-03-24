@@ -1,7 +1,7 @@
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import { isFolderItem } from '../../helpers';
-import { TreeNode, TreeNodeItemComponent, TreeState } from '../../types';
+import type { TreeNode, TreeNodeItemComponent, TreeState } from '../../types';
 import { TreeListNodeChildren } from '../TreeListNodeChildren';
 import { TreeListNodeItem } from '../TreeListNodeItem';
 
@@ -14,6 +14,7 @@ type TreeListNodeProps = {
     level?: number;
     parent?: TreeNode;
     isParentSelected?: boolean;
+    expand?: boolean | number;
     component?: TreeNodeItemComponent | undefined;
 };
 
@@ -23,7 +24,9 @@ export const TreeListNode: Component<TreeListNodeProps> = props => {
 
     const isFolder = () => isFolderItem(props.node.object);
     const isNodeSelected = () => isSelected(props.node.object.id);
-    const isExpanded = () => props.state.expanded.has(props.node.id);
+    const isExpanded = () => Boolean(props.expand || props.state.expanded.has(props.node.id));
+    const expandChilren = () =>
+        typeof props.expand === 'number' && props.expand ? props.expand - 1 : props.expand;
 
     const classList = () => ({
         TreeListNode: true,
@@ -34,7 +37,8 @@ export const TreeListNode: Component<TreeListNodeProps> = props => {
     });
 
     return (
-        <div classList={classList()}>
+        <div role="region" classList={classList()}>
+            item:{' '}
             <TreeListNodeItem
                 node={props.node}
                 state={props.state}
@@ -44,6 +48,7 @@ export const TreeListNode: Component<TreeListNodeProps> = props => {
                 isParentSelected={props.isParentSelected}
                 component={props.component}
             />
+            children:{' '}
             {isExpanded() && props.node.children && (
                 <TreeListNodeChildren
                     children={props.node.children}
@@ -52,6 +57,7 @@ export const TreeListNode: Component<TreeListNodeProps> = props => {
                     level={props.level || 0}
                     parent={props.node}
                     isParentSelected={props.isParentSelected || isNodeSelected()}
+                    expand={expandChilren()}
                     component={props.component}
                 />
             )}

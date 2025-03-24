@@ -1,5 +1,5 @@
 import { Flex } from '@noodlestan/ui-system';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
@@ -71,22 +71,22 @@ export const FlexPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="justify" classList={{ 'FlexPage--JustifyDemo': true }}>
                 <DemoItem title="start">
-                    <Flex justify="start" full>
+                    <Flex justify="start" stretch="width">
                         <ExampleTiny />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="center">
-                    <Flex justify="center" full>
+                    <Flex justify="center" stretch="width">
                         <ExampleTiny />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="end">
-                    <Flex justify="end" full>
+                    <Flex justify="end" stretch="width">
                         <ExampleTiny />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="stretch">
-                    <Flex justify="stretch" full>
+                    <Flex justify="stretch" stretch="width">
                         <ExampleTiny />
                     </Flex>
                 </DemoItem>

@@ -1,5 +1,5 @@
 import { createContext } from 'solid-js';
 
-import { AppServicesAPI } from '../types';
+import type { AppServicesAPI } from '../types';
 
 export const AppServicesContext = createContext<AppServicesAPI>();

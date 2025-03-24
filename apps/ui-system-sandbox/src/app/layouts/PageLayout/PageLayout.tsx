@@ -1,5 +1,5 @@
 import { Flex } from '@noodlestan/ui-system';
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
 import './PageLayout.css';
 

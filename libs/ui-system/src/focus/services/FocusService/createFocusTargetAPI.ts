@@ -1,6 +1,6 @@
 import { onCleanup } from 'solid-js';
 
-import { FocusServiceAPI, FocusTargetId } from './types';
+import type { FocusServiceAPI, FocusTargetId } from './types';
 
 type FocusTargetAPI = [setTarget: (target: () => void) => void, setFocus: () => void];
 

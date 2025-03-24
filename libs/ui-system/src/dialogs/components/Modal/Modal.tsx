@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-autofocus */
-import { Component, JSX, Show, createUniqueId, untrack } from 'solid-js';
+import { type Component, type JSX, Show, createUniqueId, untrack } from 'solid-js';
 import { Portal } from 'solid-js/web';
 
 import { FocusTrap } from '../../../focus';

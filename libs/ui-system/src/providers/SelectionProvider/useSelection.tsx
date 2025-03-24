@@ -1,9 +1,9 @@
 import { useContext } from 'solid-js';
 
-import { ObjectWithId } from '../../types';
+import type { ObjectWithId } from '../../types';
 
 import { SelectionContext } from './private';
-import { ObjectFilter, SelectionAPI } from './types';
+import type { ObjectFilter, SelectionAPI } from './types';
 
 export const useSelection = (filter?: ObjectFilter): SelectionAPI => {
     const context = useContext(SelectionContext);

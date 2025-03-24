@@ -1,7 +1,7 @@
-import { Component, createEffect } from 'solid-js';
+import { type Component, createEffect } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { ErrorBoundaryFallbackProps } from '../types';
+import type { ErrorBoundaryFallbackProps } from '../types';
 
 export type ErrorBoundaryHandlerProps = {
     fallback: Component<ErrorBoundaryFallbackProps>;

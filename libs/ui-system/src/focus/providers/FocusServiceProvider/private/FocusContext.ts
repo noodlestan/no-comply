@@ -1,5 +1,5 @@
 import { createContext } from 'solid-js';
 
-import { FocusServiceAPI } from '../../../services';
+import type { FocusServiceAPI } from '../../../services';
 
 export const FocusProviderContext = createContext<FocusServiceAPI>();

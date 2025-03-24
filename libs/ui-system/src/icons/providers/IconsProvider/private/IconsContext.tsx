@@ -1,5 +1,5 @@
 import { createContext } from 'solid-js';
 
-import { IconsAPI } from '../types';
+import type { IconsAPI } from '../types';
 
 export const IconsContext = createContext<IconsAPI>();

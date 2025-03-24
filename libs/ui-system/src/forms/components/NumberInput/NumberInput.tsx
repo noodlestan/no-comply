@@ -1,4 +1,6 @@
-import { Component, JSX, createSignal } from 'solid-js';
+import { type Component, type JSX, createSignal } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import { VALID_KEYS } from './constants';
 import {
@@ -10,7 +12,7 @@ import {
     isTextEditingShortcut,
     makeStyle,
 } from './functions';
-import { NumberInputLength, NumberInputSize } from './types';
+import type { NumberInputLength, NumberInputSize } from './types';
 
 import './NumberInput.css';
 
@@ -32,7 +34,7 @@ export type NumberInputProps = {
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 const defaultProps: Pick<NumberInputProps, 'size' | 'length'> = {

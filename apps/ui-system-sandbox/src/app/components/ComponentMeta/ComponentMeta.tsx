@@ -1,8 +1,8 @@
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 // import { ComponentMetadata } from '@/data/components';
 
-import { ComponentMetadata } from '../../../data';
+import type { ComponentMetadata } from '../../../data';
 import { ImportStatement } from '../ImportStatement';
 
 import './ComponentMeta.css';

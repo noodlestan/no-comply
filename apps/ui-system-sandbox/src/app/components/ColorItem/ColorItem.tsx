@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { DataItem, Flex, Surface } from '@noodlestan/ui-system';
-import { Component, Show, createSignal } from 'solid-js';
+import { type Component, Show, createSignal } from 'solid-js';
 
 import './ColorItem.css';
 

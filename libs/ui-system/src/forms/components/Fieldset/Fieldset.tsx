@@ -1,14 +1,15 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
-import { Flex, FlexDirection } from '../../../layouts';
-import { FieldsetLabel, FieldsetLabelSize } from '../FieldsetLabel';
+import type { ClassList } from '../../../dom';
+import { Flex, type FlexDirection } from '../../../layouts';
+import { FieldsetLabel, type FieldsetLabelSize } from '../FieldsetLabel';
 
 export type FieldsetProps = {
     label: string;
     direction?: FlexDirection;
     wrap?: boolean;
     size?: FieldsetLabelSize;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

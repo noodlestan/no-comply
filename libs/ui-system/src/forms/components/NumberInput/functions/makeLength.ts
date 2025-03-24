@@ -1,4 +1,4 @@
-import { NumberInputLength } from '../types';
+import type { NumberInputLength } from '../types';
 
 export const makeLength = (length: number | NumberInputLength, maxLength?: number): string => {
     if (typeof length === 'number') {

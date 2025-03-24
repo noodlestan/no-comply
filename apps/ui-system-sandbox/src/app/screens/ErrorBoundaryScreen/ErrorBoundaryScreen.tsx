@@ -1,6 +1,6 @@
-import { ErrorBoundary as Boundary, Display, Flex, Icon } from '@noodlestan/ui-system';
+import { ErrorBoundary as Boundary, Display, Flex, Icon, Layout } from '@noodlestan/ui-system';
 import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
-import { Component, JSX, createSignal, onCleanup } from 'solid-js';
+import { type Component, type JSX, createSignal, onCleanup } from 'solid-js';
 
 import './ErrorBoundaryScreen.css';
 
@@ -33,11 +33,11 @@ export const ErrorScreen: Component = () => {
 
     onCleanup(() => clearTimeout(timeout));
 
-    const icon = (index: number) => ICONS[icons()[index]];
+    const icon = (index: number) => ICONS[icons()[index] as number];
     const color = (index: number) => `var(--color-sw-${colors()[index]}-hue)`;
 
     return (
-        <div class="ErrorScreen">
+        <Layout tag="main" class="ErrorScreen">
             <Flex padding="xl" gap="l" align="center">
                 <Flex direction="row" gap="s" justify="around">
                     <div style={{ '--error-icon-hue': color(0) }}>
@@ -52,7 +52,7 @@ export const ErrorScreen: Component = () => {
                 </Flex>
                 <Display size="xl">Ouch</Display>
             </Flex>
-        </div>
+        </Layout>
     );
 };
 

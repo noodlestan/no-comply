@@ -1,15 +1,17 @@
-import { Component, JSX, createSignal, splitProps } from 'solid-js';
+import { type Component, type JSX, createSignal, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-export type SurfaceUnstyledProps = {
+import type { ClassList, Styles } from '../../../dom';
+
+export type SurfaceUnstyledProps = Omit<JSX.HTMLAttributes<HTMLElement>, 'style'> & {
     tag?: string;
     onClick?: () => void;
     onTap?: () => void;
     isInteractive?: boolean;
     disabled?: boolean;
     ref?: (el: Element) => void;
-    classList?: { [key: string]: boolean };
-    style?: { [key: string]: string | undefined };
+    classList?: ClassList;
+    style?: Styles;
     children?: JSX.Element;
 };
 
@@ -17,69 +19,85 @@ const defaultProps: Pick<SurfaceUnstyledProps, 'tag'> = {
     tag: 'div',
 };
 
-export const SurfaceUnstyled: Component<
-    SurfaceUnstyledProps & JSX.HTMLAttributes<HTMLDivElement>
-> = props => {
+export const SurfaceUnstyled: Component<SurfaceUnstyledProps> = props => {
+    const [locals, elementProps] = splitProps(props, [
+        'tag',
+        'onClick',
+        'onTap',
+        'isInteractive',
+        'disabled',
+        'onKeyDown',
+        'onKeyPress',
+        'onFocus',
+        'onBlur',
+        'tabindex',
+        'children',
+    ]);
+
     const [isActive, setIsActive] = createSignal(false);
 
-    const handleFocus: JSX.FocusEventHandler<HTMLDivElement, FocusEvent> = ev => {
+    const handleFocus: JSX.FocusEventHandler<HTMLElement, FocusEvent> = ev => {
         setIsActive(true);
-        if (typeof props.onFocus === 'function') {
-            props.onFocus(ev);
+        if (typeof locals.onFocus === 'function') {
+            locals.onFocus(ev);
         }
     };
 
-    const handleBlur: JSX.FocusEventHandler<HTMLDivElement, FocusEvent> = ev => {
+    const handleBlur: JSX.FocusEventHandler<HTMLElement, FocusEvent> = ev => {
         setIsActive(false);
-        if (typeof props.onBlur === 'function') {
-            props.onBlur(ev);
+        if (typeof locals.onBlur === 'function') {
+            locals.onBlur(ev);
         }
     };
 
-    const handleKeyDown: JSX.EventHandler<HTMLDivElement, KeyboardEvent> = ev => {
+    const handleKeyDown: JSX.EventHandler<HTMLElement, KeyboardEvent> = ev => {
         if (ev.key === 'Enter') {
-            props.onTap?.();
+            locals.onTap?.();
         } else {
-            if (typeof props.onKeyDown === 'function') {
-                props.onKeyDown(ev);
+            if (typeof locals.onKeyDown === 'function') {
+                locals.onKeyDown(ev);
             }
         }
     };
 
-    const handleKeyPress: JSX.EventHandler<HTMLDivElement, KeyboardEvent> = ev => {
-        if (!props.onTap && ev.key === 'Enter') {
-            props.onClick?.();
+    const handleKeyPress: JSX.EventHandler<HTMLElement, KeyboardEvent> = ev => {
+        if (!locals.onTap && ev.key === 'Enter') {
+            locals.onClick?.();
         } else {
-            if (typeof props.onKeyPress === 'function') {
-                props.onKeyPress(ev);
+            if (typeof locals.onKeyPress === 'function') {
+                locals.onKeyPress(ev);
             }
         }
     };
 
-    const tabindex = () => (props.onClick || props.onTap ? 0 : undefined);
-    const tag = () => props.tag || defaultProps.tag;
+    const tabindex = () => locals.tabindex || (locals.onClick || locals.onTap ? 0 : undefined);
 
-    const [, childProps] = splitProps(props, ['isInteractive']);
+    const tag = () => locals.tag || defaultProps.tag;
+
+    const childProps = () => {
+        return {
+            ...elementProps,
+            'data-is-interactive': Boolean(tabindex()) || locals.isInteractive,
+            'data-is-active': isActive(),
+            'data-is-disabled': locals.disabled,
+        };
+    };
 
     return (
         <Dynamic
-            {...childProps}
+            {...childProps()}
             component={tag()}
-            onClick={props.onClick}
-            onMouseDown={props.onTap}
-            onTouchStart={props.onTap}
+            disabled={locals.disabled}
+            onClick={locals.onClick}
+            onMouseDown={locals.onTap}
+            onTouchStart={locals.onTap}
             onKeyDown={handleKeyDown}
             onKeyPress={handleKeyPress}
             onFocus={handleFocus}
             onBlur={handleBlur}
-            tabindex={tabindex()}
-            classList={props.classList}
-            style={props.style}
-            data-is-interactive={Boolean(tabindex()) || props.isInteractive}
-            data-is-active={isActive()}
-            data-is-disabled={props.disabled}
+            tabIndex={tabindex()}
         >
-            {props.children}
+            {locals.children}
         </Dynamic>
     );
 };

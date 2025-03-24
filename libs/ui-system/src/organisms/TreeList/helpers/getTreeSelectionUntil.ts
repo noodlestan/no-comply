@@ -1,5 +1,5 @@
-import { ObjectWithId } from '../../../types';
-import { TreeNode } from '../types';
+import type { ObjectWithId } from '../../../types';
+import type { TreeNode } from '../types';
 
 const flatten = (root: TreeNode): TreeNode[] => {
     return root.children?.reduce((acc, item) => [...acc, ...flatten(item)], [root]) || [root];
@@ -15,10 +15,10 @@ export const getTreeSelectionUntil = (
     let firstSelectedIndex = -1;
     let untilSelectedIndex = -1;
     for (let ix = 0; ix < nodes.length; ix++) {
-        if (firstSelectedIndex === -1 && nodes[ix].object.id === fromObject.id) {
+        if (firstSelectedIndex === -1 && nodes[ix]?.object.id === fromObject.id) {
             firstSelectedIndex = ix;
         }
-        if (untilSelectedIndex === -1 && nodes[ix].object.id === untilObject.id) {
+        if (untilSelectedIndex === -1 && nodes[ix]?.object.id === untilObject.id) {
             untilSelectedIndex = ix;
         }
     }

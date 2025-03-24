@@ -1,6 +1,6 @@
 import { Divider, Flex, Icon, NavLink } from '@noodlestan/ui-system';
 import { HomeIcon } from 'lucide-solid';
-import { Component, For } from 'solid-js';
+import { type Component, For } from 'solid-js';
 
 import { ROUTES } from '../../constants';
 
@@ -10,16 +10,23 @@ import { navList } from './constants';
 
 export const MainNav: Component = () => {
     return (
-        <Flex classList={{ MainNav: true }} direction="column" role="menu" padding="m" gap="m">
-            <Flex direction="column" gap="m" classList={{ Header: true }}>
+        <Flex
+            tag="nav"
+            direction="column"
+            padding="m"
+            gap="m"
+            classList={{ MainNav: true }}
+            aria-label="main navigation"
+        >
+            <Flex tag="header" direction="column" gap="m" classList={{ Header: true }}>
                 <Flex direction="row" gap="s">
                     <NavLink size="s" href={ROUTES.home()}>
                         <Icon icon={HomeIcon} size="s" />
                         <>UI System</>
                     </NavLink>
                 </Flex>
-                <Divider variant="base" />
             </Flex>
+            <Divider variant="base" />
             <For each={navList}>
                 {item => <NavLinkItemGroup title={item.title} items={item.items} />}
             </For>

@@ -1,19 +1,26 @@
-import { Display, Flex, Surface } from '@noodlestan/ui-system';
-import { Component, JSX } from 'solid-js';
+import { type ClassList, Display, Flex, Surface } from '@noodlestan/ui-system';
+import type { Component, JSX } from 'solid-js';
 
 import './DemoPage.css';
 
 type DemoPageProps = {
     title: string;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 
 export const DemoPage: Component<DemoPageProps> = props => {
     return (
-        <Surface classList={{ DemoPage: true, ...props.classList }} variant="page">
+        <Surface
+            tag="main"
+            variant="page"
+            aria-labelledby="demo-page"
+            classList={{ DemoPage: true, ...props.classList }}
+        >
             <Flex padding="l" gap="m">
-                <Display level={1}>{props.title}</Display>
+                <Display id="demo-page" level={1}>
+                    {props.title}
+                </Display>
                 <Flex gap="xl">{props.children}</Flex>
             </Flex>
         </Surface>

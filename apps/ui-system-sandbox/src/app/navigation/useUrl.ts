@@ -1,4 +1,4 @@
-import { Params } from '@solidjs/router';
+import type { Params } from '@solidjs/router';
 
 export const useUrl = (searchParams: Partial<Params>, path: string): string => {
     const params = Object.keys(searchParams);

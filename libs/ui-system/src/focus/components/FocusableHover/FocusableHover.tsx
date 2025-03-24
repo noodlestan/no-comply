@@ -1,7 +1,7 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { FocusableProps, FocusableTag } from '../Focusable';
+import type { FocusableProps, FocusableTag } from '../Focusable';
 
 export type FocusableHoverProps = {
     ref?: (el: Element) => void;

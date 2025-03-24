@@ -1,4 +1,6 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import './FieldsetLabel.css';
 
@@ -6,7 +8,7 @@ export type FieldsetLabelSize = 'xs' | 's' | 'm' | 'l';
 
 export type FieldsetLabelProps = {
     size?: FieldsetLabelSize;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

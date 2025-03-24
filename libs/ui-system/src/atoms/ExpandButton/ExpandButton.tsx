@@ -1,8 +1,8 @@
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
-import { IconComponent } from '../../icons';
-import { ButtonProps } from '../Button';
+import type { IconComponent } from '../../icons';
+import type { ButtonProps } from '../Button';
 import { IconButton } from '../IconButton';
 
 import './ExpandButton.css';

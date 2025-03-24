@@ -2,9 +2,9 @@ import { ReactiveMap } from '@solid-primitives/map';
 import { ReactiveSet } from '@solid-primitives/set';
 import { batch } from 'solid-js';
 
-import { ObjectWithId } from '../../types';
+import type { ObjectWithId } from '../../types';
 
-import { ObjectFilter, SelectionAPI } from './types';
+import type { ObjectFilter, SelectionAPI } from './types';
 
 export const createSelection = (initialObjects?: Map<string, ObjectWithId>): SelectionAPI => {
     console.info('createSelection()');

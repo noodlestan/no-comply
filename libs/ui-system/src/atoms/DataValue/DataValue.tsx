@@ -1,4 +1,6 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
+
+import { type ClassList } from '../../dom';
 
 import './DataValue.css';
 
@@ -13,7 +15,7 @@ export type DataValueProps = {
     align?: DataValueAlign;
     wrap?: boolean;
     onClick?: () => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     value?: JSX.Element;
     children?: JSX.Element;
 };
@@ -72,7 +74,7 @@ export const DataValue: Component<DataValueProps> = props => {
             role={role()}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
-            tabindex={tabindex()}
+            tabIndex={tabindex()}
             classList={classList()}
             style={style()}
         >

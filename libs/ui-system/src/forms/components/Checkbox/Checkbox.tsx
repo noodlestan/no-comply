@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { CheckIcon } from 'lucide-solid';
-import { Component, createSignal } from 'solid-js';
+import { type Component, createSignal } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import './Checkbox.css';
 
@@ -17,7 +19,7 @@ export type CheckboxProps = {
     invalid?: boolean;
     onChangeValue?: (value: boolean) => void;
     ref?: (el: HTMLInputElement) => void;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 const defaultProps: Pick<CheckboxProps, 'size'> = {

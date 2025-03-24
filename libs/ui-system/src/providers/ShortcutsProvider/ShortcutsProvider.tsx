@@ -1,7 +1,7 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
 
 import { ShortcutsContext } from './private';
-import { ShortcutsService } from './types';
+import type { ShortcutsService } from './types';
 
 type SettingsProviderProps = {
     shortcutsService: ShortcutsService;

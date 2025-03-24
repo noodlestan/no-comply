@@ -1,9 +1,9 @@
-import { Component, batch } from 'solid-js';
+import { type Component, batch } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { ObjectWithId } from '../../../../types';
+import type { ObjectWithId } from '../../../../types';
 import { getListSelectionUntil, resolveListItemComponent } from '../../helpers';
-import { ListItemComponent, ListItemComponentProps, ListState } from '../../types';
+import type { ListItemComponent, ListItemComponentProps, ListState } from '../../types';
 import { ListDefaultItemComponent } from '../ListDefaultItemComponent';
 
 import './ListItem.css';

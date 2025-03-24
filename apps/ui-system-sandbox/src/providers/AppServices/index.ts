@@ -1,3 +1,5 @@
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
 export * from './AppServicesProvider';
-export * from './useAppServices';
 export * from './createAppServices';
+export * from './types';
+export * from './useAppServices';

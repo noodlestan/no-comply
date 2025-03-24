@@ -1,6 +1,10 @@
 import { useContext } from 'solid-js';
 
-import { FocusTargetId, FocusTargetProducerAPI, createFocusTargetAPI } from '../../services';
+import {
+    type FocusTargetId,
+    type FocusTargetProducerAPI,
+    createFocusTargetAPI,
+} from '../../services';
 
 import { FocusProviderContext } from './private';
 

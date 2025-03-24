@@ -1,5 +1,5 @@
 import { Display, Flex, Text } from '@noodlestan/ui-system';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import IconSvg from '../../../../assets/icon.svg';
 

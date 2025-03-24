@@ -1,50 +1,53 @@
-import { Component, JSX, splitProps } from 'solid-js';
+import { type Component, splitProps } from 'solid-js';
 
-import { SurfaceProvider, contextClassList, contextVars } from '../../../root';
+import { ContextProvider, createContextNode, ctx } from '../../../context';
+import { type SurfaceContext, createSurfaceContext } from '../../context';
 
-import { SurfaceUnstyled, SurfaceUnstyledProps } from './SurfaceUnstyled';
+import { SurfaceUnstyled, type SurfaceUnstyledProps } from './SurfaceUnstyled';
 
 import './Surface.css';
 
 export type SurfaceProps = SurfaceUnstyledProps & {
     variant: string;
-    disabled?: boolean;
     debug?: boolean;
-    classList?: { [key: string]: boolean };
-    children?: JSX.Element;
 };
 
-const SurfaceElement: Component<SurfaceProps> = props => {
+export type SurfaceElementProps = SurfaceProps & {
+    context: SurfaceContext;
+};
+
+const SurfaceElement: Component<SurfaceElementProps> = props => {
     const [locals, childProps] = splitProps(props, ['variant', 'style']);
 
     const classList = () => ({
         ...props.classList,
-        ...contextClassList(),
         Surface: true,
         'Surface-debug': !!props.debug,
     });
 
     const style = () => ({
         ...locals.style,
-        ...contextVars(),
+        ...props.context.contextVars(),
     });
 
+    const data = () => props.context.contextData();
+
     return (
-        <SurfaceUnstyled
-            {...childProps}
-            data-nui-surface={locals.variant}
-            classList={classList()}
-            style={style()}
-        >
+        <SurfaceUnstyled {...childProps} {...data()} classList={classList()} style={style()}>
             {props.children}
         </SurfaceUnstyled>
     );
 };
 
 export const Surface: Component<SurfaceProps> = props => {
+    // eslint-disable-next-line solid/reactivity
+    const contexts = () => [ctx(node => createSurfaceContext(props.variant, node))];
+    const context = createContextNode(contexts);
+    const surface = context.node.valueFor<SurfaceContext>('surface');
+
     return (
-        <SurfaceProvider surface={props.variant} shallow>
-            <SurfaceElement {...props} />
-        </SurfaceProvider>
+        <ContextProvider value={context}>
+            <SurfaceElement {...props} context={surface} />
+        </ContextProvider>
     );
 };

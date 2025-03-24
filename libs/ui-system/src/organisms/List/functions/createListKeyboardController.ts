@@ -1,6 +1,6 @@
-import { Accessor } from 'solid-js';
+import type { Accessor } from 'solid-js';
 
-import { ListKeyboardControllerAPI } from '../types';
+import type { ListKeyboardControllerAPI } from '../types';
 
 export function createListKeyboardController(
     listElement: Accessor<Element | undefined>,
@@ -35,12 +35,18 @@ export function createListKeyboardController(
         switch (ev.key) {
             case 'ArrowUp': {
                 const prevNode = focusableNodes[Math.max(0, currentIndex - 1)];
+                if (!prevNode) {
+                    return;
+                }
                 focusElement(prevNode);
                 break;
             }
             case 'ArrowDown': {
                 const nextNode =
                     focusableNodes[Math.min(focusableNodes.length - 1, currentIndex + 1)];
+                if (!nextNode) {
+                    return;
+                }
                 focusElement(nextNode);
                 break;
             }

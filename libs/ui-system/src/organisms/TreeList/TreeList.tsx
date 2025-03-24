@@ -1,16 +1,19 @@
-import { Component } from 'solid-js';
+import type { Component } from 'solid-js';
+
+import type { ClassList } from '../../dom';
 
 import { TreeListNode } from './components';
 import { createTreeListKeyboardController } from './functions';
-import { TreeNode, TreeNodeItemComponent, TreeState } from './types';
+import type { TreeNode, TreeNodeItemComponent, TreeState } from './types';
 
 import './TreeList.css';
 
 type TreeListProps = {
     root: TreeNode;
     state: TreeState;
+    expand?: boolean | number;
     component?: TreeNodeItemComponent;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 export const TreeList: Component<TreeListProps> = props => {
@@ -31,7 +34,12 @@ export const TreeList: Component<TreeListProps> = props => {
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div ref={treeListRef} classList={classList()} onKeyUp={handlers.onKeyUp}>
-            <TreeListNode node={props.root} state={props.state} component={props.component} />
+            <TreeListNode
+                node={props.root}
+                state={props.state}
+                component={props.component}
+                expand={props.expand}
+            />
         </div>
     );
 };

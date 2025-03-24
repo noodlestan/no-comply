@@ -1,6 +1,6 @@
 import { IconButton } from '@noodlestan/ui-system';
 import { PlusIcon } from 'lucide-solid';
-import { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';

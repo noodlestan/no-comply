@@ -1,16 +1,17 @@
 import { ReactiveSet } from '@solid-primitives/set';
 
-import { SelectionAPI } from '../../../providers';
-import { ObjectWithId } from '../../../types';
-import { TreeState } from '../types';
+import { type SelectionAPI, createSelection } from '../../../providers';
+import type { ObjectWithId } from '../../../types';
+import type { TreeState } from '../types';
 
 export function createTreeState(
-    selection: SelectionAPI,
-    expandSet?: ReactiveSet<string>,
+    initialSelection?: SelectionAPI,
+    initialExpandedSet?: ReactiveSet<string>,
 ): TreeState {
     console.info('createTreeState()');
 
-    const expanded = expandSet || new ReactiveSet<string>();
+    const selected = initialSelection || createSelection();
+    const expanded = initialExpandedSet || new ReactiveSet<string>();
     let firstSelected: string | undefined;
 
     const isExpanded = (id: string) => expanded.has(id);
@@ -41,26 +42,26 @@ export function createTreeState(
 
     const getFirstSelected = (): ObjectWithId | undefined => {
         if (firstSelected) {
-            return selection.getById(firstSelected);
+            return selected.getById(firstSelected);
         }
     };
 
     const select = (object: ObjectWithId) => {
-        if (!selection.count()) {
+        if (!selected.count()) {
             firstSelected = object.id;
         }
-        selection.select(object);
+        selected.select(object);
     };
 
     const deselect = (id: string) => {
-        selection.deselect(id);
-        if (!selection.count()) {
+        selected.deselect(id);
+        if (!selected.count()) {
             firstSelected = undefined;
         }
     };
 
     const toggleSelected = (object: ObjectWithId) => {
-        if (selection.hasId(object.id)) {
+        if (selected.hasId(object.id)) {
             deselect(object.id);
         } else {
             select(object);
@@ -68,8 +69,8 @@ export function createTreeState(
     };
 
     const setSelection = (objects: ObjectWithId[]) => {
-        firstSelected = objects.length ? objects[0].id : undefined;
-        selection.setSelection(objects);
+        firstSelected = objects.length ? objects[0]?.id : undefined;
+        selected.setSelection(objects);
     };
 
     const dispose = () => {
@@ -82,14 +83,14 @@ export function createTreeState(
         expand,
         toggleExpanded,
         collapse,
-        getSelection: selection.objects,
+        getSelection: selected.objects,
         getFirstSelected,
-        isSelected: selection.hasId,
+        isSelected: selected.hasId,
         select,
         toggleSelected,
         deselect,
         setSelection,
-        clearSelection: selection.clearSelection,
+        clearSelection: selected.clearSelection,
         dispose,
     };
 }

@@ -1,6 +1,6 @@
-import { UIContextKey, UIContextValue } from '../../controllers';
+import type { UIContextKey, UIContextValue } from '../../controllers';
 
-import { ContextsService } from './types';
+import type { ContextsService } from './types';
 
 export const createContextsService = (): ContextsService => {
     console.info('createContextsService()');

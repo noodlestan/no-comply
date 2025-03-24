@@ -1,7 +1,7 @@
 import { useContext } from 'solid-js';
 
 import { ShortcutsContext } from './private';
-import { ShortcutsService } from './types';
+import type { ShortcutsService } from './types';
 
 export const useShortcuts = (): ShortcutsService => {
     const context = useContext(ShortcutsContext);

@@ -1,4 +1,4 @@
-import { ShortcutKeyBinding } from '../types';
+import type { ShortcutKeyBinding } from '../types';
 
 import { isAlphaCharacter } from './isAlphaCharacter';
 

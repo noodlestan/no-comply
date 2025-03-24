@@ -1,11 +1,13 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
+
+import type { ClassList } from '../../dom';
 
 import './Scrollable.css';
 
 export type ScrollableProps = {
     y?: boolean;
     z?: boolean;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children: JSX.Element;
 };
 

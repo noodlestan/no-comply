@@ -1,4 +1,4 @@
-import { UIContextKey, UIContextValue } from '../../controllers';
+import type { UIContextKey, UIContextValue } from '../../controllers';
 
 export type ContextsService = {
     setContext: (key: UIContextKey, value: UIContextValue) => void;

@@ -1,5 +1,5 @@
 import { Surface } from '@noodlestan/ui-system';
-import { Component, JSX, Show, createSignal, onCleanup, onMount } from 'solid-js';
+import { type Component, type JSX, Show, createSignal, onCleanup, onMount } from 'solid-js';
 
 import { Spinner } from '../../atoms';
 import { PageLayout } from '../../layouts';

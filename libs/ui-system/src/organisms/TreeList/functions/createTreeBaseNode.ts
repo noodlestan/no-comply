@@ -1,4 +1,4 @@
-import { TreeItem, TreeNode, TreeNodeItemComponent } from '../types';
+import type { TreeItem, TreeNode, TreeNodeItemComponent } from '../types';
 
 export const createTreeBaseNode = (
     item: TreeItem,

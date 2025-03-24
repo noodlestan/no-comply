@@ -1,14 +1,20 @@
-import { Flex } from '@noodlestan/ui-system';
+import { DebugDrawer } from '@noodlestan/context-ui-dev';
+import { Flex, createClassList } from '@noodlestan/ui-system';
 import { Router } from '@solidjs/router';
-import { Component, JSX, Show } from 'solid-js';
+import { type Component, type JSX, Show } from 'solid-js';
 
-import { AppServicesProvider, createAppServices, useAppServices } from '../providers';
+import {
+    AppServicesProvider,
+    UIRootProvider,
+    createAppServices,
+    useAppServices,
+} from '../providers';
 
+import styles from './App.module.css';
+import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
 import { AppSplash } from './splash';
-
-import './App.css';
 
 type RootProps = {
     children?: JSX.Element;
@@ -29,8 +35,10 @@ const Main: Component<RootProps> = props => {
     //     mainRef = ref;
     // };
 
+    const classList = () => createClassList(styles, { AppMain: true });
+
     return (
-        <Flex tag="main" direction="column" classList={{ AppMain: true }}>
+        <Flex direction="column" classList={classList()}>
             <Show when={!ready()}>
                 <AppSplash />
             </Show>
@@ -44,7 +52,10 @@ const Root: Component<RootProps> = props => {
     return (
         <ErrorBoundaryScreen>
             <AppServicesProvider appServices={appServices}>
-                <Main>{props.children}</Main>
+                <UIRootProvider defaultCtxId={APP.id}>
+                    <Main>{props.children}</Main>
+                    <DebugDrawer />
+                </UIRootProvider>
             </AppServicesProvider>
         </ErrorBoundaryScreen>
     );

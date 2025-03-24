@@ -1,7 +1,7 @@
 import { useContext } from 'solid-js';
 
 import { AppServicesContext } from './private';
-import { AppServicesAPI } from './types';
+import type { AppServicesAPI } from './types';
 
 export const useAppServices = (): AppServicesAPI => {
     const context = useContext(AppServicesContext);

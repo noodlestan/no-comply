@@ -1,6 +1,6 @@
 import { batch, createSignal } from 'solid-js';
 
-import {
+import type {
     UIControllerChildAPI,
     UIControllerContainer,
     UIControllerName,

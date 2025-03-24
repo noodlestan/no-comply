@@ -1,4 +1,4 @@
-import { NavLinkGroup } from './types';
+import type { NavLinkGroup } from './types';
 
 export const navList: NavLinkGroup[] = [
     {

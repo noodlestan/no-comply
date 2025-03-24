@@ -1,4 +1,4 @@
-import { ObjectWithId } from '../../types';
+import type { ObjectWithId } from '../../types';
 
 export type ObjectFilter = (object: ObjectWithId) => boolean;
 

@@ -1,4 +1,6 @@
-import { Component, JSX } from 'solid-js';
+import type { Component, JSX } from 'solid-js';
+
+import type { ClassList } from '../../../dom';
 
 import './Label.css';
 
@@ -7,7 +9,7 @@ export type LabelSize = 'xs' | 's' | 'm' | 'l';
 export type LabelProps = {
     size?: LabelSize;
     for?: string;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
     children?: JSX.Element;
 };
 

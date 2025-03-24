@@ -1,10 +1,11 @@
-import { Component, For } from 'solid-js';
+import { type Component, For } from 'solid-js';
 
-import { ObjectWithId } from '../../types';
+import type { ClassList } from '../../dom';
+import type { ObjectWithId } from '../../types';
 
 import { ListItem } from './components';
 import { createListKeyboardController } from './functions';
-import { ListItemComponent, ListState } from './types';
+import type { ListItemComponent, ListState } from './types';
 
 import './List.css';
 
@@ -13,7 +14,7 @@ type ListProps = {
     state: ListState;
     component?: ListItemComponent;
     disabled?: boolean;
-    classList?: { [key: string]: boolean };
+    classList?: ClassList;
 };
 
 const ListItems: Component<{

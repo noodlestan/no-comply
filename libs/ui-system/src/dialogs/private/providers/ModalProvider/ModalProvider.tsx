@@ -1,6 +1,6 @@
-import { Accessor, Component, JSX, createContext } from 'solid-js';
+import { type Accessor, type Component, type JSX, createContext } from 'solid-js';
 
-import { ModalOptions } from '../../../types';
+import type { ModalOptions } from '../../../types';
 
 export type ModalContextState = {
     id: string;
