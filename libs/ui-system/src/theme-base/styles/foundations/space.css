@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer foundations {
         @layer space {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 /* gaps */
 
                 --space-gap--1: var(--scale-4xs);

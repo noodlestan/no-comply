@@ -40,18 +40,17 @@ export const Banner: Component<BannerProps> = props => {
     const length = () => props.length || defaultProps.length;
     const svg = () => VARIANT_ICON_MAP[(variant && variant()) || 'passive'];
 
-    const classList = () =>
-        createClassList(
-            styles,
-            {
-                Banner: true,
-                [`Banner--Surface`]: true,
-                [`Banner-variant-${variant()}`]: true,
-                [`Banner-size-${size()}`]: true,
-                [`Banner-length-${length()}`]: true,
-            },
-            props.classList,
-        );
+    const classList = createClassList(
+        styles,
+        () => [
+            'Banner',
+            `Banner--Surface`,
+            `Banner-variant-${variant()}`,
+            `Banner-size-${size()}`,
+            `Banner-length-${length()}`,
+        ],
+        () => props.classList,
+    );
 
     return (
         <Surface variant="banner" classList={classList()} ref={props.ref}>

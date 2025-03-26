@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer foundations {
         @layer typography {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 /* size */
                 --type-size-3xs: var(--type-step--3);
                 --type-size-2xs: var(--type-step--2);

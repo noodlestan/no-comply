@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer foundations {
         @layer scrollbars {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --o-scrollbar-rest-handle: var(--o-surface-bg-translucid);
                 --o-scrollbar-rest-track: var(--o-surface-bg-ghost);
                 --o-scrollbar-hover-handle: var(--o-surface-bg-opaque);
@@ -17,7 +17,7 @@
                     var(--color-bg-light-1);
             }
 
-            .NUI-Theme-base * {
+            [data-ctx-theme-base] * {
                 scrollbar-width: none;
                 scrollbar-width: thin;
                 scrollbar-color: hsla(
@@ -27,7 +27,7 @@
                     hsla(var(--surface-scrollbar-rest-track-color), var(--o-scrollbar-rest-track));
             }
 
-            .NUI-Theme-base *:hover {
+            [data-ctx-theme-base] *:hover {
                 scrollbar-width: thin;
                 scrollbar-color: hsla(
                         var(--surface-scrollbar-hover-handle-color),
@@ -36,18 +36,18 @@
                     hsla(var(--surface-scrollbar-hover-track-color), var(--o-scrollbar-hover-track));
             }
 
-            .NUI-Theme-base *::-webkit-scrollbar {
+            [data-ctx-theme-base] *::-webkit-scrollbar {
                 display: none;
                 display: initial;
             }
 
-            .NUI-Theme-base *:hover::-webkit-scrollbar {
+            [data-ctx-theme-base] *:hover::-webkit-scrollbar {
                 display: initial;
                 width: 8px;
                 height: 8px;
             }
 
-            .NUI-Theme-base *::-webkit-scrollbar-thumb {
+            [data-ctx-theme-base] *::-webkit-scrollbar-thumb {
                 background-color: hsla(
                     var(--surface-scrollbar-rest-handle-color),
                     var(--o-scrollbar-rest-handle)
@@ -55,7 +55,7 @@
                 border-radius: 4px;
             }
 
-            .NUI-Theme-base *::-webkit-scrollbar-track {
+            [data-ctx-theme-base] *::-webkit-scrollbar-track {
                 background: hsla(
                     var(--surface-scrollbar-rest-track-color),
                     var(--o-scrollbar-rest-track)

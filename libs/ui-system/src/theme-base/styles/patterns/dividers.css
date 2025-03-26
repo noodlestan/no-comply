@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer patterns {
         @layer dividers {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --surface-divider-base-width: var(--surface-border-width-base);
                 --surface-divider-base-style: solid;
                 --surface-divider-base: var(--surface-divider-base-width)

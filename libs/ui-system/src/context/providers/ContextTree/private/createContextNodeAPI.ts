@@ -26,7 +26,7 @@ export const createContextNodeAPI = (
         type: string,
         filter?: (child: ContextNode, context: T) => boolean,
     ): [ContextNode, T] | undefined => {
-        const value = child.valueFor<T>(type);
+        const value = child.maybeValueFor<T>(type);
         if (value) {
             if (!filter || filter(child, value)) {
                 return [child, value];
@@ -63,7 +63,7 @@ export const createContextNodeAPI = (
     };
 
     const parentWith = <T extends BaseContext>(type: string): [ContextNode, T] | [] => {
-        const value = parent?.valueFor<T>(type);
+        const value = parent?.maybeValueFor<T>(type);
         if (parent && value) {
             return [parent, value as T];
         }
@@ -71,23 +71,27 @@ export const createContextNodeAPI = (
     };
 
     const filteredValues = <T extends BaseContext>(types?: string[]): T[] => {
-        return ctx().filter(context => types?.includes(context.type)) as T[];
+        return ctx().filter(context => !types || types?.includes(context.type)) as T[];
     };
 
     const valuesWith = <T>(guard: (context: unknown) => context is T): (BaseContext & T)[] => {
         return ctx().filter(guard) as (BaseContext & T)[];
     };
 
-    const valueFor = <T extends BaseContext>(type: string): T => {
-        const value = ctx().find(context => context.type === type) as T | undefined;
-        if (!value) {
-            throw new Error(`Context "${options.id?.ctxId}" does not have value for "${type}".`);
-        }
-        return value;
-    };
-
     const maybeValueFor = <T extends BaseContext>(type: string): T | undefined => {
         return ctx().find(context => context.type === type) as T | undefined;
+    };
+
+    const valueFor = <T extends BaseContext>(type: string): T => {
+        const value = maybeValueFor<T>(type);
+        if (value) {
+            return value;
+        }
+        const inheritedValue = parent?.maybeValueFor<T>(type);
+        if (!inheritedValue) {
+            throw new Error(`Context "${options.id?.ctxId}" does not have value for "${type}".`);
+        }
+        return inheritedValue;
     };
 
     node.api = {

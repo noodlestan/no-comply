@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer patterns {
         @layer pills {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --pill-border-width: var(--surface-border-width-thin);
                 --pill-border-color: var(--color-primary-hue-sat), var(--color-faded-light);
                 --pill-border-radius: var(--radius-s);

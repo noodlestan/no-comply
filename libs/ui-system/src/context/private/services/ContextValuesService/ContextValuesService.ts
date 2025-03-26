@@ -1,6 +1,6 @@
 import type { ContextValue, ContextValuesServiceAPI } from '../../types';
 
-export function createContextValuesService(): ContextValuesServiceAPI {
+export const createContextValuesService = (): ContextValuesServiceAPI => {
     const store = new Map<string, ContextValue[]>(); // key: `type:name`, value: stacked array
 
     function getKey(type: string, name: string) {
@@ -54,4 +54,4 @@ export function createContextValuesService(): ContextValuesServiceAPI {
         registerValues: values => register(values()),
         unregisterValues: values => unregister(values()),
     };
-}
+};

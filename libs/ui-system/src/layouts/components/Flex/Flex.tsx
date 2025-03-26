@@ -42,14 +42,14 @@ export const Flex: Component<FlexProps> = props => {
     const align = () => locals.align ?? defaultProps.align;
     const justify = () => locals.justify ?? defaultProps.justify;
 
-    const classList = () =>
-        createClassList(
-            styles,
+    const classList = createClassList(
+        styles,
+        () => [
+            'Flex',
+            `Flex-direction-${direction()}`,
+            `Flex-align-${align()}`,
+            `Flex-justify-${justify()}`,
             {
-                Flex: true,
-                [`Flex-direction-${direction()}`]: true,
-                [`Flex-align-${align()}`]: true,
-                [`Flex-justify-${justify()}`]: true,
                 [`Flex-gap-${locals.gap}`]: Boolean(locals.gap),
                 [`Flex-shrink`]: locals.shrink === true,
                 [`Flex-no-shrink`]: locals.shrink === false,
@@ -57,8 +57,9 @@ export const Flex: Component<FlexProps> = props => {
                 [`Flex-inline`]: Boolean(locals.inline),
                 [`Flex-flex`]: locals.flex !== undefined,
             },
-            locals.classList,
-        );
+        ],
+        () => locals.classList,
+    );
 
     return <Layout {...elementProps} classList={classList()} />;
 };

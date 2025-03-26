@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer patterns {
         @layer data {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --data-value-fg-color: var(--color-base-fg);
 
                 --data-focused-fg-color: var(--color-focused-hue-sat), var(--color-fg-light-6);

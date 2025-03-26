@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer patterns {
         @layer cards {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --card-border-radius: var(--radius-m);
             }
         }

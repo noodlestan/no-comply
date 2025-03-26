@@ -7,7 +7,7 @@ import styles from './Tag.module.css';
 
 export type TagProps = Omit<JSX.HTMLAttributes<HTMLElement>, 'style'> & {
     tag?: keyof JSX.IntrinsicElements;
-    ref?: (el: HTMLElement) => void;
+    ref?: HTMLElement | ((el: HTMLElement) => void) | undefined;
     classList?: ClassList;
     style?: Styles;
     children?: JSX.Element;
@@ -21,10 +21,11 @@ export const Tag: Component<TagProps> = (props: TagProps) => {
     const [locals, elementProps] = splitProps(props, ['tag', 'classList']);
 
     const tag = () => locals.tag ?? defaultProps.tag;
-    const classList = () => createClassList(styles, { Tag: true }, locals.classList);
-    const childProps = (): JSX.HTMLAttributes<HTMLElement> => ({
-        ...elementProps,
-    });
+    const classList = createClassList(
+        styles,
+        () => ['Tag'],
+        () => locals.classList,
+    );
 
-    return <Dynamic {...childProps()} component={tag()} classList={classList()} />;
+    return <Dynamic {...elementProps} component={tag()} classList={classList()} />;
 };

@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer mode {
         @layer color {
-            .NUI-Theme-Base.NUI-ColorScheme-light {
+            [data-ctx-theme-base][data-ctx-mode-light] {
                 /* globals: saturation and levels */
 
                 --color-light-max: 2%;

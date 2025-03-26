@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer foundations {
         @layer opacity {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --o-opaque: 1;
                 --o-translucid: 0.8;
                 --o-mid: 0.6;

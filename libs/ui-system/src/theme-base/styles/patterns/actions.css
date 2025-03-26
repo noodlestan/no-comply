@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer patterns {
         @layer actions {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --o-action-border: var(--o-opaque);
                 --o-action-fg: var(--o-surface-fg);
                 --o-action-bg: var(--o-surface-fg-opaque);
@@ -114,10 +114,6 @@
 
                 --action-disabled-fg-color: var(--color-i-disabled-hue-sat), var(--color-light-4);
                 --action-disabled-bg-color: var(--color-i-disabled-hue-sat), var(--color-light-3);
-            }
-
-            .NUI-Theme-base.NUI-Surface-banner {
-                --action-border-light: var(--color-light-0);
             }
         }
     }

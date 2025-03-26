@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer foundations {
         @layer color {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 /* global sat: saturation and levels */
 
                 --color-sat: 60%;

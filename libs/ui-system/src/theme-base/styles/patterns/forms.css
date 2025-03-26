@@ -1,7 +1,7 @@
 @layer theme-base {
     @layer patterns {
         @layer forms {
-            .NUI-Theme-base {
+            [data-ctx-theme-base] {
                 --o-input-fg: var(--o-surface-fg-opaque);
                 --o-input-bg: var(--o-surface-bg-translucid);
                 --o-input-border: var(--o-surface-fg-opaque);

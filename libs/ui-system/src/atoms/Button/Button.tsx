@@ -15,12 +15,11 @@ export type ButtonProps = {
     size?: ButtonSize;
     length?: number | ButtonLength;
     disabled?: boolean;
-    selected?: boolean;
     onClick?: (ev: Event) => void;
     onShiftClick?: (ev: Event) => void;
     onAltClick?: (ev: Event) => void;
-    onFocus?: () => void;
-    onBlur?: (event: FocusEvent) => void;
+    onFocus?: JSX.FocusEventHandlerUnion<HTMLElement, FocusEvent>;
+    onBlur?: JSX.FocusEventHandlerUnion<HTMLElement, FocusEvent>;
     onTap?: () => void;
     id?: string;
     label?: string;
@@ -28,8 +27,8 @@ export type ButtonProps = {
     target?: string;
     tag?: ButtonTag;
     role?: JSX.HTMLAttributes<HTMLDivElement>['role'];
-    classList?: ClassList;
     ref?: (el: ButtonElement) => void;
+    classList?: ClassList;
     children?: JSX.Element;
 } & DataAttributes;
 
@@ -148,7 +147,6 @@ export const Button: Component<ButtonProps> = props => {
         ...props.classList,
         Button: true,
         'Button-is-disabled': Boolean(props.disabled),
-        'Button-is-selected': Boolean(props.selected),
         [`Button-size-${size()}`]: true,
         [`Button-variant-${variant()}`]: true,
         [`Button-styled`]: variant() !== 'transparent',

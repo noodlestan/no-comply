@@ -1,6 +1,6 @@
 @layer theme-base {
     @layer surfaces {
-        .NUI-Theme-base.NUI-Surface {
+        [data-ctx-theme-base][data-ctx-surface] {
             --o-surface-fg-opaque: var(--o-opaque);
             --o-surface-fg-translucid: var(--o-translucid);
             --o-surface-fg-mid: var(--o-mid);
@@ -149,18 +149,18 @@
             --color-outline: var(--color-focused);
         }
 
-        .NUI-Theme-base.NUI-Surface-inverse {
+        [data-ctx-theme-base] [data-ctx-surface-inverse] {
             --surface-bg-light: var(--color-bg-light-0);
         }
 
-        .NUI-Theme-base.NUI-Surface-page {
+        [data-ctx-theme-base] [data-ctx-surface-page] {
             --surface-bg-light: var(--color-bg-light-4);
             --surface-divider-base-color: var(--surface-fg-hue-sat), var(--color-light-4);
             --surface-divider-muted-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
             --surface-divider-alt-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
         }
 
-        .NUI-Theme-base.NUI-Surface-banner {
+        [data-ctx-theme-base] [data-ctx-surface-banner] {
             --surface-bg-hue-sat: var(--color-passive-hue-sat);
             --surface-bg-light: var(--color-light-1);
             --surface-border-radius: var(--radius-xs);
@@ -168,13 +168,13 @@
             --o-surface-bg-hover: var(--o-surface-bg-opaque);
         }
 
-        .NUI-Theme-base.NUI-Surface-card {
+        [data-ctx-theme-base] [data-ctx-surface-card] {
             --surface-bg-light: var(--color-bg-light-2);
             --surface-bg-hover-light: var(--color-bg-light-0);
             --surface-border-radius: var(--radius-s);
         }
 
-        .NUI-Theme-base.NUI-Surface-dialog {
+        [data-ctx-theme-base] [data-ctx-surface-dialog] {
             --surface-border-hue-sat: var(--surface-fg-hue-sat);
             --surface-border-light: var(--color-fg-light-3);
             --surface-border-style: solid;

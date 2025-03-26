@@ -1,16 +1,16 @@
 @layer theme-base {
     @layer mode {
         @layer surfaces {
-            .NUI-Theme-Base.NUI-ColorScheme-light.NUI-Surface {
+            [data-ctx-theme-base][data-ctx-mode-light] [data-ctx-surface] {
                 --color-i-rest-light: var(--color-fg-light-4);
                 --color-i-hover-light: var(--color-fg-light-2);
             }
 
-            .NUI-Theme-Base.NUI-ColorScheme-light.NUI-Surface-page {
+            [data-ctx-theme-base][data-ctx-mode-light] [data-ctx-surface-page] {
                 --surface-bg-light: var(--color-bg-light-1);
             }
 
-            .NUI-Theme-Base.NUI-ColorScheme-light.NUI-Surface-inverse {
+            [data-ctx-theme-base][data-ctx-mode-light] [data-ctx-surface-inverse] {
                 --color-light-max: 98%;
                 --color-light-9: 90%;
                 --color-light-8: 82%;
@@ -45,7 +45,7 @@
                 --color-fg-light-6: 77%;
             }
 
-            .NUI-Theme-Base.NUI-ColorScheme-light.NUI-Surface-banner {
+            [data-ctx-theme-base][data-ctx-mode-light] [data-ctx-surface-banner] {
                 /* A - bg */
 
                 --color-bg-light-0: 1%;

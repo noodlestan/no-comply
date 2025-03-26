@@ -1,6 +1,23 @@
 @layer theme-base {
     @layer foundations {
         @layer color {
+            @function --palette-brand(--value) {
+                result: if(
+                    style(--value: 100): #fdf4f6; /**                                   ***/
+                        style(--value: 150): #f5ecee; /**                                   ***/
+                        style(--value: 200): #fae0e7; /**                                   ***/
+                        style(--value: 300): #eabcca; /**                                   ***/
+                        style(--value: 400): #dc87a3; /**                                   ***/
+                        style(--value: 500): #d35184; /**                                   ***/
+                        style(--value: 600): #9f3961; /**                                   ***/
+                        style(--value: 700): #7b2e4c; /**                                   ***/
+                        style(--value: 800): #4c192d; /**                                   ***/
+                        style(--value: 900): #280f18; /**                                   ***/
+                        style(--value: 000): #14070b; /**                                   ***/
+                        else: #dc87a3;
+                );
+            }
+
             @function --palette-neutral(--value) {
                 result: if(
                     style(--value: 100): #fdf4f6; /**                                   ***/
@@ -171,23 +188,6 @@
                 );
             }
 
-            @function --palette-origin(--value) {
-                result: if(
-                    style(--value: 100): #fdf4f6; /**                                   ***/
-                        style(--value: 150): #f5ecee; /**                                   ***/
-                        style(--value: 200): #fae0e7; /**                                   ***/
-                        style(--value: 300): #eabcca; /**                                   ***/
-                        style(--value: 400): #dc87a3; /**                                   ***/
-                        style(--value: 500): #d35184; /**                                   ***/
-                        style(--value: 600): #9f3961; /**                                   ***/
-                        style(--value: 700): #7b2e4c; /**                                   ***/
-                        style(--value: 800): #4c192d; /**                                   ***/
-                        style(--value: 900): #280f18; /**                                   ***/
-                        style(--value: 000): #14070b; /**                                   ***/
-                        else: #dc87a3;
-                );
-            }
-
             @function --palette(--name, --value) {
                 result: if(
                     style(--name: brand): --palette-brand(var(--value)) ; /*    */
@@ -201,7 +201,6 @@
                         style(--name: blue): --palette-blue(var(--value)) ; /*    */
                         style(--name: indigo): --palette-indigo(var(--value)) ; /*    */
                         style(--name: violet): --palette-violet(var(--value)) ; /*    */
-                        style(--name: origin): --palette-origin(var(--value)) ; /*    */
                 );
             }
         }

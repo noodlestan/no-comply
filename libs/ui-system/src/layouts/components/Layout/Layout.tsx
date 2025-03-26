@@ -28,17 +28,18 @@ export const Layout: Component<LayoutProps> = props => {
 
     const tag = () => locals.tag ?? defaultProps.tag;
 
-    const classList = () =>
-        createClassList(
-            styles,
+    const classList = createClassList(
+        styles,
+        () => [
+            'Layout',
             {
-                Layout: true,
                 [`Layout-padding-${locals.padding}`]: Boolean(locals.padding),
                 [`Layout-stretch-${locals.stretch}`]: Boolean(locals.stretch),
                 [`Layout-overflow-${locals.overflow}`]: Boolean(locals.overflow),
             },
-            locals.classList,
-        );
+        ],
+        () => locals.classList,
+    );
 
     return <Dynamic {...elementProps} component={tag()} classList={classList()} />;
 };
