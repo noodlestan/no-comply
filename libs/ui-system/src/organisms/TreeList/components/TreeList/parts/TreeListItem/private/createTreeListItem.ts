@@ -44,9 +44,10 @@ export const createTreeListItem = (options: TreeListItemOptions): TreeListNodeAP
     });
 
     const childrenProps = (): TreeListItemChildrenProps => ({
-        children: node().children || [],
+        node: node(),
         expand: expandChildren(),
         level: level(),
+        setSize: setSize(),
         parent: node(),
         isParentSelected: options.isParentSelected() || selected(),
     });

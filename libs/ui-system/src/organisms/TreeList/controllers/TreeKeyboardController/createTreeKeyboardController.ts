@@ -19,7 +19,9 @@ export const createTreeKeyboardController = (
         if (!containerElement) {
             return [];
         }
-        return Array.from(containerElement.querySelectorAll('[data-node-id]')) as HTMLElement[];
+        return Array.from(
+            containerElement.querySelectorAll('[data-tree-item-id]'),
+        ) as HTMLElement[];
     };
 
     const getFocusedNode = (): HTMLElement | undefined => {
@@ -45,7 +47,7 @@ export const createTreeKeyboardController = (
     };
 
     const focusNode = (nodes: HTMLElement[], id: string) => {
-        const parentElement = nodes.find(node => node.getAttribute('data-node-id') === id);
+        const parentElement = nodes.find(node => node.getAttribute('data-tree-item-id') === id);
         if (parentElement) focusElement(parentElement);
     };
 
@@ -55,7 +57,7 @@ export const createTreeKeyboardController = (
             return;
         }
 
-        const currentId = focusedNode.getAttribute('data-node-id');
+        const currentId = focusedNode.getAttribute('data-tree-item-id');
         if (!currentId) {
             return;
         }
@@ -85,7 +87,8 @@ export const createTreeKeyboardController = (
             case 'ArrowLeft': {
                 ev.stopImmediatePropagation();
                 ev.preventDefault();
-                const isExpandable = focusedNode.getAttribute('data-is-expandable') === 'true';
+                const isExpandable =
+                    focusedNode.getAttribute('data-tree-item-is-expandable') === 'true';
                 if (isExpandable && state.isExpanded(currentId)) {
                     state.collapse(currentId);
                     return;
@@ -100,7 +103,8 @@ export const createTreeKeyboardController = (
             case 'ArrowRight': {
                 ev.stopImmediatePropagation();
                 ev.preventDefault();
-                const isExpandable = focusedNode.getAttribute('data-is-expandable') === 'true';
+                const isExpandable =
+                    focusedNode.getAttribute('data-tree-item-is-expandable') === 'true';
                 if (isExpandable) {
                     state.expand(currentId);
                 }

@@ -41,6 +41,7 @@ export type TreeListOptions = AriaTreeOptions & {
 
 export type TreeListLabels = {
     item: LabelValue<[TreeNode]>;
+    group: LabelValue<[TreeNode]>;
     expand: LabelValue<[TreeNode]>;
     collapse: LabelValue<[TreeNode]>;
     select: LabelValue<[TreeNode]>;

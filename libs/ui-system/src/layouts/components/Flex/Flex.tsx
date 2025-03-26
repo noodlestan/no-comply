@@ -35,7 +35,6 @@ export const Flex: Component<FlexProps> = props => {
         'inline',
         'flex',
         'classList',
-        'padding',
     ]);
 
     const direction = () => locals.direction ?? defaultProps.direction;

@@ -26,7 +26,7 @@ export const createTreeListItemDetails = (
     const level = () => options.level() || 1;
     const hasChildren = () => {
         const children = node().children;
-        Boolean(children && children.length > 0);
+        return Boolean(children && children.length > 0);
     };
     const hasToggle = () => Boolean(!options.expand() && hasChildren() && options.level());
     const showSelection = () => getSelection().length > 1;
@@ -52,7 +52,7 @@ export const createTreeListItemDetails = (
     const handleItemClick = (ev: Event) => {
         const event = ev as MouseEvent;
         ev.stopImmediatePropagation();
-        if (!event.altKey && !event.shiftKey) {
+        if (!event.altKey && !event.shiftKey && hasToggle()) {
             toggleExpanded(node().id);
         }
         selectNode(node());
@@ -72,6 +72,8 @@ export const createTreeListItemDetails = (
         onClick: handleItemClick,
         onShiftClick: handleItemShiftClick,
         onAltClick: handleItemAltClick,
+        'data-tree-item-id': node().id,
+        'data-tree-item-is-expandable': String(hasToggle()),
         labels: {
             region: l(labels.details),
         },
