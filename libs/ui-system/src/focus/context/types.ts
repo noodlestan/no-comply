@@ -1,17 +1,22 @@
-import type { Accessor } from 'solid-js';
+import type { Accessor, JSX } from 'solid-js';
 
 import type { BaseContext } from '../../context';
 
 export type FocusTarget = () => void;
 
 export type FocusContextOptions = {
-    target?: Accessor<FocusTarget | undefined>;
     index?: number;
 };
 
-export type FocusContextHandlers = {
-    onFocusIn: () => void;
-    onFocusOut: (ev: FocusEvent) => void;
+export type FocusContextContainerProps = {
+    onFocusIn: JSX.FocusEventHandlerUnion<HTMLElement, FocusEvent>;
+    onFocusOut: JSX.FocusEventHandlerUnion<HTMLElement, FocusEvent>;
+};
+
+export type FocusContextTargetProps = {
+    ref: (el: HTMLElement) => void;
+    onFocus: JSX.FocusEventHandlerUnion<HTMLElement, FocusEvent>;
+    onBlur: JSX.FocusEventHandlerUnion<HTMLElement, FocusEvent>;
 };
 
 export type FocusContext = BaseContext & {
@@ -19,5 +24,6 @@ export type FocusContext = BaseContext & {
     setFocus: () => void;
     hasFocus: Accessor<boolean>;
     hasFocusWithin: Accessor<boolean>;
-    handlers: FocusContextHandlers;
+    containerProps: FocusContextContainerProps;
+    targetProps: FocusContextTargetProps;
 };

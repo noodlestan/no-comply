@@ -1,11 +1,11 @@
-export type FocusTargetId = {
+export type FocusTargetName = {
     targetName: string;
 };
 
 export type FocusServiceAPI = {
-    setTarget: (target: FocusTargetId, handler: () => void) => void;
-    setFocus: (target: FocusTargetId) => void;
-    unsetTarget: (target: FocusTargetId) => void;
+    setTarget: (target: FocusTargetName, handler: () => void) => void;
+    setFocus: (target: FocusTargetName) => void;
+    unsetTarget: (target: FocusTargetName) => void;
     dispose: () => void;
 };
 

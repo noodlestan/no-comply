@@ -1,47 +1,70 @@
-import { type Component, type JSX, createSignal, splitProps } from 'solid-js';
+import { type Component, type JSX, createMemo, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
+import type { AriaRoleName } from '../../../aria';
 import { Button, type ButtonElement, type ButtonProps } from '../../../atoms';
 import { type ClassList, type DataAttributes } from '../../../dom';
-import { uuid } from '../../../private';
+import { type LabelValue, l } from '../../../labels';
+import { mergeHandlerProps } from '../../../private';
+import { createFocusContext } from '../../context';
+import { createFocusable } from '../../controllers';
+import type { FocusableAPI } from '../../types';
 
 import './Focusable.css';
 
 export type FocusableTag = 'div';
 
-export type FocusableProps = Omit<
+type FocusableLabels = {
+    region: LabelValue;
+};
+
+type FocusableButtonProps = Pick<
     ButtonProps,
-    'label' | 'onFocus' | 'onBlur' | 'classList' | 'tag' | 'role'
-> & {
-    label: string;
-    classList?: ClassList;
+    'href' | 'disabled' | 'onShiftClick' | 'onAltClick' | 'onClick'
+>;
+
+export type FocusableProps = FocusableButtonProps & {
+    focusable?: FocusableAPI;
     tag?: FocusableTag;
-    role?: JSX.HTMLAttributes<HTMLDivElement>['role'];
+    role?: AriaRoleName;
+    ref?: (el: ButtonElement) => void;
+    classList?: ClassList;
     children?: JSX.Element;
+    labels?: Partial<FocusableLabels>;
 } & DataAttributes;
+
+const LABELS: FocusableLabels = {
+    region: `Details`,
+};
 
 const defaultProps: Pick<FocusableProps, 'tag'> = {
     tag: 'div',
 };
 
 export const Focusable: Component<FocusableProps> = props => {
-    let buttonRef: ButtonElement | undefined;
+    const [locals, buttonProps] = splitProps(props, [
+        'labels',
+        'tag',
+        'disabled',
+        'role',
+        'focusable',
+        'classList',
+        'children',
+    ]);
 
-    const [isFocused, setIsFocused] = createSignal<boolean>(false);
+    const labels = () => Object.assign({}, LABELS, locals.labels);
 
-    const id = uuid();
-    const tag = () => props.tag || defaultProps.tag;
+    const tag = () => locals.tag || defaultProps.tag;
 
-    const setButtonRef = (ref: ButtonElement) => {
-        buttonRef = ref;
-        props.ref?.(ref);
-    };
-
-    const handleMouseDown = (ev: MouseEvent) => {
-        ev.preventDefault();
-        ev.stopImmediatePropagation();
-        buttonRef?.focus();
-    };
+    const focusable = createMemo(() => {
+        if (locals.focusable) {
+            return locals.focusable;
+        }
+        return createFocusable(createFocusContext(), {
+            role: locals.role,
+            label: l(labels().region),
+        });
+    });
 
     const handleClick = (ev: MouseEvent) => {
         if (!props.href) {
@@ -58,45 +81,27 @@ export const Focusable: Component<FocusableProps> = props => {
         props.onClick?.(ev);
     };
 
-    const handleFocus = () => setIsFocused(true);
-    const handleBlur = () => setIsFocused(false);
-
-    const ariaProps = (): JSX.AriaAttributes => {
-        return {
-            role: props.role || 'region',
-            'aria-labelledby': uuid(),
-        };
-    };
-
-    const [, buttonProps] = splitProps(props, ['label', 'classList', 'tag', 'role']);
-
     const classList = () => ({
-        ...props.classList,
+        ...locals.classList,
         Focusable: true,
-        'Focusable-is-disabled': props.disabled,
-        'Focusable-is-focused': isFocused(),
+        'Focusable-is-disabled': locals.disabled,
+        'Focusable-is-focused': focusable().isFocused(),
     });
 
     return (
         <Dynamic
             component={tag()}
             classList={classList()}
-            {...ariaProps()}
-            onMouseDown={handleMouseDown}
+            {...focusable().containerProps()}
             onClick={handleClick}
         >
             <Button
-                {...buttonProps}
-                ref={setButtonRef}
                 variant="transparent"
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                id={id}
+                {...buttonProps}
                 classList={{ 'Focusable--button': true }}
-            >
-                {props.label}
-            </Button>
-            {props.children}
+                {...mergeHandlerProps(focusable().targetProps(), { ref: props.ref })}
+            />
+            {locals.children}
         </Dynamic>
     );
 };

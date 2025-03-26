@@ -1,14 +1,14 @@
 import { useContext } from 'solid-js';
 
 import {
-    type FocusTargetId,
+    type FocusTargetName,
     type FocusTargetProducerAPI,
     createFocusTargetAPI,
 } from '../../services';
 
 import { FocusProviderContext } from './private';
 
-export const createFocusTarget = (target: FocusTargetId): FocusTargetProducerAPI => {
+export const createFocusTarget = (target: FocusTargetName): FocusTargetProducerAPI => {
     const context = useContext(FocusProviderContext);
     if (!context) {
         throw new Error('createFocusTarget() must be wrapped in <FocusServiceProvider/>');

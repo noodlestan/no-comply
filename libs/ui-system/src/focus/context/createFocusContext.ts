@@ -2,37 +2,62 @@ import { createSignal } from 'solid-js';
 
 import type { ContextNode } from '../../context/private';
 
-import type { FocusContext, FocusContextHandlers, FocusContextOptions } from './types';
+import type {
+    FocusContext,
+    FocusContextContainerProps,
+    FocusContextOptions,
+    FocusContextTargetProps,
+} from './types';
 
 export const createFocusContext = (
     options: FocusContextOptions = {},
     node?: ContextNode,
 ): FocusContext => {
+    let targetEl: HTMLElement;
+
+    const setTargetRef = (el: HTMLElement) => {
+        targetEl = el;
+    };
+
     const [, parentFocus] = node?.parentWith<FocusContext>('focus') || [];
 
-    const [hasFocus, setHasFocus] = createSignal(false);
+    const [isFocused, setIsFocused] = createSignal(false);
+    const [isFocusWithin, setIsFocusWithin] = createSignal(false);
 
-    const handlers: FocusContextHandlers = {
+    const containerProps: FocusContextContainerProps = {
         onFocusIn: () => {
-            if (!hasFocus()) {
-                setHasFocus(true);
+            if (!isFocusWithin()) {
+                setIsFocusWithin(true);
             }
         },
         onFocusOut: (ev: FocusEvent) => {
-            const target = ev.currentTarget as Node | null;
-            if (target?.contains(ev.relatedTarget as Node)) {
+            const container = ev.currentTarget as Node | null;
+            if (container?.contains(ev.relatedTarget as Node)) {
                 return;
             }
-            if (hasFocus()) {
-                setHasFocus(false);
+            if (isFocusWithin()) {
+                setIsFocusWithin(false);
+            }
+        },
+    };
+
+    const targetProps: FocusContextTargetProps = {
+        ref: setTargetRef,
+        onFocus: () => {
+            if (!isFocused()) {
+                setIsFocused(true);
+            }
+        },
+        onBlur: () => {
+            if (isFocused()) {
+                setIsFocused(false);
             }
         },
     };
 
     const setFocus = () => {
-        const target = options.target?.();
-        if (target) {
-            target();
+        if (targetEl) {
+            targetEl.focus();
             return;
         }
         parentFocus?.setFocus();
@@ -40,7 +65,7 @@ export const createFocusContext = (
 
     const hasFocusWithin = () => {
         return Boolean(
-            hasFocus() ||
+            isFocusWithin() ||
                 node?.childrenWith<FocusContext>('focus', (_, focus) => focus.hasFocusWithin()),
         );
     };
@@ -49,9 +74,10 @@ export const createFocusContext = (
         type: 'focus',
         node,
         index: options.index,
-        handlers,
+        containerProps,
+        targetProps,
         setFocus,
-        hasFocus,
+        hasFocus: isFocused,
         hasFocusWithin,
     };
 

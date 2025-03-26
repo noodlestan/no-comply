@@ -4,8 +4,8 @@ import { Dynamic } from 'solid-js/web';
 import type { FocusableProps, FocusableTag } from '../Focusable';
 
 export type FocusableHoverProps = {
-    ref?: (el: Element) => void;
     tag?: FocusableTag;
+    ref?: (el: Element) => void;
     children?: JSX.Element;
 };
 

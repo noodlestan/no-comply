@@ -1,10 +1,10 @@
-import type { FocusServiceAPI, FocusTargetId } from './types';
+import type { FocusServiceAPI, FocusTargetName } from './types';
 
 export const createFocusService = (): FocusServiceAPI => {
-    let currentTarget: FocusTargetId | undefined;
+    let currentTarget: FocusTargetName | undefined;
     const targetMap = new Map<string, () => void>();
 
-    const setTarget = (target: FocusTargetId, handler: () => void) => {
+    const setTarget = (target: FocusTargetName, handler: () => void) => {
         targetMap.set(target.targetName, handler);
         if (currentTarget?.targetName === target.targetName) {
             currentTarget = undefined;
@@ -12,7 +12,7 @@ export const createFocusService = (): FocusServiceAPI => {
         }
     };
 
-    const setFocus = (target: FocusTargetId) => {
+    const setFocus = (target: FocusTargetName) => {
         const targetFn = targetMap.get(target.targetName);
         if (targetFn) {
             targetFn();
@@ -21,7 +21,7 @@ export const createFocusService = (): FocusServiceAPI => {
         }
     };
 
-    const unsetTarget = (target: FocusTargetId) => {
+    const unsetTarget = (target: FocusTargetName) => {
         targetMap.delete(target.targetName);
     };
 

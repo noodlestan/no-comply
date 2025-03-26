@@ -1,10 +1,10 @@
 import type { ContextId } from '../../context/private';
-import { type FocusTargetId } from '../services';
+import { type FocusTargetName } from '../services';
 
-export const createFocusTargetId = (
+export const createFocusTargetName = (
     name: string,
-    parent?: FocusTargetId | ContextId,
-): FocusTargetId => {
+    parent?: FocusTargetName | ContextId,
+): FocusTargetName => {
     if (parent) {
         const parentName = 'targetName' in parent ? parent.targetName : parent.ctxId;
         return { targetName: parentName + '.' + name };
