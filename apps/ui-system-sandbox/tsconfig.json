@@ -3,5 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist",
     "types": ["vite/client"]
-  }
+  },
+  "include": ["src/"]
 }
