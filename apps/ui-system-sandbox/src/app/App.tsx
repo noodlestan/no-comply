@@ -1,5 +1,12 @@
 import { DebugDrawer } from '@noodlestan/context-ui-dev';
-import { Flex, createClassList } from '@noodlestan/ui-system';
+import {
+    Button,
+    Flex,
+    type FocusContext,
+    createClassList,
+    createFocusable,
+    useContextNode,
+} from '@noodlestan/ui-system';
 import { Router } from '@solidjs/router';
 import { type Component, type JSX, Show } from 'solid-js';
 
@@ -21,28 +28,33 @@ type RootProps = {
 };
 
 const Main: Component<RootProps> = props => {
-    // let mainRef: HTMLDivElement | undefined;
-
     const { ready } = useAppServices();
 
-    // createEffect(() => {
-    //     if (errors().length) {
-    //         console.error(errors());
-    //     }
-    // });
+    const context = useContextNode();
 
-    // const setMainRef = (ref: HTMLDivElement) => {
-    //     mainRef = ref;
-    // };
+    const focus = context.valueFor<FocusContext>('focus');
+    const focusable = createFocusable(focus);
 
-    const classList = () => createClassList(styles, { AppMain: true });
+    const classList = createClassList(styles, () => [
+        'AppMain',
+        { 'has-focus': focus.hasFocusWithin() },
+    ]);
 
     return (
-        <Flex direction="column" classList={classList()}>
+        <Flex
+            tag="div"
+            stretch="full"
+            classList={classList()}
+            {...focusable.containerProps()}
+            aria-busy={!ready()}
+        >
             <Show when={!ready()}>
                 <AppSplash />
             </Show>
-            <Show when={ready()}>{props.children}</Show>
+            <Show when={ready()}>
+                <Button variant="transparent" {...focusable.targetProps()} />
+                {props.children}
+            </Show>
         </Flex>
     );
 };

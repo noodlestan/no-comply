@@ -4,6 +4,7 @@ import {
     CONTEXT_UI_BASE_THEME_SETTINGS_GROUPS,
     type ContextId,
     type ContextOwnerAPI,
+    ContextProvider,
     ContextRootProvider,
     ContextValuesProvider,
     ThemeBase,
@@ -19,7 +20,7 @@ import {
     useSettings,
     useSystemContext,
 } from '@noodlestan/ui-system';
-import { type Component, type JSX } from 'solid-js';
+import { type Component, type JSX, type ParentComponent } from 'solid-js';
 
 type ThemeEffectsProps = {
     root: ContextOwnerAPI;
@@ -29,23 +30,23 @@ type UIRootProviderProps = {
     children?: JSX.Element;
 };
 
-export const ThemeEffects: Component<ThemeEffectsProps> = props => {
+export const ThemeEffects: ParentComponent<ThemeEffectsProps> = props => {
     // eslint-disable-next-line solid/reactivity
     const root = props.root;
 
-    const surface = () => {
+    const surfaceContexts = () => {
         const surface = ctx(node => createSurfaceContext('stage', node));
         return [surface];
     };
-    const rootSurface = root.createChildNode(surface);
+    const surface = root.createChildNode(surfaceContexts);
 
     const prefix = CONTEXT_UI_BASE_THEME_DATA_ATTRIBUTE_PREFIX;
 
     createContextDataEffect(root.node, prefix, document.documentElement);
     createContextVarsEffect(root.node, document.documentElement);
-    createContextDataEffect(rootSurface.node, prefix, document.body);
+    createContextDataEffect(surface.node, prefix, document.body);
 
-    return <></>;
+    return <ContextProvider value={surface}>{props.children}</ContextProvider>;
 };
 
 export const UIRootProvider: Component<UIRootProviderProps> = props => {
@@ -69,8 +70,9 @@ export const UIRootProvider: Component<UIRootProviderProps> = props => {
     return (
         <ContextValuesProvider>
             <ThemeBase />
-            <ThemeEffects root={root} />
-            <ContextRootProvider value={root}>{props.children}</ContextRootProvider>
+            <ContextRootProvider value={root}>
+                <ThemeEffects root={root}>{props.children}</ThemeEffects>
+            </ContextRootProvider>
         </ContextValuesProvider>
     );
 };
