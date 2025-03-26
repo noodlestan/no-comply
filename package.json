@@ -1,7 +1,7 @@
 {
-  "name": "ui-system",
+  "name": "context-ui",
   "version": "0.0.11",
-  "description": "Component library and UI services built with SolidJS.",
+  "description": "Context-aware UI controllers and components built with SolidJS.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
@@ -15,11 +15,12 @@
   "scripts": {
     "lint": "prettier . -c && eslint .",
     "lint:silent": "prettier . -c --log-level silent && eslint .",
-    "ci:lib-ui-system": "npm run --prefix libs/ui-system ci",
+    "ci:lib-context-ui": "npm run --prefix libs/context-ui ci",
+    "ci:lib-context-ui-headless": "npm run --prefix libs/context-ui-headless ci",
     "ci:lib-context-ui-dev": "npm run --prefix libs/context-ui-dev ci",
-    "ci:libs": "npm run ci:lib-ui-system && npm run ci:lib-context-ui-dev",
-    "ci:app-ui-system-sandbox": "npm run --prefix apps/ui-system-sandbox ci",
-    "ci:apps": "npm run ci:app-ui-system-sandbox",
+    "ci:libs": "npm run ci:lib-context-ui && npm run ci:lib-context-ui-headless && npm run ci:lib-context-ui-dev",
+    "ci:app-sandbox": "npm run --prefix apps/sandbox ci",
+    "ci:apps": "npm run ci:app-sandbox",
     "ci": "npm run ci:libs && npm run ci:apps"
   },
   "devDependencies": {

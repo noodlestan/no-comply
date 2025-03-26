@@ -25,17 +25,19 @@ First make sure you are using the correct node version by running `nvm use`.
 
 Install dependencies with `npm install`.
 
-Run `npm run dev` in the Context UI sandbox application: `apps/ui-system-sandbox/`.
+Run `npm run dev` in the Context UI sandbox application: `apps/context-ui-sandbox/`.
 
 ### In this repository
 
 Libraries:
 
-- [Context UI](https://github.com/noodlestan/ui-system/blob/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
+- [Context UI](https://github.com/noodlestan/context-ui/blob/libs/context-ui/README.md) - Context-aware application services and controllers.
+- [Context UI Headless](https://github.com/noodlestan/context-ui/blob/libs/context-ui-headless/README.md) - Headless component library.
+- [Context UI Dev](https://github.com/noodlestan/context-ui/blob/libs/context-ui-dev/README.md) - Instrumentation and debug tools.
 
 Apps:
 
-- [Context UI Sandbox](https://github.com/noodlestan/ui-system/blob/apps/ui-system-sandbox/README.md) - for developing and testing Context UI features
+- [Context UI Sandbox](https://github.com/noodlestan/context-ui/blob/apps/sandbox/README.md) - Sandbox for developing and testing Context UI features.
 
 ### Stack
 

@@ -1,12 +1,12 @@
-# Context UI
+# Context UI Dev Tools
 
-> Component library and UI services built with [SolidJS](https://www.solidjs.com/).
+> Instrumentation and debug tools for [Context UI](https://github.com/noodlestan/context-ui).
 
 ## Development
 
 ### Getting started
 
-Make sure you [README](https://github.com/noodlestan/ui-system/blob/README.md) first.
+Make sure you [README](https://github.com/noodlestan/context-ui/blob/README.md) first.
 
 Launch the application in dev mode:
 

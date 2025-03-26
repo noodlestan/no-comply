@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noodlestan/ui-system"
+    "url": "https://github.com/noodlestan/context-ui"
   },
   "type": "module",
   "sideEffects": false,
@@ -29,7 +29,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@noodlestan/ui-system": "^0.0.11",
+    "@noodlestan/context-ui": "^0.0.11",
     "lucide-solid": "^0.453.0",
     "solid-js": "^1.9.5"
   },

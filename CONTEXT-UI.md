@@ -29,7 +29,7 @@ onTap => onTouch
 
 ## ContextsProvider as pull
 
-libs/ui-system/src/providers/ContextsProvider/types.ts
+@noodlestan/context-ui/providers/ContextsProvider/types.ts
 
 ## i18n
 

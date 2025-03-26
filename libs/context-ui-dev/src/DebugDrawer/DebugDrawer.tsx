@@ -1,4 +1,4 @@
-import { Display, Flex, Surface, createAriaRegion, createClassList } from '@noodlestan/ui-system';
+import { Display, Flex, Surface, createAriaRegion, createClassList } from '@noodlestan/context-ui';
 import { type Component } from 'solid-js';
 
 import { ContextTreePanel } from '../panels';

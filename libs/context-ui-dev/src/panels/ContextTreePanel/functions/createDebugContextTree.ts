@@ -1,4 +1,4 @@
-import { type ContextNode, type TreeNode, createTreeNode } from '@noodlestan/ui-system';
+import { type ContextNode, type TreeNode, createTreeNode } from '@noodlestan/context-ui';
 import { type Accessor, createMemo } from 'solid-js';
 
 export const createDebugContextTree = (root: ContextNode): Accessor<TreeNode> => {

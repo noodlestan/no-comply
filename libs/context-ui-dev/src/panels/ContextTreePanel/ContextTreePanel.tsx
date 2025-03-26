@@ -7,7 +7,7 @@ import {
     createAriaRegion,
     createTreeListContext,
     useContextRoot,
-} from '@noodlestan/ui-system';
+} from '@noodlestan/context-ui';
 import { type Component } from 'solid-js';
 
 import { createDebugContextTree } from './functions';

@@ -4,7 +4,7 @@ import {
     Flex,
     type TreeItemComponentProps,
     createClassList,
-} from '@noodlestan/ui-system';
+} from '@noodlestan/context-ui';
 import { type Component, For, Show } from 'solid-js';
 
 import styles from './ContextTreeNode.module.css';

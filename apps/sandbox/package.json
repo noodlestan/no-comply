@@ -1,0 +1,37 @@
+{
+  "name": "@noodlestan/context-ui-sandbox",
+  "version": "0.0.11",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build:clean": "rm -rf dist",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite build && vite preview",
+    "dev": "vite",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
+  },
+  "dependencies": {
+    "@noodlestan/context-ui": "0.0.11",
+    "@noodlestan/context-ui-dev": "0.0.11",
+    "@solid-primitives/intersection-observer": "2.1.3",
+    "@solid-primitives/resize-observer": "2.0.22",
+    "@solid-primitives/storage": "2.1.2",
+    "@solidjs/router": "0.10.6",
+    "dotenv": "16.4.1",
+    "lucide-solid": "0.453.0",
+    "solid-js": "1.9.5",
+    "solid-services": "4.3.2",
+    "solidjs-use": "2.3.0"
+  },
+  "devDependencies": {
+    "csstype": "^3.1.2",
+    "vite": "^6.2.2",
+    "vite-plugin-solid": "^2.11.6",
+    "vite-plugin-solid-svg": "^0.8.1",
+    "vite-plugin-top-level-await": "^1.5.0"
+  }
+}
