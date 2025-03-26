@@ -24,22 +24,18 @@ export const IconButtonPage: Component = () => {
             <DemoGroup title="variant">
                 <DemoItem row title="primary">
                     <IconButton icon={PlusIcon} variant="primary" />
-                    <IconButton icon={PlusIcon} variant="primary" selected />
                     <IconButton icon={PlusIcon} variant="primary" disabled />
                 </DemoItem>
                 <DemoItem row title="secondary">
                     <IconButton icon={PlusIcon} variant="secondary" />
-                    <IconButton icon={PlusIcon} variant="secondary" selected />
                     <IconButton icon={PlusIcon} variant="secondary" disabled />
                 </DemoItem>
                 <DemoItem row title="plain">
                     <IconButton icon={PlusIcon} variant="plain" />
-                    <IconButton icon={PlusIcon} variant="plain" selected />
                     <IconButton icon={PlusIcon} variant="plain" disabled />
                 </DemoItem>
                 <DemoItem row title="transparent">
                     <IconButton icon={PlusIcon} variant="plain" />
-                    <IconButton icon={PlusIcon} variant="plain" selected />
                     <IconButton icon={PlusIcon} variant="plain" disabled />
                 </DemoItem>
                 <DemoItem row title="danger">
@@ -59,11 +55,6 @@ export const IconButtonPage: Component = () => {
                 </DemoItem>
                 <DemoItem row title="xs">
                     <IconButton variant="secondary" icon={PlusIcon} size="xs" />
-                </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="selected">
-                <DemoItem row title="">
-                    <IconButton variant="secondary" icon={PlusIcon} selected />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">

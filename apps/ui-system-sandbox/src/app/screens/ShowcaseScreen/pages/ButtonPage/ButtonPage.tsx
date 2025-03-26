@@ -23,36 +23,24 @@ export const ButtonPage: Component = () => {
             <DemoGroup title="variant">
                 <DemoItem row title="primary">
                     <Button variant="primary">Primary</Button>
-                    <Button variant="primary" selected>
-                        Selected
-                    </Button>
                     <Button variant="primary" disabled>
                         Disabled
                     </Button>
                 </DemoItem>
                 <DemoItem row title="secondary">
                     <Button variant="secondary">Secondary</Button>
-                    <Button variant="secondary" selected>
-                        Selected
-                    </Button>
                     <Button variant="secondary" disabled>
                         Disabled
                     </Button>
                 </DemoItem>
                 <DemoItem row title="plain">
                     <Button variant="plain">Plain</Button>
-                    <Button variant="plain" selected>
-                        Selected
-                    </Button>
                     <Button variant="plain" disabled>
                         Disabled
                     </Button>
                 </DemoItem>
                 <DemoItem row title="transparent">
                     <Button variant="transparent">Transparent</Button>
-                    <Button variant="transparent" selected>
-                        Selected
-                    </Button>
                     <Button variant="transparent" disabled>
                         Disabled
                     </Button>
@@ -110,13 +98,6 @@ export const ButtonPage: Component = () => {
                 <DemoItem row title="(number)">
                     <Button variant="secondary" length={20}>
                         Length 20 (em)
-                    </Button>
-                </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="selected">
-                <DemoItem row title="">
-                    <Button variant="secondary" selected>
-                        Selected
                     </Button>
                 </DemoItem>
             </DemoGroup>
