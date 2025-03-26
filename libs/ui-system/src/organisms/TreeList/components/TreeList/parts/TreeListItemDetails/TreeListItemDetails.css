@@ -1,0 +1,62 @@
+.TreeListItemDetails {
+    --tree-list-indent-space: var(--scale-2xs);
+    padding-left: calc(var(--tree-list-indent-level, 0) * var(--tree-list-indent-space));
+    padding-top: var(--space-gap--1);
+    padding-bottom: var(--space-gap--1);
+    position: relative;
+}
+
+.TreeListItemDetails::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: calc(var(--tree-list-indent-level, 0) * var(--tree-list-indent-space));
+    right: 0;
+    bottom: 1px;
+    border-bottom: var(--surface-divider-alt);
+    border-bottom-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
+}
+
+.TreeListItemDetails--toggle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.TreeListItemDetails--toggle > button {
+    position: absolute;
+    right: var(--space-gap--1);
+}
+
+.TreeListItemDetails--content {
+    z-index: 0;
+}
+
+.TreeListItemDetails--focusable {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    padding: var(--space-gap--1);
+    border-radius: var(--radius-xs);
+}
+
+.TreeListItemDetails-is-selected::after,
+.TreeListItemDetails-is-parent-selected::after {
+    content: '';
+    position: absolute;
+    top: var(--space-gap--1);
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-top-right-radius: var(--radius-xs);
+    border-width: 0 var(--scale-2xs) var(--scale-2xs) 0;
+    border-color: transparent hsla(var(--color-selected), var(--o-surface-bg-translucid))
+        transparent transparent;
+}
+
+.TreeListItemDetails-is-selected::after {
+    border-color: transparent hsla(var(--color-selected), var(--o-surface-bg-opaque)) transparent
+        transparent;
+}

@@ -1,6 +1,7 @@
 import { type Component, For } from 'solid-js';
 
 import type { ClassList } from '../../dom';
+import { Tag } from '../../layouts';
 import type { ObjectWithId } from '../../types';
 
 import { ListItem } from './components';
@@ -39,24 +40,24 @@ const ListItems: Component<{
 };
 
 export const List: Component<ListProps> = props => {
-    let treeListRef: HTMLDivElement | undefined;
+    let listRef: HTMLDivElement | undefined;
 
     const classList = () => ({
         ...props.classList,
         List: true,
     });
 
-    const { handlers } = createListKeyboardController(() => treeListRef);
+    const { handlers } = createListKeyboardController(() => listRef);
 
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-        <div ref={treeListRef} classList={classList()} onKeyUp={handlers.onKeyDown}>
+        <Tag ref={listRef} classList={classList()} onKeyUp={handlers.onKeyDown}>
             <ListItems
                 items={props.items}
                 state={props.state}
                 component={props.component}
                 disabled={props.disabled}
             />
-        </div>
+        </Tag>
     );
 };

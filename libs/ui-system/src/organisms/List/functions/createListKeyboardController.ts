@@ -2,9 +2,9 @@ import type { Accessor } from 'solid-js';
 
 import type { ListKeyboardControllerAPI } from '../types';
 
-export function createListKeyboardController(
+export const createListKeyboardController = (
     listElement: Accessor<Element | undefined>,
-): ListKeyboardControllerAPI {
+): ListKeyboardControllerAPI => {
     const getFocusableNodes = (): HTMLElement[] => {
         const container = listElement();
         if (!container) {
@@ -61,4 +61,4 @@ export function createListKeyboardController(
             onKeyDown,
         },
     };
-}
+};

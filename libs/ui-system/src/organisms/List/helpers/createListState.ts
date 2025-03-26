@@ -2,7 +2,7 @@ import type { SelectionAPI } from '../../../providers';
 import type { ObjectWithId } from '../../../types';
 import type { ListState } from '../types';
 
-export function createListState(selection: SelectionAPI): ListState {
+export const createListState = (selection: SelectionAPI): ListState => {
     console.info('createTreeState()');
 
     let firstSelected: string | undefined;
@@ -53,4 +53,4 @@ export function createListState(selection: SelectionAPI): ListState {
         clearSelection: selection.clearSelection,
         dispose,
     };
-}
+};

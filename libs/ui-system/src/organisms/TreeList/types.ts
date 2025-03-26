@@ -1,67 +1,50 @@
-import { ReactiveSet } from '@solid-primitives/set';
 import { type Component } from 'solid-js';
 
+import type { AriaTreeOptions } from '../../aria';
+import type { ExpandButtonIcons } from '../../atoms';
+import type { LabelValue } from '../../labels';
+import type { MaybeAccessorOrValue } from '../../private';
 import type { ObjectWithId } from '../../types';
 
-export type TreeState = {
-    expanded: ReactiveSet<string>;
-    isExpanded: (id: string) => boolean;
-    expand: (id: string | string[]) => void;
-    toggleExpanded: (id: string) => void;
-    collapse: (id: string | string[]) => void;
-    getSelection: () => ObjectWithId[];
-    getFirstSelected: () => ObjectWithId | undefined;
-    isSelected: (id: string) => boolean;
-    select: (object: ObjectWithId) => void;
-    toggleSelected: (object: ObjectWithId) => void;
-    deselect: (id: string) => void;
-    setSelection: (objects: ObjectWithId[]) => void;
-    clearSelection: () => void;
-    dispose: () => void;
-};
+import type { TreeState } from './controllers/TreeState';
 
-export type TreeObject = ObjectWithId;
-
-export type TreeFolder = {
-    id: string;
-    type: 'folder';
-    name: string;
-};
-
-export type TreeItem = TreeFolder | TreeObject;
-
-export type TreeNodeComponentProps = {
-    state: TreeState;
-    node: TreeNode;
-    level: number;
-    parent?: TreeNode;
-    isParentSelected: boolean;
-    isFolder: boolean;
-    isExpanded: boolean;
-    isSelected: boolean;
-    onClick?: () => void;
-};
-
-export type TreeNodeItemComponentSolid = Component<TreeNodeComponentProps>;
-
-export type TreeNodeItemComponentFn = (
-    props: TreeNodeComponentProps,
-    component?: TreeNodeItemComponent,
-) => TreeNodeItemComponentSolid;
-
-export type TreeNodeItemComponent = TreeNodeItemComponentFn | TreeNodeItemComponentSolid;
+export type TreeItem = ObjectWithId;
 
 export type TreeNode = {
     id: string;
     object: TreeItem;
     children?: TreeNode[];
-    component?: TreeNodeItemComponent;
+    component?: TreeItemComponent;
 };
 
-export type Tree = TreeNode;
-
-export type TreeListKeyboardControllerAPI = {
-    handlers: {
-        onKeyUp: (ev: KeyboardEvent) => void;
-    };
+export type TreeItemComponentProps = {
+    state: TreeState;
+    node: TreeNode;
+    level: number;
+    parent?: TreeNode;
+    isParentSelected: boolean;
+    isExpanded: boolean;
+    isSelected: boolean;
+    onClick?: () => void;
 };
+
+export type TreeItemComponent = Component<TreeItemComponentProps>;
+
+export type TreeRootNode = TreeNode;
+
+export type TreeListOptions = AriaTreeOptions & {
+    component: TreeItemComponent;
+    expand?: MaybeAccessorOrValue<boolean | number>;
+    labels?: Partial<TreeListLabels>;
+    icons?: TreeListIcons;
+};
+
+export type TreeListLabels = {
+    item: LabelValue<[TreeNode]>;
+    expand: LabelValue<[TreeNode]>;
+    collapse: LabelValue<[TreeNode]>;
+    select: LabelValue<[TreeNode]>;
+    details: LabelValue;
+};
+
+export type TreeListIcons = ExpandButtonIcons;

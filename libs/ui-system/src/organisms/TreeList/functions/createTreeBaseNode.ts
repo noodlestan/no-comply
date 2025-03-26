@@ -1,9 +1,9 @@
-import type { TreeItem, TreeNode, TreeNodeItemComponent } from '../types';
+import type { TreeItem, TreeItemComponent, TreeNode } from '../types';
 
 export const createTreeBaseNode = (
     item: TreeItem,
     id: string,
-    component?: TreeNodeItemComponent,
+    component?: TreeItemComponent,
 ): TreeNode => {
     return {
         id,
