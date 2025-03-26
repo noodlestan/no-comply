@@ -2,18 +2,23 @@ import {
     type ContextNode,
     Display,
     Flex,
-    type TreeNodeComponentProps,
+    type TreeItemComponentProps,
+    createClassList,
 } from '@noodlestan/ui-system';
 import { type Component, For, Show } from 'solid-js';
 
-export const ContextTreeNode: Component<TreeNodeComponentProps> = props => {
+import styles from './ContextTreeNode.module.css';
+
+export const ContextTreeNode: Component<TreeItemComponentProps> = props => {
     const node = () => props.node.object as ContextNode;
+
+    const classList = createClassList(styles, ['ContextTreeNode']);
 
     return (
         <Show when={props.node.object}>
-            <Flex direction="row" justify="between">
+            <Flex direction="row" align="center" gap="m" classList={classList()}>
                 <Display level={4}>{node().id}</Display>
-                <Flex gap="xs" wrap>
+                <Flex tag="ul" direction="row" gap="m" wrap aria-label="Context Values">
                     <For each={node().values()}>
                         {item => (
                             <li>

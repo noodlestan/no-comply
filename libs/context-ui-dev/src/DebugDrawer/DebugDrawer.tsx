@@ -1,4 +1,4 @@
-import { Display, Flex, Surface, createClassList } from '@noodlestan/ui-system';
+import { Display, Flex, Surface, createAriaRegion, createClassList } from '@noodlestan/ui-system';
 import { type Component } from 'solid-js';
 
 import { ContextTreePanel } from '../panels';
@@ -6,16 +6,15 @@ import { ContextTreePanel } from '../panels';
 import styles from './DebugDrawer.module.css';
 
 export const DebugDrawer: Component = () => {
-    const classList = () =>
-        createClassList(styles, {
-            DebugDrawer: true,
-        });
+    const classList = createClassList(styles, ['DebugDrawer']);
+
+    const region = createAriaRegion();
 
     return (
         <div classList={classList()}>
-            <Surface variant="card" role="region" aria-labelledby="debug-drawer">
+            <Surface variant="card" {...region.elProps}>
                 <Flex direction="column" padding="l" gap="m">
-                    <Display level={3} id="debug-drawer">
+                    <Display level={3} {...region.labelProps}>
                         Debug
                     </Display>
                     <ContextTreePanel />
