@@ -1,17 +1,15 @@
-import type { IconComponent, IconMap } from '../../types';
+import type { IconComponent, IconsServiceAPI } from '../../types';
 
-import type { IconsAPI } from './types';
+export const createIconsService = (): IconsServiceAPI => {
+    console.info('createIconsService()');
 
-export const createIcons = (): IconsAPI => {
-    console.info('createIcons()');
-
-    const iconMap: IconMap = {};
+    const iconMap: Record<string, IconComponent> = {};
 
     const addIcon = (name: string, icon: IconComponent): void => {
         iconMap[name] = icon;
     };
 
-    const addIcons = (map: IconMap): void => {
+    const addIcons = (map: Record<string, IconComponent>): void => {
         for (const key in map) {
             iconMap[key] = map[key] as IconComponent;
         }
@@ -24,7 +22,7 @@ export const createIcons = (): IconsAPI => {
         return iconMap[name] as IconComponent;
     };
 
-    const api: IconsAPI = {
+    const api: IconsServiceAPI = {
         addIcon,
         addIcons,
         getIcon,

@@ -1,9 +1,10 @@
 import { useContext } from 'solid-js';
 
-import { IconsContext } from './private';
-import type { IconsAPI } from './types';
+import type { IconsServiceAPI } from '../../types';
 
-export const useIcons = (): IconsAPI => {
+import { IconsContext } from './private';
+
+export const useIcons = (): IconsServiceAPI => {
     const context = useContext(IconsContext);
     if (!context) {
         throw new Error('useIcons() must be wrapped in <IconsProvider/>');
