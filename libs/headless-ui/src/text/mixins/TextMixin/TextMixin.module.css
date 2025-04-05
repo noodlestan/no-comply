@@ -1,0 +1,22 @@
+@layer headless-ui {
+    .Text {
+        display: block;
+        margin: 0;
+        font-family: var(--__text-font-family);
+        font-size: var(--__text-font-size, var(--typography-base-size));
+        font-weight: var(--__text-font-weight, var(--typography-base-weight));
+        line-height: var(--__text-line-height, var(--typography-base-height));
+        letter-spacing: var(--__text-letter-spacing, var(--typography-base-spacing));
+        font-style: var(--__text-font-style, normal);
+        text-transform: var(--__text-transform, none);
+        text-wrap-style: var(--__text-wrap-style, stable);
+        text-wrap-mode: wrap;
+    }
+
+    .Text-nowrap {
+        max-width: 100%;
+        text-wrap-mode: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

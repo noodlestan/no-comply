@@ -1,3 +1,5 @@
-.ContextTreeNode li {
-    list-style: none;
+@layer context-ui-dev {
+    .ContextTreeNode li {
+        list-style: none;
+    }
 }

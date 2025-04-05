@@ -1,17 +1,32 @@
-## kill SurfaceUnstyled
+## Display, Heading, Text
 
-and make Surface receive attributes and not have any inputHandlers
+add aria-heading (+aria-level)
+and aria-paragraph
 
-- expand focusContext ?
-- add a createInteraction(focusContext) ?
+## Callout
+
+add aria-note
+
+## Separator
+
+aria-separator
+
+## resolveValue()
+
+is it still needed (versus createComputedProps)
+
+## Scope surface vars
+
+`@scope ([data-surface]) to ([data-surface])`
+https://css-tricks.com/almanac/rules/s/scope/
+
+## data-disabled
+
+make sure it is added to all disable-able controllers (from aria up)
 
 ## abstract input controller around a focus context
 
 - abstract wasTouched
-
-## Button
-
-- make headless
 
 ## Tree
 
@@ -22,10 +37,6 @@ and make Surface receive attributes and not have any inputHandlers
 
 - make headless
 - provide state via context provider instead of prop
-
-## Surface / Buttons / Actions
-
-onTap => onTouch
 
 ## ContextsProvider as pull
 

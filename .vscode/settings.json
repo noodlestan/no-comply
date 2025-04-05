@@ -1,14 +1,24 @@
 {
   "spellright.language": ["en"],
   "spellright.documentTypes": [
+    "plaintext",
     "markdown",
     "javascript",
     "typescript",
     "typescriptreact",
     "html",
     "css",
-    "mdx"
+    "mdx",
+    "astro"
   ],
+  "spellright.parserByClass": {
+    "astro": {
+      "parser": "code"
+    },
+    "mdx": {
+      "parser": "markdown"
+    }
+  },
   "editor.tabSize": 4,
   "editor.insertSpaces": true,
   "editor.formatOnSave": true,
@@ -50,9 +60,11 @@
   "[mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "spellright.parserByClass": {
-    "mdx": {
-      "parser": "markdown"
-    }
-  }
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+    "src/",
+    "dist/",
+    "...*/private/.+",
+    "./[^./]+/[^./]+"
+  ],
+  "svg.preview.background": "transparent"
 }

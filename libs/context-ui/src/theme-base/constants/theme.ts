@@ -1,1 +1,0 @@
-export const CONTEXT_UI_BASE_THEME_DATA_ATTRIBUTE_PREFIX = 'ctx';

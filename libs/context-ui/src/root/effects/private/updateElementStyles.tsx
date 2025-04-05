@@ -1,4 +1,4 @@
-import type { Styles } from '../../../dom';
+import type { Styles } from '@noodlestan/context-ui-types';
 
 export const updateElementStyles = (
     targetElement?: HTMLElement,

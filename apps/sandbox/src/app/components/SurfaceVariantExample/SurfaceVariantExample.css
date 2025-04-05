@@ -1,3 +1,0 @@
-.SurfaceVariantExample > div {
-    border: 1px dotted var(--surface-border-optional);
-}

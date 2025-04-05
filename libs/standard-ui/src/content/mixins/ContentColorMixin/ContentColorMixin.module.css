@@ -1,0 +1,41 @@
+@layer standard-ui {
+    .ContentColor {
+        color: --fg-color(from var(--__content-color), var(--o-level-fg));
+    }
+
+    .ContentColor-color-brand {
+        --__content-color: --color-value(var(--c-name-brand), var(--c-level-saturated));
+    }
+
+    .ContentColor-color-normal {
+        --__content-color: --color-value(var(--c-name-primary), var(--c-level-primary));
+    }
+
+    .ContentColor-color-muted {
+        --__content-color: --color-value(var(--c-name-primary), var(--c-level-muted));
+    }
+
+    .ContentColor-color-neutral {
+        --__content-color: --color-value(var(--c-name-neutral), var(--c-level-saturated));
+    }
+
+    .ContentColor-color-good {
+        --__content-color: --color-value(var(--c-name-good), var(--c-level-saturated));
+    }
+
+    .ContentColor-color-meh {
+        --__content-color: --color-value(var(--c-name-meh), var(--c-level-saturated));
+    }
+
+    .ContentColor-color-bad {
+        --__content-color: --color-value(var(--c-name-bad), var(--c-level-saturated));
+    }
+
+    .ContentColor-color-modified {
+        --__content-color: --color-value(var(--c-name-modified), var(--c-level-saturated));
+    }
+
+    .ContentColor-color-selected {
+        --__content-color: --color-value(var(--c-name-selected), var(--c-level-saturated));
+    }
+}

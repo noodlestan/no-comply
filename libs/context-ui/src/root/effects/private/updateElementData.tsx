@@ -1,4 +1,4 @@
-import type { RawDataAttributes } from '../../../dom';
+import type { RawDataAttributes } from '@noodlestan/context-ui-types';
 
 const attributeName = (prefix: string | undefined, key: string): `data-${string}` => {
     return prefix ? `data-${prefix}-${key}` : `data-${key}`;

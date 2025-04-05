@@ -1,0 +1,29 @@
+@layer standard-ui {
+    .Flex-gap-none {
+        gap: 0;
+    }
+
+    .Flex-gap-xs {
+        gap: var(--space-gap--1);
+    }
+
+    .Flex-gap-s {
+        gap: var(--space-gap-0);
+    }
+
+    .Flex-gap-m {
+        gap: var(--space-gap-1);
+    }
+
+    .Flex-gap-l {
+        gap: var(--space-gap-2);
+    }
+
+    .Flex-gap-xl {
+        gap: var(--space-gap-3);
+    }
+
+    .Flex-gap-2xl {
+        gap: var(--space-gap-4);
+    }
+}

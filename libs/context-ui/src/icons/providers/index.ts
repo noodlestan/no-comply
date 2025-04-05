@@ -1,3 +1,3 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './IconsProvider';
-export * from './LocalIconsProvider';
+export * from './Icons';
+export * from './LocalIcons';

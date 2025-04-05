@@ -30,13 +30,13 @@ import { hasInterpolation } from './has-interpolation';
 export const replaceElements = (ast: IDom, { interpolation }: InitOptions) => {
     return (child: Node, index: number): Node | string | undefined | null => {
         if (typeof child === 'string') {
-            if (hasInterpolation(child, interpolation || {}))
+            if (hasInterpolation(child, interpolation ?? {}))
                 return ast.children[index]?.children?.[0]?.content;
 
             return ast.children[index]?.content;
         }
 
-        child.textContent = ast.children[index]?.children?.[0]?.content || null;
+        child.textContent = ast.children[index]?.children?.[0]?.content ?? null;
 
         return child;
     };

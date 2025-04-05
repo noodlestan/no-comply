@@ -1,0 +1,35 @@
+@layer headless-ui {
+    .Layout {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .Layout-stretch-full,
+    .Layout-stretch-width {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    .Layout-stretch-full,
+    .Layout-stretch-height {
+        height: 100%;
+        min-height: 100%;
+    }
+
+    .Layout-overflow-auto {
+        overflow: auto;
+    }
+
+    .Layout-overflow-x-auto {
+        overflow-x: auto;
+    }
+
+    .Layout-overflow-y-auto {
+        overflow-y: auto;
+    }
+
+    .Layout-overflow-hidden {
+        overflow: hidden;
+    }
+}

@@ -20,16 +20,20 @@
     "LICENSE-MIT"
   ],
   "scripts": {
-    "build:clean": "rm -rf dist",
-    "build": "vite build",
+    "dev": "vite build --watch",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
-    "dev": "vite build --watch",
+    "build:clean": "rm -rf dist",
+    "build": "vite build",
     "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@noodlestan/context-ui": "0.0.11",
+    "@noodlestan/context-ui-aria": "0.0.11",
+    "@noodlestan/context-ui-types": "0.0.11",
+    "@noodlestan/headless-ui": "0.0.11"
+  },
   "peerDependencies": {
-    "@noodlestan/context-ui": "^0.0.11",
     "lucide-solid": "^0.453.0",
     "solid-js": "^1.9.5"
   },

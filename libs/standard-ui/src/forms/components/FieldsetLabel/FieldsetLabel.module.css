@@ -1,0 +1,28 @@
+@layer standard-ui {
+    .FieldsetLabel {
+        color: hsla(var(--label-fieldset-fg-color), var(--o-input-label));
+        font-family: var(--label-type-family);
+        cursor: unset;
+    }
+
+    .FieldsetLabel-size-xs {
+        font-weight: 900;
+        font-size: var(--label-type-size-s);
+        font-weight: var(--label-type-weight-l);
+    }
+
+    .FieldsetLabel-size-s {
+        font-size: var(--label-type-size-m);
+        font-weight: var(--label-type-weight-s);
+    }
+
+    .FieldsetLabel-size-m {
+        font-size: var(--label-type-size-l);
+        font-weight: var(--label-type-weight-m);
+    }
+
+    .FieldsetLabel-size-l {
+        font-size: var(--label-type-size-xl);
+        font-weight: var(--label-type-weight-l);
+    }
+}

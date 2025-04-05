@@ -1,5 +1,6 @@
+import type { RawDataAttributes } from '@noodlestan/context-ui-types';
+
 import type { ContextValue } from '../../context/private';
-import type { RawDataAttributes } from '../../dom';
 
 export const reduceContextsData = <T extends ContextValue>(
     resolved: T[],

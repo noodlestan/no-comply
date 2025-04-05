@@ -8,8 +8,8 @@ export const createSystemColorSchemeSignal = (): Accessor<SystemColorSchemeName>
         mediaQuery.matches ? 'dark' : 'light',
     );
 
-    const updateColorScheme = (event: MediaQueryListEvent) => {
-        setColorScheme(event.matches ? 'dark' : 'light');
+    const updateColorScheme = (ev: MediaQueryListEvent) => {
+        setColorScheme(ev.matches ? 'dark' : 'light');
     };
 
     mediaQuery.addEventListener('change', updateColorScheme);

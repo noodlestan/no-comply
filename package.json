@@ -1,10 +1,11 @@
 {
   "name": "context-ui",
   "version": "0.0.11",
-  "description": "Context-aware UI controllers and components built with SolidJS.",
+  "description": "Context-aware UI system built with SolidJS.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
+  "packageManager": "npm@10.2.3",
   "workspaces": [
     "apps/*",
     "libs/*"
@@ -13,15 +14,11 @@
     "node": "20.10.0"
   },
   "scripts": {
-    "lint": "prettier . -c && eslint .",
-    "lint:silent": "prettier . -c --log-level silent && eslint .",
-    "ci:lib-context-ui": "npm run --prefix libs/context-ui ci",
-    "ci:lib-context-ui-headless": "npm run --prefix libs/context-ui-headless ci",
-    "ci:lib-context-ui-dev": "npm run --prefix libs/context-ui-dev ci",
-    "ci:libs": "npm run ci:lib-context-ui && npm run ci:lib-context-ui-headless && npm run ci:lib-context-ui-dev",
-    "ci:app-sandbox": "npm run --prefix apps/sandbox ci",
-    "ci:apps": "npm run ci:app-sandbox",
-    "ci": "npm run ci:libs && npm run ci:apps"
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "build": "turbo run build",
+    "ci": "turbo run ci --ui stream"
   },
   "devDependencies": {
     "@noodlestan/eslint-config": "0.0.4",
@@ -36,6 +33,7 @@
     "eslint-plugin-solid": "0.14.3",
     "lefthook": "1.5.5",
     "prettier": "3.3.3",
+    "turbo": "2.4.4",
     "typescript": "5.6.3"
   }
 }

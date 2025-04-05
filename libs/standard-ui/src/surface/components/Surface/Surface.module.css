@@ -1,0 +1,18 @@
+@layer standard-ui {
+    .Surface {
+        color: hsla(var(--surface-fg), var(--o-surface-fg));
+        background-color: hsla(var(--surface-bg), var(--o-surface-bg));
+        border-width: var(--surface-border-width);
+        border-style: var(--surface-border-style);
+        border-color: hsla(var(--surface-border-color), var(--o-surface-border));
+        border-radius: var(--surface-border-radius);
+        box-shadow: var(--surface-box-shadow-rest-size)
+            hsla(var(--surface-box-shadow-color), var(--o-surface-shawdow));
+        /* transition: background-color 0.5s ease-in; */
+    }
+
+    .Surface *::selection {
+        color: hsla(var(--surface-selection-fg), var(--o-surface-fg));
+        background-color: hsla(var(--surface-selection-bg), var(--o-surface-fg));
+    }
+}

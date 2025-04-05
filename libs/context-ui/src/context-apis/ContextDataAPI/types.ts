@@ -1,5 +1,5 @@
-import type { RawDataAttributes } from '../../dom';
+import type { RawDataAttributes } from '@noodlestan/context-ui-types';
 
-export type ContextDataAPI = {
-    contextData: () => RawDataAttributes;
+export type ContextDataAPI<T extends string = string> = {
+    contextData: () => RawDataAttributes<T>;
 };

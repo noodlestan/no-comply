@@ -1,0 +1,33 @@
+@layer standard-ui {
+    .MessageToast {
+        --banner-fg-light: var(--color-base-fg-light);
+        --o-surface-bg: var(--o-surface-bg-translucid);
+        --o-surface-bg-hover: var(--o-surface-bg-translucid);
+        display: flex;
+        background-color: hsla(
+            var(--banner-bg-hue-sat),
+            var(--surface-mid-light),
+            var(--o-surface-bg)
+        );
+    }
+
+    .MessageToast[data-feedback='passive'] {
+        --banner-bg-hue-sat: var(--color-passive-hue-sat);
+    }
+
+    .MessageToast[data-feedback='info'] {
+        --banner-bg-hue-sat: var(--color-neutral-hue-sat);
+    }
+
+    .MessageToast[data-feedback='success'] {
+        --banner-bg-hue-sat: var(--color-good-hue-sat);
+    }
+
+    .MessageToast[data-feedback='warning'] {
+        --banner-bg-hue-sat: var(--color-meh-hue-sat);
+    }
+
+    .MessageToast[data-feedback='danger'] {
+        --banner-bg-hue-sat: var(--color-bad-hue-sat);
+    }
+}

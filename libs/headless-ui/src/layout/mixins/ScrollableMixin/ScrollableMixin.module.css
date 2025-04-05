@@ -1,0 +1,15 @@
+@layer headless-ui {
+    .Scrollable {
+        overflow: hidden;
+    }
+
+    .Scrollable-x {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .Scrollable-y {
+        height: 100%;
+        overflow-y: auto;
+    }
+}

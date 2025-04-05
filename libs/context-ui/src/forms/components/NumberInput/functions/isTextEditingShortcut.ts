@@ -1,5 +1,5 @@
-const ALLOWED_KEYS = ['a', 'c', 'v', 'x'];
+const TEXT_EDITING_SHORTCUT_KEYS = ['a', 'c', 'v', 'x'];
 
 export const isTextEditingShortcut = (ev: KeyboardEvent): boolean => {
-    return (ev.ctrlKey || ev.metaKey) && ALLOWED_KEYS.includes(ev.key);
+    return (ev.ctrlKey || ev.metaKey) && TEXT_EDITING_SHORTCUT_KEYS.includes(ev.key);
 };

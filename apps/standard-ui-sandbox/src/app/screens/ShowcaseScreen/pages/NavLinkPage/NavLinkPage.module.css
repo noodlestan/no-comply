@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .NavLinkPage .override {
+            color: red !important;
+        }
+    }
+}

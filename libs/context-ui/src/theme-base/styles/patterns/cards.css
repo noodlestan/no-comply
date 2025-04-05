@@ -1,9 +1,0 @@
-@layer theme-base {
-    @layer patterns {
-        @layer cards {
-            [data-ctx-theme-base] {
-                --card-border-radius: var(--radius-m);
-            }
-        }
-    }
-}

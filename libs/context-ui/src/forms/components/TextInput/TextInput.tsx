@@ -1,6 +1,5 @@
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
 import { type Component, type JSX, createSignal } from 'solid-js';
-
-import type { ClassList } from '../../../dom';
 
 import './TextInput.css';
 
@@ -28,7 +27,7 @@ export type TextInputProps = {
     classList?: ClassList;
 };
 
-const defaultProps: Pick<TextInputProps, 'size' | 'length'> = {
+const defaultProps: PickRequired<TextInputProps, 'size' | 'length'> = {
     size: 's',
     length: 'auto',
 };
@@ -50,15 +49,15 @@ const makeStyle = (length?: TextInputLength | number, maxLength?: number) =>
     length ? { '--input-length': makeLength(length, maxLength) } : {};
 
 export const TextInput: Component<TextInputProps> = props => {
-    const size = () => props.size || defaultProps.size;
-    const length = () => props.length || defaultProps.length;
+    const size = () => props.size ?? defaultProps.size;
+    const length = () => props.length ?? defaultProps.length;
 
     const [wasTouched, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
 
     const currentValue = () => {
         const local = localValue();
-        return local !== undefined ? local : props.value || '';
+        return local !== undefined ? local : (props.value ?? '');
     };
 
     const isModified = () => {
@@ -80,7 +79,7 @@ export const TextInput: Component<TextInputProps> = props => {
 
     const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
         const target = event.target as HTMLInputElement;
-        const v = target?.value || '';
+        const v = target?.value ?? '';
         setLocalValue(v);
         props.onChangeValue?.(v);
     };

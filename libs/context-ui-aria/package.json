@@ -1,0 +1,44 @@
+{
+  "name": "@noodlestan/context-ui-aria",
+  "version": "0.0.11",
+  "description": "Aria types, primitives, and utils for Context UI.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/context-ui"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "LICENSE-MIT"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
+    "build:clean": "rm -rf dist",
+    "build": "vite build",
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
+  },
+  "dependencies": {
+    "@noodlestan/context-ui": "0.0.11",
+    "@noodlestan/context-ui-types": "0.0.11"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.5"
+  },
+  "devDependencies": {
+    "vite": "^6.2.2",
+    "vite-plugin-solid": "^2.11.6",
+    "vite-plugin-solid-svg": "^0.8.1",
+    "vite-plugin-top-level-await": "^1.5.0",
+    "vitest": "^3.0.9"
+  }
+}

@@ -1,0 +1,5 @@
+@layer standard-ui {
+    .Scrollable {
+        overflow: hidden;
+    }
+}

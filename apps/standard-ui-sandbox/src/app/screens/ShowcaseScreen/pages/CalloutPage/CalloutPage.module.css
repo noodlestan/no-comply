@@ -1,0 +1,14 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .CalloutPage .override {
+            color: crimson !important;
+            background-color: white;
+            border: 2px solid red;
+        }
+
+        .CalloutPageContents > p {
+            white-space: nowrap;
+            width: min-content;
+        }
+    }
+}

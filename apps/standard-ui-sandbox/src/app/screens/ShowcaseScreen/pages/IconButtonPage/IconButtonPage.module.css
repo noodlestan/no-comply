@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .IconButtonPage .override {
+            background-color: red !important;
+        }
+    }
+}

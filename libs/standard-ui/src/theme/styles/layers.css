@@ -1,0 +1,6 @@
+@layer standard-ui-theme {
+    @layer reset, foundations, surfaces, patterns;
+    @layer mode {
+        @layer foundations, surfaces, patterns;
+    }
+}

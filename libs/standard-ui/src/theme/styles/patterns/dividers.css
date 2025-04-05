@@ -1,0 +1,31 @@
+@layer standard-ui-theme {
+    @layer patterns {
+        @layer dividers {
+            [data-ctx-theme-standard] {
+                --surface-divider-base-width: var(--surface-border-width-base);
+                --surface-divider-base-style: solid;
+                --surface-divider-base: var(--surface-divider-base-width)
+                    var(--surface-divider-base-style);
+                --surface-divider-base-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
+
+                --surface-divider-strong-width: var(--surface-border-width-base);
+                --surface-divider-strong-style: solid;
+                --surface-divider-strong: var(--surface-divider-strong-width)
+                    var(--surface-divider-strong-style);
+                --surface-divider-strong-color: var(--surface-fg-hue-sat), var(--color-light-4);
+
+                --surface-divider-muted-width: var(--surface-border-width-base);
+                --surface-divider-muted-style: solid;
+                --surface-divider-muted: var(--surface-divider-muted-width)
+                    var(--surface-divider-muted-style);
+                --surface-divider-muted-color: var(--surface-fg-hue-sat), var(--color-light-1);
+
+                --surface-divider-alt-width: var(--surface-border-width-base);
+                --surface-divider-alt-style: dashed;
+                --surface-divider-alt: var(--surface-divider-alt-width)
+                    var(--surface-divider-alt-style);
+                --surface-divider-alt-color: var(--surface-fg-hue-sat), var(--color-bg-light-3);
+            }
+        }
+    }
+}

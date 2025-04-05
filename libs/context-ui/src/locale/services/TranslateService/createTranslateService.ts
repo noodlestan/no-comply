@@ -7,11 +7,11 @@ export const createTranslateService = (options: TranslateServiceOptions): Transl
     const noop = (() => undefined) as TranslationFunction;
     const [translate, setTranslate] = createSignal<TranslationFunction>(noop);
 
-    const { instance: maybeInstance, options: maybeOptions } = options.i18next || {};
+    const { instance: maybeInstance, options: maybeOptions } = options.i18next ?? {};
 
-    const instance = maybeInstance || i18next;
+    const instance = maybeInstance ?? i18next;
     instance.on('loaded', () => setTranslate(() => instance.t));
-    instance.init(maybeOptions || {}, (_, t) => setTranslate(() => t));
+    instance.init(maybeOptions ?? {}, (_, t) => setTranslate(() => t));
 
     const setLanguage = async (lng: string) => {
         const t = await instance.changeLanguage(lng);

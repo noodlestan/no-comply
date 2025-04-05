@@ -1,0 +1,33 @@
+@layer context-ui-dev {
+    .Flex-padding-none {
+        padding: 0;
+    }
+
+    .Flex-padding-s {
+        padding: 8px;
+    }
+
+    .Flex-padding-m {
+        padding: 16px;
+    }
+
+    .Flex-padding-l {
+        padding: 24px;
+    }
+
+    .Flex-gap-none {
+        gap: 0;
+    }
+
+    .Flex-gap-s {
+        gap: 8px;
+    }
+
+    .Flex-gap-m {
+        gap: 16px;
+    }
+
+    .Flex-gap-l {
+        gap: 24px;
+    }
+}

@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        .ComponentMeta {
+            margin-bottom: 20px;
+        }
+    }
+}

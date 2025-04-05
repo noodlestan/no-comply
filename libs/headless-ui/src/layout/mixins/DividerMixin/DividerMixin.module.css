@@ -1,0 +1,15 @@
+@layer headless-ui {
+    .Divider {
+        height: 0px;
+        width: 0px;
+        border: none;
+    }
+
+    .Divider-vertical {
+        height: var(--__divider-length);
+    }
+
+    .Divider-horizontal {
+        width: var(--__divider-length);
+    }
+}

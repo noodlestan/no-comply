@@ -1,6 +1,7 @@
+import type { Styles } from '@noodlestan/context-ui-types';
+
 import { type ContextNode } from '../../../context';
 import { isContextVarsAPI } from '../../../context-apis';
-import type { Styles } from '../../../dom';
 
 export const collectContextVars = (context: ContextNode): Styles => {
     const values = context.valuesWith(isContextVarsAPI);

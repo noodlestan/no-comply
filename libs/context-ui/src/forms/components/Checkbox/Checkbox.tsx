@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
 import { CheckIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';
-
-import type { ClassList } from '../../../dom';
 
 import './Checkbox.css';
 
@@ -22,14 +21,14 @@ export type CheckboxProps = {
     classList?: ClassList;
 };
 
-const defaultProps: Pick<CheckboxProps, 'size'> = {
+const defaultProps: PickRequired<CheckboxProps, 'size'> = {
     size: 's',
 };
 
 export const Checkbox: Component<CheckboxProps> = props => {
     let inputRef: HTMLInputElement | undefined;
 
-    const size = () => props.size || defaultProps.size;
+    const size = () => props.size ?? defaultProps.size;
     const [isFocused, setIsFocused] = createSignal<boolean>(false);
 
     const setInputRef = (ref: HTMLInputElement) => {

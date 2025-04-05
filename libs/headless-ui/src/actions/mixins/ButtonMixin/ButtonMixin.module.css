@@ -1,0 +1,20 @@
+@layer headless-ui {
+    .Button {
+        display: block;
+        text-align: inherit;
+        color: inherit;
+        padding: unset;
+        background-color: transparent;
+        border: none;
+        border-color: none;
+        border-radius: 0;
+        cursor: pointer;
+        pointer-events: all;
+        user-select: none;
+    }
+
+    .Button[disabled],
+    .Button[aria-disabled] {
+        cursor: not-allowed;
+    }
+}

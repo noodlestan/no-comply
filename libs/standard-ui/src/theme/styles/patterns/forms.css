@@ -1,0 +1,49 @@
+@layer standard-ui-theme {
+    @layer patterns {
+        @layer forms {
+            [data-ctx-theme-standard] {
+                --o-input-fg: var(--o-surface-fg-opaque);
+                --o-input-bg: var(--o-surface-bg-translucid);
+                --o-input-border: var(--o-surface-fg-opaque);
+                --o-input-label: var(--o-surface-fg-opaque);
+                --o-input-focused-border: var(--o-surface-fg-opaque);
+
+                --input-fg: var(--surface-fg);
+                --input-bg: var(--surface-bg);
+
+                --input-light-max: var(--color-light-max);
+                --input-light-high: var(--color-light-9);
+                --input-light-base: var(--color-light-7);
+                --input-light-muted: var(--color-light-5);
+                --input-light-low-2: var(--color-light-2);
+                --input-light-low-1: var(--color-light-2);
+                --input-light-disabled: var(--color-light-3);
+
+                --input-track-rest-color: var(--color-primary-hue-sat), var(--input-light-low-1);
+                --input-track-hover-color: var(--color-primary-hue-sat), var(--input-light-low-2);
+                --input-track-disabled-color: var(--color-i-disabled-hue-sat),
+                    var(--input-light-disabled);
+
+                --input-handle-rest-color: var(--color-primary-hue-sat), var(--input-light-base);
+                --input-handle-hover-color: var(--color-primary-hue-sat), var(--input-light-high);
+                --input-handle-focus-color: var(--color-primary-hue-sat), var(--input-light-max: );
+                --input-handle-disabled-color: var(--color-i-disabled-hue-sat),
+                    var(--input-light-muted);
+
+                --input-border-width: var(--surface-border-width-thin);
+                --input-border: var(--input-border-width) var(--surface-border-style);
+                --input-border-color: var(--color-primary-hue-sat), var(--input-light-muted);
+                --input-border-focused-color: var(--color-primary-hue-sat), var(--input-light-high);
+                --input-border-radius: var(--radius-xs);
+
+                --input-checkbox-border: var(--surface-border-width-base)
+                    var(--surface-border-style);
+                --input-checkbox-border-color: var(--color-primary-hue-sat), var(--input-light-high);
+                --input-checkbox-stroke: 3px;
+
+                --label-field-fg-color: var(--color-muted);
+                --label-fieldset-fg-color: var(--color-primary);
+            }
+        }
+    }
+}

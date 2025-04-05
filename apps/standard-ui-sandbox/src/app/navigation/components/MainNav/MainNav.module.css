@@ -1,0 +1,10 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        .MainNavHeader {
+            position: sticky;
+            top: 0;
+            left: 0;
+            background-color: hsla(var(--surface-bg), var(--o-surface-bg));
+        }
+    }
+}

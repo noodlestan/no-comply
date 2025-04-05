@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        .ImportStatement {
+            font-size: var(--data-type-size-s);
+        }
+    }
+}

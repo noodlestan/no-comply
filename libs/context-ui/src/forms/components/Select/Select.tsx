@@ -1,6 +1,5 @@
-import { type Component, type JSX, Show } from 'solid-js';
-
-import type { ClassList } from '../../../dom';
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
+import { type ParentComponent, Show } from 'solid-js';
 
 import './Select.css';
 
@@ -19,10 +18,9 @@ export type SelectProps = {
     onChangeValue?: (id: string) => void;
     ref?: (el: HTMLSelectElement) => void;
     classList?: ClassList;
-    children?: JSX.Element;
 };
 
-const defaultProps: Pick<SelectProps, 'size' | 'length'> = {
+const defaultProps: PickRequired<SelectProps, 'size' | 'length'> = {
     size: 's',
     length: 'full',
 };
@@ -43,13 +41,13 @@ const makeLength = (length: number | SelectLength): string => {
 const makeStyle = (length?: number | SelectLength) =>
     length ? { '--select-length': makeLength(length) } : {};
 
-export const Select: Component<SelectProps> = props => {
-    const size = () => props.size || defaultProps.size;
-    const length = () => props.length || defaultProps.length;
+export const Select: ParentComponent<SelectProps> = props => {
+    const size = () => props.size ?? defaultProps.size;
+    const length = () => props.length ?? defaultProps.length;
 
     const handleChange = (ev: Event) => {
         const target = ev.target as HTMLSelectElement;
-        props.onChangeValue?.(target?.value || '');
+        props.onChangeValue?.(target?.value ?? '');
     };
 
     const handleKeyDown = (ev: KeyboardEvent) => {
@@ -89,7 +87,7 @@ export const Select: Component<SelectProps> = props => {
             onKeyUp={handleKeyUp}
             classList={classList()}
             style={style()}
-            value={props.value || ''}
+            value={props.value ?? ''}
         >
             <Show when={!!props.placeholder}>
                 <option value="">{props.placeholder}</option>

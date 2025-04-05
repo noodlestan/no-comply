@@ -1,0 +1,51 @@
+@layer standard-ui {
+    .Callout {
+        --banner-fg-light: var(--color-base-fg-light);
+        --o-surface-bg: var(--o-surface-bg-translucid);
+        --o-surface-bg-hover: var(--o-surface-bg-translucid);
+        display: flex;
+        width: var(--banner-width);
+        height: var(--banner-height);
+        background-color: hsla(
+            var(--banner-bg-hue-sat),
+            var(--surface-mid-light),
+            var(--o-surface-bg)
+        );
+    }
+
+    .Callout-length-full {
+        --banner-width: 100%;
+    }
+
+    .Callout-length-compact {
+        --banner-width: min-content;
+    }
+
+    .Callout-size-s {
+        --banner-height: var(--size-2);
+    }
+
+    .Callout-size-m {
+        --banner-height: var(--size-m);
+    }
+
+    .Callout[data-feedback='passive'] {
+        --banner-bg-hue-sat: var(--color-passive-hue-sat);
+    }
+
+    .Callout[data-feedback='info'] {
+        --banner-bg-hue-sat: var(--color-neutral-hue-sat);
+    }
+
+    .Callout[data-feedback='success'] {
+        --banner-bg-hue-sat: var(--color-good-hue-sat);
+    }
+
+    .Callout[data-feedback='warning'] {
+        --banner-bg-hue-sat: var(--color-meh-hue-sat);
+    }
+
+    .Callout[data-feedback='danger'] {
+        --banner-bg-hue-sat: var(--color-bad-hue-sat);
+    }
+}

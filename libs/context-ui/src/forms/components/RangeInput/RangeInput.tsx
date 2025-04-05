@@ -1,6 +1,5 @@
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
 import { type Component, type JSX, createSignal } from 'solid-js';
-
-import type { ClassList } from '../../../dom';
 
 import './RangeInput.css';
 
@@ -26,7 +25,7 @@ export type RangeInputProps = {
     classList?: ClassList;
 };
 
-const defaultProps: Pick<RangeInputProps, 'size' | 'length'> = {
+const defaultProps: PickRequired<RangeInputProps, 'size' | 'length'> = {
     size: 's',
     length: 'auto',
 };
@@ -45,15 +44,15 @@ const makeStyle = (length?: RangeInputLength | number) =>
     length ? { '--input-length': makeLength(length) } : {};
 
 export const RangeInput: Component<RangeInputProps> = props => {
-    const size = () => props.size || defaultProps.size;
-    const length = () => props.length || defaultProps.length;
+    const size = () => props.size ?? defaultProps.size;
+    const length = () => props.length ?? defaultProps.length;
 
     const [wasTouched, setWasTouched] = createSignal<boolean>();
     const [localValue, setLocalValue] = createSignal<string | undefined>();
 
     const currentValue = () => {
         const local = localValue();
-        return local !== undefined ? local : props.value || '';
+        return local !== undefined ? local : (props.value ?? '');
     };
 
     const isModified = () => {
@@ -75,7 +74,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
 
     const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
         const target = event.target as HTMLInputElement;
-        const v = target?.value || '';
+        const v = target?.value ?? '';
         setLocalValue(v);
         props.onChangeValue?.(v);
     };

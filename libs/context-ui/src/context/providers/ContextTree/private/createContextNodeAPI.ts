@@ -1,4 +1,4 @@
-import { type Accessor, createSignal } from 'solid-js';
+import { type Accessor, createSignal, mapArray } from 'solid-js';
 
 import type {
     BaseContext,
@@ -18,8 +18,7 @@ export const createContextNodeAPI = (
     const node: { api: ContextNode } = {
         api: {} as ContextNode,
     };
-
-    const ctx = () => contexts().map(f => f(node.api));
+    const ctx = mapArray(contexts, f => f(node.api));
 
     const matchContext = <T extends BaseContext>(
         child: ContextNode,
@@ -45,6 +44,13 @@ export const createContextNodeAPI = (
         });
     };
 
+    const hasChildWith = <T extends BaseContext>(
+        type: string,
+        filter?: (child: ContextNode, context: T) => boolean,
+    ): boolean => {
+        return childrenWith(type, filter).length > 0;
+    };
+
     const firstChildWith = <T extends BaseContext>(
         type: string,
         filter?: (child: ContextNode, context: T) => boolean,
@@ -67,7 +73,7 @@ export const createContextNodeAPI = (
         if (parent && value) {
             return [parent, value as T];
         }
-        return parent?.parentWith<T>(type) || [];
+        return parent?.parentWith<T>(type) ?? [];
     };
 
     const filteredValues = <T extends BaseContext>(types?: string[]): T[] => {
@@ -95,7 +101,7 @@ export const createContextNodeAPI = (
     };
 
     node.api = {
-        id: options.id?.ctxId || '<none>',
+        id: options.id?.ctxId ?? '<none>',
         parent: () => parent,
         parentWith,
         values: filteredValues,
@@ -104,6 +110,7 @@ export const createContextNodeAPI = (
         maybeValueFor,
         children: () => children().map(child => child.node),
         childrenWith,
+        hasChildWith,
         firstChildWith,
     };
 

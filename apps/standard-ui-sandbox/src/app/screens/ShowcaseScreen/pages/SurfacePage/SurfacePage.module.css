@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .SurfacePage .override {
+            color: red !important;
+        }
+    }
+}

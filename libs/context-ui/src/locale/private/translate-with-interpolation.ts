@@ -14,13 +14,13 @@ type ItemObject = {
 export const translateWithInterpolation =
     (t: TFunction, options: InitOptions, props: TranslateProps) =>
     (item: string | object): string | object => {
-        if (typeof item === 'string' && hasInterpolation(item, options.interpolation || {}))
+        if (typeof item === 'string' && hasInterpolation(item, options.interpolation ?? {}))
             return t(item, props.options);
 
         if (typeof item === 'object') {
             const itemObject = item as ItemObject;
             const textContent = itemObject.textContent ?? itemObject.t;
-            if (textContent && hasInterpolation(textContent, options.interpolation || {})) {
+            if (textContent && hasInterpolation(textContent, options.interpolation ?? {})) {
                 itemObject[isNode ? 't' : 'textContent'] = t(textContent, props.options);
             }
         }

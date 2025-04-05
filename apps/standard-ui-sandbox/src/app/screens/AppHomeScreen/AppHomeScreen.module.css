@@ -1,0 +1,13 @@
+@layer standard-ui-sandbox {
+    @layer screens {
+        .AppHomeScreen {
+            outline: none;
+            height: 100%;
+        }
+
+        .AppHomeScreen > .Surface {
+            width: 100%;
+            height: 100vh;
+        }
+    }
+}

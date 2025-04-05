@@ -1,0 +1,25 @@
+@layer standard-ui-theme {
+    @layer reset {
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            view-transition-name: none;
+        }
+
+        ::view-transition {
+            pointer-events: none;
+        }
+    }
+
+    body {
+        font-family: var(--typography-base-font-family);
+        font-size: var(--typography-base-size);
+        font-weight: var(--typography-base-weight);
+        line-height: var(--typography-base-height);
+        letter-spacing: var(--typography-base-spacing);
+    }
+}

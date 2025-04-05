@@ -1,0 +1,11 @@
+@layer headless-ui {
+    .Link {
+        cursor: pointer;
+        pointer-events: all;
+        color: var(--__link_color);
+    }
+
+    .Link[aria-disabled] {
+        cursor: not-allowed;
+    }
+}

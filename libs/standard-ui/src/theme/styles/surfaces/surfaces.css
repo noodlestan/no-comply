@@ -1,0 +1,126 @@
+@layer standard-ui-theme {
+    @layer surfaces {
+        [data-ctx-theme-standard] [data-ctx-surface] {
+            --o-surface-fg-opaque: var(--o-opaque);
+            --o-surface-fg-translucid: var(--o-translucid);
+            --o-surface-fg-mid: var(--o-mid);
+            --o-surface-fg-faded: var(--o-faded);
+            --o-surface-fg-ghost: var(--o-ghost);
+            --o-surface-fg-transparent: var(--o-transparent);
+
+            --o-surface-bg-opaque: var(--o-opaque);
+            --o-surface-bg-translucid: var(--o-translucid);
+            --o-surface-bg-mid: var(--o-mid);
+            --o-surface-bg-faded: var(--o-faded);
+            --o-surface-bg-ghost: var(--o-ghost);
+            --o-surface-bg-transparent: var(--o-transparent);
+
+            --o-surface-fg: var(--o-surface-fg-opaque);
+            --o-surface-border: var(--o-surface-fg-opaque);
+
+            --o-surface-bg: var(--o-surface-bg-opaque);
+            --o-surface-bg-overlay: var(--o-surface-bg-mid);
+            --o-surface-bg-hover: var(--o-surface-bg-opaque);
+            --o-surface-bg-active: var(--o-surface-bg-opaque);
+            --o-surface-outline: var(--o-surface-fg-opaque);
+            --o-surface-shadow: var(--o-surface-bg-translucid);
+
+            --color-debug: var(--color-sw-6-hue), var(--color-light-2);
+            --o-debug-fg: var(--o-surface-bg-translucid);
+            --o-debug-bg: var(--o-surface-bg-overlay);
+
+            --surface-fg-hue-sat: var(--color-fg-hue), var(--color-fg-sat);
+            --surface-fg-light: var(--color-base-fg-light);
+            --surface-fg: var(--surface-fg-hue-sat), var(--surface-fg-light);
+
+            --surface-mid-light: var(--color-mid-fg-light);
+
+            --surface-bg-hue-sat: var(--color-bg-hue), var(--color-bg-sat);
+            --surface-bg-light: var(--color-base-bg-light);
+            --surface-bg: var(--surface-bg-hue-sat), var(--surface-bg-light);
+
+            --surface-bg-hover-hue-sat: var(--surface-bg-hue-sat);
+            --surface-bg-hover-light: var(--surface-bg-light);
+            --surface-bg-hover: var(--surface-bg-hover-hue-sat), var(--surface-bg-hover-light);
+
+            --surface-bg-active-hue-sat: var(--surface-bg-hue-sat);
+            --surface-bg-active-light: var(--surface-bg-light);
+            --surface-bg-active: var(--surface-bg-active-hue-sat), var(--surface-bg-active-light);
+
+            --surface-bg-overlay: var(--color-base-bg-hue-sat), var(--color-bg-light-5);
+
+            --surface-border-width: 0;
+            --surface-border-width-thin: 1px;
+            --surface-border-width-base: 2px;
+            --surface-border-width-large: 4px;
+            --surface-border-style: solid;
+            --surface-border: var(--surface-border-width) var(--surface-border-style);
+
+            --surface-border-hue-sat: var(--surface-fg-hue-sat);
+            --surface-border-light: var(--color-light-1);
+            --surface-border-color: var(--surface-border-hue-sat), var(--surface-border-light);
+
+            --surface-border-hover: var(--surface-border-hover-width)
+                var(--surface-border-hover-style);
+            --surface-border-active: var(--surface-border-active-width)
+                var(--surface-border-active-style);
+
+            --surface-border-resizable: var(--surface-border-width-large)
+                var(--surface-border-style);
+            --surface-border-resizable-color: var(--surface-border-hue-sat), var(--color-light-3);
+
+            --surface-border-radius: 0;
+
+            --surface-box-shadow-size-solid: 0px 0px 0px 1px;
+            --surface-box-shadow-size-tight: 0px 0px 2px 1px;
+            --surface-box-shadow-size-wide: 0px 1px 4px 2px;
+            --surface-box-shadow-size-none: 0;
+
+            --surface-box-shadow-rest-size: 0;
+            --surface-box-shadow-hover-size: var(--surface-box-shadow-size-tight);
+            --surface-box-shadow-active-size: var(--surface-box-shadow-size-tight);
+
+            --surface-box-shadow-hue-sat: var(--color-bg-hue), var(--color-bg-sat);
+            --surface-box-shadow-light: var(--color-bg-light-3);
+            --surface-box-shadow-color: var(--surface-box-shadow-hue-sat),
+                var(--surface-box-shadow-light);
+
+            --color-outline: var(--color-focused);
+        }
+
+        [data-ctx-theme-standard] [data-ctx-surface-inverse] {
+            --surface-bg-light: var(--color-bg-light-0);
+        }
+
+        [data-ctx-theme-standard] [data-ctx-surface-page] {
+            --surface-bg-light: var(--color-bg-light-4);
+            --surface-divider-base-color: var(--surface-fg-hue-sat), var(--color-light-4);
+            --surface-divider-muted-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
+            --surface-divider-alt-color: var(--surface-fg-hue-sat), var(--color-bg-light-6);
+        }
+
+        [data-ctx-theme-standard] [data-ctx-surface-banner] {
+            --surface-bg-hue-sat: var(--color-passive-hue-sat);
+            --surface-bg-light: var(--color-light-1);
+            --surface-border-radius: var(--radius-xs);
+            --o-surface-bg: var(--o-surface-bg-translucid);
+            --o-surface-bg-hover: var(--o-surface-bg-opaque);
+        }
+
+        [data-ctx-theme-standard] [data-ctx-surface-card] {
+            --surface-bg-light: var(--color-bg-light-2);
+            --surface-bg-hover-light: var(--color-bg-light-0);
+            --surface-border-radius: var(--radius-s);
+        }
+
+        [data-ctx-theme-standard] [data-ctx-surface-dialog] {
+            --surface-border-hue-sat: var(--surface-fg-hue-sat);
+            --surface-border-light: var(--color-fg-light-3);
+            --surface-border-style: solid;
+            --surface-border-width: var(--surface-border-width-large);
+            --surface-border-radius: var(--radius-m);
+            --surface-box-shadow-size: 0px 2px 5px 2px;
+            --surface-box-shadow-color: var(--surface-border-hue-sat), var(--color-fg-light-3);
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@layer standard-ui {
+    .Display {
+        --__text-font-family: var(--display-base-font-family);
+        --__text-font-weight: var(--display-base-weight);
+        --__text-line-height: var(--display-base-height);
+        --__text-letter-spacing: var(--display-base-spacing);
+        --__text-font-style: normal;
+        --__text-transform: none;
+        --__text-wrap-style: stable;
+    }
+
+    .Display-variant-hero {
+        --__text-font-size: var(--display-variant-hero-size);
+        --__text-font-weight: var(--display-variant-hero-weight);
+        --__text-line-height: var(--display-variant-hero-height);
+        --__text-letter-spacing: var(--display-variant-hero-spacing);
+    }
+
+    .Display-variant-xl {
+        --__text-font-size: var(--display-variant-xl-size);
+        --__text-font-weight: var(--display-variant-xl-weight);
+        --__text-line-height: var(--display-variant-xl-height);
+        --__text-letter-spacing: var(--display-variant-xl-spacing);
+    }
+
+    .Display-variant-l {
+        --__text-font-size: var(--display-variant-l-size);
+        --__text-font-weight: var(--display-variant-l-weight);
+        --__text-line-height: var(--display-variant-l-height);
+        --__text-letter-spacing: var(--display-variant-l-spacing);
+    }
+
+    .Display-variant-m {
+        --__text-font-size: var(--display-variant-m-size);
+        --__text-font-weight: var(--display-variant-m-weight);
+        --__text-line-height: var(--display-variant-m-height);
+        --__text-letter-spacing: var(--display-variant-m-spacing);
+    }
+
+    .Display-variant-s {
+        --__text-font-size: var(--display-variant-s-size);
+        --__text-font-weight: var(--display-variant-s-weight);
+        --__text-line-height: var(--display-variant-s-height);
+        --__text-letter-spacing: var(--display-variant-s-spacing);
+    }
+
+    .Display-variant-xs {
+        --__text-font-size: var(--display-variant-xs-size);
+        --__text-font-weight: var(--display-variant-xs-weight);
+        --__text-line-height: var(--display-variant-xs-height);
+        --__text-letter-spacing: var(--display-variant-xs-spacing);
+    }
+}

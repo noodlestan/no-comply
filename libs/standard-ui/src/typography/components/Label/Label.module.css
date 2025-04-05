@@ -1,0 +1,39 @@
+@layer standard-ui {
+    .Label {
+        --__text-font-family: var(--label-base-font-family);
+        --__text-font-weight: var(--label-base-weight);
+        --__text-line-height: var(--label-base-height);
+        --__text-letter-spacing: var(--label-base-spacing);
+        --__text-font-style: normal;
+        --__text-transform: none;
+        --__text-wrap-style: stable;
+    }
+
+    .Label-variant-small {
+        --__text-font-size: var(--label-variant-small-size);
+        --__text-font-weight: var(--label-variant-small-weight);
+        --__text-line-height: var(--label-variant-small-height);
+        --__text-letter-spacing: var(--label-variant-small-spacing);
+    }
+
+    .Label-variant-default {
+        --__text-font-size: var(--label-variant-body-size);
+        --__text-font-weight: var(--label-variant-body-weight);
+        --__text-line-height: var(--label-variant-body-height);
+        --__text-letter-spacing: var(--label-variant-body-spacing);
+    }
+
+    .Label-variant-medium {
+        --__text-font-size: var(--label-variant-medium-size);
+        --__text-font-weight: var(--label-variant-medium-weight);
+        --__text-line-height: var(--label-variant-medium-height);
+        --__text-letter-spacing: var(--label-variant-medium-spacing);
+    }
+
+    .Label-variant-large {
+        --__text-font-size: var(--label-variant-large-size);
+        --__text-font-weight: var(--label-variant-large-weight);
+        --__text-line-height: var(--label-variant-large-height);
+        --__text-letter-spacing: var(--label-variant-large-spacing);
+    }
+}

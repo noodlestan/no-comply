@@ -1,4 +1,5 @@
-import { type ContextNode, type TreeNode, createTreeNode } from '@noodlestan/context-ui';
+import { type ContextNode } from '@noodlestan/context-ui';
+import { type TreeNode, createTreeNode } from '@noodlestan/headless-ui';
 import { type Accessor, createMemo } from 'solid-js';
 
 export const createDebugContextTree = (root: ContextNode): Accessor<TreeNode> => {
@@ -9,7 +10,7 @@ export const createDebugContextTree = (root: ContextNode): Accessor<TreeNode> =>
             });
         };
 
-        return createTreeNode(node, parentNode || null, node.id, createChildren);
+        return createTreeNode(node, parentNode, node.id, createChildren);
     };
 
     return createMemo(() => createEntityTreeNode(root));

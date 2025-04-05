@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        .DemoPage {
+            padding-bottom: var(--scale-xl);
+        }
+    }
+}

@@ -1,5 +1,6 @@
+import type { Styles } from '@noodlestan/context-ui-types';
+
 import type { ContextValue } from '../../context/private';
-import type { Styles } from '../../dom';
 
 export const reduceContextVars = <T extends ContextValue>(
     resolved: T[],

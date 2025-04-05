@@ -1,0 +1,186 @@
+/** https://huetone.ardov.me/?palette=N4IgdghgtgpiBcICiAPaAHANjABABQmwBcjcBjAe3QE8QAaEACwFcYBnBAbVElgXBjMiAJ0L0QlTBWEd4nEAGIAZgBMlAFiUA2ccoCsMMjDgMFMAEYwtMABy6yEMlrIB2XRHUQADBACMum3UbLxt-Uy11LV8tACZddRV1AE5PXQBmLxiVGJNFXz8XXztTLySvPS8dAF0AXzoeaDhEdABLMABrcUlpWXllNU03Uw1DGCVdJSSYLxgk3StzMjJixRUbGwgINN0VcpibFXcvNPMtbdMXMhiydTJ4sl8krN19ryUi3V91LxcvcxBavVwI1%2BMIYIcGN0ZFxFKoNEpzrCDEZ-sNLL4VBDFBZFuY9PNzDY0i4dKYVBA9Oogu4zkkMgEYtcYvjTBUil8XrsyKVPt9ftU6g0%2BIhqDBMFIAO5dChSaFyWFkJR6d4TGZGCATKZpFQs7HOHxDVY2Mp6LEKMhpLR%2BcamJ5suYXNLarx3UzqFwxDJxUwxKK%2BTKfDLBbaAoVNEAyloAN1yUN6sKSShchnmSnBMG92IgMBcKjCikVZCS3nc5OZDsUTyJ5V0WhUUUqukp6nMLvS6hyIU%2B5l8v3zCi8u1bcVDwOFIAA5mCYGBpbL48o0pMxvMpmndQoVMZzCpDQpzJcYBBUYoiZtrE2kmVLfE9FpzDl0no9Iz1C9fGl1L3dIP8jWSr8uxvqOvDhhQ6qzpCMo9DCZhqBA2jzEuar2Gmxgbn42Q3E2myTBqphfE8Lj4Xklo6ieA5KlSG7%2BmkL6uoo5T5L4G6ZDMfwAoKY7huYmCsHOMHynBkxpkhYwaPYxiKisCjeEY0yXseyw-hANgODajGREkNisTAmhnD%2BnqfpmA4xI8jI-v6eYhlxoH8G0KgtBOFACXKfRKtoommKMYwbjAvhWEoDH7ksyK6E8Uy7rWSYqIqTZ0SoSTBUu7ouHuzIxOYtyfGZsRmiEPgsZxQJ2YgUYtDKMBEK5C5BfCZoIhYSoTGk-mIWSx7ghp%2B6zC6GGnDYpwBF4tzrLWH71nu2qvv2jK%2BL4MRvgRXghPNnFVAwRAUGA7Awv6XjiCxB0MDEK3iBkx0gN8l0VJdWhnQwvyXcEl1lJd%2B0Hb */
+@layer standard-ui-theme {
+    @layer foundations {
+        @layer color {
+            @function --palette-neutral(--c-level) {
+                result: if(
+                    style(--c-level: 100): #fdf4f6; /*                                        */
+                        style(--c-level: 150): #f5ecee; /*                                    */
+                        style(--c-level: 200): #ebe6e8; /*                                    */
+                        style(--c-level: 300): #cac6c7; /*                                    */
+                        style(--c-level: 400): #a4a0a1; /*                                    */
+                        style(--c-level: 500): #848081; /*                                    */
+                        style(--c-level: 600): #646162; /*                                    */
+                        style(--c-level: 700): #4d494a; /*                                    */
+                        style(--c-level: 800): #302d2e; /*                                    */
+                        style(--c-level: 900): #1a1718; /*                                    */
+                        style(--c-level: 1000): #090506; /*                                   */
+                );
+            }
+
+            @function --palette-pink(--c-level) {
+                result: if(
+                    style(--c-level: 100): #fdf4f7; /*                                        */
+                        style(--c-level: 150): #f4ecef; /*                                    */
+                        style(--c-level: 200): #f9e0e9; /*                                    */
+                        style(--c-level: 300): #e6bcc8; /*                                    */
+                        style(--c-level: 400): #d88aa3; /*                                    */
+                        style(--c-level: 500): #d35184; /*                                    */
+                        style(--c-level: 600): #a03b63; /*                                    */
+                        style(--c-level: 700): #7c2c4c; /*                                    */
+                        style(--c-level: 800): #4c192d; /*                                    */
+                        style(--c-level: 900): #280f18; /*                                    */
+                        style(--c-level: 1000): #14070b; /*                                   */
+                );
+            }
+
+            @function --palette-red(--c-level) {
+                result: if(
+                    style(--c-level: 100): #fdf4f5; /*                                        */
+                        style(--c-level: 150): #f5ecec; /*                                    */
+                        style(--c-level: 200): #fbe0e1; /*                                    */
+                        style(--c-level: 300): #ebbbbd; /*                                    */
+                        style(--c-level: 400): #da8991; /*                                    */
+                        style(--c-level: 500): #d2586b; /*                                    */
+                        style(--c-level: 600): #974551; /*                                    */
+                        style(--c-level: 700): #74383e; /*                                    */
+                        style(--c-level: 800): #472024; /*                                    */
+                        style(--c-level: 900): #281012; /*                                    */
+                        style(--c-level: 1000): #140708; /*                                   */
+                );
+            }
+
+            @function --palette-yellow(--c-level) {
+                result: if(
+                    style(--c-level: 100): #fcf5f1; /*                                        */
+                        style(--c-level: 150): #f0ecea; /*                                    */
+                        style(--c-level: 200): #f9e3d5; /*                                    */
+                        style(--c-level: 300): #e6c0a7; /*                                    */
+                        style(--c-level: 400): #d8905d; /*                                    */
+                        style(--c-level: 500): #c36a1f; /*                                    */
+                        style(--c-level: 600): #925019; /*                                    */
+                        style(--c-level: 700): #6f401a; /*                                    */
+                        style(--c-level: 800): #44250b; /*                                    */
+                        style(--c-level: 900): #251204; /*                                    */
+                        style(--c-level: 1000): #130803; /*                                   */
+                );
+            }
+
+            @function --palette-olive(--c-level) {
+                result: if(
+                    style(--c-level: 100): #f9f7ec; /*                                        */
+                        style(--c-level: 150): #efede2; /*                                    */
+                        style(--c-level: 200): #eae7d1; /*                                    */
+                        style(--c-level: 300): #cfc9a0; /*                                    */
+                        style(--c-level: 400): #ada259; /*                                    */
+                        style(--c-level: 500): #928305; /*                                    */
+                        style(--c-level: 600): #6d6106; /*                                    */
+                        style(--c-level: 700): #544b0c; /*                                    */
+                        style(--c-level: 800): #342e08; /*                                    */
+                        style(--c-level: 900): #1b1701; /*                                    */
+                        style(--c-level: 1000): #0d0b02; /*                                   */
+                );
+            }
+
+            @function --palette-green(--c-level) {
+                result: if(
+                    style(--c-level: 100): #f3f9ef; /*                                        */
+                        style(--c-level: 150): #e9efe5; /*                                    */
+                        style(--c-level: 200): #deebd7; /*                                    */
+                        style(--c-level: 300): #b7ceab; /*                                    */
+                        style(--c-level: 400): #83aa6e; /*                                    */
+                        style(--c-level: 500): #599036; /*                                    */
+                        style(--c-level: 600): #456b2e; /*                                    */
+                        style(--c-level: 700): #355224; /*                                    */
+                        style(--c-level: 800): #213417; /*                                    */
+                        style(--c-level: 900): #0d1a05; /*                                    */
+                        style(--c-level: 1000): #070d04; /*                                   */
+                );
+            }
+
+            @function --palette-ocean(--c-level) {
+                result: if(
+                    style(--c-level: 100): #edfaf6; /*                                        */
+                        style(--c-level: 150): #e3f0ec; /*                                    */
+                        style(--c-level: 200): #cfeee5; /*                                    */
+                        style(--c-level: 300): #a1d2c4; /*                                    */
+                        style(--c-level: 400): #5aaf9a; /*                                    */
+                        style(--c-level: 500): #14927a; /*                                    */
+                        style(--c-level: 600): #136d5b; /*                                    */
+                        style(--c-level: 700): #0f5445; /*                                    */
+                        style(--c-level: 800): #10352c; /*                                    */
+                        style(--c-level: 900): #051a15; /*                                    */
+                        style(--c-level: 1000): #020e0b; /*                                   */
+                );
+            }
+
+            @function --palette-blue(--c-level) {
+                result: if(
+                    style(--c-level: 100): #edf9fe; /*                                        */
+                        style(--c-level: 150): #e3eff4; /*                                    */
+                        style(--c-level: 200): #ceecf8; /*                                    */
+                        style(--c-level: 300): #a0cee0; /*                                    */
+                        style(--c-level: 400): #59abc8; /*                                    */
+                        style(--c-level: 500): #0a8caf; /*                                    */
+                        style(--c-level: 600): #046985; /*                                    */
+                        style(--c-level: 700): #0e4f63; /*                                    */
+                        style(--c-level: 800): #023342; /*                                    */
+                        style(--c-level: 900): #021922; /*                                    */
+                        style(--c-level: 1000): #010d13; /*                                   */
+                );
+            }
+
+            @function --palette-indigo(--c-level) {
+                result: if(
+                    style(--c-level: 100): #f5f6fe; /*                                        */
+                        style(--c-level: 150): #eceef5; /*                                    */
+                        style(--c-level: 200): #e1e6fc; /*                                    */
+                        style(--c-level: 300): #bcc5ec; /*                                    */
+                        style(--c-level: 400): #929ed7; /*                                    */
+                        style(--c-level: 500): #6f7dcf; /*                                    */
+                        style(--c-level: 600): #535d9c; /*                                    */
+                        style(--c-level: 700): #3f4777; /*                                    */
+                        style(--c-level: 800): #252b4c; /*                                    */
+                        style(--c-level: 900): #12162d; /*                                    */
+                        style(--c-level: 1000): #080a15; /*                                   */
+                );
+            }
+
+            @function --palette-violet(--c-level) {
+                result: if(
+                    style(--c-level: 100): #fcf4fd; /*                                        */
+                        style(--c-level: 150): #f3ebf5; /*                                    */
+                        style(--c-level: 200): #f3e1f6; /*                                    */
+                        style(--c-level: 300): #dabedf; /*                                    */
+                        style(--c-level: 400): #be90c5; /*                                    */
+                        style(--c-level: 500): #ab68b6; /*                                    */
+                        style(--c-level: 600): #804c88; /*                                    */
+                        style(--c-level: 700): #613d67; /*                                    */
+                        style(--c-level: 800): #3d2241; /*                                    */
+                        style(--c-level: 900): #221124; /*                                    */
+                        style(--c-level: 1000): #100811; /*                                   */
+                );
+            }
+
+            @function --color-value(--c-name, --c-level: 500) {
+                result: if(
+                    style(--c-name: neutral): --palette-neutral(var(--c-level)) ; /*            */
+                        style(--c-name: pink): --palette-pink(var(--c-level)) ; /*              */
+                        style(--c-name: red): --palette-red(var(--c-level)) ; /*                */
+                        style(--c-name: yellow): --palette-yellow(var(--c-level)) ; /*          */
+                        style(--c-name: olive): --palette-olive(var(--c-level)) ; /*            */
+                        style(--c-name: green): --palette-green(var(--c-level)) ; /*            */
+                        style(--c-name: ocean): --palette-ocean(var(--c-level)) ; /*            */
+                        style(--c-name: blue): --palette-blue(var(--c-level)) ; /*              */
+                        style(--c-name: indigo): --palette-indigo(var(--c-level)) ; /*          */
+                        style(--c-name: violet): --palette-violet(var(--c-level)) ; /*          */
+                );
+            }
+
+            @function --fg-color(--c-name, --c-level, --opacity) {
+                --color: --color-value(--c-name, --c-level);
+                result: color(from var(--color) oklch l c h var(--opacity, var(--o-level-fg)));
+            }
+        }
+    }
+}

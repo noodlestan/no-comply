@@ -1,14 +1,14 @@
+import { useContextRoot } from '@noodlestan/context-ui';
+import { createAriaRegion } from '@noodlestan/context-ui-aria';
 import {
-    Display,
-    Flex,
-    TreeList,
+    TreeListBase,
     type TreeListLabels,
     type TreeNode,
-    createAriaRegion,
     createTreeListContext,
-    useContextRoot,
-} from '@noodlestan/context-ui';
+} from '@noodlestan/headless-ui';
 import { type Component } from 'solid-js';
+
+import { Display, Flex } from '../../private';
 
 import { createDebugContextTree } from './functions';
 import { ContextTreeNode } from './parts';
@@ -38,7 +38,7 @@ export const ContextTreePanel: Component = () => {
             <Display level={4} {...region.labelProps}>
                 Context Tree
             </Display>
-            <TreeList tree={tree} />
+            <TreeListBase tree={tree} />
         </Flex>
     );
 };

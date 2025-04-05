@@ -39,6 +39,10 @@ export type ContextNode = {
         type: string,
         filter?: (child: ContextNode, context: T) => boolean,
     ) => [ContextNode, T][] | [];
+    hasChildWith: <T extends BaseContext>(
+        type: string,
+        filter?: (child: ContextNode, context: T) => boolean,
+    ) => boolean;
     firstChildWith: <T extends BaseContext>(
         type: string,
         filter?: (child: ContextNode, context: T) => boolean,

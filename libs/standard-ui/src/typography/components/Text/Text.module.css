@@ -1,0 +1,39 @@
+@layer standard-ui {
+    .Text {
+        --__text-font-family: var(--text-base-font-family);
+        --__text-font-weight: var(--text-base-weight);
+        --__text-line-height: var(--text-base-height);
+        --__text-letter-spacing: var(--text-base-spacing);
+        --__text-font-style: normal;
+        --__text-transform: none;
+        --__text-wrap-style: stable;
+    }
+
+    .Text-variant-small {
+        --__text-font-size: var(--text-variant-small-size);
+        --__text-font-weight: var(--text-variant-small-weight);
+        --__text-line-height: var(--text-variant-small-height);
+        --__text-letter-spacing: var(--text-variant-small-spacing);
+    }
+
+    .Text-variant-default {
+        --__text-font-size: var(--text-variant-body-size);
+        --__text-font-weight: var(--text-variant-body-weight);
+        --__text-line-height: var(--text-variant-body-height);
+        --__text-letter-spacing: var(--text-variant-body-spacing);
+    }
+
+    .Text-variant-medium {
+        --__text-font-size: var(--text-variant-medium-size);
+        --__text-font-weight: var(--text-variant-medium-weight);
+        --__text-line-height: var(--text-variant-medium-height);
+        --__text-letter-spacing: var(--text-variant-medium-spacing);
+    }
+
+    .Text-variant-large {
+        --__text-font-size: var(--text-variant-large-size);
+        --__text-font-weight: var(--text-variant-large-weight);
+        --__text-line-height: var(--text-variant-large-height);
+        --__text-letter-spacing: var(--text-variant-large-spacing);
+    }
+}

@@ -1,0 +1,28 @@
+@layer standard-ui {
+    .Link {
+        --__link-color: --fg-color(var(--c-name-interactive), var(--c-level-saturated));
+        text-decoration: underline;
+    }
+
+    .Link:not([aria-disabled]):hover {
+        --__link-color: --fg-color(var(--c-name-interactive), var(--c-level-fg));
+        text-decoration: underline;
+    }
+
+    .Link[aria-disabled] {
+        --__link-color: --fg-color(var(--c-name-disabled), var(--c-level-disabled));
+    }
+
+    .Link:focus,
+    .Link:focus-visible {
+        border-radius: var(--outline-radius);
+        outline-offset: var(--outline-offset);
+        outline-style: var(--outline-style);
+        outline-width: var(--outline-width);
+        outline-color: hsla(var(--color-outline), var(--o-surface-outline));
+    }
+
+    .Link:active {
+        outline-offset: var(--outline-offset--active);
+    }
+}
