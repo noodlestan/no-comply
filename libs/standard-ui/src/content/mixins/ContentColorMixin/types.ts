@@ -1,4 +1,4 @@
-import type { ClassList } from '@noodlestan/context-ui-types';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 export type ContentColorMixinProps = {
     color?: ContentColor;
@@ -15,10 +15,8 @@ export type ContentColor =
     | 'modified'
     | 'selected';
 
-export type ContentColorMixinElementProps = {
-    classList: ClassList;
-};
-
 export type ContentColorMixinAPI = {
-    elProps: ContentColorMixinElementProps;
+    elProps: {
+        classList: ClassList;
+    };
 };

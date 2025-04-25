@@ -1,20 +1,17 @@
 /* eslint-disable solid/reactivity */
 import type { ParentComponent } from 'solid-js';
 
-import { type ContextOwnerAPI } from '../../private';
-
-import { ContextNodeContext, ContextRootContext } from './private';
+import type { ContextNodeValue } from '../../private';
+import { ContextNodeCTX, ContextRootCTX } from '../../private';
 
 type ContextTreeProviderProps = {
-    value: ContextOwnerAPI;
+    root: ContextNodeValue;
 };
 
 export const ContextRootProvider: ParentComponent<ContextTreeProviderProps> = props => {
     return (
-        <ContextRootContext.Provider value={props.value}>
-            <ContextNodeContext.Provider value={props.value}>
-                {props.children}
-            </ContextNodeContext.Provider>
-        </ContextRootContext.Provider>
+        <ContextRootCTX.Provider value={props.root}>
+            <ContextNodeCTX.Provider value={props.root}>{props.children}</ContextNodeCTX.Provider>
+        </ContextRootCTX.Provider>
     );
 };

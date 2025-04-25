@@ -1,4 +1,4 @@
-import { mergeProps } from '@noodlestan/context-ui-types';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
 import { type Component, For } from 'solid-js';
 
 import type { TreeNode } from '../../../../types';
@@ -22,7 +22,7 @@ export const TreeListItemChildren: Component<TreeListItemChildrenProps> = props 
     const treeListChildren = createTreeListChildren(childrenProps);
 
     return (
-        <div {...treeListChildren.containerProps()}>
+        <div {...treeListChildren.elProps()}>
             <For each={props.node.children}>
                 {(child, index) => (
                     <TreeListItem

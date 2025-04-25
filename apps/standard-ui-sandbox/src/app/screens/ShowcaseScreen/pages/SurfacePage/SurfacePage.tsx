@@ -1,6 +1,5 @@
-import { Label } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
-import { Flex, Surface, Text } from '@noodlestan/standard-ui';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { Flex, Label, Surface, Text } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -33,7 +32,7 @@ export const SurfacePage: Component = () => {
                     <SurfaceVariantExample variant="card" onVariant="page">
                         <ExampleMedium title="Foobar" />
                     </SurfaceVariantExample>
-                    <SurfaceVariantExample variant="banner" onVariant="page">
+                    <SurfaceVariantExample variant="message" onVariant="page">
                         <ExampleMedium title="Foobar" />
                     </SurfaceVariantExample>
                     <SurfaceVariantExample variant="inverse" onVariant="stage">

@@ -1,6 +1,6 @@
 import type { IconValue, LabelValue } from '@noodlestan/context-ui';
 import type { AriaTreeProps } from '@noodlestan/context-ui-aria';
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 import { type Component } from 'solid-js';
 
 import type { PressableProps } from '../../actions';

@@ -1,5 +1,5 @@
 import { ErrorBoundary as Boundary, type IconComponent } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Display, Flex, Icon, Layout } from '@noodlestan/standard-ui';
 import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';

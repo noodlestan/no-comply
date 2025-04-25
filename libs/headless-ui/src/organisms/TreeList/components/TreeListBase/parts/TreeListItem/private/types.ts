@@ -15,12 +15,10 @@ export type TreeListItemProps = AriaLabelledProps & {
     isParentSelected?: boolean;
 };
 
-export type TreeListItemContainerProps = AriaTreeItemElementProps & {
-    component: 'div';
-};
-
 export type TreeListNodeAPI = {
-    containerProps: TreeListItemContainerProps;
+    elProps: AriaTreeItemElementProps & {
+        component: 'div';
+    };
     detailsProps: TreeListItemDetailsProps;
     childrenProps: TreeListItemChildrenProps;
     isExpanded: Accessor<boolean>;

@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Button, Surface } from '@noodlestan/standard-ui';
 import { type ParentComponent, createSignal } from 'solid-js';
 

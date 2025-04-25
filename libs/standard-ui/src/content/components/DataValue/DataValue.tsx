@@ -1,15 +1,20 @@
-import { type ClassList, type PickRequired, createClassList } from '@noodlestan/context-ui-types';
+import {
+    type ClassList,
+    type PickRequired,
+    createClassList,
+} from '@noodlestan/context-ui-primitives';
 import type { JSX, ParentComponent } from 'solid-js';
+
+import type { ContentSize } from '../../../types';
 
 import styles from './DataValue.module.css';
 
-export type DataValueSize = 'xs' | 's' | 'm' | 'l';
 export type DataValueLength = 's' | 'm' | 'l' | 'full' | 'auto';
 export type DataValueAlign = 'left' | 'right';
 
 export type DataValueProps = {
     id?: string;
-    size?: DataValueSize;
+    size?: ContentSize;
     length?: number | DataValueLength;
     align?: DataValueAlign;
     wrap?: boolean;
@@ -19,7 +24,7 @@ export type DataValueProps = {
 };
 
 const defaultProps: PickRequired<DataValueProps, 'size' | 'length' | 'align'> = {
-    size: 's',
+    size: 'normal',
     length: 'auto',
     align: 'left',
 };

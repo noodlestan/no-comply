@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Display, Flex, Text } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
@@ -6,7 +6,11 @@ import IconSvg from '../../../../assets/icon.svg';
 
 import styles from './SplashBox.module.css';
 
-export const SplashBox: Component = () => {
+type Props = {
+    labelId: string;
+};
+
+export const SplashBox: Component<Props> = props => {
     return (
         <Flex
             classList={staticClassList(styles, 'SplashBox')}
@@ -15,7 +19,9 @@ export const SplashBox: Component = () => {
             padding="l"
             gap="2xl"
         >
-            <Display level={1}>Context UI</Display>
+            <Display level={1} id={props.labelId}>
+                Context UI
+            </Display>
             <Flex flex={1} classList={staticClassList(styles, 'SplashBox--logo')}>
                 <IconSvg />
             </Flex>

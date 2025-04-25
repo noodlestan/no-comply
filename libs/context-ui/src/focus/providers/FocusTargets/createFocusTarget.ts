@@ -6,10 +6,10 @@ import {
     createFocusTargetAPI,
 } from '../../services';
 
-import { FocusTargetsContext } from './private';
+import { FocusTargetsCTX } from './private';
 
 export const createFocusTarget = (target: FocusTargetName): FocusTargetProducerAPI => {
-    const context = useContext(FocusTargetsContext);
+    const context = useContext(FocusTargetsCTX);
     if (!context) {
         throw new Error('createFocusTarget() must be wrapped in <FocusServiceProvider/>');
     }

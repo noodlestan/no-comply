@@ -1,19 +1,22 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 import { type IconComponent } from '@noodlestan/context-ui/src/icons';
-import { type ClassList, type PickRequired, createClassList } from '@noodlestan/context-ui-types';
+import {
+    type ClassList,
+    type PickRequired,
+    createClassList,
+} from '@noodlestan/context-ui-primitives';
 import { type JSX, type ParentComponent, Show } from 'solid-js';
 
-import { Label } from '../../../forms';
 import { Icon } from '../../../icon';
+import type { ContentSize } from '../../../types';
+import { Label } from '../../../typography';
 import { DataValue, type DataValueLength } from '../DataValue';
 
 import styles from './DataItem.module.css';
 
-export type DataItemSize = 'xs' | 's' | 'm' | 'l';
-
 export type DataItemProps = {
     id?: string;
-    size?: DataItemSize;
+    size?: ContentSize;
     length?: number | DataValueLength;
     label?: string;
     units?: string;
@@ -24,7 +27,7 @@ export type DataItemProps = {
 };
 
 const defaultProps: PickRequired<DataItemProps, 'size'> = {
-    size: 's',
+    size: 'normal',
 };
 
 export const DataItem: ParentComponent<DataItemProps> = props => {
@@ -60,7 +63,7 @@ export const DataItem: ParentComponent<DataItemProps> = props => {
                 <Icon icon={props.icon as IconComponent} size={props.size} />
             </Show>
             <Show when={props.label}>
-                <Label size={props.size}>{props.label}</Label>
+                <Label variant={props.size}>{props.label}</Label>
             </Show>
             <DataValue
                 align={props.units ? 'right' : 'left'}
@@ -70,7 +73,7 @@ export const DataItem: ParentComponent<DataItemProps> = props => {
                 value={props.value ?? props.children}
             />
             <Show when={props.units}>
-                <Label size={props.size}>{props.units}</Label>
+                <Label variant={props.size}>{props.units}</Label>
             </Show>
         </div>
     );

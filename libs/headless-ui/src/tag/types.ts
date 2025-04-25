@@ -1,4 +1,4 @@
-import type { ClassList, DataAttributes, Styles } from '@noodlestan/context-ui-types';
+import type { ClassList, DataAttributes, Styles } from '@noodlestan/context-ui-primitives';
 import type { ComponentProps } from 'solid-js';
 import type { Dynamic } from 'solid-js/web';
 

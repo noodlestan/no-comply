@@ -1,4 +1,4 @@
-import type { Styles } from '@noodlestan/context-ui-types';
+import type { Styles } from '@noodlestan/context-ui-primitives';
 
 import type { NumberInputLength } from '../types';
 

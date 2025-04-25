@@ -1,4 +1,4 @@
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 import { type Component } from 'solid-js';
 
 export type ListState = {
@@ -32,7 +32,7 @@ export type ListItemComponentFn = (
 export type ListItemComponent = ListItemComponentFn | ListItemComponentSolid;
 
 export type ListKeyboardControllerAPI = {
-    handlers: {
+    elProps: {
         onKeyDown: (ev: KeyboardEvent) => void;
     };
 };

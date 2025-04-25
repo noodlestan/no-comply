@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { shortId, staticClassList } from '@noodlestan/context-ui-primitives';
 import { Flex, Surface } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
@@ -8,12 +8,13 @@ import { SplashBox } from '../../molecules';
 import styles from './AppSplash.module.css';
 
 export const AppSplash: Component = () => {
+    const labelId = shortId();
     return (
         <div classList={staticClassList(styles, 'AppSplash')}>
-            <Surface component="main" variant="page">
+            <Surface component="main" variant="page" labelledby={labelId}>
                 <Flex direction="column" align="center" justify="center" stretch="full">
                     <Flex data-splash-box direction="column" align="center" justify="center">
-                        <SplashBox />
+                        <SplashBox labelId={labelId} />
                     </Flex>
                     <div data-splash-spinner>
                         <Spinner speed="slow" size="l" when={true} />

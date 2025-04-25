@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, createEffect } from 'solid-js';
 
 import { getFocusableElements } from '../../helpers';

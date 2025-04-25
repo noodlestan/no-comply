@@ -4,8 +4,6 @@ import { createStore } from 'solid-js/store';
 import type { Setting, SettingGroup, SettingValue, SettingsServiceAPI } from './types';
 
 export const createSettingsService = (initialSettings?: Setting[]): SettingsServiceAPI => {
-    console.info('createSettingsService()');
-
     const [settings, setSettings] = createStore<Setting[]>(initialSettings ?? []);
     const groups = new ReactiveMap<string, SettingGroup>();
 

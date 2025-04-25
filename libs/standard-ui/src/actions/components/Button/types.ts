@@ -1,8 +1,8 @@
 import type {
-    ButtonMixinElementProps,
+    ButtonMixinAPI,
     ButtonMixinProps,
     ClosedTagProps,
-    PressableElementProps,
+    PressableAPI,
     PressableProps,
 } from '@noodlestan/headless-ui';
 
@@ -16,10 +16,8 @@ export type ButtonProps = Omit<ClosedTagProps, 'component'> &
 export type ButtonVariant = 'primary' | 'secondary' | 'plain' | 'danger' | 'transparent';
 export type ButtonSize = 'xs' | 's' | 'm' | 'l';
 
-export type ButtonElementProps = Omit<ClosedTagProps, 'component'> &
-    PressableElementProps &
-    ButtonMixinElementProps;
-
 export type ButtonAPI = {
-    elProps: ButtonElementProps;
+    elProps: Omit<ClosedTagProps, 'component'> &
+        PressableAPI['elProps'] &
+        ButtonMixinAPI['elProps'];
 };

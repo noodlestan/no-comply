@@ -1,4 +1,4 @@
-import type { ExtendedPressEventHandlers } from '@noodlestan/context-ui-types';
+import type { ExtendedPressEventHandlers } from '@noodlestan/context-ui-primitives';
 
 import type { PressableAPI, PressableElementProps, PressableProps } from '../Pressable';
 

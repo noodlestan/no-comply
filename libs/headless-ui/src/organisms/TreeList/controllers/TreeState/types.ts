@@ -1,4 +1,4 @@
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 
 export type TreeState = {
     isExpanded: (id: string) => boolean;

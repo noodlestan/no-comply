@@ -12,7 +12,7 @@ export const Callout: ParentComponent<CalloutProps> = props => {
     const { elProps, iconProps, labelProps } = createCallout(others);
 
     return (
-        <Surface variant="message" {...elProps}>
+        <Surface variant="message" {...elProps} labelledby={labelProps.id}>
             <Flex align="center" padding="s" gap="m" justify="between">
                 <Flex align="center" padding="s" gap="m">
                     <Icon {...iconProps} />

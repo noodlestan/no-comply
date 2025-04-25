@@ -2,7 +2,7 @@ import {
     type PickRequired,
     createClassList,
     createComputedProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 
 import styles from './ScrollableMixin.module.css';
 import type { ScrollableMixinAPI, ScrollableMixinProps } from './types';

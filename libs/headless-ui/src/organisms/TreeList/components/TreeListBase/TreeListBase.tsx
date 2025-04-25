@@ -12,12 +12,10 @@ export const TreeListBase: Component<TreeListBaseProps> = props => {
         TreeList: true,
     });
 
-    // eslint-disable-next-line solid/reactivity
     const treeList = createTreeList(props);
 
     return (
-        // eslint-disable-next-line solid/reactivity
-        <TreeListContextProvider value={props.tree}>
+        <TreeListContextProvider context={props.tree}>
             <div classList={classList()} {...treeList.containerProps}>
                 <TreeListItem node={props.tree.root()} expand={treeList.expand()} />
             </div>

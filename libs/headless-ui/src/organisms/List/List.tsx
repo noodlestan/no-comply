@@ -1,4 +1,4 @@
-import type { ClassList, ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ClassList, ObjectWithId } from '@noodlestan/context-ui-primitives';
 import { type Component, For } from 'solid-js';
 
 import { ListItem } from './components';
@@ -44,7 +44,7 @@ export const List: Component<ListProps> = props => {
         List: true,
     });
 
-    const { handlers } = createListKeyboardController(() => listRef);
+    const { elProps: handlers } = createListKeyboardController(() => listRef);
 
     return (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions

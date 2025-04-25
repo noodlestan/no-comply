@@ -1,4 +1,4 @@
-import { createClassList, createComputedProps } from '@noodlestan/context-ui-types';
+import { createClassList, createComputedProps } from '@noodlestan/context-ui-primitives';
 
 import styles from './TextMixin.module.css';
 import type { TextMixinAPI, TextMixinProps } from './types';

@@ -1,11 +1,12 @@
 import {
-    ContextsProvider,
+    ActiveContextsProvider,
+    ContextVariantsProvider,
     FocusTargetsProvider,
     ModalsProvider,
     NavigationProvider,
     SettingsProvider,
     ShortcutsProvider,
-    createContextsService,
+    createActiveContextsService,
     createFocusTargetsService,
     createModalsService,
     createNavigationService,
@@ -27,7 +28,7 @@ export const AppServicesProvider: ParentComponent = props => {
     const settings = createSettingsService();
     const focus = createFocusTargetsService();
     const modals = createModalsService();
-    const contexts = createContextsService();
+    const contexts = createActiveContextsService();
     const shortcuts = createShortcutsService(contexts);
 
     onCleanup(() => {
@@ -37,15 +38,17 @@ export const AppServicesProvider: ParentComponent = props => {
     });
 
     return (
-        <NavigationProvider navigation={navigation}>
-            <SettingsProvider settings={settings}>
+        <NavigationProvider service={navigation}>
+            <SettingsProvider service={settings}>
                 <AppServicesContext.Provider value={appServices}>
                     <FocusTargetsProvider service={focus}>
                         <ModalsProvider service={modals}>
                             <ShortcutsProvider service={shortcuts}>
-                                <ContextsProvider service={contexts}>
-                                    {props.children}
-                                </ContextsProvider>
+                                <ActiveContextsProvider service={contexts}>
+                                    <ContextVariantsProvider>
+                                        {props.children}
+                                    </ContextVariantsProvider>
+                                </ActiveContextsProvider>
                             </ShortcutsProvider>
                         </ModalsProvider>
                     </FocusTargetsProvider>

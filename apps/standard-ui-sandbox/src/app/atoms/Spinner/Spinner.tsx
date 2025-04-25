@@ -1,4 +1,4 @@
-import { createClassList } from '@noodlestan/context-ui-types';
+import { createClassList } from '@noodlestan/context-ui-primitives';
 import { CircleDashedIcon } from 'lucide-solid';
 import { type Component, Show } from 'solid-js';
 

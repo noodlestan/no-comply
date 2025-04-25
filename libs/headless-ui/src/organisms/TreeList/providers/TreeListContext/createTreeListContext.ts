@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 import type { Accessor } from 'solid-js';
 
 import {

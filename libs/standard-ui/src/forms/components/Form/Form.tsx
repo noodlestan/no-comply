@@ -1,14 +1,17 @@
+/* eslint-disable solid/reactivity */
 import { FormContextProvider } from '@noodlestan/context-ui';
-import type { ParentComponent } from 'solid-js';
+import { createForm } from '@noodlestan/headless-ui';
+import type { Component } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import type { FormProps } from './types';
 
-export const Form: ParentComponent<FormProps> = props => {
+export const Form: Component<FormProps> = props => {
+    const form = createForm(props);
+
     return (
-        // eslint-disable-next-line solid/reactivity
-        <FormContextProvider value={props.form.context}>
-            <Dynamic {...props.form.containerProps}>{props.children}</Dynamic>
+        <FormContextProvider context={form.contextValue}>
+            <Dynamic {...form.elProps}>{props.children(form)}</Dynamic>
         </FormContextProvider>
     );
 };

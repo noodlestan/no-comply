@@ -1,4 +1,5 @@
-import { createComputedProps } from '@noodlestan/context-ui-types';
+import { createAriaPressable } from '@noodlestan/context-ui-aria';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
 
 import type { PressableAPI, PressableProps } from './types';
 
@@ -21,27 +22,14 @@ export const createPressable = (props: PressableProps): PressableAPI => {
         }
     };
 
+    const { elProps: ariaProps } = createAriaPressable(props);
+
     const handlers = {
         onClick,
         onKeyDown,
     };
 
-    const component = () => props.component ?? 'button';
-
-    const role = () => props.role ?? (props.component === 'button' ? undefined : 'button');
-
-    const tabIndex = () => (props.disabled ? undefined : (props.tabIndex ?? 0));
-
-    const disabled = () => (props.component === 'button' ? props.disabled : undefined);
-
-    const elProps = createComputedProps(handlers, {
-        component,
-        role,
-        tabIndex,
-        disabled,
-        'aria-disabled': () => (props.disabled && !disabled() ? true : undefined),
-        'data-disabled': () => (props.disabled ? '' : undefined),
-    });
+    const elProps = mergeProps(ariaProps, handlers);
 
     return {
         elProps,

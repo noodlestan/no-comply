@@ -1,14 +1,14 @@
 @layer standard-ui {
-    .ExpandButton.ExpandButton-is-rounded {
+    .IconButton.IconButton-is-rounded {
         border-radius: 50%;
     }
 
-    .ExpandButton.ExpandButton-is-rounded:focus,
-    .ExpandButton.ExpandButton-is-rounded:focus-visible {
+    .IconButton.IconButton-is-rounded:focus,
+    .IconButton.IconButton-is-rounded:focus-visible {
         outline-offset: 1px;
     }
 
-    .ExpandButton.ExpandButton-is-rounded:active {
+    .IconButton.IconButton-is-rounded:active {
         outline-offset: 0;
     }
 }

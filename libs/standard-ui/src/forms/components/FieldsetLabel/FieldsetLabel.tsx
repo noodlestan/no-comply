@@ -1,17 +1,21 @@
-import { type ClassList, type PickRequired, createClassList } from '@noodlestan/context-ui-types';
+import {
+    type ClassList,
+    type PickRequired,
+    createClassList,
+} from '@noodlestan/context-ui-primitives';
 import type { ParentComponent } from 'solid-js';
+
+import type { ContentSize } from '../../../types';
 
 import styles from './FieldsetLabel.module.css';
 
-export type FieldsetLabelSize = 'xs' | 's' | 'm' | 'l';
-
 export type FieldsetLabelProps = {
-    size?: FieldsetLabelSize;
+    size?: ContentSize;
     classList?: ClassList;
 };
 
 const defaultProps: PickRequired<FieldsetLabelProps, 'size'> = {
-    size: 's',
+    size: 'normal',
 };
 
 export const FieldsetLabel: ParentComponent<FieldsetLabelProps> = props => {

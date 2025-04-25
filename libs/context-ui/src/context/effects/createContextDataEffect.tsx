@@ -1,0 +1,22 @@
+import { type Accessor, createEffect, onCleanup } from 'solid-js';
+
+import type { BaseContext } from '..';
+
+import { mergeContextData, updateElementData } from './private';
+
+export const createContextDataEffect = (
+    contexts: Accessor<BaseContext[]>,
+    prefix?: string,
+    contextElement?: HTMLElement,
+): void => {
+    let previous: ReturnType<typeof updateElementData> = [];
+
+    createEffect(() => {
+        const data = mergeContextData(contexts());
+        previous = updateElementData(contextElement, prefix, data, previous);
+    });
+
+    onCleanup(() => {
+        updateElementData(contextElement, prefix, {}, previous);
+    });
+};

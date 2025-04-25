@@ -1,4 +1,4 @@
-import type { ClassList } from '@noodlestan/context-ui-types';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 export type FlexMixinProps = {
     direction?: FlexMixinDirection;
@@ -14,10 +14,8 @@ export type FlexMixinDirection = 'row' | 'column' | 'row-reverse' | 'column-reve
 export type FlexMixinAlign = 'start' | 'center' | 'baseline' | 'end' | 'stretch';
 export type FlexMixinJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 'stretch';
 
-export type FlexMixinElementProps = {
-    classList: ClassList;
-};
-
 export type FlexMixinAPI = {
-    elProps: FlexMixinElementProps;
+    elProps: {
+        classList: ClassList;
+    };
 };

@@ -1,5 +1,5 @@
 import type { ScrollableTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-types';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 export type ScrollableMixinProps = {
     component?: ScrollableTagName;
@@ -7,11 +7,9 @@ export type ScrollableMixinProps = {
     z?: boolean;
 };
 
-export type ScrollableMixinElementProps = {
-    component: ScrollableTagName;
-    classList: ClassList;
-};
-
 export type ScrollableMixinAPI = {
-    elProps: ScrollableMixinElementProps;
+    elProps: {
+        component: ScrollableTagName;
+        classList: ClassList;
+    };
 };

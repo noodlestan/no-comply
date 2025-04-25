@@ -1,4 +1,4 @@
-import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, Show } from 'solid-js';
 
 import './Select.css';

@@ -1,5 +1,5 @@
 import { createAriaRegion } from '@noodlestan/context-ui-aria';
-import { type PickRequired, createComputedProps } from '@noodlestan/context-ui-types';
+import { type PickRequired, createComputedProps } from '@noodlestan/context-ui-primitives';
 import { HourglassIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import type { Component } from 'solid-js';
 
@@ -16,7 +16,7 @@ const defaultProps: PickRequired<FeedbackMessageProps, 'variant'> = {
 };
 
 export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMessageAPI => {
-    const { elProps: regionProps, labelProps } = createAriaRegion(props);
+    const { elProps: regionProps, labelProps, descriptionProps } = createAriaRegion(props);
 
     const variant = () => props.variant ?? defaultProps.variant;
 
@@ -38,6 +38,7 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
     return {
         elProps,
         labelProps,
+        descriptionProps,
         iconProps,
     };
 };

@@ -1,5 +1,5 @@
 import type { PressableTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList, OwnFocusEventHandlers } from '@noodlestan/context-ui-types';
+import type { ClassList, OwnFocusEventHandlers } from '@noodlestan/context-ui-primitives';
 
 export type ButtonMixinProps = OwnFocusEventHandlers & {
     component?: PressableTagName | 'auto';
@@ -9,12 +9,10 @@ export type ButtonMixinProps = OwnFocusEventHandlers & {
     target?: string;
 };
 
-export type ButtonMixinElementProps = {
-    classList: ClassList;
-    onFocus: (ev: FocusEvent) => void;
-    onBlur: (ev: FocusEvent) => void;
-};
-
 export type ButtonMixinAPI = {
-    elProps: ButtonMixinElementProps;
+    elProps: {
+        classList: ClassList;
+        onFocus: (ev: FocusEvent) => void;
+        onBlur: (ev: FocusEvent) => void;
+    };
 };

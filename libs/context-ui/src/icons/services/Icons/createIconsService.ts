@@ -1,8 +1,8 @@
-import type { IconComponent, IconsServiceAPI } from '../../types';
+import type { IconComponent } from '../../types';
+
+import type { IconsServiceAPI } from './types';
 
 export const createIconsService = (): IconsServiceAPI => {
-    console.info('createIconsService()');
-
     const iconMap: Record<string, IconComponent> = {};
 
     const addIcon = (name: string, icon: IconComponent): void => {

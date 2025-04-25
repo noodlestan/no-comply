@@ -1,4 +1,4 @@
-import { createComputedProps, staticClassList } from '@noodlestan/context-ui-types';
+import { createComputedProps, staticClassList } from '@noodlestan/context-ui-primitives';
 
 import styles from './ButtonMixin.module.css';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';

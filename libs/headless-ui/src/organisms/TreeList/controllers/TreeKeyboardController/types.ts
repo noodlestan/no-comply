@@ -1,7 +1,5 @@
-export type TreeKeyboardControllerContainerProps = {
-    onKeyDown: (ev: KeyboardEvent) => void;
-};
-
 export type TreeKeyboardControllerAPI = {
-    containerProps: TreeKeyboardControllerContainerProps;
+    elProps: {
+        onKeyDown: (ev: KeyboardEvent) => void;
+    };
 };

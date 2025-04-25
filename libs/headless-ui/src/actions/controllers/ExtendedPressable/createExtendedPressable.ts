@@ -1,5 +1,5 @@
-import type { PressEvent } from '@noodlestan/context-ui-types';
-import { mergeProps } from '@noodlestan/context-ui-types';
+import type { PressEvent } from '@noodlestan/context-ui-primitives';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
 import { splitProps } from 'solid-js';
 
 import { createPressable } from '../Pressable';

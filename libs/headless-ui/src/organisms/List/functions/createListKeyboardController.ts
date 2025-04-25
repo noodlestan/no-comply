@@ -57,7 +57,7 @@ export const createListKeyboardController = (
     };
 
     return {
-        handlers: {
+        elProps: {
             onKeyDown,
         },
     };

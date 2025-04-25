@@ -1,5 +1,5 @@
 import { createAriaRegion } from '@noodlestan/context-ui-aria';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { SurfaceBase } from '@noodlestan/headless-ui';
 import { type Component } from 'solid-js';
 

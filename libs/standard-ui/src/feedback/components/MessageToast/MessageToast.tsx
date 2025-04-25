@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { createFeedbackMessage } from '@noodlestan/headless-ui';
 import type { ParentComponent } from 'solid-js';
 

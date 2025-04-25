@@ -1,7 +1,7 @@
-import { Label } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { shortId, staticClassList } from '@noodlestan/context-ui-primitives';
 import {
     Flex,
+    Label,
     Surface,
     type SurfaceProps,
     type SurfaceVariant,
@@ -17,12 +17,15 @@ type SurfaceVariantProps = SurfaceProps & {
 
 export const SurfaceVariantExample: ParentComponent<SurfaceVariantProps> = props => {
     const [locals, surfaceProps] = splitProps(props, ['onVariant', 'children']);
+
+    const labelId = shortId();
+
     return (
         <Flex gap="s" classList={staticClassList(styles, 'SurfaceVariantExample')}>
-            <Label>{surfaceProps.variant}</Label>
             <Surface variant={locals.onVariant}>
+                <Label id={labelId}>{surfaceProps.variant}</Label>
                 <Flex padding="l" gap="m">
-                    <Surface {...surfaceProps}>
+                    <Surface {...surfaceProps} labelledby={labelId}>
                         <Flex>{locals.children}</Flex>
                     </Surface>
                     <Text variant="small">(on {locals.onVariant})</Text>

@@ -32,7 +32,7 @@ Run `npm run dev` in the Context UI sandbox application: `apps/standard-ui-sandb
 Libraries:
 
 - [Context UI](https://github.com/noodlestan/context-ui/blob/libs/context-ui/README.md) - Context-aware application services, and controllers.
-- [Context UI Types](https://github.com/noodlestan/context-ui/blob/libs/context-ui-types/README.md) - Core types and utils.
+- [Context UI Types](https://github.com/noodlestan/context-ui/blob/libs/context-ui-primitives/README.md) - Core types and utils.
 - [Context UI Aria](https://github.com/noodlestan/context-ui/blob/libs/context-ui-aria/README.md) - Aria types, primitives, and utils.
 - [Context UI Headless](https://github.com/noodlestan/context-ui/blob/libs/headless-ui/README.md) - Headless component library.
 - [Context UI Dev](https://github.com/noodlestan/context-ui/blob/libs/context-ui-dev/README.md) - Instrumentation and debug tools.

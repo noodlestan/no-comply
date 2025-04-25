@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Text } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
@@ -30,8 +30,8 @@ export const TextPage: Component = () => {
                         nibh, eget posuere mauris. Suspendisse hendrerit quam tortor.
                     </Text>
                 </DemoItem>
-                <DemoItem title="default">
-                    <Text variant="default">
+                <DemoItem title="normal">
+                    <Text variant="normal">
                         In sit amet tempor turpis. Pellentesque libero enim, semper id sem a,
                         gravida semper nisl. Duis fermentum faucibus est non porta. Nam scelerisque,
                         lectus sed pulvinar aliquet, nulla erat rutrum metus, a interdum arcu quam

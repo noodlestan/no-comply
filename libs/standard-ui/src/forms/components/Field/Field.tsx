@@ -1,28 +1,36 @@
-import { type ClassList, createClassList } from '@noodlestan/context-ui-types';
-import type { ParentComponent } from 'solid-js';
+import { FieldContextProvider } from '@noodlestan/context-ui';
+import { createClassList, createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createField, createFieldMixin } from '@noodlestan/headless-ui';
+import { type Component, mergeProps, splitProps } from 'solid-js';
 
 import { Flex } from '../../../layout';
-import { FieldsetLabel, type FieldsetLabelSize } from '../FieldsetLabel';
+import { FieldLabel } from '../FieldLabel';
 
 import styles from './Field.module.css';
+import type { FieldProps } from './types';
 
-// TODO
+export const Field: Component<FieldProps> = props => {
+    const [locals, others] = splitProps(props, ['size', 'label']);
+    const field = createField(others);
 
-export type FieldProps = {
-    label: string;
-    size?: FieldsetLabelSize;
-    classList?: ClassList;
-};
+    const { elProps: fieldMixinProps } = createFieldMixin();
 
-export const Field: ParentComponent<FieldProps> = props => {
-    const classList = createClassList(styles, 'Fieldset', () => props.classList);
+    const classList = createClassList(styles, 'Field', () => props.classList);
+    const fieldProps = createComputedProps({
+        classList,
+    });
+    const elProps = mergeProps(fieldMixinProps, field.elProps, fieldProps);
 
     return (
-        <Flex direction="column" gap="s" classList={classList()}>
-            <FieldsetLabel size={props.size}>{props.label}</FieldsetLabel>
-            <Flex direction="row" gap="s">
-                {props.children}
+        <FieldContextProvider context={field.context}>
+            <Flex direction="column" gap="s" {...elProps}>
+                <FieldLabel size={locals.size} {...field.labelProps}>
+                    {locals.label}
+                </FieldLabel>
+                <Flex direction="row" gap="s">
+                    {props.children(field)}
+                </Flex>
             </Flex>
-        </Flex>
+        </FieldContextProvider>
     );
 };

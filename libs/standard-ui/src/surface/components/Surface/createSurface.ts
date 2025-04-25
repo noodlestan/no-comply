@@ -3,7 +3,7 @@ import {
     createComputedProps,
     mergeProps,
     staticClassList,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 import { splitProps } from 'solid-js';
 
 import styles from './Surface.module.css';

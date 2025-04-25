@@ -1,5 +1,5 @@
 import { useSettingSafely } from '@noodlestan/context-ui';
-import type { Styles } from '@noodlestan/context-ui-types';
+import type { Styles } from '@noodlestan/context-ui-primitives';
 
 import {
     THEME_SETTING_COLORS_ACTION,

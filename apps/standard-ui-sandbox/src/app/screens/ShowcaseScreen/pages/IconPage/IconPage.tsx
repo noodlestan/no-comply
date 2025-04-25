@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Icon } from '@noodlestan/standard-ui';
 import { ClockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';

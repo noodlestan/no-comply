@@ -1,4 +1,8 @@
-import { createClassList, createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import {
+    createClassList,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { createIconButtonMixin } from '@noodlestan/headless-ui';
 import { splitProps } from 'solid-js';
 

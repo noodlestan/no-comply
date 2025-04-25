@@ -4,7 +4,7 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 import { type ParentComponent } from 'solid-js';
 
 import { Surface } from '../../../surface';
@@ -22,7 +22,7 @@ export const Dialog: ParentComponent<DialogProps> = props => {
     const classList = createClassList(styles, () => ['Dialog', `Dialog-size-${size()}`]);
 
     const localProps = createComputedProps({ classList });
-    const surfaceProps = mergeProps(localProps, props.dialog.containerProps);
+    const surfaceProps = mergeProps(localProps, props.dialog.elProps);
 
     return (
         <Surface variant="dialog" {...surfaceProps}>

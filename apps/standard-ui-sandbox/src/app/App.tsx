@@ -1,6 +1,6 @@
-import { type FocusContext, useContextNode } from '@noodlestan/context-ui';
+import { FocusContextProvider } from '@noodlestan/context-ui';
 import { DebugDrawer } from '@noodlestan/context-ui-dev';
-import { createClassList } from '@noodlestan/context-ui-types';
+import { createClassList } from '@noodlestan/context-ui-primitives';
 import { createFocusable } from '@noodlestan/headless-ui';
 import { Button, Flex } from '@noodlestan/standard-ui';
 import { Router } from '@solidjs/router';
@@ -17,10 +17,8 @@ import { AppSplash } from './splash';
 const Main: ParentComponent = props => {
     const { status } = useAppServices();
 
-    const context = useContextNode();
-
-    const focus = context.valueFor<FocusContext>('focus');
-    const focusable = createFocusable(focus);
+    const focusable = createFocusable();
+    const focus = focusable.context;
 
     const classList = createClassList(styles, () => ({
         AppMain: true,
@@ -28,20 +26,22 @@ const Main: ParentComponent = props => {
     }));
 
     return (
-        <Flex
-            stretch="full"
-            classList={classList()}
-            {...focusable.containerProps}
-            aria-busy={!status.isReady()}
-        >
-            <Show when={!status.isReady()}>
-                <AppSplash />
-            </Show>
-            <Show when={status.isReady()}>
-                <Button variant="transparent" {...focusable.targetProps} />
-                {props.children}
-            </Show>
-        </Flex>
+        <FocusContextProvider context={focusable.contextValue}>
+            <Flex
+                stretch="full"
+                {...focusable.elProps}
+                classList={classList()}
+                aria-busy={!status.isReady()}
+            >
+                <Show when={!status.isReady()}>
+                    <AppSplash />
+                </Show>
+                <Show when={status.isReady()}>
+                    <Button variant="transparent" {...focusable.targetProps} />
+                    {props.children}
+                </Show>
+            </Flex>
+        </FocusContextProvider>
     );
 };
 

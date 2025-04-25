@@ -1,25 +1,29 @@
-import {
-    ContextProvider,
-    type SurfaceContext,
-    createContextNode,
-    createSurfaceContext,
-    ctx,
-} from '@noodlestan/context-ui';
-import { type Component, splitProps } from 'solid-js';
+import { SurfaceContextProvider } from '@noodlestan/context-ui';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type Component } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 
-import { SurfaceBaseTag } from './SurfaceBaseTag';
+import { type SurfaceAPI, createSurface } from '../../controllers';
+import { createSurfaceMixin } from '../../mixins';
+
 import type { SurfaceBaseProps } from './types';
 
 export const SurfaceBase: Component<SurfaceBaseProps> = props => {
-    const [locals, others] = splitProps(props, ['variant']);
-    // eslint-disable-next-line solid/reactivity
-    const contexts = () => [ctx(node => createSurfaceContext(locals.variant, node))];
-    const context = createContextNode(contexts);
-    const surface = () => context.node.valueFor<SurfaceContext>('surface');
+    const surface = createSurface(props);
+
+    const { elProps: mixinProps } = createSurfaceMixin();
+    const elProps = mergeProps(props, mixinProps, surface.elProps);
+
+    const children = (surface: SurfaceAPI) => {
+        if (typeof props.children === 'function') {
+            return props.children(surface);
+        }
+        return props.children;
+    };
 
     return (
-        <ContextProvider value={context}>
-            <SurfaceBaseTag {...others} context={surface()} />
-        </ContextProvider>
+        <SurfaceContextProvider context={surface.contextValue}>
+            <Dynamic {...elProps}>{children(surface)}</Dynamic>
+        </SurfaceContextProvider>
     );
 };

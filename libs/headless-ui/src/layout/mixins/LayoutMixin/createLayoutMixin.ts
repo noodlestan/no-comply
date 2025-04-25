@@ -2,7 +2,7 @@ import {
     type PickRequired,
     createClassList,
     createComputedProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 
 import styles from './LayoutMixin.module.css';
 import type { LayoutMixinAPI, LayoutMixinProps } from './types';

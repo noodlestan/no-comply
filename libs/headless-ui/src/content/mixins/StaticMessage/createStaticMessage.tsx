@@ -1,5 +1,5 @@
 import { createAriaRegion } from '@noodlestan/context-ui-aria';
-import { type PickRequired, createComputedProps } from '@noodlestan/context-ui-types';
+import { type PickRequired, createComputedProps } from '@noodlestan/context-ui-primitives';
 import { AlertTriangleIcon, InfoIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import type { Component } from 'solid-js';
 
@@ -18,7 +18,11 @@ const defaultProps: PickRequired<StaticMessageProps, 'variant'> = {
 };
 
 export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI => {
-    const { elProps: regionProps, labelProps } = createAriaRegion(props, 'region');
+    const {
+        elProps: regionProps,
+        labelProps,
+        descriptionProps,
+    } = createAriaRegion(props, 'region');
 
     const variant = () => props.variant ?? defaultProps.variant;
     const icon = () => VARIANT_ICON_MAP[variant()];
@@ -35,6 +39,7 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
     return {
         elProps,
         labelProps,
+        descriptionProps,
         iconProps,
     };
 };

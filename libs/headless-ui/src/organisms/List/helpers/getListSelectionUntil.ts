@@ -1,4 +1,4 @@
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 
 export const getListSelectionUntil = (
     items: ObjectWithId[],

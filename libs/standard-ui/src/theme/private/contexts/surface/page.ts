@@ -1,6 +1,6 @@
-import { createSurfaceValue } from '@noodlestan/context-ui';
+import { createSurfaceVariant } from '@noodlestan/context-ui';
 
-export const STANDARD_UI_SURFACE_PAGE = createSurfaceValue({
+export const STANDARD_UI_SURFACE_PAGE = createSurfaceVariant({
     name: 'page',
     extend: ['stage'],
 });

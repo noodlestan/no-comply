@@ -1,4 +1,4 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-types';
+import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
 import { createScrollableMixin } from '@noodlestan/headless-ui';
 
 import styles from './Scrollable.module.css';

@@ -3,7 +3,7 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 import { createTextMixin } from '@noodlestan/headless-ui';
 import { splitProps } from 'solid-js';
 
@@ -11,7 +11,7 @@ import styles from './Text.module.css';
 import type { TextAPI, TextProps } from './types';
 
 const defaultProps: PickRequired<TextProps, 'variant' | 'component'> = {
-    variant: 'default',
+    variant: 'normal',
     component: 'p',
 };
 

@@ -1,4 +1,4 @@
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 import { type Component, batch } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

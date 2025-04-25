@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-primitives';
 import { CheckIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';
 

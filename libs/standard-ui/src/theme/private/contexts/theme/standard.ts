@@ -1,8 +1,8 @@
-import { createThemeValue } from '@noodlestan/context-ui';
+import { createThemeVariant } from '@noodlestan/context-ui';
 
 import { contextVars } from './functions';
 
-export const STANDARD_UI_THEME_STANDARD = createThemeValue({
+export const STANDARD_UI_THEME_STANDARD = createThemeVariant({
     name: 'standard',
     mode: 'dark',
     contextVars,

@@ -1,5 +1,5 @@
-import { createModeValue } from '@noodlestan/context-ui';
+import { createModeVariant } from '@noodlestan/context-ui';
 
-export const STANDARD_UI_MODE_LIGHT = createModeValue({
+export const STANDARD_UI_MODE_LIGHT = createModeVariant({
     name: 'light',
 });

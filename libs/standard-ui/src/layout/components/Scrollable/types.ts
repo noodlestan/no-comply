@@ -1,8 +1,8 @@
 import type { ScrollableTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-types';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type {
     ClosedTagProps,
-    ScrollableMixinElementProps,
+    ScrollableMixinAPI,
     ScrollableMixinProps,
 } from '@noodlestan/headless-ui';
 
@@ -14,12 +14,10 @@ export type ScrollableProps = Omit<ClosedTagProps, 'component'> &
 
 export type ScrollablePadding = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export type ScrollableElementProps = Omit<ClosedTagProps, 'component'> &
-    ScrollableMixinElementProps & {
-        component: ScrollableTagName;
-        classList: ClassList;
-    };
-
 export type ScrollableAPI = {
-    elProps: ScrollableElementProps;
+    elProps: Omit<ClosedTagProps, 'component'> &
+        ScrollableMixinAPI['elProps'] & {
+            component: ScrollableTagName;
+            classList: ClassList;
+        };
 };

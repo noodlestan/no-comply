@@ -1,20 +1,20 @@
 import {
     type ContextId,
-    ContextProvider,
     ContextRootProvider,
-    ContextValuesProvider,
+    ModeContextProvider,
+    SurfaceContextProvider,
+    ThemeContextProvider,
     createContextDataEffect,
-    createContextNode,
     createContextRoot,
     createContextVarsEffect,
-    createFocusContext,
     createModeContext,
     createSurfaceContext,
     createThemeContext,
-    ctx,
-    ctxMemo,
+    useMode,
     useSettings,
+    useSurface,
     useSystemContext,
+    useTheme,
 } from '@noodlestan/context-ui';
 import {
     STANDARD_UI_DATA_ATTRIBUTE_PREFIX,
@@ -22,7 +22,7 @@ import {
     STANDARD_UI_SETTINGS_GROUPS,
     ThemeStandard,
 } from '@noodlestan/standard-ui';
-import { type ParentComponent } from 'solid-js';
+import { type Component, type ParentComponent } from 'solid-js';
 
 type UIRootProviderProps = {
     defaultCtxId: ContextId;
@@ -30,16 +30,18 @@ type UIRootProviderProps = {
 
 const prefix = STANDARD_UI_DATA_ATTRIBUTE_PREFIX;
 
-const StageSurface: ParentComponent = props => {
-    const contexts = () => {
-        const surface = ctx(node => createSurfaceContext('stage', node));
-        return [surface];
-    };
-    const surface = createContextNode(contexts);
+const ContextEffects: Component = () => {
+    const theme = useTheme();
+    const mode = useMode();
+    const surface = useSurface();
 
-    createContextDataEffect(surface.node, prefix, document.body);
+    createContextDataEffect(() => [theme, mode], prefix, document.documentElement);
+    createContextVarsEffect(() => [theme, mode], document.documentElement);
 
-    return <ContextProvider value={surface}>{props.children}</ContextProvider>;
+    createContextDataEffect(() => [surface], prefix, document.body);
+    createContextVarsEffect(() => [surface], document.body);
+
+    return <></>;
 };
 
 export const UIRootProvider: ParentComponent<UIRootProviderProps> = props => {
@@ -47,28 +49,31 @@ export const UIRootProvider: ParentComponent<UIRootProviderProps> = props => {
 
     const { addSettings, addGroups } = useSettings();
 
-    // const Theme = getSettingSafely()
+    // const theme = getSettingSafely()
+    const theme = () => 'standard';
 
-    const contexts = () => {
-        const cs = ctxMemo(node => createModeContext(colorScheme(), node));
-        const theme = ctx(node => createThemeContext('standard', node));
-        const focus = ctx(node => createFocusContext(undefined, node));
-        return [cs, theme, focus];
-    };
-    const root = createContextRoot(contexts, { id: props.defaultCtxId ?? 'UIRootProvider' });
+    const modeContext = createModeContext(colorScheme);
+    const themeContext = createThemeContext(theme);
+    const surfaceContext = createSurfaceContext(() => 'stage');
+
+    const root = createContextRoot();
 
     addSettings(STANDARD_UI_SETTINGS);
     addGroups(STANDARD_UI_SETTINGS_GROUPS);
 
-    createContextDataEffect(root.node, prefix, document.documentElement);
-    createContextVarsEffect(root.node, document.documentElement);
-
     return (
-        <ContextValuesProvider>
+        <>
             <ThemeStandard />
-            <ContextRootProvider value={root}>
-                <StageSurface>{props.children}</StageSurface>
+            <ContextRootProvider root={root}>
+                <ModeContextProvider context={modeContext}>
+                    <ThemeContextProvider context={themeContext}>
+                        <SurfaceContextProvider context={surfaceContext}>
+                            <ContextEffects />
+                            {props.children}
+                        </SurfaceContextProvider>
+                    </ThemeContextProvider>
+                </ModeContextProvider>
             </ContextRootProvider>
-        </ContextValuesProvider>
+        </>
     );
 };

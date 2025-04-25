@@ -16,7 +16,7 @@
         --__text-letter-spacing: var(--label-variant-small-spacing);
     }
 
-    .Label-variant-default {
+    .Label-variant-normal {
         --__text-font-size: var(--label-variant-body-size);
         --__text-font-weight: var(--label-variant-body-weight);
         --__text-line-height: var(--label-variant-body-height);

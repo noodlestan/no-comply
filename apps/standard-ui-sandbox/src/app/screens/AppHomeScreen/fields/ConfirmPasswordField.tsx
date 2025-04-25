@@ -1,5 +1,5 @@
 import { TextInput } from '@noodlestan/context-ui';
-import { FormFieldBase, createFormField } from '@noodlestan/headless-ui';
+import { FormFieldBase, createField } from '@noodlestan/headless-ui';
 import { type Component } from 'solid-js';
 
 type ConfirmPasswordFieldProps = {
@@ -11,7 +11,7 @@ export const ConfirmPasswordField: Component<ConfirmPasswordFieldProps> = props 
     const fieldProps = {
         required: true,
     };
-    const field = createFormField(fieldProps);
+    const field = createField(fieldProps);
 
     return (
         <FormFieldBase field={field}>

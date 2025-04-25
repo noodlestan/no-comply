@@ -30,7 +30,7 @@
   "dependencies": {
     "@noodlestan/context-ui": "^0.0.11",
     "@noodlestan/context-ui-aria": "^0.0.11",
-    "@noodlestan/context-ui-types": "^0.0.11",
+    "@noodlestan/context-ui-primitives": "^0.0.11",
     "@solid-primitives/set": "0.4.11"
   },
   "peerDependencies": {

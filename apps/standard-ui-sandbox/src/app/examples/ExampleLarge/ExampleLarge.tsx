@@ -1,8 +1,10 @@
-import { Fieldset, Label, TextInput } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { TextInput } from '@noodlestan/context-ui';
+import { shortId, staticClassList } from '@noodlestan/context-ui-primitives';
 import {
     Button,
     Display,
+    FieldLabel,
+    Fieldset,
     Flex,
     Icon,
     IconButton,
@@ -12,7 +14,7 @@ import {
     Text,
 } from '@noodlestan/standard-ui';
 import { ClockIcon, LockIcon } from 'lucide-solid';
-import { type Component } from 'solid-js';
+import { type Component, createSignal } from 'solid-js';
 
 import styles from './ExampleLarge.module.css';
 
@@ -23,14 +25,22 @@ type ExampleLargeProps = {
 };
 
 export const ExampleLargeHeader: Component<ExampleLargeProps> = props => {
-    const variant = () => props.variant ?? ('banner' as SurfaceVariant);
+    const labelId = shortId();
+
+    const variant = () => props.variant ?? ('card' as SurfaceVariant);
 
     return (
-        <Surface variant={variant()} classList={staticClassList(styles, 'ExampleLargeHeader')}>
+        <Surface
+            variant={variant()}
+            classList={staticClassList(styles, 'ExampleLargeHeader')}
+            labelledby={labelId}
+        >
             <Flex gap="s">
                 <Flex direction="row" align="center" gap="m">
                     <Icon size="m" icon={LockIcon} />
-                    <Display level={3}>{props.title ?? 'Lorem Ipsum'}</Display>
+                    <Display level={3} id={labelId}>
+                        {props.title ?? 'Lorem Ipsum'}
+                    </Display>
                 </Flex>
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur <Link href="#">Foobar</Link>
@@ -41,13 +51,24 @@ export const ExampleLargeHeader: Component<ExampleLargeProps> = props => {
 };
 
 export const ExampleLargeBody: Component<ExampleLargeProps> = props => {
+    const labelId = shortId();
+
     const variant = () => props.variant ?? ('page' as SurfaceVariant);
 
+    const [username, setUsername] = createSignal('');
+    const [password, setPassword] = createSignal('');
+
     return (
-        <Surface variant={variant()} classList={staticClassList(styles, 'ExampleLargeBody')}>
+        <Surface
+            variant={variant()}
+            classList={staticClassList(styles, 'ExampleLargeBody')}
+            labelledby={labelId}
+        >
             <Flex gap="m">
                 <Flex gap="m" direction="row" justify="between">
-                    <Display level={3}>Lorem ipsum dolor</Display>
+                    <Display level={3} id={labelId}>
+                        Lorem ipsum dolor
+                    </Display>
                     <IconButton variant="secondary" icon={LockIcon} />
                 </Flex>
                 <Text>
@@ -58,12 +79,22 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = props => {
                 <Flex gap="xl">
                     <Fieldset label="Login">
                         <Flex gap="s">
-                            <Label>Username</Label>
-                            <TextInput size="m" value="username" />
+                            <FieldLabel for="username">Username</FieldLabel>
+                            <TextInput
+                                id="username"
+                                size="m"
+                                value={username()}
+                                onChangeValue={setUsername}
+                            />
                         </Flex>
                         <Flex gap="s">
-                            <Label>Password</Label>
-                            <TextInput size="m" value="password" type="password" />
+                            <FieldLabel for="password">Password</FieldLabel>
+                            <TextInput
+                                id="password"
+                                size="m"
+                                value={password()}
+                                onChangeValue={setPassword}
+                            />
                         </Flex>
                     </Fieldset>
                     <Flex direction="row" gap="m">
@@ -77,14 +108,20 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = props => {
 };
 
 export const ExampleLargeFooter: Component<ExampleLargeProps> = props => {
+    const labelId = shortId();
+
     const variant = () => props.variant ?? ('inverse' as SurfaceVariant);
 
     return (
-        <Surface variant={variant()} classList={staticClassList(styles, 'ExampleLargeFooter')}>
+        <Surface
+            variant={variant()}
+            classList={staticClassList(styles, 'ExampleLargeFooter')}
+            labelledby={labelId}
+        >
             <Flex direction="row" align="center" gap="l">
                 <Flex direction="row" align="center" gap="s">
                     <Icon size="s" icon={ClockIcon} />
-                    <Text>Lorem ipsum dolor sit amet</Text>
+                    <Text id={labelId}>Lorem ipsum dolor sit amet</Text>
                     <Button size="s" variant="plain">
                         Plain
                     </Button>

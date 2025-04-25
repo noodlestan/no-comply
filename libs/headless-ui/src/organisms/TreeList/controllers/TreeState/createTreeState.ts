@@ -1,16 +1,13 @@
-import { type SelectionAPI, createSelection } from '@noodlestan/context-ui/src/providers';
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import { type SelectionContext } from '@noodlestan/context-ui';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 import { ReactiveSet } from '@solid-primitives/set';
 
 import type { TreeState } from './types';
 
 export const createTreeState = (
-    initialSelection?: SelectionAPI,
+    selection?: SelectionContext,
     initialExpandedSet?: ReactiveSet<string>,
 ): TreeState => {
-    console.info('createTreeState()');
-
-    const selected = initialSelection ?? createSelection();
     const expanded = initialExpandedSet ?? new ReactiveSet<string>();
     let firstSelected: string | undefined;
 
@@ -42,26 +39,26 @@ export const createTreeState = (
 
     const getFirstSelected = (): ObjectWithId | undefined => {
         if (firstSelected) {
-            return selected.getById(firstSelected);
+            return selection?.getById(firstSelected);
         }
     };
 
     const select = (object: ObjectWithId) => {
-        if (!selected.count()) {
+        if (!selection?.count()) {
             firstSelected = object.id;
         }
-        selected.select(object);
+        selection?.select(object);
     };
 
     const deselect = (id: string) => {
-        selected.deselect(id);
-        if (!selected.count()) {
+        selection?.deselect(id);
+        if (!selection?.count()) {
             firstSelected = undefined;
         }
     };
 
     const toggleSelected = (object: ObjectWithId) => {
-        if (selected.hasId(object.id)) {
+        if (selection?.hasId(object.id)) {
             deselect(object.id);
         } else {
             select(object);
@@ -70,7 +67,7 @@ export const createTreeState = (
 
     const setSelection = (objects: ObjectWithId[]) => {
         firstSelected = objects.length ? objects[0]?.id : undefined;
-        selected.setSelection(objects);
+        selection?.setSelection(objects);
     };
 
     const dispose = () => {
@@ -82,14 +79,14 @@ export const createTreeState = (
         expand,
         toggleExpanded,
         collapse,
-        getSelection: selected.objects,
+        getSelection: selection?.objects ?? (() => []),
         getFirstSelected,
-        isSelected: selected.hasId,
+        isSelected: selection?.hasId ?? (() => false),
         select,
         toggleSelected,
         deselect,
         setSelection,
-        clearSelection: selected.clearSelection,
+        clearSelection: selection?.clearSelection ?? (() => undefined),
         dispose,
     };
 };

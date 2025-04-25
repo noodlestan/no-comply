@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { type Component, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -18,14 +18,14 @@ export type TreeListItemDetailsProps = {
 };
 
 export const TreeListItemDetails: Component<TreeListItemDetailsProps> = props => {
-    const { hasToggle, containerProps, focusableProps, expandButtonProps, componentProps } =
+    const { hasToggle, elProps, focusableProps, expandButtonProps, componentProps } =
         createTreeListItemDetails(props);
 
     const toggleClassList = staticClassList(styles, 'TreeListItemDetails--toggle');
     const contentsClassList = staticClassList(styles, 'TreeListItemDetails--contents');
 
     return (
-        <FlexBase direction="row" align="center" {...containerProps}>
+        <FlexBase direction="row" align="center" {...elProps}>
             <FocusableBase {...focusableProps}>
                 <FlexBase direction="row" align="center">
                     <Show when={hasToggle()}>

@@ -1,4 +1,4 @@
-import { type PickRequired, createClassList } from '@noodlestan/context-ui-types';
+import { type PickRequired, createClassList } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

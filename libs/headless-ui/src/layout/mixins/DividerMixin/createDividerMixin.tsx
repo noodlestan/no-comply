@@ -1,8 +1,8 @@
 import {
     type PickRequired,
-    createClassList,
     createComputedProps,
-} from '@noodlestan/context-ui-types';
+    staticClassList,
+} from '@noodlestan/context-ui-primitives';
 
 import styles from './DividerMixin.module.css';
 import type { DividerMixinAPI, DividerMixinProps } from './types';
@@ -17,9 +17,14 @@ export const createDividerMixin = (props: DividerMixinProps): DividerMixinAPI =>
 
     const orientation = () => props.orientation ?? defaultProps.orientation;
 
-    const classList = createClassList(styles, () => ['Divider', `Divider-${orientation()}`]);
+    const classList = staticClassList(styles, 'Divider');
 
-    const elProps = createComputedProps({ classList, component });
+    const staticProps = { classList };
+
+    const elProps = createComputedProps(staticProps, {
+        component,
+        'data-divider': orientation,
+    });
 
     return {
         elProps,

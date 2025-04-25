@@ -1,14 +1,16 @@
+/* eslint-disable solid/reactivity */
 import type { ParentComponent } from 'solid-js';
 
-import type { IconsServiceAPI } from '../../types';
+import type { IconsServiceAPI } from '../../services';
 
-import { IconsContext } from './private';
+import { IconsContextCTX } from './private';
 
 type IconsProviderProps = {
-    icons: IconsServiceAPI;
+    service: IconsServiceAPI;
 };
 
 export const IconsProvider: ParentComponent<IconsProviderProps> = props => {
-    // eslint-disable-next-line solid/reactivity
-    return <IconsContext.Provider value={props.icons}>{props.children}</IconsContext.Provider>;
+    return (
+        <IconsContextCTX.Provider value={props.service}>{props.children}</IconsContextCTX.Provider>
+    );
 };

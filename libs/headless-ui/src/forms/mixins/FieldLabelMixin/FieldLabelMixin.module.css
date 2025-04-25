@@ -1,0 +1,5 @@
+@layer headless-ui {
+    .FieldLabel {
+        cursor: unset;
+    }
+}

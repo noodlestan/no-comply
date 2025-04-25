@@ -1,5 +1,5 @@
 import type { TextTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-types';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type { TagProps, TextMixinProps } from '@noodlestan/headless-ui';
 
 export type TextProps = Omit<TagProps, 'component'> &
@@ -8,13 +8,11 @@ export type TextProps = Omit<TagProps, 'component'> &
         component?: TextTagName;
     };
 
-export type TextVariant = 'small' | 'default' | 'medium' | 'large';
-
-export type TextElementProps = Omit<TagProps, 'component'> & {
-    component: TextTagName;
-    classList: ClassList;
-};
+export type TextVariant = 'small' | 'normal' | 'medium' | 'large';
 
 export type TextAPI = {
-    elProps: TextElementProps;
+    elProps: Omit<TagProps, 'component'> & {
+        component: TextTagName;
+        classList: ClassList;
+    };
 };

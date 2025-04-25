@@ -5,23 +5,23 @@
         cursor: unset;
     }
 
-    .FieldsetLabel-size-xs {
+    .FieldsetLabel-size-small {
         font-weight: 900;
         font-size: var(--label-type-size-s);
         font-weight: var(--label-type-weight-l);
     }
 
-    .FieldsetLabel-size-s {
+    .FieldsetLabel-size-normal {
         font-size: var(--label-type-size-m);
         font-weight: var(--label-type-weight-s);
     }
 
-    .FieldsetLabel-size-m {
+    .FieldsetLabel-size-medium {
         font-size: var(--label-type-size-l);
         font-weight: var(--label-type-weight-m);
     }
 
-    .FieldsetLabel-size-l {
+    .FieldsetLabel-size-large {
         font-size: var(--label-type-size-xl);
         font-weight: var(--label-type-weight-l);
     }

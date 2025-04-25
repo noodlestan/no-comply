@@ -1,15 +1,16 @@
 @layer headless-ui {
     .Divider {
-        height: 0px;
-        width: 0px;
+        margin: 0;
+        height: 0;
+        width: 0;
         border: none;
     }
 
-    .Divider-vertical {
+    .Divider[data-divider='vertical'] {
         height: var(--__divider-length);
     }
 
-    .Divider-horizontal {
+    .Divider[data-divider='horizontal'] {
         width: var(--__divider-length);
     }
 }

@@ -2,7 +2,7 @@ import {
     type PickRequired,
     createClassList,
     createComputedProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 
 import styles from './FlexMixin.module.css';
 import type { FlexMixinAPI, FlexMixinProps } from './types';

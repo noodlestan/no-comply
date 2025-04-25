@@ -28,8 +28,7 @@
     "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {
-    "@noodlestan/context-ui": "0.0.11",
-    "@noodlestan/context-ui-types": "0.0.11"
+    "@noodlestan/context-ui-primitives": "0.0.11"
   },
   "peerDependencies": {
     "solid-js": "^1.9.5"

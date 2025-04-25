@@ -3,7 +3,7 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 import { createStaticMessage } from '@noodlestan/headless-ui';
 import { splitProps } from 'solid-js';
 
@@ -18,7 +18,8 @@ const defaultProps: PickRequired<CalloutProps, 'size' | 'length'> = {
 export const createCallout = (props: CalloutProps): CalloutAPI => {
     const [locals, others] = splitProps(props, ['size', 'length']);
 
-    const { elProps, labelProps, iconProps } = createStaticMessage(others);
+    const messageProps = mergeProps(others, { labelled: true });
+    const { elProps, labelProps, iconProps } = createStaticMessage(messageProps);
 
     const size = () => locals.size ?? defaultProps.size;
     const length = () => locals.length ?? defaultProps.length;

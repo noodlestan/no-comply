@@ -1,5 +1,5 @@
 import { TextInput } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';

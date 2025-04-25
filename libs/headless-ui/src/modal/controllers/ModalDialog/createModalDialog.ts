@@ -1,6 +1,6 @@
 import { createModalContext } from '@noodlestan/context-ui';
-import { type DialogTagName, createAriaDialog } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import { createAriaDialog } from '@noodlestan/context-ui-aria';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import { createFocusTrap } from '../../../focus';
 import { createModalDialogMixin } from '../../mixins';
@@ -9,16 +9,17 @@ import type { ModalDialogAPI, ModalDialogProps } from './types';
 
 export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI => {
     const modalContext = createModalContext(props);
+    const [context] = modalContext;
 
-    const { elProps: ariaProps, labelProps } = createAriaDialog(props);
+    const { elProps: ariaProps, labelProps, descriptionProps } = createAriaDialog(props);
 
     const dialogContextProps = {
-        ref: modalContext.setDialogRef,
+        ref: context.setDialogRef,
     };
     const dialogMixinProps = mergeProps(
         props,
         createComputedProps({
-            active: modalContext.isActive,
+            active: context.isActive,
         }),
     );
     const { elProps: dialogMixinElProps, closeDialog } = createModalDialogMixin(dialogMixinProps);
@@ -39,14 +40,15 @@ export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI 
     };
 
     const staticProps = {
-        component: 'dialog' as DialogTagName,
+        component: 'dialog' as const,
         onKeyDown: handleKeyDown,
     };
     const localProps = createComputedProps(staticProps, {});
 
     return {
-        containerProps: mergeProps(containerProps, localProps),
+        elProps: mergeProps(containerProps, localProps),
         labelProps,
+        descriptionProps,
         modalContext,
         closeDialog,
     };

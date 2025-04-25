@@ -1,19 +1,23 @@
 import { createAriaTree } from '@noodlestan/context-ui-aria';
-import { mergeProps, resolveValue } from '@noodlestan/context-ui-types';
+import { mergeProps, resolveValue } from '@noodlestan/context-ui-primitives';
 
 import type { TreeListAPI } from '../../components/TreeListBase/types';
+import { useTreeListContext } from '../../providers';
 import type { TreeListProps } from '../../types';
 
 export const createTreeList = (props: TreeListProps): TreeListAPI => {
-    const aria = createAriaTree(props);
+    const { keyboard } = useTreeListContext();
 
-    const containerProps = mergeProps(aria.elProps, props.keyboard.containerProps);
+    const { elProps: ariaTreeElProps, labelProps, descriptionProps } = createAriaTree(props);
+
+    const containerProps = mergeProps(ariaTreeElProps, keyboard.elProps);
 
     const expand = () => resolveValue(props.expand);
 
     return {
         containerProps,
-        labelProps: aria.labelProps,
+        labelProps,
+        descriptionProps,
         expand,
     };
 };

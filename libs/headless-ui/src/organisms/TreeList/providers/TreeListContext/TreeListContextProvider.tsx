@@ -6,15 +6,17 @@ import type { TreeListContextValue } from '../../private';
 import { TreeListContext } from './private';
 
 type TreeListContextProviderProps = {
-    value: TreeListContextValue;
+    context: TreeListContextValue;
 };
 
 export const TreeListContextProvider: ParentComponent<TreeListContextProviderProps> = props => {
     return (
         // eslint-disable-next-line solid/reactivity
-        <TreeListContext.Provider value={props.value}>
-            <LocalLabelsProvider labels={props.value.labels}>
-                <LocalIconsProvider icons={props.value.icons}>{props.children}</LocalIconsProvider>
+        <TreeListContext.Provider value={props.context}>
+            <LocalLabelsProvider labels={props.context.labels}>
+                <LocalIconsProvider icons={props.context.icons}>
+                    {props.children}
+                </LocalIconsProvider>
             </LocalLabelsProvider>
         </TreeListContext.Provider>
     );

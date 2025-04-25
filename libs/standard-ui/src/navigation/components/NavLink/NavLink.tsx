@@ -1,5 +1,5 @@
 import { useNavigation } from '@noodlestan/context-ui';
-import { type PickRequired, createClassList } from '@noodlestan/context-ui-types';
+import { type PickRequired, createClassList } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 
 import { Link, type LinkProps } from '../Link';

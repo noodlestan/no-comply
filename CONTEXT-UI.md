@@ -1,3 +1,11 @@
+## resolveValue()
+
+is it still needed (versus createComputedProps)
+
+## Form validation
+
+## FormGroupContext
+
 ## Display, Heading, Text
 
 add aria-heading (+aria-level)
@@ -10,10 +18,6 @@ add aria-note
 ## Separator
 
 aria-separator
-
-## resolveValue()
-
-is it still needed (versus createComputedProps)
 
 ## Scope surface vars
 

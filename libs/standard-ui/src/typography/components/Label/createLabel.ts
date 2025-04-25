@@ -1,10 +1,9 @@
-import type { LabelTagName } from '@noodlestan/context-ui-aria';
 import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 import { createTextMixin } from '@noodlestan/headless-ui';
 import { splitProps } from 'solid-js';
 
@@ -12,7 +11,7 @@ import styles from './Label.module.css';
 import type { LabelAPI, LabelProps } from './types';
 
 const defaultProps: PickRequired<LabelProps, 'variant'> = {
-    variant: 'default',
+    variant: 'normal',
 };
 
 export const createLabel = (props: LabelProps): LabelAPI => {
@@ -22,7 +21,7 @@ export const createLabel = (props: LabelProps): LabelAPI => {
     const classList = createClassList(styles, () => [`Label-variant-${variant()}`]);
 
     const labelStaticProps = {
-        component: 'label' as LabelTagName,
+        component: 'label' as const,
     };
     const labelProps = createComputedProps(labelStaticProps, { classList });
 

@@ -1,5 +1,9 @@
 import { createIconValue, i, l } from '@noodlestan/context-ui';
-import { createClassList, createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import {
+    createClassList,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 import { type Component, splitProps } from 'solid-js';
 

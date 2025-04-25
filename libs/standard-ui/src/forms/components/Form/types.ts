@@ -1,5 +1,11 @@
-import type { FormAPI } from '@noodlestan/headless-ui';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type { FormAPI, FormProps as HeadlessFormProps } from '@noodlestan/headless-ui';
+import type { JSX } from 'solid-js/jsx-runtime';
 
-export type FormProps = {
-    form: FormAPI;
+import type { ContentSize } from '../../../types';
+
+export type FormProps = HeadlessFormProps & {
+    size?: ContentSize;
+    classList?: ClassList;
+    children: (field: FormAPI) => JSX.Element;
 };

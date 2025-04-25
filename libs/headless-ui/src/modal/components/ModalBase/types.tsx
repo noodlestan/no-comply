@@ -1,5 +1,5 @@
-import type { ModalContext } from '@noodlestan/context-ui';
+import type { ModalContextValue } from '@noodlestan/context-ui';
 
 export type ModalBaseProps = {
-    modalContext: ModalContext;
+    context: ModalContextValue;
 };

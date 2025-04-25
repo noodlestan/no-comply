@@ -1,8 +1,9 @@
+/* eslint-disable solid/reactivity */
 import { type ParentComponent } from 'solid-js';
 
 import type { IconMap } from '../../types';
 
-import { LocalIconsContext } from './private';
+import { LocalIconsCTX } from './private';
 
 type LocalIconsProviderProps = {
     icons?: IconMap;
@@ -10,9 +11,6 @@ type LocalIconsProviderProps = {
 
 export const LocalIconsProvider: ParentComponent<LocalIconsProviderProps> = props => {
     return (
-        // eslint-disable-next-line solid/reactivity
-        <LocalIconsContext.Provider value={props.icons ?? {}}>
-            {props.children}
-        </LocalIconsContext.Provider>
+        <LocalIconsCTX.Provider value={props.icons ?? {}}>{props.children}</LocalIconsCTX.Provider>
     );
 };

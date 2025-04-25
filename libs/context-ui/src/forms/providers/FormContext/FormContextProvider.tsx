@@ -1,16 +1,20 @@
+/* eslint-disable solid/reactivity */
 import type { ParentComponent } from 'solid-js';
 
-import type { FormContext as FormContextValue } from '../../contexts';
-
-import { FormContext } from './private';
+import { ContextNodeProvider, createContextNode } from '../../../context';
+import type { FormContextValue } from '../../contexts';
+import { FormContextCTX } from '../../private';
 
 type FormContextProviderProps = {
-    value: FormContextValue;
+    context: FormContextValue;
 };
 
 export const FormContextProvider: ParentComponent<FormContextProviderProps> = props => {
+    const node = () => createContextNode(props.context[0]);
+
     return (
-        // eslint-disable-next-line solid/reactivity
-        <FormContext.Provider value={props.value}>{props.children}</FormContext.Provider>
+        <FormContextCTX.Provider value={props.context}>
+            <ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
+        </FormContextCTX.Provider>
     );
 };

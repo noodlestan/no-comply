@@ -1,16 +1,12 @@
 import { l } from '@noodlestan/context-ui/src/labels';
 import { createAriaGroup } from '@noodlestan/context-ui-aria';
-import { createComputedProps } from '@noodlestan/context-ui-types';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import { useTreeListContext } from '../../../../../providers';
 
-import type {
-    TreeListChildrenContainerProps,
-    TreeListChildrenProps,
-    TreeListNodeAPI,
-} from './types';
+import type { TreeListChildrenAPI, TreeListChildrenProps } from './types';
 
-export const createTreeListChildren = (props: TreeListChildrenProps): TreeListNodeAPI => {
+export const createTreeListChildren = (props: TreeListChildrenProps): TreeListChildrenAPI => {
     const { state, labels } = useTreeListContext();
 
     const expanded = () => Boolean(props.expand || state.isExpanded(props.node.id));
@@ -24,15 +20,13 @@ export const createTreeListChildren = (props: TreeListChildrenProps): TreeListNo
         'aria-expanded': expanded,
         'aria-setsize': setSize,
     });
-
     const ariaTreeGroup = createAriaGroup(ariaTreeGroupProps);
 
-    const containerProps = (): TreeListChildrenContainerProps => ({
-        ...ariaTreeGroup.elProps,
-        style: { '--tree-list-indent-level': props.level + 1 },
+    const elProps = createComputedProps({
+        style: () => ({ '--tree-list-indent-level': props.level + 1 }),
     });
 
     return {
-        containerProps,
+        elProps: mergeProps(ariaTreeGroup.elProps, elProps),
     };
 };

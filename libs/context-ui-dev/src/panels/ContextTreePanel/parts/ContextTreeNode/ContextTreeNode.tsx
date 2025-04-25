@@ -1,5 +1,5 @@
 import { type ContextNode } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import type { TreeItemComponentProps } from '@noodlestan/headless-ui';
 import { type Component, For, Show } from 'solid-js';
 

@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Divider, Flex, Icon, NavLink } from '@noodlestan/standard-ui';
 import { HomeIcon } from 'lucide-solid';
 import { type Component, For } from 'solid-js';

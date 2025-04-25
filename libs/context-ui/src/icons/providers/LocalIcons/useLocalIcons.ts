@@ -2,9 +2,9 @@ import { useContext } from 'solid-js';
 
 import type { IconMap } from '../../types';
 
-import { LocalIconsContext } from './private';
+import { LocalIconsCTX } from './private';
 
 export const useLocalIcons = <T extends IconMap>(defaults: T): T => {
-    const context = useContext(LocalIconsContext);
+    const context = useContext(LocalIconsCTX);
     return { ...defaults, ...context };
 };

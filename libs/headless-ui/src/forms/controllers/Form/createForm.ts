@@ -1,16 +1,20 @@
 import { createFormContext } from '@noodlestan/context-ui';
 import { createAriaForm } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import type { FormAPI, FormProps } from './types';
 
 export const createForm = (props: FormProps = {}): FormAPI => {
-    const context = createFormContext(props);
+    const state: { api: FormAPI } = { api: {} as FormAPI };
 
-    const { elProps: ariaFormProps, labelProps } = createAriaForm(props);
+    const contextValue = createFormContext(props);
+    const [context] = contextValue;
+
+    const { elProps: ariaFormProps, labelProps, descriptionProps } = createAriaForm(props);
 
     const containerStaticProps = {
         component: 'form',
+        onSubmit: () => props.onSubmit?.(state.api),
     };
     const containerProps = createComputedProps(containerStaticProps, {
         'data-disabled': () => (context.isDisabled() ? '' : undefined),
@@ -24,16 +28,20 @@ export const createForm = (props: FormProps = {}): FormAPI => {
     });
 
     const submitButtonStaticProps = {
-        type: 'submit',
+        type: 'submit' as const,
     };
     const submitButtonProps = createComputedProps(submitButtonStaticProps, {
-        disabled: () => props.disabled,
+        disabled: () => context.isDisabled() || context.isPending(),
     });
 
-    return {
-        containerProps: mergeProps(ariaFormProps, containerProps),
+    state.api = {
+        elProps: mergeProps(ariaFormProps, containerProps),
         labelProps,
+        descriptionProps,
         submitButtonProps,
         context,
+        contextValue,
     };
+
+    return state.api;
 };

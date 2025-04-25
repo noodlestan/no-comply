@@ -1,11 +1,9 @@
-import type { SelectionAPI } from '@noodlestan/context-ui';
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { SelectionContext } from '@noodlestan/context-ui';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 
 import type { ListState } from '../types';
 
-export const createListState = (selection: SelectionAPI): ListState => {
-    console.info('createTreeState()');
-
+export const createListState = (selection: SelectionContext): ListState => {
     let firstSelected: string | undefined;
 
     const getFirstSelected = (): ObjectWithId | undefined => {

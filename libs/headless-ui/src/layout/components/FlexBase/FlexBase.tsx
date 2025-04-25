@@ -1,4 +1,4 @@
-import { mergeProps } from '@noodlestan/context-ui-types';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

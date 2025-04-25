@@ -113,12 +113,12 @@ export const createTreeKeyboardController = (
         }
     };
 
-    const containerProps = {
+    const elProps = {
         onKeyDown,
         ref: setContainerRef,
     };
 
     return {
-        containerProps,
+        elProps,
     };
 };

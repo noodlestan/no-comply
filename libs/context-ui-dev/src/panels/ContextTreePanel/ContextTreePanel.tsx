@@ -1,4 +1,4 @@
-import { useContextRoot } from '@noodlestan/context-ui';
+import { useContextTreeRoot } from '@noodlestan/context-ui';
 import { createAriaRegion } from '@noodlestan/context-ui-aria';
 import {
     TreeListBase,
@@ -25,10 +25,10 @@ const TREE_LABELS: TreeListLabels = {
 export const ContextTreePanel: Component = () => {
     const region = createAriaRegion();
 
-    const rootContext = useContextRoot();
+    const rootContext = useContextTreeRoot();
     const treeRoot = createDebugContextTree(rootContext);
     const tree = createTreeListContext(treeRoot, {
-        component: ContextTreeNode,
+        components: { treeItem: ContextTreeNode, expandButton: ExpandButton },
         expand: 1,
         labels: TREE_LABELS,
     });

@@ -3,7 +3,7 @@ import { useContext } from 'solid-js';
 
 import type { TranslateComponent, TranslationFunction } from '../../services';
 
-import { LocaleContext } from './private';
+import { LocaleCTX } from './private';
 
 export type TranslateContext = {
     t: TranslationFunction;
@@ -12,7 +12,7 @@ export type TranslateContext = {
 };
 
 export const useTranslate = (): TranslateContext => {
-    const context = useContext(LocaleContext);
+    const context = useContext(LocaleCTX);
     if (!context) {
         throw new Error('useTranslate() must be wrapped in <LocaleProvider/>');
     }

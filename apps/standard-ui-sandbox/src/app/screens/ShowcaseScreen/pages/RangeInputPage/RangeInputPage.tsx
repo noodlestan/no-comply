@@ -1,5 +1,5 @@
 import { RangeInput } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { DataItem } from '@noodlestan/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 

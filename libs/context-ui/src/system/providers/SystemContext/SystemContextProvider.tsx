@@ -1,3 +1,4 @@
+/* eslint-disable solid/reactivity */
 import type { ParentComponent } from 'solid-js';
 
 import { type SystemContextServiceAPI, createSystemContextService } from '../../services';
@@ -9,7 +10,6 @@ type SystemContextProviderProps = {
 };
 
 export const SystemContextProvider: ParentComponent<SystemContextProviderProps> = props => {
-    // eslint-disable-next-line solid/reactivity
     const service = props.systemContextService ?? createSystemContextService();
     return <SystemContext.Provider value={service}>{props.children}</SystemContext.Provider>;
 };

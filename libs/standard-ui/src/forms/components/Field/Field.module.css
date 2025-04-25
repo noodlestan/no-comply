@@ -5,23 +5,23 @@
         cursor: unset;
     }
 
-    .Field-size-xs {
+    .Field-size-small {
         font-weight: 900;
         font-size: var(--fieldset-type-size-s);
         font-weight: var(--fieldset-type-weight-l);
     }
 
-    .Field-size-s {
+    .Field-size-normal {
         font-size: var(--fieldset-type-size-m);
         font-weight: var(--fieldset-type-weight-s);
     }
 
-    .Field-size-m {
+    .Field-size-medium {
         font-size: var(--fieldset-type-size-l);
         font-weight: var(--fieldset-type-weight-m);
     }
 
-    .Field-size-l {
+    .Field-size-large {
         font-size: var(--fieldset-type-size-xl);
         font-weight: var(--fieldset-type-weight-l);
     }

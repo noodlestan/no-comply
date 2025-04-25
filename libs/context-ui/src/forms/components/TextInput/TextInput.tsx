@@ -1,4 +1,4 @@
-import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
 import './TextInput.css';
@@ -6,9 +6,13 @@ import './TextInput.css';
 export type TextInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type TextInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
 
-export type TextInputProps = {
+export type InputControllerProps<T> = {
+    value?: T;
+    onChangeValue?: (value: T) => void;
+};
+
+export type TextInputProps = InputControllerProps<string> & {
     id?: string;
-    value?: string;
     type?: string;
     placeholder?: string;
     size?: TextInputSize;
@@ -20,9 +24,6 @@ export type TextInputProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
-    onChangeValue?: (value: string) => void;
-    onConfirmValue?: (value: string) => void;
-    onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
     classList?: ClassList;
 };
@@ -65,17 +66,17 @@ export const TextInput: Component<TextInputProps> = props => {
         return local !== undefined && local !== props.value;
     };
 
-    const confirm = () => {
-        if (isModified() || props.modified) {
-            props.onConfirmValue?.(currentValue());
-            setLocalValue(undefined);
-        }
-    };
+    // const confirm = () => {
+    //     if (isModified() || props.modified) {
+    //         props.onConfirmValue?.(currentValue());
+    //         setLocalValue(undefined);
+    //     }
+    // };
 
-    const cancel = () => {
-        setLocalValue(undefined);
-        props.onCancelValue?.();
-    };
+    // const cancel = () => {
+    //     setLocalValue(undefined);
+    //     props.onCancelValue?.();
+    // };
 
     const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
         const target = event.target as HTMLInputElement;
@@ -88,21 +89,21 @@ export const TextInput: Component<TextInputProps> = props => {
         setWasTouched(true);
     };
 
-    const handleBlur = () => {
-        if (props.autoConfirm) {
-            confirm();
-        } else {
-            cancel();
-        }
-    };
+    // const handleBlur = () => {
+    //     if (props.autoConfirm) {
+    //         confirm();
+    //     } else {
+    //         cancel();
+    //     }
+    // };
 
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
-        if (ev.key === 'Enter') {
-            confirm();
-        } else if (ev.key === 'Escape') {
-            cancel();
-        }
+        // if (event.key === 'Enter') {
+        //     confirm();
+        // } else if (event.key === 'Escape') {
+        //     cancel();
+        // }
     };
 
     const handleKeyUp = (ev: KeyboardEvent) => {
@@ -116,7 +117,7 @@ export const TextInput: Component<TextInputProps> = props => {
     const handlers = {
         onInput: handleInput,
         onFocus: handleFocus,
-        onBlur: handleBlur,
+        // onBlur: handleBlur,
         onKeyDown: handleKeyDown,
         onKeyUp: handleKeyUp,
         onKeyPress: handleKeyPress,

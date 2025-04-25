@@ -1,15 +1,16 @@
-import type { ClassList } from '@noodlestan/context-ui-types';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type { FlexMixinDirection } from '@noodlestan/headless-ui';
 import type { ParentComponent } from 'solid-js';
 
 import { Flex } from '../../../layout';
-import { FieldsetLabel, type FieldsetLabelSize } from '../FieldsetLabel';
+import type { ContentSize } from '../../../types';
+import { FieldsetLabel } from '../FieldsetLabel';
 
 export type FieldsetProps = {
     label: string;
     direction?: FlexMixinDirection;
     wrap?: boolean;
-    size?: FieldsetLabelSize;
+    size?: ContentSize;
     classList?: ClassList;
 };
 

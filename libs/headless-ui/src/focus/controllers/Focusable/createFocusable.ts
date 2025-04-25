@@ -1,14 +1,14 @@
-import type { FocusContext } from '@noodlestan/context-ui';
+import { createFocusContext } from '@noodlestan/context-ui';
 import { createAriaRegion } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import type { FocusableAPI, FocusableProps } from './types';
 
-export const createFocusable = (
-    context: FocusContext,
-    props: FocusableProps = {},
-): FocusableAPI => {
-    const { elProps: regionProps, labelProps } = createAriaRegion(props);
+export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
+    const contextValue = createFocusContext(props);
+    const [context] = contextValue;
+
+    const { elProps: regionProps, labelProps, descriptionProps } = createAriaRegion(props);
 
     const setFocus = () => context.setFocus();
 
@@ -36,9 +36,10 @@ export const createFocusable = (
     };
 
     const component = () => props.component ?? 'div';
-
-    const containerProps = createComputedProps(containerStaticProps, {
+    const tabIndex = () => (props.disabled ? undefined : 0);
+    const elProps = createComputedProps(containerStaticProps, {
         component,
+        tabIndex,
         'data-disabled': () => (props.disabled ? '' : undefined),
         'data-focusable-has-focus': () => String(context.hasFocus()),
     });
@@ -51,7 +52,6 @@ export const createFocusable = (
         ref: context.setTargetRef,
         onFocus,
         onBlur,
-        'aria-hidden': true,
         'data-focusable-target': '' as const,
     };
 
@@ -60,9 +60,12 @@ export const createFocusable = (
     });
 
     return {
-        containerProps: mergeProps(regionProps, containerProps),
+        elProps: mergeProps(regionProps, elProps),
         targetProps,
         labelProps,
+        descriptionProps,
+        context,
+        contextValue,
         isFocused: context.hasFocus,
         setFocus,
     };

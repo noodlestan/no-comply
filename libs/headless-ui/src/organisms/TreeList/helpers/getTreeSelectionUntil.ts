@@ -1,4 +1,4 @@
-import type { ObjectWithId } from '@noodlestan/context-ui-types';
+import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 
 import type { TreeNode } from '../types';
 

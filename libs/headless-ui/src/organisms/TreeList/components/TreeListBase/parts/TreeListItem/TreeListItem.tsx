@@ -7,7 +7,12 @@ import { TreeListItemDetails } from '../TreeListItemDetails';
 import { type TreeListItemProps, createTreeListItem } from './private';
 
 export const TreeListItem: Component<TreeListItemProps> = props => {
-    const { containerProps, detailsProps, childrenProps, isExpanded } = createTreeListItem(props);
+    const {
+        elProps: containerProps,
+        detailsProps,
+        childrenProps,
+        isExpanded,
+    } = createTreeListItem(props);
 
     return (
         <Dynamic {...containerProps}>

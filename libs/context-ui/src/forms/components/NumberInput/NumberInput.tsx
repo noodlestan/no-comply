@@ -1,4 +1,4 @@
-import type { ClassList, PickRequired } from '@noodlestan/context-ui-types';
+import type { ClassList, PickRequired } from '@noodlestan/context-ui-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
 import { VALID_KEYS } from './constants';

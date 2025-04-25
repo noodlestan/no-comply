@@ -1,4 +1,4 @@
-import { type ClassList, createClassList } from '@noodlestan/context-ui-types';
+import { type ClassList, createClassList } from '@noodlestan/context-ui-primitives';
 import { Display, Flex, Surface } from '@noodlestan/standard-ui';
 import type { ParentComponent } from 'solid-js';
 
@@ -10,7 +10,7 @@ type DemoPageProps = {
 };
 
 export const DemoPage: ParentComponent<DemoPageProps> = props => {
-    const classList = createClassList(styles, 'DemoGroup', () => props.classList);
+    const classList = createClassList(styles, 'DemoPage', () => props.classList);
 
     return (
         <Surface

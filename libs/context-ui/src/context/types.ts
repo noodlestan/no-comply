@@ -1,8 +1,8 @@
 export type {
     ContextId,
-    ContextFactory,
-    ContextValue,
+    ContextVariant,
     BaseContext,
     ContextNode,
-    ContextOwnerAPI,
+    ContextDataAPI,
+    ContextVarsAPI,
 } from './private';

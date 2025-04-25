@@ -1,5 +1,9 @@
 import type { HeadingTagName } from '@noodlestan/context-ui-aria';
-import { createClassList, createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import {
+    createClassList,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { splitProps } from 'solid-js';
 
 import styles from './Display.module.css';

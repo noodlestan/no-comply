@@ -1,6 +1,6 @@
 import { l } from '@noodlestan/context-ui/src/labels';
 import { createAriaTreeItem } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-types';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import { useTreeListContext } from '../../../../../providers';
 
@@ -37,7 +37,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListNodeAPI =>
     const containerStaticProps = {
         component: 'div' as const,
     };
-    const containerProps = mergeProps(containerStaticProps, ariaTreeItem.elProps);
+    const elProps = mergeProps(containerStaticProps, ariaTreeItem.elProps);
 
     const detailsProps = createComputedProps({
         node: () => props.node,
@@ -57,7 +57,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListNodeAPI =>
     });
 
     return {
-        containerProps,
+        elProps,
         detailsProps,
         childrenProps,
         isExpanded: expanded,

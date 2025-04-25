@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-types';
+import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { type Component } from 'solid-js';
 
 import styles from './ImportStatement.module.css';

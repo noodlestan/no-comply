@@ -16,7 +16,7 @@
         --__text-letter-spacing: var(--text-variant-small-spacing);
     }
 
-    .Text-variant-default {
+    .Text-variant-normal {
         --__text-font-size: var(--text-variant-body-size);
         --__text-font-weight: var(--text-variant-body-weight);
         --__text-line-height: var(--text-variant-body-height);

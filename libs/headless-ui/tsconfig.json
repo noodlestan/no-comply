@@ -3,10 +3,5 @@
   "compilerOptions": {
     "types": ["vite/client"]
   },
-  "include": [
-    "src",
-    "../standard-ui/src/dialogs/components/Dialog",
-    "../standard-ui/src/forms/components/components",
-    "../standard-ui/src/forms/components/Form"
-  ]
+  "include": ["src/"]
 }

@@ -1,5 +1,5 @@
 import { createFocusContext } from '@noodlestan/context-ui';
-import { createClassList } from '@noodlestan/context-ui-types';
+import { createClassList } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, createMemo, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -13,7 +13,7 @@ import type { FocusableBaseProps } from './types';
 // };
 
 export const FocusableBase: ParentComponent<FocusableBaseProps> = props => {
-    const [locals] = splitProps(props, ['focusable', 'labels', 'children', 'classList']);
+    const [locals] = splitProps(props, ['labels', 'children', 'classList']);
 
     // const labels = () => Object.assign({}, LABELS, locals.labels);
 

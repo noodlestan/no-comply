@@ -1,5 +1,9 @@
 import { l } from '@noodlestan/context-ui';
-import { createComputedProps, mergeProps, staticClassList } from '@noodlestan/context-ui-types';
+import {
+    createComputedProps,
+    mergeProps,
+    staticClassList,
+} from '@noodlestan/context-ui-primitives';
 
 import { createExtendedPressable } from '../../../../../../actions';
 import { getTreeSelectionUntil } from '../../../../helpers';
@@ -121,7 +125,7 @@ export const createTreeListItemDetails = (
     });
 
     return {
-        containerProps,
+        elProps: containerProps,
         focusableProps,
         expandButtonProps,
         componentProps,

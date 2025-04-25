@@ -3,7 +3,7 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-types';
+} from '@noodlestan/context-ui-primitives';
 import { createFlexMixin, createLayoutMixin } from '@noodlestan/headless-ui';
 import { splitProps } from 'solid-js';
 

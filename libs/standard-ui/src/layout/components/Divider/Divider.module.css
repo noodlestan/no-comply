@@ -1,47 +1,45 @@
-.Divider {
-    --divider-length-s: var(--size-2xl);
-    --divider-length-m: var(--size-3xl);
-    --divider-length-l: var(--size-4xl);
-    margin: 0 auto;
-    width: var(--divider-length);
-    height: 0px;
-    border: none;
+.Divider[data-divider='horizontal'] {
+    border-bottom: var(--__divider-border);
+    border-bottom-color: var(--__divider-border-color);
 }
 
-.Divider-size-s {
-    height: var(--size-s);
-    font-size: var(--data-type-size-m);
-    font-weight: var(--data-type-weight-m);
+.Divider[data-divider='vertical'] {
+    border-bottom: var();
+    border-bottom-color: var();
 }
 
-.Divider-size-m {
-    height: var(--size-m);
-    font-size: var(--data-type-size-m);
-    font-weight: var(--data-type-weight-m);
+.Divider-length-s {
+    --__divider-length: var(--size-s);
 }
 
-.Divider-size-l {
-    height: var(--size-l);
-    font-size: var(--data-type-size-l);
-    font-weight: var(--data-type-weight-l);
+.Divider-length-m {
+    --__divider-length: var(--size-m);
+}
+
+.Divider-length-l {
+    --__divider-length: var(--size-l);
+}
+
+.Divider-length-full {
+    --__divider-length: 100%;
 }
 
 .Divider-variant-base {
-    border-bottom: var(--surface-divider-base);
-    border-bottom-color: hsla(var(--surface-divider-base-color), var(--o-surface-divider));
+    --__divider-border: var(--surface-divider-base);
+    --__divider-border-color: hsla(var(--surface-divider-base-color), var(--o-surface-divider));
 }
 
 .Divider-variant-strong {
-    border-bottom: var(--surface-divider-strong);
-    border-bottom-color: hsla(var(--surface-divider-strong-color), var(--o-surface-divider));
+    --__divider-border: var(--surface-divider-strong);
+    --__divider-border-color: hsla(var(--surface-divider-strong-color), var(--o-surface-divider));
 }
 
 .Divider-variant-muted {
-    border-bottom: var(--surface-divider-muted);
-    border-bottom-color: hsla(var(--surface-divider-muted-color), var(--o-surface-divider));
+    --__divider-border: var(--surface-divider-muted);
+    --__divider-border-color: hsla(var(--surface-divider-muted-color), var(--o-surface-divider));
 }
 
 .Divider-variant-alt {
-    border-bottom: var(--surface-divider-alt);
-    border-bottom-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
+    --__divider-border: var(--surface-divider-alt);
+    --__divider-border-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
 }

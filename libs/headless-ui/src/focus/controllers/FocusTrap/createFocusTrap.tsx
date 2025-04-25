@@ -1,4 +1,4 @@
-import { createComputedProps, staticClassList } from '@noodlestan/context-ui-types';
+import { createComputedProps, staticClassList } from '@noodlestan/context-ui-primitives';
 
 import { getFocusableElements } from '../../helpers';
 

@@ -1,5 +1,14 @@
-import { Label, TextInput } from '@noodlestan/context-ui';
-import { Button, Display, Flex, Icon, IconButton, Link, Text } from '@noodlestan/standard-ui';
+import { TextInput } from '@noodlestan/context-ui';
+import {
+    Button,
+    Display,
+    Flex,
+    Icon,
+    IconButton,
+    Label,
+    Link,
+    Text,
+} from '@noodlestan/standard-ui';
 import { LockIcon, UnlockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
@@ -15,7 +24,7 @@ export const ExampleMedium: Component<ExampleMediumProps> = props => {
                 </Flex>
             </Flex>
             <Flex gap="s">
-                <Label size="s">Password</Label>
+                <Label variant="small">Password</Label>
                 <TextInput size="s" length="m" value="password" type="password" />
             </Flex>
             <Flex direction="row" gap="m" align="center">
