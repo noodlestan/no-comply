@@ -1,11 +1,19 @@
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { createLayoutMixin } from '../../mixins';
+import { LAYOUT_BASE_PROPS } from './constants';
+import { createLayoutBase } from './createLayoutBase';
+import { type LayoutBaseProps } from './types';
 
-import type { LayoutBaseProps } from './types';
+type Props = ClosedTagProps & LayoutBaseProps;
 
-export const LayoutBase: ParentComponent<LayoutBaseProps> = props => {
-    const { elProps } = createLayoutMixin(props);
-    return <Dynamic {...elProps} />;
+export const LayoutBase: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, LAYOUT_BASE_PROPS);
+
+    const { $root } = createLayoutBase(locals);
+    const $ = mergeProps($others, $root);
+
+    return <Dynamic {...$} />;
 };

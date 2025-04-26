@@ -98,3 +98,5 @@ Mixin
 nowrap
 animationend
 describedby
+animationcancel
+rel

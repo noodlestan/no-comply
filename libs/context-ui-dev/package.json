@@ -31,7 +31,8 @@
     "@noodlestan/context-ui": "0.0.11",
     "@noodlestan/context-ui-aria": "0.0.11",
     "@noodlestan/context-ui-primitives": "0.0.11",
-    "@noodlestan/headless-ui": "0.0.11"
+    "@noodlestan/headless-ui": "0.0.11",
+    "@noodlestan/standard-ui": "0.0.11"
   },
   "peerDependencies": {
     "lucide-solid": "^0.453.0",

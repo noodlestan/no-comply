@@ -5,25 +5,24 @@ import {
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
 import { createLayoutMixin } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
 
 import styles from './Layout.module.css';
-import type { LayoutAPI, LayoutProps } from './types';
+import { type LayoutAPI, type LayoutProps } from './types';
 
 const defaultProps: PickRequired<LayoutProps, 'padding'> = {
     padding: 'none',
 };
 
 export const createLayout = (props: LayoutProps): LayoutAPI => {
-    const [locals, others] = splitProps(props, ['padding', 'component']);
+    const { $root: $layoutMixinRoot } = createLayoutMixin(props);
 
-    const padding = () => locals.padding ?? defaultProps.padding;
+    const padding = () => props.padding ?? defaultProps.padding;
     const classList = createClassList(styles, () => [`Layout-padding-${padding()}`]);
+    const $localRoot = createComputedProps({
+        classList,
+    });
 
-    const layoutProps = createComputedProps({ classList });
-
-    const { elProps: layoutMixinElProps } = createLayoutMixin(others);
     return {
-        elProps: mergeProps(others, layoutMixinElProps, layoutProps),
+        $root: mergeProps($layoutMixinRoot, $localRoot),
     };
 };

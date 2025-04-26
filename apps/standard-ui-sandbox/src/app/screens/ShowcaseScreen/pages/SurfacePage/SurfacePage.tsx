@@ -40,9 +40,9 @@ export const SurfacePage: Component = () => {
                     </SurfaceVariantExample>
                 </Flex>
             </DemoGroup>
-            <DemoGroup title="component">
+            <DemoGroup title="tag">
                 <Flex gap="s">
-                    <Surface variant="card" component="section">
+                    <Surface variant="card" tag="section">
                         <ExampleSmall title="Foobar" />
                     </Surface>
                 </Flex>

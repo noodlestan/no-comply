@@ -32,24 +32,24 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
 
     const hasLabel = () => Boolean(label() || labelledby());
 
-    const elProps = createComputedProps({
+    const $root = createComputedProps({
         'aria-label': label,
         'aria-labelledby': labelledby,
         'aria-describedby': describedby,
     });
 
-    const labelProps = createComputedProps({
+    const $label = createComputedProps({
         id: labelledby,
     });
 
-    const descriptionProps = createComputedProps({
+    const $description = createComputedProps({
         id: describedby,
     });
 
     return {
-        elProps,
-        labelProps,
-        descriptionProps,
+        $root,
+        $label,
+        $description,
         hasLabel,
     };
 };

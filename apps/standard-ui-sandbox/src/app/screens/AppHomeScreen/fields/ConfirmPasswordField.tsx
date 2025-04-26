@@ -1,21 +1,26 @@
-import { TextInput } from '@noodlestan/context-ui';
-import { FormFieldBase, createField } from '@noodlestan/headless-ui';
-import { type Component } from 'solid-js';
+import { type InputControllerProps, TextInput } from '@noodlestan/context-ui';
+import { Field } from '@noodlestan/standard-ui';
+import { type Component, Show } from 'solid-js';
 
-type ConfirmPasswordFieldProps = {
-    value: string | undefined;
-    onChangeValue: (value: string) => void;
-};
+type Props = InputControllerProps<string>;
 
-export const ConfirmPasswordField: Component<ConfirmPasswordFieldProps> = props => {
-    const fieldProps = {
-        required: true,
-    };
-    const field = createField(fieldProps);
-
+export const ConfirmPasswordField: Component<Props> = props => {
     return (
-        <FormFieldBase field={field}>
-            <TextInput value={props.value} onChangeValue={props.onChangeValue} />
-        </FormFieldBase>
+        <Field size="medium" label="Password" required>
+            {({ field }) => (
+                <>
+                    <Show when={field.hasFeedback()}>
+                        <div {...field.$feedback}>error message</div>
+                    </Show>
+                    <TextInput
+                        type="password"
+                        size="m"
+                        value={props.value}
+                        onChangeValue={props.onChangeValue}
+                        {...field.$input}
+                    />
+                </>
+            )}
+        </Field>
     );
 };

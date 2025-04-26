@@ -8,7 +8,7 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     const contextValue = createFocusContext(props);
     const [context] = contextValue;
 
-    const { elProps: regionProps, labelProps, descriptionProps } = createAriaRegion(props);
+    const { $root: $regionRoot, $label, $description } = createAriaRegion(props);
 
     const setFocus = () => context.setFocus();
 
@@ -28,16 +28,16 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
         context.setHasFocusWithin(false);
     };
 
-    const containerStaticProps = {
+    const $static = {
         onPointerDown,
         onFocusIn,
         onFocusOut,
         'data-focusable': '',
     };
 
-    const component = () => props.component ?? 'div';
+    const component = () => props.tag ?? 'div';
     const tabIndex = () => (props.disabled ? undefined : 0);
-    const elProps = createComputedProps(containerStaticProps, {
+    const $localRoot = createComputedProps($static, {
         component,
         tabIndex,
         'data-disabled': () => (props.disabled ? '' : undefined),
@@ -45,25 +45,22 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     });
 
     const onFocus = () => context.setHasFocus(true);
-
     const onBlur = () => context.setHasFocus(false);
-
-    const targetStaticProps = {
+    const $targetStatic = {
         ref: context.setTargetRef,
         onFocus,
         onBlur,
         'data-focusable-target': '' as const,
     };
-
-    const targetProps = createComputedProps(targetStaticProps, {
+    const $target = createComputedProps($targetStatic, {
         disabled: () => Boolean(props.disabled),
     });
 
     return {
-        elProps: mergeProps(regionProps, elProps),
-        targetProps,
-        labelProps,
-        descriptionProps,
+        $root: mergeProps($regionRoot, $localRoot),
+        $target,
+        $label,
+        $description,
         context,
         contextValue,
         isFocused: context.hasFocus,

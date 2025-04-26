@@ -1,35 +1,37 @@
-import { createFocusContext } from '@noodlestan/context-ui';
-import { createClassList } from '@noodlestan/context-ui-primitives';
-import { type ParentComponent, createMemo, splitProps } from 'solid-js';
+import { FocusContextProvider } from '@noodlestan/context-ui';
+import { type RenderProp, mergeProps } from '@noodlestan/context-ui-primitives';
+import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { createFocusable } from '../../controllers';
+import type { ClosedTagProps } from '../../../tag';
+import type { FocusableAPI } from '../../controllers';
 
-import styles from './FocusableBase.module.css';
+import { FOCUSABLE_BASE_PROPS } from './constants';
+import { createFocusableBase } from './createFocusableBase';
 import type { FocusableBaseProps } from './types';
 
-// const LABELS: FocusableLabels = {
-//     region: `Details`,
-// };
+type ChildrenProps = {
+    focusable: FocusableAPI;
+};
 
-export const FocusableBase: ParentComponent<FocusableBaseProps> = props => {
-    const [locals] = splitProps(props, ['labels', 'children', 'classList']);
+type Props = ClosedTagProps &
+    FocusableBaseProps & {
+        children: RenderProp<ChildrenProps>;
+    };
 
-    // const labels = () => Object.assign({}, LABELS, locals.labels);
+export const FocusableBase: Component<Props> = props => {
+    const [locals, $others] = splitProps(props, [...FOCUSABLE_BASE_PROPS, 'children']);
 
-    const focusable = createMemo(() => {
-        if (locals.focusable) {
-            return locals.focusable;
-        }
-        return createFocusable(createFocusContext(), props);
-    });
-
-    const classList = createClassList(styles, 'Focusable', () => locals.classList);
+    const focusable = createFocusableBase(locals);
+    const { $root, contextValue } = focusable;
+    const $ = mergeProps($others, $root);
 
     return (
-        <Dynamic classList={classList()} {...focusable().containerProps}>
-            <button {...focusable().targetProps} />
-            {locals.children}
-        </Dynamic>
+        <FocusContextProvider context={contextValue}>
+            <Dynamic {...$}>
+                <button {...focusable.$target} />
+                {locals.children({ focusable })}
+            </Dynamic>
+        </FocusContextProvider>
     );
 };

@@ -1,9 +1,7 @@
-import type { LayoutTagName } from '@noodlestan/context-ui-aria';
+import type { LayoutMixinAPI, LayoutMixinProps } from '../../mixins';
 
-import type { TagProps } from '../../../tag';
-import type { LayoutMixinProps } from '../../mixins';
+export type LayoutBaseProps = LayoutMixinProps;
 
-export type LayoutBaseProps = Omit<TagProps, 'component'> &
-    LayoutMixinProps & {
-        component?: LayoutTagName;
-    };
+export type LayoutBaseAPI = {
+    $root: LayoutMixinAPI['$root'];
+};

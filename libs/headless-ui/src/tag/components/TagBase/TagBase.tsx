@@ -1,20 +1,33 @@
-import { type PickRequired, createClassList } from '@noodlestan/context-ui-primitives';
+import {
+    type PickRequired,
+    createClassList,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import styles from './TagBase.module.css';
-import type { TagBaseProps } from './types';
+import type { OpenTagProps } from '../../types';
 
-const defaultProps: PickRequired<TagBaseProps, 'component'> = {
-    component: 'div',
+import styles from './TagBase.module.css';
+import { TAG_BASE_PROPS, type TagBaseProps } from './types';
+
+const defaultProps: PickRequired<TagBaseProps, 'tag'> = {
+    tag: 'div',
 };
 
-export const TagBase: ParentComponent<TagBaseProps> = props => {
-    const [locals, elementProps] = splitProps(props, ['component', 'classList']);
+type Props = OpenTagProps & TagBaseProps;
 
-    const tag = () => locals.component ?? defaultProps.component;
+export const TagBase: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, TAG_BASE_PROPS);
 
-    const classList = createClassList(styles, 'TagBase', () => locals.classList);
+    const component = () => locals.tag ?? defaultProps.tag;
+    const classList = createClassList(styles, 'TagBase');
+    const $root = createComputedProps({
+        classList,
+        component,
+    });
+    const $ = mergeProps($others, $root);
 
-    return <Dynamic {...elementProps} component={tag()} classList={classList()} />;
+    return <Dynamic {...$} />;
 };

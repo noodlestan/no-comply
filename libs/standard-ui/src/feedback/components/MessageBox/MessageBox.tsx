@@ -1,37 +1,26 @@
-import { type PickRequired, createClassList } from '@noodlestan/context-ui-primitives';
-import { createFeedbackMessage } from '@noodlestan/headless-ui';
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ParentComponent, splitProps } from 'solid-js';
 
 import { Icon } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
 
-import styles from './MessageBox.module.css';
+import { MESSAGE_BOX_PROPS } from './constants';
+import { createMessageBox } from './createMessageBox';
 import type { MessageBoxProps } from './types';
 
-const defaultProps: PickRequired<MessageBoxProps, 'size' | 'length'> = {
-    size: 'm',
-    length: 'full',
-};
-
 export const MessageBox: ParentComponent<MessageBoxProps> = props => {
-    const { elProps, labelProps, iconProps } = createFeedbackMessage(props);
+    const [locals, $others] = splitProps(props, [...MESSAGE_BOX_PROPS, 'children']);
 
-    const size = () => props.size ?? defaultProps.size;
-    const length = () => props.length ?? defaultProps.length;
-
-    const classList = createClassList(styles, () => [
-        'MessageBox',
-        `MessageBox-size-${size()}`,
-        `MessageBox-length-${length()}`,
-    ]);
+    const { $root, $label, $icon } = createMessageBox(locals);
+    const $ = mergeProps($root, $others);
 
     return (
-        <Surface variant="message" classList={classList()} {...elProps}>
+        <Surface variant="message" {...$}>
             <Flex align="center" padding="s" gap="m" justify="between">
                 <Flex align="center" padding="s" gap="m">
-                    <Icon size={size()} {...iconProps} />
-                    <div {...labelProps}>{props.children}</div>
+                    <Icon {...$icon} />
+                    <div {...$label}>{props.children}</div>
                 </Flex>
                 {/* TODO close button */}
                 <button>Close</button>

@@ -9,11 +9,11 @@ export type ModalContextOptions = {
 export type ModalContext = BaseContext & {
     type: 'modal';
     id: string;
-    setDialogRef: (el: HTMLDialogElement) => void;
+    setTargetRef: (el: HTMLDialogElement) => void;
     sticky: Accessor<boolean>;
     index: Accessor<number>;
     isActive: Accessor<boolean>;
-    close: () => void;
+    close: () => Promise<void>;
 };
 
 export type ModalContextValue = [ModalContext];

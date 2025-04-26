@@ -1,22 +1,29 @@
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
 import { type ParentComponent, splitProps } from 'solid-js';
 
 import { Icon } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
 
+import { CALLOUT_PROPS } from './constants';
 import { createCallout } from './createCallout';
 import type { CalloutProps } from './types';
 
-export const Callout: ParentComponent<CalloutProps> = props => {
-    const [locals, others] = splitProps(props, ['children']);
-    const { elProps, iconProps, labelProps } = createCallout(others);
+type Props = ClosedTagProps & CalloutProps;
+
+export const Callout: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, [...CALLOUT_PROPS, 'children']);
+
+    const { $root, $icon, $label } = createCallout(locals);
+    const $ = mergeProps($root, $others);
 
     return (
-        <Surface variant="message" {...elProps} labelledby={labelProps.id}>
+        <Surface variant="message" {...$} labelledby={$label.id}>
             <Flex align="center" padding="s" gap="m" justify="between">
                 <Flex align="center" padding="s" gap="m">
-                    <Icon {...iconProps} />
-                    <div {...labelProps}>{locals.children}</div>
+                    <Icon {...$icon} />
+                    <div {...$label}>{locals.children}</div>
                 </Flex>
                 {/* TODO close button */}
                 <button>Close</button>

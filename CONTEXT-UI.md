@@ -1,6 +1,10 @@
-## resolveValue()
+AriaLabelledAPI, => AriaRegion ???
 
-is it still needed (versus createComputedProps)
+## FocusableBase
+
+maybe provide
+
+<button {...focusable.$target} />
 
 ## Form validation
 

@@ -10,12 +10,12 @@ import type { PressableProps } from '../../../actions';
 
 export type FormProps = AriaFormProps &
     FormContextOptions & {
-        component?: FormTagName;
+        tag?: FormTagName;
         onSubmit?: (form: FormAPI) => void;
     };
 
 export type FormAPI = {
-    elProps: AriaFormAPI['elProps'] & {
+    $root: AriaFormAPI['$root'] & {
         onSubmit: () => void;
         'data-disabled': '' | undefined;
         'data-form-readonly': '' | undefined;
@@ -26,9 +26,11 @@ export type FormAPI = {
         'data-form-submitted': '' | undefined;
         'data-form-feedback-enabled': '' | undefined;
     };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
-    submitButtonProps: PressableProps;
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
+    $submitButton: PressableProps & {
+        type: 'submit';
+    };
     context: FormContext;
     contextValue: FormContextValue;
 };

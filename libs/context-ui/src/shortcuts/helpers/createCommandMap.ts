@@ -1,4 +1,4 @@
-import type { UIControllerCommandMeta } from '../../../controllers';
+import type { UIControllerCommandMeta } from '../../controllers';
 
 type UIControllerCommandMetaTyped<T extends string> = UIControllerCommandMeta & {
     name: T;

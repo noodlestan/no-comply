@@ -1,3 +1,3 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './ListDefaultItemComponent';
-export * from './ListItem';
+export * from './ListBase';
+export * from './ListItemBase';

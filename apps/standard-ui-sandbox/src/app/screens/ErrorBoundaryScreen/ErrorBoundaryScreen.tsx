@@ -49,7 +49,7 @@ export const ErrorScreen: ParentComponent = () => {
     const iconClassList = staticClassList(styles, 'ErrorScreen--Icon');
 
     return (
-        <Layout component="main" classList={staticClassList(styles, 'ErrorScreen')}>
+        <Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
             <Flex padding="xl" gap="l" align="center">
                 <Flex direction="row" gap="s" justify="around">
                     <div style={{ '--error-icon-color-name': color(0) }}>

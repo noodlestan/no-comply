@@ -21,11 +21,11 @@
         --banner-width: min-content;
     }
 
-    .MessageBox-size-s {
+    .MessageBox-size-small {
         --banner-height: var(--size-2);
     }
 
-    .MessageBox-size-m {
+    .MessageBox-size-normal {
         --banner-height: var(--size-m);
     }
 

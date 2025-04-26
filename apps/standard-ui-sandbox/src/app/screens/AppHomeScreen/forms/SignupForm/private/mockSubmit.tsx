@@ -1,6 +1,6 @@
 import type { SignupData } from '../types';
 
-export const mockSubmit = async (data: SignupData) => {
+export const mockSubmit = async (data: SignupData): Promise<void> => {
     console.info('submitted', data);
     return new Promise<void>((resolve, reject) => {
         setTimeout(() => {

@@ -1,5 +1,5 @@
 import { createContext } from 'solid-js';
 
-import type { TreeListContextValue } from '../../../private';
+import type { TreeListContextValue } from '../../../contexts';
 
-export const TreeListContext = createContext<TreeListContextValue | null>(null);
+export const TreeListContextCTX = createContext<TreeListContextValue>();

@@ -7,12 +7,15 @@ export type FieldContextOptions = {
     disabled?: boolean;
     readonly?: boolean;
     pending?: boolean;
+    touched?: boolean;
+    modified?: boolean;
+    invalid?: boolean;
 };
 
 export type FieldContext = BaseContext & {
     type: 'form-field';
     id: string;
-    setInputRef: (el: HTMLElement) => void;
+    isRequired: Accessor<boolean>;
     isDisabled: Accessor<boolean>;
     isReadonly: Accessor<boolean>;
     isPending: Accessor<boolean>;

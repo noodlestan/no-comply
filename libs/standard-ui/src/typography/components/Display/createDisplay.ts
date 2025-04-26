@@ -6,7 +6,6 @@ import {
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
 import { createTextMixin } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
 
 import styles from './Display.module.css';
 import type { DisplayAPI, DisplayLevel, DisplayProps, DisplayVariant } from './types';
@@ -33,17 +32,18 @@ const defaultProps: PickRequired<DisplayProps, 'level' | 'variant'> = {
 };
 
 export const createDisplay = (props: DisplayProps): DisplayAPI => {
-    const [locals, others] = splitProps(props, ['level', 'variant', 'component']);
+    const { $root: $textMixinRoot } = createTextMixin(props);
 
-    const level = () => locals.level ?? defaultProps.level;
-    const component = () => locals.component ?? MAP_LEVEL_TO_COMPONENT[level()];
-    const variant = () => locals.variant ?? MAP_LEVEL_TO_VARIANT[level()];
-    const classList = createClassList(styles, () => [`Display-variant-${variant()}`]);
+    const level = () => props.level ?? defaultProps.level;
+    const component = () => props.tag ?? MAP_LEVEL_TO_COMPONENT[level()];
+    const variant = () => props.variant ?? MAP_LEVEL_TO_VARIANT[level()];
+    const classList = createClassList(styles, () => ['Display', `Display-variant-${variant()}`]);
+    const $localRoot = createComputedProps({
+        component,
+        classList,
+    });
 
-    const DisplayProps = createComputedProps({ component, classList });
-
-    const { elProps: textMixinElProps } = createTextMixin(others);
     return {
-        elProps: mergeProps(textMixinElProps, DisplayProps),
+        $root: mergeProps($textMixinRoot, $localRoot),
     };
 };

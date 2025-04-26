@@ -18,20 +18,18 @@ export const LabelPage: Component = () => {
                     <Label>Foobar</Label>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="size">
-                <DemoItem title="l">
-                    <Label size="l">Foobar</Label>
+            <DemoGroup title="variant">
+                <DemoItem title="large">
+                    <Label variant="large">Foobar</Label>
                 </DemoItem>
-                <DemoItem title="m">
-                    <Label size="m">Foobar</Label>
+                <DemoItem title="medium">
+                    <Label variant="medium">Foobar</Label>
                 </DemoItem>
-                <DemoItem title="s">
-                    <Label size="s">Foobar</Label>
+                <DemoItem title="normal">
+                    <Label variant="normal">Foobar</Label>
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="for">
-                <DemoItem>
-                    <Label for="foobar-id">Foobar</Label>
+                <DemoItem title="small">
+                    <Label variant="small">Foobar</Label>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">

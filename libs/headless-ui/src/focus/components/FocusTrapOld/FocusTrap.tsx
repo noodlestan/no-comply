@@ -32,7 +32,7 @@ export const FocusTrap: ParentComponent<FocusTrapProps> = props => {
     };
 
     const handleKeyDown = (ev: KeyboardEvent) => {
-        if (ev.code === 'Tab') {
+        if (ev.key === 'Tab') {
             ev.preventDefault();
             if (ev.shiftKey) {
                 focusLast();

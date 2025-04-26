@@ -8,21 +8,21 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const contextValue = createSurfaceContext(() => props.variant);
     const [context] = contextValue;
 
-    const { elProps: regionProps, labelProps, descriptionProps } = createAriaRegion(props);
+    const { $root: $ariaRegion, $label, $description } = createAriaRegion(props);
 
     const style = () => context.contextVars();
-
-    const component = () => props.component ?? 'div';
-
-    const elProps = createComputedProps({
+    const component = () => props.tag ?? 'div';
+    const $localRoot = createComputedProps({
         style,
         component,
+        role: () => props.role || 'region',
+        onPointerDown: () => props.onPointerDown,
     });
 
     return {
-        elProps: mergeProps(regionProps, elProps, context.contextData),
-        descriptionProps,
-        labelProps,
+        $root: mergeProps(context.contextData, $ariaRegion, $localRoot),
+        $description,
+        $label,
         context,
         contextValue,
     };

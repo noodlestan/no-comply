@@ -1,7 +1,15 @@
-import type { ClosedTagProps, LinkMixinAPI, LinkMixinProps } from '@noodlestan/headless-ui';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type {
+    LinkAPI as HeadlessLinkAPI,
+    LinkProps as HeadlessLinkProps,
+    LinkMixinAPI,
+} from '@noodlestan/headless-ui';
 
-export type LinkProps = Omit<ClosedTagProps, 'component'> & LinkMixinProps;
+export type LinkProps = HeadlessLinkProps;
 
 export type LinkAPI = {
-    elProps: Omit<ClosedTagProps, 'component'> & LinkMixinAPI['elProps'];
+    $root: HeadlessLinkAPI['$root'] &
+        LinkMixinAPI['$root'] & {
+            classList: ClassList;
+        };
 };

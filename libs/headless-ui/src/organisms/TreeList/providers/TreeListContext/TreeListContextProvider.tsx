@@ -1,23 +1,32 @@
-import { LocalIconsProvider, LocalLabelsProvider } from '@noodlestan/context-ui';
+import {
+    ContextNodeProvider,
+    LocalIconsProvider,
+    LocalLabelsProvider,
+    createContextNode,
+} from '@noodlestan/context-ui';
 import { type ParentComponent } from 'solid-js';
 
-import type { TreeListContextValue } from '../../private';
+import type { TreeListContextValue } from '../../contexts';
 
-import { TreeListContext } from './private';
+import { TreeListContextCTX } from './private';
 
 type TreeListContextProviderProps = {
     context: TreeListContextValue;
 };
 
 export const TreeListContextProvider: ParentComponent<TreeListContextProviderProps> = props => {
+    const node = () => createContextNode(props.context[0]);
+
     return (
         // eslint-disable-next-line solid/reactivity
-        <TreeListContext.Provider value={props.context}>
-            <LocalLabelsProvider labels={props.context.labels}>
-                <LocalIconsProvider icons={props.context.icons}>
-                    {props.children}
-                </LocalIconsProvider>
-            </LocalLabelsProvider>
-        </TreeListContext.Provider>
+        <TreeListContextCTX.Provider value={props.context}>
+            <ContextNodeProvider node={node()}>
+                <LocalLabelsProvider labels={props.context[0].labels()}>
+                    <LocalIconsProvider icons={props.context[0].icons()}>
+                        {props.children}
+                    </LocalIconsProvider>
+                </LocalLabelsProvider>
+            </ContextNodeProvider>
+        </TreeListContextCTX.Provider>
     );
 };

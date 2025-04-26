@@ -1,6 +1,12 @@
 import type { ActiveContextsServiceAPI } from '../../../context/';
+import type { UICommandController, UIControllerName, UIShortcut } from '../../../controllers';
 import { getEventKeyBinding, isKeyboardShortcut } from '../../helpers';
-import type { KeyboardShortcut, ShortcutId, ShortcutKeyBinding } from '../../types';
+import type {
+    KeyboardShortcut,
+    ShortcutControllerMessage,
+    ShortcutId,
+    ShortcutKeyBinding,
+} from '../../types';
 
 import type { ShortcutsServiceAPI } from './types';
 

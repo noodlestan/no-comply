@@ -9,7 +9,11 @@ export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
         [`Text-nowrap`]: Boolean(props.nowrap),
     }));
 
-    const elProps = createComputedProps({ classList });
+    const $localRoot = createComputedProps({
+        classList,
+    });
 
-    return { elProps };
+    return {
+        $root: $localRoot,
+    };
 };

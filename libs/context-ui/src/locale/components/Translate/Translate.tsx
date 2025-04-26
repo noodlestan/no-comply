@@ -1,10 +1,9 @@
-import type { TOptions } from 'i18next';
 import { type ParentComponent, children } from 'solid-js';
 
 import { translateJSX } from '../../private';
 import { useTranslate } from '../../providers';
 
-export type TranslateProps = { key: string; options?: TOptions };
+import type { TranslateProps } from './types';
 
 export const Translate: ParentComponent<TranslateProps> = props => {
     const { t, i18next } = useTranslate();

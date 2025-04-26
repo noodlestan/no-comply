@@ -5,7 +5,7 @@
 
     /* TODO generalize to [data-debug] and enable debug via context */
 
-    [data-surface-debug]::after {
+    .Surface[data-surface-debug]::after {
         position: absolute;
         top: 0;
         left: 0;
@@ -18,7 +18,7 @@
         pointer-events: none;
     }
 
-    [data-surface-debug]::before {
+    .Surface[data-surface-debug]::before {
         position: absolute;
         inset: 2px;
         display: block;

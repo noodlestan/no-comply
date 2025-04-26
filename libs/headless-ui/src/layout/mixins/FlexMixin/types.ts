@@ -1,4 +1,4 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
+import { type ClassList } from '@noodlestan/context-ui-primitives';
 
 export type FlexMixinProps = {
     direction?: FlexMixinDirection;
@@ -15,7 +15,7 @@ export type FlexMixinAlign = 'start' | 'center' | 'baseline' | 'end' | 'stretch'
 export type FlexMixinJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 'stretch';
 
 export type FlexMixinAPI = {
-    elProps: {
+    $root: {
         classList: ClassList;
     };
 };

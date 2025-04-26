@@ -1,10 +1,19 @@
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
+import { TEXT_PROPS } from './constants';
 import { createText } from './createText';
 import type { TextProps } from './types';
 
-export const Text: ParentComponent<TextProps> = props => {
-    const { elProps } = createText(props);
-    return <Dynamic {...elProps} />;
+type Props = ClosedTagProps & TextProps;
+
+export const Text: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, TEXT_PROPS);
+
+    const { $root } = createText(locals);
+    const $ = mergeProps($others, $root);
+
+    return <Dynamic {...$} />;
 };

@@ -34,13 +34,13 @@ export const DataItemPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="size">
                 <DemoItem title="l">
-                    <DataItem label="Lorem ipsum" size="l" value={DATA_VALUE} />
+                    <DataItem label="Lorem ipsum" size="large" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="m">
-                    <DataItem label="Lorem ipsum" size="m" value={DATA_VALUE} />
+                    <DataItem label="Lorem ipsum" size="medium" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="s">
-                    <DataItem label="Lorem ipsum" size="s" value={DATA_VALUE} />
+                    <DataItem label="Lorem ipsum" size="small" value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="length">

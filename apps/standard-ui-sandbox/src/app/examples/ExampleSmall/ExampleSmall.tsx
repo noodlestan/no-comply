@@ -9,7 +9,7 @@ export const ExampleSmall: Component<ExampleSmallProps> = props => {
         <Flex direction="column" gap="l" padding="m">
             <Flex gap="m">
                 <Flex direction="row" align="center" gap="s">
-                    <Icon size="s" icon={ClockIcon} />
+                    <Icon size="small" icon={ClockIcon} />
                     <Display level={3}>{props.title}</Display>
                 </Flex>
                 <Text>

@@ -1,10 +1,19 @@
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
+import { SCROLLABLE_PROPS } from './constants';
 import { createScrollable } from './createScrollable';
 import type { ScrollableProps } from './types';
 
-export const Scrollable: ParentComponent<ScrollableProps> = props => {
-    const { elProps } = createScrollable(props);
-    return <Dynamic {...elProps} />;
+type Props = ClosedTagProps & ScrollableProps;
+
+export const Scrollable: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, SCROLLABLE_PROPS);
+
+    const { $root } = createScrollable(locals);
+    const $ = mergeProps($others, $root);
+
+    return <Dynamic {...$} />;
 };

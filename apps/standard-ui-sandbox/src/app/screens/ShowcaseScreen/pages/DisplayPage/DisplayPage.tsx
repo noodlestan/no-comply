@@ -35,48 +35,6 @@ export const DisplayPage: Component = () => {
                     <Display level={5}>Sapien consectetur purus ut</Display>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="color">
-                <DemoItem title="auto">
-                    <Display variant="m" color="auto">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="primary">
-                    <Display variant="m" color="primary">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="muted">
-                    <Display variant="m" color="muted">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="brand">
-                    <Display variant="m" color="brand">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="neutral">
-                    <Display variant="m" color="neutral">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="good">
-                    <Display variant="m" color="good">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="meh">
-                    <Display variant="m" color="meh">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-                <DemoItem title="bad">
-                    <Display variant="m" color="bad">
-                        Lorem ipsum dolor sit amet, consectetur.
-                    </Display>
-                </DemoItem>
-            </DemoGroup>
             <DemoGroup title="variant">
                 <DemoItem title="hero">
                     <Display variant="hero">Vestibulum ultricies molestie tellus</Display>
@@ -112,9 +70,9 @@ export const DisplayPage: Component = () => {
                     </Display>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="component">
+            <DemoGroup title="tag">
                 <DemoItem note="Should render a <h1>">
-                    <Display level={3} component="h1">
+                    <Display level={3} tag="h1">
                         Duis fermentum faucibus est non semper nisl
                     </Display>
                 </DemoItem>

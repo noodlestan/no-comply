@@ -1,16 +1,17 @@
-import { type ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { createFocusTrap } from '../../controllers';
+import type { ClosedTagProps } from '../../../tag';
+import { type FocusTrapProps, createFocusTrap } from '../../controllers';
 
-import type { FocusTrapBaseProps } from './types';
+type Props = ClosedTagProps & FocusTrapProps;
 
-export const FocusTrap: ParentComponent<FocusTrapBaseProps> = props => {
-    const { elProps: containerProps } = createFocusTrap(props);
+export const FocusTrap: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, ['focusable']);
+    const { $root } = createFocusTrap(locals);
 
-    return (
-        <Dynamic component="div" {...containerProps}>
-            {props.children}
-        </Dynamic>
-    );
+    const $ = mergeProps($others, $root);
+
+    return <Dynamic component="div" {...$} />;
 };

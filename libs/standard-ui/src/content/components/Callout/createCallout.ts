@@ -5,37 +5,41 @@ import {
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
 import { createStaticMessage } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
 
 import styles from './Callout.module.css';
 import type { CalloutAPI, CalloutProps } from './types';
 
 const defaultProps: PickRequired<CalloutProps, 'size' | 'length'> = {
-    size: 'm',
+    size: 'normal',
     length: 'full',
 };
 
 export const createCallout = (props: CalloutProps): CalloutAPI => {
-    const [locals, others] = splitProps(props, ['size', 'length']);
+    const messageProps = mergeProps(props, { labelled: true });
+    const {
+        $root: $staticMessageRoot,
+        $label,
+        $icon: $staticMessageIcon,
+    } = createStaticMessage(messageProps);
 
-    const messageProps = mergeProps(others, { labelled: true });
-    const { elProps, labelProps, iconProps } = createStaticMessage(messageProps);
-
-    const size = () => locals.size ?? defaultProps.size;
-    const length = () => locals.length ?? defaultProps.length;
-
+    const size = () => props.size ?? defaultProps.size;
+    const length = () => props.length ?? defaultProps.length;
     const classList = createClassList(styles, () => [
         'Callout',
         `Callout-size-${size()}`,
         `Callout-length-${length()}`,
     ]);
+    const $localRoot = createComputedProps({
+        classList,
+    });
 
-    const localProps = createComputedProps({ classList });
-    const iconLocalProps = createComputedProps({ size });
+    const $icon = createComputedProps({
+        size,
+    });
 
     return {
-        elProps: mergeProps(others, elProps, localProps),
-        labelProps,
-        iconProps: mergeProps(iconProps, iconLocalProps),
+        $root: mergeProps($staticMessageRoot, $localRoot),
+        $label,
+        $icon: mergeProps($staticMessageIcon, $icon),
     };
 };

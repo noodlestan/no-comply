@@ -1,6 +1,6 @@
-import type { FlexMixinAPI, FlexMixinProps } from '@noodlestan/headless-ui';
+import { type FlexMixinAPI, type FlexMixinProps } from '@noodlestan/headless-ui';
 
-import type { LayoutAPI, LayoutProps } from '../Layout';
+import { type LayoutAPI, type LayoutProps } from '../Layout';
 
 export type FlexProps = LayoutProps &
     FlexMixinProps & {
@@ -9,8 +9,6 @@ export type FlexProps = LayoutProps &
 
 export type FlexGap = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl';
 
-export type FlexElementProps = FlexMixinAPI['elProps'] & LayoutAPI['elProps'];
-
 export type FlexAPI = {
-    elProps: FlexElementProps;
+    $root: FlexMixinAPI['$root'] & LayoutAPI['$root'];
 };

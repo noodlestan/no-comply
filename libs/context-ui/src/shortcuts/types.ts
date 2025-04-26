@@ -1,3 +1,5 @@
+import type { UIControllerCommand, UIControllerMessage, UIShortcut } from '../controllers';
+
 export type ShortcutId = string; // e.g. alt+s
 
 export type ShortcutKeyBinding = string; // e.g. alt+s

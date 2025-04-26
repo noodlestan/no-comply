@@ -1,29 +1,40 @@
 import { SurfaceContextProvider } from '@noodlestan/context-ui';
-import { mergeProps } from '@noodlestan/context-ui-primitives';
-import { type Component } from 'solid-js';
+import {
+    type MaybeRenderProp,
+    mergeProps,
+    resolveRenderProp,
+} from '@noodlestan/context-ui-primitives';
+import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { type SurfaceAPI, createSurface } from '../../controllers';
-import { createSurfaceMixin } from '../../mixins';
+import type { ClosedTagProps } from '../../../tag';
+import { type SurfaceAPI } from '../../controllers';
 
+import { SURFACE_BASE_PROPS } from './constants';
+import { createSurfaceBase } from './createSurfaceBase';
 import type { SurfaceBaseProps } from './types';
 
-export const SurfaceBase: Component<SurfaceBaseProps> = props => {
-    const surface = createSurface(props);
+type ChildrenProps = {
+    surface: SurfaceAPI;
+};
 
-    const { elProps: mixinProps } = createSurfaceMixin();
-    const elProps = mergeProps(props, mixinProps, surface.elProps);
-
-    const children = (surface: SurfaceAPI) => {
-        if (typeof props.children === 'function') {
-            return props.children(surface);
-        }
-        return props.children;
+type Props = ClosedTagProps &
+    SurfaceBaseProps & {
+        children: MaybeRenderProp<ChildrenProps>;
     };
 
+export const SurfaceBase: Component<Props> = props => {
+    const [locals, $others] = splitProps(props, [...SURFACE_BASE_PROPS, 'children']);
+
+    const surface = createSurfaceBase(locals);
+    const { $root, contextValue } = surface;
+    const $ = mergeProps($others, $root);
+
+    const children = () => resolveRenderProp(locals.children, { surface });
+
     return (
-        <SurfaceContextProvider context={surface.contextValue}>
-            <Dynamic {...elProps}>{children(surface)}</Dynamic>
+        <SurfaceContextProvider context={contextValue}>
+            <Dynamic {...$}>{children()}</Dynamic>
         </SurfaceContextProvider>
     );
 };

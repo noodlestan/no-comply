@@ -1,16 +1,10 @@
-import type { IconComponent } from '@noodlestan/context-ui';
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
-export type IconButtonMixinProps = {
-    icon: IconComponent;
-};
-
 export type IconButtonMixinAPI = {
-    elProps: {
+    $root: {
         classList: ClassList;
     };
-    iconProps: {
+    $icon: {
         classList: ClassList;
-        icon: IconComponent;
     };
 };

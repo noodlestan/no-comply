@@ -4,7 +4,7 @@ import type { PressEventHandlers } from '@noodlestan/context-ui-primitives';
 export type PressableProps = AriaPressableProps & PressEventHandlers;
 
 export type PressableAPI = {
-    elProps: AriaPressableAPI['elProps'] & {
+    $root: AriaPressableAPI['$root'] & {
         onClick: (ev: MouseEvent) => void;
         onKeyDown: (ev: KeyboardEvent) => void;
     };

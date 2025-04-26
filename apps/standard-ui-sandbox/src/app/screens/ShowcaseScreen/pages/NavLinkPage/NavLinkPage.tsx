@@ -17,54 +17,54 @@ export const NavLinkPage: Component = () => {
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
                 <DemoItem row>
-                    <NavLink href="#" active={false}>
+                    <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
-                    <NavLink href="#" active={false}>
+                    <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
-                    <NavLink href="#" active={false}>
+                    <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="active">
+            <DemoGroup title="current">
                 <DemoItem title="true" row>
-                    <NavLink href="#" active={false}>
+                    <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
-                    <NavLink href="#" active>
+                    <NavLink href="#" current>
                         Noodlestan
                     </NavLink>
-                    <NavLink href="#" active={false}>
+                    <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem title="true">
-                    <NavLink href="#" active={false} disabled>
+                    <NavLink href="#" current={false} disabled>
                         Foobar
                     </NavLink>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="active + disabled">
+            <DemoGroup title="current + disabled">
                 <DemoItem title="true">
-                    <NavLink href="#" active disabled>
+                    <NavLink href="#" current disabled>
                         Foobar
                     </NavLink>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onPress">
                 <DemoItem note="See console log">
-                    <NavLink href="#" active={false} onPress={handlePress}>
+                    <NavLink href="#" current={false} onPress={handlePress}>
                         Foobar
                     </NavLink>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <NavLink href="#" active={false} classList={{ override: true }}>
+                    <NavLink href="#" current={false} classList={{ override: true }}>
                         Foobar
                     </NavLink>
                 </DemoItem>

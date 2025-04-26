@@ -1,9 +1,17 @@
-import type { FeedbackMessageProps } from '@noodlestan/headless-ui';
+import type { AriaLabelledProps } from '@noodlestan/context-ui-aria';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type { FeedbackMessageAPI, FeedbackMessageProps } from '@noodlestan/headless-ui';
 
-export type MessageToastProps = FeedbackMessageProps & {
-    size?: MessageToastSize;
-    length?: MessageToastLength;
+import type { ContentSize } from '../../../types';
+
+export type MessageToastProps = Omit<FeedbackMessageProps, keyof AriaLabelledProps>;
+
+export type MessageToastAPI = {
+    $root: FeedbackMessageAPI['$root'] & {
+        classList: ClassList;
+    };
+    $label: FeedbackMessageAPI['$label'];
+    iconProps: FeedbackMessageAPI['iconProps'] & {
+        size: ContentSize;
+    };
 };
-
-export type MessageToastSize = 's' | 'm';
-export type MessageToastLength = 'compact' | 'full';

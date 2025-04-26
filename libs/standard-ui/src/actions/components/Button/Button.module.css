@@ -4,6 +4,8 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
+        height: var(--__button-height);
+        min-height: var(--__button-height);
         font-family: var(--action-type-family);
         line-height: var(--action-type-height-base);
         border: none;
@@ -15,42 +17,40 @@
             background-color ease var(--animation-duration-short);
     }
 
-    .Button.Button-size-xs,
-    .Button.Button-size-s,
-    .Button.Button-size-m,
-    .Button.Button-size-l {
+    .Button.Button-size-small,
+    .Button.Button-size-normal,
+    .Button.Button-size-medium,
+    .Button.Button-size-large {
         display: inline-flex;
         flex-wrap: nowrap;
         white-space: nowrap;
-        padding-left: var(--space-pad-0);
-        padding-right: var(--space-pad-0);
-        padding-bottom: 0;
+        padding-inline: var(--space-pad-0);
+        padding-block-end: 0;
         gap: var(--space-gap-1);
     }
 
-    .Button.Button-size-xs {
-        height: var(--size-xs);
+    .Button.Button-size-small {
+        --__button-height: var(--size-xs);
         gap: var(--space-gap-0);
-        padding-left: var(--space-pad--1);
-        padding-right: var(--space-pad--1);
+        padding-inline: var(--space-pad--1);
         font-size: var(--action-type-size-xs);
         font-weight: var(--action-type-weight-xs);
     }
 
-    .Button.Button-size-s {
-        height: var(--size-s);
+    .Button.Button-size-normal {
+        --__button-height: var(--size-s);
         font-size: var(--action-type-size-s);
         font-weight: var(--action-type-weight-s);
     }
 
-    .Button.Button-size-m {
-        height: var(--size-m);
+    .Button.Button-size-medium {
+        --__button-height: var(--size-m);
         font-size: var(--action-type-size-m);
         font-weight: var(--action-type-weight-m);
     }
 
-    .Button.Button-size-l {
-        height: var(--size-l);
+    .Button.Button-size-large {
+        --__button-height: var(--size-l);
         font-size: var(--action-type-size-l);
         font-weight: var(--action-type-weight-l);
     }

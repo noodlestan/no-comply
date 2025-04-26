@@ -7,7 +7,7 @@ import type {
 export type PressableType = 'button' | 'submit' | 'reset';
 
 export type AriaPressableProps = {
-    component?: PressableTagName;
+    tag?: PressableTagName;
     role?: PressableRoleName;
     type?: PressableType;
     tabIndex?: number | null;
@@ -15,7 +15,7 @@ export type AriaPressableProps = {
 };
 
 export type AriaPressableAPI = {
-    elProps: {
+    $root: {
         component: PressableTagName;
         role: PressableRoleName | undefined;
         type: PressableType | undefined;

@@ -5,7 +5,7 @@ export type TextMixinProps = {
 };
 
 export type TextMixinAPI = {
-    elProps: {
+    $root: {
         classList: ClassList;
     };
 };

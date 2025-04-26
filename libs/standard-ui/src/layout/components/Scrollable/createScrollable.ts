@@ -5,12 +5,13 @@ import styles from './Scrollable.module.css';
 import type { ScrollableAPI, ScrollableProps } from './types';
 
 export const createScrollable = (props: ScrollableProps): ScrollableAPI => {
-    const scrollableProps = {
+    const { $root: $scrollableMixinRoot } = createScrollableMixin(props);
+
+    const $localRoot = {
         classList: staticClassList(styles, 'Scrollable'),
     };
 
-    const { elProps: scrollableMixinElProps } = createScrollableMixin(props);
     return {
-        elProps: mergeProps(props, scrollableMixinElProps, scrollableProps),
+        $root: mergeProps($scrollableMixinRoot, $localRoot),
     };
 };

@@ -4,7 +4,7 @@ import type { Accessor } from 'solid-js';
 export type FieldProps = FieldContextOptions;
 
 export type FieldAPI = {
-    elProps: {
+    $root: {
         'data-disabled': '' | undefined;
         'data-field-readonly': '' | undefined;
         'data-field-pending': '' | undefined;
@@ -14,14 +14,15 @@ export type FieldAPI = {
         'data-field-submitted': '' | undefined;
         'data-field-has-feedback': '' | undefined;
     };
-    labelProps: {
+    $label: {
         for: string;
     };
-    hintProps: object;
-    inputProps: {
+    $description: object;
+    $input: {
         id: string;
+        ref: (el: HTMLElement) => void;
     };
-    feedbackProps: object;
+    $feedback: object;
     context: FieldContext;
     contextValue: FieldContextValue;
     hasFeedback: Accessor<boolean>;

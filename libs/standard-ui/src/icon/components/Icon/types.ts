@@ -1,16 +1,19 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { ClosedTagProps, IconMixinAPI, IconMixinProps } from '@noodlestan/headless-ui';
+import type {
+    IconAPI as HeadlessIconAPI,
+    IconProps as HeadlessIconProps,
+    IconMixinAPI,
+} from '@noodlestan/headless-ui';
 
-export type IconProps = Omit<ClosedTagProps, 'component'> &
-    IconMixinProps & {
-        size?: IconSize;
-    };
+import type { ContentSize } from '../../../types';
 
-export type IconSize = 'xs' | 's' | 'm' | 'l';
+export type IconProps = HeadlessIconProps & {
+    size?: ContentSize;
+};
 
 export type IconAPI = {
-    elProps: Omit<ClosedTagProps, 'component'> &
-        IconMixinAPI['elProps'] & {
+    $root: HeadlessIconAPI['$root'] &
+        IconMixinAPI['$root'] & {
             classList: ClassList;
         };
 };

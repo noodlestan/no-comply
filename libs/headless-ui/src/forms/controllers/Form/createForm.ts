@@ -10,13 +10,12 @@ export const createForm = (props: FormProps = {}): FormAPI => {
     const contextValue = createFormContext(props);
     const [context] = contextValue;
 
-    const { elProps: ariaFormProps, labelProps, descriptionProps } = createAriaForm(props);
+    const { $root: $ariaForm, $label, $description } = createAriaForm(props);
 
-    const containerStaticProps = {
-        component: 'form',
+    const $static = {
         onSubmit: () => props.onSubmit?.(state.api),
     };
-    const containerProps = createComputedProps(containerStaticProps, {
+    const $localRoot = createComputedProps($static, {
         'data-disabled': () => (context.isDisabled() ? '' : undefined),
         'data-form-readonly': () => (context.isReadonly() ? '' : undefined),
         'data-form-pending': () => (context.isPending() ? '' : undefined),
@@ -27,18 +26,18 @@ export const createForm = (props: FormProps = {}): FormAPI => {
         'data-form-feedback-enabled': () => (context.isFeedbackEnabled() ? '' : undefined),
     });
 
-    const submitButtonStaticProps = {
+    const $submitButtonStatic = {
         type: 'submit' as const,
     };
-    const submitButtonProps = createComputedProps(submitButtonStaticProps, {
+    const $submitButton = createComputedProps($submitButtonStatic, {
         disabled: () => context.isDisabled() || context.isPending(),
     });
 
     state.api = {
-        elProps: mergeProps(ariaFormProps, containerProps),
-        labelProps,
-        descriptionProps,
-        submitButtonProps,
+        $root: mergeProps($ariaForm, $localRoot),
+        $label,
+        $description,
+        $submitButton,
         context,
         contextValue,
     };

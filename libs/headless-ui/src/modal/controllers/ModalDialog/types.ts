@@ -1,28 +1,26 @@
-import type { ModalContextOptions, ModalContextValue } from '@noodlestan/context-ui';
-import type {
-    AriaDialogElementProps,
-    AriaDialogProps,
-    AriaLabelledAPI,
-} from '@noodlestan/context-ui-aria';
+import type { ModalContext, ModalContextOptions, ModalContextValue } from '@noodlestan/context-ui';
+import type { AriaDialogAPI, AriaDialogProps, AriaLabelledAPI } from '@noodlestan/context-ui-aria';
 
-import type { FocusTrapAPI } from '../../../focus';
-import type { ModalDialogMixinElementProps, ModalDialogMixinProps } from '../../mixins';
+import type { FocusTrapAPI, FocusTrapProps } from '../../../focus';
 
 export type ModalDialogProps = AriaDialogProps &
-    ModalDialogMixinProps &
+    FocusTrapProps &
     ModalContextOptions & {
-        onDiscard?: () => void;
+        onDiscard?: (context: ModalContext) => void;
     };
 
 export type ModalDialogAPI = {
-    elProps: AriaDialogElementProps &
-        ModalDialogMixinElementProps &
-        FocusTrapAPI['elProps'] & {
+    $root: AriaDialogAPI['$root'] &
+        FocusTrapAPI['$root'] & {
             ref: (el: HTMLDialogElement | null) => void;
             component: 'dialog';
+            onKeyDown: (ev: KeyboardEvent) => void;
+            onKeyUp: (ev: KeyboardEvent) => void;
+            onKeyPress: (ev: KeyboardEvent) => void;
+            'data-modal-dialog-is-active': '' | undefined;
         };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
-    modalContext: ModalContextValue;
-    closeDialog: () => Promise<void>;
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
+    context: ModalContext;
+    contextValue: ModalContextValue;
 };

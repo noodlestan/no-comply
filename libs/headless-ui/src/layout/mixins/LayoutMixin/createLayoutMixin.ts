@@ -7,22 +7,20 @@ import {
 import styles from './LayoutMixin.module.css';
 import type { LayoutMixinAPI, LayoutMixinProps } from './types';
 
-const defaultProps: PickRequired<LayoutMixinProps, 'component'> = {
-    component: 'div',
+const defaultProps: PickRequired<LayoutMixinProps, 'tag'> = {
+    tag: 'div',
 };
 
 export function createLayoutMixin(props: LayoutMixinProps): LayoutMixinAPI {
-    const component = () => props.component ?? defaultProps.component;
-
+    const component = () => props.tag ?? defaultProps.tag;
     const classList = createClassList(styles, () => ({
         Layout: true,
         [`Layout-stretch-${props.stretch}`]: Boolean(props.stretch),
         [`Layout-overflow-${props.overflow}`]: Boolean(props.overflow),
     }));
-
-    const elProps = createComputedProps({ classList, component });
+    const $localRoot = createComputedProps({ classList, component });
 
     return {
-        elProps,
+        $root: $localRoot,
     };
 }

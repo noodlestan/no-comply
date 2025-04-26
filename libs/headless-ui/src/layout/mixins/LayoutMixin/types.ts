@@ -1,8 +1,8 @@
 import type { LayoutTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-primitives';
+import { type ClassList } from '@noodlestan/context-ui-primitives';
 
 export type LayoutMixinProps = {
-    component?: LayoutTagName;
+    tag?: LayoutTagName;
     stretch?: LayoutMixinStretch;
     overflow?: LayoutMixinOverflow;
 };
@@ -11,7 +11,7 @@ export type LayoutMixinStretch = 'width' | 'height' | 'full';
 export type LayoutMixinOverflow = 'auto' | 'x-auto' | 'y-auto' | 'hidden';
 
 export type LayoutMixinAPI = {
-    elProps: {
+    $root: {
         component: LayoutTagName;
         classList: ClassList;
     };

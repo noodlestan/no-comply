@@ -19,15 +19,6 @@ export const TextInputPage: Component = () => {
         setValue(value);
     };
 
-    const handleConfirmValue = (value: string) => {
-        console.info('onConfirmValue', value);
-        setValue(value);
-    };
-
-    const handleCancelValue = () => {
-        console.info('onCancelValue');
-    };
-
     const COMPONENT = findComponent('TextInput');
 
     return (
@@ -41,9 +32,6 @@ export const TextInputPage: Component = () => {
             <DemoGroup title="value">
                 <DemoItem title="updated via onChangeValue()">
                     <TextInput value={value()} onChangeValue={setValue} />
-                </DemoItem>
-                <DemoItem title="updated via onConfirmValue()" note="press ENTER or ESC">
-                    <TextInput value={value()} onConfirmValue={handleConfirmValue} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="type">
@@ -150,16 +138,6 @@ export const TextInputPage: Component = () => {
             <DemoGroup title="onChangeValue">
                 <DemoItem note="see console log">
                     <TextInput value={value()} onChangeValue={handleValueChange} />
-                </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="onConfirmValue">
-                <DemoItem note="see console log">
-                    <TextInput value={value()} onConfirmValue={handleConfirmValue} />
-                </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="onCancelValue">
-                <DemoItem note="see console log">
-                    <TextInput value={value()} onCancelValue={handleCancelValue} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">

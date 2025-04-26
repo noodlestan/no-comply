@@ -1,10 +1,19 @@
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
+import { LABEL_PROPS } from './constants';
 import { createLabel } from './createLabel';
 import type { LabelProps } from './types';
 
-export const Label: ParentComponent<LabelProps> = props => {
-    const { elProps } = createLabel(props);
-    return <Dynamic {...elProps} />;
+type Props = ClosedTagProps & LabelProps;
+
+export const Label: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, LABEL_PROPS);
+
+    const { $root } = createLabel(locals);
+    const $ = mergeProps($others, $root);
+
+    return <Dynamic {...$} />;
 };

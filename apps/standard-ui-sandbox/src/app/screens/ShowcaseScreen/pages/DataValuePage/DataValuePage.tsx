@@ -29,13 +29,13 @@ export const DataValuePage: Component = () => {
             </DemoGroup>
             <DemoGroup title="size">
                 <DemoItem title="l">
-                    <DataValue size="l" value={DATA_VALUE} />
+                    <DataValue size="large" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="m">
-                    <DataValue size="m" value={DATA_VALUE} />
+                    <DataValue size="medium" value={DATA_VALUE} />
                 </DemoItem>
                 <DemoItem title="s">
-                    <DataValue size="s" value={DATA_VALUE} />
+                    <DataValue size="small" value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="length">

@@ -4,6 +4,8 @@ import { mergeProps } from '@noodlestan/context-ui-primitives';
 import type { PressableAPI, PressableProps } from './types';
 
 export const createPressable = (props: PressableProps): PressableAPI => {
+    const { $root: $ariaPressableRoot } = createAriaPressable(props);
+
     const onClick = (ev: MouseEvent) => {
         if (props.disabled) {
             return;
@@ -22,16 +24,12 @@ export const createPressable = (props: PressableProps): PressableAPI => {
         }
     };
 
-    const { elProps: ariaProps } = createAriaPressable(props);
-
-    const handlers = {
+    const $localRoot = {
         onClick,
         onKeyDown,
     };
 
-    const elProps = mergeProps(ariaProps, handlers);
-
     return {
-        elProps,
+        $root: mergeProps($ariaPressableRoot, $localRoot),
     };
 };

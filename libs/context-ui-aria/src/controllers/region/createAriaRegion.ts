@@ -5,21 +5,16 @@ import { createAriaLabelled } from '../label';
 
 import type { AriaGenericRegionAPI, AriaRegionAPI, AriaRegionProps } from './types';
 
+export function createAriaRegion(props?: AriaRegionProps): AriaGenericRegionAPI;
 export function createAriaRegion<T extends AriaRoleName = AriaRoleName>(
     props: AriaRegionProps,
     staticRole: T,
 ): AriaRegionAPI<T>;
-
 export function createAriaRegion(
     props?: AriaRegionProps,
     staticRole?: AriaRoleName,
 ): AriaGenericRegionAPI {
-    const {
-        elProps: labelledProps,
-        labelProps,
-        descriptionProps,
-        hasLabel,
-    } = createAriaLabelled(props);
+    const { $root: $labelledRoot, $label, $description, hasLabel } = createAriaLabelled(props);
 
     const role = () => {
         if (!hasLabel()) {
@@ -29,14 +24,13 @@ export function createAriaRegion(
         }
         return staticRole ?? props?.role ?? 'region';
     };
-
-    const elProps = createComputedProps({
+    const $localRoot = createComputedProps({
         role,
     });
 
     return {
-        elProps: mergeProps(labelledProps, elProps),
-        labelProps,
-        descriptionProps,
+        $root: mergeProps($labelledRoot, $localRoot),
+        $label,
+        $description,
     };
 }

@@ -5,21 +5,18 @@ export type AriaRegionProps = AriaLabelledProps & {
     role?: AriaRoleName;
 };
 
-export type AriaRegionElementProps<T extends AriaRoleName = AriaRoleName> =
-    AriaLabelledAPI['elProps'] & {
+export type AriaRegionAPI<T extends AriaRoleName = AriaRoleName> = {
+    $root: AriaLabelledAPI['$root'] & {
         role: T;
     };
-
-export type AriaRegionAPI<T extends AriaRoleName = AriaRoleName> = {
-    elProps: AriaRegionElementProps<T>;
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
 };
 
 export type AriaGenericRegionAPI = {
-    elProps: AriaLabelledAPI['elProps'] & {
+    $root: AriaLabelledAPI['$root'] & {
         role: AriaRoleName | undefined;
     };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
 };

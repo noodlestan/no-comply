@@ -1,3 +1,5 @@
+import type { UIContextKey, UIControllerName } from '../../controllers';
+
 export const createActiveContextsMap = <T extends Record<UIContextKey, UIContextKey>>(
     controller: UIControllerName,
     contexts: T,

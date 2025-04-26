@@ -1,3 +1,5 @@
+import type { UIContextKey, UIContextValue } from '../../../controllers';
+
 export type ActiveContextsServiceAPI = {
     setContext: (key: UIContextKey, value: UIContextValue) => void;
     getContext: (key: UIContextKey) => UIContextValue | undefined;

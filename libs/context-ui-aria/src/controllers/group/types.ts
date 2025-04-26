@@ -1,6 +1,6 @@
 import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
-import type { AriaRegionElementProps } from '../region';
+import type { AriaRegionAPI } from '../region';
 
 export type AriaGroupProps = AriaLabelledProps & {
     expanded?: boolean;
@@ -8,10 +8,10 @@ export type AriaGroupProps = AriaLabelledProps & {
 };
 
 export interface AriaGroupAPI {
-    elProps: AriaRegionElementProps<'group'> & {
+    $root: AriaRegionAPI<'group'>['$root'] & {
         'aria-expanded': AriaAttributes['aria-expanded'];
         'aria-setsize': AriaAttributes['aria-setsize'];
     };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
 }

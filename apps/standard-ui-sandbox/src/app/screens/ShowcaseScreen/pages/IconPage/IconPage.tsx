@@ -20,19 +20,22 @@ export const IconPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="size">
-                <DemoItem title="l">
-                    <Icon icon={ClockIcon} size="l" />
+                <DemoItem title="large">
+                    <Icon icon={ClockIcon} size="large" />
                 </DemoItem>
-                <DemoItem title="m">
-                    <Icon icon={ClockIcon} size="m" />
+                <DemoItem title="medium">
+                    <Icon icon={ClockIcon} size="medium" />
                 </DemoItem>
-                <DemoItem title="s">
-                    <Icon icon={ClockIcon} size="s" />
+                <DemoItem title="normal">
+                    <Icon icon={ClockIcon} size="normal" />
+                </DemoItem>
+                <DemoItem title="small">
+                    <Icon icon={ClockIcon} size="small" />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="recoloring">
                 <div class="IconPage--Recoloring">
-                    <Icon icon={ClockIcon} size="s" />
+                    <Icon icon={ClockIcon} />
                 </div>
             </DemoGroup>
             <DemoGroup title="classList">

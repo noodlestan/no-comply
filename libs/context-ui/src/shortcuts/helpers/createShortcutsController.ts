@@ -2,16 +2,17 @@ import type {
     UIControllerCommand,
     UIControllerMessage,
     UIControllerMetaWithShortcuts,
-} from '../../../controllers';
+} from '../../controllers';
+import type { ShortcutsServiceAPI } from '../services';
 import type {
+    KeyboardShortcut,
     ShortcutCommandController,
     ShortcutControllerMessage,
     ShortcutsControllerAPI,
-    ShortcutsService,
 } from '../types';
 
 export const createShortcutsController = (
-    service: ShortcutsService,
+    service: ShortcutsServiceAPI,
     meta: UIControllerMetaWithShortcuts,
     controllerOrControllerMap:
         | ShortcutCommandController
@@ -40,11 +41,11 @@ export const createShortcutsController = (
     };
 
     addController(meta.name, handleMessage);
-    addShortcuts(meta.shortcuts);
+    addShortcuts(meta.shortcuts as KeyboardShortcut[]);
 
     const dispose = () => {
         removeController(meta.name);
-        removeShortcuts(meta.shortcuts);
+        removeShortcuts(meta.shortcuts as KeyboardShortcut[]);
     };
 
     const api: ShortcutsControllerAPI = {

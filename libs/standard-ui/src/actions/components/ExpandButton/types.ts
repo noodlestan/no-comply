@@ -1,20 +1,11 @@
-import type { IconValue, LabelValue } from '@noodlestan/context-ui';
+import type {
+    ExpandButtonAPI as HeadlessExpandButtonAPI,
+    ExpandButtonProps as HeadlessExpandButtonProps,
+} from '@noodlestan/headless-ui';
 
 import type { IconButtonProps } from '../IconButton';
 
-export type ExpandButtonProps = Omit<IconButtonProps, 'icon' | 'label'> & {
-    expanded: boolean;
-    round?: boolean;
-    labels?: Partial<ExpandButtonLabels>;
-    icons?: Partial<ExpandButtonIcons>;
-};
+export type ExpandButtonProps = Pick<IconButtonProps, 'variant' | 'size' | 'onPress'> &
+    HeadlessExpandButtonProps;
 
-export type ExpandButtonLabels = {
-    expand: LabelValue;
-    collapse: LabelValue;
-};
-
-export type ExpandButtonIcons = {
-    expanded: IconValue;
-    collapsed: IconValue;
-};
+export type ExpandButtonAPI = HeadlessExpandButtonAPI;

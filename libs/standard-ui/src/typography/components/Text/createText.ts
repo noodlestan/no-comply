@@ -5,28 +5,27 @@ import {
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
 import { createTextMixin } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
 
 import styles from './Text.module.css';
 import type { TextAPI, TextProps } from './types';
 
-const defaultProps: PickRequired<TextProps, 'variant' | 'component'> = {
+const defaultProps: PickRequired<TextProps, 'tag' | 'variant'> = {
+    tag: 'p',
     variant: 'normal',
-    component: 'p',
 };
 
 export const createText = (props: TextProps): TextAPI => {
-    const [locals, others] = splitProps(props, ['variant', 'component']);
+    const { $root: $textMixinRoot } = createTextMixin(props);
 
-    const component = () => locals.component ?? defaultProps.component;
+    const component = () => props.tag ?? defaultProps.tag;
+    const variant = () => props.variant ?? defaultProps.variant;
+    const classList = createClassList(styles, () => ['text', `Text-variant-${variant()}`]);
+    const $localRoot = createComputedProps({
+        classList,
+        component,
+    });
 
-    const variant = () => locals.variant ?? defaultProps.variant;
-    const classList = createClassList(styles, () => [`Text-variant-${variant()}`]);
-
-    const TextProps = createComputedProps({ classList, component });
-
-    const { elProps: textMixinElProps } = createTextMixin(others);
     return {
-        elProps: mergeProps(textMixinElProps, TextProps),
+        $root: mergeProps($textMixinRoot, $localRoot),
     };
 };

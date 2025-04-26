@@ -18,53 +18,58 @@ export const IconButtonPage: Component = () => {
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
                 <DemoItem row>
-                    <IconButton icon={PlusIcon} />
+                    <IconButton icon={PlusIcon} label="Add" />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="variant">
                 <DemoItem row title="primary">
-                    <IconButton icon={PlusIcon} variant="primary" />
-                    <IconButton icon={PlusIcon} variant="primary" disabled />
+                    <IconButton variant="primary" icon={PlusIcon} label="Add" />
+                    <IconButton variant="primary" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
                 <DemoItem row title="secondary">
-                    <IconButton icon={PlusIcon} variant="secondary" />
-                    <IconButton icon={PlusIcon} variant="secondary" disabled />
+                    <IconButton variant="secondary" icon={PlusIcon} label="Add" />
+                    <IconButton variant="secondary" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
                 <DemoItem row title="plain">
-                    <IconButton icon={PlusIcon} variant="plain" />
-                    <IconButton icon={PlusIcon} variant="plain" disabled />
+                    <IconButton variant="plain" icon={PlusIcon} label="Add" />
+                    <IconButton variant="plain" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
                 <DemoItem row title="transparent">
-                    <IconButton icon={PlusIcon} variant="plain" />
-                    <IconButton icon={PlusIcon} variant="plain" disabled />
+                    <IconButton variant="plain" icon={PlusIcon} label="Add" />
+                    <IconButton variant="plain" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
                 <DemoItem row title="danger">
-                    <IconButton icon={PlusIcon} variant="danger" />
-                    <IconButton icon={PlusIcon} variant="danger" disabled />
+                    <IconButton variant="danger" icon={PlusIcon} label="Add" />
+                    <IconButton variant="danger" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="size">
-                <DemoItem row title="l">
-                    <IconButton variant="secondary" icon={PlusIcon} size="l" />
+                <DemoItem row title="large">
+                    <IconButton variant="secondary" size="large" icon={PlusIcon} label="Add" />
                 </DemoItem>
-                <DemoItem row title="m">
-                    <IconButton variant="secondary" icon={PlusIcon} size="m" />
+                <DemoItem row title="medium">
+                    <IconButton variant="secondary" size="medium" icon={PlusIcon} label="Add" />
                 </DemoItem>
-                <DemoItem row title="s">
-                    <IconButton variant="secondary" icon={PlusIcon} size="s" />
+                <DemoItem row title="normal">
+                    <IconButton variant="secondary" size="normal" icon={PlusIcon} label="Add" />
                 </DemoItem>
-                <DemoItem row title="xs">
-                    <IconButton variant="secondary" icon={PlusIcon} size="xs" />
+                <DemoItem row title="small">
+                    <IconButton variant="secondary" size="small" icon={PlusIcon} label="Add" />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem row title="">
-                    <IconButton variant="secondary" icon={PlusIcon} disabled />
+                    <IconButton variant="secondary" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onPress">
                 <DemoItem row note="see console log">
-                    <IconButton variant="secondary" icon={PlusIcon} onPress={handlePress} />
+                    <IconButton
+                        variant="secondary"
+                        icon={PlusIcon}
+                        label="Add"
+                        onPress={handlePress}
+                    />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">
@@ -72,6 +77,7 @@ export const IconButtonPage: Component = () => {
                     <IconButton
                         variant="secondary"
                         icon={PlusIcon}
+                        label="Add"
                         classList={{ override: true }}
                     />
                 </DemoItem>

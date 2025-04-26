@@ -1,36 +1,32 @@
 import {
+    type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
-import { createButtonMixin, createPressable } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
+import { createButtonMixin, createButton as createHeadlessButton } from '@noodlestan/headless-ui';
 
 import styles from './Button.module.css';
 import type { ButtonAPI, ButtonProps } from './types';
 
-const defaultProps = {
+const defaultProps: PickRequired<ButtonProps, 'variant' | 'size'> = {
     variant: 'primary',
-    size: 's',
-    length: 'auto',
+    size: 'normal',
 };
 
 export const createButton = (props: ButtonProps): ButtonAPI => {
-    const [locals, others] = splitProps(props, ['variant', 'size']);
+    const { $root: $buttonRoot } = createHeadlessButton(props);
+    const { $root: $buttonMixinRoot } = createButtonMixin();
 
-    const variant = () => locals.variant ?? defaultProps.variant;
-    const size = () => locals.size ?? defaultProps.size;
-
+    const variant = () => props.variant ?? defaultProps.variant;
+    const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => [
         `Button-variant-${variant()}`,
         `Button-size-${size()}`,
     ]);
+    const $localRoot = createComputedProps({ classList });
 
-    const buttonProps = createComputedProps({ classList });
-
-    const { elProps: pressableElProps } = createPressable(others);
-    const { elProps: buttonMixinElProps } = createButtonMixin(others);
     return {
-        elProps: mergeProps(others, pressableElProps, buttonMixinElProps, buttonProps),
+        $root: mergeProps($buttonRoot, $buttonMixinRoot, $localRoot),
     };
 };

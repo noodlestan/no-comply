@@ -53,23 +53,23 @@ export const ButtonPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="size">
-                <DemoItem row title="l">
-                    <Button variant="secondary" size="l">
+                <DemoItem row title="large">
+                    <Button variant="secondary" size="large">
                         Size L
                     </Button>
                 </DemoItem>
-                <DemoItem row title="m">
-                    <Button variant="secondary" size="m">
+                <DemoItem row title="medium">
+                    <Button variant="secondary" size="medium">
                         Size M
                     </Button>
                 </DemoItem>
-                <DemoItem row title="s">
-                    <Button variant="secondary" size="s">
+                <DemoItem row title="normal">
+                    <Button variant="secondary" size="normal">
                         Size S
                     </Button>
                 </DemoItem>
-                <DemoItem row title="xs">
-                    <Button variant="secondary" size="xs">
+                <DemoItem row title="small">
+                    <Button variant="secondary" size="small">
                         Size XS
                     </Button>
                 </DemoItem>

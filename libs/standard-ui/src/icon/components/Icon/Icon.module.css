@@ -1,18 +1,18 @@
 @layer standard-ui {
-    .Icon-size-xs {
+    .Icon-size-small {
         /* TODO HACK fix when clamp is removed (xs, 2xs, .. need to  be bigger) */
-        --icon-size: calc(1.1 * var(--size-2xs));
+        --__icon-size: calc(1.1 * var(--size-2xs));
     }
 
-    .Icon-size-s {
-        --icon-size: var(--size-xs);
+    .Icon-size-normal {
+        --_icon-size: var(--size-xs);
     }
 
-    .Icon-size-m {
-        --icon-size: var(--size-s);
+    .Icon-size-medium {
+        --_icon-size: var(--size-s);
     }
 
-    .Icon-size-l {
-        --icon-size: var(--size-m);
+    .Icon-size-large {
+        --_icon-size: var(--size-m);
     }
 }

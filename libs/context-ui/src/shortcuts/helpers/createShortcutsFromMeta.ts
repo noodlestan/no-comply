@@ -1,4 +1,4 @@
-import type { UIControllerName } from '../../../controllers';
+import type { UIControllerName } from '../../controllers';
 import type { KeyboardShortcut, KeyboardShortcutMeta } from '../types';
 
 export const createShortcutsfromMeta = (

@@ -5,7 +5,6 @@ import {
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
 import { createTextMixin } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
 
 import styles from './Label.module.css';
 import type { LabelAPI, LabelProps } from './types';
@@ -15,18 +14,18 @@ const defaultProps: PickRequired<LabelProps, 'variant'> = {
 };
 
 export const createLabel = (props: LabelProps): LabelAPI => {
-    const [locals, others] = splitProps(props, ['variant']);
+    const { $root: $textMixinRoot } = createTextMixin(props);
 
-    const variant = () => locals.variant ?? defaultProps.variant;
-    const classList = createClassList(styles, () => [`Label-variant-${variant()}`]);
-
-    const labelStaticProps = {
+    const variant = () => props.variant ?? defaultProps.variant;
+    const classList = createClassList(styles, () => ['Label', `Label-variant-${variant()}`]);
+    const $static = {
         component: 'label' as const,
     };
-    const labelProps = createComputedProps(labelStaticProps, { classList });
+    const $localRoot = createComputedProps($static, {
+        classList,
+    });
 
-    const { elProps: textMixinElProps } = createTextMixin(others);
     return {
-        elProps: mergeProps(textMixinElProps, labelProps),
+        $root: mergeProps($textMixinRoot, $localRoot),
     };
 };

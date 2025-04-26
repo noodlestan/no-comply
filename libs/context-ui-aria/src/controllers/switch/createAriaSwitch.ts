@@ -1,4 +1,4 @@
-import { createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import type { SwitchTagName } from '../../tag';
 import { createAriaRegion } from '../region';
@@ -6,11 +6,7 @@ import { createAriaRegion } from '../region';
 import type { AriaSwitchAPI, AriaSwitchProps } from './types';
 
 export const createAriaSwitch = (props: AriaSwitchProps): AriaSwitchAPI => {
-    const {
-        elProps: regionProps,
-        labelProps,
-        descriptionProps,
-    } = createAriaRegion(props, 'switch');
+    const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'switch');
 
     const type = (tag: SwitchTagName = 'button'): 'button' | 'checkbox' | undefined => {
         if (tag === 'input') {
@@ -19,17 +15,17 @@ export const createAriaSwitch = (props: AriaSwitchProps): AriaSwitchAPI => {
         return tag === 'button' ? 'button' : undefined;
     };
 
-    const elProps = createComputedProps(regionProps, {
-        component: () => props.component,
-        type: () => type(props.component),
+    const $localRoot = createComputedProps({
+        component: () => props.tag,
+        type: () => type(props.tag),
         'aria-checked': () => props.checked,
         'aria-disabled': () => props.disabled,
         'data-disabled': () => (props.disabled ? '' : undefined),
     });
 
     return {
-        elProps,
-        labelProps,
-        descriptionProps,
+        $root: mergeProps($regionRoot, $localRoot),
+        $label,
+        $description,
     };
 };

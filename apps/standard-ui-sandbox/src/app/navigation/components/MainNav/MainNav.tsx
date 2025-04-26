@@ -11,16 +11,16 @@ import { navList } from './constants';
 
 export const MainNav: Component = () => {
     return (
-        <Flex component="nav" direction="column" padding="m" gap="m" aria-label="main navigation">
+        <Flex tag="nav" direction="column" padding="m" gap="m" aria-label="main navigation">
             <Flex
-                component="header"
+                tag="header"
                 direction="column"
                 gap="m"
                 classList={staticClassList(styles, 'MainNavHeader')}
             >
                 <Flex direction="row" gap="s">
                     <NavLink size="s" href={ROUTES.home()}>
-                        <Icon icon={HomeIcon} size="s" />
+                        <Icon icon={HomeIcon} size="small" />
                         <>Context UI</>
                     </NavLink>
                 </Flex>

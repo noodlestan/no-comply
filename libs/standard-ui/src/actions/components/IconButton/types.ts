@@ -1,13 +1,22 @@
-import type { IconButtonMixinAPI, IconButtonMixinProps } from '@noodlestan/headless-ui';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type {
+    IconButtonAPI as HeadlessIconButtonAPI,
+    IconButtonProps as HeadlessIconButtonProps,
+    IconButtonMixinAPI,
+} from '@noodlestan/headless-ui';
 
 import type { ButtonAPI, ButtonProps } from '../Button';
 
-export type IconButtonProps = Omit<ButtonProps, 'length' | 'children'> &
-    IconButtonMixinProps & {
+export type IconButtonProps = ButtonProps &
+    HeadlessIconButtonProps & {
         rounded?: boolean;
     };
 
 export type IconButtonAPI = {
-    elProps: ButtonAPI['elProps'] & IconButtonMixinAPI['elProps'];
-    iconProps: IconButtonMixinAPI['iconProps'];
+    $root: ButtonAPI['$root'] &
+        HeadlessIconButtonAPI['$root'] &
+        IconButtonMixinAPI['$root'] & {
+            classList: ClassList;
+        };
+    iconProps: HeadlessIconButtonAPI['iconProps'] & IconButtonMixinAPI['$icon'];
 };

@@ -1,7 +1,7 @@
 import { Button, Flex, Form, MessageBox } from '@noodlestan/standard-ui';
 import { type Component, Show, createSignal } from 'solid-js';
 
-import { ConfirmPasswordField, PasswordField, UsernameField } from '../../fields';
+import { ConfirmPasswordField, CreatePasswordField, CreateUsernameField } from '../../fields';
 
 import { mockSubmit } from './private';
 import type { SignupData, SignupFormProps } from './types';
@@ -41,15 +41,15 @@ export const SignupForm: Component<SignupFormProps> = props => {
 
     return (
         <Form pending={isSubmitting()} onSubmit={handleSubmit}>
-            {form => (
+            {({ form }) => (
                 <Flex direction="column" gap="l">
                     <Button onPress={handleCancel}>close</Button>
                     <Flex direction="column" gap="m">
-                        <UsernameField
+                        <CreateUsernameField
                             value={signupData().email}
                             onChangeValue={handleUsernameChange}
                         />
-                        <PasswordField
+                        <CreatePasswordField
                             value={signupData().password}
                             onChangeValue={handlePasswordChange}
                         />
@@ -59,9 +59,7 @@ export const SignupForm: Component<SignupFormProps> = props => {
                         />
                     </Flex>
                     <Flex direction="column" gap="m">
-                        <Button type="submit" {...form.submitButtonProps}>
-                            Submit
-                        </Button>
+                        <Button {...form.$submitButton}>Submit</Button>
                         <Show when={submitError()}>
                             <MessageBox variant="error">{submitError()?.message}</MessageBox>
                         </Show>

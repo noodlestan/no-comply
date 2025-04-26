@@ -3,11 +3,19 @@ import { ChevronDownIcon, ChevronRightIcon } from 'lucide-solid';
 
 import type { TreeListIcons, TreeListLabels, TreeNode } from '../types';
 
+export const TREE_LIST_ITEM_COMMON_PROPS = [
+    'node',
+    'expand',
+    'level',
+    'parent',
+    'parentSelected',
+] as const;
+
 export const LABELS: TreeListLabels = {
     item: 'Tree item',
     group: (n: TreeNode) => `Sub-items of ${n.id}`,
-    expand: (n: TreeNode) => `Expand item ${n.id}`,
-    collapse: (n: TreeNode) => `Collapse item ${n.id}`,
+    expanded: (n: TreeNode) => `Expand item ${n.id}`,
+    collapsed: (n: TreeNode) => `Collapse item ${n.id}`,
     select: (n: TreeNode) => `Select item ${n.id}`,
     details: 'Item details',
 };

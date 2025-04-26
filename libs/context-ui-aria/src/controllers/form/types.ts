@@ -1,18 +1,18 @@
 import type { FormRoleName } from '../../role';
 import type { FormTagName } from '../../tag';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
-import type { AriaRegionElementProps } from '../region';
+import type { AriaRegionAPI } from '../region';
 
 export type AriaFormProps = AriaLabelledProps & {
-    component?: FormTagName;
+    tag?: FormTagName;
     role?: FormRoleName;
 };
 
 export interface AriaFormAPI {
-    elProps: Omit<AriaRegionElementProps, 'role'> & {
+    $root: Omit<AriaRegionAPI['$root'], 'role'> & {
         component: FormTagName;
         role?: FormRoleName;
     };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
 }

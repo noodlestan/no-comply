@@ -37,7 +37,7 @@ export const ExampleLargeHeader: Component<ExampleLargeProps> = props => {
         >
             <Flex gap="s">
                 <Flex direction="row" align="center" gap="m">
-                    <Icon size="m" icon={LockIcon} />
+                    <Icon size="medium" icon={LockIcon} />
                     <Display level={3} id={labelId}>
                         {props.title ?? 'Lorem Ipsum'}
                     </Display>
@@ -69,7 +69,7 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = props => {
                     <Display level={3} id={labelId}>
                         Lorem ipsum dolor
                     </Display>
-                    <IconButton variant="secondary" icon={LockIcon} />
+                    <IconButton variant="secondary" icon={LockIcon} label="Lock" />
                 </Flex>
                 <Text>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet tempor
@@ -120,9 +120,9 @@ export const ExampleLargeFooter: Component<ExampleLargeProps> = props => {
         >
             <Flex direction="row" align="center" gap="l">
                 <Flex direction="row" align="center" gap="s">
-                    <Icon size="s" icon={ClockIcon} />
+                    <Icon size="small" icon={ClockIcon} />
                     <Text id={labelId}>Lorem ipsum dolor sit amet</Text>
-                    <Button size="s" variant="plain">
+                    <Button size="small" variant="plain">
                         Plain
                     </Button>
                 </Flex>

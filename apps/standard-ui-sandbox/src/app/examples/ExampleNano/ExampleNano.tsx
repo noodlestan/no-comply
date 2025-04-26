@@ -6,7 +6,7 @@ type ExampleSmallProps = { title?: string };
 
 export const ExampleNano: Component<ExampleSmallProps> = () => (
     <>
-        <Icon size="s" icon={ClockIcon} />
-        <Icon size="s" icon={SettingsIcon} />
+        <Icon size="small" icon={ClockIcon} />
+        <Icon size="small" icon={SettingsIcon} />
     </>
 );

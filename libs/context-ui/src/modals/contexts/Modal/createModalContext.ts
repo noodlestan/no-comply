@@ -1,30 +1,45 @@
 import { uuid } from '@noodlestan/context-ui-primitives';
-import { onCleanup } from 'solid-js';
+import { createSignal, onCleanup } from 'solid-js';
 
 import { useModals } from '../../providers';
 
 import type { ModalContext, ModalContextOptions, ModalContextValue } from './types';
 
 export const createModalContext = (options: ModalContextOptions = {}): ModalContextValue => {
-    let targetEl: HTMLDialogElement;
+    const [isClosed, setIsClosed] = createSignal(false);
+    let targetEl: HTMLDialogElement | undefined;
+    let resolvePromise: () => void;
 
     const { addModal, removeModal, getModalIndex, isModalActive: isModalCurrent } = useModals();
 
     const id = uuid();
 
-    const setDialogRef = (el: HTMLDialogElement) => {
-        targetEl = el;
-        targetEl.showModal();
+    const handleAnimationEnd = () => {
+        if (isClosed()) {
+            resolvePromise();
+        }
     };
 
-    const close = () => {
-        targetEl.close();
+    const close = async () => {
+        targetEl?.addEventListener('animationend', handleAnimationEnd);
+        targetEl?.addEventListener('animationcancel', handleAnimationEnd);
+        targetEl?.close();
+        setIsClosed(true);
+        if (!targetEl) {
+            return;
+        }
+        return new Promise<void>(resolve => (resolvePromise = resolve));
+    };
+
+    const setTargetRef = (el: HTMLDialogElement) => {
+        targetEl = el;
+        targetEl.showModal();
     };
 
     const context: ModalContext = {
         type: 'modal',
         id,
-        setDialogRef,
+        setTargetRef,
         index: () => getModalIndex(id),
         isActive: () => isModalCurrent(id),
         sticky: () => Boolean(options.sticky),
@@ -33,7 +48,11 @@ export const createModalContext = (options: ModalContextOptions = {}): ModalCont
 
     addModal(context);
 
-    onCleanup(() => removeModal(id));
+    onCleanup(() => {
+        removeModal(id);
+        targetEl?.removeEventListener('animationend', handleAnimationEnd);
+        targetEl?.removeEventListener('animationcancel', handleAnimationEnd);
+    });
 
     return [context];
 };

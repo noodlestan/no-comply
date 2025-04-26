@@ -1,6 +1,6 @@
 .TreeListItemDetails {
-    --tree-list-indent-space: var(--scale-2xs);
-    --tree-list-item-padding-block: var(--space-gap--1);
+    --__tree-list-indent-space: var(--scale-2xs);
+    --__tree-list-item-padding-block: var(--space-gap--1);
 }
 
 .TreeListItemDetails::before {
@@ -38,8 +38,8 @@
     border-radius: var(--radius-xs);
 }
 
-.TreeListItemDetails-is-selected::after,
-.TreeListItemDetails-is-parent-selected::after {
+.TreeListItemDetails[data-tree-item-is-selected]::after,
+.TreeListItemDetails[data-tree-item-is-parent-selected]::after {
     content: '';
     position: absolute;
     top: var(--space-gap--1);
@@ -53,7 +53,7 @@
         transparent transparent;
 }
 
-.TreeListItemDetails-is-selected::after {
+.TreeListItemDetails[data-tree-item-is-selected]::after {
     border-color: transparent hsla(var(--color-selected), var(--o-surface-bg-opaque)) transparent
         transparent;
 }

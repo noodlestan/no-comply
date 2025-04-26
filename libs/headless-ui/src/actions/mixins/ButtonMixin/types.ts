@@ -1,18 +1,8 @@
-import type { PressableTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList, OwnFocusEventHandlers } from '@noodlestan/context-ui-primitives';
-
-export type ButtonMixinProps = OwnFocusEventHandlers & {
-    component?: PressableTagName | 'auto';
-    id?: string;
-    label?: string;
-    href?: string;
-    target?: string;
-};
+import type {} from '@noodlestan/context-ui-aria';
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 export type ButtonMixinAPI = {
-    elProps: {
+    $root: {
         classList: ClassList;
-        onFocus: (ev: FocusEvent) => void;
-        onBlur: (ev: FocusEvent) => void;
     };
 };

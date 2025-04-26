@@ -3,17 +3,13 @@ import { createComputedProps } from '@noodlestan/context-ui-primitives';
 import type { AriaPressableAPI, AriaPressableProps } from './types';
 
 export const createAriaPressable = (props: AriaPressableProps): AriaPressableAPI => {
-    const component = () => props.component ?? 'button';
-
-    const role = () => props.role ?? (props.component === 'button' ? undefined : 'button');
-
-    const type = () => (props.component === 'button' ? props.type : undefined);
-
+    const component = () => props.tag ?? 'button';
+    const role = () => props.role ?? (props.tag === 'button' ? undefined : 'button');
+    const type = () => (props.tag === 'button' ? props.type : undefined);
     const tabIndex = () => (props.disabled ? undefined : (props.tabIndex ?? 0));
+    const disabled = () => (props.tag === 'button' ? props.disabled : undefined);
 
-    const disabled = () => (props.component === 'button' ? props.disabled : undefined);
-
-    const elProps = createComputedProps({
+    const $root = createComputedProps({
         component,
         role,
         type,
@@ -24,6 +20,6 @@ export const createAriaPressable = (props: AriaPressableProps): AriaPressableAPI
     });
 
     return {
-        elProps,
+        $root,
     };
 };

@@ -17,7 +17,6 @@ export function createFlexMixin(props: FlexMixinProps): FlexMixinAPI {
     const direction = () => props.direction ?? defaultProps.direction;
     const align = () => props.align ?? defaultProps.align;
     const justify = () => props.justify ?? defaultProps.justify;
-
     const classList = createClassList(styles, () => ({
         Flex: true,
         [`Flex-direction-${direction()}`]: true,
@@ -29,10 +28,9 @@ export function createFlexMixin(props: FlexMixinProps): FlexMixinAPI {
         [`Flex-inline`]: Boolean(props.inline),
         [`Flex-flex`]: props.flex !== undefined,
     }));
-
-    const elProps = createComputedProps({ classList });
+    const $localRoot = createComputedProps({ classList });
 
     return {
-        elProps,
+        $root: $localRoot,
     };
 }

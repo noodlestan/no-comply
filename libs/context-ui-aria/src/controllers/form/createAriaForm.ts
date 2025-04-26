@@ -1,28 +1,26 @@
-import { createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import { createAriaRegion } from '../region';
 
 import type { AriaFormAPI, AriaFormProps } from './types';
 
 export const createAriaForm = (props: AriaFormProps = {}): AriaFormAPI => {
-    const { elProps: regionProps, labelProps, descriptionProps } = createAriaRegion(props);
+    const { $root: $regionRoot, $label, $description } = createAriaRegion(props);
 
-    const component = () => props.component ?? 'form';
-
+    const component = () => props.tag ?? 'form';
     const role = () => {
         if (component() !== 'form' || props.role !== 'form') {
             return props.role;
         }
     };
-
-    const elProps = createComputedProps(regionProps, {
+    const $localRoot = createComputedProps({
         component,
         role,
     });
 
     return {
-        elProps,
-        labelProps,
-        descriptionProps,
+        $root: mergeProps($regionRoot, $localRoot),
+        $label,
+        $description,
     };
 };

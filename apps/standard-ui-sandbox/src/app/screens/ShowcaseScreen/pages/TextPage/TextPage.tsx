@@ -46,41 +46,9 @@ export const TextPage: Component = () => {
                     </Text>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="color">
-                <DemoItem title="auto">
-                    <Text color="auto">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="primary">
-                    <Text color="primary">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="focused">
-                    <Text color="focused">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="modified">
-                    <Text color="modified">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="selected">
-                    <Text color="selected">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="muted">
-                    <Text color="muted">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="neutral">
-                    <Text color="neutral">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="good">
-                    <Text color="good">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="meh">
-                    <Text color="meh">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-                <DemoItem title="bad">
-                    <Text color="bad">Lorem ipsum dolor sit amet, consectetur.</Text>
-                </DemoItem>
-            </DemoGroup>
             <DemoGroup title="tag">
                 <DemoItem note="Should render a <h1>">
-                    <Text component="h1">Foobar</Text>
+                    <Text tag="h1">Foobar</Text>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">

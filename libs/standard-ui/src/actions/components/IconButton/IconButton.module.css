@@ -1,4 +1,8 @@
 @layer standard-ui {
+    .IconButton {
+        --__icon-button-size: var(--__button-height);
+    }
+
     .IconButton.IconButton-is-rounded {
         border-radius: 50%;
     }

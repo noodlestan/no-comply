@@ -1,10 +1,19 @@
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
+import { DISPLAY_PROPS } from './constants';
 import { createDisplay } from './createDisplay';
 import type { DisplayProps } from './types';
 
-export const Display: ParentComponent<DisplayProps> = props => {
-    const { elProps } = createDisplay(props);
-    return <Dynamic {...elProps} />;
+type Props = ClosedTagProps & DisplayProps;
+
+export const Display: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, DISPLAY_PROPS);
+
+    const { $root } = createDisplay(locals);
+    const $ = mergeProps($others, $root);
+
+    return <Dynamic {...$} />;
 };

@@ -1,23 +1,26 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
-import { createFeedbackMessage } from '@noodlestan/headless-ui';
-import type { ParentComponent } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ParentComponent, splitProps } from 'solid-js';
 
 import { Icon } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
 
-import styles from './MessageToast.module.css';
+import { MESSAGE_TOAST_PROPS } from './constants';
+import { createMessageToast } from './createMessageToast';
 import type { MessageToastProps } from './types';
 
 export const MessageToast: ParentComponent<MessageToastProps> = props => {
-    const message = createFeedbackMessage(props);
+    const [locals, $others] = splitProps(props, [...MESSAGE_TOAST_PROPS, 'children']);
+
+    const { $root, $label, iconProps: $icon } = createMessageToast(locals);
+    const $ = mergeProps($root, $others);
 
     return (
-        <Surface variant="toast" classList={staticClassList(styles, 'Toast')}>
+        <Surface variant="toast" {...$}>
             <Flex align="center" padding="s" gap="m" justify="between">
                 <Flex align="center" padding="s" gap="m">
-                    <Icon size="s" {...message.iconProps} />
-                    <div {...message.labelProps}>{props.children}</div>
+                    <Icon {...$icon} />
+                    <div {...$label}>{props.children}</div>
                 </Flex>
                 {/* TODO close button */}
                 <button>Close</button>

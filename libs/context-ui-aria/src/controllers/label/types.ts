@@ -9,15 +9,15 @@ export type AriaLabelledProps = {
 };
 
 export type AriaLabelledAPI = {
-    elProps: {
+    $root: {
         'aria-label'?: string;
         'aria-labelledby'?: string;
         'aria-describedby'?: string;
     };
-    labelProps: {
+    $label: {
         id?: string;
     };
-    descriptionProps: {
+    $description: {
         id?: string;
     };
     hasLabel: Accessor<boolean>;

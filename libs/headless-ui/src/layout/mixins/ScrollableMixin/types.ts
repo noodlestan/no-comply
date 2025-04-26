@@ -2,13 +2,13 @@ import type { ScrollableTagName } from '@noodlestan/context-ui-aria';
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 export type ScrollableMixinProps = {
-    component?: ScrollableTagName;
+    tag?: ScrollableTagName;
+    x?: boolean;
     y?: boolean;
-    z?: boolean;
 };
 
 export type ScrollableMixinAPI = {
-    elProps: {
+    $root: {
         component: ScrollableTagName;
         classList: ClassList;
     };

@@ -1,25 +1,17 @@
 import { uuid } from '@noodlestan/context-ui-primitives';
-import { createSignal, onCleanup } from 'solid-js';
+import { onCleanup } from 'solid-js';
 
 import { useFormContextMaybe } from '../../private';
 
 import type { FieldContext, FieldContextOptions, FieldContextValue } from './types';
 
 export const createFieldContext = (options: FieldContextOptions = {}): FieldContextValue => {
-    const [isTouched, setIsTouched] = createSignal(false);
-    const [isModified, setIsModified] = createSignal(false);
-    const [isInvalid, setIsInvalid] = createSignal(false);
-
     const id = uuid();
-
-    let inputEl: HTMLElement;
 
     const [formContext, formContextOwnerAPI] = useFormContextMaybe() || [];
     // const formGroup = useFormGroupContext();
 
-    const setInputRef = (el: HTMLElement) => {
-        inputEl = el;
-    };
+    const isRequired = () => Boolean(options.required);
 
     const isDisabled = () => {
         if (options.disabled) {
@@ -42,13 +34,15 @@ export const createFieldContext = (options: FieldContextOptions = {}): FieldCont
     };
 
     const isPending = () => Boolean(options.pending);
-
     const isSubmitted = () => Boolean(formContext?.isSubmitted());
+    const isTouched = () => Boolean(options.touched);
+    const isModified = () => Boolean(options.modified);
+    const isInvalid = () => Boolean(options.invalid);
 
     const context: FieldContext = {
         type: 'form-field',
         id,
-        setInputRef,
+        isRequired,
         isDisabled,
         isReadonly,
         isPending,

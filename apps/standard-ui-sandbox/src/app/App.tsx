@@ -18,18 +18,18 @@ const Main: ParentComponent = props => {
     const { status } = useAppServices();
 
     const focusable = createFocusable();
-    const focus = focusable.context;
+    const { $root: $focusRoot, $target: $focusTarget, context, contextValue } = focusable;
 
     const classList = createClassList(styles, () => ({
         AppMain: true,
-        'has-focus': focus.hasFocusWithin(),
+        'has-focus': context.hasFocusWithin(),
     }));
 
     return (
-        <FocusContextProvider context={focusable.contextValue}>
+        <FocusContextProvider context={contextValue}>
             <Flex
                 stretch="full"
-                {...focusable.elProps}
+                {...$focusRoot}
                 classList={classList()}
                 aria-busy={!status.isReady()}
             >
@@ -37,7 +37,7 @@ const Main: ParentComponent = props => {
                     <AppSplash />
                 </Show>
                 <Show when={status.isReady()}>
-                    <Button variant="transparent" {...focusable.targetProps} />
+                    <Button variant="transparent" {...$focusTarget} />
                     {props.children}
                 </Show>
             </Flex>

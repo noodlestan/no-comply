@@ -1,3 +1,5 @@
+import type { UIContextKey, UIContextValue } from '../../../controllers';
+
 import type { ActiveContextsServiceAPI } from './types';
 
 export const createActiveContextsService = (): ActiveContextsServiceAPI => {

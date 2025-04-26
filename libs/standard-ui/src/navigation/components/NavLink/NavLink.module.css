@@ -10,7 +10,7 @@
         user-select: none;
     }
 
-    .NavLink-is-active {
+    .NavLink-is-current {
         color: hsla(var(--color-i-active), var(--o-surface-fg));
         text-decoration: underline;
     }

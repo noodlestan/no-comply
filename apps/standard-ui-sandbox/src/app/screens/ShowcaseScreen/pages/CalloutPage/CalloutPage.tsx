@@ -36,11 +36,11 @@ export const CalloutPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="size">
-                <DemoItem title="m">
-                    <Callout size="m">Hello</Callout>
+                <DemoItem title="normal">
+                    <Callout size="normal">Hello</Callout>
                 </DemoItem>
-                <DemoItem title="s">
-                    <Callout size="s">Hello</Callout>
+                <DemoItem title="small">
+                    <Callout size="small">Hello</Callout>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="length">

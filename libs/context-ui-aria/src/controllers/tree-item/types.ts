@@ -1,6 +1,6 @@
 import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
-import type { AriaRegionElementProps } from '../region';
+import type { AriaRegionAPI } from '../region';
 
 export type AriaTreeItemProps = AriaLabelledProps & {
     selected: boolean;
@@ -11,14 +11,13 @@ export type AriaTreeItemProps = AriaLabelledProps & {
 };
 
 export interface AriaTreeItemAPI {
-    elProps: AriaRegionElementProps & {
-        role: 'treeitem';
+    $root: AriaRegionAPI<'treeitem'>['$root'] & {
         'aria-expanded': AriaAttributes['aria-expanded'];
         'aria-selected': AriaAttributes['aria-selected'];
         'aria-level': AriaAttributes['aria-level'];
         'aria-setsize': AriaAttributes['aria-setsize'];
         'aria-posinset': AriaAttributes['aria-posinset'];
     };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
 }

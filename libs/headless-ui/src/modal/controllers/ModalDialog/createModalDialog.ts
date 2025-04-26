@@ -3,53 +3,48 @@ import { createAriaDialog } from '@noodlestan/context-ui-aria';
 import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import { createFocusTrap } from '../../../focus';
-import { createModalDialogMixin } from '../../mixins';
 
 import type { ModalDialogAPI, ModalDialogProps } from './types';
 
 export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI => {
-    const modalContext = createModalContext(props);
-    const [context] = modalContext;
+    const state: { api: ModalDialogAPI } = { api: {} as ModalDialogAPI };
 
-    const { elProps: ariaProps, labelProps, descriptionProps } = createAriaDialog(props);
+    const contextValue = createModalContext(props);
+    const [context] = contextValue;
 
-    const dialogContextProps = {
-        ref: context.setDialogRef,
+    const { $root: $ariaDialogRoot, $label, $description } = createAriaDialog(props);
+
+    const $dialogContextRoot = {
+        ref: context.setTargetRef,
     };
-    const dialogMixinProps = mergeProps(
-        props,
-        createComputedProps({
-            active: context.isActive,
-        }),
-    );
-    const { elProps: dialogMixinElProps, closeDialog } = createModalDialogMixin(dialogMixinProps);
 
-    const { elProps: focusTrapProps } = createFocusTrap(props);
-    const containerProps = mergeProps(
-        ariaProps,
-        dialogContextProps,
-        dialogMixinElProps,
-        focusTrapProps,
-    );
+    const { $root: $focusTrapRoot } = createFocusTrap(props);
+
+    const stopPropagation = (ev: Event) => ev.stopImmediatePropagation();
 
     const handleKeyDown = async (ev: KeyboardEvent) => {
         if (ev.key === 'Escape') {
-            await close();
-            props.onDiscard?.();
+            props.onDiscard?.(context);
         }
     };
 
-    const staticProps = {
+    const $static = {
         component: 'dialog' as const,
         onKeyDown: handleKeyDown,
+        onKeyUp: stopPropagation,
+        onKeyPress: stopPropagation,
     };
-    const localProps = createComputedProps(staticProps, {});
+    const $localRoot = createComputedProps($static, {
+        'data-modal-dialog-is-active': () => (context.isActive() ? '' : undefined),
+    });
 
-    return {
-        elProps: mergeProps(containerProps, localProps),
-        labelProps,
-        descriptionProps,
-        modalContext,
-        closeDialog,
+    state.api = {
+        $root: mergeProps($ariaDialogRoot, $dialogContextRoot, $focusTrapRoot, $localRoot),
+        $label,
+        $description,
+        context,
+        contextValue,
     };
+
+    return state.api;
 };

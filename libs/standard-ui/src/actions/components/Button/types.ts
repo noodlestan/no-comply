@@ -1,23 +1,23 @@
+import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type {
     ButtonMixinAPI,
-    ButtonMixinProps,
-    ClosedTagProps,
-    PressableAPI,
-    PressableProps,
+    ButtonAPI as HeadlessButtonAPI,
+    ButtonProps as HeadlessButtonProps,
 } from '@noodlestan/headless-ui';
 
-export type ButtonProps = Omit<ClosedTagProps, 'component'> &
-    ButtonMixinProps &
-    PressableProps & {
-        variant?: ButtonVariant;
-        size?: ButtonSize;
-    };
+import type { ContentSize } from '../../../types';
+
+//
+export type ButtonProps = HeadlessButtonProps & {
+    variant?: ButtonVariant;
+    size?: ContentSize;
+};
 
 export type ButtonVariant = 'primary' | 'secondary' | 'plain' | 'danger' | 'transparent';
-export type ButtonSize = 'xs' | 's' | 'm' | 'l';
 
 export type ButtonAPI = {
-    elProps: Omit<ClosedTagProps, 'component'> &
-        PressableAPI['elProps'] &
-        ButtonMixinAPI['elProps'];
+    $root: ButtonMixinAPI['$root'] &
+        HeadlessButtonAPI['$root'] & {
+            classList: ClassList;
+        };
 };

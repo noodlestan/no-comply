@@ -52,7 +52,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
 
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
-        if (ev.code === 'Space' || ev.code === 'Enter') {
+        if (ev.key === ' ' || ev.key === 'Enter') {
             ev.preventDefault();
             handleChange();
         }

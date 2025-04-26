@@ -2,14 +2,14 @@ import type { DividerTagName } from '@noodlestan/context-ui-aria';
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 export type DividerMixinProps = {
-    component?: DividerTagName;
+    tag?: DividerTagName;
     orientation?: DividerMixinOrientation;
 };
 
 export type DividerMixinOrientation = 'horizontal' | 'vertical';
 
 export type DividerMixinAPI = {
-    elProps: {
+    $root: {
         component: DividerTagName;
         'data-divider': DividerMixinOrientation;
         classList: ClassList;

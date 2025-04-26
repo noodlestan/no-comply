@@ -1,23 +1,27 @@
-import type { Component } from 'solid-js';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type Component, splitProps } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
 
+import type { ClosedTagProps } from '../../../../tag';
 import { TreeListContextProvider } from '../../providers';
 
-import { createTreeList } from './createTreeList';
-import { TreeListItem } from './parts';
+import { TREE_LIST_BASE_PROPS } from './constants';
+import { createTreeListBase } from './createTreeListBase';
 import type { TreeListBaseProps } from './types';
 
-export const TreeListBase: Component<TreeListBaseProps> = props => {
-    const classList = () => ({
-        ...props.classList,
-        TreeList: true,
-    });
+type Props = ClosedTagProps & TreeListBaseProps;
 
-    const treeList = createTreeList(props);
+export const TreeListBase: Component<Props> = props => {
+    const [locals, $others] = splitProps(props, TREE_LIST_BASE_PROPS);
+
+    const tree = createTreeListBase(locals);
+    const { $root, itemProps, contextValue } = tree;
+    const $ = mergeProps($others, $root);
 
     return (
-        <TreeListContextProvider context={props.tree}>
-            <div classList={classList()} {...treeList.containerProps}>
-                <TreeListItem node={props.tree.root()} expand={treeList.expand()} />
+        <TreeListContextProvider context={contextValue}>
+            <div {...$}>
+                <Dynamic {...itemProps} />
             </div>
         </TreeListContextProvider>
     );

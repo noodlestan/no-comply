@@ -1,46 +1,19 @@
-import { useNavigation } from '@noodlestan/context-ui';
-import { type PickRequired, createClassList } from '@noodlestan/context-ui-primitives';
+import { mergeProps } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
 import { type ParentComponent, splitProps } from 'solid-js';
 
-import { Link, type LinkProps } from '../Link';
+import { NAV_LINK_PROPS } from './constants';
+import { createNavLink } from './createNavLink';
+import type { NavLinkProps } from './types';
 
-import styles from './NavLink.module.css';
+type Props = ClosedTagProps & NavLinkProps;
 
-export type NavLinkSize = 's' | 'm' | 'l';
+export const NavLink: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, NAV_LINK_PROPS);
 
-export type NavLinkProps = LinkProps & {
-    exact?: boolean;
-    size?: NavLinkSize;
-    active?: boolean;
-    onClick?: () => void;
-};
+    const { $root } = createNavLink(locals);
+    const $ = mergeProps($others, $root);
 
-const defaultProps: PickRequired<NavLinkProps, 'exact' | 'size'> = {
-    exact: false,
-    size: 's',
-};
-
-export const NavLink: ParentComponent<NavLinkProps> = props => {
-    const [locals, linkProps] = splitProps(props, ['exact', 'active', 'classList']);
-
-    const { isCurrent } = useNavigation();
-
-    const size = () => props.size ?? defaultProps.size;
-    const isActive = () => isCurrent(props.href, props.exact);
-
-    const classList = createClassList(
-        styles,
-        () => ({
-            NavLink: true,
-            [`NavLink-size-${size()}`]: true,
-            'NavLink-is-active': isActive() || !!locals.active,
-        }),
-        () => locals.classList,
-    );
-
-    return (
-        <Link classList={classList()} {...linkProps}>
-            {props.children}
-        </Link>
-    );
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    return <a {...$} />;
 };

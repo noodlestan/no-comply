@@ -4,12 +4,12 @@ import styles from './SurfaceMixin.module.css';
 import type { SurfaceMixinAPI } from './types';
 
 export const createSurfaceMixin = (): SurfaceMixinAPI => {
-    const surfaceStaticProps = {
+    const $static = {
         classList: staticClassList(styles, 'Surface'),
     };
-    const elProps = createComputedProps(surfaceStaticProps, {});
+    const $localRoot = createComputedProps($static, {});
 
     return {
-        elProps,
+        $root: $localRoot,
     };
 };

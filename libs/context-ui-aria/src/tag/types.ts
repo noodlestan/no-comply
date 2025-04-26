@@ -10,6 +10,10 @@ export type SelectTagName = 'select' | 'input' | 'div';
 
 export type BlockTagName = 'div' | 'ol' | 'ul' | 'li';
 
+export type ListTagName = 'ol' | 'ul' | 'div';
+
+export type ListItemTagName = 'li' | 'div';
+
 export type RegionTagName =
     | 'div'
     | 'main'

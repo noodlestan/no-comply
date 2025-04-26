@@ -4,27 +4,24 @@ import {
     createComputedProps,
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
-import { createIconMixin } from '@noodlestan/headless-ui';
-import { splitProps } from 'solid-js';
+import { createIcon as createHeadlessIcon, createIconMixin } from '@noodlestan/headless-ui';
 
 import styles from './Icon.module.css';
 import type { IconAPI, IconProps } from './types';
 
 const defaultProps: PickRequired<IconProps, 'size'> = {
-    size: 's',
+    size: 'normal',
 };
 
 export const createIcon = (props: IconProps): IconAPI => {
-    const [locals, others] = splitProps(props, ['size']);
+    const { $root: $iconRoot } = createHeadlessIcon(props);
+    const { $root: $iconMixinRoot } = createIconMixin();
 
-    const size = () => locals.size ?? defaultProps.size;
-
+    const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => [`Icon-size-${size()}`]);
+    const $localRoot = createComputedProps({ classList });
 
-    const iconProps = createComputedProps({ classList });
-
-    const { elProps: iconMixinElProps } = createIconMixin(others);
     return {
-        elProps: mergeProps(others, iconMixinElProps, iconProps),
+        $root: mergeProps($iconRoot, $iconMixinRoot, $localRoot),
     };
 };

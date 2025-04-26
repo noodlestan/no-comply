@@ -1,23 +1,22 @@
 import type { SwitchTagName } from '../../tag';
 import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
-import type { AriaRegionElementProps } from '../region';
+import type { AriaRegionAPI } from '../region';
 
 export type AriaSwitchProps = AriaLabelledProps & {
-    component: SwitchTagName;
+    tag: SwitchTagName;
     checked: boolean;
     disabled: boolean;
 };
 
 export interface AriaSwitchAPI {
-    elProps: AriaRegionElementProps & {
-        role: 'switch';
+    $root: AriaRegionAPI<'switch'>['$root'] & {
         type: 'button' | 'checkbox' | undefined;
         component: SwitchTagName;
         'aria-checked': AriaAttributes['aria-checked'];
         'aria-disabled': AriaAttributes['aria-disabled'];
         'data-disabled': '' | undefined;
     };
-    labelProps: AriaLabelledAPI['labelProps'];
-    descriptionProps: AriaLabelledAPI['descriptionProps'];
+    $label: AriaLabelledAPI['$label'];
+    $description: AriaLabelledAPI['$description'];
 }
