@@ -1,5 +1,14 @@
+@layer reset, headless-ui, standard-ui, standard-ui-theme;
+
+@layer headless-ui {
+    @layer mixins;
+}
+
+@layer standard-ui {
+}
+
 @layer standard-ui-theme {
-    @layer reset, foundations, surfaces, patterns;
+    @layer foundations, surfaces, patterns;
     @layer mode {
         @layer foundations, surfaces, patterns;
     }

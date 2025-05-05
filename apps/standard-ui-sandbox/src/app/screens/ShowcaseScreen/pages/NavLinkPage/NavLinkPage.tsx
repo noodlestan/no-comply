@@ -64,7 +64,11 @@ export const NavLinkPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <NavLink href="#" current={false} classList={{ override: true }}>
+                    <NavLink
+                        href="#"
+                        current={false}
+                        classList={staticClassList(styles, 'override')}
+                    >
                         Foobar
                     </NavLink>
                 </DemoItem>

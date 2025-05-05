@@ -1,8 +1,9 @@
-import { type ClassList, createClassList } from '@noodlestan/context-ui-primitives';
-import { Display, Flex, Surface } from '@noodlestan/standard-ui';
+import { type ClassList } from '@noodlestan/context-ui-primitives';
+import { Display, Flex } from '@noodlestan/standard-ui';
 import type { ParentComponent } from 'solid-js';
 
-import styles from './DemoPage.module.css';
+import { PageContentsLayout } from '../../layouts';
+import { $ID_SCREEN_TITLE } from '../../templates';
 
 type DemoPageProps = {
     title: string;
@@ -10,16 +11,12 @@ type DemoPageProps = {
 };
 
 export const DemoPage: ParentComponent<DemoPageProps> = props => {
-    const classList = createClassList(styles, 'DemoPage', () => props.classList);
-
     return (
-        <Surface tag="main" variant="page" aria-labelledby="demo-page" classList={classList()}>
-            <Flex padding="l" gap="m">
-                <Display id="demo-page" level={1}>
-                    {props.title}
-                </Display>
-                <Flex gap="xl">{props.children}</Flex>
-            </Flex>
-        </Surface>
+        <PageContentsLayout classList={props.classList}>
+            <Display id={$ID_SCREEN_TITLE} level={2}>
+                {props.title}
+            </Display>
+            <Flex gap="xl">{props.children}</Flex>
+        </PageContentsLayout>
     );
 };

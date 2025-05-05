@@ -50,7 +50,7 @@ export const LinkPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Link href="#" classList={{ override: true }}>
+                    <Link href="#" classList={staticClassList(styles, 'override')}>
                         Foobar
                     </Link>
                 </DemoItem>

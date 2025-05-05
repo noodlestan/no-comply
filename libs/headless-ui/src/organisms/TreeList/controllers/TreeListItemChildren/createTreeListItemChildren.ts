@@ -21,6 +21,7 @@ export const createTreeListItemChildren = (
     const { $root: $groupRoot } = createAriaGroup(ariaTreeGroupProps);
 
     const $localRoot = createComputedProps({
+        id: () => `tree-list-node-${props.node.id}`,
         style: () => ({ '--tree-list-indent-level': props.level + 1 }),
     });
 

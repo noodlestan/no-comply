@@ -5,4 +5,5 @@ export type SystemColorSchemeName = 'dark' | 'light' | 'auto';
 export type SystemContextServiceAPI = {
     colorScheme: Accessor<SystemColorSchemeName>;
     locale: Accessor<string>;
+    hasFocus: Accessor<boolean>;
 };

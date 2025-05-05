@@ -1,0 +1,13 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .LayoutPage .override {
+            color: red !important;
+        }
+
+        .LayoutPage--StretchDemo {
+            width: 350px;
+            height: 350px;
+            border: 1px solid purple;
+        }
+    }
+}

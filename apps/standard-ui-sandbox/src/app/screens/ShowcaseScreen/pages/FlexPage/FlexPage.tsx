@@ -70,7 +70,7 @@ export const FlexPage: Component = () => {
                     </Flex>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="justify" classList={{ 'FlexPage--JustifyDemo': true }}>
+            <DemoGroup title="justify" classList={staticClassList(styles, 'FlexPage--JustifyDemo')}>
                 <DemoItem title="start">
                     <Flex justify="start" stretch="width">
                         <ExampleTiny />
@@ -148,7 +148,7 @@ export const FlexPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Flex classList={{ override: true }}>Foobar</Flex>
+                    <Flex classList={staticClassList(styles, 'override')}>Foobar</Flex>
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

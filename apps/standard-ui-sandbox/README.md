@@ -1,6 +1,6 @@
-# Context UI Sandbox
+# Standard UI Sandbox
 
-> Sandbox application to develop, showcase, and document Context UI features.
+> Sandbox application to develop, showcase, and document Standard UI features.
 
 ## Development
 

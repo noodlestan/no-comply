@@ -1,0 +1,8 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        .HomeButton {
+            margin: 0;
+            line-height: 0;
+        }
+    }
+}

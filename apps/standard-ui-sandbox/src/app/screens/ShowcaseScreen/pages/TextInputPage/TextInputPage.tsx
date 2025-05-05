@@ -142,7 +142,7 @@ export const TextInputPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <TextInput value="Foobar" classList={{ override: true }} />
+                    <TextInput value="Foobar" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

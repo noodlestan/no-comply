@@ -78,7 +78,7 @@ export const IconButtonPage: Component = () => {
                         variant="secondary"
                         icon={PlusIcon}
                         label="Add"
-                        classList={{ override: true }}
+                        classList={staticClassList(styles, 'override')}
                     />
                 </DemoItem>
             </DemoGroup>

@@ -1,8 +1,6 @@
-import { FocusContextProvider } from '@noodlestan/context-ui';
-import { DebugDrawer } from '@noodlestan/context-ui-dev';
+import { useSystemContext } from '@noodlestan/context-ui';
 import { createClassList } from '@noodlestan/context-ui-primitives';
-import { createFocusable } from '@noodlestan/headless-ui';
-import { Button, Flex } from '@noodlestan/standard-ui';
+import { Flex } from '@noodlestan/standard-ui';
 import { Router } from '@solidjs/router';
 import { type Component, type ParentComponent, Show } from 'solid-js';
 
@@ -16,32 +14,22 @@ import { AppSplash } from './splash';
 
 const Main: ParentComponent = props => {
     const { status } = useAppServices();
+    const { hasFocus } = useSystemContext();
 
-    const focusable = createFocusable();
-    const { $root: $focusRoot, $target: $focusTarget, context, contextValue } = focusable;
-
-    const classList = createClassList(styles, () => ({
-        AppMain: true,
-        'has-focus': context.hasFocusWithin(),
-    }));
+    const classList = createClassList(styles, () => {
+        return {
+            AppMain: true,
+            'has-focus': hasFocus(),
+        };
+    });
 
     return (
-        <FocusContextProvider context={contextValue}>
-            <Flex
-                stretch="full"
-                {...$focusRoot}
-                classList={classList()}
-                aria-busy={!status.isReady()}
-            >
-                <Show when={!status.isReady()}>
-                    <AppSplash />
-                </Show>
-                <Show when={status.isReady()}>
-                    <Button variant="transparent" {...$focusTarget} />
-                    {props.children}
-                </Show>
-            </Flex>
-        </FocusContextProvider>
+        <Flex stretch="full" classList={classList()} aria-busy={!status.isReady()}>
+            <Show when={!status.isReady()}>
+                <AppSplash />
+            </Show>
+            <Show when={status.isReady()}>{props.children}</Show>
+        </Flex>
     );
 };
 
@@ -50,8 +38,9 @@ const Root: ParentComponent = props => {
         <ErrorBoundaryScreen>
             <AppServicesProvider>
                 <UIRootProvider defaultCtxId={APP.id}>
+                    {/* {props.children} */}
                     <Main>{props.children}</Main>
-                    <DebugDrawer />
+                    {/* <DebugDrawer /> */}
                 </UIRootProvider>
             </AppServicesProvider>
         </ErrorBoundaryScreen>

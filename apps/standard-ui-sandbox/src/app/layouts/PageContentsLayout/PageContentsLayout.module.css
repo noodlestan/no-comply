@@ -1,14 +1,11 @@
 @layer standard-ui-sandbox {
     @layer components {
         .PageContentsLayout {
-            display: flex;
             height: 100%;
             overflow-y: auto;
-            justify-items: stretch;
-        }
-
-        .PageContentsLayout > .Flex {
-            flex: 1;
+            padding-inline: 1rem;
+            padding-block-start: 1rem;
+            padding-block-end: 6rem;
         }
     }
 }

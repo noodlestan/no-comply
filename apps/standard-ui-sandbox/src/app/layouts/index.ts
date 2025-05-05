@@ -1,3 +1,3 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
 export * from './PageContentsLayout';
-export * from './PageLayout';
+export * from './WithSidebarLayout';

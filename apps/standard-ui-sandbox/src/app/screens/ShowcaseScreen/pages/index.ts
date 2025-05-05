@@ -1,6 +1,6 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './CalloutPage';
 export * from './ButtonPage';
+export * from './CalloutPage';
 export * from './CheckboxPage';
 export * from './DataItemPage';
 export * from './DataValuePage';
@@ -10,6 +10,7 @@ export * from './FlexPage';
 export * from './IconButtonPage';
 export * from './IconPage';
 export * from './LabelPage';
+export * from './LayoutPage';
 export * from './LinkPage';
 export * from './NavLinkPage';
 export * from './NumberInputPage';

@@ -10,6 +10,7 @@ export type ExtendedPressableProps = PressableProps &
 
 export type ExtendedPressableAPI = {
     $root: PressableAPI['$root'] & {
+        onKeyDown: (ev: KeyboardEvent) => void;
         onKeyUp: (ev: KeyboardEvent) => void;
         onBlur: (ev: FocusEvent) => void;
         onPointerDown: (ev: PointerEvent) => void;

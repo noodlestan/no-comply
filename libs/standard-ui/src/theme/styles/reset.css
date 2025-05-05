@@ -1,25 +1,64 @@
-@layer standard-ui-theme {
-    @layer reset {
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
-        :root {
-            view-transition-name: none;
-        }
-
-        ::view-transition {
-            pointer-events: none;
-        }
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
     }
 
-    body {
+    :root {
+        view-transition-name: none;
+    }
+
+    ::view-transition {
+        pointer-events: none;
+    }
+
+    [data-ctx-theme-standard] body {
         font-family: var(--typography-base-font-family);
         font-size: var(--typography-base-size);
         font-weight: var(--typography-base-weight);
         line-height: var(--typography-base-height);
         letter-spacing: var(--typography-base-spacing);
+    }
+
+    [data-ctx-theme-standard] * {
+        scrollbar-width: thin;
+        scrollbar-color: hsla(
+                var(--surface-scrollbar-rest-handle-color),
+                var(--o-scrollbar-rest-handle)
+            )
+            hsla(var(--surface-scrollbar-rest-track-color), var(--o-scrollbar-rest-track));
+    }
+
+    [data-ctx-theme-standard] *:hover {
+        scrollbar-width: thin;
+        scrollbar-color: hsla(
+                var(--surface-scrollbar-hover-handle-color),
+                var(--o-scrollbar-hover-handle)
+            )
+            hsla(var(--surface-scrollbar-hover-track-color), var(--o-scrollbar-hover-track));
+    }
+
+    [data-ctx-theme-standard] *::-webkit-scrollbar {
+        display: none;
+        display: initial;
+    }
+
+    [data-ctx-theme-standard] *:hover::-webkit-scrollbar {
+        display: initial;
+        width: 8px;
+        height: 8px;
+    }
+
+    [data-ctx-theme-standard] *::-webkit-scrollbar-thumb {
+        background-color: hsla(
+            var(--surface-scrollbar-rest-handle-color),
+            var(--o-scrollbar-rest-handle)
+        );
+        border-radius: 4px;
+    }
+
+    [data-ctx-theme-standard] *::-webkit-scrollbar-track {
+        background: hsla(var(--surface-scrollbar-rest-track-color), var(--o-scrollbar-rest-track));
     }
 }

@@ -15,7 +15,6 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const $localRoot = createComputedProps({
         style,
         component,
-        role: () => props.role || 'region',
         onPointerDown: () => props.onPointerDown,
     });
 

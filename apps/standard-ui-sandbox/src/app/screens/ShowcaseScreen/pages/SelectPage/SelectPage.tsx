@@ -149,7 +149,7 @@ export const SelectPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Select value={value()} classList={{ override: true }}>
+                    <Select value={value()} classList={staticClassList(styles, 'override')}>
                         <Options />
                     </Select>
                 </DemoItem>

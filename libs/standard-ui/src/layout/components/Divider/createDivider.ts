@@ -16,7 +16,7 @@ const defaultProps: PickRequired<DividerProps, 'variant' | 'length'> = {
 
 const makeStyle = (length: DividerLength | number) => {
     if (typeof length === 'number') {
-        return { '--divider-length': `${length}em` };
+        return { '--__divider-length': `${length}em` };
     }
     return {};
 };
@@ -30,7 +30,7 @@ export const createDivider = (props: DividerProps): DividerAPI => {
     const classList = createClassList(styles, () => [
         'Divider',
         `Divider-variant-${variant()}`,
-        `Divider-length-${length()}`,
+        { [`Divider-length-${length()}`]: typeof length() !== 'number' },
     ]);
     const $localRoot = createComputedProps({ classList, style });
 

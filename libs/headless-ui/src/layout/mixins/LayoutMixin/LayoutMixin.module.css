@@ -1,8 +1,11 @@
 @layer headless-ui {
     .Layout {
-        display: block;
         margin: 0;
         padding: 0;
+    }
+
+    :where(.Layout) {
+        display: block;
     }
 
     .Layout-stretch-full,

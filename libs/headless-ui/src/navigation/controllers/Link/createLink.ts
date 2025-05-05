@@ -10,7 +10,6 @@ export const createLink = (props: LinkProps): LinkAPI => {
             ev.preventDefault();
             return;
         }
-        ev.stopImmediatePropagation();
         props.onPress?.(ev);
     };
 
@@ -20,8 +19,6 @@ export const createLink = (props: LinkProps): LinkAPI => {
             return;
         }
         if (ev.key === 'Enter' || ev.key === ' ') {
-            ev.stopImmediatePropagation();
-            ev.preventDefault();
             props.onPress?.(ev);
         }
     };

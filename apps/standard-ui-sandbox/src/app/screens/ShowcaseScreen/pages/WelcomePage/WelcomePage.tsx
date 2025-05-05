@@ -1,14 +1,17 @@
+import { Display } from '@noodlestan/standard-ui';
 import { type Component, onCleanup } from 'solid-js';
 
-import { ExampleLarge } from '../../../../examples';
 import { PageContentsLayout } from '../../../../layouts';
+import { $ID_SCREEN_TITLE } from '../../../../templates';
 
 export const WelcomePage: Component = () => {
     onCleanup(() => {});
 
     return (
-        <PageContentsLayout variant="page">
-            <ExampleLarge />
+        <PageContentsLayout>
+            <Display level={2} id={$ID_SCREEN_TITLE}>
+                Welcome
+            </Display>
         </PageContentsLayout>
     );
 };

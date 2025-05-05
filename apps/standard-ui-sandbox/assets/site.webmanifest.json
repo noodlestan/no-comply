@@ -1,7 +1,7 @@
 {
-  "name": "Context UI Sandbox",
-  "short_name": "Context UI",
-  "description": "Context UI is a component library for SolidJS (made in Noodlestan)",
+  "name": "Standard UI Sandbox",
+  "short_name": "Standard UI",
+  "description": "Standard UI is a component library for SolidJS (made in Noodlestan)",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#c5c8c4",

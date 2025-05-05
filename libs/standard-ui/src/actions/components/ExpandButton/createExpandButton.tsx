@@ -1,5 +1,5 @@
 import { createIconValue } from '@noodlestan/context-ui';
-import { createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createComputedProps, mergeProps, pickProps } from '@noodlestan/context-ui-primitives';
 import {
     type ExpandButtonIcons,
     type ExpandButtonLabels,
@@ -20,14 +20,17 @@ const ICONS: ExpandButtonIcons = {
 };
 
 export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI => {
+    const iconButtonProps = pickProps(props, ['variant', 'size', 'onPress']);
     const expandButtonProps = createComputedProps({
+        controls: () => props.controls,
         expanded: () => props.expanded,
         labels: () => Object.assign({}, LABELS, props.labels),
         icons: () => Object.assign({}, ICONS, props.icons),
     });
-    const { iconButtonProps } = createHeadlesExpandButton(expandButtonProps);
+    const { iconButtonProps: expandButtonIconButtonProps } =
+        createHeadlesExpandButton(expandButtonProps);
 
     return {
-        iconButtonProps,
+        iconButtonProps: mergeProps(iconButtonProps, expandButtonIconButtonProps),
     };
 };

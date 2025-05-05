@@ -7,10 +7,13 @@ export const createIconButton = (props: IconButtonProps): IconButtonAPI => {
         'data-icon-button': '' as const,
     };
     const $localRoot = createComputedProps($static, {
-        label: () => props.label,
+        'aria-label': () => props.label,
     });
 
-    const iconProps = createComputedProps({
+    const staticIconProps = {
+        'aria-hidden': true,
+    };
+    const iconProps = createComputedProps(staticIconProps, {
         icon: () => props.icon,
     });
 

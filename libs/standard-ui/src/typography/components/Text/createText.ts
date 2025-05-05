@@ -19,7 +19,7 @@ export const createText = (props: TextProps): TextAPI => {
 
     const component = () => props.tag ?? defaultProps.tag;
     const variant = () => props.variant ?? defaultProps.variant;
-    const classList = createClassList(styles, () => ['text', `Text-variant-${variant()}`]);
+    const classList = createClassList(styles, () => ['Text', `Text-variant-${variant()}`]);
     const $localRoot = createComputedProps({
         classList,
         component,

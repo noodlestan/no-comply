@@ -21,6 +21,7 @@ export const createButton = (props: ButtonProps): ButtonAPI => {
     const variant = () => props.variant ?? defaultProps.variant;
     const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => [
+        `Button`,
         `Button-variant-${variant()}`,
         `Button-size-${size()}`,
     ]);

@@ -21,6 +21,7 @@ export type FocusableAPI = {
         'data-focusable': string;
         'data-disabled': string | undefined;
         'data-focusable-has-focus': string;
+        'data-focusable-has-focus-within': string;
     };
     $target: {
         ref: (el: HTMLElement) => void;

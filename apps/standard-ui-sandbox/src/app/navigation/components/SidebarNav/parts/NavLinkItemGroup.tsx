@@ -9,7 +9,7 @@ type NavLinkItemGroupProps = NavLinkGroup;
 export const NavLinkItemGroup: Component<NavLinkItemGroupProps> = props => {
     return (
         <Flex direction="column" gap="s">
-            <Display level={3} variant="xs">
+            <Display level={3} variant="s">
                 {props.title}
             </Display>
 

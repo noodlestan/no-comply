@@ -13,9 +13,11 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     const setFocus = () => context.setFocus();
 
     const onPointerDown = (ev: MouseEvent) => {
-        ev.preventDefault();
         ev.stopImmediatePropagation();
-        context.setFocus();
+        if (!context.hasFocusWithin()) {
+            ev.preventDefault();
+            context.setFocus();
+        }
     };
 
     const onFocusIn = () => context.setHasFocusWithin(true);
@@ -36,12 +38,11 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     };
 
     const component = () => props.tag ?? 'div';
-    const tabIndex = () => (props.disabled ? undefined : 0);
     const $localRoot = createComputedProps($static, {
         component,
-        tabIndex,
         'data-disabled': () => (props.disabled ? '' : undefined),
         'data-focusable-has-focus': () => String(context.hasFocus()),
+        'data-focusable-has-focus-within': () => String(context.hasFocusWithin()),
     });
 
     const onFocus = () => context.setHasFocus(true);

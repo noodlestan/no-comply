@@ -100,3 +100,6 @@ animationend
 describedby
 animationcancel
 rel
+visibilitychange
+pointerdown
+focusin

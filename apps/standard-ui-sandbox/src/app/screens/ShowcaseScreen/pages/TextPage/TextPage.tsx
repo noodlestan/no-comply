@@ -53,7 +53,7 @@ export const TextPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Text classList={{ override: true }}>Lorem ipsum</Text>
+                    <Text classList={staticClassList(styles, 'override')}>Lorem ipsum</Text>
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

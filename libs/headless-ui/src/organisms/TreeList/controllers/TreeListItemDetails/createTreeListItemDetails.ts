@@ -99,6 +99,7 @@ export const createTreeListItemDetails = (
         onPress: handleExpandPress,
     };
     const expandButtonProps = createComputedProps(expandButtonStaticProps, {
+        controls: () => `tree-list-node-${props.node.id}`,
         component: () => components().expandButton,
         expanded: isItemExpanded,
         labels: () => ({

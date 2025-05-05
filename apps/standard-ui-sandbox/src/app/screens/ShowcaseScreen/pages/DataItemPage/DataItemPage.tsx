@@ -69,7 +69,7 @@ export const DataItemPage: Component = () => {
                 <DemoItem note="Should override text color">
                     <DataItem
                         label="Lorem ipsum"
-                        classList={{ override: true }}
+                        classList={staticClassList(styles, 'override')}
                         value={DATA_VALUE}
                     />
                 </DemoItem>

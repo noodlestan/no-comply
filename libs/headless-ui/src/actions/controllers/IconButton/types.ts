@@ -1,4 +1,5 @@
 import type { IconComponent } from '@noodlestan/context-ui';
+import type { AriaAttributes } from '@noodlestan/context-ui-aria';
 
 import type { IconProps } from '../../../icon';
 
@@ -9,8 +10,10 @@ export type IconButtonProps = {
 
 export type IconButtonAPI = {
     $root: {
-        label: string;
+        'aria-label': AriaAttributes['aria-label'];
         'data-icon-button': '';
     };
-    iconProps: Pick<IconProps, 'icon'>;
+    iconProps: Pick<IconProps, 'icon'> & {
+        'aria-hidden': AriaAttributes['aria-hidden'];
+    };
 };

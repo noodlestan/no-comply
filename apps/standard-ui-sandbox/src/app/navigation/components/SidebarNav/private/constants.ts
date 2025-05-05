@@ -1,6 +1,6 @@
-import type { NavLinkGroup } from './types';
+import type { NavLinkGroup } from '../types';
 
-export const navList: NavLinkGroup[] = [
+export const NAV_LINK_GROUPS: NavLinkGroup[] = [
     {
         title: 'Actions',
         items: [

@@ -1,6 +1,7 @@
 import { SystemContextProvider } from '@noodlestan/context-ui';
 import { render } from 'solid-js/web';
 
+import './styles/layers.css';
 import './styles/reset.css';
 
 import { App } from './app';

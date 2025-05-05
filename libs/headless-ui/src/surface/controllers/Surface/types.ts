@@ -1,9 +1,7 @@
 import type { SurfaceContext, SurfaceContextValue } from '@noodlestan/context-ui';
 import type {
-    AriaLabelledAPI,
-    AriaRegionAPI,
+    AriaGenericRegionAPI,
     AriaRegionProps,
-    AriaRoleName,
     SurfaceTagName,
 } from '@noodlestan/context-ui-aria';
 import type { RawDataAttributes, Styles } from '@noodlestan/context-ui-primitives';
@@ -21,15 +19,14 @@ export type SurfaceProps = AriaRegionProps & {
 };
 
 export type SurfaceAPI = {
-    $root: AriaRegionAPI['$root'] &
+    $root: AriaGenericRegionAPI['$root'] &
         SurfaceDataProps & {
             component: SurfaceTagName;
             onPointerDown?: JSX.EventHandler<HTMLElement, MouseEvent>;
             style: Styles;
-            role: AriaRoleName;
         };
-    $label: AriaLabelledAPI['$label'];
-    $description: AriaLabelledAPI['$description'];
+    $label: AriaGenericRegionAPI['$label'];
+    $description: AriaGenericRegionAPI['$description'];
     context: SurfaceContext;
     contextValue: SurfaceContextValue;
 };

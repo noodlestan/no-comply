@@ -22,7 +22,7 @@ export function createAriaRegion(
                 throw new Error(`AriaRegionAPI: regions with a role requires a label`);
             }
         }
-        return staticRole ?? props?.role ?? 'region';
+        return staticRole ?? props?.role;
     };
     const $localRoot = createComputedProps({
         role,

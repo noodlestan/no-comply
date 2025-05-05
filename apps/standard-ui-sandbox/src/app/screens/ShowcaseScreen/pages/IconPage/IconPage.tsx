@@ -40,7 +40,7 @@ export const IconPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override icon color">
-                    <Icon icon={ClockIcon} classList={{ override: true }} />
+                    <Icon icon={ClockIcon} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

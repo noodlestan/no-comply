@@ -36,79 +36,83 @@ export type ComponentMetadata = {
 export const COMPONENTS: ComponentMetadata[] = [
     {
         name: 'Button',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Callout',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Checkbox',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'DataItem',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'DataValue',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Display',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Divider',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Flex',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Icon',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'IconButton',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
+    },
+    {
+        name: 'Layout',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Label',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Link',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'NavLink',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'NumberInput',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'RangeInput',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Select',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Surface',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'TextInput',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
     {
         name: 'Text',
-        package: '@noodlestan/context-ui',
+        package: '@noodlestan/standard-ui',
     },
 ];
 

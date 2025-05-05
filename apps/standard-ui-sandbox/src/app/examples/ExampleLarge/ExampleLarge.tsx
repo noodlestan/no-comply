@@ -133,14 +133,10 @@ export const ExampleLargeFooter: Component<ExampleLargeProps> = props => {
 
 export const ExampleLarge: Component<ExampleLargeProps> = props => {
     return (
-        <Flex
-            direction="column"
-            padding={props.nopadding ? 'none' : 'xl'}
-            classList={{ ExampleLarge: true }}
-        >
-            <ExampleLargeHeader {...props} />
-            <ExampleLargeBody {...props} />
-            <ExampleLargeFooter {...props} />
+        <Flex direction="column" padding={props.nopadding ? 'none' : 'xl'}>
+            <ExampleLargeHeader title={props.title} />
+            <ExampleLargeBody />
+            <ExampleLargeFooter />
         </Flex>
     );
 };

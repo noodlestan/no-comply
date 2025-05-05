@@ -1,33 +1,27 @@
-@layer standard-ui-sandbox {
-    @layer reset {
-        html {
-            -webkit-font-smoothing: subpixel-antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            -webkit-text-size-adjust: 100%;
-            text-rendering: optimizeLegibility;
-            font-smooth: always;
-        }
+@layer reset {
+    html {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+        text-rendering: optimizeLegibility;
+        font-smooth: always;
+    }
 
-        body {
-            display: flex;
-            align-items: flex-start;
-            overflow: hidden;
-            min-width: 320px;
-            margin: 0;
-        }
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
 
-        html,
-        body,
-        #root {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+    #root {
+        display: contents;
+    }
 
-        ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
     }
 }

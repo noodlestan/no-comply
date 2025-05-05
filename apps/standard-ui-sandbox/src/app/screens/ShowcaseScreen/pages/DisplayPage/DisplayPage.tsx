@@ -63,7 +63,7 @@ export const DisplayPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="nowrap">
-                <DemoItem title="true" maxWidth={'500px'}>
+                <DemoItem title="true" width={'250px'}>
                     <Display level={1} variant="l" nowrap>
                         Nam scelerisque, lectus sed pulvinar aliquet turpis quis nulla dapibus
                         vulputate in a justo duis fermentum faucibus est non semper nisl
@@ -79,7 +79,7 @@ export const DisplayPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Display classList={{ override: true }}>Lorem ipsum</Display>
+                    <Display classList={staticClassList(styles, 'override')}>Lorem ipsum</Display>
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

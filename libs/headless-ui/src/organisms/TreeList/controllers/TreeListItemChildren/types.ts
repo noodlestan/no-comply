@@ -16,6 +16,7 @@ type TreeListItemComputedProps = Omit<TreeListItemProps, 'node' | 'posInSet'>;
 
 export type TreeListItemChildrenAPI = {
     $root: AriaGroupAPI['$root'] & {
+        id: string;
         style: Styles;
     };
     itemProps: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;

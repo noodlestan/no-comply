@@ -13,6 +13,7 @@ import {
     IconButtonPage,
     IconPage,
     LabelPage,
+    LayoutPage,
     LinkPage,
     NavLinkPage,
     NumberInputPage,
@@ -41,6 +42,7 @@ export const Routes: Component = () => {
                 <Route path="/component/IconButton" component={IconButtonPage} />
                 <Route path="/component/Icon" component={IconPage} />
                 <Route path="/component/Label" component={LabelPage} />
+                <Route path="/component/Layout" component={LayoutPage} />
                 <Route path="/component/Link" component={LinkPage} />
                 <Route path="/component/NavLink" component={NavLinkPage} />
                 <Route path="/component/NumberInput" component={NumberInputPage} />

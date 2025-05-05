@@ -10,11 +10,11 @@ const defineClassList = (target: Props, sources: AccessorOrValue<Props>[]) => {
         return;
     }
 
-    const classLists: (() => ClassList)[] = [];
-
     Object.defineProperty(target, 'classList', {
         enumerable: true,
         get: () => {
+            const classLists: (() => ClassList)[] = [];
+
             for (let i = 0; i < sources.length; i++) {
                 const source = sources[i];
                 const props = typeof source === 'function' ? source() : source;
@@ -63,16 +63,16 @@ const defineStyles = (target: Props, sources: AccessorOrValue<Props>[]) => {
     });
 };
 
-const defineEventHandler = (target: Props, key: string, sources: AccessorOrValue<Props>[]) => {
+const defineHandler = (target: Props, key: string, sources: AccessorOrValue<Props>[]) => {
     if (key in target) {
         return;
     }
 
-    const handlers: ((ev: unknown) => void)[] = [];
-
     Object.defineProperty(target, key, {
         enumerable: true,
         get: () => {
+            const handlers: ((arg: unknown) => void)[] = [];
+
             for (let i = 0; i < sources.length; i++) {
                 const source = sources[i];
                 const props = typeof source === 'function' ? source() : source;
@@ -87,7 +87,7 @@ const defineEventHandler = (target: Props, key: string, sources: AccessorOrValue
                 }
 
                 if (typeof handler === 'function') {
-                    handlers.push(handler as (ev: unknown) => void);
+                    handlers.push(handler as (arg: unknown) => void);
                 }
             }
 
@@ -99,9 +99,9 @@ const defineEventHandler = (target: Props, key: string, sources: AccessorOrValue
                 return handlers[0];
             }
 
-            return (ev: unknown) => {
+            return (arg: unknown) => {
                 for (let i = 0; i < handlers.length; i++) {
-                    handlers[i]?.(ev);
+                    handlers[i]?.(arg);
                 }
             };
         },
@@ -163,8 +163,8 @@ export function mergeProps(...sources: AccessorOrValue<Props>[]): Props {
                 defineClassList(target, sources);
             } else if (key === 'style') {
                 defineStyles(target, sources);
-            } else if (key.startsWith('on')) {
-                defineEventHandler(target, key, sources);
+            } else if (key === 'ref' || key.startsWith('on')) {
+                defineHandler(target, key, sources);
             } else {
                 defineProp(target, key, sources);
             }

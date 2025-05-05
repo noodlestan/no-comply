@@ -1,4 +1,4 @@
-@layer headlless-ui {
+@layer headless-ui {
     .Surface {
         position: relative;
     }
@@ -15,7 +15,7 @@
         color: hsla(var(--color-base-fg), var(--o-debug-fg));
         font-family: var(--data-type-family);
         font-size: var(--data-type-size-xs);
-        pointer-events: none;
+        /* pointer-events: none; */
     }
 
     .Surface[data-surface-debug]::before {

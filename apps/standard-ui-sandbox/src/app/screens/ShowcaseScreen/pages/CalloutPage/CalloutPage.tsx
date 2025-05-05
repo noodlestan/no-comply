@@ -53,7 +53,7 @@ export const CalloutPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override border, background, and text color">
-                    <Callout classList={{ override: true }}>Hello</Callout>
+                    <Callout classList={staticClassList(styles, 'override')}>Hello</Callout>
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

@@ -90,7 +90,7 @@ export const ButtonPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem row note="Should override background color">
-                    <Button variant="secondary" classList={{ override: true }}>
+                    <Button variant="secondary" classList={staticClassList(styles, 'override')}>
                         Foobar
                     </Button>
                 </DemoItem>

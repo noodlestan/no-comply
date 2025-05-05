@@ -3,8 +3,7 @@ import { Button, Surface } from '@noodlestan/standard-ui';
 import { type ParentComponent, createSignal } from 'solid-js';
 
 import { QuitAppModalDialog } from '../../dialogs';
-import { PageLayout } from '../../layouts';
-import { MainNav } from '../../navigation';
+import { SidebarNav } from '../../navigation';
 
 import styles from './AppHomeScreen.module.css';
 import { SignupPage } from './pages';
@@ -19,13 +18,11 @@ export const AppHomeScreen: ParentComponent = props => {
     return (
         <>
             <Surface variant="stage" classList={staticClassList(styles, 'AppHomeScreen')}>
-                <PageLayout>
-                    <MainNav />
-                    <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 1</Button>
-                    {props.children}
-                    <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 2</Button>
-                    <SignupPage />
-                </PageLayout>
+                <SidebarNav />
+                <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 1</Button>
+                {props.children}
+                <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 2</Button>
+                <SignupPage />
             </Surface>
             <QuitAppModalDialog
                 show={showQuitAppModalDialog()}

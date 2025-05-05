@@ -62,7 +62,7 @@ export const DataValuePage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <DataValue classList={{ override: true }} value={DATA_VALUE} />
+                    <DataValue classList={staticClassList(styles, 'override')} value={DATA_VALUE} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

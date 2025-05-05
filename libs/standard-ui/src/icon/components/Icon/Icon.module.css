@@ -5,14 +5,14 @@
     }
 
     .Icon-size-normal {
-        --_icon-size: var(--size-xs);
+        --__icon-size: var(--size-xs);
     }
 
     .Icon-size-medium {
-        --_icon-size: var(--size-s);
+        --__icon-size: var(--size-s);
     }
 
     .Icon-size-large {
-        --_icon-size: var(--size-m);
+        --__icon-size: var(--size-m);
     }
 }

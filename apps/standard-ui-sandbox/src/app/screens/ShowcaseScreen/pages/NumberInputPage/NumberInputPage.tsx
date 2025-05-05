@@ -157,7 +157,7 @@ export const NumberInputPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <NumberInput value="123" classList={{ override: true }} />
+                    <NumberInput value="123" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

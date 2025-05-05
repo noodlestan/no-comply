@@ -67,7 +67,7 @@ export const CheckboxPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Checkbox checked={true} classList={{ override: true }} />
+                    <Checkbox checked={true} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

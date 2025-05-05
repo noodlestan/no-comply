@@ -1,17 +1,25 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
-import { Flex, Surface } from '@noodlestan/standard-ui';
-import type { ParentComponent } from 'solid-js';
+import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { Flex } from '@noodlestan/standard-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
 
 import styles from './PageContentsLayout.module.css';
 
-type PageContentsLayoutProps = {
-    variant: 'stage' | 'page';
+type Props = ClosedTagProps & {
+    variant?: 'stage' | 'page';
 };
 
-export const PageContentsLayout: ParentComponent<PageContentsLayoutProps> = props => {
+export const PageContentsLayout: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, ['variant', 'children']);
+
+    const $static = {
+        classList: staticClassList(styles, 'PageContentsLayout'),
+    };
+    const $ = mergeProps($static, $others);
+
     return (
-        <Surface variant={props.variant} classList={staticClassList(styles, 'PageContentsLayout')}>
-            <Flex direction="column">{props.children}</Flex>
-        </Surface>
+        <Flex direction="column" flex={1} stretch="full" {...$}>
+            {locals.children}
+        </Flex>
     );
 };

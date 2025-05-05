@@ -119,7 +119,7 @@ export const RangeInputPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <RangeInput value="Foobar" classList={{ override: true }} />
+                    <RangeInput value="Foobar" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

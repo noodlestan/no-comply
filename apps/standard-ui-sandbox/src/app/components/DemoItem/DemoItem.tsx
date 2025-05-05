@@ -9,13 +9,13 @@ type DemoItemProps = {
     title?: string;
     note?: string;
     row?: boolean;
-    maxWidth?: string;
+    width?: string;
 };
 
 export const DemoItem: ParentComponent<DemoItemProps> = props => {
     const labelId = () => (props.title ? shortId() : undefined);
 
-    const style = () => (props.maxWidth ? { 'max-width': props.maxWidth } : {});
+    const style = () => (props.width ? { width: props.width } : {});
 
     const surface = () => props.surface ?? 'card';
 

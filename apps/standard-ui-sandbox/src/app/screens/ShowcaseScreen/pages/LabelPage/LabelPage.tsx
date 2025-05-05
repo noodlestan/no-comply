@@ -34,7 +34,7 @@ export const LabelPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
-                    <Label classList={{ override: true }}>Foobar</Label>
+                    <Label classList={staticClassList(styles, 'override')}>Foobar</Label>
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

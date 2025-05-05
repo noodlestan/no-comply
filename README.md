@@ -40,7 +40,7 @@ Libraries:
 
 Apps:
 
-- [Standard UI Sandbox](https://github.com/noodlestan/context-ui/blob/apps/standard-ui-sandbox/README.md) - Sandbox for developing and testing Context UI features.
+- [Standard UI Sandbox](https://github.com/noodlestan/context-ui/blob/apps/standard-ui-sandbox/README.md) - Sandbox for developing and testing Standard UI features.
 
 ### Stack
 

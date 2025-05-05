@@ -1,0 +1,9 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        @media screen and (min-width: 600px) {
+            .MainMenuButton {
+                display: none;
+            }
+        }
+    }
+}

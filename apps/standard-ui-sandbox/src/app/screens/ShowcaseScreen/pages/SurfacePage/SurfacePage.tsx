@@ -25,7 +25,7 @@ export const SurfacePage: Component = () => {
                 </Flex>
             </DemoGroup>
             <DemoGroup title="variant">
-                <Flex gap="xl" classList={{ 'SurfacePage--Variants': true }}>
+                <Flex gap="xl" classList={staticClassList(styles, 'SurfacePage--Variants')}>
                     <SurfaceVariantExample variant="page" onVariant="stage">
                         <ExampleLarge title="Foobar" />
                     </SurfaceVariantExample>
@@ -53,7 +53,7 @@ export const SurfacePage: Component = () => {
                 </Surface>
             </DemoGroup>
             <DemoGroup title="classList">
-                <Surface variant="card" classList={{ override: true }}>
+                <Surface variant="card" classList={staticClassList(styles, 'override')}>
                     <ExampleSmall title="Foobar" />
                 </Surface>
                 <Text variant="small">Should override text color</Text>
