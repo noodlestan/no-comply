@@ -1,5 +1,6 @@
-import { createSignal, onCleanup } from 'solid-js';
+import { createEffect, createSignal, onCleanup } from 'solid-js';
 
+import { matchContainerQuery } from './private';
 import type { ContainerQueryAPI, ContainerQueryProps } from './types';
 
 export const createContainerQuery = (props: ContainerQueryProps): ContainerQueryAPI => {
@@ -7,23 +8,13 @@ export const createContainerQuery = (props: ContainerQueryProps): ContainerQuery
     let element: HTMLElement | null = null;
     let observer: ResizeObserver | null = null;
 
-    const parseQuery = (query: string) => {
-        const match = query.match(/min-width:\s*(\d+)px/);
-        if (match && match[1]) {
-            return { type: 'min-width', value: parseInt(match[1], 10) };
-        }
-        throw new Error(`Unsupported query format: ${query}`);
-    };
-
-    const { type, value } = parseQuery(props.query);
-
     const checkMatch = () => {
         if (!element) {
             return;
         }
-        if (type === 'min-width') {
-            setIsMatch(element.offsetWidth >= value);
-        }
+        const queries = Array.isArray(props.query) ? props.query : [props.query];
+        const matches = queries.some(query => matchContainerQuery(query, element as HTMLElement));
+        setIsMatch(matches);
     };
 
     const setElement = (el: HTMLElement) => {
@@ -32,6 +23,12 @@ export const createContainerQuery = (props: ContainerQueryProps): ContainerQuery
         observer.observe(el);
         checkMatch();
     };
+
+    createEffect(() => {
+        if (props.query) {
+            checkMatch();
+        }
+    });
 
     onCleanup(() => {
         observer?.disconnect();

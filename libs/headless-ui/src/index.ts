@@ -9,7 +9,7 @@ export * from './layout';
 export * from './modal';
 export * from './navigation';
 export * from './organisms';
-export * from './responsiveness';
+export * from './responsive';
 export * from './surface';
 export * from './tag';
 export * from './text';

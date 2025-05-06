@@ -1,6 +1,6 @@
 import { createClassList, staticClassList } from '@noodlestan/context-ui-primitives';
 import { createContainerQuery, createDismissible } from '@noodlestan/headless-ui';
-import type { Accessor, JSX, ParentComponent } from 'solid-js';
+import { type Accessor, type JSX, type ParentComponent } from 'solid-js';
 
 import styles from './WithSidebarLayout.module.css';
 
@@ -13,7 +13,9 @@ type Props = {
 };
 
 export const WithSidebarLayout: ParentComponent<Props> = props => {
-    const { $root, isMatch } = createContainerQuery({ query: 'min-width: 600px' });
+    const { $root, isMatch: isDesktop } = createContainerQuery({
+        query: { minWidth: 500 },
+    });
 
     const { $root: $dismissible } = createDismissible({
         onDismiss: () => props.onSideBarDismiss?.(),
@@ -34,7 +36,8 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
                 <div
                     classList={staticClassList(styles, 'WithSidebarLayout--Sidebar')}
                     {...$dismissible}
-                    inert={!isMatch() && !props.sidebarExpanded}
+                    inert={!isDesktop() && !props.sidebarExpanded}
+                    aria-hidden={!isDesktop() && !props.sidebarExpanded}
                 >
                     {props.sidebar}
                 </div>

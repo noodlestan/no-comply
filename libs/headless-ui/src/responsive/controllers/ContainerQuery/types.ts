@@ -1,7 +1,9 @@
 import type { Accessor } from 'solid-js';
 
+import type { MediaQueryCriteria } from '../../types';
+
 export type ContainerQueryProps = {
-    query: string; // e.g., 'min-width: 600px'
+    query: MediaQueryCriteria | MediaQueryCriteria[];
 };
 
 export type ContainerQueryAPI = {
