@@ -2,19 +2,15 @@
     @layer foundations {
         @layer scrollbars {
             [data-ctx-theme-standard] {
-                --o-scrollbar-rest-handle: var(--o-surface-bg-translucid);
-                --o-scrollbar-rest-track: var(--o-surface-bg-ghost);
-                --o-scrollbar-hover-handle: var(--o-surface-bg-opaque);
-                --o-scrollbar-hover-track: var(--o-surface-bg-faded);
+                --scrollbar-handle-rest-color: --f-color(var(--c-name-primary), 700);
+                --scrollbar-track-rest-color: --f-color(var(--c-name-primary), 1000);
+                --scrollbar-handle-hover-color: --f-color(var(--c-name-primary), 600);
+                --scrollbar-track-hover-color: --f-color(var(--c-name-primary), 900);
 
-                --surface-scrollbar-rest-handle-color: var(--surface-bg-hue-sat),
-                    var(--color-bg-light-4);
-                --surface-scrollbar-rest-track-color: var(--surface-bg-hue-sat),
-                    var(--color-bg-light-1);
-                --surface-scrollbar-hover-handle-color: var(--surface-bg-hue-sat),
-                    var(--color-bg-light-5);
-                --surface-scrollbar-hover-track-color: var(--surface-bg-hue-sat),
-                    var(--color-bg-light-1);
+                --scrollbar-handle-rest-opacity: var(--o-opaque);
+                --scrollbar-track-rest-opacity: var(--o-opaque);
+                --scrollbar-handle-hover-opacity: var(--o-opaque);
+                --scrollbar-track-hover-opacity: var(--o-opaque);
             }
         }
     }

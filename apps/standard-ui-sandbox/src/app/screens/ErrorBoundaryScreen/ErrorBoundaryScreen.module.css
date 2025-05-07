@@ -8,7 +8,7 @@
         }
 
         .ErrorScreen--Icon {
-            color: --color-value(var(--error-icon-color-name), var(--color-level-mid));
+            color: --f-color(var(--error-icon-color-name), var(--color-level-mid));
             min-height: var(--scale-l);
             min-width: var(--scale-l);
             transition: color 0.1s ease;

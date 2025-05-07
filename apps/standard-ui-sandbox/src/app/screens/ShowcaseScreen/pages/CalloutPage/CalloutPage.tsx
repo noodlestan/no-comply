@@ -8,10 +8,10 @@ import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../compon
 import styles from './CalloutPage.module.css';
 
 export const CalloutPage: Component = () => {
-    const COMPONENT = findComponent('Banner');
+    const COMPONENT = findComponent('Callout');
 
     return (
-        <DemoPage title="Banner" classList={staticClassList(styles, 'CalloutPage')}>
+        <DemoPage title="Callout" classList={staticClassList(styles, 'CalloutPage')}>
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
                 <DemoItem>

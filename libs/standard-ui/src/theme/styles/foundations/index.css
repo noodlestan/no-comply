@@ -3,8 +3,9 @@
 @import './motion.css';
 @import './opacity.css';
 @import './outline.css';
-/* @import './palettes.css'; */
+@import './palettes.css';
 @import './radius.css';
 @import './scrollbars.css';
+@import './shadow.css';
 @import './space.css';
 @import './typography.css';

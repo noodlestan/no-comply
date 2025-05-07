@@ -2,7 +2,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer color {
-            @function --palette-neutral(--c-level) {
+            @function --f-palette-neutral(--c-level) {
                 result: if(
                     style(--c-level: 100): #fdf4f6; /*                                        */
                         style(--c-level: 150): #f5ecee; /*                                    */
@@ -18,7 +18,7 @@
                 );
             }
 
-            @function --palette-pink(--c-level) {
+            @function --f-palette-pink(--c-level) {
                 result: if(
                     style(--c-level: 100): #fdf4f7; /*                                        */
                         style(--c-level: 150): #f4ecef; /*                                    */
@@ -34,7 +34,7 @@
                 );
             }
 
-            @function --palette-red(--c-level) {
+            @function --f-palette-red(--c-level) {
                 result: if(
                     style(--c-level: 100): #fdf4f5; /*                                        */
                         style(--c-level: 150): #f5ecec; /*                                    */
@@ -50,7 +50,7 @@
                 );
             }
 
-            @function --palette-yellow(--c-level) {
+            @function --f-palette-yellow(--c-level) {
                 result: if(
                     style(--c-level: 100): #fcf5f1; /*                                        */
                         style(--c-level: 150): #f0ecea; /*                                    */
@@ -66,7 +66,7 @@
                 );
             }
 
-            @function --palette-olive(--c-level) {
+            @function --f-palette-olive(--c-level) {
                 result: if(
                     style(--c-level: 100): #f9f7ec; /*                                        */
                         style(--c-level: 150): #efede2; /*                                    */
@@ -82,7 +82,7 @@
                 );
             }
 
-            @function --palette-green(--c-level) {
+            @function --f-palette-green(--c-level) {
                 result: if(
                     style(--c-level: 100): #f3f9ef; /*                                        */
                         style(--c-level: 150): #e9efe5; /*                                    */
@@ -98,7 +98,7 @@
                 );
             }
 
-            @function --palette-ocean(--c-level) {
+            @function --f-palette-ocean(--c-level) {
                 result: if(
                     style(--c-level: 100): #edfaf6; /*                                        */
                         style(--c-level: 150): #e3f0ec; /*                                    */
@@ -114,7 +114,7 @@
                 );
             }
 
-            @function --palette-blue(--c-level) {
+            @function --f-palette-blue(--c-level) {
                 result: if(
                     style(--c-level: 100): #edf9fe; /*                                        */
                         style(--c-level: 150): #e3eff4; /*                                    */
@@ -130,7 +130,7 @@
                 );
             }
 
-            @function --palette-indigo(--c-level) {
+            @function --f-palette-indigo(--c-level) {
                 result: if(
                     style(--c-level: 100): #f5f6fe; /*                                        */
                         style(--c-level: 150): #eceef5; /*                                    */
@@ -146,7 +146,7 @@
                 );
             }
 
-            @function --palette-violet(--c-level) {
+            @function --f-palette-violet(--c-level) {
                 result: if(
                     style(--c-level: 100): #fcf4fd; /*                                        */
                         style(--c-level: 150): #f3ebf5; /*                                    */
@@ -162,24 +162,23 @@
                 );
             }
 
-            @function --color-value(--c-name, --c-level: 500) {
+            @function --f-color(--c-name, --c-level: 500) {
                 result: if(
-                    style(--c-name: neutral): --palette-neutral(var(--c-level)) ; /*            */
-                        style(--c-name: pink): --palette-pink(var(--c-level)) ; /*              */
-                        style(--c-name: red): --palette-red(var(--c-level)) ; /*                */
-                        style(--c-name: yellow): --palette-yellow(var(--c-level)) ; /*          */
-                        style(--c-name: olive): --palette-olive(var(--c-level)) ; /*            */
-                        style(--c-name: green): --palette-green(var(--c-level)) ; /*            */
-                        style(--c-name: ocean): --palette-ocean(var(--c-level)) ; /*            */
-                        style(--c-name: blue): --palette-blue(var(--c-level)) ; /*              */
-                        style(--c-name: indigo): --palette-indigo(var(--c-level)) ; /*          */
-                        style(--c-name: violet): --palette-violet(var(--c-level)) ; /*          */
+                    style(--c-name: neutral): --f-palette-neutral(var(--c-level)) ; /*            */
+                        style(--c-name: pink): --f-palette-pink(var(--c-level)) ; /*              */
+                        style(--c-name: red): --f-palette-red(var(--c-level)) ; /*                */
+                        style(--c-name: yellow): --f-palette-yellow(var(--c-level)) ; /*          */
+                        style(--c-name: olive): --f-palette-olive(var(--c-level)) ; /*            */
+                        style(--c-name: green): --f-palette-green(var(--c-level)) ; /*            */
+                        style(--c-name: ocean): --f-palette-ocean(var(--c-level)) ; /*            */
+                        style(--c-name: blue): --f-palette-blue(var(--c-level)) ; /*              */
+                        style(--c-name: indigo): --f-palette-indigo(var(--c-level)) ; /*          */
+                        style(--c-name: violet): --f-palette-violet(var(--c-level)) ; /*          */
                 );
             }
 
-            @function --fg-color(--c-name, --c-level, --opacity) {
-                --color: --color-value(--c-name, --c-level);
-                result: color(from var(--color) oklch l c h var(--opacity, var(--o-level-fg)));
+            @function --f-alpha(--color, --opacity: 1) {
+                result: oklch(from var(--color) l c h / var(--opacity));
             }
         }
     }

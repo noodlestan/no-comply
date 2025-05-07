@@ -20,8 +20,8 @@ export const Callout: ParentComponent<Props> = props => {
 
     return (
         <Surface variant="message" {...$} labelledby={$label.id}>
-            <Flex align="center" padding="s" gap="m" justify="between">
-                <Flex align="center" padding="s" gap="m">
+            <Flex direction="row" align="center" padding="s" gap="m" justify="between">
+                <Flex direction="row" align="center" padding="s" gap="m">
                     <Icon {...$icon} />
                     <div {...$label}>{locals.children}</div>
                 </Flex>

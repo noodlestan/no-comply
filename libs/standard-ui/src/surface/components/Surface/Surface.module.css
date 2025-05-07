@@ -1,13 +1,13 @@
 @layer standard-ui {
     .Surface {
-        color: hsla(var(--surface-fg), var(--o-surface-fg));
-        background-color: hsla(var(--surface-bg), var(--o-surface-bg));
+        color: --f-alpha(var(--surface-fg-color), var(--surface-fg-opacity));
+        background-color: --f-alpha(var(--surface-bg-color), var(--surface-bg-opacity));
         border-width: var(--surface-border-width);
         border-style: var(--surface-border-style);
-        border-color: hsla(var(--surface-border-color), var(--o-surface-border));
+        border-color: --f-alpha(var(--surface-border-color), var(--surface-border-opacity));
         border-radius: var(--surface-border-radius);
-        box-shadow: var(--surface-box-shadow-rest-size)
-            hsla(var(--surface-box-shadow-color), var(--o-surface-shawdow));
+        box-shadow: var(--surface-box-shadow-size)
+            --f-alpha(var(--surface-box-shadow-color), var(--surface-box-shawdow-opacity));
         /* transition: background-color 0.5s ease-in; */
     }
 

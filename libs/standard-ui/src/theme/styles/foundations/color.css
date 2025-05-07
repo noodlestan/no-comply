@@ -2,29 +2,27 @@
     @layer foundations {
         @layer color {
             [data-ctx-theme-standard] {
-                --o-level-fg: 1;
-
-                --c-level-fg: 100;
+                --c-level-primary: 100;
                 --c-level-muted: 150;
                 --c-level-disabled: 200;
                 --c-level-saturated: 200;
                 --c-level-mid: 500;
-                --c-level-bg-4: 700;
-                --c-level-bg-3: 800;
-                --c-level-bg-2: 900;
-                --c-level-bg-1: 1000;
+                --c-level-bg-3: 700;
+                --c-level-bg-2: 800;
+                --c-level-bg-1: 900;
+                --c-level-bg-0: 1000;
 
-                --c-name-brand: 'pink';
-                --c-name-primary: 'neutral';
-                --c-name-muted: 'neutral';
-                --c-name-disabled: 'neutral';
-                --c-name-interactive: 'ocean';
-                --c-name-neutral: 'blue';
-                --c-name-good: 'green';
-                --c-name-meh: 'yellow';
-                --c-name-bad: 'red';
-                --c-name-selected: 'olive';
-                --c-name-focused: 'indigo';
+                --c-name-brand: pink;
+                --c-name-primary: neutral;
+                --c-name-muted: neutral;
+                --c-name-disabled: neutral;
+                --c-name-interactive: ocean;
+                --c-name-neutral: blue;
+                --c-name-good: green;
+                --c-name-meh: yellow;
+                --c-name-bad: red;
+                --c-name-selected: olive;
+                --c-name-focused: indigo;
             }
         }
     }

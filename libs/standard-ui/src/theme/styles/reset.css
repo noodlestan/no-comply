@@ -23,42 +23,19 @@
 
     [data-ctx-theme-standard] * {
         scrollbar-width: thin;
-        scrollbar-color: hsla(
-                var(--surface-scrollbar-rest-handle-color),
-                var(--o-scrollbar-rest-handle)
+        scrollbar-color: --f-alpha(
+                var(--scrollbar-handle-rest-color),
+                var(--scrollbar-handle-rest-alpha)
             )
-            hsla(var(--surface-scrollbar-rest-track-color), var(--o-scrollbar-rest-track));
+            --f-alpha(var(--scrollbar-track-rest-color), var(--scrollbar-track-rest-alpha));
     }
 
     [data-ctx-theme-standard] *:hover {
         scrollbar-width: thin;
-        scrollbar-color: hsla(
-                var(--surface-scrollbar-hover-handle-color),
-                var(--o-scrollbar-hover-handle)
+        scrollbar-color: --f-alpha(
+                var(--scrollbar-handle-hover-color),
+                var(--scrollbar-handle-hover-alpha)
             )
-            hsla(var(--surface-scrollbar-hover-track-color), var(--o-scrollbar-hover-track));
-    }
-
-    [data-ctx-theme-standard] *::-webkit-scrollbar {
-        display: none;
-        display: initial;
-    }
-
-    [data-ctx-theme-standard] *:hover::-webkit-scrollbar {
-        display: initial;
-        width: 8px;
-        height: 8px;
-    }
-
-    [data-ctx-theme-standard] *::-webkit-scrollbar-thumb {
-        background-color: hsla(
-            var(--surface-scrollbar-rest-handle-color),
-            var(--o-scrollbar-rest-handle)
-        );
-        border-radius: 4px;
-    }
-
-    [data-ctx-theme-standard] *::-webkit-scrollbar-track {
-        background: hsla(var(--surface-scrollbar-rest-track-color), var(--o-scrollbar-rest-track));
+            --f-alpha(var(--scrollbar-track-hover-color), var(--scrollbar-track-hover-alpha));
     }
 }
