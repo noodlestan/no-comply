@@ -4,7 +4,7 @@ import {
     mergeProps,
     resolveRenderProp,
 } from '@noodlestan/context-ui-primitives';
-import { type Component, splitProps } from 'solid-js';
+import { type Component, children, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import type { ClosedTagProps } from '../../../tag';
@@ -29,12 +29,11 @@ export const SurfaceBase: Component<Props> = props => {
     const surface = createSurfaceBase(locals);
     const { $root, contextValue } = surface;
     const $ = mergeProps($others, $root);
-
-    const children = () => resolveRenderProp(locals.children, { surface });
+    const c = children(() => resolveRenderProp(locals.children, { surface }));
 
     return (
         <SurfaceContextProvider context={contextValue}>
-            <Dynamic {...$}>{children()}</Dynamic>
+            <Dynamic {...$}>{c()}</Dynamic>
         </SurfaceContextProvider>
     );
 };

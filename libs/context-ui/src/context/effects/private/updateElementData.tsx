@@ -1,14 +1,13 @@
-import type { RawDataAttributes } from '@noodlestan/context-ui-primitives';
+import {
+    type DataAttributeName,
+    type RawDataAttributes,
+    dataAttributeName,
+} from '@noodlestan/context-ui-primitives';
 
-const attributeName = (prefix: string | undefined, key: string): `data-${string}` => {
-    return prefix ? `data-${prefix}-${key}` : `data-${key}`;
-};
-
-export type ElementPreviousData = [`data-${string}`, string][];
+export type ElementPreviousData = [DataAttributeName, string][];
 
 export const updateElementData = (
     targetElement?: HTMLElement,
-    prefix?: string,
     data: RawDataAttributes = {},
     previousData?: ElementPreviousData,
 ): ElementPreviousData => {
@@ -27,7 +26,7 @@ export const updateElementData = (
     }
 
     return Object.entries(data).map(([key, value]) => {
-        const k = attributeName(prefix, key);
+        const k = dataAttributeName(key);
         const v = value !== undefined ? String(value) : '';
         targetElement.setAttribute(k, v);
         return [k, v];

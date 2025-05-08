@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer scrollbars {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --scrollbar-handle-rest-color: --f-color(var(--c-name-primary), 700);
                 --scrollbar-track-rest-color: --f-color(var(--c-name-primary), 1000);
                 --scrollbar-handle-hover-color: --f-color(var(--c-name-primary), 600);

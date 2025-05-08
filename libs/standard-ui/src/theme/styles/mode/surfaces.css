@@ -1,16 +1,16 @@
 @layer standard-ui-theme {
     @layer mode {
         @layer surfaces {
-            [data-ctx-theme-standard][data-ctx-mode-light] [data-ctx-surface] {
+            [data-theme-standard][data-mode-light] [data-surface] {
                 --color-i-rest-light: var(--color-fg-light-4);
                 --color-i-hover-light: var(--color-fg-light-2);
             }
 
-            [data-ctx-theme-standard][data-ctx-mode-light] [data-ctx-surface-page] {
+            [data-theme-standard][data-mode-light] [data-surface-page] {
                 --surface-bg-light: var(--color-bg-light-1);
             }
 
-            [data-ctx-theme-standard][data-ctx-mode-light] [data-ctx-surface-inverse] {
+            [data-theme-standard][data-mode-light] [data-surface-inverse] {
                 --color-light-max: 98%;
                 --color-light-9: 90%;
                 --color-light-8: 82%;
@@ -45,7 +45,7 @@
                 --color-fg-light-6: 77%;
             }
 
-            [data-ctx-theme-standard][data-ctx-mode-light] [data-ctx-surface-banner] {
+            [data-theme-standard][data-mode-light] [data-surface-banner] {
                 /* A - bg */
 
                 --color-bg-light-0: 1%;

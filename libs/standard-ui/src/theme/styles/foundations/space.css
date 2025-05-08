@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer space {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 /* gaps */
 
                 --space-gap--1: var(--scale-4xs);

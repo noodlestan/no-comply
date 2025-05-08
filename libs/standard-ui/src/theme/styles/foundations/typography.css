@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer typography {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --typography-base-font-family: Tahoma, Arial, sans-serif;
                 --typography-base-size: var(--typography-step-0);
                 --typography-base-weight: 300;

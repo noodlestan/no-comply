@@ -2,6 +2,7 @@ import { Route } from '@solidjs/router';
 import { type Component } from 'solid-js';
 
 import {
+    AppHomeScreen,
     ButtonPage,
     CalloutPage,
     CheckboxPage,
@@ -52,6 +53,7 @@ export const Routes: Component = () => {
                 <Route path="/component/Text" component={TextPage} />
                 <Route path="/component/TextInput" component={TextInputPage} />
             </Route>
+            <Route path="/app" component={AppHomeScreen} />
         </>
     );
 };

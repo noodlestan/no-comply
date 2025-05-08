@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer patterns {
         @layer layout {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --layout-reading-max-width: 560px;
                 --layout-column-max-width: 960px;
             }

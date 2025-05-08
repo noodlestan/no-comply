@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer patterns {
         @layer forms {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --o-input-fg: var(--o-surface-fg-opaque);
                 --o-input-bg: var(--o-surface-bg-translucid);
                 --o-input-border: var(--o-surface-fg-opaque);

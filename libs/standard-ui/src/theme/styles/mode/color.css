@@ -1,47 +1,16 @@
 @layer standard-ui-theme {
     @layer mode {
         @layer color {
-            [data-ctx-theme-standard][data-ctx-mode-light] {
-                /* globals: saturation and levels */
-
-                --color-light-max: 2%;
-                --color-light-9: 15%;
-                --color-light-8: 23%;
-                --color-light-7: 32%;
-                --color-light-6: 41%;
-                --color-light-5: 50%;
-                --color-light-4: 59%;
-                --color-light-3: 68%;
-                --color-light-2: 76%;
-                --color-light-1: 82%;
-                --color-light-0: 90%;
-                --color-light-min: 98%;
-
-                /* A - bg */
-
-                --color-bg-light-0: 99%;
-                --color-bg-light-1: 97%;
-                --color-bg-light-2: 94%;
-                --color-bg-light-3: 91%;
-                --color-bg-light-4: 87%;
-                --color-bg-light-5: 83%;
-                --color-bg-light-6: 77%;
-
-                --color-base-bg-light: var(--color-bg-light-4);
-
-                /* B - fg */
-
-                --color-fg-light-0: 2%;
-                --color-fg-light-1: 6%;
-                --color-fg-light-2: 10%;
-                --color-fg-light-3: 15%;
-                --color-fg-light-4: 22%;
-                --color-fg-light-5: 29%;
-                --color-fg-light-6: 36%;
-
-                /* C - mid */
-
-                --color-mid-fg-light: 55%;
+            [data-theme-standard][data-mode-light] {
+                --c-level-primary: 1000;
+                --c-level-muted: 900;
+                --c-level-disabled: 800;
+                --c-level-saturated: 800;
+                --c-level-mid: 500;
+                --c-level-bg-3: 300;
+                --c-level-bg-2: 200;
+                --c-level-bg-1: 150;
+                --c-level-bg-0: 100;
             }
         }
     }

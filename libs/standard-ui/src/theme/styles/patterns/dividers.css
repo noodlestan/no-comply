@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer patterns {
         @layer dividers {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --surface-divider-base-width: var(--surface-border-width-base);
                 --surface-divider-base-style: solid;
                 --surface-divider-base: var(--surface-divider-base-width)

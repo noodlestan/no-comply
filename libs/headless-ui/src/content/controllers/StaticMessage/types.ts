@@ -14,7 +14,7 @@ export type StaticMessageVariant = 'passive' | 'success' | 'info' | 'warning' | 
 
 export type StaticMessageAPI = {
     $root: AriaRegionAPI<'region'>['$root'] & {
-        'data-callout': StaticMessageVariant;
+        'data-message': StaticMessageVariant;
     };
     $label: AriaLabelledAPI['$label'];
     $description: AriaLabelledAPI['$description'];

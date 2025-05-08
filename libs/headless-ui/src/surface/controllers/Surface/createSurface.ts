@@ -1,6 +1,10 @@
 import { createSurfaceContext } from '@noodlestan/context-ui';
 import { createAriaRegion } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import {
+    createComputedProps,
+    createDataAttributes,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 
 import type { SurfaceAPI, SurfaceProps } from './types';
 
@@ -18,8 +22,10 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
         onPointerDown: () => props.onPointerDown,
     });
 
+    const dataAttributes = createDataAttributes(context.contextData);
+
     return {
-        $root: mergeProps(context.contextData, $ariaRegion, $localRoot),
+        $root: mergeProps(dataAttributes, $ariaRegion, $localRoot),
         $description,
         $label,
         context,

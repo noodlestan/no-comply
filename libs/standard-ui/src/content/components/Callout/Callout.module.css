@@ -1,51 +1,46 @@
 @layer standard-ui {
     .Callout {
-        --banner-fg-light: var(--color-base-fg-light);
-        --o-surface-bg: var(--o-surface-bg-translucid);
-        --o-surface-bg-hover: var(--o-surface-bg-translucid);
+        --foobar: red;
+        --surface-fg-color: --f-color(var(--__callout-c-name), var(--c-level-primary));
+        --surface-bg-color: --f-color(var(--__callout-c-name), var(--c-level-bg-3));
         display: flex;
-        width: var(--banner-width);
-        height: var(--banner-height);
-        background-color: hsla(
-            var(--banner-bg-hue-sat),
-            var(--surface-mid-light),
-            var(--o-surface-bg)
-        );
+        width: var(--__callout-width);
+        height: var(--__callout-height);
     }
 
     .Callout-length-full {
-        --banner-width: 100%;
+        --__callout-width: 100%;
     }
 
     .Callout-length-compact {
-        --banner-width: min-content;
+        --__callout-width: min-content;
     }
 
-    .Callout-size-s {
-        --banner-height: var(--size-2);
+    .Callout-size-small {
+        --__callout-height: var(--size-s);
     }
 
-    .Callout-size-m {
-        --banner-height: var(--size-m);
+    .Callout-size-normal {
+        --__callout-height: var(--size-m);
     }
 
-    .Callout[data-feedback='passive'] {
-        --banner-bg-hue-sat: var(--color-passive-hue-sat);
+    .Callout[data-message='passive'] {
+        --__callout-c-name: var(--c-name-primary);
     }
 
-    .Callout[data-feedback='info'] {
-        --banner-bg-hue-sat: var(--color-neutral-hue-sat);
+    .Callout[data-message='info'] {
+        --__callout-c-name: var(--c-name-neutral);
     }
 
-    .Callout[data-feedback='success'] {
-        --banner-bg-hue-sat: var(--color-good-hue-sat);
+    .Callout[data-message='success'] {
+        --__callout-c-name: var(--c-name-good);
     }
 
-    .Callout[data-feedback='warning'] {
-        --banner-bg-hue-sat: var(--color-meh-hue-sat);
+    .Callout[data-message='warning'] {
+        --__callout-c-name: var(--c-name-meh);
     }
 
-    .Callout[data-feedback='danger'] {
-        --banner-bg-hue-sat: var(--color-bad-hue-sat);
+    .Callout[data-message='danger'] {
+        --__callout-c-name: var(--c-name-bad);
     }
 }

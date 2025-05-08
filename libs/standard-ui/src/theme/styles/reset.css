@@ -13,7 +13,7 @@
         pointer-events: none;
     }
 
-    [data-ctx-theme-standard] body {
+    [data-theme-standard] body {
         font-family: var(--typography-base-font-family);
         font-size: var(--typography-base-size);
         font-weight: var(--typography-base-weight);
@@ -21,7 +21,7 @@
         letter-spacing: var(--typography-base-spacing);
     }
 
-    [data-ctx-theme-standard] * {
+    [data-theme-standard] * {
         scrollbar-width: thin;
         scrollbar-color: --f-alpha(
                 var(--scrollbar-handle-rest-color),
@@ -30,7 +30,7 @@
             --f-alpha(var(--scrollbar-track-rest-color), var(--scrollbar-track-rest-alpha));
     }
 
-    [data-ctx-theme-standard] *:hover {
+    [data-theme-standard] *:hover {
         scrollbar-width: thin;
         scrollbar-color: --f-alpha(
                 var(--scrollbar-handle-hover-color),

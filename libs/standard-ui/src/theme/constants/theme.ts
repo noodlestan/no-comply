@@ -1,1 +1,0 @@
-export const STANDARD_UI_DATA_ATTRIBUTE_PREFIX = 'ctx';

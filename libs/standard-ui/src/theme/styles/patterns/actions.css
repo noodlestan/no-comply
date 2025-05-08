@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer patterns {
         @layer actions {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --o-action-border: var(--o-opaque);
                 --o-action-fg: var(--o-surface-fg);
                 --o-action-bg: var(--o-surface-fg-opaque);

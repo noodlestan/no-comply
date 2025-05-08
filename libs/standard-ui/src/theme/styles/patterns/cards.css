@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer patterns {
         @layer cards {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --card-border-radius: var(--radius-m);
             }
         }

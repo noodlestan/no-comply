@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer color {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --c-level-primary: 100;
                 --c-level-muted: 150;
                 --c-level-disabled: 200;

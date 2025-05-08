@@ -27,7 +27,7 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
     const variant = () => props.variant ?? defaultProps.variant;
     const icon = () => VARIANT_ICON_MAP[variant()];
     const $localRoot = createComputedProps({
-        'data-callout': variant,
+        'data-message': variant,
     });
 
     const $icon = createComputedProps({

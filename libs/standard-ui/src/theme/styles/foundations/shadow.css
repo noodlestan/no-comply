@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer opacity {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --box-shadow-solid: 0px 0px 0px 1px;
                 --box-shadow-tight: 0px 0px 2px 1px;
                 --box-shadow-wide: 0px 1px 4px 2px;

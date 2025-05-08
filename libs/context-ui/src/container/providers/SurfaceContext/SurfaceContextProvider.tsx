@@ -2,7 +2,7 @@
 import type { ParentComponent } from 'solid-js';
 
 import { ContextNodeProvider, createContextNode } from '../../../context';
-import { type SurfaceContextValue } from '../../contexts';
+import type { SurfaceContextValue } from '../../contexts';
 
 import { SurfaceContextCTX } from './private';
 

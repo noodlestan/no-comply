@@ -16,10 +16,11 @@ type Props = ClosedTagProps &
     };
 
 export const Surface: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, SURFACE_PROPS);
+    const [locals, $others] = splitProps(props, [...SURFACE_PROPS]);
 
-    const { surfaceProps } = createSurface(locals);
-    const p = mergeProps(surfaceProps, $others);
+    const surface = createSurface(locals);
+    const { surfaceProps } = surface;
+    const $ = mergeProps(surfaceProps, $others);
 
-    return <SurfaceBase {...p} />;
+    return <SurfaceBase {...$} />;
 };

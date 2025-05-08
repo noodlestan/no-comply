@@ -1,7 +1,7 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer opacity {
-            [data-ctx-theme-standard] {
+            [data-theme-standard] {
                 --o-opaque: 1;
                 --o-80: 0.8;
                 --o-60: 0.6;

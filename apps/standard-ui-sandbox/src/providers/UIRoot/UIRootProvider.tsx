@@ -17,7 +17,6 @@ import {
     useTheme,
 } from '@noodlestan/context-ui';
 import {
-    STANDARD_UI_DATA_ATTRIBUTE_PREFIX,
     STANDARD_UI_SETTINGS,
     STANDARD_UI_SETTINGS_GROUPS,
     ThemeStandard,
@@ -28,17 +27,15 @@ type UIRootProviderProps = {
     defaultCtxId: ContextId;
 };
 
-const prefix = STANDARD_UI_DATA_ATTRIBUTE_PREFIX;
-
 const ContextEffects: Component = () => {
     const theme = useTheme();
     const mode = useMode();
     const surface = useSurface();
 
-    createContextDataEffect(() => [theme, mode], prefix, document.documentElement);
+    createContextDataEffect(() => [theme, mode], document.documentElement);
     createContextVarsEffect(() => [theme, mode], document.documentElement);
 
-    createContextDataEffect(() => [surface], prefix, document.body);
+    createContextDataEffect(() => [surface], document.body);
     createContextVarsEffect(() => [surface], document.body);
 
     return <></>;

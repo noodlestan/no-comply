@@ -1,6 +1,6 @@
 @layer standard-ui-theme {
     @layer surfaces {
-        [data-ctx-theme-standard] [data-ctx-surface] {
+        [data-theme-standard] [data-surface] {
             --surface-fg-opacity: var(--o-opaque);
             --surface-fg-color: --f-color(var(--c-name-primary), var(--c-level-primary));
 
@@ -20,19 +20,19 @@
             --color-outline: var(--color-focused);
         }
 
-        [data-ctx-theme-standard] [data-ctx-surface-inverse] {
+        [data-theme-standard] [data-surface-inverse] {
         }
 
-        [data-ctx-theme-standard] [data-ctx-surface-page] {
+        [data-theme-standard] [data-surface-page] {
         }
 
-        [data-ctx-theme-standard] [data-ctx-surface-banner] {
+        [data-theme-standard] [data-surface-banner] {
         }
 
-        [data-ctx-theme-standard] [data-ctx-surface-card] {
+        [data-theme-standard] [data-surface-card] {
         }
 
-        [data-ctx-theme-standard] [data-ctx-surface-dialog] {
+        [data-theme-standard] [data-surface-dialog] {
         }
     }
 }
