@@ -1,16 +1,16 @@
 @layer standard-ui {
     .Link {
-        --__link-color: --fg-color(var(--c-name-interactive), var(--c-level-fg-saturated));
+        --__link-color: --f-color(var(--p-interactive), var(--l-fg-saturated));
         text-decoration: underline;
     }
 
     .Link:not([aria-disabled]):hover {
-        --__link-color: --fg-color(var(--c-name-interactive), var(--c-level-fg));
+        --__link-color: --f-color(var(--p-interactive), var(--l-fg-muted));
         text-decoration: underline;
     }
 
     .Link[aria-disabled] {
-        --__link-color: --fg-color(var(--c-name-disabled), var(--c-level-fg-disabled));
+        --__link-color: --f-color(var(--p-disabled), var(--l-fg-disabled));
     }
 
     .Link:focus,
@@ -19,7 +19,7 @@
         outline-offset: var(--outline-offset);
         outline-style: var(--outline-style);
         outline-width: var(--outline-width);
-        outline-color: hsla(var(--color-outline), var(--o-surface-outline));
+        outline-color: --f-color(var(--outline-palette));
     }
 
     .Link:active {

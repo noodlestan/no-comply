@@ -60,7 +60,7 @@
     outline-offset: var(--outline-offset);
     outline-style: var(--outline-style);
     outline-width: var(--outline-width);
-    outline-color: hsla(var(--color-outline), var(--o-surface-outline));
+    outline-color: --f-color(var(--outline-palette));
 }
 
 .TextInput-is-modified:not(.TextInput-is-disabled) {

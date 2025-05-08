@@ -16,8 +16,11 @@ export type CalloutAPI = {
     $root: StaticMessageAPI['$root'] & {
         classList: ClassList;
     };
-    $label: StaticMessageAPI['$label'];
-    $icon: StaticMessageAPI['$icon'] & {
+    $label: StaticMessageAPI['$label'] & {
+        classList: ClassList;
+    };
+    iconProps: StaticMessageAPI['iconProps'] & {
         size: ContentSize;
+        classList: ClassList;
     };
 };

@@ -10,7 +10,7 @@ import styles from './Button.module.css';
 import type { ButtonAPI, ButtonProps } from './types';
 
 const defaultProps: PickRequired<ButtonProps, 'variant' | 'size'> = {
-    variant: 'primary',
+    variant: 'secondary',
     size: 'normal',
 };
 

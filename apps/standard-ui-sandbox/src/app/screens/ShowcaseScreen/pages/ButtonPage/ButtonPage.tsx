@@ -39,12 +39,6 @@ export const ButtonPage: Component = () => {
                         Disabled
                     </Button>
                 </DemoItem>
-                <DemoItem row title="transparent">
-                    <Button variant="transparent">Transparent</Button>
-                    <Button variant="transparent" disabled>
-                        Disabled
-                    </Button>
-                </DemoItem>
                 <DemoItem row title="danger">
                     <Button variant="danger">Danger</Button>
                     <Button variant="danger" disabled>
@@ -54,45 +48,31 @@ export const ButtonPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="size">
                 <DemoItem row title="large">
-                    <Button variant="secondary" size="large">
-                        Size L
-                    </Button>
+                    <Button size="large">Size L</Button>
                 </DemoItem>
                 <DemoItem row title="medium">
-                    <Button variant="secondary" size="medium">
-                        Size M
-                    </Button>
+                    <Button size="medium">Size M</Button>
                 </DemoItem>
                 <DemoItem row title="normal">
-                    <Button variant="secondary" size="normal">
-                        Size S
-                    </Button>
+                    <Button size="normal">Size S</Button>
                 </DemoItem>
                 <DemoItem row title="small">
-                    <Button variant="secondary" size="small">
-                        Size XS
-                    </Button>
+                    <Button size="small">Size XS</Button>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem row title="">
-                    <Button variant="secondary" disabled>
-                        Disabled
-                    </Button>
+                    <Button disabled>Disabled</Button>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="onPress">
                 <DemoItem row note="see console log">
-                    <Button variant="secondary" onPress={handlePress}>
-                        Foobar
-                    </Button>
+                    <Button onPress={handlePress}>Foobar</Button>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">
                 <DemoItem row note="Should override background color">
-                    <Button variant="secondary" classList={staticClassList(styles, 'override')}>
-                        Foobar
-                    </Button>
+                    <Button classList={staticClassList(styles, 'override')}>Foobar</Button>
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

@@ -4,29 +4,42 @@
             [data-theme-standard] {
                 --scrollbar-color: red;
 
-                --c-level-fg-primary: 100;
-                --c-level-fg-muted: 150;
-                --c-level-fg-disabled: 200;
-                --c-level-fg-saturated: 200;
-                --c-level-border: 300;
-                --c-level-mid: 500;
-                --c-level-bg-saturated: 600;
-                --c-level-bg-3: 700;
-                --c-level-bg-2: 800;
-                --c-level-bg-1: 900;
-                --c-level-bg-0: 1000;
+                --l-fg-0: 100;
+                --l-fg-1: 200;
+                --l-fg-2: 300;
+                --l-fg-3: 400;
+                --l-fg-4: 500;
+                --l-mid: 550;
+                --l-bg-4: 600;
+                --l-bg-3: 700;
+                --l-bg-2: 800;
+                --l-bg-1: 900;
+                --l-bg-0: 1000;
 
-                --c-name-brand: pink;
-                --c-name-primary: neutral;
-                --c-name-muted: neutral;
-                --c-name-disabled: neutral;
-                --c-name-interactive: ocean;
-                --c-name-neutral: blue;
-                --c-name-good: green;
-                --c-name-meh: yellow;
-                --c-name-bad: red;
-                --c-name-selected: olive;
-                --c-name-focused: indigo;
+                --l-fg-primary: var(--l-fg-0);
+                --l-fg-muted: var(--l-fg-1);
+                --l-fg-saturated: var(--l-fg-2);
+                --l-fg-disabled: var(--l-fg-4);
+                --l-border: var(--l-fg-4);
+                --l-graphics: var(--l-fg-4);
+                --l-bg-disabled: var(--l-bg-3);
+                --l-bg-saturated: var(--l-bg-2);
+
+                --l-fg-static: var(--l-fg-0);
+                --l-bg-static: var(--l-bg-3);
+                --l-bg-static-alt: var(--l-bg-4);
+
+                --p-brand: pink;
+                --p-primary: neutral;
+                --p-muted: neutral;
+                --p-disabled: neutral;
+                --p-interactive: ocean;
+                --p-neutral: blue;
+                --p-good: green;
+                --p-meh: yellow;
+                --p-bad: red;
+                --p-selected: olive;
+                --p-focused: indigo;
             }
         }
     }

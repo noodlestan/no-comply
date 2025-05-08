@@ -2,7 +2,8 @@
     @layer patterns {
         @layer cards {
             [data-theme-standard] {
-                --callout-border-radius: var(--radius-s);
+                --callout-border-radius: var(--radius-xs);
+                --callout-border-width: var(--border-width-thin);
             }
         }
     }

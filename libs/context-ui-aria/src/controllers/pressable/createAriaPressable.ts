@@ -4,10 +4,10 @@ import type { AriaPressableAPI, AriaPressableProps } from './types';
 
 export const createAriaPressable = (props: AriaPressableProps): AriaPressableAPI => {
     const component = () => props.tag ?? 'button';
-    const role = () => props.role ?? (props.tag === 'button' ? undefined : 'button');
-    const type = () => (props.tag === 'button' ? props.type : undefined);
+    const role = () => props.role ?? (component() === 'button' ? undefined : 'button');
+    const type = () => (component() === 'button' ? props.type : undefined);
     const tabIndex = () => (props.disabled ? undefined : (props.tabIndex ?? 0));
-    const disabled = () => (props.tag === 'button' ? props.disabled : undefined);
+    const disabled = () => (component() === 'button' ? props.disabled : undefined);
 
     const $root = createComputedProps({
         component,

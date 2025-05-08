@@ -1,0 +1,10 @@
+@layer standard-ui-theme {
+    @layer foundations {
+        @layer color {
+            [data-theme-standard] {
+                --border-width-base: 2px;
+                --border-width-thin: 1px;
+            }
+        }
+    }
+}

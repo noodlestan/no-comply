@@ -10,12 +10,14 @@
         user-select: none;
     }
 
-    .NavLink-is-current {
-        color: hsla(var(--color-i-active), var(--o-surface-fg));
-        text-decoration: underline;
+    .NavLink[data-nav-link-current] {
+        color: --f-color(var(--p-selected), var(--l-fg-static));
+        background-color: --f-color(var(--p-selected), var(--bg-static));
+        text-decoration: none;
     }
 
     .NavLink-size-s {
+        padding: var(--space-gap-0) var(--space-gap--1);
         font-size: var(--action-type-size-s);
         font-weight: var(--action-type-weight-s);
     }

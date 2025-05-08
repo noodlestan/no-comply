@@ -3,6 +3,7 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
+    staticClassList,
 } from '@noodlestan/context-ui-primitives';
 import { createStaticMessage } from '@noodlestan/headless-ui';
 
@@ -18,8 +19,8 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
     const messageProps = mergeProps(props, { labelled: true });
     const {
         $root: $staticMessageRoot,
-        $label,
-        $icon: $staticMessageIcon,
+        $label: $staticessageLabel,
+        iconProps: staticMessageIconProps,
     } = createStaticMessage(messageProps);
 
     const size = () => props.size ?? defaultProps.size;
@@ -33,13 +34,20 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
         classList,
     });
 
-    const $icon = createComputedProps({
+    const iconStaticProps = {
+        classList: staticClassList(styles, 'Callout--Icon'),
+    };
+    const iconProps = createComputedProps(iconStaticProps, {
         size,
     });
 
+    const $label = {
+        classList: staticClassList(styles, 'Callout--Label'),
+    };
+
     return {
         $root: mergeProps($staticMessageRoot, $localRoot),
-        $label,
-        $icon: mergeProps($staticMessageIcon, $icon),
+        $label: mergeProps($staticessageLabel, $label),
+        iconProps: mergeProps(staticMessageIconProps, iconProps),
     };
 };

@@ -5,7 +5,7 @@ import type {
 
 import type { IconButtonProps } from '../IconButton';
 
-export type ExpandButtonProps = Pick<IconButtonProps, 'variant' | 'size' | 'onPress'> &
+export type ExpandButtonProps = Pick<IconButtonProps, 'size' | 'onPress'> &
     HeadlessExpandButtonProps;
 
 export type ExpandButtonAPI = {

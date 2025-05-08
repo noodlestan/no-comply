@@ -1,32 +1,35 @@
 @layer standard-ui {
     .Button {
-        display: flex;
+        --__button-palette: var(--action-primary-palette);
+        --__button-border-style: none;
+        --__button-rest-fg-l: var(--l-fg-muted);
+        --__button-rest-bg-l: var(--l-bg-1);
+        --__button-rest-border-l: var(--l-bg-1);
+
+        display: inline-flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
         align-items: center;
         justify-content: center;
         flex-direction: row;
+        gap: var(--space-gap-1);
         height: var(--__button-height);
         min-height: var(--__button-height);
+        padding-block: 0;
+        padding-inline: var(--space-pad-0);
         font-family: var(--action-type-family);
         line-height: var(--action-type-height-base);
+        color: --f-color(var(--__button-palette), var(--__button-fg-l));
+        background-color: --f-color(var(--__button-palette), var(--__button-bg-l));
         border: none;
-        border-color: hsla(none, var(--o-action-border));
-        border-radius: var(--action-border-radius-base);
+        border-color: --f-color(var(--__button-palette), var(--__button-border-l));
+        border-width: var(--action-border-width);
+        border-style: var(--__button_border-style);
+        border-radius: var(--action-border-radius);
         text-decoration: none;
         transition:
             color ease var(--animation-duration-short),
             background-color ease var(--animation-duration-short);
-    }
-
-    .Button.Button-size-small,
-    .Button.Button-size-normal,
-    .Button.Button-size-medium,
-    .Button.Button-size-large {
-        display: inline-flex;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        padding-inline: var(--space-pad-0);
-        padding-block-end: 0;
-        gap: var(--space-gap-1);
     }
 
     .Button.Button-size-small {
@@ -45,153 +48,62 @@
 
     .Button.Button-size-medium {
         --__button-height: var(--size-m);
+        padding-inline: var(--space-pad-1);
         font-size: var(--action-type-size-m);
         font-weight: var(--action-type-weight-m);
     }
 
     .Button.Button-size-large {
         --__button-height: var(--size-l);
+        padding-inline: var(--space-pad-2);
         font-size: var(--action-type-size-l);
         font-weight: var(--action-type-weight-l);
     }
 
+    .Button {
+        --__button-fg-l: var(--__button-rest-fg-l);
+        --__button-bg-l: var(--__button-rest-bg-l);
+        --__button-border-l: var(--__button-rest-border-l);
+    }
+    /*
+    .Button:not([disabled]):hover {
+        --__button-bg-l: var(--__button-hover-bg-l);
+    } */
+
     .Button-variant-primary {
-        color: hsla(var(--action-primary-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-primary-rest-bg-color), var(--o-action-bg));
-        border: var(--action-primary-border);
-        border-color: hsla(var(--action-primary-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-primary:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-primary-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-primary-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-primary.Button-is-selected {
-        color: hsla(var(--action-primary-selected-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-primary-selected-rest-bg-color), var(--o-action-bg));
-        border: var(--action-primary-selected-border);
-        border-color: hsla(var(--action-primary-selected-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-primary.Button-is-selected:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-primary-selected-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-primary-selected-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-primary:not(.Button-is-disabled):active {
-        color: hsla(var(--action-primary-active-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-primary-active-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-primary.Button-is-selected:not(.Button-is-disabled):active {
-        color: hsla(var(--action-primary-selected-active-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-primary-selected-active-bg-color), var(--o-action-bg));
+        --__button-palette: var(--action-primary-palette);
+        --__button_border-style: solid;
+        --__button-rest-fg-l: var(--l-fg-static);
+        --__button-rest-bg-l: var(--l-bg-static);
+        --__button-rest-border-l: var(--l-bg-static-alt);
     }
 
     .Button-variant-secondary {
-        color: hsla(var(--action-secondary-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-secondary-rest-bg-color), var(--o-action-bg));
-        border: var(--action-secondary-border);
-        border-color: hsla(var(--action-secondary-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-secondary:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-secondary-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-secondary-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-secondary.Button-is-selected {
-        color: hsla(var(--action-secondary-selected-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-secondary-selected-rest-bg-color), var(--o-action-bg));
-        border: var(--action-secondary-selected-border);
-        border-color: hsla(var(--action-secondary-selected-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-secondary.Button-is-selected:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-secondary-selected-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-secondary-selected-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-secondary:not(.Button-is-disabled):active {
-        color: hsla(var(--action-secondary-active-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-secondary-active-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-secondary.Button-is-selected:not(.Button-is-disabled):active {
-        color: hsla(var(--action-secondary-selected-active-fg-color), var(--o-action-fg));
-        background-color: hsla(
-            var(--action-secondary-selected-active-bg-color),
-            var(--o-action-bg)
-        );
+        --__button-palette: var(--action-secondary-palette);
+        /* --__button-rest-bg-l: var(--l-bg-2);
+        --__button-hover-bg-l: var(--l-bg-3);
+        --__button-rest-border-l: var(--l-border); */
     }
 
     .Button-variant-plain {
-        color: hsla(var(--action-plain-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-plain-rest-bg-color), var(--o-action-bg));
-        border: var(--action-plain-border);
-        border-color: hsla(var(--action-plain-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-plain:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-plain-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-plain-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-plain.Button-is-selected {
-        color: hsla(var(--action-plain-selected-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-plain-selected-rest-bg-color), var(--o-action-bg));
-        border: var(--action-plain-selected-border);
-        border-color: hsla(var(--action-plain-selected-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-plain.Button-is-selected:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-plain-selected-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-plain-selected-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-plain:not(.Button-is-disabled):active {
-        color: hsla(var(--action-plain-active-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-plain-active-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-plain.Button-is-selected:not(.Button-is-disabled):active {
-        color: hsla(var(--action-plain-selected-active-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-plain-selected-active-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-danger {
-        color: hsla(var(--action-danger-rest-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-danger-rest-bg-color), var(--o-action-bg));
-        border: var(--action-danger-border);
-        border-color: hsla(var(--action-danger-border-color), var(--o-action-border));
-    }
-
-    .Button-variant-danger:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-danger-hover-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-danger-hover-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-danger:not(.Button-is-disabled):active {
-        color: hsla(var(--action-danger-active-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-danger-active-bg-color), var(--o-action-bg));
-    }
-
-    .Button-variant-transparent:not(.Button-is-disabled):hover {
-        color: hsla(var(--action-plain-hover-fg-color), var(--o-action-fg));
+        --__button-fg-l: var(--l-fg-3);
         background-color: transparent;
     }
 
-    .Button-variant-transparent:not(.Button-is-disabled):active {
-        color: hsla(var(--action-plain-active-fg-color), var(--o-action-fg));
+    .Button-variant-danger {
+        --__button-palette: var(--action-danger-palette);
+        --__button_border-style: solid;
+        --__button-rest-fg-l: var(--l-fg-static);
+        --__button-rest-bg-l: var(--l-bg-static);
+        --__button-rest-border-l: var(--l-bg-static-alt);
     }
 
-    .Button.Button-is-disabled {
-        color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-disabled-bg-color), var(--o-action-bg));
-        border-color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
-        border: 2px solid;
-        cursor: not-allowed;
+    .Button[disabled],
+    .Button[aria-disabled] {
+        --__button-palette: var(--p-disabled);
+        --__button-fg-l: var(--l-fg-disabled);
+        --__button-bg-l: var(--l-bg-disabled);
+        border-width: var(--action-border-width);
     }
 
     .Button-variant-plain.Button-is-disabled,
@@ -206,7 +118,7 @@
         outline-offset: var(--outline-offset);
         outline-style: var(--outline-style);
         outline-width: var(--outline-width);
-        outline-color: hsla(var(--color-outline), var(--o-surface-outline));
+        outline-color: --f-color(var(--outline-palette));
     }
 
     .Button:active {

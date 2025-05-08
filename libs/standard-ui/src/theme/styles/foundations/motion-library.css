@@ -1,8 +1,8 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer motion {
-            @function --animation-translate(--distance <percentage>, --direction <number>) returns
-                <percentage> {
+            /* prettier-ignore */
+            @function --animation-translate(--distance <percentage>, --direction <number>) returns <percentage> {
                 result: calc(var(--distance) * var(--direction));
             }
 

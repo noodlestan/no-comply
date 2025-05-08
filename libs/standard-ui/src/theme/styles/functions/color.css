@@ -1,0 +1,4 @@
+/* prettier-ignore */
+@function --f-alpha(--color, --opacity: 1) {
+    result: oklch(from var(--color) l c h / var(--opacity));
+}

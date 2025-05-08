@@ -30,7 +30,7 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
         'data-message': variant,
     });
 
-    const $icon = createComputedProps({
+    const iconProps = createComputedProps({
         icon,
         'aria-label': variant, // WIP expose labels for i18n
     });
@@ -39,6 +39,6 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
         $root: mergeProps($regionRoot, $localRoot),
         $label,
         $description,
-        $icon,
+        iconProps,
     };
 };

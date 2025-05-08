@@ -2,10 +2,10 @@
     @layer surfaces {
         [data-theme-standard] [data-surface] {
             --surface-fg-opacity: var(--o-opaque);
-            --surface-fg-color: --f-color(var(--c-name-primary), var(--c-level-fg-primary));
+            --surface-fg-color: --f-color(var(--p-primary), var(--l-fg-0));
 
             --surface-bg-opacity: var(--o-opaque);
-            --surface-bg-color: --f-color(var(--c-name-primary), var(--c-level-bg-0));
+            --surface-bg-color: --f-color(var(--p-primary), var(--l-bg-0));
 
             --surface-border-opacity: var(--o-opaque);
             --surface-border-color: transparent;
@@ -16,8 +16,6 @@
             --surface-box-shadow-size: 0;
             --surface-box-shadow-color: transparent;
             --surface-box-shadow-opacity: 0;
-
-            --color-outline: var(--color-focused);
         }
 
         [data-theme-standard] [data-surface-inverse] {

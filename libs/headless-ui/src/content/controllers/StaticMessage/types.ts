@@ -18,7 +18,7 @@ export type StaticMessageAPI = {
     };
     $label: AriaLabelledAPI['$label'];
     $description: AriaLabelledAPI['$description'];
-    $icon: Pick<AriaAttributes, 'aria-label'> & {
+    iconProps: Pick<AriaAttributes, 'aria-label'> & {
         icon: IconComponent;
     };
 };
