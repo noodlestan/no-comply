@@ -1,12 +1,14 @@
 @layer standard-ui-theme {
     @layer mode {
         @layer color {
-            [data-theme-standard][data-mode-light] {
-                --c-level-primary: 1000;
-                --c-level-muted: 900;
-                --c-level-disabled: 800;
-                --c-level-saturated: 800;
+            [data-mode-light] {
+                --c-level-fg-primary: 1000;
+                --c-level-fg-muted: 900;
+                --c-level-fg-disabled: 800;
+                --c-level-fg-saturated: 800;
+                --c-level-border: 700;
                 --c-level-mid: 500;
+                --c-level-bg-saturated: 400;
                 --c-level-bg-3: 300;
                 --c-level-bg-2: 200;
                 --c-level-bg-1: 150;

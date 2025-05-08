@@ -24,6 +24,17 @@ export default defineConfig({
             entry: resolve(__dirname, 'src/index.ts'),
             name: NAME,
             fileName: 'index',
+            formats: ['es'],
+        },
+        rollupOptions: {
+            external: [
+                '@noodlestan/context-ui',
+                '@noodlestan/context-ui-aria',
+                '@noodlestan/context-ui-primitives',
+                '@solid-primitives/set',
+                'lucide-solid',
+                'solid-js',
+            ],
         },
     },
 });

@@ -4,17 +4,13 @@
 
 ## Development
 
-### Getting started
+Make sure you [README](https://github.com/noodlestan/designer/blob/main/README.md) first.
 
-Make sure you [README](https://github.com/noodlestan/context-ui/blob/README.md) first.
+### Scripts
 
-Launch the application in dev mode:
-
-```
-nvm use
-npm install
-npm run dev
-```
+- **$** `npm run dev` - uses `Vite` to launch a development server.
+- **$** `npm run build` - uses `Vite` to produce a production build.
+- **$** `npm run preview` - uses `Vite` to preview the build locally.
 
 ## MIT License
 

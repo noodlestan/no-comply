@@ -2,7 +2,7 @@
     @layer surfaces {
         [data-theme-standard] [data-surface] {
             --surface-fg-opacity: var(--o-opaque);
-            --surface-fg-color: --f-color(var(--c-name-primary), var(--c-level-primary));
+            --surface-fg-color: --f-color(var(--c-name-primary), var(--c-level-fg-primary));
 
             --surface-bg-opacity: var(--o-opaque);
             --surface-bg-color: --f-color(var(--c-name-primary), var(--c-level-bg-0));

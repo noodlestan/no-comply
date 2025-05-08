@@ -25,9 +25,13 @@ First make sure you are using the correct node version by running `nvm use`.
 
 Install dependencies with `npm install`.
 
-Run `npm run dev` in the Context UI sandbox application: `apps/standard-ui-sandbox/`.
+In the Standard UI Sandbox application `apps/standard-ui-sandbox/` run `npm run dev` to launch a development server.
 
 ### In this repository
+
+Apps:
+
+- [Standard UI Sandbox](https://github.com/noodlestan/context-ui/blob/apps/standard-ui-sandbox/README.md) - Sandbox for developing and testing Standard UI features.
 
 Libraries:
 
@@ -37,10 +41,6 @@ Libraries:
 - [Context UI Headless](https://github.com/noodlestan/context-ui/blob/libs/headless-ui/README.md) - Headless component library.
 - [Context UI Dev](https://github.com/noodlestan/context-ui/blob/libs/context-ui-dev/README.md) - Instrumentation and debug tools.
 - [Standard UI](https://github.com/noodlestan/context-ui/blob/libs/standard-ui/README.md) - Themeable component library.
-
-Apps:
-
-- [Standard UI Sandbox](https://github.com/noodlestan/context-ui/blob/apps/standard-ui-sandbox/README.md) - Sandbox for developing and testing Standard UI features.
 
 ### Stack
 
@@ -54,6 +54,7 @@ Documentation is built on top of [Astro](https://docs.astro.build) / [Starlight]
 
 - [Vite](https://vitejs.dev/) and [Vitest](https://vitest.dev/guide/)
 - [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config) - our style guide (ESLint + Prettier)
+- [Turborepo](https://turborepo.com/) - manages build tasks
 - [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) - manages the git hooks
 
 ### Committing

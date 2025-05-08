@@ -4,38 +4,38 @@
     }
 
     .ContentColor-color-brand {
-        --__content-color: --f-color(var(--c-name-brand), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-brand), var(--c-level-fg-saturated));
     }
 
     .ContentColor-color-normal {
-        --__content-color: --f-color(var(--c-name-primary), var(--c-level-primary));
+        --__content-color: --f-color(var(--c-name-primary), var(--c-level-fg-primary));
     }
 
     .ContentColor-color-muted {
-        --__content-color: --f-color(var(--c-name-primary), var(--c-level-muted));
+        --__content-color: --f-color(var(--c-name-primary), var(--c-level-fg-muted));
     }
 
     .ContentColor-color-neutral {
-        --__content-color: --f-color(var(--c-name-neutral), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-neutral), var(--c-level-fg-saturated));
     }
 
     .ContentColor-color-good {
-        --__content-color: --f-color(var(--c-name-good), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-good), var(--c-level-fg-saturated));
     }
 
     .ContentColor-color-meh {
-        --__content-color: --f-color(var(--c-name-meh), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-meh), var(--c-level-fg-saturated));
     }
 
     .ContentColor-color-bad {
-        --__content-color: --f-color(var(--c-name-bad), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-bad), var(--c-level-fg-saturated));
     }
 
     .ContentColor-color-modified {
-        --__content-color: --f-color(var(--c-name-modified), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-modified), var(--c-level-fg-saturated));
     }
 
     .ContentColor-color-selected {
-        --__content-color: --f-color(var(--c-name-selected), var(--c-level-saturated));
+        --__content-color: --f-color(var(--c-name-selected), var(--c-level-fg-saturated));
     }
 }

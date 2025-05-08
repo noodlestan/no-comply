@@ -4,17 +4,17 @@
 
 ## Development
 
-### Getting started
-
 Make sure you [README](https://github.com/noodlestan/ui-system/blob/README.md) first.
 
-Launch the application in dev mode:
+### Build Targets
 
-```
-nvm use
-npm install
-npm run dev
-```
+This library is packaged for use in bundlers such as Vite and Astro. The main entry point is the Typescript source code.
+
+### Scripts
+
+- **$** `npm run dev` - uses `Vite` to (re)build on changes
+- **$** `npm run build` - uses `Vite` to do produce a dry build in `dist/`.
+- **$** `npm run lint` / `npm run lint:fix` - uses [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config).
 
 ## MIT License
 

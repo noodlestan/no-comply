@@ -1,6 +1,6 @@
 @layer standard-ui {
     .Link {
-        --__link-color: --fg-color(var(--c-name-interactive), var(--c-level-saturated));
+        --__link-color: --fg-color(var(--c-name-interactive), var(--c-level-fg-saturated));
         text-decoration: underline;
     }
 
@@ -10,7 +10,7 @@
     }
 
     .Link[aria-disabled] {
-        --__link-color: --fg-color(var(--c-name-disabled), var(--c-level-disabled));
+        --__link-color: --fg-color(var(--c-name-disabled), var(--c-level-fg-disabled));
     }
 
     .Link:focus,

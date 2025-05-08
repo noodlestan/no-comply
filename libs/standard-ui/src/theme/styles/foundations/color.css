@@ -2,11 +2,15 @@
     @layer foundations {
         @layer color {
             [data-theme-standard] {
-                --c-level-primary: 100;
-                --c-level-muted: 150;
-                --c-level-disabled: 200;
-                --c-level-saturated: 200;
+                --scrollbar-color: red;
+
+                --c-level-fg-primary: 100;
+                --c-level-fg-muted: 150;
+                --c-level-fg-disabled: 200;
+                --c-level-fg-saturated: 200;
+                --c-level-border: 300;
                 --c-level-mid: 500;
+                --c-level-bg-saturated: 600;
                 --c-level-bg-3: 700;
                 --c-level-bg-2: 800;
                 --c-level-bg-1: 900;

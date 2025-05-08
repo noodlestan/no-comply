@@ -1,11 +1,12 @@
 @layer standard-ui {
     .Callout {
-        --foobar: red;
-        --surface-fg-color: --f-color(var(--__callout-c-name), var(--c-level-primary));
+        --surface-fg-color: --f-color(var(--__callout-c-name), var(--c-level-fg-primary));
         --surface-bg-color: --f-color(var(--__callout-c-name), var(--c-level-bg-3));
         display: flex;
         width: var(--__callout-width);
         height: var(--__callout-height);
+        border: 1px solid --f-color(var(--__callout-c-name), var(--c-level-border));
+        border-radius: var(--callout-border-radius);
     }
 
     .Callout-length-full {

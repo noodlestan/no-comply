@@ -1,20 +1,20 @@
 # Context UI Primitives
 
-> Types and utils for [Context UI](https://github.com/noodlestan/context-ui).
+> Types
 
 ## Development
 
-### Getting started
+Make sure you [README](https://github.com/noodlestan/ui-system/blob/README.md) first.
 
-Make sure you [README](https://github.com/noodlestan/context-ui/blob/README.md) first.
+### Build Targets
 
-Launch the application in dev mode:
+This library is packaged for use in bundlers such as Vite and Astro. The main entry point is the Typescript source code.
 
-```
-nvm use
-npm install
-npm run dev
-```
+### Scripts
+
+- **$** `npm run dev` - uses `Vite` to (re)build on changes
+- **$** `npm run build` - uses `Vite` to do produce a dry build in `dist/`.
+- **$** `npm run lint` / `npm run lint:fix` - uses [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config).
 
 ## MIT License
 

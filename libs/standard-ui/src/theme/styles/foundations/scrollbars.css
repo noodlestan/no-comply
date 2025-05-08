@@ -2,10 +2,14 @@
     @layer foundations {
         @layer scrollbars {
             [data-theme-standard] {
-                --scrollbar-handle-rest-color: --f-color(var(--c-name-primary), 700);
-                --scrollbar-track-rest-color: --f-color(var(--c-name-primary), 1000);
-                --scrollbar-handle-hover-color: --f-color(var(--c-name-primary), 600);
-                --scrollbar-track-hover-color: --f-color(var(--c-name-primary), 900);
+                /* prettier-ignore */
+                --scrollbar-handle-rest-color: --f-color(var(--c-name-primary), var(--c-level-bg-3));
+                /* prettier-ignore */
+                --scrollbar-track-rest-color: --f-color(var(--c-name-primary), var(--c-level-bg-0));
+                /* prettier-ignore */
+                --scrollbar-handle-hover-color: --f-color(var(--c-name-primary), var(--c-level-bg-saturated));
+                /* prettier-ignore */
+                --scrollbar-track-hover-color: --f-color(var(--c-name-primary), var(--c-level-bg-1));
 
                 --scrollbar-handle-rest-opacity: var(--o-opaque);
                 --scrollbar-track-rest-opacity: var(--o-opaque);

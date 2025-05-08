@@ -1,0 +1,9 @@
+@layer standard-ui-theme {
+    @layer patterns {
+        @layer cards {
+            [data-theme-standard] {
+                --callout-border-radius: var(--radius-s);
+            }
+        }
+    }
+}
