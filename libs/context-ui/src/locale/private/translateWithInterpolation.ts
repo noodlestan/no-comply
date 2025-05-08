@@ -1,8 +1,13 @@
+/**
+ * Copyright (c) 2021-2023 Martynas Barzda
+ * Based on [solid-i18next](https://github.com/noodlestan/solid-i18next)
+ * Licensed under the MIT License.
+ */
 import type { InitOptions, TFunction } from 'i18next';
 
 import type { TranslateProps } from '../components';
 
-import { hasInterpolation } from './has-interpolation';
+import { hasInterpolation } from './hasInterpolation';
 
 const isNode = !globalThis.window;
 

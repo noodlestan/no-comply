@@ -18,6 +18,6 @@ npm run dev
 
 ## MIT License
 
-Copyright (c) 2024 [Noodlestan](https://noodlestan.org/).
+Copyright (c) 2024-2025 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).

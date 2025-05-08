@@ -2,9 +2,8 @@ import type { Accessor } from 'solid-js';
 
 import type { AccessorOrValue } from '../props';
 
+import { dataAttributeName } from './dataAttributeName';
 import type { DataAttributes, RawDataAttributes, RawDataAttributesInput } from './types';
-
-const prefixDataKey = <T extends string>(key: T): `data-${T}` => `data-${key}`;
 
 const mergeDataAttributes = <T extends string>(
     dataAttributes: RawDataAttributes<T>,
@@ -13,9 +12,9 @@ const mergeDataAttributes = <T extends string>(
     for (const key in dataAttributes) {
         const value = dataAttributes[key];
         if (typeof value === 'boolean' && value) {
-            res[prefixDataKey(key)] = '';
+            res[dataAttributeName(key)] = '';
         } else if (typeof value !== 'boolean') {
-            res[prefixDataKey(key)] = value as T;
+            res[dataAttributeName(key)] = value as T;
         }
     }
     return res;
@@ -23,25 +22,23 @@ const mergeDataAttributes = <T extends string>(
 
 export const createDataAttributes = <T extends string>(
     dataAttributesInput: AccessorOrValue<RawDataAttributesInput<T>>,
-    mappedDataAttributes?: Accessor<DataAttributes<T> | undefined>,
 ): Accessor<DataAttributes<T>> => {
     return () => {
         const input =
             typeof dataAttributesInput === 'function' ? dataAttributesInput() : dataAttributesInput;
-        const mappedValues = mappedDataAttributes?.() ?? {};
 
         if (typeof input === 'string') {
-            return { [prefixDataKey(input)]: '', ...mappedValues } as DataAttributes<T>;
+            return { [dataAttributeName(input)]: '' } as DataAttributes<T>;
         }
 
         if (!Array.isArray(input)) {
-            return mergeDataAttributes(input ?? {}, { ...mappedValues } as DataAttributes<T>);
+            return mergeDataAttributes(input ?? {}, {} as DataAttributes<T>);
         }
 
-        const res: DataAttributes<T> = { ...mappedValues } as DataAttributes<T>;
+        const res: DataAttributes<T> = {} as DataAttributes<T>;
         for (const item of input) {
             if (typeof item === 'string') {
-                res[prefixDataKey(item as T)] = '';
+                res[dataAttributeName(item as T)] = '';
             } else {
                 mergeDataAttributes(item, res);
             }

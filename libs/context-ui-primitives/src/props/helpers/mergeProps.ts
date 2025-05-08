@@ -1,131 +1,13 @@
-/* eslint-disable dot-notation */
-import type { ClassList } from '../../classes';
-import type { Styles } from '../../styles';
+/**
+ * Based on [SolidJS](https://github.com/solidjs/solid)
+ * Copyright (c) 2016-2025 Ryan Carniato
+ * Licensed under the MIT License.
+ * Modifications: Deep merging of classList, style, ref, and event handlers.
+ */
 import type { AccessorOrValue } from '../types';
 
-type Props = Record<string, unknown>;
-
-const defineClassList = (target: Props, sources: AccessorOrValue<Props>[]) => {
-    if ('classList' in target) {
-        return;
-    }
-
-    Object.defineProperty(target, 'classList', {
-        enumerable: true,
-        get: () => {
-            const classLists: (() => ClassList)[] = [];
-
-            for (let i = 0; i < sources.length; i++) {
-                const source = sources[i];
-                const props = typeof source === 'function' ? source() : source;
-                if (!props) continue;
-
-                const classList = props['classList'];
-                if (!classList) continue;
-
-                if (typeof classList === 'function') {
-                    classLists.push(classList as () => ClassList);
-                } else {
-                    classLists.push(() => classList as ClassList);
-                }
-            }
-            return classLists.reduce((acc, fn) => ({ ...acc, ...fn() }), {});
-        },
-    });
-};
-
-const defineStyles = (target: Props, sources: AccessorOrValue<Props>[]) => {
-    if ('style' in target) {
-        return;
-    }
-
-    const styleFns: (() => Styles)[] = [];
-
-    Object.defineProperty(target, 'style', {
-        enumerable: true,
-        get: () => {
-            for (let i = 0; i < sources.length; i++) {
-                const source = sources[i];
-                const props = typeof source === 'function' ? source() : source;
-                if (!props) continue;
-
-                const styles = props['style'];
-                if (!styles) continue;
-
-                if (typeof styles === 'function') {
-                    styleFns.push(styles as () => Styles);
-                } else {
-                    styleFns.push(() => styles as Styles);
-                }
-            }
-            return styleFns.reduce((acc, fn) => ({ ...acc, ...fn() }), {});
-        },
-    });
-};
-
-const defineHandler = (target: Props, key: string, sources: AccessorOrValue<Props>[]) => {
-    if (key in target) {
-        return;
-    }
-
-    Object.defineProperty(target, key, {
-        enumerable: true,
-        get: () => {
-            const handlers: ((arg: unknown) => void)[] = [];
-
-            for (let i = 0; i < sources.length; i++) {
-                const source = sources[i];
-                const props = typeof source === 'function' ? source() : source;
-
-                if (!props) {
-                    continue;
-                }
-
-                const handler = props[key];
-                if (!handler) {
-                    continue;
-                }
-
-                if (typeof handler === 'function') {
-                    handlers.push(handler as (arg: unknown) => void);
-                }
-            }
-
-            if (handlers.length === 0) {
-                return undefined;
-            }
-
-            if (handlers.length === 1) {
-                return handlers[0];
-            }
-
-            return (arg: unknown) => {
-                for (let i = 0; i < handlers.length; i++) {
-                    handlers[i]?.(arg);
-                }
-            };
-        },
-    });
-};
-
-const defineProp = (target: Props, key: string, sources: AccessorOrValue<Props>[]) => {
-    if (key in target) {
-        return;
-    }
-
-    Object.defineProperty(target, key, {
-        enumerable: true,
-        get: () => {
-            for (let i = sources.length - 1; i >= 0; i--) {
-                const source = sources[i];
-                const props = typeof source === 'function' ? source() : source;
-                if (props && key in props) {
-                    return props[key];
-                }
-            }
-        },
-    });
-};
+import { getMergedProperty, resolveSource } from './private';
+import type { Props } from './private';
 
 export function mergeProps<T extends Props = Props, U extends Props = Props>(
     source1: AccessorOrValue<T>,
@@ -148,28 +30,42 @@ export function mergeProps<
     source4: AccessorOrValue<W>,
 ): T & U & V & W;
 export function mergeProps(...sources: AccessorOrValue<Props>[]): Props {
-    const target: Props = {};
-
-    for (let i = 0; i < sources.length; i++) {
-        const source = sources[i];
-        const props = typeof source === 'function' ? source() : source;
-        if (!props) {
-            continue;
-        }
-
-        const descriptors = Object.getOwnPropertyDescriptors(props);
-        for (const key in descriptors) {
-            if (key === 'classList') {
-                defineClassList(target, sources);
-            } else if (key === 'style') {
-                defineStyles(target, sources);
-            } else if (key === 'ref' || key.startsWith('on')) {
-                defineHandler(target, key, sources);
-            } else {
-                defineProp(target, key, sources);
+    const traps = {
+        get(_: unknown, key: string) {
+            if (key === '$PROXY') {
+                return _;
             }
-        }
-    }
+            return getMergedProperty(sources, key);
+        },
+        has(_: unknown, key: string) {
+            for (let i = sources.length - 1; i >= 0; i--) {
+                const resolved = resolveSource(sources[i]);
+                if (key in resolved) {
+                    return true;
+                }
+            }
+            return false;
+        },
+        ownKeys() {
+            const keys: (string | symbol)[] = [];
+            for (let i = 0; i < sources.length; i++) {
+                const resolved = resolveSource(sources[i]);
+                if (resolved) {
+                    keys.push(...Reflect.ownKeys(resolved));
+                }
+            }
+            return Array.from(new Set(keys));
+        },
+        getOwnPropertyDescriptor(_: unknown, key: string) {
+            return {
+                configurable: true,
+                enumerable: true,
+                get() {
+                    return getMergedProperty(sources, key as string);
+                },
+            };
+        },
+    };
 
-    return target;
+    return new Proxy({}, traps) as Props;
 }

@@ -62,6 +62,15 @@ Make sure the `pre-commit` hook was executed. It runs automatically before every
 
 ## MIT License
 
-Copyright (c) 2024 [Noodlestan](https://noodlestan.org/).
+Copyright (c) 2024-2025 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).
+
+---
+
+### Acknowledgements
+
+This project contains code based on the following open-source projects:
+
+- [SolidJS](https://github.com/solidjs/solid) – Copyright (c) 2016-2025 Ryan Carniato – Licensed under the MIT License.
+- [solid-i18next](https://github.com/noodlestan/solid-i18next) – Copyright (c) 2021-2023 Martynas Barzda – Licensed under the MIT License.
