@@ -17,7 +17,7 @@ export const MainHeader: Component<Props> = props => {
 
     return (
         <Surface
-            variant="card"
+            variant="panel"
             tag="header"
             labelledby={$ID_APP_TITLE}
             classList={staticClassList(styles, 'MainHeader')}

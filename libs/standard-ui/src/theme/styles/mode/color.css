@@ -2,21 +2,9 @@
     @layer mode {
         @layer color {
             [data-mode-light] {
-                --l-fg-0: 1000;
-                --l-fg-1: 900;
-                --l-fg-2: 800;
-                --l-fg-3: 700;
-                --l-fg-4: 600;
-                --l-mid: 550;
-                --l-bg-4: 500;
-                --l-bg-3: 400;
-                --l-bg-2: 300;
-                --l-bg-1: 200;
-                --l-bg-0: 100;
-
-                --l-fg-static: var(--l-bg-0);
-                --l-bg-static: var(--l-fg-4);
-                --l-bg-static-alt: var(--l-bg-1);
+                --l-static-fg: var(--l-bg-0);
+                --l-static-bg: var(--l-fg-4);
+                --l-static-bg-alt: var(--l-bg-1);
             }
         }
     }

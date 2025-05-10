@@ -17,7 +17,7 @@ export const createSurfaceContext = (value: Accessor<string>): SurfaceContextVal
         [`surface-${value.name}`]: '',
         ...value.contextData?.(),
     });
-    const contextData = () => reduceContextVariantData(resolved(), nodeData, { surface: '' });
+    const contextData = () => reduceContextVariantData(resolved(), nodeData, { surface: value() });
 
     const context: SurfaceContext = {
         type: 'surface',

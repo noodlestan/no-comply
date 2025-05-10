@@ -2,190 +2,130 @@
 @layer standard-ui-theme {
     @layer foundations {
         @layer color {
-            /* prettier-ignore */
-            @function --f-palette-neutral(--l) {
-                result: if(
-                    style(--l: 100): #fdf4f6;
-                        style(--l: 200): #f5ecee;
-                        style(--l: 300): #ebe6e8;
-                        style(--l: 400): #cac6c7;
-                        style(--l: 500): #a4a0a1;
-                        style(--l: 550): #848081;
-                        style(--l: 600): #646162;
-                        style(--l: 700): #4d494a;
-                        style(--l: 800): #302d2e;
-                        style(--l: 900): #1a1718;
-                        style(--l: 1000): #090506;
-                );
-            }
+            :root {
+                --p-neutral: palette-0;
 
-            /* prettier-ignore */
-            @function --f-palette-pink(--l) {
-                result: if(
-                    style(--l: 100): #fdf4f7;
-                        style(--l: 200): #f4ecef;
-                        style(--l: 300): #f9e0e9;
-                        style(--l: 400): #e6bcc8;
-                        style(--l: 500): #d88aa3;
-                        style(--l: 550): #d35184;
-                        style(--l: 600): #a03b63;
-                        style(--l: 700): #7c2c4c;
-                        style(--l: 800): #4c192d;
-                        style(--l: 900): #280f18;
-                        style(--l: 1000): #14070b;
-                );
-            }
+                --palette-0-50: lch(97.92% 3.35 1.74);
+                --palette-0-100: lch(94.13% 3.38 1.74);
+                --palette-0-200: lch(85.72% 2.08 1.74);
+                --palette-0-300: lch(75.22% 1.57 1.74);
+                --palette-0-400: lch(66.22% 1.63 1.74);
+                --palette-0-500: lch(53.95% 1.7 1.74);
+                --palette-0-600: lch(41.44% 1.4 1.74);
+                --palette-0-700: lch(31.43% 1.88 1.74);
+                --palette-0-800: lch(18.81% 1.59 1.74);
+                --palette-0-850: lch(11.13% 1.38 1.74);
+                --palette-0-900: lch(7.11% 1.38 1.74);
+                --palette-0-950: lch(4.62% 3.38 1.74);
+                --palette-0-1000: lch(0.86% 3.35 1.74);
 
-            /* prettier-ignore */
-            @function --f-palette-red(--l) {
-                result: if(
-                    style(--l: 100): #fdf4f5;
-                        style(--l: 200): #f5ecec;
-                        style(--l: 300): #fbe0e1;
-                        style(--l: 400): #ebbbbd;
-                        style(--l: 500): #da8991;
-                        style(--l: 550): #d2586b;
-                        style(--l: 600): #974551;
-                        style(--l: 700): #74383e;
-                        style(--l: 800): #472024;
-                        style(--l: 900): #281012;
-                        style(--l: 1000): #140708;
-                );
-            }
+                --p-pink: palette-1;
 
-            /* prettier-ignore */
-            @function --f-palette-yellow(--l) {
-                result: if(
-                    style(--l: 100): #fcf5f1;
-                        style(--l: 200): #f0ecea;
-                        style(--l: 300): #f9e3d5;
-                        style(--l: 400): #e6c0a7;
-                        style(--l: 500): #d8905d;
-                        style(--l: 550): #c36a1f;
-                        style(--l: 600): #925019;
-                        style(--l: 700): #6f401a;
-                        style(--l: 800): #44250b;
-                        style(--l: 900): #251204;
-                        style(--l: 1000): #130803;
-                );
-            }
+                --palette-1-100: #f4ecef;
+                --palette-1-200: #f9e0e9;
+                --palette-1-300: #e6bcc8;
+                --palette-1-400: #d88aa3;
+                --palette-1-500: #d35184;
+                --palette-1-600: #a03b63;
+                --palette-1-700: #7c2c4c;
+                --palette-1-800: #4c192d;
+                --palette-1-900: #280f18;
 
-            /* prettier-ignore */
-            @function --f-palette-olive(--l) {
-                result: if(
-                    style(--l: 100): #f9f7ec;
-                        style(--l: 200): #efede2;
-                        style(--l: 300): #eae7d1;
-                        style(--l: 400): #cfc9a0;
-                        style(--l: 500): #ada259;
-                        style(--l: 550): #928305;
-                        style(--l: 600): #6d6106;
-                        style(--l: 700): #544b0c;
-                        style(--l: 800): #342e08;
-                        style(--l: 900): #1b1701;
-                        style(--l: 1000): #0d0b02;
-                );
-            }
+                --p-red: palette-2;
 
-            /* prettier-ignore */
-            @function --f-palette-green(--l) {
-                result: if(
-                    style(--l: 100): #f3f9ef;
-                        style(--l: 200): #e9efe5;
-                        style(--l: 300): #deebd7;
-                        style(--l: 400): #b7ceab;
-                        style(--l: 500): #83aa6e;
-                        style(--l: 550): #599036;
-                        style(--l: 600): #456b2e;
-                        style(--l: 700): #355224;
-                        style(--l: 800): #213417;
-                        style(--l: 900): #0d1a05;
-                        style(--l: 1000): #070d04;
-                );
-            }
+                --palette-2-100: #f5ecec;
+                --palette-2-200: #fbe0e1;
+                --palette-2-300: #ebbbbd;
+                --palette-2-400: #da8991;
+                --palette-2-500: #d2586b;
+                --palette-2-600: #974551;
+                --palette-2-700: #74383e;
+                --palette-2-800: #472024;
+                --palette-2-900: #281012;
 
-            /* prettier-ignore */
-            @function --f-palette-ocean(--l) {
-                result: if(
-                    style(--l: 100): #edfaf6;
-                        style(--l: 200): #e3f0ec;
-                        style(--l: 300): #cfeee5;
-                        style(--l: 400): #a1d2c4;
-                        style(--l: 500): #5aaf9a;
-                        style(--l: 550): #14927a;
-                        style(--l: 600): #136d5b;
-                        style(--l: 700): #0f5445;
-                        style(--l: 800): #10352c;
-                        style(--l: 900): #051a15;
-                        style(--l: 1000): #020e0b;
-                );
-            }
+                --p-yellow: palette-3;
 
-            /* prettier-ignore */
-            @function --f-palette-blue(--l) {
-                result: if(
-                    style(--l: 100): #edf9fe;
-                        style(--l: 200): #e3eff4;
-                        style(--l: 300): #ceecf8;
-                        style(--l: 400): #a0cee0;
-                        style(--l: 500): #59abc8;
-                        style(--l: 550): #0a8caf;
-                        style(--l: 600): #046985;
-                        style(--l: 700): #0e4f63;
-                        style(--l: 800): #023342;
-                        style(--l: 900): #021922;
-                        style(--l: 1000): #010d13;
-                );
-            }
+                --palette-3-100: #f0ecea;
+                --palette-3-200: #f9e3d5;
+                --palette-3-300: #e6c0a7;
+                --palette-3-400: #d8905d;
+                --palette-3-500: #c36a1f;
+                --palette-3-600: #925019;
+                --palette-3-700: #6f401a;
+                --palette-3-800: #44250b;
+                --palette-3-900: #251204;
 
-            /* prettier-ignore */
-            @function --f-palette-indigo(--l) {
-                result: if(
-                    style(--l: 100): #f5f6fe;
-                        style(--l: 200): #eceef5;
-                        style(--l: 300): #e1e6fc;
-                        style(--l: 400): #bcc5ec;
-                        style(--l: 500): #929ed7;
-                        style(--l: 550): #6f7dcf;
-                        style(--l: 600): #535d9c;
-                        style(--l: 700): #3f4777;
-                        style(--l: 800): #252b4c;
-                        style(--l: 900): #12162d;
-                        style(--l: 1000): #080a15;
-                );
-            }
+                --p-olive: palette-4;
 
-            /* prettier-ignore */
-            @function --f-palette-violet(--l) {
-                result: if(
-                    style(--l: 100): #fcf4fd;
-                        style(--l: 200): #f3ebf5;
-                        style(--l: 300): #f3e1f6;
-                        style(--l: 400): #dabedf;
-                        style(--l: 500): #be90c5;
-                        style(--l: 550): #ab68b6;
-                        style(--l: 600): #804c88;
-                        style(--l: 700): #613d67;
-                        style(--l: 800): #3d2241;
-                        style(--l: 900): #221124;
-                        style(--l: 1000): #100811;
-                );
-            }
+                --palette-4-100: #efede2;
+                --palette-4-200: #eae7d1;
+                --palette-4-300: #cfc9a0;
+                --palette-4-400: #ada259;
+                --palette-4-500: #928305;
+                --palette-4-600: #6d6106;
+                --palette-4-700: #544b0c;
+                --palette-4-800: #342e08;
+                --palette-4-900: #1b1701;
 
-            /* prettier-ignore */
-            @function --f-color(--p, --l: 550) {
-                result: if(
-                    style(--p: neutral): --f-palette-neutral(var(--l));
-                        style(--p: pink): --f-palette-pink(var(--l));
-                        style(--p: red): --f-palette-red(var(--l));
-                        style(--p: yellow): --f-palette-yellow(var(--l));
-                        style(--p: olive): --f-palette-olive(var(--l));
-                        style(--p: green): --f-palette-green(var(--l));
-                        style(--p: ocean): --f-palette-ocean(var(--l));
-                        style(--p: blue): --f-palette-blue(var(--l));
-                        style(--p: indigo): --f-palette-indigo(var(--l));
-                        style(--p: violet): --f-palette-violet(var(--l));
-                );
+                --p-green: palette-5;
+
+                --palette-5-100: #e9efe5;
+                --palette-5-200: #deebd7;
+                --palette-5-300: #b7ceab;
+                --palette-5-400: #83aa6e;
+                --palette-5-500: #599036;
+                --palette-5-600: #456b2e;
+                --palette-5-700: #355224;
+                --palette-5-800: #213417;
+                --palette-5-900: #0d1a05;
+
+                --p-ocean: palette-6;
+
+                --palette-6-100: #e3f0ec;
+                --palette-6-200: #cfeee5;
+                --palette-6-300: #a1d2c4;
+                --palette-6-400: #5aaf9a;
+                --palette-6-500: #14927a;
+                --palette-6-600: #136d5b;
+                --palette-6-700: #0f5445;
+                --palette-6-800: #10352c;
+                --palette-6-900: #051a15;
+
+                --p-blue: palette-7;
+
+                --palette-7-100: #e3eff4;
+                --palette-7-200: #ceecf8;
+                --palette-7-300: #a0cee0;
+                --palette-7-400: #59abc8;
+                --palette-7-500: #0a8caf;
+                --palette-7-600: #046985;
+                --palette-7-700: #0e4f63;
+                --palette-7-800: #023342;
+                --palette-7-900: #021922;
+
+                --p-indigo: palette-8;
+
+                --palette-8-100: #eceef5;
+                --palette-8-200: #e1e6fc;
+                --palette-8-300: #bcc5ec;
+                --palette-8-400: #929ed7;
+                --palette-8-500: #6f7dcf;
+                --palette-8-600: #535d9c;
+                --palette-8-700: #3f4777;
+                --palette-8-800: #252b4c;
+                --palette-8-900: #12162d;
+
+                --p-violet: palette-9;
+
+                --palette-9-100: #f3ebf5;
+                --palette-9-200: #f3e1f6;
+                --palette-9-300: #dabedf;
+                --palette-9-400: #be90c5;
+                --palette-9-500: #ab68b6;
+                --palette-9-600: #804c88;
+                --palette-9-700: #613d67;
+                --palette-9-800: #3d2241;
+                --palette-9-900: #221124;
             }
         }
     }

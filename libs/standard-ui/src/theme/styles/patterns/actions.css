@@ -4,11 +4,6 @@
             [data-theme-standard] {
                 --action-border-radius: var(--radius-s);
                 --action-border-width: var(--border-width-thin);
-
-                --action-primary-palette: var(--p-interactive);
-                --action-secondary-palette: var(--p-interactive);
-                --action-plain-palette: var(--p-primary);
-                --action-danger-palette: var(--p-bad);
             }
         }
     }

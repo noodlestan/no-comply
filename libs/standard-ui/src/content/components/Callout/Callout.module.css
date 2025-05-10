@@ -1,21 +1,16 @@
 @layer standard-ui {
     .Callout {
-        --surface-fg-color: --f-color(var(--__callout-palette), var(--l-fg-primary));
-        --surface-bg-color: --f-color(var(--__callout-palette), var(--l-bg-saturated));
         display: flex;
         width: var(--__callout-width);
         height: var(--__callout-height);
-        border: var(--callout-border-width) solid
-            --f-color(var(--__callout-palette), var(--l-border));
-        border-radius: var(--callout-border-radius);
     }
 
     .Callout--Label {
-        color: --f-color(var(--__callout-palette), var(--l-fg-saturated));
+        color: --f-color(var(--__surface-message-palette), var(--l-fg-saturated));
     }
 
     .Callout--Icon {
-        color: --f-color(var(--__callout-palette), var(--l-graphics));
+        color: --f-color(var(--__surface-message-palette), var(--l-graphics));
     }
 
     .Callout-length-full {
@@ -32,25 +27,5 @@
 
     .Callout-size-normal {
         --__callout-height: var(--size-m);
-    }
-
-    .Callout[data-message='passive'] {
-        --__callout-palette: var(--p-primary);
-    }
-
-    .Callout[data-message='info'] {
-        --__callout-palette: var(--p-neutral);
-    }
-
-    .Callout[data-message='success'] {
-        --__callout-palette: var(--p-good);
-    }
-
-    .Callout[data-message='warning'] {
-        --__callout-palette: var(--p-meh);
-    }
-
-    .Callout[data-message='danger'] {
-        --__callout-palette: var(--p-bad);
     }
 }

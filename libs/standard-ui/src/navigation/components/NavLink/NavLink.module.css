@@ -11,7 +11,7 @@
     }
 
     .NavLink[data-nav-link-current] {
-        color: --f-color(var(--p-selected), var(--l-fg-static));
+        color: --f-color(var(--p-selected), var(--l-static-fg));
         background-color: --f-color(var(--p-selected), var(--bg-static));
         text-decoration: none;
     }

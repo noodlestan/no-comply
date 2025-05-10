@@ -1,7 +1,7 @@
 @layer standard-ui-sandbox {
     @layer components {
         .SidebarNav {
-            height: 100%;
+            min-height: 100%;
             overflow-y: auto;
         }
     }

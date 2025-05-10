@@ -36,7 +36,7 @@ export const ScreenWithSidebar: ParentComponent = props => {
     const handleDismiss = () => setSidebarExpanded(false);
 
     return (
-        <Surface variant="stage" classList={staticClassList(styles, 'ScreenWithSidebar')}>
+        <Surface variant="stage" stretch="height">
             <Flex direction="column" stretch="full" justify="stretch">
                 <MainHeader
                     setMenuButtonRef={setToggleButtonRef}
@@ -47,14 +47,15 @@ export const ScreenWithSidebar: ParentComponent = props => {
                     contain={false}
                     sidebar={<SidebarNav />}
                     sidebarExpanded={sidebarExpanded()}
-                    onSideBarDismiss={handleDismiss}
+                    onSidebarDismiss={handleDismiss}
                     exclude={() => (toggleButtonEl ? [toggleButtonEl] : [])}
+                    classList={staticClassList(styles, 'ScreenWithSidebar--Layout')}
                 >
                     <Surface
                         tag="main"
                         variant={'page'}
                         labelledby={$ID_SCREEN_TITLE}
-                        classList={staticClassList(styles, 'ScreenWithSidebar--Contents')}
+                        stretch="height"
                     >
                         {props.children}
                     </Surface>

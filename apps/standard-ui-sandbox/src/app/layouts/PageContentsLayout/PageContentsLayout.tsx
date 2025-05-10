@@ -18,7 +18,7 @@ export const PageContentsLayout: ParentComponent<Props> = props => {
     const $ = mergeProps($static, $others);
 
     return (
-        <Flex direction="column" flex={1} stretch="full" {...$}>
+        <Flex direction="column" flex={1} stretch="full" overflow="y-auto" {...$}>
             {locals.children}
         </Flex>
     );

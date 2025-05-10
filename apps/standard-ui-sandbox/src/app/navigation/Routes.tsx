@@ -11,6 +11,7 @@ import {
     DisplayPage,
     DividerPage,
     FlexPage,
+    FoundationsScreen,
     IconButtonPage,
     IconPage,
     LabelPage,
@@ -54,6 +55,7 @@ export const Routes: Component = () => {
                 <Route path="/component/TextInput" component={TextInputPage} />
             </Route>
             <Route path="/app" component={AppHomeScreen} />
+            <Route path="/foundations" component={FoundationsScreen} />
         </>
     );
 };

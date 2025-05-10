@@ -2,9 +2,10 @@
     @layer foundations {
         @layer opacity {
             [data-theme-standard] {
-                --box-shadow-solid: 0px 0px 0px 1px;
-                --box-shadow-tight: 0px 0px 2px 1px;
-                --box-shadow-wide: 0px 1px 4px 2px;
+                --box-shadow-0: 0px 0px 0px 1px;
+                --box-shadow-1: 0px 0px 2px 1px;
+                --box-shadow-2: 0px 1px 4px 2px;
+                --box-shadow-3: 0px 2px 10px 3px;
             }
         }
     }

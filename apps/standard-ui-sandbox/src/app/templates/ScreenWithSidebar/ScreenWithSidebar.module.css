@@ -1,12 +1,7 @@
 @layer standard-ui-sandbox {
     @layer screens {
-        .ScreenWithSidebar {
-            height: 100%;
-        }
-
-        .ScreenWithSidebar--Contents {
-            height: 100%;
-            overflow-y: auto;
+        .ScreenWithSidebar--Layout {
+            z-index: 0;
         }
     }
 }
