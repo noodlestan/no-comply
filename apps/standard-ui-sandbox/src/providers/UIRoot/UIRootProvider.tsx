@@ -16,6 +16,7 @@ import {
     useSystemContext,
     useTheme,
 } from '@noodlestan/context-ui';
+import { DebugStyles } from '@noodlestan/context-ui-dev';
 import {
     STANDARD_UI_SETTINGS,
     STANDARD_UI_SETTINGS_GROUPS,
@@ -61,6 +62,7 @@ export const UIRootProvider: ParentComponent<UIRootProviderProps> = props => {
     return (
         <>
             <ThemeStandard />
+            <DebugStyles />
             <ContextRootProvider root={root}>
                 <ModeContextProvider context={modeContext}>
                     <ThemeContextProvider context={themeContext}>

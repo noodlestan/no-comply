@@ -4,7 +4,7 @@ import { SurfaceBase } from '@noodlestan/headless-ui';
 import { Display, Flex } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
-import { DebugContextTreePanel } from '../panels';
+import { DebugContextTreePanel } from '../../panels';
 
 import styles from './DebugDrawer.module.css';
 
