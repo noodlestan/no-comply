@@ -6,6 +6,8 @@ import {
 } from '@noodlestan/context-ui-primitives';
 import { splitProps } from 'solid-js';
 
+import { createLayoutMixin } from '../../../layout';
+
 import styles from './Surface.module.css';
 import type { SurfaceAPI, SurfaceProps } from './types';
 
@@ -16,14 +18,15 @@ const defaultProps: PickRequired<SurfaceProps, 'variant'> = {
 export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const [locals, others] = splitProps(props, ['variant']);
 
-    const variant = () => locals.variant ?? defaultProps.variant;
+    const { $root: $layoutMixinRoot } = createLayoutMixin(props);
 
+    const variant = () => locals.variant ?? defaultProps.variant;
     const staticProps = {
         classList: staticClassList(styles, 'Surface'),
     };
     const surfaceProps = createComputedProps(staticProps, { variant });
 
     return {
-        surfaceProps: mergeProps(others, surfaceProps),
+        surfaceProps: mergeProps(others, $layoutMixinRoot, surfaceProps),
     };
 };

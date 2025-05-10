@@ -7,7 +7,7 @@
         border-color: --f-alpha(var(--surface-border-color), var(--surface-border-opacity));
         border-radius: var(--surface-border-radius);
         box-shadow: var(--surface-box-shadow-size)
-            --f-alpha(var(--surface-box-shadow-color), var(--surface-box-shawdow-opacity));
+            --f-alpha(var(--surface-box-shadow-color), var(--surface-box-shadow-opacity));
         /* transition: background-color 0.5s ease-in; */
     }
 

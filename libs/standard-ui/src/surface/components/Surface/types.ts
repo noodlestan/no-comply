@@ -1,11 +1,22 @@
-import type { SurfaceBaseProps } from '@noodlestan/headless-ui';
+import type { LayoutMixinAPI, SurfaceBaseProps } from '@noodlestan/headless-ui';
 
-export type SurfaceProps = SurfaceBaseProps & {
-    variant?: SurfaceVariant;
-};
+import type { LayoutMixinProps } from '../../../layout';
 
-export type SurfaceVariant = 'stage' | 'page' | 'card' | 'inverse' | 'message' | 'toast' | 'dialog';
+export type SurfaceProps = SurfaceBaseProps &
+    LayoutMixinProps & {
+        variant?: SurfaceVariant;
+    };
+
+export type SurfaceVariant =
+    | 'stage'
+    | 'page'
+    | 'card'
+    | 'panel'
+    | 'inverse'
+    | 'message'
+    | 'toast'
+    | 'dialog';
 
 export type SurfaceAPI = {
-    surfaceProps: SurfaceBaseProps;
+    surfaceProps: SurfaceBaseProps & LayoutMixinAPI['$root'];
 };

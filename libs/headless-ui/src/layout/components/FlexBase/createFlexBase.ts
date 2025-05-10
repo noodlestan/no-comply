@@ -1,11 +1,12 @@
 import { mergeProps } from '@noodlestan/context-ui-primitives';
 
-import { createFlexMixin, createLayoutMixin } from '../../mixins';
+import { createFlexMixin } from '../../mixins';
+import { createLayoutBase } from '../LayoutBase';
 
 import { type FlexBaseAPI, type FlexBaseProps } from './types';
 
 export const createFlexBase = (props: FlexBaseProps): FlexBaseAPI => {
-    const { $root: $layoutMixinRoot } = createLayoutMixin(props);
+    const { $root: $layoutMixinRoot } = createLayoutBase(props);
     const { $root: $flexMixinRoot } = createFlexMixin(props);
 
     return {

@@ -1,11 +1,26 @@
+import {
+    type PickRequired,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
+
 import { createLayoutMixin } from '../../mixins';
 
 import { type LayoutBaseAPI, type LayoutBaseProps } from './types';
 
+const defaultProps: PickRequired<LayoutBaseProps, 'tag'> = {
+    tag: 'div',
+};
+
 export const createLayoutBase = (props: LayoutBaseProps): LayoutBaseAPI => {
     const { $root: $layoutMixinRoot } = createLayoutMixin(props);
 
+    const component = () => props.tag ?? defaultProps.tag;
+    const $localRoot = createComputedProps({
+        component,
+    });
+
     return {
-        $root: $layoutMixinRoot,
+        $root: mergeProps($layoutMixinRoot, $localRoot),
     };
 };

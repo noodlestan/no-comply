@@ -1,8 +1,6 @@
-import type { LayoutTagName } from '@noodlestan/context-ui-aria';
 import { type ClassList } from '@noodlestan/context-ui-primitives';
 
 export type LayoutMixinProps = {
-    tag?: LayoutTagName;
     stretch?: LayoutMixinStretch;
     overflow?: LayoutMixinOverflow;
 };
@@ -12,7 +10,6 @@ export type LayoutMixinOverflow = 'auto' | 'x-auto' | 'y-auto' | 'hidden';
 
 export type LayoutMixinAPI = {
     $root: {
-        component: LayoutTagName;
         classList: ClassList;
     };
 };

@@ -11,13 +11,15 @@
     .Layout-stretch-full,
     .Layout-stretch-width {
         width: 100%;
-        min-width: 100%;
+        flex: 1 1 0;
+        min-width: 0;
     }
 
     .Layout-stretch-full,
     .Layout-stretch-height {
         height: 100%;
-        min-height: 100%;
+        flex: 1 1 0;
+        min-height: 0;
     }
 
     .Layout-overflow-auto {

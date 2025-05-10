@@ -4,12 +4,4 @@ import { SURFACE_PROPS } from '../../controllers';
 
 import type { SurfaceBaseProps } from './types';
 
-export const SURFACE_BASE_PROPS = definePropKeys<SurfaceBaseProps>()([
-    ...SURFACE_PROPS,
-    'variant',
-    'tag',
-    'interactive',
-    'disabled',
-    'debug',
-    'onPointerDown',
-]);
+export const SURFACE_BASE_PROPS = definePropKeys<SurfaceBaseProps>()(SURFACE_PROPS);

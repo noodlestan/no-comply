@@ -1,14 +1,13 @@
-import { type ClassList } from '@noodlestan/context-ui-primitives';
-import { type LayoutMixinAPI, type LayoutMixinProps } from '@noodlestan/headless-ui';
+import type { LayoutTagName } from '@noodlestan/context-ui-aria';
+
+import { type LayoutMixinAPI, type LayoutMixinProps } from '../../mixins';
 
 export type LayoutProps = LayoutMixinProps & {
-    padding?: LayoutPadding;
+    tag?: LayoutTagName;
 };
-
-export type LayoutPadding = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type LayoutAPI = {
     $root: LayoutMixinAPI['$root'] & {
-        classList: ClassList;
+        component: LayoutTagName;
     };
 };

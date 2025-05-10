@@ -1,25 +1,20 @@
-import {
-    type PickRequired,
-    createClassList,
-    createComputedProps,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createLayoutMixin } from '@noodlestan/headless-ui';
+import { type PickRequired, createComputedProps } from '@noodlestan/context-ui-primitives';
+import { mergeProps } from 'solid-js';
 
-import styles from './Layout.module.css';
+import { createLayoutMixin } from '../../mixins';
+
 import { type LayoutAPI, type LayoutProps } from './types';
 
-const defaultProps: PickRequired<LayoutProps, 'padding'> = {
-    padding: 'none',
+const defaultProps: PickRequired<LayoutProps, 'tag'> = {
+    tag: 'div',
 };
 
 export const createLayout = (props: LayoutProps): LayoutAPI => {
     const { $root: $layoutMixinRoot } = createLayoutMixin(props);
 
-    const padding = () => props.padding ?? defaultProps.padding;
-    const classList = createClassList(styles, () => [`Layout-padding-${padding()}`]);
+    const component = () => props.tag ?? defaultProps.tag;
     const $localRoot = createComputedProps({
-        classList,
+        component,
     });
 
     return {
