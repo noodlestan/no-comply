@@ -2,12 +2,12 @@ import { type ClassList, shortId } from '@noodlestan/context-ui-primitives';
 import { Display, Flex, Surface } from '@noodlestan/standard-ui';
 import type { ParentComponent } from 'solid-js';
 
-type DemoGroupProps = {
+type Props = {
     title: string;
     classList?: ClassList;
 };
 
-export const DemoGroup: ParentComponent<DemoGroupProps> = props => {
+export const DemoGroup: ParentComponent<Props> = props => {
     const labelId = shortId();
 
     return (

@@ -1,10 +1,11 @@
-import { shortId, staticClassList } from '@noodlestan/context-ui-primitives';
+import { mergeProps, shortId, staticClassList } from '@noodlestan/context-ui-primitives';
+import type { ClosedTagProps } from '@noodlestan/headless-ui';
 import { Flex, Label, Surface, type SurfaceVariant, Text } from '@noodlestan/standard-ui';
-import { type ParentComponent, Show } from 'solid-js';
+import { type ParentComponent, Show, splitProps } from 'solid-js';
 
 import styles from './DemoItem.module.css';
 
-type DemoItemProps = {
+type Props = ClosedTagProps & {
     surface?: SurfaceVariant;
     title?: string;
     note?: string;
@@ -12,29 +13,37 @@ type DemoItemProps = {
     width?: string;
 };
 
-export const DemoItem: ParentComponent<DemoItemProps> = props => {
-    const labelId = () => (props.title ? shortId() : undefined);
+export const DemoItem: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, [
+        'surface',
+        'title',
+        'note',
+        'row',
+        'width',
+        'children',
+    ]);
 
-    const style = () => (props.width ? { width: props.width } : {});
+    const labelId = () => (locals.title ? shortId() : undefined);
+    const style = () => (locals.width ? { width: locals.width } : {});
+    const surface = () => locals.surface ?? 'card';
 
-    const surface = () => props.surface ?? 'card';
+    const $root = {
+        classList: staticClassList(styles, 'DemoItem'),
+    };
+
+    const $ = mergeProps($others, $root);
 
     return (
-        <Surface
-            variant={surface()}
-            classList={staticClassList(styles, 'DemoItem')}
-            style={style()}
-            labelledby={labelId()}
-        >
+        <Surface variant={surface()} style={style()} labelledby={labelId()} {...$}>
             <Flex gap="m" padding="m">
-                <Show when={props.title}>
-                    <Label id={labelId()}>{props.title}</Label>
+                <Show when={locals.title}>
+                    <Label id={labelId()}>{locals.title}</Label>
                 </Show>
-                <Flex gap="m" direction={props.row ? 'row' : 'column'}>
-                    {props.children}
+                <Flex gap="m" direction={locals.row ? 'row' : 'column'} data-demo-item-contents>
+                    {locals.children}
                 </Flex>
-                <Show when={props.note}>
-                    <Text variant="small">{props.note}</Text>
+                <Show when={locals.note}>
+                    <Text variant="small">{locals.note}</Text>
                 </Show>
             </Flex>
         </Surface>

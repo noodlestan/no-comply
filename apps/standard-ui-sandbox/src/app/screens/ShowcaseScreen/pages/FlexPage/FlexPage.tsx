@@ -4,7 +4,7 @@ import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
-import { ExampleTinyContents } from '../../../../examples';
+import { ExampleLayoutContents } from '../../../../examples';
 
 import styles from './FlexPage.module.css';
 
@@ -15,137 +15,129 @@ export const FlexPage: Component = () => {
         <DemoPage title="Flex" classList={staticClassList(styles, 'FlexPage')}>
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
-                <DemoItem>
+                <DemoItem classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex>
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="direction">
-                <DemoItem title="row">
+                <DemoItem title="row" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="column">
+                <DemoItem title="column" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="column">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="row-reverse">
+                <DemoItem title="row-reverse" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row-reverse">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="column-reverse">
+                <DemoItem
+                    title="column-reverse"
+                    classList={staticClassList(styles, 'FlexPage--Item')}
+                >
                     <Flex direction="column-reverse">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="align">
-                <DemoItem title="start">
-                    <Flex align="start">
-                        <ExampleTinyContents />
+                <DemoItem title="start" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" align="start">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="center">
-                    <Flex align="center">
-                        <ExampleTinyContents />
+                <DemoItem title="center" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" align="center">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="baseline">
-                    <Flex align="baseline">
-                        <ExampleTinyContents />
+                <DemoItem title="baseline" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" align="baseline">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="end">
-                    <Flex align="end">
-                        <ExampleTinyContents />
+                <DemoItem title="end" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" align="end">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="stretch">
-                    <Flex align="stretch">
-                        <ExampleTinyContents />
+                <DemoItem title="stretch" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" align="stretch">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="justify" classList={staticClassList(styles, 'FlexPage--JustifyDemo')}>
-                <DemoItem title="start">
-                    <Flex justify="start" stretch="width">
-                        <ExampleTinyContents />
+                <DemoItem title="start" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" justify="start" stretch="width">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="center">
-                    <Flex justify="center" stretch="width">
-                        <ExampleTinyContents />
+                <DemoItem title="center" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" justify="center" stretch="width">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="end">
-                    <Flex justify="end" stretch="width">
-                        <ExampleTinyContents />
+                <DemoItem title="end" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" justify="end" stretch="width">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="stretch">
-                    <Flex justify="stretch" stretch="width">
-                        <ExampleTinyContents />
+                <DemoItem title="around" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" justify="around" stretch="width">
+                        <ExampleLayoutContents />
+                    </Flex>
+                </DemoItem>
+                <DemoItem title="between" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" justify="between" stretch="width">
+                        <ExampleLayoutContents />
+                    </Flex>
+                </DemoItem>
+                <DemoItem title="stretch" classList={staticClassList(styles, 'FlexPage--Item')}>
+                    <Flex direction="row" justify="stretch" stretch="width">
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="gap">
-                <DemoItem title="none">
+                <DemoItem title="none" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row" gap="none">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="s">
+                <DemoItem title="s" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row" gap="s">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="m">
+                <DemoItem title="m" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row" gap="m">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="l">
+                <DemoItem title="l" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row" gap="l">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="xl">
+                <DemoItem title="xl" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row" gap="xl">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
-                <DemoItem title="2xl">
+                <DemoItem title="2xl" classList={staticClassList(styles, 'FlexPage--Item')}>
                     <Flex direction="row" gap="2xl">
-                        <ExampleTinyContents />
+                        <ExampleLayoutContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
-            <DemoGroup title="padding">
-                <DemoItem title="none">
-                    <Flex direction="row">
-                        <ExampleTinyContents />
-                    </Flex>
-                </DemoItem>
-                <DemoItem title="s">
-                    <Flex direction="row" padding="s">
-                        <ExampleTinyContents />
-                    </Flex>
-                </DemoItem>
-                <DemoItem title="m">
-                    <Flex direction="row" padding="m">
-                        <ExampleTinyContents />
-                    </Flex>
-                </DemoItem>
-                <DemoItem title="l">
-                    <Flex direction="row" padding="l">
-                        <ExampleTinyContents />
-                    </Flex>
-                </DemoItem>
-            </DemoGroup>
+
             <DemoGroup title="classList">
                 <DemoItem note="Should override text color">
                     <Flex classList={staticClassList(styles, 'override')}>Foobar</Flex>

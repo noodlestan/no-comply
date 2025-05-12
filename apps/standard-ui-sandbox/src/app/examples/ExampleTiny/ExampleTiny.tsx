@@ -1,12 +1,27 @@
-import { Flex } from '@noodlestan/standard-ui';
+import { Button, Display, Flex, Icon, Link, Text } from '@noodlestan/standard-ui';
+import { ClockIcon, KeyIcon, LifeBuoyIcon, LockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
-
-import { ExampleTinyContents } from '../ExampleTinyContents';
 
 type Props = { title?: string };
 
 export const ExampleTiny: Component<Props> = props => (
     <Flex padding="m" gap="m" direction="row" align="center">
-        <ExampleTinyContents title={props.title} />
+        <Icon icon={ClockIcon} />
+        <Display level={4}>{props.title ?? 'Lorem ipsum'}</Display>
+        <Text variant="medium">
+            <Link href="/">Home</Link>
+        </Text>
+        <Button variant="plain">
+            <Icon icon={LifeBuoyIcon} />
+            Help
+        </Button>
+        <Button>
+            <Icon icon={LockIcon} />
+            Signup
+        </Button>
+        <Button variant="primary">
+            <Icon icon={KeyIcon} />
+            Login
+        </Button>
     </Flex>
 );

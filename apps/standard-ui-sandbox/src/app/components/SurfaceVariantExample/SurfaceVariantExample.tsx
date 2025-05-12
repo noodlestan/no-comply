@@ -11,11 +11,11 @@ import { type ParentComponent, splitProps } from 'solid-js';
 
 import styles from './SurfaceVariantExample.module.css';
 
-type SurfaceVariantProps = SurfaceProps & {
+type Props = SurfaceProps & {
     onVariant: SurfaceVariant;
 };
 
-export const SurfaceVariantExample: ParentComponent<SurfaceVariantProps> = props => {
+export const SurfaceVariantExample: ParentComponent<Props> = props => {
     const [locals, surfaceProps] = splitProps(props, ['onVariant', 'children']);
 
     const labelId = shortId();

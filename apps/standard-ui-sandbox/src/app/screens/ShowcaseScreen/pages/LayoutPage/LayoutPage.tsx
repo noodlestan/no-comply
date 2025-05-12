@@ -1,90 +1,118 @@
 import { staticClassList } from '@noodlestan/context-ui-primitives';
-import { Display, Layout } from '@noodlestan/standard-ui';
+import { Layout } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
-import { ExampleTinyContents } from '../../../../examples';
+import { ExampleLayoutChild, ExampleLayoutContents } from '../../../../examples';
 
 import styles from './LayoutPage.module.css';
 
+const longLoremIpsum =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis semper diam, in euismod libero.';
+
 export const LayoutPage: Component = () => {
     const COMPONENT = findComponent('Layout');
+
+    const itemClassList = staticClassList(styles, 'LayoutPage--Item');
+    const overflowItemClassList = staticClassList(styles, 'LayoutPage--OverflowItem');
+    const stretchItemClassList = staticClassList(styles, 'LayoutPage--StretchItem');
 
     return (
         <DemoPage title="Layout" classList={staticClassList(styles, 'LayoutPage')}>
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
-                <DemoItem>
+                <DemoItem classList={itemClassList}>
                     <Layout>
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-            </DemoGroup>
-            <DemoGroup
-                title="stretch"
-                classList={staticClassList(styles, 'LayoutPage--StretchDemo')}
-            >
-                <DemoItem title="full">
-                    <Layout stretch="full">
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-                <DemoItem title="width">
-                    <Layout stretch="width">
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-                <DemoItem title="height">
-                    <Layout stretch="height">
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-            </DemoGroup>
-            <DemoGroup
-                title="overflow"
-                classList={staticClassList(styles, 'LayoutPage--StretchDemo')}
-            >
-                <DemoItem title="auto">
-                    <Layout overflow="auto">
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-                <DemoItem title="x-auto">
-                    <Layout overflow="x-auto">
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-                <DemoItem title="y-auto">
-                    <Layout overflow="y-auto">
-                        <ExampleTinyContents />
-                    </Layout>
-                </DemoItem>
-                <DemoItem title="overflow-y">
-                    <Layout overflow="hidden">
-                        <ExampleTinyContents />
+                        <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="padding">
-                <DemoItem title="none">
+                <DemoItem classList={itemClassList} title="none">
                     <Layout>
-                        <Display level={4}>Lorem ipsum</Display>
+                        <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="s">
+                <DemoItem title="s" classList={itemClassList}>
                     <Layout padding="s">
-                        <Display level={4}>Lorem ipsum</Display>
+                        <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="m">
+                <DemoItem title="m" classList={itemClassList}>
                     <Layout padding="m">
-                        <Display level={4}>Lorem ipsum</Display>
+                        <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="l">
+                <DemoItem title="l" classList={itemClassList}>
                     <Layout padding="l">
-                        <Display level={4}>Lorem ipsum</Display>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="stretch">
+                <DemoItem title="no stretch" classList={stretchItemClassList}>
+                    <Layout>
+                        <ExampleLayoutChild stretch />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="width" classList={stretchItemClassList}>
+                    <Layout stretch="width">
+                        <ExampleLayoutChild stretch />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="height" classList={stretchItemClassList}>
+                    <Layout stretch="height">
+                        <ExampleLayoutChild stretch />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="full" classList={stretchItemClassList}>
+                    <Layout stretch="full">
+                        <ExampleLayoutChild stretch />
+                    </Layout>
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="overflow">
+                <DemoItem title="auto" classList={overflowItemClassList}>
+                    <Layout overflow="auto">
+                        <ExampleLayoutContents count={10} title={longLoremIpsum} width={500} />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="x-auto" classList={overflowItemClassList}>
+                    <Layout overflow="x-auto">
+                        <ExampleLayoutContents count={10} title={longLoremIpsum} width={500} />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="y-auto" classList={overflowItemClassList}>
+                    <Layout overflow="y-auto">
+                        <ExampleLayoutContents count={10} title={longLoremIpsum} />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="hidden" classList={overflowItemClassList}>
+                    <Layout overflow="hidden">
+                        <ExampleLayoutContents count={10} title={longLoremIpsum} />
+                    </Layout>
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="padding">
+                <DemoItem classList={itemClassList} title="none">
+                    <Layout>
+                        <ExampleLayoutContents />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="s" classList={itemClassList}>
+                    <Layout padding="s">
+                        <ExampleLayoutContents />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="m" classList={itemClassList}>
+                    <Layout padding="m">
+                        <ExampleLayoutContents />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="l" classList={itemClassList}>
+                    <Layout padding="l">
+                        <ExampleLayoutContents />
                     </Layout>
                 </DemoItem>
             </DemoGroup>

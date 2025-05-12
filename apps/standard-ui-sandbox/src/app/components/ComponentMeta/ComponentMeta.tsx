@@ -8,11 +8,11 @@ import { ImportStatement } from '../ImportStatement';
 
 import styles from './ComponentMeta.module.css';
 
-type ComponentMetaProps = {
+type Props = {
     component: ComponentMetadata;
 };
 
-export const ComponentMeta: Component<ComponentMetaProps> = props => {
+export const ComponentMeta: Component<Props> = props => {
     return (
         <div classList={staticClassList(styles, 'ComponentMeta')}>
             <ImportStatement name={props.component.name} package={props.component.package} />

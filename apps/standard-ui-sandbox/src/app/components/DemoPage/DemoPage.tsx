@@ -5,12 +5,12 @@ import type { ParentComponent } from 'solid-js';
 import { PageContentsLayout } from '../../layouts';
 import { $ID_SCREEN_TITLE } from '../../templates';
 
-type DemoPageProps = {
+type Props = {
     title: string;
     classList?: ClassList;
 };
 
-export const DemoPage: ParentComponent<DemoPageProps> = props => {
+export const DemoPage: ParentComponent<Props> = props => {
     return (
         <PageContentsLayout classList={props.classList}>
             <Display id={$ID_SCREEN_TITLE} level={2}>

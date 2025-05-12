@@ -4,10 +4,26 @@
             color: red !important;
         }
 
-        .LayoutPage--StretchDemo {
-            width: 350px;
-            height: 350px;
-            border: 1px solid purple;
+        .LayoutPage--Item [data-demo-item-contents] {
+            border: 1px dotted #e821e8;
+            background-color: #e821e880;
+        }
+
+        .LayoutPage--OverflowItem [data-demo-item-contents] {
+            border: 1px dotted #e821e8;
+            background-color: #e821e880;
+            width: 320px;
+            height: 160px;
+        }
+
+        .LayoutPage--OverflowItem [data-demo-item-contents] {
+            width: 400px;
+        }
+
+        .LayoutPage--StretchItem [data-demo-item-contents] {
+            display: flex;
+            align-items: start;
+            height: 300px;
         }
     }
 }

@@ -6,10 +6,12 @@ import {
     ButtonPage,
     CalloutPage,
     CheckboxPage,
+    CloseButtonPage,
     DataItemPage,
     DataValuePage,
     DisplayPage,
     DividerPage,
+    ExpandButtonPage,
     FlexPage,
     FoundationsScreen,
     IconButtonPage,
@@ -36,10 +38,12 @@ export const Routes: Component = () => {
                 <Route path="/component/Button" component={ButtonPage} />
                 <Route path="/component/Callout" component={CalloutPage} />
                 <Route path="/component/Checkbox" component={CheckboxPage} />
+                <Route path="/component/CloseButton" component={CloseButtonPage} />
                 <Route path="/component/DataItem" component={DataItemPage} />
                 <Route path="/component/DataValue" component={DataValuePage} />
                 <Route path="/component/Display" component={DisplayPage} />
                 <Route path="/component/Divider" component={DividerPage} />
+                <Route path="/component/ExpandButton" component={ExpandButtonPage} />
                 <Route path="/component/Flex" component={FlexPage} />
                 <Route path="/component/IconButton" component={IconButtonPage} />
                 <Route path="/component/Icon" component={IconPage} />
