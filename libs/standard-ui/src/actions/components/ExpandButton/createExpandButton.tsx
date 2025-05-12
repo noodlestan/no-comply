@@ -7,7 +7,7 @@ import {
 } from '@noodlestan/headless-ui';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
-import type { ButtonVariant } from '../Button';
+import type { ActionVariant } from '../../types';
 
 import type { ExpandButtonAPI, ExpandButtonProps } from './types';
 
@@ -22,7 +22,7 @@ const ICONS: ExpandButtonIcons = {
 };
 
 export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI => {
-    const iconButtonProps = pickProps(props, ['size', 'onPress']);
+    const iconButtonProps = pickProps(props, ['size', 'onPress', 'disabled']);
     const expandButtonProps = createComputedProps({
         controls: () => props.controls,
         expanded: () => props.expanded,
@@ -31,7 +31,7 @@ export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI =>
     });
     const { iconButtonProps: expandButtonIconButtonProps } =
         createHeadlesExpandButton(expandButtonProps);
-    const staticIconButtonProps = { variant: 'plain' as ButtonVariant };
+    const staticIconButtonProps = { variant: 'plain' as ActionVariant };
 
     return {
         iconButtonProps: mergeProps(

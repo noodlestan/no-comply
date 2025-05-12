@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .ExpandButtonPage .override {
+            background-color: red !important;
+        }
+    }
+}

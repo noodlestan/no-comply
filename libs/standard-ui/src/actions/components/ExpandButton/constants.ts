@@ -6,5 +6,6 @@ import type { ExpandButtonProps } from './types';
 export const EXPAND_BUTTON_PROPS = definePropKeys<ExpandButtonProps>()([
     'size',
     'onPress',
+    'disabled',
     ...HEADLESS_EXPAND_BUTTON_PROPS,
 ]);
