@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .CloseButtonPage .override {
+            background-color: red !important;
+        }
+    }
+}
