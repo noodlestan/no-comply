@@ -52,17 +52,6 @@ export const NAV_LINK_GROUPS: NavLinkGroup[] = [
         ],
     },
     {
-        title: 'Typography',
-        items: [
-            {
-                component: 'Display',
-            },
-            {
-                component: 'Text',
-            },
-        ],
-    },
-    {
         title: 'Forms',
         items: [
             {

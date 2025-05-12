@@ -1,5 +1,5 @@
 import { useFocusTarget, useNavigation } from '@noodlestan/context-ui';
-import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { createClassList } from '@noodlestan/context-ui-primitives';
 import { Flex, Surface } from '@noodlestan/standard-ui';
 import { type ParentComponent, createEffect, createSignal } from 'solid-js';
 
@@ -35,6 +35,10 @@ export const ScreenWithSidebar: ParentComponent = props => {
 
     const handleDismiss = () => setSidebarExpanded(false);
 
+    const classList = createClassList(styles, () => ({
+        'ScreenWithSidebar--Layout': !sidebarExpanded(),
+    }));
+
     return (
         <Surface variant="stage" stretch="height">
             <Flex direction="column" stretch="full" justify="stretch">
@@ -49,7 +53,7 @@ export const ScreenWithSidebar: ParentComponent = props => {
                     sidebarExpanded={sidebarExpanded()}
                     onSidebarDismiss={handleDismiss}
                     exclude={() => (toggleButtonEl ? [toggleButtonEl] : [])}
-                    classList={staticClassList(styles, 'ScreenWithSidebar--Layout')}
+                    classList={classList()}
                 >
                     <Surface
                         tag="main"

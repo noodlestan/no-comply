@@ -16,9 +16,9 @@ export type FieldsetProps = {
 
 export const Fieldset: ParentComponent<FieldsetProps> = props => {
     return (
-        <Flex direction="column" gap="s" classList={props.classList}>
+        <Flex direction="column" gap="xl" classList={props.classList}>
             <FieldsetLabel size={props.size}>{props.label}</FieldsetLabel>
-            <Flex direction={props.direction} gap="s" wrap={props.wrap}>
+            <Flex direction={props.direction} gap="l" wrap={props.wrap}>
                 {props.children}
             </Flex>
         </Flex>

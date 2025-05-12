@@ -1,6 +1,5 @@
 @layer standard-ui {
-    .Callout {
-        display: flex;
+    .Callout > div {
         width: var(--__callout-width);
         height: var(--__callout-height);
     }

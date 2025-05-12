@@ -4,7 +4,7 @@ import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
-import { ExampleTiny } from '../../../../examples';
+import { ExampleTinyContents } from '../../../../examples';
 
 import styles from './FlexPage.module.css';
 
@@ -17,132 +17,132 @@ export const FlexPage: Component = () => {
             <DemoGroup title="defaults">
                 <DemoItem>
                     <Flex>
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="direction">
                 <DemoItem title="row">
                     <Flex direction="row">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="column">
                     <Flex direction="column">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="row-reverse">
                     <Flex direction="row-reverse">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="column-reverse">
                     <Flex direction="column-reverse">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="align">
                 <DemoItem title="start">
                     <Flex align="start">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="center">
                     <Flex align="center">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="baseline">
                     <Flex align="baseline">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="end">
                     <Flex align="end">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="stretch">
                     <Flex align="stretch">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="justify" classList={staticClassList(styles, 'FlexPage--JustifyDemo')}>
                 <DemoItem title="start">
                     <Flex justify="start" stretch="width">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="center">
                     <Flex justify="center" stretch="width">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="end">
                     <Flex justify="end" stretch="width">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="stretch">
                     <Flex justify="stretch" stretch="width">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="gap">
                 <DemoItem title="none">
                     <Flex direction="row" gap="none">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="s">
                     <Flex direction="row" gap="s">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="m">
                     <Flex direction="row" gap="m">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="l">
                     <Flex direction="row" gap="l">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="xl">
                     <Flex direction="row" gap="xl">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="2xl">
                     <Flex direction="row" gap="2xl">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="padding">
                 <DemoItem title="none">
                     <Flex direction="row">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="s">
                     <Flex direction="row" padding="s">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="m">
                     <Flex direction="row" padding="m">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
                 <DemoItem title="l">
                     <Flex direction="row" padding="l">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Flex>
                 </DemoItem>
             </DemoGroup>

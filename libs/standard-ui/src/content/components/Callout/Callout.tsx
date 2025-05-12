@@ -1,7 +1,9 @@
 import { mergeProps } from '@noodlestan/context-ui-primitives';
 import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { XIcon } from 'lucide-solid';
 import { type ParentComponent, splitProps } from 'solid-js';
 
+import { IconButton } from '../../../actions';
 import { Icon } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
@@ -29,7 +31,7 @@ export const Callout: ParentComponent<Props> = props => {
                     </Display>
                 </Flex>
                 {/* TODO close button */}
-                <button>Close</button>
+                <IconButton variant="plain" icon={XIcon} label="Close" />
             </Flex>
         </Surface>
     );

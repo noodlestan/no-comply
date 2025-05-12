@@ -1,7 +1,8 @@
 @layer standard-ui-sandbox {
     @layer components {
         .SurfaceVariantExample > div {
-            border: 1px dotted var(--surface-border-optional);
+            padding: var(--space-gap-3);
+            border: 1px dotted black;
         }
     }
 }

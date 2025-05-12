@@ -1,13 +1,12 @@
-import { Display, Icon, IconButton } from '@noodlestan/standard-ui';
-import { ClockIcon, SettingsIcon } from 'lucide-solid';
+import { Flex } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
-type ExampleSmallProps = { title?: string };
+import { ExampleTinyContents } from '../ExampleTinyContents';
 
-export const ExampleTiny: Component<ExampleSmallProps> = props => (
-    <>
-        <Icon size="small" icon={ClockIcon} />
-        <Display level={4}>{props.title ?? 'Lorem ipsum'}</Display>
-        <IconButton size="small" variant="primary" icon={SettingsIcon} label="Open settings" />
-    </>
+type Props = { title?: string };
+
+export const ExampleTiny: Component<Props> = props => (
+    <Flex padding="m" gap="m" direction="row" align="center">
+        <ExampleTinyContents title={props.title} />
+    </Flex>
 );

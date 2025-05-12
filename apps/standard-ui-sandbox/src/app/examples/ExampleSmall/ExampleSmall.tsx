@@ -2,9 +2,9 @@ import { Button, Display, Flex, Icon, Link, Text } from '@noodlestan/standard-ui
 import { ClockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
-type ExampleSmallProps = { title: string };
+type Props = { title: string };
 
-export const ExampleSmall: Component<ExampleSmallProps> = props => {
+export const ExampleSmall: Component<Props> = props => {
     return (
         <Flex direction="column" gap="l" padding="m">
             <Flex gap="m">

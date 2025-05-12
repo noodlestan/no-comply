@@ -1,10 +1,20 @@
 @layer standard-ui {
     .Button {
-        --__button-palette: var(--p-primary);
-        --__button-border-style: none;
-        --__button-fg-l: var(--l-fg-muted);
-        --__button-bg-l: var(--l-bg-1);
+        --__button-fg-p: var(--p-primary);
+        --__button-fg-l: var(--l-fg-primary);
+        --__button-bg-p: var(--p-primary);
+        --__button-bg-l: var(--surface-bg-l-alt);
+        --__button-border-style: solid;
+        --__button-border-p: var(--p-primary);
         --__button-border-l: var(--l-bg-3);
+
+        --__button-hover-fg-l: var(--l-fg-contrast);
+        --__button-hover-bg-l: var(--surface-bg-l);
+        --__button-hover-border-l: var(--l-fg-0);
+
+        --__button-fg-color: --f-color(var(--__button-fg-p), var(--__button-fg-l));
+        --__button-bg-color: --f-color(var(--__button-bg-p), var(--__button-bg-l));
+        --__button-border-color: --f-color(var(--__button-border-p), var(--__button-border-l));
 
         display: inline-flex;
         flex-wrap: nowrap;
@@ -12,19 +22,19 @@
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        gap: var(--space-gap-1);
+        gap: var(--__button-gap);
         height: var(--__button-height);
         min-height: var(--__button-height);
         padding-block: 0;
-        padding-inline: var(--space-pad-0);
+        padding-inline: var(--__button-padding-inline);
         font-family: var(--action-type-family);
         line-height: var(--action-type-height-base);
-        color: --f-color(var(--__button-palette), var(--__button-fg-l));
-        background-color: --f-color(var(--__button-palette), var(--__button-bg-l));
+        color: --f-alpha(var(--__button-fg-color), var(--__button-fg-alpha));
+        background-color: --f-alpha(var(--__button-bg-color), var(--__button-bg-alpha));
         border: none;
-        border-color: --f-color(var(--__button-palette), var(--__button-border-l));
+        border-color: --f-alpha(var(--__button-border-color), var(--__button-border-alpha));
         border-width: var(--action-border-width);
-        border-style: var(--__button_border-style);
+        border-style: var(--__button-border-style);
         border-radius: var(--action-border-radius);
         text-decoration: none;
         transition:
@@ -32,55 +42,124 @@
             background-color ease var(--animation-duration-short);
     }
 
-    /*
-    .Button:not([disabled]):hover {
-        --__button-fg-l: var(--__button-hover-fg-l);
-        --__button-bg-l: var(--__button-hover-bg-l);
-        --__button-border-l: var(--__button-hover-border-l);
-    } */
+    .Button:is([disabled], [aria-disabled], [data-inactive]) {
+        --__button-fg-p: var(--p-primary);
+        --__button-fg-l: var(--l-fg-disabled);
+        --__button-bg-p: var(--p-primary);
+        --__button-bg-l: var(--l-bg-disabled);
+        --__button-border-p: var(--p-primary);
+        --__button-border-l: var(--l-border-disabled);
+    }
+
+    .Button:not([disabled], [aria-disabled], [data-inactive]):focus-visible,
+    .Button:not([disabled], [aria-disabled], [data-inactive]):hover {
+        /* prettier-ignore */
+        --__button-fg-color: --f-color(var(--__button-fg-p), var(--__button-hover-fg-l, var(--__button-fg-l)));
+        /* prettier-ignore */
+        --__button-bg-color: --f-color(var(--__button-bg-p), var(--__button-hover-bg-l, var(--__button-bg-l)));
+        /* prettier-ignore */
+        --__button-border-color: --f-color(var(--__button-border-p), var(--__button-hover-border-l, var(--__button-border-l)));
+    }
+
+    .Button:not([disabled], [aria-disabled], [data-inactive]):active {
+        /* prettier-ignore */
+        --__button-fg-color: --f-color(var(--__button-fg-p), var(--__button-active-fg-l, var(--__button-fg-l)));
+        /* prettier-ignore */
+        --__button-bg-color: --f-color(var(--__button-bg-p), var(--__button-active-bg-l, var(--__button-bg-l)));
+        /* prettier-ignore */
+        --__button-border-color: --f-color(var(--__button-border-p), var(--__button-active-border-l, var(--__button-border-l)));
+    }
+
+    .Button-variant-primary,
+    .Button-variant-danger {
+        --__button-fg-l: var(--l-fg-static);
+        --__button-bg-p: var(--p-interactive);
+        --__button-bg-l: var(--l-bg-static);
+        --__button-border-p: var(--p-interactive);
+        --__button-border-l: var(--l-bg-static-alt);
+
+        --__button-hover-fg-l: var(--l-bg-static-contrast);
+        --__button-hover-bg-l: var(--l-bg-static-alt);
+        --__button-hover-border-l: var(--l-bg-static);
+
+        --__button-active-fg-l: var(--l-fg-static-contrast);
+        --__button-active-bg-l: var(--l-bg-static);
+        --__button-active-border-l: var(--l-bg-static-alt);
+    }
 
     .Button-variant-primary {
-        --__button-palette: var(--p-interactive);
-        --__button_border-style: solid;
-        --__button-fg-l: var(--l-static-fg);
-        --__button-bg-l: var(--l-static-bg);
-        --__button-border-l: var(--l-static-bg-alt);
+        --__button-bg-p: var(--p-interactive);
+        --__button-border-p: var(--p-interactive);
     }
 
-    .Button-variant-secondary {
-        /* --__button-bg-l: var(--l-bg-2);
-        --__button-hover-bg-l: var(--l-bg-3);
-        --__button-border-l: var(--l-border); */
-    }
-
-    .Button-variant-plain {
-        --__button-fg-l: var(--l-fg-3);
-        background-color: transparent;
+    .Button-variant-primary:is([disabled], [aria-disabled], [data-inactive]) {
+        --__button-border-p: var(--p-interactive);
+        --__button-border-l: var(--l-bg-static-alt);
     }
 
     .Button-variant-danger {
-        --__button-palette: var(--p-primary);
-        --__button_border-style: solid;
-        --__button-fg-l: var(--l-static-fg);
-        --__button-bg-l: var(--l-static-bg);
-        --__button-border-l: var(--l-static-bg-alt);
+        --__button-bg-p: var(--p-bad);
+        --__button-border-p: var(--p-bad);
     }
 
-    .Button[disabled],
-    .Button[aria-disabled] {
-        --__button-palette: var(--p-primary);
-        --__button-fg-l: var(--l-fg-disabled);
-        --__button-bg-l: var(--l-disabled-bg);
-        border-width: var(--action-border-width);
+    .Button-variant-danger:is([disabled], [aria-disabled], [data-inactive]) {
+        --__button-border-p: var(--p-bad);
+        --__button-border-l: var(--l-bg-static-alt);
     }
 
-    .Button-variant-plain.Button-is-disabled,
-    .Button-variant-transparent.Button-is-disabled {
-        border: none;
-        background-color: transparent;
+    .Button-variant-secondary {
+        --__button-fg-p: var(--p-interactive);
+        --__button-fg-l: var(--l-fg-saturated);
     }
 
-    .Button:focus,
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]) {
+        --__button-bg-alpha: 0.3;
+        --__button-border-alpha: 0;
+    }
+
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):focus-visible,
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):hover {
+        --__button-bg-alpha: 0.5;
+        --__button-border-alpha: 0.7;
+    }
+
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):active {
+        --__button-bg-alpha: 1;
+        --__button-border-alpha: 1;
+    }
+
+    .Button.Button-size-small {
+        --__button-height: var(--size-xs);
+        --__button-gap: var(--space-gap--1);
+        --__button-padding-inline: var(--space-pad-0);
+        font-size: var(--action-type-size-xs);
+        font-weight: var(--action-type-weight-xs);
+    }
+
+    .Button.Button-size-normal {
+        --__button-height: var(--size-s);
+        --__button-gap: var(--space-gap-0);
+        --__button-padding-inline: var(--space-pad-1);
+        font-size: var(--action-type-size-s);
+        font-weight: var(--action-type-weight-s);
+    }
+
+    .Button.Button-size-medium {
+        --__button-height: var(--size-m);
+        --__button-gap: var(--space-gap-1);
+        --__button-padding-inline: var(--space-pad-2);
+        font-size: var(--action-type-size-m);
+        font-weight: var(--action-type-weight-m);
+    }
+
+    .Button.Button-size-large {
+        --__button-height: var(--size-l);
+        --__button-gap: var(--space-gap-2);
+        --__button-padding-inline: var(--space-pad-3);
+        font-size: var(--action-type-size-l);
+        font-weight: var(--action-type-weight-l);
+    }
+
     .Button:focus-visible {
         border-color: transparent;
         outline-offset: var(--outline-offset);

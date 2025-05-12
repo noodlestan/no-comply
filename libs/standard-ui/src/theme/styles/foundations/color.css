@@ -2,32 +2,35 @@
     @layer foundations {
         @layer color {
             [data-theme-standard] {
-                --l-fg-primary: 50;
-                --l-fg-muted: 150;
-                --l-fg-saturated: 200;
-                --l-fg-disabled: 300;
+                --l-fg-contrast: 50;
+                --l-fg-primary: 100;
+                --l-fg-muted: 200;
+                --l-fg-saturated: 300;
+                --l-fg-disabled: 400;
 
-                --l-border: 400;
-                --l-graphics: 500;
+                --l-border: 600;
+                --l-graphics: 400;
 
-                --l-bg-disabled: 600;
+                --l-border-disabled: 600;
+                --l-bg-disabled: 700;
                 --l-bg-saturated: 800;
 
-                --l-fg-static: 50;
+                --l-fg-static-contrast: 50;
+                --l-fg-static: 100;
                 --l-bg-static: 700;
                 --l-bg-static-alt: 600;
 
-                --surface-bg-stage-l: 1000;
-                --surface-bg-page-l: 900;
-                --surface-bg-card-l: 850;
-                --surface-bg-panel-l: 950;
-                --surface-bg-inverse-l: 900;
-                --surface-bg-message-l: 800;
+                --l-bg-stage: 850;
+                --l-bg-0: 1000;
+                --l-bg-1: 950;
+                --l-bg-2: 900;
+                --l-bg-3: 800;
+                --l-bg-4: 700;
 
                 --p-primary: var(--p-neutral);
                 --p-brand: var(--p-pink);
                 --p-interactive: var(--p-ocean);
-                --p-neutral: var(--p-blue);
+                --p-info: var(--p-blue);
                 --p-good: var(--p-green);
                 --p-meh: var(--p-yellow);
                 --p-bad: var(--p-red);

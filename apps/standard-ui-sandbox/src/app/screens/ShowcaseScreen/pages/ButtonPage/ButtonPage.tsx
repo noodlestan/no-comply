@@ -48,16 +48,16 @@ export const ButtonPage: Component = () => {
             </DemoGroup>
             <DemoGroup title="size">
                 <DemoItem row title="large">
-                    <Button size="large">Size L</Button>
+                    <Button size="large">Size Large</Button>
                 </DemoItem>
                 <DemoItem row title="medium">
-                    <Button size="medium">Size M</Button>
+                    <Button size="medium">Size Medium</Button>
                 </DemoItem>
                 <DemoItem row title="normal">
-                    <Button size="normal">Size S</Button>
+                    <Button size="normal">Size Normal</Button>
                 </DemoItem>
                 <DemoItem row title="small">
-                    <Button size="small">Size XS</Button>
+                    <Button size="small">Size Small</Button>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">

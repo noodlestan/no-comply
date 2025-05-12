@@ -4,7 +4,7 @@ import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
-import { ExampleTiny } from '../../../../examples';
+import { ExampleTinyContents } from '../../../../examples';
 
 import styles from './LayoutPage.module.css';
 
@@ -17,7 +17,7 @@ export const LayoutPage: Component = () => {
             <DemoGroup title="defaults">
                 <DemoItem>
                     <Layout>
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
             </DemoGroup>
@@ -27,17 +27,17 @@ export const LayoutPage: Component = () => {
             >
                 <DemoItem title="full">
                     <Layout stretch="full">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
                 <DemoItem title="width">
                     <Layout stretch="width">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
                 <DemoItem title="height">
                     <Layout stretch="height">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
             </DemoGroup>
@@ -47,22 +47,22 @@ export const LayoutPage: Component = () => {
             >
                 <DemoItem title="auto">
                     <Layout overflow="auto">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
                 <DemoItem title="x-auto">
                     <Layout overflow="x-auto">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
                 <DemoItem title="y-auto">
                     <Layout overflow="y-auto">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
                 <DemoItem title="overflow-y">
                     <Layout overflow="hidden">
-                        <ExampleTiny />
+                        <ExampleTinyContents />
                     </Layout>
                 </DemoItem>
             </DemoGroup>

@@ -47,7 +47,7 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
     const [password, setPassword] = createSignal('');
 
     return (
-        <Flex gap="m">
+        <Flex gap="2xl">
             <Flex gap="m" direction="row" justify="between">
                 <Display level={3} id={labelId}>
                     Lorem ipsum dolor
@@ -60,8 +60,8 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
                 faucibus est non porta.
             </Text>
             <Flex gap="xl">
-                <Fieldset label="Login">
-                    <Flex gap="s">
+                <Fieldset label="Login" size="large">
+                    <Flex gap="m">
                         <FieldLabel for="username">Username</FieldLabel>
                         <TextInput
                             id="username"
@@ -70,7 +70,7 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
                             onChangeValue={setUsername}
                         />
                     </Flex>
-                    <Flex gap="s">
+                    <Flex gap="m">
                         <FieldLabel for="password">Password</FieldLabel>
                         <TextInput
                             id="password"
@@ -80,9 +80,9 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
                         />
                     </Flex>
                 </Fieldset>
-                <Flex direction="row" gap="m">
-                    <Button>Primary</Button>
-                    <Button variant="secondary">Secondary</Button>
+                <Flex direction="row" gap="m" justify="end">
+                    <Button>Secondary</Button>
+                    <Button variant="primary">Primary</Button>
                 </Flex>
             </Flex>
         </Flex>
@@ -114,10 +114,9 @@ export const ExampleLargeFooter: Component<ExampleLargeProps> = () => {
 export const ExampleLarge: Component<ExampleLargeProps> = props => {
     return (
         <Flex direction="column" padding="xl" gap="xl">
-            <Callout variant="info">{props.title}</Callout>
+            <Callout variant="success">{props.title}</Callout>
             <ExampleLargeHeader />
             <ExampleLargeBody />
-            <ExampleLargeFooter />
         </Flex>
     );
 };

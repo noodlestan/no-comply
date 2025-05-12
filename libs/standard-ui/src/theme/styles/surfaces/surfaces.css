@@ -1,11 +1,14 @@
 @layer standard-ui-theme {
     @layer surfaces {
         [data-theme-standard] [data-surface] {
+            --surface-fg-l: var(--l-fg-primary);
             --surface-fg-opacity: var(--o-opaque);
-            --surface-fg-color: --f-color(var(--p-primary), var(--l-fg-primary));
+            --surface-fg-color: --f-color(var(--p-primary), var(--surface-fg-l));
 
+            --surface-bg-l: var(--l-bg-stage);
+            --surface-bg-l-alt: var(--l-bg-3);
             --surface-bg-opacity: var(--o-opaque);
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-stage-l));
+            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-l));
 
             --surface-border-opacity: var(--o-opaque);
             --surface-border-color: transparent;
@@ -19,35 +22,41 @@
         }
 
         [data-theme-standard] [data-surface-page] {
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-page-l));
-        }
-
-        [data-theme-standard] [data-surface-card] {
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-card-l));
-            --surface-border-radius: var(--radius-l);
+            --surface-bg-l: var(--l-bg-0);
+            --surface-bg-l-alt: var(--l-fg-primary);
         }
 
         [data-theme-standard] [data-surface-panel] {
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-panel-l));
+            --surface-bg-l: var(--l-bg-1);
+            --surface-bg-l-alt: var(--l-bg-2);
             --surface-box-shadow-size: var(--box-shadow-1);
         }
 
-        /* [data-theme-standard] [data-surface-panel] {
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-panel-l));
-            --surface-border-radius: var(--radius-m);
-            --surface-box-shadow-size: var(--box-shadow-2);
+        /* TODO
+        [data-theme-standard] [data-surface-floating-panel] {
             opacity !!
             filter: blur(2px)
-        } */
-
-        [data-theme-standard] [data-surface-inverse] {
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-inverse-l));
         }
+        */
+
+        [data-theme-standard] [data-surface-card] {
+            --surface-bg-l: var(--l-bg-2);
+            --surface-bg-l-alt: var(--l-bg-1);
+            --surface-border-radius: var(--radius-l);
+        }
+
+        /* TODO
+        [data-theme-standard] [data-surface-inverse] {
+            --surface-bg-color: --f-color(var(--p-primary), var(--l-fg-contrast));
+        }
+        */
 
         [data-theme-standard] [data-surface-message] {
             --surface-fg-color: --f-color(var(--__surface-message-palette), var(--l-fg-primary));
+            --surface-bg-l: var(--l-bg-3);
+            --surface-bg-l-alt: var(--l-bg-2);
             /* prettier-ignore */
-            --surface-bg-color: --f-color(var(--__surface-message-palette), var(--surface-bg-message-l));
+            --surface-bg-color: --f-color(var(--__surface-message-palette), var(--surface-bg-l));
             --surface-border-width: var(--border-width-thin);
             --surface-border-style: solid;
             --surface-border-color: --f-color(var(--__surface-message-palette), var(--l-border));
@@ -59,7 +68,7 @@
         }
 
         [data-theme-standard] [data-surface-message][data-message='info'] {
-            --__surface-message-palette: var(--p-neutral);
+            --__surface-message-palette: var(--p-info);
         }
 
         [data-theme-standard] [data-surface-message][data-message='success'] {
@@ -81,7 +90,7 @@
 
         [data-theme-standard] [data-surface-dialog] {
             --surface-fg-color: --f-color(var(--p-primary), var(--l-fg-primary));
-            --surface-bg-color: --f-color(var(--p-primary), var(--surface-bg-dialog-l));
+            --surface-bg-color: --f-color(var(--p-primary), var(--surface-dialog-bg-l));
             --surface-box-shadow-size: var(--box-shadow-3);
             --surface-border-radius: var(--radius-l);
         }

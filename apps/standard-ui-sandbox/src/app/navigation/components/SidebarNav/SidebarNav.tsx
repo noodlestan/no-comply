@@ -22,7 +22,13 @@ export const SidebarNav: Component = () => {
     };
 
     return (
-        <Surface variant="panel" classList={staticClassList(styles, 'SidebarNav')} ref={setRootRef}>
+        <Surface
+            variant="panel"
+            stretch="height"
+            overflow="y-auto"
+            classList={staticClassList(styles, 'SidebarNav')}
+            ref={setRootRef}
+        >
             <Flex
                 tag="nav"
                 direction="column"

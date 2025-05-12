@@ -18,25 +18,35 @@ export const SurfacePage: Component = () => {
                 <Flex gap="s">
                     <Label>stage</Label>
                     <Surface variant="stage">
-                        <Flex padding="l" direction="row" gap="s" align="center">
-                            <ExampleTiny title="Foobar" />
-                        </Flex>
+                        <ExampleTiny title="Foobar" />
                     </Surface>
                 </Flex>
             </DemoGroup>
             <DemoGroup title="variant">
-                <Flex gap="xl" classList={staticClassList(styles, 'SurfacePage--Variants')}>
+                <Flex gap="xl">
                     <SurfaceVariantExample variant="page" onVariant="stage">
-                        <ExampleLarge title="Foobar" />
+                        <ExampleLarge title="Page" />
+                    </SurfaceVariantExample>
+                    <SurfaceVariantExample variant="panel" onVariant="stage">
+                        <ExampleTiny title="Panel" />
+                    </SurfaceVariantExample>
+                    <SurfaceVariantExample variant="panel" onVariant="page">
+                        <ExampleTiny title="Panel" />
+                    </SurfaceVariantExample>
+                    <SurfaceVariantExample variant="card" onVariant="stage">
+                        <ExampleMedium title="Card" />
                     </SurfaceVariantExample>
                     <SurfaceVariantExample variant="card" onVariant="page">
-                        <ExampleMedium title="Foobar" />
+                        <ExampleMedium title="Card" />
                     </SurfaceVariantExample>
                     <SurfaceVariantExample variant="message" onVariant="page">
-                        <ExampleMedium title="Foobar" />
+                        <ExampleMedium title="Message" />
                     </SurfaceVariantExample>
                     <SurfaceVariantExample variant="inverse" onVariant="stage">
-                        <ExampleMedium title="Foobar" />
+                        <ExampleMedium title="Inverse" />
+                    </SurfaceVariantExample>
+                    <SurfaceVariantExample variant="inverse" onVariant="page">
+                        <ExampleMedium title="Inverse" />
                     </SurfaceVariantExample>
                 </Flex>
             </DemoGroup>

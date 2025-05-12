@@ -1,4 +1,0 @@
-.ShowText {
-    --__show-text: --f-color(var(--__show-text-p), var(--__show-text-l));
-    color: var(--__show-text);
-}
