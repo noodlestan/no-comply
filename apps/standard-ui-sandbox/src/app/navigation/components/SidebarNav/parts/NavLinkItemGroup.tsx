@@ -15,9 +15,7 @@ export const NavLinkItemGroup: Component<NavLinkItemGroupProps> = props => {
 
             <For each={props.items}>
                 {item => (
-                    <NavLink size="s" href={ROUTES.component(item.component)}>
-                        {item.component}
-                    </NavLink>
+                    <NavLink href={ROUTES.component(item.component)}>{item.component}</NavLink>
                 )}
             </For>
         </Flex>

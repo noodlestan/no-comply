@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <style>
+      @mixin --test {
+        background-color: red;
+      }
+      p {
+        color: white;
+        @apply --test;
+      }
+    </style>
+  </head>
+  <body>
+    <p>test</p>
+  </body>
+</html>

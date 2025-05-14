@@ -1,7 +1,7 @@
 {
   "name": "@noodlestan/standard-ui",
   "version": "0.0.11",
-  "description": "Themeable component library built with Context UI and SolidJS.",
+  "description": "Themeable component library built with Context UI and SolidJS and modern CSS",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,
@@ -38,6 +38,7 @@
     "solid-js": "^1.9.5"
   },
   "devDependencies": {
+    "sass": "^1.88.0",
     "vite": "^6.2.2",
     "vite-plugin-solid": "^2.11.6",
     "vite-plugin-solid-svg": "^0.8.1",

@@ -2,7 +2,7 @@
     .Link {
         cursor: pointer;
         pointer-events: all;
-        color: var(--__link_color);
+        color: var(--__link-color);
     }
 
     .Link[aria-disabled] {

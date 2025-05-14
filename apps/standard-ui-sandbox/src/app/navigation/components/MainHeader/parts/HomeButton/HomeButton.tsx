@@ -11,7 +11,7 @@ import styles from './HomeButton.module.css';
 export const HomeButton: Component = () => {
     return (
         <h1 classList={staticClassList(styles, 'HomeButton')} id={$ID_APP_TITLE}>
-            <NavLink size="s" href={ROUTES.home()}>
+            <NavLink href={ROUTES.home()}>
                 <Icon icon={SquareMousePointerIcon} size="medium" aria-hidden />
                 <Text variant="medium">Context UI</Text>
             </NavLink>

@@ -48,6 +48,7 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
         'WithSidebarLayout-is-expanded': props.sidebarExpanded,
     }));
     const $localRoot = createComputedProps({
+        'data-layout-large': () => (isDesktop() ? '' : undefined),
         classList,
     });
 

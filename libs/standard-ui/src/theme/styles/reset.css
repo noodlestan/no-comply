@@ -9,6 +9,10 @@
         view-transition-name: none;
     }
 
+    html {
+        interpolate-size: allow-keywords;
+    }
+
     ::view-transition {
         pointer-events: none;
     }

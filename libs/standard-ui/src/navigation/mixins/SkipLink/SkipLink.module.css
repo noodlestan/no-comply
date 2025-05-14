@@ -1,0 +1,30 @@
+@layer standard-ui {
+    .SkipLink {
+        overflow: hidden;
+        display: block;
+        max-height: 0;
+        padding: 0;
+        animation: collapse 300ms backwards;
+        /* transition: max-height 300ms ease; */
+    }
+
+    .SkipLink:focus-within {
+        padding: var(--space-pad-1);
+        max-height: 100px; /* or something comfortably big */
+    }
+}
+
+@keyframes collapse {
+    0% {
+        max-height: 100px;
+        padding: 8px 16px;
+    }
+    80% {
+        max-height: 0;
+        padding: 8px 16px;
+    }
+    100% {
+        max-height: 0;
+        padding: 0;
+    }
+}

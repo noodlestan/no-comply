@@ -1,6 +1,6 @@
 import { useSystemContext } from '@noodlestan/context-ui';
 import { createClassList } from '@noodlestan/context-ui-primitives';
-import { Flex } from '@noodlestan/standard-ui';
+import { Flex, SkipLink } from '@noodlestan/standard-ui';
 import { Router } from '@solidjs/router';
 import { type Component, type ParentComponent, Show } from 'solid-js';
 
@@ -11,6 +11,7 @@ import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
 import { AppSplash } from './splash';
+import { $ID_SCREEN_TITLE } from './templates';
 
 const Main: ParentComponent = props => {
     const { status } = useAppServices();
@@ -28,7 +29,10 @@ const Main: ParentComponent = props => {
             <Show when={!status.isReady()}>
                 <AppSplash />
             </Show>
-            <Show when={status.isReady()}>{props.children}</Show>
+            <Show when={status.isReady()}>
+                <SkipLink href={`#${$ID_SCREEN_TITLE}`}>Skip to main content</SkipLink>
+                {props.children}
+            </Show>
         </Flex>
     );
 };

@@ -4,7 +4,7 @@ import { type Component } from 'solid-js';
 
 import styles from './MainHeader.module.css';
 import { HomeButton, MainMenuButton } from './parts';
-import { $ID_APP_TITLE } from './private';
+import { HEADER_LABEL } from './private';
 
 interface Props {
     setMenuButtonRef: (el: HTMLElement) => void;
@@ -19,24 +19,26 @@ export const MainHeader: Component<Props> = props => {
         <Surface
             variant="panel"
             tag="header"
-            labelledby={$ID_APP_TITLE}
+            label={HEADER_LABEL}
             classList={staticClassList(styles, 'MainHeader')}
         >
-            <Flex
-                tag="nav"
-                direction="row"
-                justify="start"
-                align="center"
-                padding="s"
-                gap="m"
-                aria-label="Main navigation"
-            >
+            <Flex direction="row" justify="start" align="center" padding="s" gap="m">
                 <MainMenuButton
                     setButtonRef={props.setMenuButtonRef}
                     onPress={handleMainMenuButtonPress}
                     expanded={props.sidebarExpanded}
                 />
                 <HomeButton />
+                <Flex
+                    tag="nav"
+                    direction="row"
+                    justify="start"
+                    align="center"
+                    gap="m"
+                    aria-label="Main navigation"
+                >
+                    {''}
+                </Flex>
             </Flex>
         </Surface>
     );

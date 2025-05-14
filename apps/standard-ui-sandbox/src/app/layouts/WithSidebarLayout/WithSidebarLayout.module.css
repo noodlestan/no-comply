@@ -16,12 +16,6 @@
             --WithSidebarLayout-size: small;
         }
 
-        @container WithSidebarLayout (min-width: 600px) {
-            .WithSidebarLayoutWrapper {
-                --WithSidebarLayout-size: large;
-            }
-        }
-
         .WithSidebarLayout-contain {
             position: relative;
             overflow: hidden;
@@ -55,18 +49,17 @@
             pointer-events: none;
         }
 
-        @container WithSidebarLayoutWrapper style(--WithSidebarLayout-size: large) {
-            .WithSidebarLayout--Sidebar {
-                position: unset;
-                transform: none;
-                display: block;
-            }
+        .WithSidebarLayout[data-layout-large] .WithSidebarLayout--Sidebar {
+            position: unset;
+            transform: none;
+            display: block;
+            transition: none;
+        }
 
-            .WithSidebarLayout--Contents {
-                opacity: unset;
-                filter: unset;
-                pointer-events: unset;
-            }
+        .WithSidebarLayout[data-layout-large] .WithSidebarLayout--Contents {
+            opacity: unset;
+            filter: unset;
+            pointer-events: unset;
         }
     }
 }

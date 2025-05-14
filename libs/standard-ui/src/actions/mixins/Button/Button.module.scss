@@ -1,0 +1,188 @@
+@mixin set-palette($target, $palette) {
+    --#{$target}-p: var(#{$palette});
+    --#{$target}-p-bk: var(#{$palette}-bk);
+}
+
+@mixin set-level($target, $level) {
+    --#{$target}-l: var(#{$level});
+    --#{$target}-l-bk: var(#{$level}-bk);
+}
+
+@mixin set-color($target, $palette, $level) {
+    @include set-palette($target, $palette);
+    @include set-level($target, $level);
+}
+
+@mixin context-color($prop, $prefix) {
+    & {
+        --__#{$prop}-d: calc(1 - abs(0.5 - var(--__#{$prefix}-l-bk)) * 2);
+        #{$prop}: oklch(
+            from var(--__#{$prefix}-p-bk) var(--__#{$prefix}-l-bk) calc(c * var(--__#{$prop}-d)) h /
+                var(--__#{$prefix}-alpha, 1)
+        );
+    }
+
+    /* prettier-ignore */
+    @supports (color: --f-color(black, 100)) {
+        #{$prop}: --f-alpha(
+            --f-color(var(--__#{$prefix}-p), var(--__#{$prefix}-l)),
+            var(--__#{$prefix}-alpha)
+        );
+    }
+}
+
+@layer standard-ui {
+    .Button {
+        @include set-color(__fg, --p-primary, --l-fg-primary);
+        @include set-color(__bg, --p-primary, --surface-bg-l-alt);
+        @include set-color(__border, --p-primary, --l-bg-3);
+        --__border-style: solid;
+
+        @include set-level(__hover-fg, --l-fg-contrast);
+        @include set-level(__hover-bg, --surface-bg-l);
+        @include set-level(__hover-border, --l-border);
+
+        @include set-level(__active-fg, --l-fg-contrast);
+        @include set-level(__active-bg, --surface-bg-l-alt);
+        @include set-level(__active-border, --l-fg-1);
+
+        display: inline-flex;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: var(--__gap);
+        height: var(--__height);
+        min-height: var(--__height);
+        padding-block: 0;
+        padding-inline: var(--__padding-inline);
+        font-family: var(--action-type-family);
+        line-height: var(--action-type-height-base);
+        border: none;
+        border-width: var(--action-border-width);
+        border-style: var(--__border-style);
+        border-radius: var(--action-border-radius);
+        text-decoration: none;
+        transition:
+            color ease var(--animation-duration-short),
+            background-color ease var(--animation-duration-short);
+
+        @include context-color(color, fg);
+        @include context-color(background-color, bg);
+        @include context-color(border-color, border);
+    }
+
+    .Button:is([disabled], [aria-disabled], [data-inactive]) {
+        @include set-color(__fg, --p-primary, --l-fg-disabled);
+        @include set-color(__bg, --p-primary, --l-bg-disabled);
+        @include set-color(__border, --p-primary, --l-border-disabled);
+    }
+
+    .Button:not([disabled], [aria-disabled], [data-inactive]):focus-visible,
+    .Button:not([disabled], [aria-disabled], [data-inactive]):hover {
+        @include set-level(__fg, --__hover-fg-l);
+        @include set-level(__bg, --__hover-bg-l);
+        @include set-level(__border, --__hover-border-l);
+    }
+
+    .Button:not([disabled], [aria-disabled], [data-inactive]):active {
+        @include set-level(__fg, --__active-fg-l);
+        @include set-level(__bg, --__active-bg-l);
+        @include set-level(__border, --__active-border-l);
+    }
+
+    .Button-variant-primary,
+    .Button-variant-danger {
+        @include set-level(__fg, --l-fg-static);
+        @include set-level(__bg, --l-bg-static);
+        @include set-color(__border, --p-interactive, --l-bg-static-alt);
+
+        @include set-level(__hover-fg, --l-fg-static-contrast);
+        @include set-level(__hover-bg, --l-bg-static-alt);
+        @include set-level(__hover-border, --l-bg-static);
+
+        @include set-level(__active-fg, --l-fg-static-contrast);
+        @include set-level(__active-bg, --l-bg-static);
+        @include set-level(__active-border, --l-bg-static-alt);
+    }
+
+    .Button-variant-primary {
+        @include set-palette(__fg, --p-interactive);
+        @include set-palette(__bg, --p-interactive);
+        @include set-palette(__border, --p-interactive);
+    }
+
+    .Button-variant-primary:is([disabled], [aria-disabled], [data-inactive]) {
+        @include set-palette(__border, --p-interactive);
+        @include set-level(__border, --l-bg-static-alt);
+    }
+
+    .Button-variant-danger {
+        @include set-palette(__fg, --p-bad);
+        @include set-palette(__bg, --p-bad);
+        @include set-palette(__border, --p-bad);
+    }
+
+    .Button-variant-danger:is([disabled], [aria-disabled], [data-inactive]) {
+        @include set-palette(__border, --p-bad);
+        @include set-level(__border, --l-bg-static-alt);
+    }
+
+    .Button-variant-secondary {
+        @include set-palette(__fg, --p-interactive);
+        @include set-level(__fg, --l-fg-saturated);
+    }
+
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]) {
+        --__bg-alpha: 0.3;
+        --__border-alpha: 0;
+    }
+
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):focus-visible,
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):hover {
+        --__bg-alpha: 0.5;
+        --__border-alpha: 0.7;
+    }
+
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):active {
+        --__bg-alpha: 1;
+        --__border-alpha: 1;
+    }
+
+    .Button.Button-size-small {
+        --__height: var(--size-xs);
+        --__gap: var(--space-gap--1);
+        --__padding-inline: var(--space-pad-0);
+        font-size: var(--action-type-size-xs);
+        font-weight: var(--action-type-weight-xs);
+    }
+
+    .Button.Button-size-normal {
+        --__height: var(--size-s);
+        --__gap: var(--space-gap-0);
+        --__padding-inline: var(--space-pad-1);
+        font-size: var(--action-type-size-s);
+        font-weight: var(--action-type-weight-s);
+    }
+
+    .Button.Button-size-medium {
+        --__height: var(--size-m);
+        --__gap: var(--space-gap-1);
+        --__padding-inline: var(--space-pad-2);
+        font-size: var(--action-type-size-m);
+        font-weight: var(--action-type-weight-m);
+    }
+
+    .Button.Button-size-large {
+        --__height: var(--size-l);
+        --__gap: var(--space-gap-2);
+        --__padding-inline: var(--space-pad-3);
+        font-size: var(--action-type-size-l);
+        font-weight: var(--action-type-weight-l);
+    }
+
+    .Button:focus-visible {
+        border-color: transparent;
+    }
+}

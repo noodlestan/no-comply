@@ -1,6 +1,6 @@
 # Context UI
 
-> Context-aware application services, and controllers built with [SolidJS](https://www.solidjs.com/).
+> Context-aware application services and controllers built with [SolidJS](https://www.solidjs.com/).
 
 ## Development
 

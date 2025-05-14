@@ -1,6 +1,6 @@
 # Standard UI
 
-> Themeable component library built with [Context UI](https://github.com/noodlestan/context-ui) and [SolidJS](https://www.solidjs.com/).
+> Themeable component library built with [Context UI](https://github.com/noodlestan/context-ui), [SolidJS](https://www.solidjs.com/) and modern CSS.
 
 ## Development
 

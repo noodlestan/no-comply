@@ -4,7 +4,8 @@
             [data-theme-standard] {
                 --outline-radius: var(--radius-s);
                 --outline-offset: 2px;
-                --outline-offset--active: 1px;
+                --outline-inset-offset: -2px;
+                --outline-active-offset: 1px;
                 --outline-width: var(--border-width-base);
                 --outline-style: solid;
                 --outline-palette: var(--p-focused);

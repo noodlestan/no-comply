@@ -16,18 +16,23 @@
         text-decoration: none;
     }
 
-    .NavLink-size-s {
-        padding: var(--space-gap-0) var(--space-gap--1);
+    .NavLink-size-small {
+        padding-block: var(--space-gap-0);
+        padding-inline: var(--space-gap--1);
         font-size: var(--action-type-size-s);
         font-weight: var(--action-type-weight-s);
     }
 
-    .NavLink-size-m {
+    .NavLink-size-normal {
+        padding-block: var(--space-gap-1);
+        padding-inline: var(--space-gap-0);
         font-size: var(--action-type-size-m);
         font-weight: var(--action-type-weight-m);
     }
 
-    .NavLink-size-l {
+    .NavLink-size-medium {
+        padding-block: var(--space-gap-2);
+        padding-inline: var(--space-gap-1);
         font-size: var(--action-type-size-l);
         font-weight: var(--action-type-weight-l);
     }
