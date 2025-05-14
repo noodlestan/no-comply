@@ -1,0 +1,46 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui {
+    .ContentColor {
+        @include set-color(__fg, primary, fg-saturated, content-fg);
+        @include apply-color(color, __fg);
+    }
+
+    .ContentColor-color-brand {
+        @include set-palette(__fg, brand);
+    }
+
+    .ContentColor-color-normal {
+        @include set-palette(__fg, primary);
+        @include set-level(__fg, fg-primary);
+    }
+
+    .ContentColor-color-muted {
+        @include set-palette(__fg, primary);
+        @include set-level(__fg, fg-muted);
+    }
+
+    .ContentColor-color-neutral {
+        @include set-palette(__fg, neutral);
+    }
+
+    .ContentColor-color-good {
+        @include set-palette(__fg, good);
+    }
+
+    .ContentColor-color-meh {
+        @include set-palette(__fg, meh);
+    }
+
+    .ContentColor-color-bad {
+        @include set-palette(__fg, bad);
+    }
+
+    .ContentColor-color-modified {
+        @include set-palette(__fg, modified);
+    }
+
+    .ContentColor-color-selected {
+        @include set-palette(__fg, selected);
+    }
+}

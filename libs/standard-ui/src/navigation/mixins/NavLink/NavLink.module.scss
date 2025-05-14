@@ -1,5 +1,9 @@
+@use '../../../theme/mixins/color.scss' as *;
+
 @layer standard-ui {
     .NavLink {
+        @include set-color(__bg, selected, static-bg-0, invisible);
+
         display: inline-flex;
         flex-direction: row;
         align-items: center;
@@ -8,11 +12,13 @@
         font-weight: var(--action-type-weight-base);
         line-height: 1;
         user-select: none;
+
+        @include apply-color(background-color, __bg);
     }
 
     .NavLink[data-nav-link-current] {
-        color: --f-color(var(--p-selected), var(--l-fg-static));
-        background-color: --f-color(var(--p-selected), var(--l-bg-static));
+        @include set-level(__fg, static-fg-primary);
+        @include set-alpha(__bg, opaque);
         text-decoration: none;
     }
 

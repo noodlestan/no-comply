@@ -4,7 +4,7 @@ import {
     createComputedProps,
 } from '@noodlestan/context-ui-primitives';
 
-import styles from './ContentColorMixin.module.css';
+import styles from './ContentColorMixin.module.scss';
 import type { ContentColorMixinAPI, ContentColorMixinProps } from './types';
 
 const defaultProps: PickRequired<ContentColorMixinProps, 'color'> = {

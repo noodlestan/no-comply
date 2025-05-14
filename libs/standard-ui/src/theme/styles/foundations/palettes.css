@@ -3,8 +3,23 @@
     @layer foundations {
         @layer color {
             :root {
+                --l-50: 0.9811;
+                --l-100: 0.9502;
+                --l-200: 0.8851;
+                --l-300: 0.8154;
+                --l-400: 0.6904;
+                --l-500: 0.5803;
+                --l-600: 0.4745;
+                --l-700: 0.3594;
+                --l-800: 0.2775;
+                --l-850: 0.2355;
+                --l-900: 0.1955;
+                --l-950: 0.1629;
+                --l-1000: 0.072;
+                --l-center: var(--l-50);
+
                 --p-neutral: palette-0;
-                --p-neutral-bk: oklch(58.03% 0.005 273);
+                --p-neutral-center: oklch(58.03% 0.005 273);
 
                 --palette-0-50: oklch(98.11% 0.009 273);
                 --palette-0-100: oklch(95.02% 0.013 273);
@@ -21,7 +36,7 @@
                 --palette-0-1000: oklch(0.72% 0.015 273);
 
                 --p-pink: palette-1;
-                --p-pink-bk: oklch(62.03% 0.165 358);
+                --p-pink-center: oklch(62.03% 0.165 358);
 
                 --palette-1-100: oklch(95.02% 0.025 358);
                 --palette-1-200: oklch(90.51% 0.045 358);
@@ -34,7 +49,7 @@
                 --palette-1-900: oklch(17.55% 0.045 358);
 
                 --p-red: palette-2;
-                --p-red-bk: oklch(62.03% 0.165 15);
+                --p-red-center: oklch(62.03% 0.165 15);
 
                 --palette-2-100: oklch(95.02% 0.024 15);
                 --palette-2-200: oklch(90.51% 0.045 15);
@@ -47,7 +62,7 @@
                 --palette-2-900: oklch(17.55% 0.045 15);
 
                 --p-yellow: palette-3;
-                --p-yellow-bk: oklch(62.03% 0.151 55);
+                --p-yellow-center: oklch(62.03% 0.151 55);
 
                 --palette-3-100: oklch(95.02% 0.024 55);
                 --palette-3-200: oklch(90.51% 0.045 55);
@@ -60,7 +75,7 @@
                 --palette-3-900: oklch(17.55% 0.043 55);
 
                 --p-olive: palette-4;
-                --p-olive-bk: oklch(65.05% 0.135 100);
+                --p-olive-center: oklch(65.05% 0.135 100);
 
                 --palette-4-100: oklch(95.02% 0.024 100);
                 --palette-4-200: oklch(90.51% 0.045 100);
@@ -73,7 +88,7 @@
                 --palette-4-900: oklch(17.55% 0.035 100);
 
                 --p-green: palette-5;
-                --p-green-bk: oklch(62.03% 0.145 133);
+                --p-green-center: oklch(62.03% 0.145 133);
 
                 --palette-5-100: oklch(95.02% 0.024 133);
                 --palette-5-200: oklch(90.51% 0.045 133);
@@ -86,7 +101,7 @@
                 --palette-5-900: oklch(17.55% 0.045 133);
 
                 --p-ocean: palette-6;
-                --p-ocean-bk: oklch(65.05% 0.123 174);
+                --p-ocean-center: oklch(65.05% 0.123 174);
 
                 --palette-6-100: oklch(95.02% 0.024 174);
                 --palette-6-200: oklch(90.51% 0.045 174);
@@ -99,7 +114,7 @@
                 --palette-6-900: oklch(17.55% 0.033 174);
 
                 --p-blue: palette-7;
-                --p-blue-bk: oklch(65.05% 0.122 224);
+                --p-blue-center: oklch(65.05% 0.122 224);
 
                 --palette-7-100: oklch(95.02% 0.024 224);
                 --palette-7-200: oklch(90.51% 0.045 224);
@@ -112,7 +127,7 @@
                 --palette-7-900: oklch(17.55% 0.032 224);
 
                 --p-indigo: palette-8;
-                --p-indigo-bk: oklch(62.03% 0.161 273);
+                --p-indigo-center: oklch(62.03% 0.161 273);
 
                 --palette-8-100: oklch(95.02% 0.021 273);
                 --palette-8-200: oklch(90.51% 0.045 273);
@@ -125,7 +140,7 @@
                 --palette-8-900: oklch(17.55% 0.045 273);
 
                 --p-violet: palette-9;
-                --p-violet-bk: oklch(62.03% 0.161 322);
+                --p-violet-center: oklch(62.03% 0.161 322);
 
                 --palette-9-100: oklch(95.02% 0.024 322);
                 --palette-9-200: oklch(90.51% 0.045 322);

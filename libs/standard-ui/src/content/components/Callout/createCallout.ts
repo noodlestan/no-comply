@@ -7,7 +7,7 @@ import {
 } from '@noodlestan/context-ui-primitives';
 import { createStaticMessage } from '@noodlestan/headless-ui';
 
-import styles from './Callout.module.css';
+import styles from './Callout.module.scss';
 import type { CalloutAPI, CalloutProps } from './types';
 
 const defaultProps: PickRequired<CalloutProps, 'size' | 'length'> = {

@@ -3,7 +3,7 @@ import { createLinkMixin as createHeadlessLinkMixin } from '@noodlestan/headless
 
 import { createFocusRing } from '../../../focus';
 
-import styles from './Link.module.css';
+import styles from './Link.module.scss';
 import type { LinkMixinAPI } from './types';
 
 export const createLinkMixin = (): LinkMixinAPI => {

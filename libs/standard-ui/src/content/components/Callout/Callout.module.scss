@@ -1,3 +1,5 @@
+@use '../../../theme/mixins/color.scss' as *;
+
 @layer standard-ui {
     .Callout > div {
         width: var(--__callout-width);
@@ -5,11 +7,13 @@
     }
 
     .Callout--Label {
-        color: --f-color(var(--__surface-message-palette), var(--l-fg-saturated));
+        @include set-level(surface-fg, fg-muted);
+        @include apply-color(color, surface-fg);
     }
 
     .Callout--Icon {
-        color: --f-color(var(--__surface-message-palette), var(--l-graphics));
+        @include set-level(surface-fg, graphics);
+        @include apply-color(color, surface-fg);
     }
 
     .Callout-length-full {

@@ -1,0 +1,49 @@
+@mixin def-color-level($name, $level) {
+    --#{$name}-level: #{$level};
+    --#{$name}-light: var(--l-#{$level});
+}
+
+@mixin def-color-palette($name, $palette) {
+    --#{$name}-palette: var(#{$palette});
+    --#{$name}-color: var(#{$palette}-center);
+}
+
+@mixin set-palette($name, $palette) {
+    --#{$name}-palette: var(--#{$palette}-palette);
+    --#{$name}-color: var(--#{$palette}-color);
+}
+
+@mixin set-level($name, $level) {
+    --#{$name}-level: var(--#{$level}-level);
+    --#{$name}-light: var(--#{$level}-light);
+}
+
+@mixin set-alpha($name, $alpha) {
+    --#{$name}-alpha: var(--#{$alpha}-alpha);
+}
+
+@mixin set-color($name, $palette, $level, $alpha) {
+    @include set-palette($name, $palette);
+    @include set-level($name, $level);
+    @include set-alpha($name, $alpha);
+}
+
+@mixin apply-color($prop, $name) {
+    & {
+        --#{$prop}-desat: calc(1 - abs(0.5 - var(--#{$name}-light)) * 2);
+        /* prettier-ignore */
+        #{$prop}: oklch(
+            from var(--#{$name}-color)
+                var(--#{$name}-light) calc(c * var(--#{$prop}-desat)) h / var(--#{$name}-alpha, 1)
+        );
+
+        @supports (color: --f-color(black, 100)) {
+            /* prettier-ignore */
+            #{$prop}: --f-alpha(
+                --f-color(var(--#{$name}-palette),
+                var(--#{$name}-level)),
+                var(--#{$name}-alpha)
+            );
+        }
+    }
+}

@@ -39,7 +39,7 @@ export const SurfacePage: Component = () => {
                     <SurfaceVariantExample variant="card" onVariant="page">
                         <ExampleMedium title="Card" />
                     </SurfaceVariantExample>
-                    <SurfaceVariantExample variant="message" onVariant="page">
+                    <SurfaceVariantExample variant="message" onVariant="page" data-message="info">
                         <ExampleMedium title="Message" />
                     </SurfaceVariantExample>
                     <SurfaceVariantExample variant="inverse" onVariant="stage">

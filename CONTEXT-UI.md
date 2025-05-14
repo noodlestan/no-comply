@@ -1,3 +1,34 @@
+## use logical attributes everywhere
+
+example:
+inset-block-start: 0;
+inset-inline-end: 0;
+
+## selected color vs NavLink
+
+- NavLink variant horizontal (tab-like, underline) vs vertical (sidebar)
+
+## icon button symmetrical padding
+
+## compact class names in all CSS modules
+
+## outline mixin
+
+add outline offset effect to keyboard interaction
+
+## generalize debug
+
+- currently targets only data-surface
+
+## rename setting vars
+
+--color-name-foo => --setting-color-foo
+--o-surface-foo => --setting-alpha-foo
+
+## omit --l --p ?
+
+## scss nested rule warning
+
 ## App Header
 
 ## Aria

@@ -8,7 +8,7 @@ import { createLinkMixin as createHeadlessLinkMixin } from '@noodlestan/headless
 
 import { createFocusRing } from '../../../focus';
 
-import styles from './NavLink.module.css';
+import styles from './NavLink.module.scss';
 import type { NavLinkMixinAPI, NavLinkMixinProps } from './types';
 
 const defaultProps: PickRequired<NavLinkMixinProps, 'size'> = {

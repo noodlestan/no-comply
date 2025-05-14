@@ -1,8 +1,7 @@
 @layer standard-ui-sandbox {
     @layer pages {
         .CalloutPage .override {
-            color: crimson !important;
-            background-color: white;
+            background-color: var(--palette-0-1000);
             border: 2px solid red;
         }
     }

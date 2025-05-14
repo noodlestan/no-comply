@@ -1,56 +1,47 @@
-@mixin define-level($target, $level, $bk) {
-    --#{$target}: #{$level};
-    --#{$target}-bk: #{$bk};
-}
-
-@mixin define-palette-alias($target, $palette) {
-    --#{$target}: var(#{$palette});
-    --#{$target}-bk: var(#{$palette}-bk);
-}
-
-@mixin define-level-alias($target, $level) {
-    --#{$target}: var(#{$level});
-    --#{$target}-bk: var(#{$level}-bk);
-}
+@use '../../../theme/mixins/color.scss' as *;
 
 @layer standard-ui-theme {
     @layer foundations {
         @layer color {
             [data-theme-standard] {
-                @include define-level(l-fg-contrast, 50, 0.98);
-                @include define-level(l-fg-primary, 100, 0.95);
-                @include define-level(l-fg-muted, 200, 0.88);
-                @include define-level(l-fg-saturated, 300, 0.81);
-                @include define-level(l-fg-disabled, 400, 0.6);
+                @include def-color-level(fg-contrast, 50);
+                @include def-color-level(fg-primary, 100);
+                @include def-color-level(fg-muted, 200);
+                @include def-color-level(fg-saturated, 300);
+                @include def-color-level(fg-disabled, 400);
 
-                @include define-level(l-border, 600, 0.47);
-                @include define-level(l-graphics, 400, 0.69);
+                @include def-color-level(border, 700);
+                @include def-color-level(border-hover, 600);
+                @include def-color-level(border-active, 500);
+                @include def-color-level(graphics, 400);
 
-                @include define-level(l-border-disabled, 600, 0.47);
-                @include define-level(l-bg-disabled, 700, 0.35);
-                @include define-level(l-bg-saturated, 800, 0.27);
+                @include def-color-level(border-disabled, 600);
+                @include def-color-level(bg-disabled, 700);
+                @include def-color-level(bg-saturated, 800);
 
-                @include define-level(l-fg-static-contrast, 50, 0.98);
-                @include define-level(l-fg-static, 100, 0.95);
-                @include define-level(l-bg-static, 700, 0.35);
-                @include define-level(l-bg-static-alt, 600, 0.47);
+                @include def-color-level(static-fg-contrast, 50);
+                @include def-color-level(static-fg-primary, 100);
+                @include def-color-level(static-border, 500);
+                @include def-color-level(static-bg-0, 800);
+                @include def-color-level(static-bg-1, 700);
+                @include def-color-level(static-bg-2, 600);
 
-                @include define-level(l-bg-stage, 850, 0.23);
-                @include define-level(l-bg-0, 1000, 0.1);
-                @include define-level(l-bg-1, 950, 0.16);
-                @include define-level(l-bg-2, 900, 0.19);
-                @include define-level(l-bg-3, 800, 0.27);
-                @include define-level(l-bg-4, 700, 0.35);
+                @include def-color-level(bg-stage, 850);
+                @include def-color-level(bg-0, 1000);
+                @include def-color-level(bg-1, 950);
+                @include def-color-level(bg-2, 900);
+                @include def-color-level(bg-3, 800);
+                @include def-color-level(bg-4, 700);
 
-                @include define-palette-alias(p-primary, --p-neutral);
-                @include define-palette-alias(p-brand, --p-pink);
-                @include define-palette-alias(p-interactive, --p-ocean);
-                @include define-palette-alias(p-info, --p-blue);
-                @include define-palette-alias(p-good, --p-green);
-                @include define-palette-alias(p-meh, --p-yellow);
-                @include define-palette-alias(p-bad, --p-red);
-                @include define-palette-alias(p-selected, --p-olive);
-                @include define-palette-alias(p-focused, --p-indigo);
+                @include def-color-palette(primary, --p-neutral);
+                @include def-color-palette(brand, --p-pink);
+                @include def-color-palette(interactive, --p-ocean);
+                @include def-color-palette(info, --p-blue);
+                @include def-color-palette(good, --p-green);
+                @include def-color-palette(meh, --p-yellow);
+                @include def-color-palette(bad, --p-red);
+                @include def-color-palette(selected, --p-olive);
+                @include def-color-palette(focused, --p-indigo);
             }
         }
     }

@@ -1,2 +1,2 @@
-/* @index(['./*.css'], f => `@import '${f.path}.css';`) */
-@import './surfaces.css';
+/* @index(['./*.css', './*.scss'], f => `@import '${f.path}${f.ext}';`) */
+@import './surfaces.scss';

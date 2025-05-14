@@ -8,7 +8,7 @@ import { splitProps } from 'solid-js';
 
 import { createLayoutMixin } from '../../../layout';
 
-import styles from './Surface.module.css';
+import styles from './Surface.module.scss';
 import type { SurfaceAPI, SurfaceProps } from './types';
 
 const defaultProps: PickRequired<SurfaceProps, 'variant'> = {

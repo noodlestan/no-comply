@@ -1,50 +1,19 @@
-@mixin set-palette($target, $palette) {
-    --#{$target}-p: var(#{$palette});
-    --#{$target}-p-bk: var(#{$palette}-bk);
-}
-
-@mixin set-level($target, $level) {
-    --#{$target}-l: var(#{$level});
-    --#{$target}-l-bk: var(#{$level}-bk);
-}
-
-@mixin set-color($target, $palette, $level) {
-    @include set-palette($target, $palette);
-    @include set-level($target, $level);
-}
-
-@mixin context-color($prop, $prefix) {
-    & {
-        --__#{$prop}-d: calc(1 - abs(0.5 - var(--__#{$prefix}-l-bk)) * 2);
-        #{$prop}: oklch(
-            from var(--__#{$prefix}-p-bk) var(--__#{$prefix}-l-bk) calc(c * var(--__#{$prop}-d)) h /
-                var(--__#{$prefix}-alpha, 1)
-        );
-    }
-
-    /* prettier-ignore */
-    @supports (color: --f-color(black, 100)) {
-        #{$prop}: --f-alpha(
-            --f-color(var(--__#{$prefix}-p), var(--__#{$prefix}-l)),
-            var(--__#{$prefix}-alpha)
-        );
-    }
-}
+@use '../../../theme/mixins/color.scss' as *;
 
 @layer standard-ui {
     .Button {
-        @include set-color(__fg, --p-primary, --l-fg-primary);
-        @include set-color(__bg, --p-primary, --surface-bg-l-alt);
-        @include set-color(__border, --p-primary, --l-bg-3);
+        @include set-color(__fg, primary, fg-primary, content-fg);
+        @include set-color(__bg, primary, content-bg-1, content-bg);
+        @include set-color(__border, primary, border, content-bg);
         --__border-style: solid;
 
-        @include set-level(__hover-fg, --l-fg-contrast);
-        @include set-level(__hover-bg, --surface-bg-l);
-        @include set-level(__hover-border, --l-border);
+        @include set-level(__fg-hover, fg-contrast);
+        @include set-level(__bg-hover, content-bg-2);
+        @include set-level(__border-hover, border-hover);
 
-        @include set-level(__active-fg, --l-fg-contrast);
-        @include set-level(__active-bg, --surface-bg-l-alt);
-        @include set-level(__active-border, --l-fg-1);
+        @include set-level(__fg-active, fg-contrast);
+        @include set-level(__bg-active, content-bg-0);
+        @include set-level(__border-active, border-active);
 
         display: inline-flex;
         flex-wrap: nowrap;
@@ -68,86 +37,97 @@
             color ease var(--animation-duration-short),
             background-color ease var(--animation-duration-short);
 
-        @include context-color(color, fg);
-        @include context-color(background-color, bg);
-        @include context-color(border-color, border);
+        @include apply-color(color, __fg);
+        @include apply-color(background-color, __bg);
+        @include apply-color(border-color, __border);
     }
 
     .Button:is([disabled], [aria-disabled], [data-inactive]) {
-        @include set-color(__fg, --p-primary, --l-fg-disabled);
-        @include set-color(__bg, --p-primary, --l-bg-disabled);
-        @include set-color(__border, --p-primary, --l-border-disabled);
+        @include set-color(__fg, primary, fg-disabled, content-fg);
+        @include set-color(__bg, primary, bg-disabled, content-bg);
+        @include set-color(__border, primary, border-disabled, content-bg);
     }
 
-    .Button:not([disabled], [aria-disabled], [data-inactive]):focus-visible,
-    .Button:not([disabled], [aria-disabled], [data-inactive]):hover {
-        @include set-level(__fg, --__hover-fg-l);
-        @include set-level(__bg, --__hover-bg-l);
-        @include set-level(__border, --__hover-border-l);
+    .Button:not([disabled], [aria-disabled], [data-inactive]):is(:focus-visible, :hover) {
+        @include set-level(__fg, __fg-hover);
+        @include set-level(__bg, __bg-hover);
+        @include set-level(__border, __border-hover);
     }
 
     .Button:not([disabled], [aria-disabled], [data-inactive]):active {
-        @include set-level(__fg, --__active-fg-l);
-        @include set-level(__bg, --__active-bg-l);
-        @include set-level(__border, --__active-border-l);
+        @include set-level(__fg, __fg-active);
+        @include set-level(__bg, __bg-active);
+        @include set-level(__border, __border-active);
     }
 
     .Button-variant-primary,
     .Button-variant-danger {
-        @include set-level(__fg, --l-fg-static);
-        @include set-level(__bg, --l-bg-static);
-        @include set-color(__border, --p-interactive, --l-bg-static-alt);
+        @include set-level(__fg, static-fg-primary);
+        @include set-level(__bg, static-bg-1);
+        @include set-color(__border, interactive, static-border, content-bg);
 
-        @include set-level(__hover-fg, --l-fg-static-contrast);
-        @include set-level(__hover-bg, --l-bg-static-alt);
-        @include set-level(__hover-border, --l-bg-static);
+        @include set-level(__fg-hover, static-fg-contrast);
+        @include set-level(__bg-hover, static-bg-2);
+        @include set-level(__border-hover, static-bg-0);
 
-        @include set-level(__active-fg, --l-fg-static-contrast);
-        @include set-level(__active-bg, --l-bg-static);
-        @include set-level(__active-border, --l-bg-static-alt);
+        @include set-level(__fg-active, static-fg-contrast);
+        @include set-level(__bg-active, static-bg-0);
+        @include set-level(__border-active, static-border);
     }
 
     .Button-variant-primary {
-        @include set-palette(__fg, --p-interactive);
-        @include set-palette(__bg, --p-interactive);
-        @include set-palette(__border, --p-interactive);
+        @include set-palette(__fg, interactive);
+        @include set-palette(__bg, interactive);
+        @include set-palette(__border, interactive);
     }
 
     .Button-variant-primary:is([disabled], [aria-disabled], [data-inactive]) {
-        @include set-palette(__border, --p-interactive);
-        @include set-level(__border, --l-bg-static-alt);
+        @include set-palette(__border, interactive);
+        @include set-level(__border, static-bg-1);
     }
 
     .Button-variant-danger {
-        @include set-palette(__fg, --p-bad);
-        @include set-palette(__bg, --p-bad);
-        @include set-palette(__border, --p-bad);
+        @include set-palette(__fg, bad);
+        @include set-palette(__bg, bad);
+        @include set-palette(__border, bad);
     }
 
     .Button-variant-danger:is([disabled], [aria-disabled], [data-inactive]) {
-        @include set-palette(__border, --p-bad);
-        @include set-level(__border, --l-bg-static-alt);
+        @include set-palette(__border, bad);
+        @include set-level(__border, static-bg-1);
     }
 
     .Button-variant-secondary {
-        @include set-palette(__fg, --p-interactive);
-        @include set-level(__fg, --l-fg-saturated);
+        @include set-palette(__fg, interactive);
+        @include set-level(__fg, fg-saturated);
+    }
+
+    .Button-variant-secondary:not([disabled], [aria-disabled], [data-inactive]) {
+        @include set-alpha(__bg, translucid);
+        @include set-alpha(__border, invisible);
     }
 
     .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]) {
-        --__bg-alpha: 0.3;
-        --__border-alpha: 0;
+        @include set-alpha(__bg, invisible);
+        @include set-alpha(__border, invisible);
     }
 
-    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):focus-visible,
-    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):hover {
-        --__bg-alpha: 0.5;
-        --__border-alpha: 0.7;
+    .Button-variant-secondary:not([disabled], [aria-disabled], [data-inactive]):is(
+            :focus-visible,
+            :hover
+        ),
+    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):is(
+            :focus-visible,
+            :hover
+        ) {
+        @include set-alpha(__bg, transparent);
+        @include set-alpha(__border, opaque);
     }
 
+    .Button-variant-secondary:not([disabled], [aria-disabled], [data-inactive]):active,
     .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):active {
-        --__bg-alpha: 1;
-        --__border-alpha: 1;
+        @include set-alpha(__bg, translucid);
+        @include set-alpha(__border, opaque);
     }
 
     .Button.Button-size-small {

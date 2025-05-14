@@ -1,0 +1,20 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui {
+    .Link {
+        @include set-color(__fg, interactive, fg-saturated, content-fg);
+
+        text-decoration: underline;
+        border-radius: var(--action-border-radius);
+
+        @include apply-color(color, __fg);
+    }
+
+    .Link:not([aria-disabled]):hover {
+        @include set-level(__fg, fg-muted);
+    }
+
+    .Link[aria-disabled] {
+        @include set-color(__fg, disabled, fg-disabled, content-fg);
+    }
+}

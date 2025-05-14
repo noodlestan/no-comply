@@ -1,7 +1,6 @@
-@import './color.scss';
-
-/* @index(['./*.css'], f => `@import '${f.path}.css';`) */
+/* @index(['./*.css', './*.scss'], f => `@import '${f.path}${f.ext}';`) */
 @import './border.css';
+@import './color.scss';
 @import './motion-library.css';
 @import './motion.css';
 @import './opacity.css';

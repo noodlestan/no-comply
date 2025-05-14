@@ -52,7 +52,7 @@ export const CalloutPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="classList">
-                <DemoItem note="Should override border, background, and text color">
+                <DemoItem note="Should override border color and background color">
                     <Callout classList={staticClassList(styles, 'override')}>Hello</Callout>
                 </DemoItem>
             </DemoGroup>

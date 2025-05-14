@@ -1,0 +1,14 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui-theme {
+    @layer mode {
+        @layer color {
+            [data-mode-light] {
+                @include def-color-level(static-fg-contrast, 1000);
+                @include def-color-level(static-fg-primary, 950);
+                @include def-color-level(bg-static, 400);
+                @include def-color-level(bg-static-alt, 300);
+            }
+        }
+    }
+}
