@@ -17,7 +17,6 @@ export const SkipLink: ParentComponent<Props> = props => {
     const { $root } = createSkipLink(locals);
     const $ = mergeProps($others, $root);
 
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
     return (
         <a {...$}>
             <Icon size={locals.size} icon={ArrowDownIcon} />

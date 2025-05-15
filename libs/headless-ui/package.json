@@ -17,6 +17,7 @@
   "main": "./src/index.ts",
   "files": [
     "src",
+    "scss",
     "LICENSE-MIT"
   ],
   "scripts": {

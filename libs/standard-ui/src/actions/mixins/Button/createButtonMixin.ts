@@ -6,7 +6,7 @@ import {
 } from '@noodlestan/context-ui-primitives';
 import { createButtonMixin as createHeadlessButtonMixin } from '@noodlestan/headless-ui';
 
-import { createFocusRing } from '../../../focus';
+import { createFocusRingOffsetMixin } from '../../../focus';
 
 import styles from './Button.module.scss';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';
@@ -18,7 +18,7 @@ const defaultProps: PickRequired<ButtonMixinProps, 'variant' | 'size'> = {
 
 export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
     const { $root: $buttonMixinRoot } = createHeadlessButtonMixin();
-    const { $root: $focusRing } = createFocusRing();
+    const { $root: $focusRing } = createFocusRingOffsetMixin();
 
     const variant = () => props.variant ?? defaultProps.variant;
     const size = () => props.size ?? defaultProps.size;

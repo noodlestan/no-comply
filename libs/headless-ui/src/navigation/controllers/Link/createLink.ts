@@ -13,19 +13,8 @@ export const createLink = (props: LinkProps): LinkAPI => {
         props.onPress?.(ev);
     };
 
-    const onKeyDown = (ev: KeyboardEvent) => {
-        if (props.disabled) {
-            ev.preventDefault();
-            return;
-        }
-        if (ev.key === 'Enter' || ev.key === ' ') {
-            props.onPress?.(ev);
-        }
-    };
-
     const $static = {
         onClick,
-        onKeyDown,
     };
 
     const href = () => (props.disabled ? undefined : props.href);

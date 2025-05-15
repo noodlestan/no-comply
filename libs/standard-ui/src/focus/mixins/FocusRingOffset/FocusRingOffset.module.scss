@@ -1,0 +1,12 @@
+@use '@noodlestan/headless-ui/scss/mixins/focus.scss' as *;
+
+@layer standard-ui {
+    .FocusRingOffset:active {
+        outline-offset: var(--outline-active-offset);
+    }
+
+    .FocusRingOffset-inset:focus-visible,
+    .FocusRingOffset-inset:active {
+        outline-offset: var(--outline-inset-offset);
+    }
+}

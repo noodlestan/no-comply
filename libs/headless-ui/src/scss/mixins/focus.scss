@@ -1,0 +1,20 @@
+@mixin focus-ring-styles {
+    outline-offset: var(--outline-offset);
+    outline-style: none;
+    outline-width: var(--outline-width);
+    outline-color: var(--outline-color);
+}
+
+@mixin focus-ring-active-styles {
+    outline-style: var(--outline-style);
+}
+
+@mixin focus-ring {
+    & {
+        @include focus-ring-styles;
+    }
+
+    &:focus-visible {
+        @include focus-ring-active-styles;
+    }
+}

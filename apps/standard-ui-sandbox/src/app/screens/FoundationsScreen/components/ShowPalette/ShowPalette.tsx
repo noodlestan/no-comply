@@ -1,13 +1,11 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { Display, Flex } from '@noodlestan/standard-ui';
 import { type Component, For, Show } from 'solid-js';
 
 import { ShowColor } from '../ShowColor';
 
-import styles from './ShowPalette.module.css';
-
 type Props = {
     p: string;
+    enablePalettes?: boolean;
 };
 
 export const ShowPalette: Component<Props> = props => {
@@ -16,9 +14,13 @@ export const ShowPalette: Component<Props> = props => {
     };
 
     return (
-        <Flex direction="row" gap="m" classList={staticClassList(styles, 'ShowPalette')}>
+        <Flex direction="row" gap="m">
             <Flex direction="row">
-                <For each={levels()}>{level => <ShowColor p={props.p} l={level} />}</For>
+                <For each={levels()}>
+                    {level => (
+                        <ShowColor p={props.p} l={level} enablePalettes={props.enablePalettes} />
+                    )}
+                </For>
             </Flex>
             <Show when={props.p !== 'labels'}>
                 <Display>{props.p}</Display>

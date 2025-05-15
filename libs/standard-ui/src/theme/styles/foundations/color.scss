@@ -10,9 +10,10 @@
                 @include def-color-level(fg-saturated, 300);
                 @include def-color-level(fg-disabled, 400);
 
+                @include def-color-level(focus-ring, 500);
                 @include def-color-level(border, 700);
                 @include def-color-level(border-hover, 600);
-                @include def-color-level(border-active, 500);
+                @include set-level(border-active, focus-ring);
                 @include def-color-level(graphics, 400);
 
                 @include def-color-level(border-disabled, 600);

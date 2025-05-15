@@ -1,17 +1,29 @@
-import { i, l } from '@noodlestan/context-ui';
-import { createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
+
+import { createToggleButton } from '../ToggleButton';
 
 import type { ExpandButtonAPI, ExpandButtonProps } from './types';
 
 export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI => {
-    const iconButtonProps = createComputedProps({
-        label: () => l(props.expanded ? props.labels.expanded : props.labels.collapsed),
-        icon: () => i(props.expanded ? props.icons.expanded : props.icons.collapsed),
+    const toggleButtonProps = createComputedProps({
+        value: () => props.expanded,
+        labels: () => ({
+            on: props.labels.expanded,
+            off: props.labels.collapsed,
+        }),
+        icons: () => ({
+            on: props.icons.expanded,
+            off: props.icons.collapsed,
+        }),
+    });
+    const { iconButtonProps: toggleButtonIconProps } = createToggleButton(toggleButtonProps);
+
+    const iconButtonLocalProps = createComputedProps({
         'aria-expanded': () => props.expanded,
         'aria-controls': () => props.controls,
     });
 
     return {
-        iconButtonProps,
+        iconButtonProps: mergeProps(toggleButtonIconProps, iconButtonLocalProps),
     };
 };

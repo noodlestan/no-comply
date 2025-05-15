@@ -1,4 +1,4 @@
-import { useSystemContext } from '@noodlestan/context-ui';
+import { useFocusTarget, useSystemContext } from '@noodlestan/context-ui';
 import { createClassList } from '@noodlestan/context-ui-primitives';
 import { Flex, SkipLink } from '@noodlestan/standard-ui';
 import { Router } from '@solidjs/router';
@@ -11,9 +11,17 @@ import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
 import { AppSplash } from './splash';
-import { $ID_SCREEN_TITLE } from './templates';
+import { $ID_SCREEN_TITLE, SCREEN_MAIN_TARGET } from './templates';
 
 const Main: ParentComponent = props => {
+    const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
+
+    const handleNavLink = () => {
+        setTimeout(() => {
+            setMainFocus();
+        });
+    };
+
     const { status } = useAppServices();
     const { hasFocus } = useSystemContext();
 
@@ -30,7 +38,9 @@ const Main: ParentComponent = props => {
                 <AppSplash />
             </Show>
             <Show when={status.isReady()}>
-                <SkipLink href={`#${$ID_SCREEN_TITLE}`}>Skip to main content</SkipLink>
+                <SkipLink floating href={`#${$ID_SCREEN_TITLE}`} onPress={handleNavLink}>
+                    Skip to main content
+                </SkipLink>
                 {props.children}
             </Show>
         </Flex>

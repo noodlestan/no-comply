@@ -1,5 +1,5 @@
 import { createFocusTargetRef } from '@noodlestan/context-ui';
-import { Flex, Surface, createFocusRing } from '@noodlestan/standard-ui';
+import { Flex, Surface, createFocusRingMixin } from '@noodlestan/standard-ui';
 import { type Component, For } from 'solid-js';
 
 import { $ID_SIDEBAR_NAV } from '../private';
@@ -11,20 +11,20 @@ import { NAV_LINK_GROUPS } from './private';
 export const SidebarNav: Component = () => {
     const [setNavRef] = createFocusTargetRef(SIDEBAR_NAV_TARGET, { transient: true });
 
-    const { $root } = createFocusRing({ inset: true });
+    const { $root } = createFocusRingMixin({ inset: true });
 
     return (
-        <Surface variant="panel" stretch="height" overflow="y-auto">
-            <Flex
-                tag="nav"
-                direction="column"
-                padding="m"
-                gap="m"
-                id={$ID_SIDEBAR_NAV}
-                aria-label="Main menu"
-                ref={setNavRef}
-                {...$root}
-            >
+        <Surface
+            tag="nav"
+            variant="panel"
+            stretch="height"
+            overflow="y-auto"
+            id={$ID_SIDEBAR_NAV}
+            aria-label="Main menu"
+            ref={setNavRef}
+            {...$root}
+        >
+            <Flex tag="nav" direction="column" padding="m" gap="m">
                 <For each={NAV_LINK_GROUPS}>
                     {item => <NavLinkItemGroup title={item.title} items={item.items} />}
                 </For>

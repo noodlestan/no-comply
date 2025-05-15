@@ -1,3 +1,5 @@
+## light/dark mode prefers not working on Firefox
+
 ## use logical attributes everywhere
 
 example:
@@ -15,6 +17,11 @@ inset-inline-end: 0;
 ## outline mixin
 
 add outline offset effect to keyboard interaction
+
+## use only data-inactive in CSS
+
+should be on when disabled, aria-disabled, or inactive are true
+implement in pressable and others?
 
 ## generalize debug
 

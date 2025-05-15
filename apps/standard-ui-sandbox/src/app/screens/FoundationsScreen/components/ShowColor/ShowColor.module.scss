@@ -1,0 +1,18 @@
+@use '@noodlestan/standard-ui/scss/mixins/color.scss' as *;
+
+@layer standard-ui-sandbox {
+    .ShowColor {
+        @include set-color(__bg, __show-color, __show-color, opaque);
+
+        font-size: var(--typography-step--1);
+        color: transparent;
+        width: var(--size-l);
+        height: var(--size-l);
+
+        @include apply-computed-color(background-color, __show-color);
+    }
+
+    .palettes-enabled {
+        @include apply-palette-color(background-color, __show-color);
+    }
+}

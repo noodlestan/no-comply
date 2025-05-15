@@ -1,3 +1,5 @@
+@use '../../../scss/mixins/focus.scss' as *;
+
 @layer headless-ui {
     .Link {
         cursor: pointer;
@@ -7,5 +9,9 @@
 
     .Link[aria-disabled] {
         cursor: not-allowed;
+    }
+
+    .Link:focus-visible {
+        @include focus-ring;
     }
 }

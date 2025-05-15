@@ -1,12 +1,13 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { createClassList } from '@noodlestan/context-ui-primitives';
 import { Flex } from '@noodlestan/standard-ui';
 import { type Component, createSignal, onMount } from 'solid-js';
 
-import styles from './ShowColor.module.css';
+import styles from './ShowColor.module.scss';
 
 type Props = {
     p: string;
     l: number;
+    enablePalettes?: boolean;
 };
 
 export const ShowColor: Component<Props> = props => {
@@ -26,12 +27,20 @@ export const ShowColor: Component<Props> = props => {
         }
     });
 
+    const classList = createClassList(styles, () => ({
+        ShowColor: true,
+        'palettes-enabled': Boolean(props.enablePalettes),
+    }));
+
     const style = () => ({
-        '--__show-color-p': `var(--p-${props.p})`,
-        '--__show-color-l': props.l,
+        '--__show-color-palette': `var(--p-${props.p})`,
+        '--__show-color-color': `var(--p-${props.p}-center)`,
+        '--__show-color-level': props.l,
+        '--__show-color-light': `var(--l-${props.l})`,
     });
+
     return (
-        <Flex classList={staticClassList(styles, 'ShowColor')} style={style()} ref={setElementRef}>
+        <Flex classList={classList()} style={style()} ref={setElementRef}>
             {color()}
         </Flex>
     );

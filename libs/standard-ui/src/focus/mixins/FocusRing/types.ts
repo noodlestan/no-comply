@@ -1,11 +1,11 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
-export type FocusRingProps = {
-    inset?: boolean;
-};
+import type { FocusRingOffsetMixinAPI, FocusRingOffsetMixinProps } from '../FocusRingOffset';
 
-export type FocusRingAPI = {
-    $root: {
+export type FocusRingMixinProps = FocusRingOffsetMixinProps;
+
+export type FocusRingMixinAPI = {
+    $root: FocusRingOffsetMixinAPI['$root'] & {
         classList: ClassList;
     };
 };

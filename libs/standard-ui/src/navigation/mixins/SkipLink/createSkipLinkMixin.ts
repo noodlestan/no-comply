@@ -1,21 +1,25 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
+import {
+    createClassList,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { createLinkMixin as createHeadlessLinkMixin } from '@noodlestan/headless-ui';
 
-import { createFocusRing } from '../../../focus';
+import styles from './SkipLink.module.scss';
+import type { SkipLinkMixinAPI, SkipLinkMixinProps } from './types';
 
-import styles from './SkipLink.module.css';
-import type { SkipLinkMixinAPI } from './types';
-
-export const createSkipLinkMixin = (): SkipLinkMixinAPI => {
+export const createSkipLinkMixin = (props: SkipLinkMixinProps = {}): SkipLinkMixinAPI => {
     const { $root: $linkMixinRoot } = createHeadlessLinkMixin();
-    const { $root: $focusRing } = createFocusRing();
 
-    const classList = staticClassList(styles, ['SkipLink']);
-    const $localRoot = {
+    const classList = createClassList(styles, () => ({
+        SkipLink: true,
+        floating: Boolean(props.floating),
+    }));
+    const $localRoot = createComputedProps({
         classList,
-    };
+    });
 
     return {
-        $root: mergeProps($linkMixinRoot, $focusRing, $localRoot),
+        $root: mergeProps($linkMixinRoot, $localRoot),
     };
 };

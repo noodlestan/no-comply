@@ -4,7 +4,7 @@
 @import './motion-library.css';
 @import './motion.css';
 @import './opacity.css';
-@import './outline.css';
+@import './outline.scss';
 @import './palettes.css';
 @import './radius.css';
 @import './scrollbars.css';

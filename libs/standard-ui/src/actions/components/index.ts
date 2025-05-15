@@ -3,3 +3,4 @@ export * from './Button';
 export * from './CloseButton';
 export * from './ExpandButton';
 export * from './IconButton';
+export * from './ToggleButton';

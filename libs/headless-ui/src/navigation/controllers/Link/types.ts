@@ -20,6 +20,5 @@ export type LinkAPI = {
         'data-disabled': '' | undefined;
         'data-external': '' | undefined;
         onClick: (ev: MouseEvent) => void;
-        onKeyDown: (ev: KeyboardEvent) => void;
     };
 };

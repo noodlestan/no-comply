@@ -22,7 +22,6 @@ const ICONS: ExpandButtonIcons = {
 };
 
 export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI => {
-    const iconButtonProps = pickProps(props, ['size', 'onPress', 'disabled']);
     const expandButtonProps = createComputedProps({
         controls: () => props.controls,
         expanded: () => props.expanded,
@@ -31,13 +30,15 @@ export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI =>
     });
     const { iconButtonProps: expandButtonIconButtonProps } =
         createHeadlesExpandButton(expandButtonProps);
+
     const staticIconButtonProps = { variant: 'plain' as ActionVariant };
+    const iconButtonProps = pickProps(props, ['size', 'onPress', 'disabled']);
 
     return {
         iconButtonProps: mergeProps(
-            iconButtonProps,
             expandButtonIconButtonProps,
             staticIconButtonProps,
+            iconButtonProps,
         ),
     };
 };

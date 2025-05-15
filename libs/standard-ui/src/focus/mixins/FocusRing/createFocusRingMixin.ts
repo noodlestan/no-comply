@@ -1,16 +1,17 @@
-import { createClassList, createComputedProps } from '@noodlestan/context-ui-primitives';
+import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
 
-import styles from './FocusRing.module.css';
-import { type FocusRingAPI, type FocusRingProps } from './types';
+import { createFocusRingOffsetMixin } from '../FocusRingOffset';
 
-export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
-    const classList = createClassList(styles, () => ({
-        FocusRing: true,
-        'FocusRing-inset': Boolean(props.inset),
-    }));
-    const $localRoot = createComputedProps({ classList });
+import styles from './FocusRing.module.scss';
+import { type FocusRingMixinAPI, type FocusRingMixinProps } from './types';
+
+export const createFocusRingMixin = (props: FocusRingMixinProps = {}): FocusRingMixinAPI => {
+    const { $root } = createFocusRingOffsetMixin(props);
+
+    const classList = staticClassList(styles, 'FocusRing');
+    const $localRoot = { classList };
 
     return {
-        $root: $localRoot,
+        $root: mergeProps($root, $localRoot),
     };
 };

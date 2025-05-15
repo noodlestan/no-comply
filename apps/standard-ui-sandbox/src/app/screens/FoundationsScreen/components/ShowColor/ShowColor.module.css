@@ -1,8 +1,0 @@
-.ShowColor {
-    --__show-color: --f-color(var(--__show-color-p), var(--__show-color-l));
-    font-size: var(--typography-step--1);
-    color: transparent;
-    background-color: var(--__show-color);
-    width: var(--size-l);
-    height: var(--size-l);
-}

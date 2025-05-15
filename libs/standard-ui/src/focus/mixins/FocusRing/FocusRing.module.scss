@@ -1,0 +1,7 @@
+@use '@noodlestan/headless-ui/scss/mixins/focus.scss' as *;
+
+@layer standard-ui {
+    .FocusRing {
+        @include focus-ring;
+    }
+}

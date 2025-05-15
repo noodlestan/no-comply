@@ -1,6 +1,6 @@
 import { staticClassList } from '@noodlestan/context-ui-primitives';
 
-import styles from './FocusableMixin.module.css';
+import styles from './FocusableMixin.module.scss';
 import type { FocusableMixinAPI } from './types';
 
 export const createFocusableMixin = (): FocusableMixinAPI => {
