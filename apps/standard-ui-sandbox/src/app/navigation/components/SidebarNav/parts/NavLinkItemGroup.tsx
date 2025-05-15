@@ -2,7 +2,7 @@ import { useFocusTarget } from '@noodlestan/context-ui';
 import { Display, Flex, NavLink } from '@noodlestan/standard-ui';
 import { type Component, For } from 'solid-js';
 
-import { SCREEN_MAIN_TARGET } from '../../../../templates';
+import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from '../../../../templates';
 import { ROUTES } from '../../../constants';
 import type { NavLinkGroup } from '../types';
 
@@ -25,7 +25,10 @@ export const NavLinkItemGroup: Component<NavLinkItemGroupProps> = props => {
 
             <For each={props.items}>
                 {item => (
-                    <NavLink href={ROUTES.component(item.component)} onPress={handleNavLink}>
+                    <NavLink
+                        href={ROUTES.component(item.component) + `#${$ID_SCREEN_MAIN}`}
+                        onPress={handleNavLink}
+                    >
                         {item.component}
                     </NavLink>
                 )}

@@ -11,12 +11,12 @@ import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
 import { AppSplash } from './splash';
-import { $ID_SCREEN_TITLE, SCREEN_MAIN_TARGET } from './templates';
+import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from './templates';
 
 const Main: ParentComponent = props => {
     const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
 
-    const handleNavLink = () => {
+    const handleSkipLink = () => {
         setTimeout(() => {
             setMainFocus();
         });
@@ -38,7 +38,7 @@ const Main: ParentComponent = props => {
                 <AppSplash />
             </Show>
             <Show when={status.isReady()}>
-                <SkipLink floating href={`#${$ID_SCREEN_TITLE}`} onPress={handleNavLink}>
+                <SkipLink floating href={`#${$ID_SCREEN_MAIN}`} onPress={handleSkipLink}>
                     Skip to main content
                 </SkipLink>
                 {props.children}

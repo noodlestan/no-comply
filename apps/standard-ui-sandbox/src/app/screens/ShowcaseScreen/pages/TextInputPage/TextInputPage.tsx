@@ -3,7 +3,8 @@ import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
+import { ComponentMeta, DemoGroup, DemoItem } from '../../../../components';
+import { DemoPage } from '../../../../templates';
 
 import styles from './TextInputPage.module.css';
 

@@ -8,7 +8,7 @@ import { Callout, Display, Flex, Link, ToggleButton } from '@noodlestan/standard
 import { EyeIcon, EyeOffIcon } from 'lucide-solid';
 import { type Component, For, Show, createSignal } from 'solid-js';
 
-import { DemoPage } from '../../../../components';
+import { DemoPage } from '../../../../templates';
 import { ShowPalette } from '../../components';
 
 const LABELS: ToggleButtonLabels = {

@@ -9,11 +9,11 @@ import { $ID_SIDEBAR_NAV } from '../../../private';
 
 import styles from './MainMenuButton.module.css';
 
-interface Props {
-    setButtonRef: (el: HTMLElement) => void;
+type Props = {
+    ref?: (el: HTMLElement) => void;
     expanded: boolean;
     onPress: () => void;
-}
+};
 
 const LABELS: ExpandButtonLabels = {
     expanded: 'Close main menu',
@@ -33,7 +33,7 @@ export const MainMenuButton: Component<Props> = props => {
 
     return (
         <ExpandButton
-            ref={props.setButtonRef}
+            ref={props.ref}
             expanded={props.expanded}
             icons={ICONS}
             labels={LABELS}

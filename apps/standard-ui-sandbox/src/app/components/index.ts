@@ -2,7 +2,6 @@
 export * from './ComponentMeta';
 export * from './DemoGroup';
 export * from './DemoItem';
-export * from './DemoPage';
 export * from './ImportStatement';
 export * from './SurfaceVariantExample';
 export * from './ThemeSelect';

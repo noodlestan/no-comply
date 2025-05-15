@@ -1,6 +1,6 @@
 @layer standard-ui-sandbox {
     @layer screens {
-        .ScreenWithSidebar--Layout {
+        .ScreenTemplateWithSidebar--Layout {
             z-index: 0;
         }
     }

@@ -1,7 +1,7 @@
 import { type ParentComponent } from 'solid-js';
 
-import { ScreenWithSidebar } from '../../templates';
+import { ScreenTemplateWithSidebar } from '../../templates';
 
 export const ShowcaseScreen: ParentComponent = props => {
-    return <ScreenWithSidebar>{props.children}</ScreenWithSidebar>;
+    return <ScreenTemplateWithSidebar>{props.children}</ScreenTemplateWithSidebar>;
 };

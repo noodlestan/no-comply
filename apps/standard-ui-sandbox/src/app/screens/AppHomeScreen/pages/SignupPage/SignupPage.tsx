@@ -1,6 +1,6 @@
 import { type Component } from 'solid-js';
 
-import { DemoPage } from '../../../../components';
+import { DemoPage } from '../../../../templates';
 import { SignupForm } from '../../forms';
 
 export const SignupPage: Component = () => {

@@ -5,6 +5,7 @@ import { type ParentComponent, createSignal } from 'solid-js';
 import { QuitAppModalDialog } from '../../dialogs';
 import { WithSidebarLayout } from '../../layouts';
 import { SidebarNav } from '../../navigation';
+import { ScreenTemplateBase } from '../../templates';
 
 import styles from './AppHomeScreen.module.css';
 import { SignupPage } from './pages';
@@ -17,7 +18,7 @@ export const AppHomeScreen: ParentComponent = props => {
     };
 
     return (
-        <>
+        <ScreenTemplateBase>
             <Surface variant="stage" classList={staticClassList(styles, 'AppHomeScreen')}>
                 <WithSidebarLayout sidebarExpanded sidebar={<SidebarNav />}>
                     <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 1</Button>
@@ -31,6 +32,6 @@ export const AppHomeScreen: ParentComponent = props => {
                 onCancel={() => setShowQuitAppModalDialog(false)}
                 onConfirm={handleQuitAppConfirm}
             />
-        </>
+        </ScreenTemplateBase>
     );
 };

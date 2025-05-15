@@ -3,8 +3,9 @@ import { Flex, Label, Surface, Text } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ComponentMeta, DemoGroup, DemoPage, SurfaceVariantExample } from '../../../../components';
+import { ComponentMeta, DemoGroup, SurfaceVariantExample } from '../../../../components';
 import { ExampleLarge, ExampleMedium, ExampleSmall, ExampleTiny } from '../../../../examples';
+import { DemoPage } from '../../../../templates';
 
 import styles from './SurfacePage.module.css';
 

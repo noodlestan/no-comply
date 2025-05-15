@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer screens {
+        .ScreenTemplateBase--Layout {
+            z-index: 0;
+        }
+    }
+}

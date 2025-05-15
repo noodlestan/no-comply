@@ -3,7 +3,8 @@ import { Display } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ComponentMeta, DemoGroup, DemoItem, DemoPage } from '../../../../components';
+import { ComponentMeta, DemoGroup, DemoItem } from '../../../../components';
+import { DemoPage } from '../../../../templates';
 
 import styles from './DisplayPage.module.css';
 

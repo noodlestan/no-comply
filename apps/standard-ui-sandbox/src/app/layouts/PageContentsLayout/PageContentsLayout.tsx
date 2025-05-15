@@ -5,12 +5,10 @@ import { type ParentComponent, splitProps } from 'solid-js';
 
 import styles from './PageContentsLayout.module.css';
 
-type Props = ClosedTagProps & {
-    variant?: 'stage' | 'page';
-};
+type Props = ClosedTagProps;
 
 export const PageContentsLayout: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, ['variant', 'children']);
+    const [locals, $others] = splitProps(props, ['children']);
 
     const $static = {
         classList: staticClassList(styles, 'PageContentsLayout'),
@@ -18,7 +16,7 @@ export const PageContentsLayout: ParentComponent<Props> = props => {
     const $ = mergeProps($static, $others);
 
     return (
-        <Flex direction="column" flex={1} stretch="full" overflow="y-auto" {...$}>
+        <Flex direction="column" {...$}>
             {locals.children}
         </Flex>
     );
