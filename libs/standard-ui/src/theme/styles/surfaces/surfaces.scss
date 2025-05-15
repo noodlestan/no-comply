@@ -7,10 +7,11 @@
 
             @include set-alpha(content-fg, opaque);
             @include set-alpha(content-bg, opaque);
-            @include set-level(content-bg-match, __bg);
             @include set-level(content-bg-0, bg-0);
             @include set-level(content-bg-1, bg-2);
             @include set-level(content-bg-2, bg-1);
+
+            @include set-color(surface, __bg, __bg, __bg);
 
             @include set-color(__fg, primary, fg-primary, content-fg);
             @include set-color(__bg, primary, bg-stage, opaque);

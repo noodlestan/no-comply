@@ -1,0 +1,21 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui-theme {
+    @layer foundations {
+        @layer scrollbars {
+            [data-theme-standard] [data-surface] {
+                @include set-color(__handle-rest, primary, bg-4, transparent);
+                @include set-color(__track-rest, primary, bg-2, transparent);
+
+                @include set-color(__handle-hover, interactive, border, translucid);
+                @include set-color(__track-hover, primary, surface, transparent);
+
+                @include apply-color(--scrollbar-handle-rest-color, __handle-rest);
+                @include apply-color(--scrollbar-track-rest-color, __track-rest);
+
+                @include apply-color(--scrollbar-handle-hover-color, __handle-hover);
+                @include apply-color(--scrollbar-track-hover-color, __track-hover);
+            }
+        }
+    }
+}

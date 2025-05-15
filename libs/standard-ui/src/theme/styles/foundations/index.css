@@ -7,7 +7,7 @@
 @import './outline.scss';
 @import './palettes.css';
 @import './radius.css';
-@import './scrollbars.css';
+@import './scrollbars.scss';
 @import './shadow.css';
 @import './space.css';
 @import './typography.css';

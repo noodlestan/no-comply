@@ -30,11 +30,11 @@
 
 @mixin apply-computed-color($prop, $name) {
     & {
-        --#{$prop}-desat: calc(1 - abs(0.5 - var(--#{$name}-light)) * 2);
+        --__#{$prop}-desat: calc(1 - abs(0.5 - var(--#{$name}-light)) * 2);
         /* prettier-ignore */
         #{$prop}: oklch(
             from var(--#{$name}-color)
-                var(--#{$name}-light) calc(c * var(--#{$prop}-desat)) h / var(--#{$name}-alpha, 1)
+                var(--#{$name}-light) calc(c * var(--__#{$prop}-desat)) h / var(--#{$name}-alpha, 1)
         );
     }
 }

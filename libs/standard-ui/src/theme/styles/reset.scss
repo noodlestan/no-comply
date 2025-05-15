@@ -9,9 +9,12 @@
         view-transition-name: none;
     }
 
+    /* WIP not tested
+    https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size
     html {
         interpolate-size: allow-keywords;
     }
+    */
 
     ::view-transition {
         pointer-events: none;
@@ -27,15 +30,11 @@
 
     [data-theme-standard] * {
         scrollbar-width: thin;
-        /* prettier-ignore */
-        scrollbar-color: --f-alpha(var(--scrollbar-handle-rest-color), var(--scrollbar-handle-rest-opacity))
-            --f-alpha(var(--scrollbar-track-rest-color), var(--scrollbar-track-rest-opacity));
+        scrollbar-color: var(--scrollbar-handle-rest-color) var(--scrollbar-track-rest-color);
     }
 
     [data-theme-standard] *:hover {
         scrollbar-width: thin;
-        /* prettier-ignore */
-        scrollbar-color: --f-alpha(var(--scrollbar-handle-hover-color), var(--scrollbar-handle-hover-opacity))
-            --f-alpha(var(--scrollbar-track-hover-color), var(--scrollbar-track-hover-opacity));
+        scrollbar-color: var(--scrollbar-handle-hover-color) var(--scrollbar-track-hover-color);
     }
 }
