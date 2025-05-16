@@ -41,8 +41,8 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     const $localRoot = createComputedProps($static, {
         component,
         'data-disabled': () => (props.disabled ? '' : undefined),
-        'data-focusable-has-focus': () => String(context.hasFocus()),
-        'data-focusable-has-focus-within': () => String(context.hasFocusWithin()),
+        'data-has-focus': () => (context.hasFocus() ? '' : undefined),
+        'data-has-focus-within': () => (context.hasFocusWithin() ? '' : undefined),
     });
 
     const onFocus = () => context.setHasFocus(true);

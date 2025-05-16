@@ -1,4 +1,4 @@
-@use '../../../scss/mixins/accessibility.scss' as *;
+@use '@noodlestan/context-ui-aria/scss/mixins/visibility.scss' as *;
 @use '../../../scss/mixins/focus.scss' as *;
 
 @layer headless-ui {
@@ -8,7 +8,7 @@
         pointer-events: all;
         user-select: none;
 
-        @include focus-ring-styles;
+        @include focus-ring;
     }
 
     .Focusable--button {
@@ -17,9 +17,5 @@
 
     .Focusable[data-disabled] {
         cursor: default;
-    }
-
-    .Focusable[data-focusable-has-focus] {
-        @include focus-ring-active-styles;
     }
 }

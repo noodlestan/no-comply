@@ -20,8 +20,8 @@ export type FocusableAPI = {
         onFocusOut: (ev: FocusEvent) => void;
         'data-focusable': string;
         'data-disabled': string | undefined;
-        'data-focusable-has-focus': string;
-        'data-focusable-has-focus-within': string;
+        'data-has-focus': string | undefined;
+        'data-has-focus-within': string | undefined;
     };
     $target: {
         ref: (el: HTMLElement) => void;

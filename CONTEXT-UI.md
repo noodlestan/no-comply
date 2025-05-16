@@ -1,3 +1,46 @@
+## TabNavigation direction inline/block
+
+- composes NavLink
+- make no assumptions about the target (could be full page navigation)
+- add NavLink orientation prop, use cases:
+  - navbar => underline/overline
+  - sidebar (directional i.e. nav vs toc) => edge
+
+## sketch out TabContainer /context
+
+```
+<TabContainer>
+    <TabNavigation>
+    <TabTarget>
+        <Content>
+```
+
+## motion helper
+
+setTimeout(() => setIsActive(false), 150);
+
+## createPressable({defaultPrevented})
+
+// ev.preventDefault();
+=> it also cancels the focus-ring user feedback
+
+## rename packages
+
+- context-ui
+- accessible-ui
+- composable-ui
+- standard-ui
+  dream on
+- proto-ui
+- studio-ui
+- touchdown-ui
+
+## string | undefined => DataBooleanAttribute
+
+'data-is-active': createDataBooleanProp(isActive),
+
+## disabled => inactive
+
 ## light/dark mode prefers not working on Firefox
 
 ## use logical attributes everywhere
@@ -60,6 +103,11 @@ and aria-paragraph
 ## Callout
 
 add aria-note
+
+## Safari
+
+- no scrollbars
+- links are not focusable
 
 ## Separator
 

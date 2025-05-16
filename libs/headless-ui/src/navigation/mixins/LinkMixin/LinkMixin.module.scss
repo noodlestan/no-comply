@@ -10,8 +10,4 @@
     .Link[aria-disabled] {
         cursor: not-allowed;
     }
-
-    .Link:focus-visible {
-        @include focus-ring;
-    }
 }

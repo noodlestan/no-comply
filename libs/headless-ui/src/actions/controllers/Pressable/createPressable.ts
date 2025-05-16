@@ -19,7 +19,7 @@ export const createPressable = (props: PressableProps): PressableAPI => {
         }
         if (ev.key === 'Enter' || ev.key === ' ') {
             ev.stopImmediatePropagation();
-            ev.preventDefault();
+            // ev.preventDefault();
             props.onPress?.(ev);
         }
     };

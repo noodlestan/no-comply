@@ -1,6 +1,6 @@
 import { createClassList, createComputedProps } from '@noodlestan/context-ui-primitives';
 
-import styles from './FocusRingOffset.module.scss';
+import styles from './FocusRingOffset.module.css';
 import { type FocusRingOffsetMixinAPI, type FocusRingOffsetMixinProps } from './types';
 
 export const createFocusRingOffsetMixin = (

@@ -14,7 +14,12 @@
         @include focus-ring-styles;
     }
 
+    &[data-had-focus],
     &:focus-visible {
+        @include focus-ring-active-styles;
+    }
+
+    &[data-is-active] {
         @include focus-ring-active-styles;
     }
 }
