@@ -7,7 +7,7 @@ import { type Component } from 'solid-js';
 
 import { $ID_SIDEBAR_NAV } from '../../../private';
 
-import styles from './MainMenuButton.module.css';
+import styles from './MainMenuButton.module.scss';
 
 type Props = {
     ref?: (el: HTMLElement) => void;

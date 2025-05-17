@@ -19,7 +19,7 @@ export const SkipLink: ParentComponent<Props> = props => {
 
     return (
         <a {...$}>
-            <Icon size={locals.size} icon={ArrowDownIcon} />
+            <Icon size={locals.size} icon={ArrowDownIcon} aria-hidden={true} />
             {locals.children}
         </a>
     );

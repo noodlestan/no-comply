@@ -13,7 +13,19 @@ export const MainNav: Component = () => {
 
     const items = [
         { id: '1', href: '/app', label: 'Showcase' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
         { id: '2', href: '/features', label: 'Features' },
+        { id: '2', href: '/features', label: 'Features' },
+        { id: '2', href: '/features', label: 'Features' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
     ];
 
     const selectedItemId = () => '1';
@@ -30,7 +42,7 @@ export const MainNav: Component = () => {
             current={selectedItemId()}
             renderOverflow={({ items }) => <>{items.length}</>}
             renderItem={({ item, isCurrent }) => (
-                <NavLink nowrap href={item.href} onPress={handleNavLink} current={isCurrent}>
+                <NavLink href={item.href} onPress={handleNavLink} current={isCurrent}>
                     {item.label}
                 </NavLink>
             )}

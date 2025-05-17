@@ -17,7 +17,11 @@ export const createNavLinkMixin = (props: NavLinkMixinProps): NavLinkMixinAPI =>
     const { $root: $linkMixinRoot } = createHeadlessLinkMixin();
 
     const size = () => props.size ?? defaultProps.size;
-    const classList = createClassList(styles, () => ['NavLink', `NavLink-size-${size()}`]);
+    const classList = createClassList(styles, () => ({
+        NavLink: true,
+        nowrap: Boolean(props.nowrap),
+        [`size-${size()}`]: true,
+    }));
     const $localRoot = createComputedProps({
         classList,
     });

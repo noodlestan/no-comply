@@ -14,29 +14,33 @@
         user-select: none;
 
         @include apply-color(background-color, __bg);
+
+        &[data-nav-link-current] {
+            @include set-level(__fg, static-fg-primary);
+            @include set-alpha(__bg, opaque);
+            text-decoration: none;
+        }
     }
 
-    .NavLink[data-nav-link-current] {
-        @include set-level(__fg, static-fg-primary);
-        @include set-alpha(__bg, opaque);
-        text-decoration: none;
+    .nowrap {
+        white-space: nowrap;
     }
 
-    .NavLink-size-small {
+    .size-small {
         padding-block: var(--space-gap-0);
         padding-inline: var(--space-gap--1);
         font-size: var(--action-type-size-s);
         font-weight: var(--action-type-weight-s);
     }
 
-    .NavLink-size-normal {
+    .size-normal {
         padding-block: var(--space-gap-1);
         padding-inline: var(--space-gap-0);
         font-size: var(--action-type-size-m);
         font-weight: var(--action-type-weight-m);
     }
 
-    .NavLink-size-medium {
+    .size-medium {
         padding-block: var(--space-gap-2);
         padding-inline: var(--space-gap-1);
         font-size: var(--action-type-size-l);

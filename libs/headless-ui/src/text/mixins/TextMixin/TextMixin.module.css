@@ -9,13 +9,13 @@
         letter-spacing: var(--__text-letter-spacing, var(--typography-base-spacing));
         font-style: var(--__text-font-style, normal);
         text-transform: var(--__text-transform, none);
-        text-wrap-style: var(--__text-wrap-style, stable);
-        text-wrap-mode: wrap;
+        white-space: inherit;
+        text-wrap-style: var(--__text-wrap-style, inherit);
     }
 
     .Text-nowrap {
         max-width: 100%;
-        text-wrap-mode: nowrap;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }

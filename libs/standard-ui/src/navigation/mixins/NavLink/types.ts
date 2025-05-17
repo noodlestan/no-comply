@@ -6,6 +6,7 @@ import type { ContentSize } from '../../../types';
 
 export type NavLinkMixinProps = {
     size?: ContentSize;
+    nowrap?: boolean;
 };
 
 export type NavLinkMixinAPI = {

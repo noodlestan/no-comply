@@ -4,7 +4,7 @@ import { type Component } from 'solid-js';
 
 import IconSvg from '../../../../assets/icon.svg';
 
-import styles from './SplashBox.module.css';
+import styles from './SplashBox.module.scss';
 
 type Props = {
     labelId: string;
@@ -20,9 +20,9 @@ export const SplashBox: Component<Props> = props => {
             gap="2xl"
         >
             <Display level={1} id={props.labelId}>
-                Context UI
+                Standard UI
             </Display>
-            <Flex flex={1} classList={staticClassList(styles, 'SplashBox--logo')}>
+            <Flex flex={1} classList={staticClassList(styles, 'logo')}>
                 <IconSvg />
             </Flex>
             <Text variant="medium">Made in Noodlestan</Text>

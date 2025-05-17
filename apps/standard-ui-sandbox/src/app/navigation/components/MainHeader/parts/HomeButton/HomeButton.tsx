@@ -6,14 +6,16 @@ import { type Component } from 'solid-js';
 import { ROUTES } from '../../../../constants';
 import { $ID_APP_TITLE } from '../../private/constants';
 
-import styles from './HomeButton.module.css';
+import styles from './HomeButton.module.scss';
 
 export const HomeButton: Component = () => {
     return (
         <h1 classList={staticClassList(styles, 'HomeButton')} id={$ID_APP_TITLE}>
-            <NavLink href={ROUTES.home()}>
+            <NavLink href={ROUTES.home()} nowrap>
                 <Icon icon={SquareMousePointerIcon} size="medium" aria-hidden />
-                <Text variant="medium">Context UI</Text>
+                <Text tag="span" variant="medium">
+                    Context UI
+                </Text>
             </NavLink>
         </h1>
     );

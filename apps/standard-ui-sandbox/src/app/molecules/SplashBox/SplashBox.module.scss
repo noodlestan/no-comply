@@ -16,13 +16,13 @@
             overflow: hidden;
         }
 
-        .SplashBox--logo {
+        .logo {
             display: block;
             --icon-size: var(--scale-2xl);
             animation: splash-box-icon-shake 5s infinite;
         }
 
-        .SplashBox--logo > svg {
+        .logo > svg {
             height: 100%;
         }
     }

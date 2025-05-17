@@ -6,7 +6,7 @@
         --__text-letter-spacing: var(--text-base-spacing);
         --__text-font-style: normal;
         --__text-transform: none;
-        --__text-wrap-style: stable;
+        --__text-wrap-style: auto;
     }
 
     .Text-variant-small {

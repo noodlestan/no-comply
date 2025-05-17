@@ -6,13 +6,13 @@ import type {
     OverflowItemsContextValue,
 } from '../../private';
 
-type OverflowItemsProps = {
+type OverflowItemsOverflowProps = {
     items: ObjectWithId[];
 };
 
 export type OverflowItemsProps<T extends ObjectWithId = ObjectWithId> =
     OverflowItemsContextOptions<T> & {
-        renderOverflow: RenderProp<OverflowItemsProps>;
+        renderOverflow: RenderProp<OverflowItemsOverflowProps>;
     };
 
 export type OverflowItemsAPI = {

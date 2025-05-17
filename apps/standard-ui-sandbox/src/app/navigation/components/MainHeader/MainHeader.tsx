@@ -3,7 +3,7 @@ import { Flex, Surface } from '@noodlestan/standard-ui';
 import { type Component, Show } from 'solid-js';
 
 import styles from './MainHeader.module.css';
-import { HomeButton, MainMenuButton } from './parts';
+import { HomeButton, MainMenuButton, MainNav } from './parts';
 import { HEADER_LABEL } from './private';
 
 interface Props {
@@ -32,16 +32,7 @@ export const MainHeader: Component<Props> = props => {
                     />
                 </Show>
                 <HomeButton />
-                <Flex
-                    tag="nav"
-                    direction="row"
-                    justify="start"
-                    align="center"
-                    gap="m"
-                    aria-label="Main navigation"
-                >
-                    {''}
-                </Flex>
+                <MainNav />
             </Flex>
         </Surface>
     );
