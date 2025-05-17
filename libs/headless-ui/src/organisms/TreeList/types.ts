@@ -2,7 +2,7 @@ import type { IconValue, LabelValue } from '@noodlestan/context-ui';
 import type { ObjectWithId } from '@noodlestan/context-ui-primitives';
 import { type Component } from 'solid-js';
 
-import type { ExpandButtonProps } from '../../actions';
+import type { ExpandActionProps } from '../../actions';
 
 import type {
     TreeListItemChildrenProps,
@@ -34,7 +34,7 @@ export type TreeListComponents = {
     itemDetails: Component<TreeListItemDetailsProps>;
     itemChildren: Component<TreeListItemChildrenProps>;
     itemContents: Component<TreeListItemContentsProps>;
-    expandButton: Component<ExpandButtonProps>;
+    expandButton: Component<ExpandActionProps>;
 };
 
 export type TreeListLabels = {

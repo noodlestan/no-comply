@@ -11,7 +11,7 @@ import {
 
 import { createFocusRingOffsetMixin } from '../../../focus';
 
-import styles from './Button.module.scss';
+import styles from './ButtonMixin.module.scss';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';
 
 const defaultProps: PickRequired<ButtonMixinProps, 'variant' | 'size'> = {

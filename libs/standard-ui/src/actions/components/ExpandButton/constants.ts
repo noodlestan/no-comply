@@ -1,5 +1,5 @@
 import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { EXPAND_BUTTON_PROPS as HEADLESS_EXPAND_BUTTON_PROPS } from '@noodlestan/headless-ui';
+import { EXPAND_ACTION_PROPS } from '@noodlestan/headless-ui';
 
 import type { ExpandButtonProps } from './types';
 
@@ -7,5 +7,5 @@ export const EXPAND_BUTTON_PROPS = definePropKeys<ExpandButtonProps>()([
     'size',
     'onPress',
     'disabled',
-    ...HEADLESS_EXPAND_BUTTON_PROPS,
+    ...EXPAND_ACTION_PROPS,
 ]);

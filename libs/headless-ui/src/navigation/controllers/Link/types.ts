@@ -1,13 +1,16 @@
 import type { AriaAttributes } from '@noodlestan/context-ui-aria';
 import type { PressEventHandlers } from '@noodlestan/context-ui-primitives';
 
-export type LinkProps = PressEventHandlers & {
-    href: string;
-    label?: string;
-    target?: '_self' | '_blank' | '_parent' | '_top';
-    disabled?: boolean;
-    rel?: string;
-};
+import type { PressableProps } from '../../../actions';
+
+export type LinkProps = PressableProps &
+    PressEventHandlers & {
+        href: string;
+        label?: string;
+        target?: '_self' | '_blank' | '_parent' | '_top';
+        disabled?: boolean;
+        rel?: string;
+    };
 
 export type LinkAPI = {
     $root: {

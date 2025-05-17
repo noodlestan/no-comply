@@ -3,15 +3,14 @@ import type { AriaAttributes } from '@noodlestan/context-ui-aria';
 
 import type { IconProps } from '../../../icon';
 
-export type IconButtonProps = {
+export type IconActionProps = {
     icon: IconComponent;
     label: string;
 };
 
-export type IconButtonAPI = {
+export type IconActionAPI = {
     $root: {
         'aria-label': AriaAttributes['aria-label'];
-        'data-icon-button': '';
     };
     iconProps: Pick<IconProps, 'icon'> & {
         'aria-hidden': AriaAttributes['aria-hidden'];

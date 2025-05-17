@@ -43,19 +43,19 @@
         @include apply-color(border-color, __border);
     }
 
-    .Button:is([disabled], [aria-disabled], [data-inactive]) {
+    .Button:is([data-disabled], [data-inactive]) {
         @include set-color(__fg, primary, fg-disabled, content-fg);
         @include set-color(__bg, primary, bg-disabled, content-bg);
         @include set-color(__border, primary, border-disabled, content-bg);
     }
 
-    .Button:not([disabled], [aria-disabled], [data-inactive]):is(:focus-visible, :hover) {
+    .Button:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
         @include set-level(__fg, __fg-hover);
         @include set-level(__bg, __bg-hover);
         @include set-level(__border, __border-hover);
     }
 
-    .Button:not([disabled], [aria-disabled], [data-inactive]):active {
+    .Button:not([data-disabled], [data-inactive]):active {
         @include set-level(__fg, __fg-active);
         @include set-level(__bg, __bg-active);
         @include set-level(__border, __border-active);
@@ -82,7 +82,7 @@
         @include set-palette(__border, interactive);
     }
 
-    .Button-variant-primary:is([disabled], [aria-disabled], [data-inactive]) {
+    .Button-variant-primary:is([data-disabled], [data-inactive]) {
         @include set-palette(__border, interactive);
         @include set-level(__border, static-bg-1);
     }
@@ -93,7 +93,7 @@
         @include set-palette(__border, bad);
     }
 
-    .Button-variant-danger:is([disabled], [aria-disabled], [data-inactive]) {
+    .Button-variant-danger:is([data-disabled], [data-inactive]) {
         @include set-palette(__border, bad);
         @include set-level(__border, static-bg-1);
     }
@@ -103,30 +103,24 @@
         @include set-level(__fg, fg-saturated);
     }
 
-    .Button-variant-secondary:not([disabled], [aria-disabled], [data-inactive]) {
+    .Button-variant-secondary:not([data-disabled], [data-inactive]) {
         @include set-alpha(__bg, translucid);
         @include set-alpha(__border, invisible);
     }
 
-    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]) {
+    .Button-variant-plain:not([data-disabled], [data-inactive]) {
         @include set-alpha(__bg, invisible);
         @include set-alpha(__border, invisible);
     }
 
-    .Button-variant-secondary:not([disabled], [aria-disabled], [data-inactive]):is(
-            :focus-visible,
-            :hover
-        ),
-    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):is(
-            :focus-visible,
-            :hover
-        ) {
+    .Button-variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover),
+    .Button-variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
         @include set-alpha(__bg, transparent);
         @include set-alpha(__border, opaque);
     }
 
-    .Button-variant-secondary:not([disabled], [aria-disabled], [data-inactive]):active,
-    .Button-variant-plain:not([disabled], [aria-disabled], [data-inactive]):active {
+    .Button-variant-secondary:not([data-disabled], [data-inactive]):active,
+    .Button-variant-plain:not([data-disabled], [data-inactive]):active {
         @include set-alpha(__bg, translucid);
         @include set-alpha(__border, opaque);
     }

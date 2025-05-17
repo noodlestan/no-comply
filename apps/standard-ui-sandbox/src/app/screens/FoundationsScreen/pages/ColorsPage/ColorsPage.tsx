@@ -1,7 +1,7 @@
 import { createIconValue, l } from '@noodlestan/context-ui';
 import {
-    type ToggleButtonIcons,
-    type ToggleButtonLabels,
+    type ToggleActionIcons,
+    type ToggleActionLabels,
     createSupportsQuery,
 } from '@noodlestan/headless-ui';
 import { Callout, Display, Flex, Link, ToggleButton } from '@noodlestan/standard-ui';
@@ -11,12 +11,12 @@ import { type Component, For, Show, createSignal } from 'solid-js';
 import { DemoPage } from '../../../../templates';
 import { ShowPalette } from '../../components';
 
-const LABELS: ToggleButtonLabels = {
+const LABELS: ToggleActionLabels = {
     on: 'Palettes enabled',
     off: 'Palettes disabled (using computed colors)',
 };
 
-const ICONS: ToggleButtonIcons = {
+const ICONS: ToggleActionIcons = {
     on: createIconValue(EyeIcon),
     off: createIconValue(EyeOffIcon),
 };

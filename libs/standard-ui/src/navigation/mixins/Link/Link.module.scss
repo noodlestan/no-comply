@@ -10,11 +10,11 @@
         @include apply-color(color, __fg);
     }
 
-    :where(.Link):not([aria-disabled]):hover {
+    :where(.Link):not([data-disabled]):hover {
         @include set-level(__fg, fg-primary);
     }
 
-    :where(.Link)[aria-disabled] {
+    :where(.Link)[data-disabled] {
         @include set-color(__fg, disabled, fg-disabled, content-fg);
     }
 }

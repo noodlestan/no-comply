@@ -1,9 +1,9 @@
 import { createIconValue } from '@noodlestan/context-ui';
 import { createComputedProps, mergeProps, pickProps } from '@noodlestan/context-ui-primitives';
 import {
-    type ExpandButtonIcons,
-    type ExpandButtonLabels,
-    createExpandButton as createHeadlesExpandButton,
+    type ExpandActionIcons,
+    type ExpandActionLabels,
+    createExpandAction,
 } from '@noodlestan/headless-ui';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
@@ -11,12 +11,12 @@ import type { ActionVariant } from '../../types';
 
 import type { ExpandButtonAPI, ExpandButtonProps } from './types';
 
-const LABELS: ExpandButtonLabels = {
+const LABELS: ExpandActionLabels = {
     expanded: 'Collapse',
     collapsed: 'Expand',
 };
 
-const ICONS: ExpandButtonIcons = {
+const ICONS: ExpandActionIcons = {
     expanded: createIconValue(ChevronDownIcon),
     collapsed: createIconValue(ChevronUpIcon),
 };
@@ -28,15 +28,14 @@ export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI =>
         labels: () => Object.assign({}, LABELS, props.labels),
         icons: () => Object.assign({}, ICONS, props.icons),
     });
-    const { iconButtonProps: expandButtonIconButtonProps } =
-        createHeadlesExpandButton(expandButtonProps);
+    const { iconActionProps: expandActionIconActionProps } = createExpandAction(expandButtonProps);
 
     const staticIconButtonProps = { variant: 'plain' as ActionVariant };
     const iconButtonProps = pickProps(props, ['size', 'onPress', 'disabled']);
 
     return {
         iconButtonProps: mergeProps(
-            expandButtonIconButtonProps,
+            expandActionIconActionProps,
             staticIconButtonProps,
             iconButtonProps,
         ),

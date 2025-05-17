@@ -1,8 +1,8 @@
 import { definePropKeys } from '@noodlestan/context-ui-primitives';
 
-import type { ExpandButtonProps } from './types';
+import type { ExpandActionProps } from './types';
 
-export const EXPAND_BUTTON_PROPS = definePropKeys<ExpandButtonProps>()([
+export const EXPAND_ACTION_PROPS = definePropKeys<ExpandActionProps>()([
     'controls',
     'expanded',
     'labels',

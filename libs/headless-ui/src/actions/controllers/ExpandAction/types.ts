@@ -1,27 +1,27 @@
 import type { IconValue, LabelValue } from '@noodlestan/context-ui';
 import type { AriaAttributes } from '@noodlestan/context-ui-aria';
 
-import type { IconButtonProps } from '../IconButton';
+import type { IconActionProps } from '../IconAction';
 
-export type ExpandButtonProps = {
+export type ExpandActionProps = {
     controls: string;
     expanded: boolean;
-    labels: ExpandButtonLabels;
-    icons: ExpandButtonIcons;
+    labels: ExpandActionLabels;
+    icons: ExpandActionIcons;
 };
 
-export type ExpandButtonLabels = {
+export type ExpandActionLabels = {
     expanded: LabelValue;
     collapsed: LabelValue;
 };
 
-export type ExpandButtonIcons = {
+export type ExpandActionIcons = {
     expanded: IconValue;
     collapsed: IconValue;
 };
 
-export type ExpandButtonAPI = {
-    iconButtonProps: Pick<IconButtonProps, 'label' | 'icon'> & {
+export type ExpandActionAPI = {
+    iconActionProps: Pick<IconActionProps, 'label' | 'icon'> & {
         'aria-expanded': AriaAttributes['aria-expanded'];
         'aria-controls': AriaAttributes['aria-controls'];
     };

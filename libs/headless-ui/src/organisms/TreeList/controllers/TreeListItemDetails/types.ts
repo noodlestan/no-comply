@@ -2,7 +2,7 @@ import type { AriaLabelledProps } from '@noodlestan/context-ui-aria';
 import type { PropsWithComponent } from '@noodlestan/context-ui-primitives';
 import type { Accessor } from 'solid-js';
 
-import type { ExpandButtonProps } from '../../../../actions';
+import type { ExpandActionProps } from '../../../../actions';
 import type { FocusableBaseProps } from '../../../../focus';
 import type { TreeListItemContentsProps, TreeNode } from '../../types';
 
@@ -22,7 +22,7 @@ export type TreeListItemDetailsAPI = {
         'data-tree-item-is-parent-selected': '' | undefined;
     };
     focusableProps: FocusableBaseProps;
-    expandButtonProps: PropsWithComponent<ExpandButtonProps>;
+    expandButtonProps: PropsWithComponent<ExpandActionProps>;
     itemContentsProps: PropsWithComponent<TreeListItemContentsProps>;
     hasToggle: Accessor<boolean>;
 };

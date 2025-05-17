@@ -8,6 +8,7 @@ export const createPressable = (props: PressableProps): PressableAPI => {
 
     const onClick = (ev: MouseEvent) => {
         if (props.disabled) {
+            ev.preventDefault();
             return;
         }
         props.onPress?.(ev);
@@ -19,7 +20,6 @@ export const createPressable = (props: PressableProps): PressableAPI => {
         }
         if (ev.key === 'Enter' || ev.key === ' ') {
             ev.stopImmediatePropagation();
-            // ev.preventDefault();
             props.onPress?.(ev);
         }
     };

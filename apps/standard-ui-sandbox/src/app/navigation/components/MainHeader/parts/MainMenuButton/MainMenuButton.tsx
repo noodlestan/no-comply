@@ -1,6 +1,6 @@
 import { createIconValue } from '@noodlestan/context-ui';
 import { staticClassList } from '@noodlestan/context-ui-primitives';
-import type { ExpandButtonIcons, ExpandButtonLabels } from '@noodlestan/headless-ui';
+import type { ExpandActionIcons, ExpandActionLabels } from '@noodlestan/headless-ui';
 import { ExpandButton } from '@noodlestan/standard-ui';
 import { MenuIcon, XIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
@@ -15,12 +15,12 @@ type Props = {
     onPress: () => void;
 };
 
-const LABELS: ExpandButtonLabels = {
+const LABELS: ExpandActionLabels = {
     expanded: 'Close main menu',
     collapsed: 'Open main menu',
 };
 
-const ICONS: ExpandButtonIcons = {
+const ICONS: ExpandActionIcons = {
     expanded: createIconValue(XIcon),
     collapsed: createIconValue(MenuIcon),
 };

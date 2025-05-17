@@ -18,33 +18,27 @@ export const NavLinkPage: Component = () => {
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
                 <DemoItem row>
-                    <NavLink href="#" current={false}>
-                        Noodlestan
-                    </NavLink>
-                    <NavLink href="#" current={false}>
-                        Noodlestan
-                    </NavLink>
-                    <NavLink href="#" current={false}>
-                        Noodlestan
-                    </NavLink>
+                    <NavLink href="/component/NavLink">Noodlestan</NavLink>
+                    <NavLink href="/component/Button">Noodlestan</NavLink>
+                    <NavLink href="/component/IconButton">Noodlestan</NavLink>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="current">
-                <DemoItem title="true" row>
+                <DemoItem title="true/false" row>
                     <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
-                    <NavLink href="#" current>
+                    <NavLink href="#" current={false}>
                         Noodlestan
                     </NavLink>
-                    <NavLink href="#" current={false}>
+                    <NavLink href="#" current={true}>
                         Noodlestan
                     </NavLink>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem title="true">
-                    <NavLink href="#" current={false} disabled>
+                    <NavLink href="/foobar" disabled>
                         Foobar
                     </NavLink>
                 </DemoItem>

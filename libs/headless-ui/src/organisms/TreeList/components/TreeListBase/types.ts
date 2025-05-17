@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import type { ExpandButtonProps } from '../../../../actions';
+import type { ExpandActionProps } from '../../../../actions';
 import type {
     TreeListAPI,
     TreeListItemChildrenProps,
@@ -16,7 +16,7 @@ export type TreeListBaseProps = Omit<TreeListProps, 'components'> & {
         itemDetails?: Component<TreeListItemDetailsProps>;
         itemChildren?: Component<TreeListItemChildrenProps>;
         itemContents: Component<TreeListItemContentsProps>;
-        expandButton: Component<ExpandButtonProps>;
+        expandButton: Component<ExpandActionProps>;
     };
 };
 

@@ -1,12 +1,9 @@
 import { createComputedProps } from '@noodlestan/context-ui-primitives';
 
-import type { IconButtonAPI, IconButtonProps } from './types';
+import type { IconActionAPI, IconActionProps } from './types';
 
-export const createIconButton = (props: IconButtonProps): IconButtonAPI => {
-    const $static = {
-        'data-icon-button': '' as const,
-    };
-    const $localRoot = createComputedProps($static, {
+export const createIconAction = (props: IconActionProps): IconActionAPI => {
+    const $localRoot = createComputedProps({
         'aria-label': () => props.label,
     });
 

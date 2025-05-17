@@ -1,9 +1,11 @@
-import { PRESS_EVENT_HANDLERS, definePropKeys } from '@noodlestan/context-ui-primitives';
+import { definePropKeys } from '@noodlestan/context-ui-primitives';
+
+import { PRESSABLE_PROPS } from '../../../actions';
 
 import type { LinkProps } from './types';
 
 export const LINK_PROPS = definePropKeys<LinkProps>()([
-    ...PRESS_EVENT_HANDLERS,
+    ...PRESSABLE_PROPS,
     'href',
     'label',
     'target',

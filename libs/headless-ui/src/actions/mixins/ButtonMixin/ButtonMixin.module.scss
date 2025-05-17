@@ -12,8 +12,7 @@
         user-select: none;
     }
 
-    .Button[disabled],
-    .Button[aria-disabled] {
+    .Button[data-disabled] {
         cursor: not-allowed;
     }
 }

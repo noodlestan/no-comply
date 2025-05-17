@@ -4,7 +4,7 @@
         pointer-events: all;
     }
 
-    .Link[aria-disabled] {
+    .Link[data-disabled] {
         cursor: not-allowed;
     }
 }
