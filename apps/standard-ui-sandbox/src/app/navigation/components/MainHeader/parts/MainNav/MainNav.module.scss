@@ -1,0 +1,9 @@
+@layer standard-ui-sandbox {
+    @layer components {
+        .MainNav {
+            flex: 1;
+            min-width: 0;
+            align-self: stretch;
+        }
+    }
+}

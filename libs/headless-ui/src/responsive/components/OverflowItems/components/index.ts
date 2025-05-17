@@ -1,4 +1,4 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './components';
-export * from './controllers';
-export * from './types';
+export * from './OverflowItems';
+export * from './OverflowItemsContent';
+export * from './OverflowItemsToggle';

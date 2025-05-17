@@ -1,10 +1,51 @@
+## IA
+
+- LandingPage
+  - Hero
+    - => Showcase
+  - Features
+    - accessible
+    - composable
+    - performant
+    - next CSS
+    - "expressive"
+    - customizable
+  - Source Code / Docs / Showcase
+  - Contribute
+  - Footer
+- Showcase
+  - Splash
+  - Login/Signup
+  - TODO
+- Features
+  - Home
+  - Accessibility
+  - Architecture (solid, primitives, contexts, composables, component library)
+  - Design
+    - Space
+    - Color
+    - Typography
+  - Contexts
+  - Services
+  - Components
+  - Composable
+- External Links
+  - Docs
+  - Github
+  - Noodlestan
+  - Discord
+- Settings
+  - Mode/Contrast/Space
+  - Motion
+  - Language
+
 ## TabNavigation direction inline/block
 
 - composes NavLink
 - make no assumptions about the target (could be full page navigation)
 - add NavLink orientation prop, use cases:
-  - navbar => underline/overline
-  - sidebar (directional i.e. nav vs toc) => edge
+  - navbar => underline/over line
+  - sidebar (directional i.e. nav vs TOC) => edge
 
 ## sketch out TabContainer /context
 
@@ -21,7 +62,7 @@ setTimeout(() => setIsActive(false), 150);
 
 ## createPressable({defaultPrevented})
 
-// ev.preventDefault();
+// event.preventDefault();
 => it also cancels the focus-ring user feedback
 
 ## rename packages

@@ -24,7 +24,7 @@ export const SidebarNav: Component = () => {
             ref={setNavRef}
             {...$root}
         >
-            <Flex tag="nav" direction="column" padding="m" gap="m">
+            <Flex direction="column" padding="m" gap="m">
                 <For each={NAV_LINK_GROUPS}>
                     {item => <NavLinkItemGroup title={item.title} items={item.items} />}
                 </For>
