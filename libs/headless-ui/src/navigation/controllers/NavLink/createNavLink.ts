@@ -10,7 +10,9 @@ const defaultProps: Required<Pick<NavLinkProps, 'mode'>> = {
 export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
     const { isCurrent } = useNavigation();
 
-    const isCurrentNav = () => props.current || isCurrent(props.href, props.exact);
+    const isCurrentNav = () =>
+        props.current !== undefined ? props.current : isCurrent(props.href, props.exact);
+
     const mode = () => {
         const m = props.mode ?? defaultProps.mode;
         return m === 'section' ? true : m;

@@ -1,5 +1,3 @@
-@use '../../../scss/mixins/focus.scss' as *;
-
 @layer headless-ui {
     .Button {
         display: block;
@@ -17,9 +15,5 @@
     .Button[disabled],
     .Button[aria-disabled] {
         cursor: not-allowed;
-    }
-
-    .Button {
-        @include focus-ring;
     }
 }
