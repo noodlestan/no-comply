@@ -8,6 +8,7 @@ export const createNavigationService = (
         const current = options.current();
         return exact ? current === href : current === path || current.startsWith(path + '/');
     };
+
     const api: NavigationServiceAPI = {
         current: () => options.current(),
         isCurrent,

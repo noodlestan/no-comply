@@ -1,17 +1,20 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
-import { type LinkMixinAPI as HeadlessLinkMixinAPI } from '@noodlestan/headless-ui';
 
-import type { FocusRingOffsetMixinAPI } from '../../../focus';
 import type { ContentSize } from '../../../types';
+import type { LinkMixinAPI } from '../Link';
 
 export type NavLinkMixinProps = {
+    layout?: NavLinkLayout;
     size?: ContentSize;
     nowrap?: boolean;
+    highlight?: NavLinkHighlight;
 };
 
+type NavLinkLayout = 'h' | 'v';
+type NavLinkHighlight = 'before' | 'after';
+
 export type NavLinkMixinAPI = {
-    $root: HeadlessLinkMixinAPI['$root'] &
-        FocusRingOffsetMixinAPI['$root'] & {
-            classList: ClassList;
-        };
+    $root: LinkMixinAPI['$root'] & {
+        classList: ClassList;
+    };
 };

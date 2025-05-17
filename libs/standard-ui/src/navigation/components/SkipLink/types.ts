@@ -1,8 +1,14 @@
+import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type {
+    FocusRingAPI,
+    LinkAPI as HeadlessLinkAPI,
+    LinkProps as HeadlessLinkProps,
+} from '@noodlestan/headless-ui';
+
 import type { ContentSize } from '../../../types';
 import type { SkipLinkMixinAPI, SkipLinkMixinProps } from '../../mixins';
-import type { LinkAPI, LinkProps } from '../Link';
 
-export type SkipLinkProps = LinkProps &
+export type SkipLinkProps = HeadlessLinkProps &
     SkipLinkMixinProps & {
         size?: ContentSize;
     };
@@ -10,5 +16,9 @@ export type SkipLinkProps = LinkProps &
 export type SkipLinkSize = 's' | 'm' | 'l';
 
 export type SkipLinkAPI = {
-    $root: LinkAPI['$root'] & SkipLinkMixinAPI['$root'];
+    $root: HeadlessLinkAPI['$root'] &
+        FocusRingAPI['$root'] &
+        SkipLinkMixinAPI['$root'] & {
+            classList: ClassList;
+        };
 };

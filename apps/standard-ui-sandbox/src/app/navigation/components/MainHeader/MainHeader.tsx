@@ -23,7 +23,7 @@ export const MainHeader: Component<Props> = props => {
             label={HEADER_LABEL}
             classList={staticClassList(styles, 'MainHeader')}
         >
-            <Flex direction="row" justify="start" align="center" padding="s" gap="m">
+            <Flex direction="row" justify="start" align="center" gap="m">
                 <Show when={!props.sidebarHidden}>
                     <MainMenuButton
                         ref={props.setMenuButtonRef}

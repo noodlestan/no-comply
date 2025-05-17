@@ -1,7 +1,7 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer standard-ui {
-    .Link {
+    :where(.Link) {
         @include set-color(__fg, interactive, fg-saturated, content-fg);
 
         text-decoration: underline;
@@ -10,11 +10,11 @@
         @include apply-color(color, __fg);
     }
 
-    .Link:not([aria-disabled]):hover {
-        @include set-level(__fg, fg-muted);
+    :where(.Link):not([aria-disabled]):hover {
+        @include set-level(__fg, fg-primary);
     }
 
-    .Link[aria-disabled] {
+    :where(.Link)[aria-disabled] {
         @include set-color(__fg, disabled, fg-disabled, content-fg);
     }
 }

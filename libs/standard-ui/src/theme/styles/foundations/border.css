@@ -2,6 +2,7 @@
     @layer foundations {
         @layer color {
             [data-theme-standard] {
+                --border-width-highlight: 4px;
                 --border-width-base: 2px;
                 --border-width-thin: 1px;
             }

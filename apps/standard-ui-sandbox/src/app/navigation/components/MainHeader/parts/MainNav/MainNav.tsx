@@ -13,19 +13,7 @@ export const MainNav: Component = () => {
 
     const items = [
         { id: '1', href: '/app', label: 'Showcase' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Features' },
-        { id: '2', href: '/features', label: 'Features' },
-        { id: '2', href: '/features', label: 'Features' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
-        { id: '2', href: '/features', label: 'Primary PrimaryFeatures' },
+        { id: '2', href: '/component', label: 'Components' },
     ];
 
     const selectedItemId = () => '1';

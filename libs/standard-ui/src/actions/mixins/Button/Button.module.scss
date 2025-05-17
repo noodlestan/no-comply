@@ -35,7 +35,8 @@
         text-decoration: none;
         transition:
             color ease var(--animation-duration-short),
-            background-color ease var(--animation-duration-short);
+            background-color ease var(--animation-duration-short),
+            border-color ease var(--animation-duration-short);
 
         @include apply-color(color, __fg);
         @include apply-color(background-color, __bg);

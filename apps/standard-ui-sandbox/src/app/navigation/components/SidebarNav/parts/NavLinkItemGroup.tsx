@@ -28,6 +28,7 @@ export const NavLinkItemGroup: Component<NavLinkItemGroupProps> = props => {
                     <NavLink
                         href={ROUTES.component(item.component) + `#${$ID_SCREEN_MAIN}`}
                         onPress={handleNavLink}
+                        layout="v"
                     >
                         {item.component}
                     </NavLink>
