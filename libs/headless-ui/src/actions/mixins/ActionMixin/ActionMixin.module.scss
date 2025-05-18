@@ -1,5 +1,5 @@
 @layer headless-ui {
-    .Button {
+    .Action {
         display: block;
         text-align: inherit;
         color: inherit;
@@ -12,7 +12,7 @@
         user-select: none;
     }
 
-    .Button[data-disabled] {
+    .Action[data-disabled] {
         cursor: not-allowed;
     }
 }

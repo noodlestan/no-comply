@@ -81,8 +81,10 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
                     </Flex>
                 </Fieldset>
                 <Flex direction="row" gap="m" justify="end">
-                    <Button>Secondary</Button>
-                    <Button variant="primary">Primary</Button>
+                    <Button>Cancel</Button>
+                    <Button variant="primary" intent="positive">
+                        Confirm
+                    </Button>
                 </Flex>
             </Flex>
         </Flex>

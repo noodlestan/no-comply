@@ -11,21 +11,23 @@
                 @include def-color-level(fg-disabled, 400);
 
                 @include def-color-level(focus-ring, 500);
-                @include def-color-level(border, 700);
+                @include def-color-level(border, 600);
                 @include def-color-level(border-hover, 600);
                 @include set-level(border-active, focus-ring);
                 @include def-color-level(graphics, 400);
 
-                @include def-color-level(border-disabled, 600);
+                @include def-color-level(border-disabled, 700);
                 @include def-color-level(bg-disabled, 700);
                 @include def-color-level(bg-saturated, 800);
 
                 @include def-color-level(static-fg-contrast, 50);
                 @include def-color-level(static-fg-primary, 100);
                 @include def-color-level(static-border, 500);
-                @include def-color-level(static-bg-0, 800);
-                @include def-color-level(static-bg-1, 700);
-                @include def-color-level(static-bg-2, 600);
+                @include def-color-level(static-bg-3, 600);
+                @include def-color-level(static-bg-2, 700);
+                @include def-color-level(static-bg-1, 800);
+                @include def-color-level(static-bg-0, 900);
+                @include def-color-level(static-bg-contrast, 950);
 
                 @include def-color-level(bg-stage, 850);
                 @include def-color-level(bg-0, 1000);

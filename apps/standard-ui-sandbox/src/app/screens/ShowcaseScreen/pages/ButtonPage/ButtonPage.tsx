@@ -24,25 +24,54 @@ export const ButtonPage: Component = () => {
             <DemoGroup title="variant">
                 <DemoItem row title="primary">
                     <Button variant="primary">Primary</Button>
-                    <Button variant="primary" disabled>
-                        Disabled
-                    </Button>
                 </DemoItem>
                 <DemoItem row title="secondary">
                     <Button variant="secondary">Secondary</Button>
-                    <Button variant="secondary" disabled>
-                        Disabled
-                    </Button>
                 </DemoItem>
                 <DemoItem row title="plain">
                     <Button variant="plain">Plain</Button>
-                    <Button variant="plain" disabled>
+                </DemoItem>
+            </DemoGroup>
+            <DemoGroup title="intent">
+                <DemoItem row title="positive">
+                    <Button variant="primary" intent="positive">
+                        Primary
+                    </Button>
+                    <Button variant="secondary" intent="positive">
+                        Secondary
+                    </Button>
+                    <Button variant="plain" intent="positive">
+                        Plain
+                    </Button>
+                    <Button variant="plain" intent="positive" disabled>
                         Disabled
                     </Button>
                 </DemoItem>
-                <DemoItem row title="danger">
-                    <Button variant="danger">Danger</Button>
-                    <Button variant="danger" disabled>
+                <DemoItem row title="negative">
+                    <Button variant="primary" intent="negative">
+                        Primary
+                    </Button>
+                    <Button variant="secondary" intent="negative">
+                        Secondary
+                    </Button>
+                    <Button variant="plain" intent="negative">
+                        Plain
+                    </Button>
+                    <Button variant="plain" intent="negative" disabled>
+                        Disabled
+                    </Button>
+                </DemoItem>
+                <DemoItem row title="neutral">
+                    <Button variant="primary" intent="neutral">
+                        Primary
+                    </Button>
+                    <Button variant="secondary" intent="neutral">
+                        Secondary
+                    </Button>
+                    <Button variant="plain" intent="neutral">
+                        Plain
+                    </Button>
+                    <Button variant="plain" intent="neutral" disabled>
                         Disabled
                     </Button>
                 </DemoItem>

@@ -28,7 +28,11 @@ export const QuitAppModalDialog: Component<QuitAppModalDialogProps> = props => {
                         <Display level={2} {...dialog.$label}>
                             Are you sure you want to quit?
                         </Display>
-                        <Button variant="primary" onPress={() => handleConfirm(dialog.context)}>
+                        <Button
+                            variant="primary"
+                            intent="negative"
+                            onPress={() => handleConfirm(dialog.context)}
+                        >
                             Quit
                         </Button>
                         <Button variant="secondary" onPress={() => handleDiscard(dialog.context)}>

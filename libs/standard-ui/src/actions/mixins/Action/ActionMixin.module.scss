@@ -1,0 +1,156 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui {
+    .Action {
+        @include set-palette(__intent, primary);
+
+        @include set-alpha(__fg, content-fg);
+        @include set-alpha(__bg, content-bg);
+        @include set-alpha(__border, content-bg);
+
+        @include set-level(__fg-hover, fg-contrast);
+        @include set-level(__bg-hover, content-bg-1);
+        @include set-level(__border-hover, border-hover);
+
+        @include set-level(__fg-active, fg-contrast);
+        @include set-level(__bg-active, content-bg-0);
+        @include set-level(__border-active, border-active);
+
+        --__border-style: solid;
+
+        display: flex;
+        height: var(--__height);
+        min-height: var(--__height);
+        padding-block: var(--__padding-inline, 0);
+        padding-inline: var(--__padding-inline, var(--space-pad-1));
+        font-family: var(--action-type-family);
+        line-height: var(--action-type-height-base);
+        border: none;
+        border-width: var(--action-border-width);
+        border-style: var(--__border-style);
+        border-radius: var(--action-border-radius);
+        text-decoration: none;
+        transition:
+            color ease var(--animation-duration-short),
+            background-color ease var(--animation-duration-short),
+            border-color ease var(--animation-duration-short);
+
+        @include apply-color(color, __fg);
+        @include apply-color(background-color, __bg);
+        @include apply-color(border-color, __border);
+
+        &:focus-visible {
+            border-color: transparent;
+        }
+    }
+
+    .Action:is([data-disabled], [data-inactive]) {
+        @include set-color(__fg, primary, fg-disabled, content-fg);
+        @include set-color(__bg, primary, bg-disabled, content-bg);
+        @include set-color(__border, __intent, border-disabled, content-bg);
+    }
+
+    .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+        @include set-level(__fg, __fg-hover);
+        @include set-level(__bg, __bg-hover);
+        @include set-level(__border, __border-hover);
+    }
+
+    .Action:not([data-disabled], [data-inactive]):active {
+        @include set-level(__fg, __fg-active);
+        @include set-level(__bg, __bg-active);
+        @include set-level(__border, __border-active);
+    }
+
+    .variant-primary {
+        @include set-palette(__fg, __intent);
+        @include set-palette(__bg, __intent);
+        @include set-palette(__border, __intent);
+
+        @include set-level(__fg, static-fg-primary);
+        @include set-level(__bg, static-bg-2);
+        @include set-level(__border, static-border);
+
+        @include set-level(__fg-hover, static-fg-contrast);
+        @include set-level(__bg-hover, static-bg-3);
+        @include set-level(__border-hover, static-bg-3);
+
+        @include set-level(__fg-active, static-fg-contrast);
+        @include set-level(__bg-active, static-bg-1);
+        @include set-level(__border-active, static-border);
+    }
+
+    .variant-secondary {
+        @include set-palette(__fg, __intent);
+        @include set-palette(__bg, primary);
+        @include set-palette(__border, __intent);
+
+        @include set-level(__fg, fg-saturated);
+        @include set-level(__bg, content-bg-0);
+
+        @include set-alpha(__border, translucid);
+
+        @include set-level(__bg-hover, content-bg-2);
+        @include set-level(__border-hover, static-bg-1);
+
+        @include set-level(__bg-active, content-bg-0);
+        @include set-level(__border-active, border-active);
+    }
+
+    .variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+        @include set-alpha(__border, invisible);
+        @include set-alpha(__border, opaque);
+    }
+
+    .variant-secondary:not([data-disabled], [data-inactive]):active {
+        @include set-alpha(__border, opaque);
+    }
+
+    .variant-plain:not([data-disabled], [data-inactive]) {
+        @include set-alpha(__bg, invisible);
+        @include set-alpha(__border, invisible);
+    }
+
+    .variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+        @include set-alpha(__bg, opaque);
+    }
+
+    .intent-positive {
+        @include set-palette(__intent, interactive);
+    }
+
+    .intent-negative {
+        @include set-palette(__intent, bad);
+    }
+
+    .intent-neutral.variant-primary {
+        @include set-level(__bg, static-bg-contrast);
+        @include set-level(__bg-hover, static-bg-0);
+        @include set-level(__bg-active, static-bg-contrast);
+        @include set-level(__border-hover, static-bg-4);
+    }
+
+    .size-small {
+        --__height: var(--size-xs);
+        font-size: var(--action-type-size-xs);
+        font-weight: var(--action-type-weight-xs);
+    }
+
+    .size-normal {
+        --__height: var(--size-s);
+        font-size: var(--action-type-size-s);
+        font-weight: var(--action-type-weight-s);
+    }
+
+    .size-medium {
+        --__height: var(--size-m);
+        font-size: var(--action-type-size-m);
+        font-weight: var(--action-type-weight-m);
+    }
+
+    .size-large {
+        --__height: var(--size-l);
+        font-size: var(--action-type-size-l);
+        font-weight: var(--action-type-weight-l);
+    }
+}

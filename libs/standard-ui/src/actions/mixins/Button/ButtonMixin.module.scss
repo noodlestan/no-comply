@@ -2,162 +2,32 @@
 
 @layer standard-ui {
     .Button {
-        @include set-color(__fg, primary, fg-primary, content-fg);
-        @include set-color(__bg, primary, content-bg-1, content-bg);
-        @include set-color(__border, primary, border, content-bg);
-        --__border-style: solid;
-
-        @include set-level(__fg-hover, fg-contrast);
-        @include set-level(__bg-hover, content-bg-2);
-        @include set-level(__border-hover, border-hover);
-
-        @include set-level(__fg-active, fg-contrast);
-        @include set-level(__bg-active, content-bg-0);
-        @include set-level(__border-active, border-active);
-
         display: inline-flex;
+        flex-direction: row;
         flex-wrap: nowrap;
         white-space: nowrap;
         align-items: center;
         justify-content: center;
-        flex-direction: row;
         gap: var(--__gap);
-        height: var(--__height);
-        min-height: var(--__height);
-        padding-block: 0;
-        padding-inline: var(--__padding-inline);
-        font-family: var(--action-type-family);
-        line-height: var(--action-type-height-base);
-        border: none;
-        border-width: var(--action-border-width);
-        border-style: var(--__border-style);
-        border-radius: var(--action-border-radius);
-        text-decoration: none;
-        transition:
-            color ease var(--animation-duration-short),
-            background-color ease var(--animation-duration-short),
-            border-color ease var(--animation-duration-short);
-
-        @include apply-color(color, __fg);
-        @include apply-color(background-color, __bg);
-        @include apply-color(border-color, __border);
     }
 
-    .Button:is([data-disabled], [data-inactive]) {
-        @include set-color(__fg, primary, fg-disabled, content-fg);
-        @include set-color(__bg, primary, bg-disabled, content-bg);
-        @include set-color(__border, primary, border-disabled, content-bg);
-    }
-
-    .Button:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
-        @include set-level(__fg, __fg-hover);
-        @include set-level(__bg, __bg-hover);
-        @include set-level(__border, __border-hover);
-    }
-
-    .Button:not([data-disabled], [data-inactive]):active {
-        @include set-level(__fg, __fg-active);
-        @include set-level(__bg, __bg-active);
-        @include set-level(__border, __border-active);
-    }
-
-    .Button-variant-primary,
-    .Button-variant-danger {
-        @include set-level(__fg, static-fg-primary);
-        @include set-level(__bg, static-bg-1);
-        @include set-color(__border, interactive, static-border, content-bg);
-
-        @include set-level(__fg-hover, static-fg-contrast);
-        @include set-level(__bg-hover, static-bg-2);
-        @include set-level(__border-hover, static-bg-0);
-
-        @include set-level(__fg-active, static-fg-contrast);
-        @include set-level(__bg-active, static-bg-0);
-        @include set-level(__border-active, static-border);
-    }
-
-    .Button-variant-primary {
-        @include set-palette(__fg, interactive);
-        @include set-palette(__bg, interactive);
-        @include set-palette(__border, interactive);
-    }
-
-    .Button-variant-primary:is([data-disabled], [data-inactive]) {
-        @include set-palette(__border, interactive);
-        @include set-level(__border, static-bg-1);
-    }
-
-    .Button-variant-danger {
-        @include set-palette(__fg, bad);
-        @include set-palette(__bg, bad);
-        @include set-palette(__border, bad);
-    }
-
-    .Button-variant-danger:is([data-disabled], [data-inactive]) {
-        @include set-palette(__border, bad);
-        @include set-level(__border, static-bg-1);
-    }
-
-    .Button-variant-secondary {
-        @include set-palette(__fg, interactive);
-        @include set-level(__fg, fg-saturated);
-    }
-
-    .Button-variant-secondary:not([data-disabled], [data-inactive]) {
-        @include set-alpha(__bg, translucid);
-        @include set-alpha(__border, invisible);
-    }
-
-    .Button-variant-plain:not([data-disabled], [data-inactive]) {
-        @include set-alpha(__bg, invisible);
-        @include set-alpha(__border, invisible);
-    }
-
-    .Button-variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover),
-    .Button-variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
-        @include set-alpha(__bg, transparent);
-        @include set-alpha(__border, opaque);
-    }
-
-    .Button-variant-secondary:not([data-disabled], [data-inactive]):active,
-    .Button-variant-plain:not([data-disabled], [data-inactive]):active {
-        @include set-alpha(__bg, translucid);
-        @include set-alpha(__border, opaque);
-    }
-
-    .Button.Button-size-small {
-        --__height: var(--size-xs);
+    .size-small {
         --__gap: var(--space-gap--1);
         --__padding-inline: var(--space-pad-0);
-        font-size: var(--action-type-size-xs);
-        font-weight: var(--action-type-weight-xs);
     }
 
-    .Button.Button-size-normal {
-        --__height: var(--size-s);
+    .size-normal {
         --__gap: var(--space-gap-0);
         --__padding-inline: var(--space-pad-1);
-        font-size: var(--action-type-size-s);
-        font-weight: var(--action-type-weight-s);
     }
 
-    .Button.Button-size-medium {
-        --__height: var(--size-m);
+    .size-medium {
         --__gap: var(--space-gap-1);
         --__padding-inline: var(--space-pad-2);
-        font-size: var(--action-type-size-m);
-        font-weight: var(--action-type-weight-m);
     }
 
-    .Button.Button-size-large {
-        --__height: var(--size-l);
+    .size-large {
         --__gap: var(--space-gap-2);
         --__padding-inline: var(--space-pad-3);
-        font-size: var(--action-type-size-l);
-        font-weight: var(--action-type-weight-l);
-    }
-
-    .Button:focus-visible {
-        border-color: transparent;
     }
 }

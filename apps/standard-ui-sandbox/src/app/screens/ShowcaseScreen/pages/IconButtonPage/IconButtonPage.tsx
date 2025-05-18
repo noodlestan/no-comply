@@ -25,19 +25,50 @@ export const IconButtonPage: Component = () => {
             <DemoGroup title="variant">
                 <DemoItem row title="primary">
                     <IconButton variant="primary" icon={PlusIcon} label="Add" />
-                    <IconButton variant="primary" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
                 <DemoItem row title="secondary">
                     <IconButton variant="secondary" icon={PlusIcon} label="Add" />
-                    <IconButton variant="secondary" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
                 <DemoItem row title="plain">
                     <IconButton variant="plain" icon={PlusIcon} label="Add" />
-                    <IconButton variant="plain" icon={PlusIcon} label="Add" disabled />
                 </DemoItem>
-                <DemoItem row title="danger">
-                    <IconButton variant="danger" icon={PlusIcon} label="Add" />
-                    <IconButton variant="danger" icon={PlusIcon} label="Add" disabled />
+            </DemoGroup>
+            <DemoGroup title="intent">
+                <DemoItem row title="positive">
+                    <IconButton variant="primary" intent="positive" icon={PlusIcon} label="Add" />
+                    <IconButton variant="secondary" intent="positive" icon={PlusIcon} label="Add" />
+                    <IconButton variant="plain" intent="positive" icon={PlusIcon} label="Add" />
+                    <IconButton
+                        variant="plain"
+                        intent="positive"
+                        icon={PlusIcon}
+                        label="Add"
+                        disabled
+                    />
+                </DemoItem>
+                <DemoItem row title="negative">
+                    <IconButton variant="primary" intent="negative" icon={PlusIcon} label="Add" />
+                    <IconButton variant="secondary" intent="negative" icon={PlusIcon} label="Add" />
+                    <IconButton variant="plain" intent="negative" icon={PlusIcon} label="Add" />
+                    <IconButton
+                        variant="plain"
+                        intent="negative"
+                        icon={PlusIcon}
+                        label="Add"
+                        disabled
+                    />
+                </DemoItem>
+                <DemoItem row title="neutral">
+                    <IconButton variant="primary" intent="neutral" icon={PlusIcon} label="Add" />
+                    <IconButton variant="secondary" intent="neutral" icon={PlusIcon} label="Add" />
+                    <IconButton variant="plain" intent="neutral" icon={PlusIcon} label="Add" />
+                    <IconButton
+                        variant="plain"
+                        intent="neutral"
+                        icon={PlusIcon}
+                        label="Add"
+                        disabled
+                    />
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="size">

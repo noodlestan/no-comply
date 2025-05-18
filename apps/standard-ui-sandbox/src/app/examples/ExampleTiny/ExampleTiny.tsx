@@ -19,7 +19,7 @@ export const ExampleTiny: Component<Props> = props => (
             <Icon icon={LockIcon} />
             Signup
         </Button>
-        <Button variant="primary">
+        <Button variant="primary" intent="positive">
             <Icon icon={KeyIcon} />
             Login
         </Button>

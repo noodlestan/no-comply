@@ -4,10 +4,14 @@
     @layer mode {
         @layer color {
             [data-mode-light] {
-                @include def-color-level(static-fg-contrast, 1000);
-                @include def-color-level(static-fg-primary, 950);
-                @include def-color-level(bg-static, 400);
-                @include def-color-level(bg-static-alt, 300);
+                @include def-color-level(static-fg-contrast, 950);
+                @include def-color-level(static-fg-primary, 1000);
+                @include def-color-level(static-border, 600);
+                @include def-color-level(static-bg-3, 500);
+                @include def-color-level(static-bg-2, 400);
+                @include def-color-level(static-bg-1, 300);
+                @include def-color-level(static-bg-0, 200);
+                @include def-color-level(static-bg-contrast, 100);
             }
         }
     }

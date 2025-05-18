@@ -4,36 +4,29 @@ import {
     createComputedProps,
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
-import {
-    createButtonMixin as createHeadlessButtonMixin,
-    createFocusRingMixin as createHeadlessFocusRingMixin,
-} from '@noodlestan/headless-ui';
+import { splitProps } from 'solid-js';
 
-import { createFocusRingOffsetMixin } from '../../../focus';
+import { createActionMixin } from '../Action';
 
 import styles from './ButtonMixin.module.scss';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';
 
-const defaultProps: PickRequired<ButtonMixinProps, 'variant' | 'size'> = {
-    variant: 'secondary',
+const defaultProps: PickRequired<ButtonMixinProps, 'size'> = {
     size: 'normal',
 };
 
 export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
-    const { $root: $buttonMixinRoot } = createHeadlessButtonMixin();
-    const { $root: $focusRing } = createHeadlessFocusRingMixin();
-    const { $root: $focusRingOffset } = createFocusRingOffsetMixin();
-
-    const variant = () => props.variant ?? defaultProps.variant;
     const size = () => props.size ?? defaultProps.size;
-    const classList = createClassList(styles, () => [
-        `Button`,
-        `Button-variant-${variant()}`,
-        `Button-size-${size()}`,
-    ]);
-    const $localRoot = createComputedProps({ classList });
+    const [, others] = splitProps(props, ['size']);
+    const actionProps = createComputedProps(others, { size });
+    const { $root: $actionMixinRoot } = createActionMixin(actionProps);
+
+    const classList = createClassList(styles, () => [`Button`, `size-${size()}`]);
+    const $localRoot = {
+        classList,
+    };
 
     return {
-        $root: mergeProps($buttonMixinRoot, $focusRing, $focusRingOffset, $localRoot),
+        $root: mergeProps($actionMixinRoot, $localRoot),
     };
 };
