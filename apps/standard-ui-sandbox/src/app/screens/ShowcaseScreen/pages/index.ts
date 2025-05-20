@@ -14,6 +14,8 @@ export * from './IconPage';
 export * from './LabelPage';
 export * from './LayoutPage';
 export * from './LinkPage';
+export * from './MenuItemPage';
+export * from './MenuPage';
 export * from './NavLinkPage';
 export * from './NumberInputPage';
 export * from './RangeInputPage';

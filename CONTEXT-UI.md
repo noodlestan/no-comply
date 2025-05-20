@@ -1,3 +1,11 @@
+## popover
+
+function supportsPopover() {
+return HTMLElement.prototype.hasOwnProperty("popover");
+}
+
+## data-disabled data-active data-readonly
+
 ## IA
 
 - LandingPage

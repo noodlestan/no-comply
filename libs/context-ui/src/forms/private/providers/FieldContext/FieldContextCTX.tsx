@@ -1,5 +1,5 @@
 import { createContext } from 'solid-js';
 
-import type { FieldContext } from '../../../contexts';
+import type { FieldContextValue } from '../../../contexts';
 
-export const FieldContextCTX = createContext<[FieldContext]>();
+export const FieldContextCTX = createContext<FieldContextValue>();

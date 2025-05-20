@@ -1,7 +1,9 @@
+@use '../../../scss/mixins/display.scss' as *;
+
 @layer headless-ui {
     .Flex {
-        display: flex;
         flex-wrap: nowrap;
+        @include display(flex);
     }
 
     .Flex-direction-row {
@@ -65,7 +67,7 @@
     }
 
     .Flex-inline {
-        display: inline-flex;
+        @include display(inline-flex);
     }
 
     .Flex-shrink {

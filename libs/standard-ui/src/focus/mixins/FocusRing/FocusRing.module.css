@@ -1,5 +1,5 @@
 @layer standard-ui {
     .FocusRing {
-        /* WIP transition outline-offset */
+        /* transition: outline-offset 2s ease-in; */
     }
 }

@@ -4,9 +4,12 @@
         outline-offset: var(--outline-active-offset);
     }
 
-    .FocusRingOffset-inset:focus-visible,
+    .FocusRingOffset-inset {
+        outline-offset: var(--outline-inset-offset);
+    }
+
     .FocusRingOffset-inset[data-is-active],
     .FocusRingOffset-inset:active {
-        outline-offset: var(--outline-inset-offset);
+        outline-offset: var(--outline-active-offset);
     }
 }

@@ -15,6 +15,7 @@ export const NAV_LINK_GROUPS: NavLinkGroup[] = [
     group('Feedback'),
     group('Forms'),
     group('Layout'),
+    group('Menus'),
     group('Navigation'),
     group('Surface'),
     group('Typography'),

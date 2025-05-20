@@ -1,3 +1,5 @@
+@use '../../../scss/mixins/display.scss' as *;
+
 @layer headless-ui {
     .Layout {
         margin: 0;
@@ -5,7 +7,7 @@
     }
 
     :where(.Layout) {
-        display: block;
+        @include display(block);
     }
 
     .Layout-stretch-full,

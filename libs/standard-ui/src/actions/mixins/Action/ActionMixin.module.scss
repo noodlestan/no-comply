@@ -22,7 +22,7 @@
         height: var(--__height);
         min-height: var(--__height);
         padding-block: var(--__padding-inline, 0);
-        padding-inline: var(--__padding-inline, var(--space-pad-1));
+        padding-inline: var(--__padding-inline, var(--space-pad-0));
         font-family: var(--action-type-family);
         line-height: var(--action-type-height-base);
         border: none;
@@ -90,7 +90,7 @@
 
         @include set-alpha(__border, translucid);
 
-        @include set-level(__bg-hover, content-bg-2);
+        @include set-level(__bg-hover, content-bg-1);
         @include set-level(__border-hover, static-bg-1);
 
         @include set-level(__bg-active, content-bg-0);
@@ -104,6 +104,11 @@
 
     .variant-secondary:not([data-disabled], [data-inactive]):active {
         @include set-alpha(__border, opaque);
+    }
+
+    .variant-plain {
+        @include set-palette(__fg, __intent);
+        @include set-level(__fg, fg-saturated);
     }
 
     .variant-plain:not([data-disabled], [data-inactive]) {

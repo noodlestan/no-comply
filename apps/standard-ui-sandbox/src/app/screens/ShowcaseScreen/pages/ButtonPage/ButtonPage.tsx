@@ -37,8 +37,14 @@ export const ButtonPage: Component = () => {
                     <Button variant="primary" intent="positive">
                         Primary
                     </Button>
+                    <Button variant="primary" intent="positive" disabled>
+                        Disabled
+                    </Button>
                     <Button variant="secondary" intent="positive">
                         Secondary
+                    </Button>
+                    <Button variant="secondary" intent="positive" disabled>
+                        Disabled
                     </Button>
                     <Button variant="plain" intent="positive">
                         Plain
@@ -51,8 +57,14 @@ export const ButtonPage: Component = () => {
                     <Button variant="primary" intent="negative">
                         Primary
                     </Button>
+                    <Button variant="primary" intent="negative" disabled>
+                        Disabled
+                    </Button>
                     <Button variant="secondary" intent="negative">
                         Secondary
+                    </Button>
+                    <Button variant="secondary" intent="negative" disabled>
+                        Disabled
                     </Button>
                     <Button variant="plain" intent="negative">
                         Plain
@@ -65,8 +77,14 @@ export const ButtonPage: Component = () => {
                     <Button variant="primary" intent="neutral">
                         Primary
                     </Button>
+                    <Button variant="primary" intent="neutral" disabled>
+                        Disabled
+                    </Button>
                     <Button variant="secondary" intent="neutral">
                         Secondary
+                    </Button>
+                    <Button variant="secondary" intent="neutral" disabled>
+                        Disabled
                     </Button>
                     <Button variant="plain" intent="neutral">
                         Plain

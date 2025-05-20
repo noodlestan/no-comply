@@ -1,0 +1,17 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui {
+    .MenuItem {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        align-items: start;
+        justify-content: start;
+        gap: var(--__gap);
+    }
+
+    .active {
+        background-color: red;
+    }
+}

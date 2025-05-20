@@ -14,14 +14,23 @@ export type AriaPressableProps = {
     disabled?: boolean;
 };
 
-export type AriaPressableAPI = {
-    $root: {
-        component: PressableTagName;
+type AriaPressableRoot = {
+    component: PressableTagName;
+    type: PressableType | undefined;
+    tabIndex: number | undefined;
+    disabled: boolean | undefined;
+    'aria-disabled': AriaAttributes['aria-disabled'];
+    'data-disabled': '' | undefined;
+};
+
+export type AriaPressableAPI<T extends PressableRoleName = PressableRoleName> = {
+    $root: AriaPressableRoot & {
+        role: T;
+    };
+};
+
+export type AriaGenericPressableAPI = {
+    $root: AriaPressableRoot & {
         role: PressableRoleName | undefined;
-        type: PressableType | undefined;
-        tabIndex: number | undefined;
-        disabled: boolean | undefined;
-        'aria-disabled': AriaAttributes['aria-disabled'];
-        'data-disabled': '' | undefined;
     };
 };

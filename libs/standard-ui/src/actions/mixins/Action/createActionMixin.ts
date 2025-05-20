@@ -4,12 +4,9 @@ import {
     createComputedProps,
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
-import {
-    createActionMixin as createHeadlessActionMixin,
-    createFocusRingMixin as createHeadlessFocusRingMixin,
-} from '@noodlestan/headless-ui';
+import { createActionMixin as createHeadlessActionMixin } from '@noodlestan/headless-ui';
 
-import { createFocusRingOffsetMixin } from '../../../focus';
+import { createFocusRingMixin } from '../../../focus';
 
 import styles from './ActionMixin.module.scss';
 import type { ActionMixinAPI, ActionMixinProps } from './types';
@@ -22,8 +19,7 @@ const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent' | 'size'
 
 export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
     const { $root: $buttonMixinRoot } = createHeadlessActionMixin();
-    const { $root: $focusRing } = createHeadlessFocusRingMixin();
-    const { $root: $focusRingOffset } = createFocusRingOffsetMixin();
+    const { $root: $focusRing } = createFocusRingMixin();
 
     const variant = () => props.variant ?? defaultProps.variant;
     const intent = () => props.intent ?? defaultProps.intent;
@@ -37,6 +33,6 @@ export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
     const $localRoot = createComputedProps({ classList });
 
     return {
-        $root: mergeProps($buttonMixinRoot, $focusRing, $focusRingOffset, $localRoot),
+        $root: mergeProps($buttonMixinRoot, $focusRing, $localRoot),
     };
 };

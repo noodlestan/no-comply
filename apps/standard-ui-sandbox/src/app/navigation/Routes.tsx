@@ -19,6 +19,8 @@ import {
     LabelPage,
     LayoutPage,
     LinkPage,
+    MenuItemPage,
+    MenuPage,
     NavLinkPage,
     NumberInputPage,
     RangeInputPage,
@@ -50,6 +52,8 @@ export const Routes: Component = () => {
                 <Route path="/component/Label" component={LabelPage} />
                 <Route path="/component/Layout" component={LayoutPage} />
                 <Route path="/component/Link" component={LinkPage} />
+                <Route path="/component/Menu" component={MenuPage} />
+                <Route path="/component/MenuItem" component={MenuItemPage} />
                 <Route path="/component/NavLink" component={NavLinkPage} />
                 <Route path="/component/NumberInput" component={NumberInputPage} />
                 <Route path="/component/RangeInput" component={RangeInputPage} />

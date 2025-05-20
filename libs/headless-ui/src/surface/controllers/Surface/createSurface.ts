@@ -19,7 +19,6 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const $localRoot = createComputedProps({
         style,
         component,
-        onPointerDown: () => props.onPointerDown,
     });
 
     const dataAttributes = createDataAttributes(context.contextData);

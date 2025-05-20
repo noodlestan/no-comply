@@ -1,10 +1,20 @@
-import { createAriaPressable } from '@noodlestan/context-ui-aria';
+import { type PressableRoleName, createAriaPressable } from '@noodlestan/context-ui-aria';
 import { mergeProps } from '@noodlestan/context-ui-primitives';
 
-import type { PressableAPI, PressableProps } from './types';
+import type { GenericPressableAPI, PressableAPI, PressableProps } from './types';
 
-export const createPressable = (props: PressableProps): PressableAPI => {
-    const { $root: $ariaPressableRoot } = createAriaPressable(props);
+export function createPressable(props: PressableProps): PressableAPI;
+export function createPressable<T extends PressableRoleName = PressableRoleName>(
+    props: PressableProps,
+    staticRole: T,
+): PressableAPI<T>;
+export function createPressable(
+    props: PressableProps,
+    staticRole?: PressableRoleName | undefined,
+): GenericPressableAPI {
+    const { $root: $ariaPressableRoot } = staticRole
+        ? createAriaPressable(props, staticRole)
+        : createAriaPressable(props);
 
     const onClick = (ev: MouseEvent) => {
         if (props.disabled) {
@@ -32,4 +42,4 @@ export const createPressable = (props: PressableProps): PressableAPI => {
     return {
         $root: mergeProps($ariaPressableRoot, $localRoot),
     };
-};
+}

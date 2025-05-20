@@ -2,11 +2,11 @@
 import type { ParentComponent } from 'solid-js';
 
 import { ContextNodeProvider, createContextNode } from '../../../context';
-import type { FieldContext as FormFieldContextValue } from '../../contexts';
+import type { FieldContextValue } from '../../contexts';
 import { FieldContextCTX } from '../../private';
 
 type FieldContextProviderProps = {
-    context: [FormFieldContextValue];
+    context: FieldContextValue;
 };
 
 export const FieldContextProvider: ParentComponent<FieldContextProviderProps> = props => {

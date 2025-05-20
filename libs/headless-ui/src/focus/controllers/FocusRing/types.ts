@@ -1,3 +1,7 @@
+export type FocusRingProps = {
+    passive?: boolean;
+};
+
 export type FocusRingAPI = {
     $root: {
         onKeyDown: (ev: KeyboardEvent) => void;

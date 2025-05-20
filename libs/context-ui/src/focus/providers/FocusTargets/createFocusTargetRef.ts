@@ -26,9 +26,9 @@ export const createFocusTargetRef = (
             if (options.transient) {
                 el.tabIndex = 0;
             }
-            el?.focus();
+            el.focus();
             if (options.transient) {
-                el.tabIndex = -1;
+                el.removeAttribute('tabIndex');
             }
         });
     };

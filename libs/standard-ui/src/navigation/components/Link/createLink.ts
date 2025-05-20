@@ -1,7 +1,7 @@
 import { mergeProps } from '@noodlestan/context-ui-primitives';
 import { createFocusRing, createLink as createHeadlessLink } from '@noodlestan/headless-ui';
 
-import { createLinkMixin } from '../../mixins/Link/createLinkMixin';
+import { createLinkMixin } from '../../mixins';
 
 import type { LinkAPI, LinkProps } from './types';
 

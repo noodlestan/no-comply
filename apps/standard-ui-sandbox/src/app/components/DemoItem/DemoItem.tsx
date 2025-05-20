@@ -5,7 +5,7 @@ import { type ParentComponent, Show, splitProps } from 'solid-js';
 
 import styles from './DemoItem.module.css';
 
-type Props = ClosedTagProps & {
+export type DemoItemProps = ClosedTagProps & {
     surface?: SurfaceVariant;
     title?: string;
     note?: string;
@@ -13,7 +13,7 @@ type Props = ClosedTagProps & {
     width?: string;
 };
 
-export const DemoItem: ParentComponent<Props> = props => {
+export const DemoItem: ParentComponent<DemoItemProps> = props => {
     const [locals, $others] = splitProps(props, [
         'surface',
         'title',

@@ -3,6 +3,7 @@ export type ComponentGroup =
     | 'Content'
     | 'Forms'
     | 'Layout'
+    | 'Menus'
     | 'Navigation'
     | 'Feedback'
     | 'Surface'
@@ -29,6 +30,8 @@ export type ComponentName =
     | 'Label'
     | 'Layout'
     | 'Link'
+    | 'Menu'
+    | 'MenuItem'
     | 'MessageBox'
     | 'MessageToast'
     | 'NavLink'
@@ -119,6 +122,16 @@ export const COMPONENTS: ComponentMetadata[] = [
     {
         name: 'Link',
         group: 'Navigation',
+        package: '@noodlestan/standard-ui',
+    },
+    {
+        name: 'Menu',
+        group: 'Menus',
+        package: '@noodlestan/standard-ui',
+    },
+    {
+        name: 'MenuItem',
+        group: 'Menus',
         package: '@noodlestan/standard-ui',
     },
     {

@@ -1,11 +1,24 @@
 import { createComputedProps } from '@noodlestan/context-ui-primitives';
 
-import type { AriaPressableAPI, AriaPressableProps } from './types';
+import type { PressableRoleName } from '../../role';
 
-export const createAriaPressable = (props: AriaPressableProps): AriaPressableAPI => {
+import type { AriaGenericPressableAPI, AriaPressableAPI, AriaPressableProps } from './types';
+
+export function createAriaPressable(props: AriaPressableProps): AriaPressableAPI;
+export function createAriaPressable<T extends PressableRoleName = PressableRoleName>(
+    props: AriaPressableProps,
+    staticRole: T,
+): AriaPressableAPI<T>;
+export function createAriaPressable(
+    props: AriaPressableProps,
+    staticRole?: PressableRoleName | undefined,
+): AriaGenericPressableAPI {
     const component = () => props.tag ?? 'button';
 
     const role = () => {
+        if (staticRole) {
+            return staticRole;
+        }
         if (props.role) {
             return props.role;
         }
@@ -36,4 +49,4 @@ export const createAriaPressable = (props: AriaPressableProps): AriaPressableAPI
     return {
         $root,
     };
-};
+}

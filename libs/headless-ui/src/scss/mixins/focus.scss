@@ -1,12 +1,13 @@
 @mixin focus-ring-styles {
-    outline-offset: var(--outline-offset);
-    outline-style: none;
+    outline-style: var(--outline-style);
     outline-width: var(--outline-width);
-    outline-color: var(--outline-color);
+    outline-color: transparent;
+    outline-offset: 0;
 }
 
 @mixin focus-ring-active-styles {
-    outline-style: var(--outline-style);
+    outline-color: var(--outline-color);
+    outline-offset: var(--outline-offset);
 }
 
 @mixin focus-ring {
@@ -15,10 +16,7 @@
     }
 
     &[data-had-focus],
-    &:focus-visible {
-        @include focus-ring-active-styles;
-    }
-
+    &:focus-visible,
     &[data-is-active] {
         @include focus-ring-active-styles;
     }

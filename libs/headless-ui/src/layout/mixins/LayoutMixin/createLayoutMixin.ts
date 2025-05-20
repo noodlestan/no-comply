@@ -1,6 +1,6 @@
 import { createClassList, createComputedProps } from '@noodlestan/context-ui-primitives';
 
-import styles from './LayoutMixin.module.css';
+import styles from './LayoutMixin.module.scss';
 import type { LayoutMixinAPI, LayoutMixinProps } from './types';
 
 export function createLayoutMixin(props: LayoutMixinProps): LayoutMixinAPI {

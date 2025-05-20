@@ -1,6 +1,6 @@
 import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { IconButton } from '@noodlestan/standard-ui';
-import { PlusIcon } from 'lucide-solid';
+import { EyeIcon, PlusIcon, TrashIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -47,25 +47,30 @@ export const IconButtonPage: Component = () => {
                     />
                 </DemoItem>
                 <DemoItem row title="negative">
-                    <IconButton variant="primary" intent="negative" icon={PlusIcon} label="Add" />
-                    <IconButton variant="secondary" intent="negative" icon={PlusIcon} label="Add" />
-                    <IconButton variant="plain" intent="negative" icon={PlusIcon} label="Add" />
+                    <IconButton variant="primary" intent="negative" icon={TrashIcon} label="Add" />
+                    <IconButton
+                        variant="secondary"
+                        intent="negative"
+                        icon={TrashIcon}
+                        label="Add"
+                    />
+                    <IconButton variant="plain" intent="negative" icon={TrashIcon} label="Add" />
                     <IconButton
                         variant="plain"
                         intent="negative"
-                        icon={PlusIcon}
+                        icon={TrashIcon}
                         label="Add"
                         disabled
                     />
                 </DemoItem>
                 <DemoItem row title="neutral">
-                    <IconButton variant="primary" intent="neutral" icon={PlusIcon} label="Add" />
-                    <IconButton variant="secondary" intent="neutral" icon={PlusIcon} label="Add" />
-                    <IconButton variant="plain" intent="neutral" icon={PlusIcon} label="Add" />
+                    <IconButton variant="primary" intent="neutral" icon={EyeIcon} label="Add" />
+                    <IconButton variant="secondary" intent="neutral" icon={EyeIcon} label="Add" />
+                    <IconButton variant="plain" intent="neutral" icon={EyeIcon} label="Add" />
                     <IconButton
                         variant="plain"
                         intent="neutral"
-                        icon={PlusIcon}
+                        icon={EyeIcon}
                         label="Add"
                         disabled
                     />

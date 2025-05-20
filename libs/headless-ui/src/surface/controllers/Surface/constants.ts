@@ -10,5 +10,4 @@ export const SURFACE_PROPS = definePropKeys<SurfaceProps>()([
     'interactive',
     'disabled',
     'debug',
-    'onPointerDown',
 ]);

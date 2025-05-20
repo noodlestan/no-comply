@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .MenuPage .override {
+            background-color: red !important;
+        }
+    }
+}

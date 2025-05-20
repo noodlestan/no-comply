@@ -4,7 +4,7 @@ import {
     createComputedProps,
 } from '@noodlestan/context-ui-primitives';
 
-import styles from './FlexMixin.module.css';
+import styles from './FlexMixin.module.scss';
 import type { FlexMixinAPI, FlexMixinProps } from './types';
 
 const defaultProps: PickRequired<FlexMixinProps, 'direction' | 'align' | 'justify'> = {

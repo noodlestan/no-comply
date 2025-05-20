@@ -7,6 +7,7 @@ export * from './focus';
 export * from './forms';
 export * from './icon';
 export * from './layout';
+export * from './menus';
 export * from './navigation';
 export * from './surface';
 export * from './theme';
