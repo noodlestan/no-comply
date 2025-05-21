@@ -10,7 +10,7 @@ export const createSurfaceBase = (props: SurfaceBaseProps): SurfaceBaseAPI => {
     const { $root: $focusableMixinRoot } = createSurfaceMixin();
 
     return {
-        $root: mergeProps($root, $focusableMixinRoot),
         ...rest,
+        $root: mergeProps($root, $focusableMixinRoot),
     };
 };

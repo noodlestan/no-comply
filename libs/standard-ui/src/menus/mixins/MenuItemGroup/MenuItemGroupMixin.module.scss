@@ -1,0 +1,19 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer standard-ui {
+    .MenuItemGroup {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: start;
+        gap: var(--__gap);
+    }
+
+    .MenuItemGroup--Label {
+        /* */
+    }
+
+    .MenuItemGroup--Description {
+        /* */
+    }
+}

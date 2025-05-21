@@ -1,0 +1,25 @@
+import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import { type PopoverBaseProps, PopoverContextProvider } from '@noodlestan/headless-ui';
+import { type ParentComponent, splitProps } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
+
+import { POPOVER_PROPS } from './constants';
+import { createPopover } from './createPopover';
+
+type Props = ClosedTagProps & PopoverBaseProps;
+
+export const Popover: ParentComponent<Props> = props => {
+    const [locals, $others] = splitProps(props, [...POPOVER_PROPS, 'children']);
+
+    const { $root, contextValue } = createPopover(locals);
+
+    const $ = mergeProps($others, $root);
+
+    return (
+        <PopoverContextProvider context={contextValue}>
+            <Dynamic component="div" {...$}>
+                {locals.children}
+            </Dynamic>
+        </PopoverContextProvider>
+    );
+};

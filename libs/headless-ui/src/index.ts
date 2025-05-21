@@ -9,6 +9,8 @@ export * from './layout';
 export * from './modal';
 export * from './navigation';
 export * from './organisms';
+export * from './placement';
+export * from './popover';
 export * from './responsive';
 export * from './surface';
 export * from './tag';

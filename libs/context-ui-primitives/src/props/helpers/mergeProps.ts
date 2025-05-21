@@ -4,9 +4,10 @@
  * Licensed under the MIT License.
  * Modifications: Deep merging of classList, style, ref, and event handlers.
  */
+
 import type { AccessorOrValue } from '../types';
 
-import { getMergedProperty, resolveSource } from './private';
+import { $COMPUTED, getMergedProperty, resolveSource } from './private';
 import type { Props } from './private';
 
 export function mergeProps<T extends Props = Props, U extends Props = Props>(
@@ -31,13 +32,16 @@ export function mergeProps<
 ): T & U & V & W;
 export function mergeProps(...sources: AccessorOrValue<Props>[]): Props {
     const traps = {
-        get(_: unknown, key: string) {
-            if (key === '$PROXY') {
+        get(_: unknown, key: string | symbol) {
+            if (key === $COMPUTED) {
                 return _;
             }
-            return getMergedProperty(sources, key);
+            return getMergedProperty(sources, key as string);
         },
-        has(_: unknown, key: string) {
+        has(_: unknown, key: string | symbol) {
+            if (key === $COMPUTED) {
+                return true;
+            }
             for (let i = sources.length - 1; i >= 0; i--) {
                 const resolved = resolveSource(sources[i]);
                 if (key in resolved) {
@@ -67,5 +71,9 @@ export function mergeProps(...sources: AccessorOrValue<Props>[]): Props {
         },
     };
 
-    return new Proxy({}, traps) as Props;
+    const proxy = new Proxy({}, traps) as Props;
+
+    Object.defineProperty(proxy, $COMPUTED, { value: true, configurable: true, enumerable: false });
+
+    return proxy;
 }

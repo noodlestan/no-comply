@@ -17,6 +17,7 @@ export const NAV_LINK_GROUPS: NavLinkGroup[] = [
     group('Layout'),
     group('Menus'),
     group('Navigation'),
+    group('Popover'),
     group('Surface'),
     group('Typography'),
 ];

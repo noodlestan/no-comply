@@ -17,7 +17,7 @@ const defaultProps: PickRequired<NavLinkMixinProps, 'layout' | 'size' | 'highlig
 };
 
 export const createNavLinkMixin = (props: NavLinkMixinProps): NavLinkMixinAPI => {
-    const { $root: $linkMixinRoot } = createLinkMixin();
+    const { $root: $linkMixinRoot } = createLinkMixin(props);
 
     const layout = () => props.layout ?? defaultProps.layout;
     const size = () => props.size ?? defaultProps.size;

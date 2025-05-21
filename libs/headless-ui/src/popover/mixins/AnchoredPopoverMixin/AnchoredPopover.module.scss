@@ -1,0 +1,14 @@
+@layer headless-ui {
+    .AnchoredPopover {
+        visibility: hidden;
+        margin: 0;
+        padding: 0;
+
+        &[data-placed] {
+            visibility: visible;
+            position: absolute;
+            top: var(--__top);
+            left: var(--__left);
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import type { Accessor, Component, JSX } from 'solid-js';
 
 export type RenderProp<T> = (props: T) => JSX.Element;
+
 export type MaybeRenderProp<T> = JSX.Element | ((props: T) => JSX.Element);
 
 export type AccessorOrValue<T> = Accessor<T> | T;

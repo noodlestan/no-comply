@@ -11,7 +11,7 @@ export const createFocusableBase = (props: FocusableBaseProps): FocusableBaseAPI
     const { $root: $focusableMixinRoot } = createFocusableMixin();
 
     return {
-        $root: mergeProps($root, $focusableMixinRoot),
         ...rest,
+        $root: mergeProps($root, $focusableMixinRoot),
     };
 };

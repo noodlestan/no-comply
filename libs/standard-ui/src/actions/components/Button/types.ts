@@ -1,14 +1,14 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type { FocusRingAPI, PressableAPI, PressableProps } from '@noodlestan/headless-ui';
 
-import type { ActionMixinAPI, ActionMixinProps } from '../../mixins';
+import type { ButtonMixinAPI, ButtonMixinProps } from '../../mixins';
 
-export type ButtonProps = PressableProps & ActionMixinProps;
+export type ButtonProps = PressableProps & ButtonMixinProps;
 
 export type ButtonAPI = {
     $root: PressableAPI['$root'] &
         FocusRingAPI['$root'] &
-        ActionMixinAPI['$root'] & {
+        ButtonMixinAPI['$root'] & {
             classList: ClassList;
         };
 };

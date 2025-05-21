@@ -1,8 +1,8 @@
 import {
     type PickRequired,
-    createClassList,
     createComputedProps,
     mergeProps,
+    staticClassList,
 } from '@noodlestan/context-ui-primitives';
 import { splitProps } from 'solid-js';
 
@@ -23,15 +23,36 @@ export const createMenuItemMixin = (props: MenuItemMixinProps): MenuItemMixinAPI
     const actionProps = createComputedProps(others, { variant, size });
     const { $root: $actionMixinRoot } = createActionMixin(actionProps);
 
-    const classList = createClassList(styles, () => ({
-        MenuItem: true,
-        active: Boolean(props.active),
-    }));
     const $localRoot = {
-        classList,
+        classList: staticClassList(styles, 'MenuItem'),
+    };
+
+    const $iconSlot = {
+        classList: staticClassList(styles, 'MenuItem--Icon'),
+    };
+
+    const $labelSlot = {
+        classList: staticClassList(styles, 'MenuItem--Label'),
+    };
+
+    const $subLabelSlot = {
+        classList: staticClassList(styles, 'MenuItem--LabelSub'),
+    };
+
+    const $descriptionSlot = {
+        classList: staticClassList(styles, 'MenuItem--Description'),
+    };
+
+    const $expandSlot = {
+        classList: staticClassList(styles, 'MenuItem--Expand'),
     };
 
     return {
         $root: mergeProps($actionMixinRoot, $localRoot),
+        $iconSlot,
+        $expandSlot,
+        $labelSlot,
+        $subLabelSlot,
+        $descriptionSlot,
     };
 };

@@ -8,10 +8,33 @@
         white-space: nowrap;
         align-items: start;
         justify-content: start;
-        gap: var(--__gap);
+        height: auto;
+        min-height: auto;
+        padding-block: var(--space-gap-0);
+        --__gap: var(--space-gap-0);
     }
 
-    .active {
-        background-color: red;
+    .MenuItem--Icon {
+        width: var(--size-xs);
+    }
+
+    .MenuItem--Label {
+        flex: 1;
+    }
+
+    .MenuItem--Label * {
+        cursor: inherit;
+    }
+
+    .MenuItem--LabelSub {
+        /* */
+    }
+
+    .MenuItem--Description * {
+        cursor: inherit;
+    }
+
+    .MenuItem--Expand {
+        width: var(--size-xs);
     }
 }

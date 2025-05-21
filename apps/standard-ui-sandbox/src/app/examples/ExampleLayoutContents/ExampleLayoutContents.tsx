@@ -1,5 +1,8 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
-import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import {
+    type ClosedTagProps,
+    mergeProps,
+    staticClassList,
+} from '@noodlestan/context-ui-primitives';
 import { type Component, For, splitProps } from 'solid-js';
 
 import { ExampleLayoutChild } from '../ExampleLayoutChild';

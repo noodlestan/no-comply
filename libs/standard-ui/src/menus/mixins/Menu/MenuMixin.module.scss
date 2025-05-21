@@ -1,14 +1,9 @@
-@use '@noodlestan/headless-ui/scss/mixins/display.scss' as *;
-
-@use '../../../theme/mixins/color.scss' as *;
-
 @layer standard-ui {
     .Menu {
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: start;
-        gap: var(--__gap);
-
-        @include display(flex);
+        gap: var(--space-gap-0);
     }
 }

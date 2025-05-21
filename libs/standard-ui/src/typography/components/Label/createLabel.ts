@@ -9,20 +9,20 @@ import { createTextMixin } from '@noodlestan/headless-ui';
 import styles from './Label.module.css';
 import type { LabelAPI, LabelProps } from './types';
 
-const defaultProps: PickRequired<LabelProps, 'variant'> = {
+const defaultProps: PickRequired<LabelProps, 'tag' | 'variant'> = {
+    tag: 'label',
     variant: 'normal',
 };
 
 export const createLabel = (props: LabelProps): LabelAPI => {
     const { $root: $textMixinRoot } = createTextMixin(props);
 
+    const component = () => props.tag ?? defaultProps.tag;
     const variant = () => props.variant ?? defaultProps.variant;
     const classList = createClassList(styles, () => ['Label', `Label-variant-${variant()}`]);
-    const $static = {
-        component: 'label' as const,
-    };
-    const $localRoot = createComputedProps($static, {
+    const $localRoot = createComputedProps({
         classList,
+        component,
     });
 
     return {

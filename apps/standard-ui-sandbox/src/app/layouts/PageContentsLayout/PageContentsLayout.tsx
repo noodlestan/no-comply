@@ -1,5 +1,8 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
-import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import {
+    type ClosedTagProps,
+    mergeProps,
+    staticClassList,
+} from '@noodlestan/context-ui-primitives';
 import { Flex } from '@noodlestan/standard-ui';
 import { type ParentComponent, splitProps } from 'solid-js';
 

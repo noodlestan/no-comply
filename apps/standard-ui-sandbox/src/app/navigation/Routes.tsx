@@ -2,6 +2,7 @@ import { Route } from '@solidjs/router';
 import { type Component } from 'solid-js';
 
 import {
+    AnchoredPopoverPage,
     AppHomeScreen,
     ButtonPage,
     CalloutPage,
@@ -19,10 +20,11 @@ import {
     LabelPage,
     LayoutPage,
     LinkPage,
-    MenuItemPage,
+    MenuItemActionPage,
     MenuPage,
     NavLinkPage,
     NumberInputPage,
+    PopoverPage,
     RangeInputPage,
     SelectPage,
     ShowcaseScreen,
@@ -37,6 +39,7 @@ export const Routes: Component = () => {
         <>
             <Route path="/" component={ShowcaseScreen}>
                 <Route path="/" component={WelcomePage} />
+                <Route path="/component/AnchoredPopover" component={AnchoredPopoverPage} />
                 <Route path="/component/Button" component={ButtonPage} />
                 <Route path="/component/Callout" component={CalloutPage} />
                 <Route path="/component/Checkbox" component={CheckboxPage} />
@@ -53,8 +56,9 @@ export const Routes: Component = () => {
                 <Route path="/component/Layout" component={LayoutPage} />
                 <Route path="/component/Link" component={LinkPage} />
                 <Route path="/component/Menu" component={MenuPage} />
-                <Route path="/component/MenuItem" component={MenuItemPage} />
+                <Route path="/component/MenuItemAction" component={MenuItemActionPage} />
                 <Route path="/component/NavLink" component={NavLinkPage} />
+                <Route path="/component/Popover" component={PopoverPage} />
                 <Route path="/component/NumberInput" component={NumberInputPage} />
                 <Route path="/component/RangeInput" component={RangeInputPage} />
                 <Route path="/component/Select" component={SelectPage} />

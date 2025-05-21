@@ -1,4 +1,5 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
+export * from './AnchoredPopoverPage';
 export * from './ButtonPage';
 export * from './CalloutPage';
 export * from './CheckboxPage';
@@ -18,6 +19,7 @@ export * from './MenuItemPage';
 export * from './MenuPage';
 export * from './NavLinkPage';
 export * from './NumberInputPage';
+export * from './PopoverPage';
 export * from './RangeInputPage';
 export * from './SelectPage';
 export * from './SurfacePage';

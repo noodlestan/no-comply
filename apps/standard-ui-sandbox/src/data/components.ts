@@ -1,11 +1,12 @@
 export type ComponentGroup =
     | 'Actions'
     | 'Content'
+    | 'Feedback'
     | 'Forms'
     | 'Layout'
     | 'Menus'
     | 'Navigation'
-    | 'Feedback'
+    | 'Popover'
     | 'Surface'
     | 'Typography';
 
@@ -31,11 +32,13 @@ export type ComponentName =
     | 'Layout'
     | 'Link'
     | 'Menu'
-    | 'MenuItem'
+    | 'MenuItemAction'
     | 'MessageBox'
     | 'MessageToast'
     | 'NavLink'
     | 'NumberInput'
+    | 'Popover'
+    | 'AnchoredPopover'
     | 'RangeInput'
     | 'Select'
     | 'Surface'
@@ -49,6 +52,11 @@ export type ComponentMetadata = {
 };
 
 export const COMPONENTS: ComponentMetadata[] = [
+    {
+        name: 'AnchoredPopover',
+        group: 'Popover',
+        package: '@noodlestan/standard-ui',
+    },
     {
         name: 'Button',
         group: 'Actions',
@@ -130,7 +138,7 @@ export const COMPONENTS: ComponentMetadata[] = [
         package: '@noodlestan/standard-ui',
     },
     {
-        name: 'MenuItem',
+        name: 'MenuItemAction',
         group: 'Menus',
         package: '@noodlestan/standard-ui',
     },
@@ -142,6 +150,11 @@ export const COMPONENTS: ComponentMetadata[] = [
     {
         name: 'NumberInput',
         group: 'Forms',
+        package: '@noodlestan/standard-ui',
+    },
+    {
+        name: 'Popover',
+        group: 'Popover',
         package: '@noodlestan/standard-ui',
     },
     {

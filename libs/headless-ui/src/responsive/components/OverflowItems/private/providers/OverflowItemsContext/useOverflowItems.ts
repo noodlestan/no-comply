@@ -7,7 +7,7 @@ import { OverflowItemsContextCTX } from './private';
 export const useOverflowItems = (): OverflowItemsContextValue => {
     const contextValue = useContext(OverflowItemsContextCTX);
     if (!contextValue) {
-        throw new Error('useOverflowItems() must be wrapped in <OverflowItemsProvider/>');
+        throw new Error('useOverflowItems() must be wrapped in <OverflowItemsContextProvider/>');
     }
     return contextValue;
 };

@@ -1,0 +1,24 @@
+import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import { PopoverContextProvider } from '@noodlestan/headless-ui';
+import { type Component, splitProps } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
+
+import { ANCHORED_POPOVER_PROPS } from './constants';
+import { createAnchoredPopover } from './createAnchoredPopover';
+import type { AnchoredPopoverProps } from './types';
+
+type Props = ClosedTagProps & AnchoredPopoverProps;
+
+export const AnchoredPopover: Component<Props> = props => {
+    const [locals, $others] = splitProps(props, ANCHORED_POPOVER_PROPS);
+
+    const { $root, $trigger, contentProps, contextValue } = createAnchoredPopover(locals);
+    const $ = mergeProps($others, $root);
+
+    return (
+        <PopoverContextProvider context={contextValue}>
+            {locals.trigger($trigger)}
+            <Dynamic {...$}>{locals.children(contentProps)}</Dynamic>
+        </PopoverContextProvider>
+    );
+};

@@ -6,4 +6,5 @@ export * from './events';
 export * from './id';
 export * from './props';
 export * from './styles';
+export * from './tag';
 export * from './ts';

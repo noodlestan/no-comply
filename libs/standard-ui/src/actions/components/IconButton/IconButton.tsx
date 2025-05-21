@@ -1,5 +1,8 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
-import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import {
+    type ClosedTagProps,
+    type PopoverTriggerTagProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -9,7 +12,7 @@ import { ICON_BUTTON_PROPS } from './constants';
 import { createIconButton } from './createIconButton';
 import type { IconButtonProps } from './types';
 
-type Props = ClosedTagProps & IconButtonProps;
+type Props = ClosedTagProps & PopoverTriggerTagProps & IconButtonProps;
 
 export const IconButton: Component<Props> = props => {
     const [locals, $others] = splitProps(props, ICON_BUTTON_PROPS);

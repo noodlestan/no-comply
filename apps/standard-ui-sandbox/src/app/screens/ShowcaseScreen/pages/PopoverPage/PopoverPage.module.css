@@ -1,6 +1,6 @@
 @layer standard-ui-sandbox {
     @layer pages {
-        .MenuItemPage .override {
+        .PopoverPage .override {
             background-color: red !important;
         }
     }

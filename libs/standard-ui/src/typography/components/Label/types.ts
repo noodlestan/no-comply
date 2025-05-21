@@ -5,7 +5,8 @@ import type { TextMixinAPI, TextMixinProps } from '@noodlestan/headless-ui';
 import type { ContentSize } from '../../../types';
 
 export type LabelProps = TextMixinProps & {
-    variant?: LabelVariant;
+    tag?: LabelTagName;
+    variant?: ContentSize;
 };
 
 export type LabelVariant = ContentSize;

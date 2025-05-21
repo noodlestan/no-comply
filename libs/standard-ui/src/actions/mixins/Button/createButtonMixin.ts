@@ -4,9 +4,9 @@ import {
     createComputedProps,
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
-import { splitProps } from 'solid-js';
 
 import { createActionMixin } from '../Action';
+import { createSizedActionMixin } from '../SizedAction';
 
 import styles from './ButtonMixin.module.scss';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';
@@ -16,10 +16,11 @@ const defaultProps: PickRequired<ButtonMixinProps, 'size'> = {
 };
 
 export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
+    const { $root: $actionMixinRoot } = createActionMixin(props);
+
     const size = () => props.size ?? defaultProps.size;
-    const [, others] = splitProps(props, ['size']);
-    const actionProps = createComputedProps(others, { size });
-    const { $root: $actionMixinRoot } = createActionMixin(actionProps);
+    const sizedProps = createComputedProps({ size });
+    const { $root: $sizedActionMixinRoot } = createSizedActionMixin(sizedProps);
 
     const classList = createClassList(styles, () => [`Button`, `size-${size()}`]);
     const $localRoot = {
@@ -27,6 +28,6 @@ export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
     };
 
     return {
-        $root: mergeProps($actionMixinRoot, $localRoot),
+        $root: mergeProps($actionMixinRoot, $sizedActionMixinRoot, $localRoot),
     };
 };

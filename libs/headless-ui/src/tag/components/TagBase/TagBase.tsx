@@ -1,4 +1,5 @@
 import {
+    type OpenTagProps,
     type PickRequired,
     createClassList,
     createComputedProps,
@@ -7,10 +8,9 @@ import {
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import type { OpenTagProps } from '../../types';
-
 import styles from './TagBase.module.css';
-import { TAG_BASE_PROPS, type TagBaseProps } from './types';
+import { TAG_BASE_PROPS } from './constants';
+import { type TagBaseProps } from './types';
 
 const defaultProps: PickRequired<TagBaseProps, 'tag'> = {
     tag: 'div',

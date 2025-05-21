@@ -1,3 +1,7 @@
+import { $PROXY } from 'solid-js';
+
+import { $COMPUTED } from './private';
+
 export type ComputedProps<T extends Record<string, () => unknown>> = {
     [K in keyof T]: ReturnType<T[K]>;
 };
@@ -18,11 +22,18 @@ export function createComputedProps<
     const baseProps = maybeGetters ? (baseOrGetters as U) : ({} as U);
     const getters = maybeGetters ?? (baseOrGetters as T);
 
-    const obj = baseProps as U & ComputedProps<T>;
+    if (maybeGetters && ($COMPUTED in baseProps || $PROXY in baseProps)) {
+        console.error(
+            `createComputedProps(): first argument can not be a proxy, when two arguments provided.`,
+        );
+    }
+
+    const proxy = baseProps as U & ComputedProps<T>;
     const entries = Object.entries(getters);
     const descriptors = entries.map(([key, getter]) => [key, { get: getter, enumerable: true }]);
 
-    Object.defineProperties(obj, Object.fromEntries(descriptors));
+    Object.defineProperties(proxy, Object.fromEntries(descriptors));
+    Object.defineProperty(proxy, $COMPUTED, { value: true, configurable: true, enumerable: false });
 
-    return obj;
+    return proxy;
 }

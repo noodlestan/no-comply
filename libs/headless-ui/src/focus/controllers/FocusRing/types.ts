@@ -7,4 +7,8 @@ export type FocusRingAPI = {
         onKeyDown: (ev: KeyboardEvent) => void;
         'data-is-active': string | undefined;
     };
+    $focusTarget: {
+        onFocus: (ev: FocusEvent) => void;
+        onBlur: (ev: FocusEvent) => void;
+    };
 };

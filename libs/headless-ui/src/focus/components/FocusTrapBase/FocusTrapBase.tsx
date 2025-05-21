@@ -1,8 +1,7 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import type { ClosedTagProps } from '../../../tag';
 import { type FocusTrapProps, createFocusTrap } from '../../controllers';
 
 type Props = ClosedTagProps & FocusTrapProps;

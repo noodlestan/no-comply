@@ -10,7 +10,7 @@ import styles from './SkipLink.module.scss';
 import type { SkipLinkMixinAPI, SkipLinkMixinProps } from './types';
 
 export const createSkipLinkMixin = (props: SkipLinkMixinProps = {}): SkipLinkMixinAPI => {
-    const { $root: $linkMixinRoot } = createLinkMixin();
+    const { $root: $linkMixinRoot } = createLinkMixin({ inset: true });
 
     const classList = createClassList(styles, () => ({
         SkipLink: true,

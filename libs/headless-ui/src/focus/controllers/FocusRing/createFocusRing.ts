@@ -7,6 +7,14 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
     const [hadFocus, setHadFocus] = createSignal(false);
     const [isActive, setIsActive] = createSignal(false);
 
+    const onFocus = () => {
+        setIsActive(true);
+    };
+
+    const onBlur = () => {
+        setIsActive(false);
+    };
+
     const onKeyDown = (ev: KeyboardEvent) => {
         if (props.passive) {
             return;
@@ -33,7 +41,14 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
         'data-is-active': () => (isActive() ? '' : undefined),
     });
 
+    const $focusTarget = {
+        onFocus,
+        onBlur,
+        classList: { foo: true },
+    };
+
     return {
         $root: $localRoot,
+        $focusTarget,
     };
 };

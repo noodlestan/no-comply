@@ -1,8 +1,7 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
 import { type Component, For, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import type { ClosedTagProps } from '../../../../tag';
 import { ListContextProvider } from '../../providers';
 
 import { LIST_BASE_PROPS } from './constants';

@@ -1,32 +1,40 @@
+import { $PROXY } from 'solid-js';
+
 import type { AccessorOrValue } from '../../types';
 
+import { $COMPUTED } from './constants';
 import { getClassListProperty } from './getClassListProperty';
 import { getHandlerProperty } from './getHandlerProperty';
 import { getStyleProperty } from './getStyleProperty';
 import { resolveSource } from './resolveSource';
 import { type Props } from './types';
 
-export function getMergedProperty(sources: AccessorOrValue<Props>[], key: string): unknown {
-    if (key === '$PROXY') {
+export function getMergedProperty(
+    sources: AccessorOrValue<Props>[],
+    key: string | symbol,
+): unknown {
+    if (key === $PROXY || key === $COMPUTED) {
         return true;
     }
 
+    const k = key as string;
+
     for (let i = sources.length - 1; i >= 0; i--) {
         const resolved = resolveSource(sources[i]);
-        if (key in resolved) {
-            if (key === 'classList') {
+        if (k in resolved) {
+            if (k === 'classList') {
                 return getClassListProperty(sources);
             }
-            if (key === 'style') {
+            if (k === 'style') {
                 return getStyleProperty(sources);
             }
-            if (key === 'ref') {
-                return getHandlerProperty(sources, key);
+            if (k === 'ref') {
+                return getHandlerProperty(sources, k);
             }
-            if (key.startsWith('on')) {
-                return getHandlerProperty(sources, key);
+            if (k.startsWith('on')) {
+                return getHandlerProperty(sources, k);
             }
-            return resolved[key];
+            return resolved[k];
         }
     }
     return undefined;

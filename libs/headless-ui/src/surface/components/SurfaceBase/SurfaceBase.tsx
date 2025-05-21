@@ -1,5 +1,6 @@
 import { SurfaceContextProvider } from '@noodlestan/context-ui';
 import {
+    type ClosedTagProps,
     type MaybeRenderProp,
     mergeProps,
     resolveRenderProp,
@@ -7,7 +8,6 @@ import {
 import { type Component, children, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import type { ClosedTagProps } from '../../../tag';
 import { type SurfaceAPI } from '../../controllers';
 
 import { SURFACE_BASE_PROPS } from './constants';

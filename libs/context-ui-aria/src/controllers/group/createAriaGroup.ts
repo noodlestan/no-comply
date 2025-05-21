@@ -7,7 +7,7 @@ import type { AriaGroupAPI, AriaGroupProps } from './types';
 export const createAriaGroup = (props: AriaGroupProps = {}): AriaGroupAPI => {
     const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'group');
 
-    const $localRoot = createComputedProps($regionRoot, {
+    const $localRoot = createComputedProps({
         'aria-expanded': () => props.expanded,
         'aria-setsize': () => props.setSize,
     });

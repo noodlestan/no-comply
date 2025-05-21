@@ -1,5 +1,9 @@
-import { type MaybeRenderProp, mergeProps } from '@noodlestan/context-ui-primitives';
-import { type ClosedTagProps, type SurfaceAPI, SurfaceBase } from '@noodlestan/headless-ui';
+import {
+    type ClosedTagProps,
+    type MaybeRenderProp,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
+import { type SurfaceAPI, SurfaceBase } from '@noodlestan/headless-ui';
 import { type Component, splitProps } from 'solid-js';
 
 import { SURFACE_PROPS } from './constants';

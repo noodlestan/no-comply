@@ -1,5 +1,8 @@
-import { type PickRequired, createComputedProps } from '@noodlestan/context-ui-primitives';
-import { mergeProps } from 'solid-js';
+import {
+    type PickRequired,
+    createComputedProps,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 
 import { createLayoutMixin } from '../../mixins';
 

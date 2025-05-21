@@ -1,8 +1,12 @@
 import { createComputedProps, shortId } from '@noodlestan/context-ui-primitives';
+import { createMemo } from 'solid-js';
 
 import type { AriaLabelledAPI, AriaLabelledProps } from './types';
 
 export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledAPI => {
+    const labelledRandomId = createMemo(shortId);
+    const describedRandomId = createMemo(shortId);
+
     const label = () => {
         if (props.label) {
             return props.label;
@@ -17,7 +21,7 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
             return props.labelledby;
         }
         if (props.labelled) {
-            return shortId();
+            return labelledRandomId();
         }
     };
 
@@ -26,7 +30,7 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
             return props.describedby;
         }
         if (props.described) {
-            return shortId();
+            return describedRandomId();
         }
     };
 

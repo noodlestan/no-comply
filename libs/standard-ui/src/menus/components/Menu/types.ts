@@ -28,13 +28,6 @@ export type HeadlessMenuProps = MenuContextOptions & {
 };
 
 export type HeadlessMenuAPI = {
-    $popover: {
-        id: string;
-        popover: 'auto';
-        onFocusOut: () => void;
-        onToggle: () => void;
-        ref: MenuContext['setMenuRef'];
-    };
     $root: {
         role: 'menu';
         labelledby: string;
@@ -43,7 +36,9 @@ export type HeadlessMenuAPI = {
         component: 'p';
         id: string;
         children: string | undefined;
-        'data-menu-focus-target': '';
+    };
+    $focusTarget: {
+        'data-popover-focus-target': '';
     };
     context: MenuContext;
     contextValue: MenuContextValue;
@@ -52,11 +47,11 @@ export type HeadlessMenuAPI = {
 export type MenuProps = HeadlessMenuProps & MenuMixinProps;
 
 export type MenuAPI = {
-    $popover: HeadlessMenuAPI['$popover'];
     surfaceProps: HeadlessMenuAPI['$root'] &
         SurfaceAPI['surfaceProps'] &
         FocusRingAPI['$root'] &
         MenuMixinAPI['$root'];
     $label: HeadlessMenuAPI['$label'];
+    $focusTarget: HeadlessMenuAPI['$focusTarget'] & FocusRingAPI['$focusTarget'];
     contextValue: MenuContextValue;
 };

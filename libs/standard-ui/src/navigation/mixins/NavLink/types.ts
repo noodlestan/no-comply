@@ -1,9 +1,9 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
 import type { ContentSize } from '../../../types';
-import type { LinkMixinAPI } from '../Link';
+import type { LinkMixinAPI, LinkMixinProps } from '../Link';
 
-export type NavLinkMixinProps = {
+export type NavLinkMixinProps = LinkMixinProps & {
     layout?: NavLinkLayout;
     size?: ContentSize;
     nowrap?: boolean;

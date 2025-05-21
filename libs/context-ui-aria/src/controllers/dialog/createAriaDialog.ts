@@ -1,5 +1,4 @@
-import { createComputedProps } from '@noodlestan/context-ui-primitives';
-import { mergeProps } from 'solid-js';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
 import { createAriaRegion } from '../region';
 

@@ -9,6 +9,7 @@ export * from './icon';
 export * from './layout';
 export * from './menus';
 export * from './navigation';
+export * from './popover';
 export * from './surface';
 export * from './theme';
 export * from './types';

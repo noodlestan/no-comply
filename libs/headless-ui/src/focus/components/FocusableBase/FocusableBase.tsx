@@ -1,9 +1,12 @@
 import { FocusContextProvider } from '@noodlestan/context-ui';
-import { type RenderProp, mergeProps } from '@noodlestan/context-ui-primitives';
+import {
+    type ClosedTagProps,
+    type RenderProp,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import type { ClosedTagProps } from '../../../tag';
 import type { FocusableAPI } from '../../controllers';
 
 import { FOCUSABLE_BASE_PROPS } from './constants';

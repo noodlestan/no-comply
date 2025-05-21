@@ -1,8 +1,11 @@
-import { type ObjectWithId, mergeProps } from '@noodlestan/context-ui-primitives';
+import {
+    type ClosedTagProps,
+    type ObjectWithId,
+    mergeProps,
+} from '@noodlestan/context-ui-primitives';
 import { type JSX, type ParentComponent, Show, splitProps } from 'solid-js';
 
-import type { ClosedTagProps } from '../../../../../tag';
-import { OverflowItemsMeasureProvider, OverflowItemsProvider } from '../../private';
+import { OverflowItemsContextProvider, OverflowItemsMeasureProvider } from '../../private';
 
 import { OVERFLOW_ITEMS_PROPS } from './constants';
 import { createOverflowItems } from './createOverflowItems';
@@ -23,7 +26,7 @@ export const OverflowItems = <T extends ObjectWithId>(
     const $ = mergeProps($others, $root);
 
     return (
-        <OverflowItemsProvider context={contextValue}>
+        <OverflowItemsContextProvider context={contextValue}>
             <div {...$}>
                 <div {...$measure}>
                     <OverflowItemsMeasureProvider>{props.children}</OverflowItemsMeasureProvider>
@@ -33,6 +36,6 @@ export const OverflowItems = <T extends ObjectWithId>(
             <Show when={context.overflowItems().length}>
                 {props.renderOverflow({ items: context.overflowItems() })}
             </Show>
-        </OverflowItemsProvider>
+        </OverflowItemsContextProvider>
     );
 };

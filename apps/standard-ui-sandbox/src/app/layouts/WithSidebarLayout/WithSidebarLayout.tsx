@@ -1,14 +1,11 @@
 import {
+    type ClosedTagProps,
     createClassList,
     createComputedProps,
     mergeProps,
     staticClassList,
 } from '@noodlestan/context-ui-primitives';
-import {
-    type ClosedTagProps,
-    createContainerQuery,
-    createDismissible,
-} from '@noodlestan/headless-ui';
+import { createContainerQuery, createDismissible } from '@noodlestan/headless-ui';
 import { Layout } from '@noodlestan/standard-ui';
 import { type Accessor, type JSX, type ParentComponent, splitProps } from 'solid-js';
 

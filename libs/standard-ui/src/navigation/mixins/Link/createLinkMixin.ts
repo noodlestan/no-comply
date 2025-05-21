@@ -4,11 +4,11 @@ import { createLinkMixin as createHeadlessLinkMixin } from '@noodlestan/headless
 import { createFocusRingMixin } from '../../../focus';
 
 import styles from './Link.module.scss';
-import type { LinkMixinAPI } from './types';
+import type { LinkMixinAPI, LinkMixinProps } from './types';
 
-export const createLinkMixin = (): LinkMixinAPI => {
+export const createLinkMixin = (props: LinkMixinProps = {}): LinkMixinAPI => {
     const { $root: $linkMixinRoot } = createHeadlessLinkMixin();
-    const { $root: $focusRing } = createFocusRingMixin();
+    const { $root: $focusRing } = createFocusRingMixin(props);
 
     const $localRoot = {
         classList: staticClassList(styles, `Link`),

@@ -11,10 +11,9 @@ import { createFocusRingMixin } from '../../../focus';
 import styles from './ActionMixin.module.scss';
 import type { ActionMixinAPI, ActionMixinProps } from './types';
 
-const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent' | 'size'> = {
+const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent'> = {
     variant: 'secondary',
     intent: 'neutral',
-    size: 'normal',
 };
 
 export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
@@ -23,12 +22,10 @@ export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
 
     const variant = () => props.variant ?? defaultProps.variant;
     const intent = () => props.intent ?? defaultProps.intent;
-    const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => [
         `Action`,
         `variant-${variant()}`,
         `intent-${intent()}`,
-        `size-${size()}`,
     ]);
     const $localRoot = createComputedProps({ classList });
 

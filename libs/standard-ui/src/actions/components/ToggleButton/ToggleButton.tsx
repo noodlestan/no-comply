@@ -1,5 +1,4 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
-import type { ClosedTagProps } from '@noodlestan/headless-ui';
+import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
 import { type Component, splitProps } from 'solid-js';
 
 import { IconButton } from '../IconButton';

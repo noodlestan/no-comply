@@ -4,5 +4,6 @@ export * from './ExampleLayoutChild';
 export * from './ExampleLayoutContents';
 export * from './ExampleMedium';
 export * from './ExampleNano';
+export * from './ExamplePopoverContents';
 export * from './ExampleSmall';
 export * from './ExampleTiny';

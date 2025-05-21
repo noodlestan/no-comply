@@ -6,16 +6,18 @@ import type { OverflowItemsContextValue } from '../../contexts';
 import { OverflowItemsContextCTX } from './private';
 import { useOverflowItemsMaybe } from './useOverflowItemsMaybe';
 
-type OverflowItemsProviderProps = {
+type OverflowItemsContextProviderProps = {
     context: OverflowItemsContextValue;
 };
 
-export const OverflowItemsProvider: ParentComponent<OverflowItemsProviderProps> = props => {
+export const OverflowItemsContextProvider: ParentComponent<
+    OverflowItemsContextProviderProps
+> = props => {
     const contextValue = useOverflowItemsMaybe();
 
     if (contextValue) {
         throw new Error(
-            'OverflowItemsProvider must not be nested in another OverflowItemsContextProvider',
+            'OverflowItemsContextProvider must not be nested in another OverflowItemsContextProvider',
         );
     }
 
