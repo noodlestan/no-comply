@@ -29,7 +29,7 @@ export type AnchoredPopoverAPI = {
     $trigger: AnchoredPopoverTriggerAPI['$root'];
     contentProps: {
         id: string;
-        labelledby: string;
+        ['aria-labelledby']: string;
     };
     context: PopoverContext;
     contextValue: PopoverContextValue;

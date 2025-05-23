@@ -46,4 +46,6 @@ export type DialogTagName = 'dialog';
 
 export type FormTagName = 'form' | 'div';
 
+export type MenuTagName = 'div';
+
 export type DisplayTagName = TextTagName;

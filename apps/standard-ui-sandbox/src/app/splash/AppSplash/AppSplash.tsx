@@ -11,7 +11,7 @@ export const AppSplash: Component = () => {
     const labelId = shortId();
     return (
         <div classList={staticClassList(styles, 'AppSplash')}>
-            <Surface tag="main" variant="page" labelledby={labelId}>
+            <Surface tag="main" variant="page" aria-labelledby={labelId}>
                 <Flex direction="column" align="center" justify="center" stretch="full">
                     <Flex data-splash-box direction="column" align="center" justify="center">
                         <SplashBox labelId={labelId} />

@@ -38,7 +38,7 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
     const $ = mergeProps($others, $root);
 
     return (
-        <Surface variant={surface()} style={style()} labelledby={labelId()} {...$}>
+        <Surface variant={surface()} style={style()} aria-labelledby={labelId()} {...$}>
             <Flex gap="m" padding="m">
                 <Show when={locals.title}>
                     <Label id={labelId()}>{locals.title}</Label>

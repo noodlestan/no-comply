@@ -17,8 +17,8 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
         if (props.label) {
             return;
         }
-        if (props.labelledby) {
-            return props.labelledby;
+        if (props['aria-labelledby']) {
+            return props['aria-labelledby'];
         }
         if (props.labelled) {
             return labelledRandomId();
@@ -26,8 +26,8 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
     };
 
     const describedby = () => {
-        if (props.describedby) {
-            return props.describedby;
+        if (props['aria-describedby']) {
+            return props['aria-describedby'];
         }
         if (props.described) {
             return describedRandomId();

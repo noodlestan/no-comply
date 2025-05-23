@@ -9,9 +9,24 @@ export const createPopover = (props: PopoverProps): PopoverAPI => {
     const contextValue = createPopoverContext(props);
     const [context] = contextValue;
 
+    const setFocus = () => {
+        const popoverEl = context.popoverEl();
+        if (!popoverEl) {
+            return;
+        }
+        const el = popoverEl.querySelector('[data-popover-focus-target]') as HTMLElement;
+        if (!el) {
+            return;
+        }
+        const tabIndex = el.tabIndex;
+        el.tabIndex = 0;
+        el.focus();
+        el.tabIndex = tabIndex ?? -1;
+    };
+
     const onToggle = () => {
         if (context.isShown()) {
-            setTimeout(() => context.setFocus());
+            setTimeout(setFocus);
             props.onShow?.();
         } else {
             props.onHide?.();

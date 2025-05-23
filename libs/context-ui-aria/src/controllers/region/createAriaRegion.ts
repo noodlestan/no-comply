@@ -19,7 +19,9 @@ export function createAriaRegion(
     const role = () => {
         if (!hasLabel()) {
             if (staticRole || props?.role) {
-                console.error('AriaRegionAPI: when role is set, label or labelledby are required.');
+                console.error(
+                    'AriaRegionAPI: when role is set, label or aria-labelledby are required.',
+                );
             }
         }
         return staticRole ?? props?.role;

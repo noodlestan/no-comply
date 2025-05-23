@@ -25,7 +25,7 @@ export const SurfaceVariantExample: ParentComponent<Props> = props => {
             <Surface variant={locals.onVariant}>
                 <Label id={labelId}>{surfaceProps.variant}</Label>
                 <Flex padding="l" gap="m">
-                    <Surface {...surfaceProps} labelledby={labelId}>
+                    <Surface {...surfaceProps} aria-labelledby={labelId}>
                         <Flex>{locals.children}</Flex>
                     </Surface>
                     <Text variant="small">(on {locals.onVariant})</Text>

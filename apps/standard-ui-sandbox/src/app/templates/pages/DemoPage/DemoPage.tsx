@@ -13,7 +13,7 @@ type Props = {
 
 export const DemoPage: ParentComponent<Props> = props => {
     return (
-        <PageMain labelledby={$ID_SCREEN_TITLE}>
+        <PageMain aria-labelledby={$ID_SCREEN_TITLE}>
             <PageContentsLayout classList={props.classList}>
                 <Display id={$ID_SCREEN_TITLE} level={2}>
                     {props.title}

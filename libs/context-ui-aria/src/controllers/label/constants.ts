@@ -5,7 +5,7 @@ import type { AriaLabelledProps } from './types';
 export const ARIA_LABELLED_PROPS = definePropKeys<AriaLabelledProps>()([
     'label',
     'labelled',
-    'labelledby',
+    'aria-labelledby',
     'described',
-    'describedby',
+    'aria-describedby',
 ]);

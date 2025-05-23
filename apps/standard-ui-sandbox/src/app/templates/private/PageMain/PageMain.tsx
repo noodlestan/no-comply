@@ -7,7 +7,7 @@ import { type ParentComponent } from 'solid-js';
 import { SCREEN_MAIN_TARGET } from '../../constants';
 
 type Props = {
-    labelledby: string;
+    ['aria-labelledby']: string;
 };
 
 export const PageMain: ParentComponent<Props> = props => {
@@ -22,7 +22,7 @@ export const PageMain: ParentComponent<Props> = props => {
         <Surface
             tag="main"
             variant={'page'}
-            labelledby={props.labelledby}
+            aria-labelledby={props['aria-labelledby']}
             stretch="height"
             overflow="y-auto"
             ref={setMainRef}

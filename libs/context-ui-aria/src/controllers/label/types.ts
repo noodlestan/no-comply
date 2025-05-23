@@ -3,9 +3,9 @@ import type { Accessor } from 'solid-js';
 export type AriaLabelledProps = {
     label?: string;
     labelled?: boolean;
-    labelledby?: string;
+    'aria-labelledby'?: string;
     described?: boolean;
-    describedby?: string;
+    'aria-describedby'?: string;
 };
 
 export type AriaLabelledAPI = {

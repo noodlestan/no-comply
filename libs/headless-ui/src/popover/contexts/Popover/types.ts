@@ -9,7 +9,6 @@ export type PopoverContext = BaseContext & {
     type: 'popover';
     id: Accessor<string>;
     isShown: Accessor<boolean>;
-    setFocus: () => void;
     dismiss: () => void;
     dismissStack: () => void;
     setPopoverRef: (el: HTMLElement) => void;

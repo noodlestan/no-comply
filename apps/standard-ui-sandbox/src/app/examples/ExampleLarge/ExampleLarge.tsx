@@ -98,7 +98,7 @@ export const ExampleLargeFooter: Component<ExampleLargeProps> = () => {
         <Surface
             variant={'message'}
             classList={staticClassList(styles, 'ExampleLargeFooter')}
-            labelledby={labelId}
+            aria-labelledby={labelId}
         >
             <Flex direction="row" align="center" padding="m" gap="l">
                 <Flex direction="row" align="center" gap="s">

@@ -64,7 +64,7 @@ export type HeadlessMenuItemSubMenuAPI = Omit<MenuItemBaseAPI, '$root'> &
         $popover: AnchoredPopoverAPI['$root'];
         subMenuProps: {
             id: string;
-            labelledby: string;
+            ['aria-labelledby']: string;
         };
     };
 

@@ -21,7 +21,7 @@ export const Callout: ParentComponent<Props> = props => {
     const $ = mergeProps($root, $others);
 
     return (
-        <Surface variant="message" {...$} labelledby={$label.id}>
+        <Surface variant="message" {...$} aria-labelledby={$label.id}>
             <Flex direction="row" align="center" padding="s" gap="m" justify="between">
                 <Flex direction="row" align="center" padding="s" gap="m">
                     <Icon {...iconProps} />

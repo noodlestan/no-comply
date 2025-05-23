@@ -141,10 +141,11 @@ export const createHeadlessMenuItemSubMenu = (
     const id = () => props.id ?? randomId1();
     const subMenuId = () => props.menuId ?? randomId2();
 
-    const { $root, ...rest } = createMenuItemBase(props, true);
+    const { $root, $label, ...rest } = createMenuItemBase(props, true);
 
     const anchoredPopoverProps = createComputedProps({
-        id: subMenuId,
+        id,
+        targetId: subMenuId,
         direction: () => PLACEMENT_AXIS_INLINE,
     });
     const {
@@ -156,12 +157,13 @@ export const createHeadlessMenuItemSubMenu = (
 
     const subMenuProps = createComputedProps({
         id: subMenuId,
-        labelledby: id,
+        'aria-labelledby': () => $label.id as string,
     });
 
     return {
         ...rest,
         $root: mergeProps($root, $trigger),
+        $label,
         $popover,
         subMenuProps,
         context,

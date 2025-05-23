@@ -1,1 +1,1 @@
-export const shortId = (): string => window.crypto.randomUUID().substring(0, 5);
+export const shortId = (): string => '_' + window.crypto.randomUUID().substring(0, 5);

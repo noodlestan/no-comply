@@ -32,8 +32,8 @@ export const MenuPage: Component = () => {
                             </Button>
                         )}
                     >
-                        {subMenu => (
-                            <Menu labelledby={subMenu.labelledby}>
+                        {content => (
+                            <Menu aria-labelledby={content['aria-labelledby']}>
                                 <MenuItemAction label="Open" />
                                 <MenuItemAction label="Bar" />
                                 <MenuItemGroup label="Operations">

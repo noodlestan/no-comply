@@ -14,7 +14,7 @@ const DemoMenu: ParentComponent<DemoItemProps> = props => {
 
     return (
         <DemoItem {...others}>
-            <Menu labelledby="foo">{locals.children}</Menu>
+            <Menu aria-labelledby="foo">{locals.children}</Menu>
         </DemoItem>
     );
 };

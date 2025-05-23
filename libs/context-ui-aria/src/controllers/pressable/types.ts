@@ -16,6 +16,7 @@ export type AriaPressableProps = {
 
 type AriaPressableRoot = {
     component: PressableTagName;
+    role?: PressableRoleName;
     type: PressableType | undefined;
     tabIndex: number | undefined;
     disabled: boolean | undefined;

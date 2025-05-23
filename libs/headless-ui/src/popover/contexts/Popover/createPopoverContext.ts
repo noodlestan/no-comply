@@ -21,20 +21,6 @@ export const createPopoverContext = (props: PopoverContextOptions): PopoverConte
         return popoverEl?.matches(':popover-open');
     };
 
-    const setFocus = () => {
-        if (!popoverEl) {
-            return;
-        }
-        const el = popoverEl.querySelector('[data-popover-focus-target]') as HTMLElement;
-        if (!el) {
-            return;
-        }
-        const tabIndex = el.tabIndex;
-        el.tabIndex = 0;
-        el.focus();
-        el.tabIndex = tabIndex ?? -1;
-    };
-
     const dismiss = () => {
         popoverEl?.hidePopover();
     };
@@ -48,7 +34,6 @@ export const createPopoverContext = (props: PopoverContextOptions): PopoverConte
         type: 'popover',
         id,
         isShown,
-        setFocus,
         setPopoverRef,
         dismiss,
         dismissStack,

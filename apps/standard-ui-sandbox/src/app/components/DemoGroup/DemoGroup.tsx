@@ -11,7 +11,7 @@ export const DemoGroup: ParentComponent<Props> = props => {
     const labelId = shortId();
 
     return (
-        <Surface variant="page" classList={props.classList} labelledby={labelId}>
+        <Surface variant="page" classList={props.classList} aria-labelledby={labelId}>
             <Flex padding="s" gap="m">
                 <Display level={3} id={labelId}>
                     {props.title}

@@ -1,5 +1,6 @@
+import { createAriaMenu } from '@noodlestan/context-ui-aria';
 import { createComputedProps, mergeProps, shortId } from '@noodlestan/context-ui-primitives';
-import { createFocusRing } from '@noodlestan/headless-ui';
+import { usePopoverMaybe } from '@noodlestan/headless-ui';
 import { createContext, createMemo, useContext } from 'solid-js';
 
 import { createSurface } from '../../../surface';
@@ -32,6 +33,8 @@ export const useMenuMaybe = (): MenuContext | undefined => {
 };
 
 const createMenuContext = (props: MenuContextOptions): MenuContextValue => {
+    const popover = usePopoverMaybe();
+
     let menuEl: HTMLElement;
 
     const randomId = createMemo(shortId);
@@ -41,51 +44,18 @@ const createMenuContext = (props: MenuContextOptions): MenuContextValue => {
 
     const setMenuRef = (el: HTMLElement) => {
         menuEl = el;
-    };
-
-    const isShown = () => menuEl?.matches(':popover-open');
-
-    const setFocus = () => {
-        if (!menuEl) {
-            return;
-        }
-        const el = menuEl.querySelector('[data-surface]') as HTMLElement;
-        if (!el) {
-            return;
-        }
-        el.tabIndex = 0;
-        el.focus();
-        el.tabIndex = -1;
-    };
-
-    const onFocusOut = () => {
-        if (!menuEl) {
-            return;
-        }
-        requestAnimationFrame(() => {
-            if (!menuEl.contains(document.activeElement)) {
-                menuEl?.hidePopover();
-            }
-        });
-    };
-
-    const dismiss = () => {
-        menuEl?.hidePopover();
+        console.info(menuEl);
     };
 
     const dismissStack = () => {
-        dismiss();
+        popover?.dismiss();
         parentMenu?.dismissStack();
     };
 
     const context: MenuContext = {
         type: 'menu',
         id,
-        isShown,
-        setFocus,
-        onFocusOut,
         setMenuRef,
-        dismiss,
         dismissStack,
     };
 
@@ -96,60 +66,42 @@ export const createHeadlessMenu = (props: HeadlessMenuProps): HeadlessMenuAPI =>
     const contextValue = createMenuContext(props);
     const [context] = contextValue;
 
-    // createAriaMenu
-
-    const labelledby = () => {
-        if (props.labelledby) {
-            return props.labelledby;
-        }
-        if (!props.label) {
-            console.error(`MenuAPI: requires label or labelledby.`);
-        }
-        return `${context.id()}-label`;
-    };
+    const { $root: $ariaRoot, $label: $ariaLabel } = createAriaMenu(props);
 
     const $labelStatic = {
-        component: 'p',
-    } as const;
-
-    const $label = createComputedProps($labelStatic, {
-        id: labelledby,
+        component: 'p' as const,
+    };
+    const $localLabel = createComputedProps($labelStatic, {
         children: () => props.label,
     });
 
-    const $focusTarget = {
-        'data-popover-focus-target': '',
-    } as const;
-
-    const $rootStatic = {
-        role: 'menu',
-    } as const;
-    const $localRoot = createComputedProps($rootStatic, {
-        labelledby,
-    });
+    const $localRoot = {
+        role: 'menu' as const,
+    };
 
     return {
-        $root: $localRoot,
-        $label,
-        $focusTarget,
+        $root: mergeProps($ariaRoot, $localRoot),
+        $label: mergeProps($ariaLabel, $localLabel),
         context,
         contextValue,
     };
 };
 
 export const createMenu = (props: MenuProps): MenuAPI => {
-    const { $root, $label, $focusTarget, contextValue } = createHeadlessMenu(props);
+    const { $root, $label, contextValue } = createHeadlessMenu(props);
 
-    const surfaceProps = { tag: 'div', variant: 'card', padding: 's' } as const;
+    const surfaceProps = {
+        tag: 'div',
+        variant: 'card',
+        padding: 's',
+    } as const;
     const { surfaceProps: $surfaceRoot } = createSurface(surfaceProps);
 
-    const { $root: $focusRingRoot, $focusTarget: $focusRingTarget } = createFocusRing();
     const { $root: $menuMixinRoot } = createMenuMixin();
 
     return {
-        surfaceProps: mergeProps($root, $menuMixinRoot, $surfaceRoot, $focusRingRoot),
+        surfaceProps: mergeProps($root, $menuMixinRoot, $surfaceRoot),
         $label,
-        $focusTarget: mergeProps($focusTarget, $focusRingTarget),
         contextValue,
     };
 };

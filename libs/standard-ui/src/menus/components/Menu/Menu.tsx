@@ -28,17 +28,14 @@ type Props = ClosedTagProps & MenuProps;
 export const Menu: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props, [...MENU_PROPS, 'children']);
 
-    const { surfaceProps, $label, $focusTarget, contextValue } = createMenu(locals);
+    const { surfaceProps, $label, contextValue } = createMenu(locals);
     const $ = mergeProps($others, surfaceProps);
 
     return (
         <MenuContextProvider context={contextValue}>
             <SurfaceBase {...$}>
                 <Show when={$label.children}>
-                    <Dynamic {...$label} {...$focusTarget} />
-                </Show>
-                <Show when={!$label.children}>
-                    <span {...$focusTarget} />
+                    <Dynamic {...$label} />
                 </Show>
                 {locals.children}
             </SurfaceBase>

@@ -52,7 +52,7 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): Anchore
     const $popover = mergeProps($popoverRoot, popoverStaticProps);
 
     const randomId = createMemo(shortId);
-    const triggerId = () => props.id ?? randomId();
+    const triggerId = () => randomId();
 
     const triggerProps = createComputedProps({
         id: triggerId,
@@ -63,7 +63,7 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): Anchore
 
     const contentProps = createComputedProps({
         id: context.id,
-        labelledby: triggerId,
+        'aria-labelledby': triggerId,
     });
 
     return {

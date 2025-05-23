@@ -48,7 +48,6 @@ export const MenuItemSubMenu: Component<Props> = props => {
 
     return (
         <PopoverContextProvider context={contextValue}>
-            <Popover {...$popover}>{locals.children({ subMenu: subMenuProps })}</Popover>
             <Dynamic {...$}>
                 <Show when={groupHasIcons()}>
                     <span {...$iconSlot}>{hasIcon() ? <Icon {...iconProps()} /> : undefined}</span>
@@ -65,6 +64,7 @@ export const MenuItemSubMenu: Component<Props> = props => {
                     <Icon icon={ChevronRightIcon} />
                 </span>
             </Dynamic>
+            <Popover {...$popover}>{locals.children({ subMenu: subMenuProps })}</Popover>
         </PopoverContextProvider>
     );
 };
