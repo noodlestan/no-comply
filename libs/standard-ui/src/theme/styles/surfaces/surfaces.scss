@@ -20,7 +20,7 @@
             --__border-style: 0;
             --__border-width: 0;
             --__border-radius: 0;
-            @include set-color(__shadow, primary, fg-muted, translucid);
+            @include set-color(__shadow, primary, shadow, shadow);
             --__shadow-size: 0 0;
         }
 
@@ -35,7 +35,7 @@
             @include set-level(content-bg-1, bg-3);
             @include set-level(content-bg-2, bg-2);
 
-            --__shadow-size: var(--box-shadow-1);
+            --__shadow-size: var(--box-shadow-2);
         }
 
         /* TODO
@@ -111,9 +111,9 @@
 
         [data-theme-standard] [data-surface-menu] {
             --__border-radius: var(--radius-s);
-            --__shadow-size: 0;
-            backdrop-filter: blur(12px);
 
+            --__shadow-size: var(--box-shadow-1);
+            backdrop-filter: blur(12px);
             @include set-alpha(__bg, translucid);
         }
     }
