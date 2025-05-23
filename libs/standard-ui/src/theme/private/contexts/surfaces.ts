@@ -34,6 +34,11 @@ export const STANDARD_UI_SURFACE_DIALOG = createSurfaceVariant({
     extend: ['panel'],
 });
 
+export const STANDARD_UI_SURFACE_MENU = createSurfaceVariant({
+    name: 'menu',
+    extend: ['panel'],
+});
+
 export const STANDARD_UI_SURFACES = [
     STANDARD_UI_SURFACE_STAGE,
     STANDARD_UI_SURFACE_PAGE,
@@ -43,4 +48,5 @@ export const STANDARD_UI_SURFACES = [
     STANDARD_UI_SURFACE_MESSAGE,
     STANDARD_UI_SURFACE_TOAST,
     STANDARD_UI_SURFACE_DIALOG,
+    STANDARD_UI_SURFACE_MENU,
 ];

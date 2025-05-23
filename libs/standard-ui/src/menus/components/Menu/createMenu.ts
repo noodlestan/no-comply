@@ -92,7 +92,7 @@ export const createMenu = (props: MenuProps): MenuAPI => {
 
     const surfaceProps = {
         tag: 'div',
-        variant: 'card',
+        variant: 'menu',
         padding: 's',
     } as const;
     const { surfaceProps: $surfaceRoot } = createSurface(surfaceProps);

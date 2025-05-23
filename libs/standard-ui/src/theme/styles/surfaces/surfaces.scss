@@ -7,6 +7,7 @@
 
             @include set-alpha(content-fg, opaque);
             @include set-alpha(content-bg, opaque);
+
             @include set-level(content-bg-0, bg-0);
             @include set-level(content-bg-1, bg-2);
             @include set-level(content-bg-2, bg-1);
@@ -106,6 +107,14 @@
         [data-theme-standard] [data-surface-dialog] {
             --__border-radius: var(--radius-l);
             --__shadow-size: var(--box-shadow-3);
+        }
+
+        [data-theme-standard] [data-surface-menu] {
+            --__border-radius: var(--radius-s);
+            --__shadow-size: 0;
+            backdrop-filter: blur(12px);
+
+            @include set-alpha(__bg, translucid);
         }
     }
 }

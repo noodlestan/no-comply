@@ -15,7 +15,8 @@ export type SurfaceVariant =
     | 'inverse'
     | 'message'
     | 'toast'
-    | 'dialog';
+    | 'dialog'
+    | 'menu';
 
 export type SurfaceAPI = {
     surfaceProps: SurfaceBaseProps & LayoutMixinAPI['$root'];
