@@ -4,6 +4,8 @@
     @layer mode {
         @layer color {
             [data-mode-light] {
+                @include def-color-level(shadow, 400);
+
                 @include def-color-level(static-fg-contrast, 950);
                 @include def-color-level(static-fg-primary, 1000);
                 @include def-color-level(static-border, 600);

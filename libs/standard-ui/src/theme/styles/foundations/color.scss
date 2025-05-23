@@ -8,8 +8,9 @@
                 @include def-color-level(fg-primary, 100);
                 @include def-color-level(fg-muted, 200);
                 @include def-color-level(fg-saturated, 300);
-                @include def-color-level(fg-disabled, 400);
+                @include def-color-level(fg-disabled, 500);
 
+                @include def-color-level(shadow, 700);
                 @include def-color-level(focus-ring, 500);
                 @include def-color-level(border, 600);
                 @include def-color-level(border-hover, 600);
