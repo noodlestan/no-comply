@@ -5,6 +5,7 @@ export * from './group';
 export * from './label';
 export * from './list-item';
 export * from './list';
+export * from './menu-item';
 export * from './menu';
 export * from './pressable';
 export * from './region';

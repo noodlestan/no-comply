@@ -1,5 +1,5 @@
 import type { IconComponent } from '@noodlestan/context-ui';
-import { createAriaLabelled } from '@noodlestan/context-ui-aria';
+import { createAriaMenuItem } from '@noodlestan/context-ui-aria';
 import {
     type PressEvent,
     createComputedProps,
@@ -58,15 +58,17 @@ export const createMenuItemBase = (
     // const setRovingFocus = (value: boolean) => console.log('set focus', value);
     // const menuContext = useMenuItem({ setRovingFocus });
 
-    const labelledProps = createComputedProps(
+    const ariaMenuItemProps = createComputedProps(
         { labelled: true },
         { described: () => Boolean(props.description) },
     );
     const {
-        $root: $labelledRoot,
-        $label: $labelledLabel,
-        $description: $labelledDescription,
-    } = createAriaLabelled(labelledProps);
+        $root: $ariaMenuItemRoot,
+        $label: $ariaMenuItemLabel,
+        $description: $ariaMenuItemDescription,
+    } = createAriaMenuItem(ariaMenuItemProps);
+
+    const { $root: $pressableRoot } = createPressable(props, 'menuitem');
 
     const $localLabel = createComputedProps({
         children: () => props.label,
@@ -88,9 +90,6 @@ export const createMenuItemBase = (
         };
     };
 
-    // createAriaMenuItem
-    const { $root: $pressableRoot } = createPressable(props, 'menuitem');
-
     const menuItemAPI = {
         hasIcon,
         hasSubMenu: () => hasSubMenu,
@@ -99,9 +98,9 @@ export const createMenuItemBase = (
     const context = useMenuItemGroupChild(menuItemAPI);
 
     return {
-        $root: mergeProps($pressableRoot, $labelledRoot),
-        $label: mergeProps($labelledLabel, $localLabel),
-        $description: mergeProps($labelledDescription, $localDescription),
+        $root: mergeProps($pressableRoot, $ariaMenuItemRoot),
+        $label: mergeProps($ariaMenuItemLabel, $localLabel),
+        $description: mergeProps($ariaMenuItemDescription, $localDescription),
         iconProps,
         hasIcon,
         hasSubMenu: () => hasSubMenu,

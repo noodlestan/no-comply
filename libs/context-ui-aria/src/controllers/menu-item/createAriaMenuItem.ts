@@ -2,13 +2,13 @@ import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitiv
 
 import { createAriaLabelled } from '../label';
 
-import type { AriaMenuAPI, AriaMenuProps } from './types';
+import type { AriaMenuItemAPI, AriaMenuItemProps } from './types';
 
-export function createAriaMenu(props: AriaMenuProps): AriaMenuAPI {
+export function createAriaMenuItem(props: AriaMenuItemProps): AriaMenuItemAPI {
     const { $root: $labelledRoot, ...rest } = createAriaLabelled(props);
 
     const $localRoot = createComputedProps({
-        role: () => props.role ?? 'menu',
+        role: () => props.role ?? 'menuitem',
     });
 
     return {
