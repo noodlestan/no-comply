@@ -20,7 +20,7 @@ export const createMenuItemMixin = (props: MenuItemMixinProps): MenuItemMixinAPI
     const [, others] = splitProps(props, ['variant']);
     const variant = () => props.variant ?? defaultProps.variant;
     const size = () => 'normal' as ContentSize;
-    const actionProps = createComputedProps(others, { variant, size });
+    const actionProps = createComputedProps(others, { variant, size, inset: () => true });
     const { $root: $actionMixinRoot } = createActionMixin(actionProps);
 
     const $localRoot = {

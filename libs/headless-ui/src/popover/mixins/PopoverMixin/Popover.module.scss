@@ -1,5 +1,6 @@
 @layer headless-ui {
     .Popover {
+        overflow: visible;
         background-color: transparent;
         border: none;
     }

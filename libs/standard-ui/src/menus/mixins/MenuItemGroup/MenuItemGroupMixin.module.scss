@@ -6,7 +6,8 @@
         flex-direction: column;
         align-items: stretch;
         justify-content: start;
-        gap: var(--__gap);
+        gap: var(--space-gap-0);
+        padding-block: var(--space-gap-0);
     }
 
     .MenuItemGroup--Label {

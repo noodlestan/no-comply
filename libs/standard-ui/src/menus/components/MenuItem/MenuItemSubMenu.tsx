@@ -54,12 +54,12 @@ export const MenuItemSubMenu: Component<Props> = props => {
                 </Show>
                 <span {...$labelSlot}>
                     <Label {...labelProps} />
+                    <Show when={descriptionProps.children}>
+                        <span {...$descriptionSlot}>
+                            <Text {...descriptionProps} />
+                        </span>
+                    </Show>
                 </span>
-                <Show when={descriptionProps.children}>
-                    <span {...$descriptionSlot}>
-                        <Text {...descriptionProps} />
-                    </span>
-                </Show>
                 <span {...$expandSlot}>
                     <Icon icon={ChevronRightIcon} />
                 </span>

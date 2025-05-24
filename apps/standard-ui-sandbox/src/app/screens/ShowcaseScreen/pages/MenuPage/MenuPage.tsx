@@ -1,14 +1,13 @@
 import { staticClassList } from '@noodlestan/context-ui-primitives';
 import {
     AnchoredPopover,
-    Button,
-    Divider,
+    IconButton,
     Menu,
     MenuItemAction,
     MenuItemGroup,
     MenuItemSubMenu,
 } from '@noodlestan/standard-ui';
-import { PencilIcon, TrashIcon } from 'lucide-solid';
+import { MoreHorizontalIcon, PencilIcon, TrashIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -26,10 +25,14 @@ export const MenuPage: Component = () => {
             <DemoGroup title="Demo">
                 <DemoItem>
                     <AnchoredPopover
+                        direction="inline"
                         trigger={trigger => (
-                            <Button variant="primary" {...trigger}>
-                                ups!
-                            </Button>
+                            <IconButton
+                                variant="secondary"
+                                icon={MoreHorizontalIcon}
+                                {...trigger}
+                                label="Foo Menu"
+                            />
                         )}
                     >
                         {content => (
@@ -39,21 +42,19 @@ export const MenuPage: Component = () => {
                                 <MenuItemGroup label="Operations">
                                     <MenuItemAction disabled label="Bat" />
                                     <MenuItemAction icon={PencilIcon} label="Rename" />
-                                    <Divider />
                                     <MenuItemAction
                                         icon={TrashIcon}
                                         intent="negative"
                                         label="Delete"
                                     />
                                 </MenuItemGroup>
-                                <Divider />
-                                <MenuItemGroup label="Grouped" description="omg!">
+                                <MenuItemGroup label="Grouped">
                                     <MenuItemAction label="Foo" />
                                     <MenuItemSubMenu label="More options">
                                         {({ subMenu }) => (
                                             <Menu {...subMenu}>
-                                                <MenuItemAction label="Woah!Woah!Woah!Woah!Woah!Woah!" />
-                                                <MenuItemAction label="Nice" />
+                                                <MenuItemAction label="Long option that opens a dialog..." />
+                                                <MenuItemAction label="Short option" />
                                             </Menu>
                                         )}
                                     </MenuItemSubMenu>

@@ -18,7 +18,7 @@ const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent'> = {
 
 export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
     const { $root: $buttonMixinRoot } = createHeadlessActionMixin();
-    const { $root: $focusRing } = createFocusRingMixin();
+    const { $root: $focusRing } = createFocusRingMixin(props);
 
     const variant = () => props.variant ?? defaultProps.variant;
     const intent = () => props.intent ?? defaultProps.intent;

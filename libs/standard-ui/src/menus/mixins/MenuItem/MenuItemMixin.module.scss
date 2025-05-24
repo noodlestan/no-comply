@@ -10,8 +10,22 @@
         justify-content: start;
         height: auto;
         min-height: auto;
-        padding-block: var(--space-gap-0);
+        padding-block: var(--space-gap--1);
         --__gap: var(--space-gap-0);
+    }
+
+    .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+        @include set-palette(__fg, __intent);
+        @include set-level(__fg, static-fg-primary);
+        @include set-palette(__bg, __intent);
+        @include set-level(__bg, static-bg-0);
+    }
+
+    .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
+        @include set-palette(__fg, __intent);
+        @include set-level(__fg, static-fg-contrast);
+        @include set-palette(__bg, __intent);
+        @include set-level(__bg, static-bg-contrast);
     }
 
     .MenuItem--Icon {
@@ -20,9 +34,6 @@
 
     .MenuItem--Label {
         flex: 1;
-    }
-
-    .MenuItem--Label * {
         cursor: inherit;
     }
 
