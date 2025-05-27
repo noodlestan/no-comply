@@ -86,6 +86,7 @@ export const createMenuItemBase = (
         }
         return {
             'aria-hidden': true,
+            size: 'xs',
             icon: props.icon as IconComponent,
         };
     };

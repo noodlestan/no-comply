@@ -1,16 +1,11 @@
 import type { HeadingTagName } from '@noodlestan/context-ui-aria';
-import {
-    type PickRequired,
-    createClassList,
-    createComputedProps,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createTextMixin } from '@noodlestan/headless-ui';
+import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
-import styles from './Display.module.css';
-import type { DisplayAPI, DisplayLevel, DisplayProps, DisplayVariant } from './types';
+import { type DisplayMixinLevel, createDisplayMixin } from '../../mixins';
 
-const MAP_LEVEL_TO_COMPONENT: Record<DisplayLevel, HeadingTagName> = {
+import type { DisplayAPI, DisplayProps } from './types';
+
+const MAP_LEVEL_TO_COMPONENT: Record<DisplayMixinLevel, HeadingTagName> = {
     1: 'h1',
     2: 'h2',
     3: 'h3',
@@ -18,29 +13,12 @@ const MAP_LEVEL_TO_COMPONENT: Record<DisplayLevel, HeadingTagName> = {
     5: 'h5',
 };
 
-const MAP_LEVEL_TO_VARIANT: Record<DisplayLevel, DisplayVariant> = {
-    1: 'xl',
-    2: 'l',
-    3: 'm',
-    4: 's',
-    5: 'xs',
-};
-
-const defaultProps: PickRequired<DisplayProps, 'level' | 'variant'> = {
-    level: 3,
-    variant: 'm',
-};
-
 export const createDisplay = (props: DisplayProps): DisplayAPI => {
-    const { $root: $textMixinRoot } = createTextMixin(props);
+    const { $root: $textMixinRoot, level } = createDisplayMixin(props);
 
-    const level = () => props.level ?? defaultProps.level;
     const component = () => props.tag ?? MAP_LEVEL_TO_COMPONENT[level()];
-    const variant = () => props.variant ?? MAP_LEVEL_TO_VARIANT[level()];
-    const classList = createClassList(styles, () => ['Display', `Display-variant-${variant()}`]);
     const $localRoot = createComputedProps({
         component,
-        classList,
     });
 
     return {

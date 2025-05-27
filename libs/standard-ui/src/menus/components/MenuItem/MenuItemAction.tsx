@@ -3,7 +3,7 @@ import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import { Icon } from '../../../icon';
-import { Label, Text } from '../../../typography';
+import { FirstLineAlign, Label, Text } from '../../../typography';
 
 import { MENU_ITEM_ACTION_PROPS } from './constants';
 import { createMenuItemAction } from './createMenuItem';
@@ -31,20 +31,24 @@ export const MenuItemAction: Component<Props> = props => {
 
     return (
         <Dynamic {...$}>
-            <Show when={groupHasIcons()}>
-                <span {...$iconSlot}>{hasIcon() ? <Icon {...iconProps()} /> : undefined}</span>
-            </Show>
-            <span {...$labelSlot}>
-                <Label {...labelProps} />
-                <Show when={descriptionProps.children}>
-                    <span {...$descriptionSlot}>
-                        <Text {...descriptionProps} />
+            <FirstLineAlign height={'s'} type="action" size="small">
+                <Show when={groupHasIcons()}>
+                    <span {...$iconSlot}>
+                        {hasIcon() ? <Icon {...iconProps()} aligned /> : undefined}
                     </span>
                 </Show>
-            </span>
-            <Show when={groupHasSubMenus()}>
-                <span {...$expandSlot}> </span>
-            </Show>
+                <span {...$labelSlot}>
+                    <Label {...labelProps} />
+                    <Show when={descriptionProps.children}>
+                        <span {...$descriptionSlot}>
+                            <Text {...descriptionProps} />
+                        </span>
+                    </Show>
+                </span>
+                <Show when={groupHasSubMenus()}>
+                    <span {...$expandSlot}> </span>
+                </Show>
+            </FirstLineAlign>
         </Dynamic>
     );
 };

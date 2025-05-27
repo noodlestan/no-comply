@@ -76,7 +76,7 @@
 
             --__border-width: var(--border-width-thin);
             --__border-style: solid;
-            --__border-radius: var(--radius-xs);
+            --__border-radius: var(--radius-s);
         }
 
         [data-theme-standard] [data-surface-message][data-message='passive'] {
@@ -100,12 +100,12 @@
         }
 
         [data-theme-standard] [data-surface-toast] {
-            --__border-radius: var(--radius-l);
+            --__border-radius: var(--radius-m);
             --__shadow-size: var(--box-shadow-2);
         }
 
         [data-theme-standard] [data-surface-dialog] {
-            --__border-radius: var(--radius-l);
+            --__border-radius: var(--radius-xl);
             --__shadow-size: var(--box-shadow-3);
         }
 

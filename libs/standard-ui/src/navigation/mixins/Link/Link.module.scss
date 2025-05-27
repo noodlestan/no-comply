@@ -5,7 +5,7 @@
         @include set-color(__fg, interactive, fg-saturated, content-fg);
 
         text-decoration: underline;
-        border-radius: var(--action-border-radius);
+        border-radius: var(--link-border-radius);
 
         @include apply-color(color, __fg);
     }

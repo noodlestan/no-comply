@@ -6,12 +6,12 @@
         @include set-color(__highlight, primary, border-active, invisible);
 
         position: relative;
-        display: inline-flex;
+        display: flex;
         flex-direction: row;
         align-items: center;
         gap: var(--space-gap-0);
-        font-family: var(--action-type-family);
-        font-weight: var(--action-type-weight-base);
+        font-family: var(--action-base-family);
+        font-weight: var(--action-base-weight);
         line-height: 1;
         user-select: none;
         transition:
@@ -101,22 +101,16 @@
     .size-small {
         padding-block: var(--space-gap-0);
         padding-inline: var(--space-gap-1);
-        font-size: var(--action-type-size-s);
-        font-weight: var(--action-type-weight-s);
     }
 
     .size-normal {
         padding-block: var(--space-gap-1);
         padding-inline: var(--space-gap-2);
-        font-size: var(--action-type-size-m);
-        font-weight: var(--action-type-weight-m);
     }
 
     .size-medium {
         padding-block: var(--space-gap-2);
         padding-inline: var(--space-gap-3);
-        font-size: var(--action-type-size-l);
-        font-weight: var(--action-type-weight-l);
     }
 
     .nowrap {

@@ -1,0 +1,25 @@
+@layer standard-ui {
+    .size-2xs {
+        --__align-content-height: var(--size-2xs);
+    }
+
+    .size-xs {
+        --__align-content-height: var(--size-xs);
+    }
+
+    .size-s {
+        --__align-content-height: var(--size-s);
+    }
+
+    .size-m {
+        --__align-content-height: var(--size-m);
+    }
+
+    .size-l {
+        --__align-content-height: var(--size-l);
+    }
+
+    .size-xl {
+        --__align-content-height: var(--size-xl);
+    }
+}

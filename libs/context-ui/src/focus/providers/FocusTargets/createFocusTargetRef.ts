@@ -1,8 +1,8 @@
 import { useContext } from 'solid-js';
 
-import { type FocusTargetName, createFocusTargetAPI } from '../../services';
+import { type FocusTargetName } from '../../services';
 
-import { FocusTargetsCTX } from './private';
+import { FocusTargetsCTX, createFocusTargetAPI } from './private';
 
 type FocusTargetRefAPI = [setRef: (el: HTMLElement) => void, setFocus: () => void];
 

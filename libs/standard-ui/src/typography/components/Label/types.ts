@@ -1,19 +1,15 @@
 import type { LabelTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { TextMixinAPI, TextMixinProps } from '@noodlestan/headless-ui';
 
-import type { ContentSize } from '../../../types';
+import type { LabelMixinAPI, LabelMixinProps } from '../../mixins';
 
-export type LabelProps = TextMixinProps & {
+export type LabelOwnProps = {
     tag?: LabelTagName;
-    variant?: ContentSize;
 };
 
-export type LabelVariant = ContentSize;
+export type LabelProps = LabelMixinProps & LabelOwnProps;
 
 export type LabelAPI = {
-    $root: TextMixinAPI['$root'] & {
+    $root: LabelMixinAPI['$root'] & {
         component: LabelTagName;
-        classList: ClassList;
     };
 };

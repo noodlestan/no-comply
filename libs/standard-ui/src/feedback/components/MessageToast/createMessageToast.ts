@@ -3,20 +3,24 @@ import { createFeedbackMessage } from '@noodlestan/headless-ui';
 
 import type { ContentSize } from '../../../types';
 
-import styles from './MessageToast.module.css';
+import styles from './MessageToast.module.scss';
 import type { MessageToastAPI, MessageToastProps } from './types';
 
 export const createMessageToast = (props: MessageToastProps): MessageToastAPI => {
-    const messageProps = mergeProps(props, { labelled: true });
     const {
         $root: $feedbackMessageRoot,
-        $label,
+        $title: $feedbackMessageTitle,
+        $description: $feedbackMessageDescription,
         iconProps: feedbackMessageIconProps,
-    } = createFeedbackMessage(messageProps);
+    } = createFeedbackMessage(props);
 
     const classList = staticClassList(styles, 'MessageToast');
     const $localRoot = {
         classList,
+    };
+
+    const $title = {
+        classList: staticClassList(styles, 'MessageToast--Title'),
     };
 
     const iconProps = {
@@ -25,7 +29,8 @@ export const createMessageToast = (props: MessageToastProps): MessageToastAPI =>
 
     return {
         $root: mergeProps($feedbackMessageRoot, $localRoot),
-        $label,
+        $title: mergeProps($feedbackMessageTitle, $title),
+        $description: $feedbackMessageDescription,
         iconProps: mergeProps(feedbackMessageIconProps, iconProps),
     };
 };

@@ -3,10 +3,11 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
+    staticClassList,
 } from '@noodlestan/context-ui-primitives';
 import { createFeedbackMessage } from '@noodlestan/headless-ui';
 
-import styles from './MessageBox.module.css';
+import styles from './MessageBox.module.scss';
 import type { MessageBoxAPI, MessageBoxProps } from './types';
 
 const defaultProps: PickRequired<MessageBoxProps, 'size' | 'length'> = {
@@ -15,23 +16,27 @@ const defaultProps: PickRequired<MessageBoxProps, 'size' | 'length'> = {
 };
 
 export const createMessageBox = (props: MessageBoxProps): MessageBoxAPI => {
-    const messageProps = mergeProps(props, { labelled: true });
     const {
         $root: $feedbackMessageRoot,
-        $label,
+        $title: $feedbackMessageTitle,
+        $description: $feedbackMessageDescription,
         iconProps: feedbackMessageIconProps,
-    } = createFeedbackMessage(messageProps);
+    } = createFeedbackMessage(props);
 
     const size = () => props.size ?? defaultProps.size;
     const length = () => props.length ?? defaultProps.length;
     const classList = createClassList(styles, () => [
         'MessageBox',
-        `MessageBox-size-${size()}`,
-        `MessageBox-length-${length()}`,
+        `size-${size()}`,
+        `length-${length()}`,
     ]);
     const $localRoot = createComputedProps({
         classList,
     });
+
+    const $title = {
+        classList: staticClassList(styles, 'MessageBox--Title'),
+    };
 
     const iconProps = createComputedProps({
         size,
@@ -39,7 +44,8 @@ export const createMessageBox = (props: MessageBoxProps): MessageBoxAPI => {
 
     return {
         $root: mergeProps($feedbackMessageRoot, $localRoot),
-        $label,
+        $title: mergeProps($feedbackMessageTitle, $title),
+        $description: $feedbackMessageDescription,
         $icon: mergeProps(feedbackMessageIconProps, iconProps),
     };
 };

@@ -16,23 +16,27 @@ const defaultProps: PickRequired<CalloutProps, 'size' | 'length'> = {
 };
 
 export const createCallout = (props: CalloutProps): CalloutAPI => {
-    const messageProps = mergeProps(props, { labelled: true });
     const {
         $root: $staticMessageRoot,
-        $label: $staticessageLabel,
+        $title: $staticMessageTitle,
+        $description: $staticMessageDescription,
         iconProps: staticMessageIconProps,
-    } = createStaticMessage(messageProps);
+    } = createStaticMessage(props);
 
     const size = () => props.size ?? defaultProps.size;
     const length = () => props.length ?? defaultProps.length;
     const classList = createClassList(styles, () => [
         'Callout',
-        `Callout-size-${size()}`,
-        `Callout-length-${length()}`,
+        `size-${size()}`,
+        `length-${length()}`,
     ]);
     const $localRoot = createComputedProps({
         classList,
     });
+
+    const $title = {
+        classList: staticClassList(styles, 'Callout--Title'),
+    };
 
     const iconStaticProps = {
         classList: staticClassList(styles, 'Callout--Icon'),
@@ -41,13 +45,23 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
         size,
     });
 
-    const $label = {
-        classList: staticClassList(styles, 'Callout--Label'),
-    };
+    const isSmall = () => props.size === 'small';
+
+    const alignmentHeight = () => (isSmall() ? 'xs' : 's');
+    const padding = () => (isSmall() ? 'xs' : 's');
+    const gap = () => (isSmall() ? 's' : 'm');
+    const titleVariant = () => (isSmall() ? 'xs' : 's');
 
     return {
         $root: mergeProps($staticMessageRoot, $localRoot),
-        $label: mergeProps($staticessageLabel, $label),
+        $title: mergeProps($staticMessageTitle, $title),
+        $description: $staticMessageDescription,
         iconProps: mergeProps(staticMessageIconProps, iconProps),
+        alignmentHeight,
+        padding,
+        gap,
+        titleVariant,
+        descriptionVariant: size,
+        closeButtonSize: size,
     };
 };

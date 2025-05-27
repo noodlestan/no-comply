@@ -42,6 +42,8 @@ export type TextTagName = 'p' | HeadingTagName | 'div' | 'span';
 
 export type LabelTagName = 'label' | 'span';
 
+export type ActionLabelTagName = 'label' | 'span';
+
 export type DialogTagName = 'dialog';
 
 export type FormTagName = 'form' | 'div';

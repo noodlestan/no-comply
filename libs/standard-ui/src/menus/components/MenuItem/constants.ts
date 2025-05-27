@@ -11,10 +11,8 @@ import type {
     MenuItemSubMenuProps,
 } from './types';
 
-const PARTIAL_PRESSABLE_PROPS = omitPropKeys(PRESSABLE_PROPS, ['role'] as const);
-
 export const BASE_MENU_ITEM_PROPS = definePropKeys<MenuItemBaseProps>()([
-    ...PARTIAL_PRESSABLE_PROPS,
+    ...omitPropKeys(PRESSABLE_PROPS, ['role'] as const),
     'label',
     'description',
     'icon',

@@ -16,7 +16,10 @@ export type MessageBoxAPI = {
     $root: FeedbackMessageAPI['$root'] & {
         classList: ClassList;
     };
-    $label: FeedbackMessageAPI['$label'];
+    $title: FeedbackMessageAPI['$title'] & {
+        classList: ClassList;
+    };
+    $description: FeedbackMessageAPI['$description'];
     $icon: FeedbackMessageAPI['iconProps'] & {
         size: ContentSize;
     };

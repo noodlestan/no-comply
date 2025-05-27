@@ -1,13 +1,15 @@
 @layer headless-ui {
     .Icon {
         position: relative;
-        display: inline-block;
+        display: block;
         width: var(--__icon-size);
         max-width: var(--__icon-size);
         height: var(--__icon-size);
         max-height: var(--__icon-size);
         flex-shrink: 0;
         flex-grow: 0;
+
+        --__align-to-height: var(--__icon-size);
     }
 
     .Icon svg {

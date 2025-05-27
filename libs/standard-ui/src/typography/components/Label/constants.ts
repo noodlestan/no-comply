@@ -1,6 +1,9 @@
 import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { TEXT_MIXIN_PROPS } from '@noodlestan/headless-ui';
 
-import type { LabelProps } from './types';
+import { LABEL_MIXIN_PROPS } from '../../mixins';
 
-export const LABEL_PROPS = definePropKeys<LabelProps>()([...TEXT_MIXIN_PROPS, 'tag', 'variant']);
+import type { LabelOwnProps, LabelProps } from './types';
+
+export const LABEL_OWN_PROPS = definePropKeys<LabelOwnProps>()(['tag']);
+
+export const LABEL_PROPS = definePropKeys<LabelProps>()([...LABEL_MIXIN_PROPS, ...LABEL_OWN_PROPS]);

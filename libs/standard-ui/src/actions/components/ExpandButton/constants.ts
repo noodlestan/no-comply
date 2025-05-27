@@ -7,5 +7,6 @@ export const EXPAND_BUTTON_PROPS = definePropKeys<ExpandButtonProps>()([
     'size',
     'onPress',
     'disabled',
+    'aligned',
     ...EXPAND_ACTION_PROPS,
 ]);

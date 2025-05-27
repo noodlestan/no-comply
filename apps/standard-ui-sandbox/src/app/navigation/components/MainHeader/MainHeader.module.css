@@ -5,6 +5,10 @@
             z-index: 1;
             top: 0;
             left: 0;
+
+            > div {
+                padding-inline: var(--space-pad--1);
+            }
         }
     }
 }

@@ -10,7 +10,7 @@
         justify-content: start;
         height: auto;
         min-height: auto;
-        padding-block: var(--space-gap--1);
+        padding-block: var(--space-pad--2);
         --__gap: var(--space-gap-0);
     }
 
@@ -29,12 +29,18 @@
     }
 
     .MenuItem--Icon {
+        display: flex;
+        align-items: center;
         width: var(--size-xs);
+        --__icon-size: 22px;
+        height: 26px;
     }
 
     .MenuItem--Label {
         flex: 1;
         cursor: inherit;
+        white-space: break-spaces;
+        word-break: break-word;
     }
 
     .MenuItem--LabelSub {

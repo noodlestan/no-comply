@@ -1,12 +1,8 @@
 import { useContext } from 'solid-js';
 
-import {
-    type FocusTargetName,
-    type FocusTargetProducerAPI,
-    createFocusTargetAPI,
-} from '../../services';
+import { type FocusTargetName, type FocusTargetProducerAPI } from '../../services';
 
-import { FocusTargetsCTX } from './private';
+import { FocusTargetsCTX, createFocusTargetAPI } from './private';
 
 export const createFocusTarget = (target: FocusTargetName): FocusTargetProducerAPI => {
     const context = useContext(FocusTargetsCTX);

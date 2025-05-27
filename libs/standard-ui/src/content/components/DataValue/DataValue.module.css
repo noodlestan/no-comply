@@ -46,7 +46,6 @@
 
     .DataValue-is-interactive {
         cursor: pointer;
-        border-radius: var(--outline-radius);
     }
 
     .DataValue-is-interactive:hover {

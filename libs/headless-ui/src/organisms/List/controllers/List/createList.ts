@@ -1,8 +1,8 @@
 import { createAriaList } from '@noodlestan/context-ui-aria';
 import { createComputedProps, mergeProps, withDefault } from '@noodlestan/context-ui-primitives';
 
-import { createListKeyboardController } from '..';
 import { createListContext } from '../../contexts';
+import { createListKeyboardController } from '../ListKeyboard';
 
 import type { ListAPI, ListProps } from './types';
 

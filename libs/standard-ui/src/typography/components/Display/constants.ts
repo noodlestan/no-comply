@@ -1,11 +1,12 @@
 import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { TEXT_MIXIN_PROPS } from '@noodlestan/headless-ui';
 
-import type { DisplayProps } from './types';
+import { DISPLAY_MIXIN_PROPS } from '../../mixins';
+
+import type { DisplayOwnProps, DisplayProps } from './types';
+
+export const DISPLAY_OWN_PROPS = definePropKeys<DisplayOwnProps>()(['tag']);
 
 export const DISPLAY_PROPS = definePropKeys<DisplayProps>()([
-    ...TEXT_MIXIN_PROPS,
-    'tag',
-    'level',
-    'variant',
+    ...DISPLAY_MIXIN_PROPS,
+    ...DISPLAY_OWN_PROPS,
 ]);

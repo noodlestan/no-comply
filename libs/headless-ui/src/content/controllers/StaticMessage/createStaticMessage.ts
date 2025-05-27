@@ -22,12 +22,17 @@ const defaultProps: PickRequired<StaticMessageProps, 'variant'> = {
 };
 
 export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI => {
-    const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'region');
+    const regionProps = mergeProps(props, { labelled: true, described: true });
+    const { $root: $regionRoot, $label, $description } = createAriaRegion(regionProps, 'note');
 
     const variant = () => props.variant ?? defaultProps.variant;
     const icon = () => VARIANT_ICON_MAP[variant()];
     const $localRoot = createComputedProps({
         'data-message': variant,
+    });
+
+    const $title = createComputedProps({
+        children: () => props.title,
     });
 
     const iconProps = createComputedProps({
@@ -37,7 +42,7 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
 
     return {
         $root: mergeProps($regionRoot, $localRoot),
-        $label,
+        $title: mergeProps($label, $title),
         $description,
         iconProps,
     };

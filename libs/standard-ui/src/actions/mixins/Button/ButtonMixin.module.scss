@@ -2,10 +2,9 @@
 
 @layer standard-ui {
     .Button {
-        display: inline-flex;
+        display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        white-space: nowrap;
         align-items: center;
         justify-content: center;
     }

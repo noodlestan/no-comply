@@ -1,20 +1,15 @@
-import type { HeadingTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { TextMixinAPI, TextMixinProps } from '@noodlestan/headless-ui';
+import type { TextTagName } from '@noodlestan/context-ui-aria';
 
-export type DisplayProps = TextMixinProps & {
-    tag?: HeadingTagName;
-    level?: DisplayLevel;
-    variant?: DisplayVariant;
+import type { DisplayMixinAPI, DisplayMixinProps } from '../../mixins';
+
+export type DisplayOwnProps = {
+    tag?: TextTagName;
 };
 
-export type DisplayLevel = 1 | 2 | 3 | 4 | 5;
-
-export type DisplayVariant = 'hero' | 'xl' | 'l' | 'm' | 's' | 'xs';
+export type DisplayProps = DisplayMixinProps & DisplayOwnProps;
 
 export type DisplayAPI = {
-    $root: TextMixinAPI['$root'] & {
-        component: HeadingTagName;
-        classList: ClassList;
+    $root: DisplayMixinAPI['$root'] & {
+        component: TextTagName;
     };
 };

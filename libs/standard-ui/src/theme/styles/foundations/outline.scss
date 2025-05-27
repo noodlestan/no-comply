@@ -4,7 +4,6 @@
     @layer foundations {
         @layer outline {
             [data-theme-standard] {
-                --outline-radius: var(--radius-s);
                 --outline-offset: var(--border-width-base);
                 --outline-inset-offset: calc(var(--border-width-base) * -1);
                 --outline-active-offset: calc(var(--border-width-base) / 2);

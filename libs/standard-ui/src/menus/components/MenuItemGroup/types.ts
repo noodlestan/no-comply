@@ -42,7 +42,7 @@ export type MenuItemGroupAPI = Omit<
     $root: HeadlessMenuItemGroupAPI['$root'] & MenuItemGroupMixinAPI['$root'];
     labelProps: HeadlessMenuItemGroupAPI['$label'] &
         MenuItemGroupMixinAPI['$label'] & {
-            variant: LabelProps['variant'];
+            variant: LabelProps['size'];
         };
     descriptionProps: HeadlessMenuItemGroupAPI['$description'] &
         MenuItemGroupMixinAPI['$description'] & {

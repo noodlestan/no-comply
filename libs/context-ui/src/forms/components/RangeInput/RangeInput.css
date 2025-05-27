@@ -79,7 +79,7 @@
 }
 
 .RangeInput-size-l {
-    height: var(--size-l);
+    height: var(--size-m);
 }
 
 .RangeInput-size-l::-webkit-slider-runnable-track {
@@ -92,7 +92,7 @@
 }
 
 .RangeInput-size-xl {
-    height: var(--size-xl);
+    height: var(--size-l);
 }
 
 .RangeInput-size-xl::-webkit-slider-runnable-track {

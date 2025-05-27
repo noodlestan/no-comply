@@ -20,15 +20,20 @@ const defaultProps: PickRequired<FeedbackMessageProps, 'variant'> = {
 };
 
 export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMessageAPI => {
-    const { $root: $ariaRegionRoot, $label, $description } = createAriaRegion(props);
+    const regionProps = mergeProps(props, { labelled: true, described: true });
+    const { $root: $regionRoot, $label, $description } = createAriaRegion(regionProps, 'region');
 
     const variant = () => props.variant ?? defaultProps.variant;
-    const role = () => (variant() === 'busy' ? 'status' : 'alert');
+    const role = () => (variant() === 'busy' ? ('status' as const) : ('alert' as const));
     const icon = () => VARIANT_ICON_MAP[variant()];
     const $localRoot = createComputedProps({
         role,
         'aria-live': () => (variant() === 'busy' ? 'polite' : 'assertive'),
         'data-feedback': variant,
+    });
+
+    const $title = createComputedProps({
+        children: () => props.title,
     });
 
     const iconProps = createComputedProps({
@@ -37,8 +42,8 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
     });
 
     return {
-        $root: mergeProps($ariaRegionRoot, $localRoot),
-        $label,
+        $root: mergeProps($regionRoot, $localRoot),
+        $title: mergeProps($label, $title),
         $description,
         iconProps,
     };

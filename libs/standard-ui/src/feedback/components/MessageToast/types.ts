@@ -10,7 +10,10 @@ export type MessageToastAPI = {
     $root: FeedbackMessageAPI['$root'] & {
         classList: ClassList;
     };
-    $label: FeedbackMessageAPI['$label'];
+    $title: FeedbackMessageAPI['$title'] & {
+        classList: ClassList;
+    };
+    $description: FeedbackMessageAPI['$description'];
     iconProps: FeedbackMessageAPI['iconProps'] & {
         size: ContentSize;
     };

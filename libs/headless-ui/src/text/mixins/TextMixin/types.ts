@@ -1,6 +1,8 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
-export type TextMixinProps = {
+import type { AlignToFirstLineMixinProps } from '../AlignToFirstLineMixin';
+
+export type TextMixinProps = AlignToFirstLineMixinProps & {
     nowrap?: boolean;
 };
 

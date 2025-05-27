@@ -1,12 +1,12 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer standard-ui {
-    .Callout > div {
+    .Callout {
         width: var(--__callout-width);
-        height: var(--__callout-height);
+        padding-inline-start: var(--space-pad-0);
     }
 
-    .Callout--Label {
+    .Callout--Title {
         @include set-level(surface-fg, fg-muted);
         @include apply-color(color, surface-fg);
     }
@@ -16,19 +16,20 @@
         @include apply-color(color, surface-fg);
     }
 
-    .Callout-length-full {
+    .length-full {
         --__callout-width: 100%;
     }
 
-    .Callout-length-compact {
-        --__callout-width: min-content;
+    .length-compact {
+        --__callout-width: max-content;
+        max-width: 600px; // WIP Layout width references
     }
 
-    .Callout-size-small {
+    .size-small {
         --__callout-height: var(--size-s);
     }
 
-    .Callout-size-normal {
+    .size-normal {
         --__callout-height: var(--size-m);
     }
 }

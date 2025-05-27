@@ -1,0 +1,36 @@
+@layer standard-ui {
+    .Label {
+        --__text-family: var(--label-base-family);
+        --__text-font-style: normal;
+        --__text-transform: none;
+        --__text-wrap-style: balance;
+    }
+
+    .size-small {
+        --__text-font-size: var(--label-size-small-size);
+        --__text-font-weight: var(--label-size-small-weight, var(--label-base-weight));
+        --__text-line-height: var(--label-size-small-height, var(--label-base-height));
+        --__text-letter-spacing: var(--label-size-small-spacing, var(--label-base-spacing));
+    }
+
+    .size-normal {
+        --__text-font-size: var(--label-size-normal-size);
+        --__text-font-weight: var(--label-size-normal-weight, var(--label-base-weight));
+        --__text-line-height: var(--label-size-normal-height, var(--label-base-height));
+        --__text-letter-spacing: var(--label-size-normal-spacing, var(--label-base-spacing));
+    }
+
+    .size-medium {
+        --__text-font-size: var(--label-size-medium-size);
+        --__text-font-weight: var(--label-size-medium-weight, var(--label-base-weight));
+        --__text-line-height: var(--label-size-medium-height, var(--label-base-height));
+        --__text-letter-spacing: var(--label-size-medium-spacing, var(--label-base-spacing));
+    }
+
+    .size-large {
+        --__text-font-size: var(--label-size-large-size);
+        --__text-font-weight: var(--label-size-large-weight, var(--label-base-weight));
+        --__text-line-height: var(--label-size-large-height, var(--label-base-height));
+        --__text-letter-spacing: var(--label-size-large-spacing, var(--label-base-spacing));
+    }
+}

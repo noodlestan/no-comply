@@ -5,6 +5,7 @@ import {
     mergeProps,
 } from '@noodlestan/context-ui-primitives';
 
+import { createActionLabelMixin } from '../../../typography';
 import { createActionMixin } from '../Action';
 import { createSizedActionMixin } from '../SizedAction';
 
@@ -19,8 +20,12 @@ export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
     const { $root: $actionMixinRoot } = createActionMixin(props);
 
     const size = () => props.size ?? defaultProps.size;
-    const sizedProps = createComputedProps({ size });
+    const aligned = () => props.aligned;
+    const sizedProps = createComputedProps({ size, aligned });
     const { $root: $sizedActionMixinRoot } = createSizedActionMixin(sizedProps);
+
+    const actionLabelProps = createComputedProps({ size, nowrap: () => true });
+    const { $root: $actionLabelMixinRoot } = createActionLabelMixin(actionLabelProps);
 
     const classList = createClassList(styles, () => [`Button`, `size-${size()}`]);
     const $localRoot = {
@@ -28,6 +33,11 @@ export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
     };
 
     return {
-        $root: mergeProps($actionMixinRoot, $sizedActionMixinRoot, $localRoot),
+        $root: mergeProps(
+            $actionMixinRoot,
+            $sizedActionMixinRoot,
+            $actionLabelMixinRoot,
+            $localRoot,
+        ),
     };
 };

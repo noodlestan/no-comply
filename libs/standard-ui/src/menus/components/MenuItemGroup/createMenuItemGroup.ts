@@ -110,7 +110,7 @@ export const createMenuItemGroup = (props: MenuItemGroupProps): MenuItemGroupAPI
     } as const;
 
     const descriptionProps = {
-        variant: 'normal',
+        variant: 'small',
     } as const;
 
     return {

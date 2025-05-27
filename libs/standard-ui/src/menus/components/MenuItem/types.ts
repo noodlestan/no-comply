@@ -3,12 +3,12 @@ import type { AriaAttributes, AriaLabelledAPI } from '@noodlestan/context-ui-ari
 import type {
     AnchoredPopoverAPI,
     FocusRingAPI,
-    IconProps,
     PressableAPI,
     PressableProps,
 } from '@noodlestan/headless-ui';
 import type { Accessor } from 'solid-js';
 
+import type { IconProps } from '../../../icon';
 import type { LabelProps, TextProps } from '../../../typography';
 import type { MenuItemMixinAPI, MenuItemMixinProps } from '../../mixins';
 
@@ -32,9 +32,10 @@ export type MenuItemBaseAPI = MenuItemAPI & {
         };
     $label: AriaLabelledAPI['$label'] & { children: string };
     $description: AriaLabelledAPI['$description'] & { children: string | undefined };
-
     iconProps: () => {
         icon: IconProps['icon'];
+        size: NonNullable<IconProps['size']>;
+        aligned: true;
         'aria-hidden': AriaAttributes['aria-hidden'];
     };
     groupHasIcons: Accessor<boolean>;
@@ -83,7 +84,7 @@ export type MenuItemActionAPI = Omit<
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
         labelProps: HeadlessMenuItemActionAPI['$label'] & {
-            variant: LabelProps['variant'];
+            variant: LabelProps['size'];
         };
         descriptionProps: HeadlessMenuItemActionAPI['$description'] & {
             variant: TextProps['variant'];
@@ -99,7 +100,7 @@ export type MenuItemSubMenuAPI = Omit<
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
         labelProps: HeadlessMenuItemSubMenuAPI['$label'] & {
-            variant: LabelProps['variant'];
+            variant: LabelProps['size'];
         };
         descriptionProps: HeadlessMenuItemSubMenuAPI['$description'] & {
             variant: TextProps['variant'];

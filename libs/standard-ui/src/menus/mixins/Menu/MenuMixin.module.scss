@@ -4,6 +4,9 @@
         flex-direction: column;
         align-items: stretch;
         justify-content: start;
-        gap: var(--space-gap-0);
+        gap: var(--space-gap--1);
+        min-width: 200px;
+        max-width: 280px;
+        user-select: none;
     }
 }

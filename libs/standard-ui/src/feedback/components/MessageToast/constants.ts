@@ -4,6 +4,6 @@ import { FEEDBACK_MESSAGE_PROPS } from '@noodlestan/headless-ui';
 
 import type { MessageToastProps } from './types';
 
-const MESSAGE_PROPS = omitPropKeys(FEEDBACK_MESSAGE_PROPS, ARIA_LABELLED_PROPS);
-
-export const MESSAGE_TOAST_PROPS = definePropKeys<MessageToastProps>()(MESSAGE_PROPS);
+export const MESSAGE_TOAST_PROPS = definePropKeys<MessageToastProps>()([
+    ...omitPropKeys(FEEDBACK_MESSAGE_PROPS, ARIA_LABELLED_PROPS),
+]);

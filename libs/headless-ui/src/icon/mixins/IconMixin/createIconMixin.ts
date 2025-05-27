@@ -1,14 +1,18 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
+
+import { createAlignToFirstLineMixin } from '../../../text';
 
 import styles from './IconMixin.module.css';
-import type { IconMixinAPI } from './types';
+import type { IconMixinAPI, IconMixinProps } from './types';
 
-export const createIconMixin = (): IconMixinAPI => {
+export const createIconMixin = (props: IconMixinProps): IconMixinAPI => {
+    const { $root: $alignToFirstLineRoot } = createAlignToFirstLineMixin(props);
+
     const $localRoot = {
         classList: staticClassList(styles, 'Icon'),
     };
 
     return {
-        $root: $localRoot,
+        $root: mergeProps($alignToFirstLineRoot, $localRoot),
     };
 };

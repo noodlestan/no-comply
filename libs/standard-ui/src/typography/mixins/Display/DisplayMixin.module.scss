@@ -1,0 +1,50 @@
+@layer standard-ui {
+    .Display {
+        --__text-family: var(--display-base-family);
+        --__text-font-style: normal;
+        --__text-transform: none;
+        --__text-wrap-style: pretty;
+    }
+
+    .variant-hero {
+        --__text-font-size: var(--display-variant-hero-size);
+        --__text-font-weight: var(--display-variant-hero-weight, var(--display-base-weight));
+        --__text-line-height: var(--display-variant-hero-height, var(--display-base-height));
+        --__text-letter-spacing: var(--display-variant-hero-spacing, var(--display-base-spacing));
+    }
+
+    .variant-xl {
+        --__text-font-size: var(--display-variant-xl-size);
+        --__text-font-weight: var(--display-variant-xl-weight, var(--display-base-weight));
+        --__text-line-height: var(--display-variant-xl-height, var(--display-base-height));
+        --__text-letter-spacing: var(--display-variant-xl-spacing, var(--display-base-spacing));
+    }
+
+    .variant-l {
+        --__text-font-size: var(--display-variant-l-size);
+        --__text-font-weight: var(--display-variant-l-weight, var(--display-base-weight));
+        --__text-line-height: var(--display-variant-l-height, var(--display-base-height));
+        --__text-letter-spacing: var(--display-variant-l-spacing, var(--display-base-spacing));
+    }
+
+    .variant-m {
+        --__text-font-size: var(--display-variant-m-size);
+        --__text-font-weight: var(--display-variant-m-weight, var(--display-base-weight));
+        --__text-line-height: var(--display-variant-m-height, var(--display-base-height));
+        --__text-letter-spacing: var(--display-variant-m-spacing, var(--display-base-spacing));
+    }
+
+    .variant-s {
+        --__text-font-size: var(--display-variant-s-size);
+        --__text-font-weight: var(--display-variant-s-weight, var(--display-base-weight));
+        --__text-line-height: var(--display-variant-s-height, var(--display-base-height));
+        --__text-letter-spacing: var(--display-variant-s-spacing, var(--display-base-spacing));
+    }
+
+    .variant-xs {
+        --__text-font-size: var(--display-variant-xs-size);
+        --__text-font-weight: var(--display-variant-xs-weight, var(--display-base-weight));
+        --__text-line-height: var(--display-variant-xs-height, var(--display-base-height));
+        --__text-letter-spacing: var(--display-variant-xs-spacing, var(--display-base-spacing));
+    }
+}

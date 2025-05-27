@@ -7,35 +7,24 @@
         flex-direction: row;
         height: var(--__height);
         min-height: var(--__height);
-        padding-block: var(--__padding-block, 0);
         padding-inline: var(--__padding-inline, var(--space-pad-0));
-        font-family: var(--action-type-family);
-        line-height: var(--action-type-height-base);
+
+        --__align-to-height: var(--__height);
     }
 
     .size-small {
         --__height: var(--size-xs);
-        --__padding-block: var(--space-pad-1);
-        font-size: var(--action-type-size-xs);
-        font-weight: var(--action-type-weight-xs);
     }
 
     .size-normal {
-        --__height: var(--size-m);
-        font-size: var(--action-type-size-s);
-        font-weight: var(--action-type-weight-s);
+        --__height: var(--size-s);
     }
 
     .size-medium {
         --__height: var(--size-m);
-        --__padding-block: var(--space-pad-2);
-        font-size: var(--action-type-size-m);
-        font-weight: var(--action-type-weight-m);
     }
 
     .size-large {
         --__height: var(--size-l);
-        font-size: var(--action-type-size-l);
-        font-weight: var(--action-type-weight-l);
     }
 }
