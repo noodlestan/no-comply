@@ -1,0 +1,9 @@
+@use '@noodlestan/standard-ui/scss/mixins/color.scss' as *;
+
+@layer standard-ui-sandbox {
+    .ShowSpace {
+        font-size: var(--typography-step--1);
+        width: var(--__show-size);
+        height: var(--__show-size);
+    }
+}

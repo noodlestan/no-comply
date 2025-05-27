@@ -21,7 +21,7 @@ export const createOverflowItemsContext = <T extends ObjectWithId = ObjectWithId
     const context: OverflowItemsContext = {
         type: 'responsive-items',
         items: () => options.items,
-        current: () => undefined,
+        currentItemId: () => options.currentItemId,
         visibleItems,
         overflowItems,
         isReflowing,

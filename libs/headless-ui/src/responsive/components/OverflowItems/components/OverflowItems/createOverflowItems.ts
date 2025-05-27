@@ -52,7 +52,7 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
     };
 
     createEffect(() => {
-        if (!(props.items && props.current)) {
+        if (!(props.items && props.currentItemId)) {
             return;
         }
         startTest();

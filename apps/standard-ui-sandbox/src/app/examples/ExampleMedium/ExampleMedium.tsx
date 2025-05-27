@@ -24,7 +24,7 @@ export const ExampleMedium: Component<Props> = props => {
                 </Flex>
             </Flex>
             <Flex gap="s">
-                <Label variant="small">Password</Label>
+                <Label size="small">Password</Label>
                 <TextInput size="s" length="m" value="password" type="password" />
             </Flex>
             <Flex direction="row" gap="m" align="center">

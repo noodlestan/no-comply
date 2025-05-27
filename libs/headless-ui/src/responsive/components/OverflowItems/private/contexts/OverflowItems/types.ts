@@ -13,7 +13,7 @@ type ToggleProps = {
 
 export type OverflowItemsContextOptions<T extends ObjectWithId = ObjectWithId> = {
     items: T[];
-    current: string | null;
+    currentItemId: string | undefined;
     renderItem: RenderProp<ItemProps<T>>;
     renderToggle: RenderProp<ToggleProps>;
 };
@@ -21,7 +21,7 @@ export type OverflowItemsContextOptions<T extends ObjectWithId = ObjectWithId> =
 export type OverflowItemsContext = BaseContext & {
     type: 'responsive-items';
     items: Accessor<ObjectWithId[]>;
-    current: Accessor<string | undefined>;
+    currentItemId: Accessor<string | undefined>;
     visibleItems: Accessor<ObjectWithId[]>;
     overflowItems: Accessor<ObjectWithId[]>;
     isReflowing: Accessor<boolean>;

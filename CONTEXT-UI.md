@@ -90,7 +90,10 @@ setTimeout(() => setIsActive(false), 150);
 
 ## disabled => inactive
 
-## light/dark mode prefers not working on Firefox
+use only data-inactive in CSS
+
+should be on when disabled, aria-disabled, or inactive are true
+implement in pressable and others?
 
 ## use logical attributes everywhere
 
@@ -98,22 +101,14 @@ example:
 inset-block-start: 0;
 inset-inline-end: 0;
 
-## selected color vs NavLink
+## Layout width references
 
-- NavLink variant horizontal (tab-like, underline) vs vertical (sidebar)
-
-## icon button symmetrical padding
+reading length
+max-width: 600px; // WIP Layout width references
 
 ## compact class names in all CSS modules
 
-## outline mixin
-
-add outline offset effect to keyboard interaction
-
-## use only data-inactive in CSS
-
-should be on when disabled, aria-disabled, or inactive are true
-implement in pressable and others?
+and rename all mixin files to SomethingMixin.module.scss
 
 ## generalize debug
 
@@ -124,15 +119,9 @@ implement in pressable and others?
 --color-name-foo => --setting-color-foo
 --o-surface-foo => --setting-alpha-foo
 
-## omit --l --p ?
-
-## scss nested rule warning
-
-## App Header
-
 ## Aria
 
-AriaLabelledAPI, => AriaRegion ???
+don't use AriaLabelledAPI directly when we can use AriaRegion (check all composing types)
 
 ## Links
 
@@ -148,10 +137,6 @@ vs router (or custom) via navigation service
 
 add aria-heading (+aria-level)
 and aria-paragraph
-
-## Callout
-
-add aria-note
 
 ## Safari
 

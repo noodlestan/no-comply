@@ -19,7 +19,7 @@ export const SplashBox: Component<Props> = props => {
             padding="l"
             gap="2xl"
         >
-            <Display level={1} id={props.labelId}>
+            <Display level={1} variant="l" id={props.labelId}>
                 Standard UI
             </Display>
             <Flex flex={1} classList={staticClassList(styles, 'logo')}>

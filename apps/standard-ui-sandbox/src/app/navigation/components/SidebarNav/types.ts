@@ -1,10 +1,9 @@
-import type { ComponentName } from '../../../../data';
-
-export type ItemLink = {
-    component: ComponentName;
+export type SidebarItem = {
+    title: string;
+    route: string;
 };
 
-export type NavLinkGroup = {
+export type SidebarItemGroup = {
     title: string;
-    items: ItemLink[];
+    items: SidebarItem[];
 };

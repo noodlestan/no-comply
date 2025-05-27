@@ -8,9 +8,13 @@ import { $ID_SIDEBAR_NAV } from '../private';
 
 import { SIDEBAR_NAV_TARGET } from './constant';
 import { NavLinkItemGroup } from './parts';
-import { NAV_LINK_GROUPS } from './private';
+import type { SidebarItemGroup } from './types';
 
-export const SidebarNav: Component = () => {
+type Props = {
+    items: SidebarItemGroup[];
+};
+
+export const SidebarNav: Component<Props> = props => {
     const [setNavRef] = createFocusTargetRef(SIDEBAR_NAV_TARGET, { transient: true });
 
     const { $root: $focusRing } = createFocusRing({ passive: true });
@@ -30,7 +34,7 @@ export const SidebarNav: Component = () => {
             {...$}
         >
             <Flex direction="column" padding="m" gap="m">
-                <For each={NAV_LINK_GROUPS}>
+                <For each={props.items}>
                     {item => <NavLinkItemGroup title={item.title} items={item.items} />}
                 </For>
             </Flex>

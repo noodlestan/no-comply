@@ -1,22 +1,25 @@
-import { useFocusTarget } from '@noodlestan/context-ui';
+import { useFocusTarget, useNavigation } from '@noodlestan/context-ui';
 import { staticClassList } from '@noodlestan/context-ui-primitives';
 import { OverflowItems, OverflowItemsContent, OverflowItemsToggle } from '@noodlestan/headless-ui';
 import { Flex, NavLink } from '@noodlestan/standard-ui';
 import { type Component } from 'solid-js';
 
 import { SCREEN_MAIN_TARGET } from '../../../../../templates';
+import { routeFor } from '../../../../navigateTo';
 
 import styles from './MainNav.module.scss';
 
 export const MainNav: Component = () => {
     const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
+    const { isCurrent } = useNavigation();
 
     const items = [
-        { id: '1', href: '/app', label: 'Showcase' },
-        { id: '2', href: '/component', label: 'Components' },
+        { id: '1', href: routeFor.showcase(), label: 'Showcase' },
+        { id: '2', href: routeFor.feature('components'), label: 'Features' },
+        { id: '3', href: routeFor.calibration(), label: 'Calibration' },
     ];
 
-    const selectedItemId = () => '1';
+    const selectedItemId = () => items.find(item => isCurrent(item.href))?.id;
 
     const handleNavLink = () => {
         setTimeout(() => {
@@ -27,7 +30,7 @@ export const MainNav: Component = () => {
     return (
         <OverflowItems
             items={items}
-            current={selectedItemId()}
+            currentItemId={selectedItemId()}
             renderOverflow={({ items }) => <>{items.length}</>}
             renderItem={({ item, isCurrent }) => (
                 <NavLink href={item.href} onPress={handleNavLink} current={isCurrent}>

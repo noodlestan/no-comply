@@ -1,6 +1,6 @@
 import { useNavigate } from '@solidjs/router';
 
-import { ROUTES } from '../../app';
+import { routeFor } from '../../app';
 
 import type { AppNavigationAPI } from './types';
 
@@ -8,7 +8,7 @@ export const createAppNavigation = (): AppNavigationAPI => {
     const navigate = useNavigate();
 
     const home = () => {
-        const route = ROUTES.home();
+        const route = routeFor.home();
         navigate(route);
     };
 

@@ -3,12 +3,9 @@ import { Display, Flex, NavLink } from '@noodlestan/standard-ui';
 import { type Component, For } from 'solid-js';
 
 import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from '../../../../templates';
-import { ROUTES } from '../../../constants';
-import type { NavLinkGroup } from '../types';
+import type { SidebarItemGroup } from '../types';
 
-type NavLinkItemGroupProps = NavLinkGroup;
-
-export const NavLinkItemGroup: Component<NavLinkItemGroupProps> = props => {
+export const NavLinkItemGroup: Component<SidebarItemGroup> = props => {
     const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
 
     const handleNavLink = () => {
@@ -26,11 +23,12 @@ export const NavLinkItemGroup: Component<NavLinkItemGroupProps> = props => {
             <For each={props.items}>
                 {item => (
                     <NavLink
-                        href={ROUTES.component(item.component) + `#${$ID_SCREEN_MAIN}`}
+                        href={item.route + `#${$ID_SCREEN_MAIN}`}
                         onPress={handleNavLink}
                         layout="v"
+                        size="small"
                     >
-                        {item.component}
+                        {item.title}
                     </NavLink>
                 )}
             </For>

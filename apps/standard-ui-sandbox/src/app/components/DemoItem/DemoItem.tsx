@@ -41,7 +41,9 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
         <Surface variant={surface()} style={style()} aria-labelledby={labelId()} {...$}>
             <Flex gap="m" padding="m">
                 <Show when={locals.title}>
-                    <Label id={labelId()}>{locals.title}</Label>
+                    <Label id={labelId()} size="medium">
+                        {locals.title}
+                    </Label>
                 </Show>
                 <Flex gap="m" direction={locals.row ? 'row' : 'column'} data-demo-item-contents>
                     {locals.children}
