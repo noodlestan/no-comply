@@ -1,5 +1,7 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type { Accessor } from 'solid-js';
 
+import type { ContentSize } from '../../../types';
 import type { ActionLabelMixinAPI, ActionLabelMixinProps } from '../../../typography';
 import type { ActionMixinAPI, ActionMixinProps } from '../Action';
 import type { SizedActionMixinAPI, SizedActionMixinProps } from '../SizedAction';
@@ -14,4 +16,5 @@ export type ButtonMixinAPI = {
         ActionLabelMixinAPI['$root'] & {
             classList: ClassList;
         };
+    size: Accessor<ContentSize>;
 };

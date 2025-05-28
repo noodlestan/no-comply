@@ -8,9 +8,10 @@ import type { ButtonAPI, ButtonProps } from './types';
 export const createButton = (props: ButtonProps): ButtonAPI => {
     const { $root: $pressableRoot } = createPressable(props);
     const { $root: $focusRingRoot } = createFocusRing();
-    const { $root: $buttonMixinRoot } = createButtonMixin(props);
+    const { $root: $buttonMixinRoot, size } = createButtonMixin(props);
 
     return {
         $root: mergeProps($pressableRoot, $focusRingRoot, $buttonMixinRoot),
+        size,
     };
 };

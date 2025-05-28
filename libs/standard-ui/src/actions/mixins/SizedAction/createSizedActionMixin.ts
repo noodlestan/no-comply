@@ -22,5 +22,6 @@ export const createSizedActionMixin = (props: SizedActionMixinProps): SizedActio
 
     return {
         $root: mergeProps($alignToFirstLineRoot, $localRoot),
+        size,
     };
 };

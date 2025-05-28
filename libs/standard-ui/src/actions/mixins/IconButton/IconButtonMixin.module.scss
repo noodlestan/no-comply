@@ -11,23 +11,11 @@
         flex-grow: 0;
     }
 
-    .IconButton--Icon {
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 100%;
+    .is-small .IconButton--Icon {
+        --__icon-size: calc(var(--size-2xs) * 1.25);
     }
 
     .is-round {
         border-radius: 50%;
-    }
-
-    .is-round:focus,
-    .is-round:focus-visible {
-        outline-offset: 1px;
-    }
-
-    .is-round:active {
-        outline-offset: 0;
     }
 }

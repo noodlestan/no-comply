@@ -90,6 +90,20 @@ export const IconButtonPage: Component = () => {
                     <IconButton size="small" icon={PlusIcon} label="Add" />
                 </DemoItem>
             </DemoGroup>
+            <DemoGroup title="round">
+                <DemoItem row title="large">
+                    <IconButton size="large" icon={PlusIcon} label="Add" round />
+                </DemoItem>
+                <DemoItem row title="medium">
+                    <IconButton size="medium" icon={PlusIcon} label="Add" round />
+                </DemoItem>
+                <DemoItem row title="normal">
+                    <IconButton size="normal" icon={PlusIcon} label="Add" round />
+                </DemoItem>
+                <DemoItem row title="small">
+                    <IconButton size="small" icon={PlusIcon} label="Add" round />
+                </DemoItem>
+            </DemoGroup>
             <DemoGroup title="disabled">
                 <DemoItem row title="">
                     <IconButton icon={PlusIcon} label="Add" disabled />
