@@ -10,33 +10,38 @@
         @include display(block);
     }
 
-    .Layout-stretch-full,
-    .Layout-stretch-width {
+    .uncontained {
+        margin-inline-start: calc(-1 * var(--__container-inline-start));
+        margin-inline-end: calc(-1 * var(--__container-inline-end));
+    }
+
+    .stretch-full,
+    .stretch-width {
         width: 100%;
         min-width: 0;
     }
 
-    .Layout-stretch-full,
-    .Layout-stretch-height {
+    .stretch-full,
+    .stretch-height {
         height: 100%;
         min-height: 0;
     }
 
-    .Layout-overflow-auto {
+    .overflow-auto {
         overflow: auto;
     }
 
-    .Layout-overflow-x-auto {
+    .overflow-x-auto {
         overflow-x: auto;
         overflow-y: hidden;
     }
 
-    .Layout-overflow-y-auto {
+    .overflow-y-auto {
         overflow-y: auto;
         overflow-x: hidden;
     }
 
-    .Layout-overflow-hidden {
+    .overflow-hidden {
         overflow: hidden;
     }
 }

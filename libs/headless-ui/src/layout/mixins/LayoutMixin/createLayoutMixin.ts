@@ -6,8 +6,9 @@ import type { LayoutMixinAPI, LayoutMixinProps } from './types';
 export function createLayoutMixin(props: LayoutMixinProps): LayoutMixinAPI {
     const classList = createClassList(styles, () => ({
         Layout: true,
-        [`Layout-stretch-${props.stretch}`]: Boolean(props.stretch),
-        [`Layout-overflow-${props.overflow}`]: Boolean(props.overflow),
+        [`uncontained`]: Boolean(props.uncontained),
+        [`stretch-${props.stretch}`]: Boolean(props.stretch),
+        [`overflow-${props.overflow}`]: Boolean(props.overflow),
     }));
     const $localRoot = createComputedProps({ classList });
 

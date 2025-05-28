@@ -20,7 +20,6 @@ export const createIcon = (props: IconProps): IconAPI => {
     const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => ({
         [`Icon-size-${size()}`]: true,
-        aligned: Boolean(props.aligned),
     }));
     const $localRoot = createComputedProps({ classList });
 

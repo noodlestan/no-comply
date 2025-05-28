@@ -55,6 +55,14 @@
                 @include def-color-palette(bad, --p-red);
                 @include def-color-palette(selected, --p-olive);
                 @include def-color-palette(focused, --p-indigo);
+
+                @include def-color-palette(graphics-1, --p-violet);
+                @include def-color-palette(graphics-2, --p-pink);
+                @include def-color-palette(graphics-3, --p-blue);
+                @include def-color-palette(graphics-4, --p-green);
+                @include def-color-palette(graphics-5, --p-yellow);
+                @include def-color-palette(graphics-6, --p-olive);
+                @include def-color-palette(graphics-7, --p-red);
             }
         }
     }

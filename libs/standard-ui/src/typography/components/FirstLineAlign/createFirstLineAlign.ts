@@ -7,6 +7,7 @@ import {
 
 import {
     COMPOSABLE_TYPE_MIXIN_PROPS,
+    type ComposableTypeMixinProps,
     createComposableTypeMixin,
     createFirstLineAlignMixin,
 } from '../../mixins';
@@ -29,7 +30,7 @@ export const createFirstLineAlign = (props: FirstLineAlignProps): FirstLineAlign
     const composableTypeProps = pickProps(
         props as FirstLineAlignAllProps,
         COMPOSABLE_TYPE_MIXIN_PROPS,
-    );
+    ) as ComposableTypeMixinProps;
 
     return {
         $root: mergeProps($firstLineAlignRoot, $composableTypeRoot, $localRoot),

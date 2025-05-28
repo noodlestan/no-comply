@@ -1,26 +1,8 @@
-import type { AriaLabelledProps } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type { FeedbackMessageAPI, FeedbackMessageProps } from '@noodlestan/headless-ui';
 
-import type { ContentSize } from '../../../types';
+import type { ContentMessageTemplateOwnProps } from '../../../content';
 
-export type MessageBoxProps = Omit<FeedbackMessageProps, keyof AriaLabelledProps> & {
-    size?: MessageBoxSize;
-    length?: MessageBoxLength;
-};
+export type MessageBoxProps = Omit<FeedbackMessageProps, 'aria-describedby'> &
+    ContentMessageTemplateOwnProps;
 
-export type MessageBoxSize = 'small' | 'normal';
-export type MessageBoxLength = 'compact' | 'full';
-
-export type MessageBoxAPI = {
-    $root: FeedbackMessageAPI['$root'] & {
-        classList: ClassList;
-    };
-    $title: FeedbackMessageAPI['$title'] & {
-        classList: ClassList;
-    };
-    $description: FeedbackMessageAPI['$description'];
-    $icon: FeedbackMessageAPI['iconProps'] & {
-        size: ContentSize;
-    };
-};
+export type MessageBoxAPI = FeedbackMessageAPI;

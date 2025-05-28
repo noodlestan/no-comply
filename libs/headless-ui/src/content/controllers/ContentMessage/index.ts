@@ -1,3 +1,4 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './ContentMessage';
-export * from './StaticMessage';
+export * from './constants';
+export * from './createContentMessage';
+export * from './types';

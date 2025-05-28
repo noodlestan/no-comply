@@ -1,23 +1,16 @@
-import type { IconComponent } from '@noodlestan/context-ui';
-import type { AriaAttributes, AriaRegionAPI, AriaRegionProps } from '@noodlestan/context-ui-aria';
+import type { AriaRegionAPI } from '@noodlestan/context-ui-aria';
+
+import type { ContentMessageAPI, ContentMessageProps } from '../../../content';
 
 export type FeedbackMessageVariant = 'busy' | 'success' | 'error';
 
-export type FeedbackMessageProps = Pick<AriaRegionProps, 'aria-describedby'> & {
-    title: string;
+export type FeedbackMessageProps = Omit<ContentMessageProps, 'variant' | 'icon'> & {
     variant?: FeedbackMessageVariant;
 };
 
-export type FeedbackMessageAPI = {
+export type FeedbackMessageAPI = Omit<ContentMessageAPI, '$root'> & {
     $root: AriaRegionAPI<'status' | 'alert'>['$root'] & {
         'aria-live': 'polite' | 'assertive';
-        'data-feedback': FeedbackMessageVariant;
-    };
-    $title: AriaRegionAPI['$label'] & {
-        children: string;
-    };
-    $description: AriaRegionAPI['$description'];
-    iconProps: Pick<AriaAttributes, 'aria-label'> & {
-        icon: IconComponent;
+        'data-message': FeedbackMessageVariant;
     };
 };

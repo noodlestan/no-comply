@@ -85,8 +85,9 @@ export const createMenuItemBase = (
             console.error('Unavailable. Wrap in `hasIcon()`.');
         }
         return {
+            aligned: true,
             'aria-hidden': true,
-            size: 'xs',
+            size: 'small' as const,
             icon: props.icon as IconComponent,
         };
     };

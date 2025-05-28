@@ -35,7 +35,7 @@ export type MenuItemBaseAPI = MenuItemAPI & {
     iconProps: () => {
         icon: IconProps['icon'];
         size: NonNullable<IconProps['size']>;
-        aligned: true;
+        aligned: boolean;
         'aria-hidden': AriaAttributes['aria-hidden'];
     };
     groupHasIcons: Accessor<boolean>;
