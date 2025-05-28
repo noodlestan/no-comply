@@ -32,7 +32,7 @@ export const NumberInputPage: Component = () => {
     return (
         <DemoPage title="NumberInput" classList={staticClassList(styles, 'NumberInputPage')}>
             <ComponentMeta component={COMPONENT} />
-            <Callout>
+            <Callout title="values">
                 <DataItem label="Raw value">{value()}</DataItem>
                 <DataItem label="Number value">{Number(value())}</DataItem>
             </Callout>

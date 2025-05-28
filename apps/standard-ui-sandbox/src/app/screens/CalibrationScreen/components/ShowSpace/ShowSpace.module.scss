@@ -2,8 +2,30 @@
 
 @layer standard-ui-sandbox {
     .ShowSpace {
-        font-size: var(--typography-step--1);
-        width: var(--__show-size);
-        height: var(--__show-size);
+        border-style: solid;
+        border-width: var(--border-width-thin);
+        border-radius: var(--radius-s);
+        @include set-color(__border, graphics-2, bg-3, opaque);
+        @include apply-color(border-color, __border);
+    }
+
+    .viz {
+        @include set-color(__bg, graphics-2, graphics, opaque);
+        @include apply-color(background-color, __bg);
+    }
+
+    .mode-square .viz {
+        width: var(--__size);
+        height: var(--__size);
+    }
+
+    .mode-h .viz {
+        width: var(--__size);
+        height: var(--scale-s);
+    }
+
+    .mode-v .viz {
+        height: var(--__size);
+        width: var(--scale-s);
     }
 }

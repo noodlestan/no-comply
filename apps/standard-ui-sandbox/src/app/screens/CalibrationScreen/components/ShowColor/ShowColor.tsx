@@ -1,6 +1,8 @@
 import { createClassList } from '@noodlestan/context-ui-primitives';
-import { Flex } from '@noodlestan/standard-ui';
+import { AnchoredPopover, Flex } from '@noodlestan/standard-ui';
 import { type Component, createSignal, onMount } from 'solid-js';
+
+import { ColorPopover } from '../ColorPopover';
 
 import styles from './ShowColor.module.scss';
 
@@ -41,7 +43,14 @@ export const ShowColor: Component<Props> = props => {
 
     return (
         <Flex classList={classList()} style={style()} ref={setElementRef}>
-            {color()}
+            <AnchoredPopover
+                anchor="start-center"
+                direction="block"
+                flip="inline"
+                trigger={trigger => <button aria-label="Show color details" {...trigger} />}
+            >
+                {popover => <ColorPopover id={popover.id} color={color()} />}
+            </AnchoredPopover>
         </Flex>
     );
 };

@@ -2,14 +2,21 @@
 
 @layer standard-ui-sandbox {
     .ShowColor {
-        @include set-color(__bg, __show-color, __show-color, opaque);
-
+        position: relative;
         font-size: var(--typography-step--1);
         color: transparent;
-        width: var(--size-l);
-        height: var(--size-l);
+        width: calc(100vw / 20);
+        aspect-ratio: 1;
 
+        @include set-color(__bg, __show-color, __show-color, opaque);
         @include apply-computed-color(background-color, __show-color);
+
+        > button {
+            position: absolute;
+            inset: 0;
+            border: none;
+            background-color: transparent;
+        }
     }
 
     .palettes-enabled {

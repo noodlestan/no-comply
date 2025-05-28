@@ -1,9 +1,0 @@
-@layer standard-ui-sandbox {
-    @layer components {
-        .PageContentsLayout {
-            padding-inline: 1rem;
-            padding-block-start: 1rem;
-            padding-block-end: 6rem;
-        }
-    }
-}

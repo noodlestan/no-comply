@@ -1,8 +1,15 @@
-## popover
+## supports test
 
+- popover
+
+```
 function supportsPopover() {
 return HTMLElement.prototype.hasOwnProperty("popover");
 }
+```
+
+- container queries
+- css functions
 
 ## data-disabled data-active data-readonly
 
@@ -36,7 +43,7 @@ return HTMLElement.prototype.hasOwnProperty("popover");
   - Contexts
   - Services
   - Components
-  - Composable
+  - Composables
 - External Links
   - Docs
   - Github

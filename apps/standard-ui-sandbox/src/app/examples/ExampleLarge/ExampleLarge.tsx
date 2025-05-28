@@ -116,7 +116,7 @@ export const ExampleLargeFooter: Component<ExampleLargeProps> = () => {
 export const ExampleLarge: Component<ExampleLargeProps> = props => {
     return (
         <Flex direction="column" padding="xl" gap="xl">
-            <Callout variant="success">{props.title}</Callout>
+            <Callout title={props.title || 'Lorem Ipsum'} variant="success" />
             <ExampleLargeHeader />
             <ExampleLargeBody />
         </Flex>

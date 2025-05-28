@@ -1,4 +1,4 @@
-import { routeFor, type SidebarItemGroup } from '../../../navigation';
+import { type SidebarItemGroup, routeFor } from '../../../navigation';
 
 export const APP_SIDEBAR_ITEMS: SidebarItemGroup[] = [
     {

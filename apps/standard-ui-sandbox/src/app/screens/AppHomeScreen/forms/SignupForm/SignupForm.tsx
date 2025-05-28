@@ -61,7 +61,7 @@ export const SignupForm: Component<SignupFormProps> = props => {
                     <Flex direction="column" gap="m">
                         <Button {...form.$submitButton}>Submit</Button>
                         <Show when={submitError()}>
-                            <MessageBox variant="error">{submitError()?.message}</MessageBox>
+                            <MessageBox title={submitError()?.message as string} variant="error" />
                         </Show>
                     </Flex>
                 </Flex>

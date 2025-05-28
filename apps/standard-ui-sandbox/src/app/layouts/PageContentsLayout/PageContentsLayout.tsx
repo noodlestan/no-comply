@@ -6,7 +6,7 @@ import {
 import { Flex } from '@noodlestan/standard-ui';
 import { type ParentComponent, splitProps } from 'solid-js';
 
-import styles from './PageContentsLayout.module.css';
+import styles from './PageContentsLayout.module.scss';
 
 type Props = ClosedTagProps;
 

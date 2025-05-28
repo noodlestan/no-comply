@@ -1,4 +1,4 @@
-import { Display, Flex } from '@noodlestan/standard-ui';
+import { Flex, Label } from '@noodlestan/standard-ui';
 import { type Component, For, Show } from 'solid-js';
 
 import { ShowColor } from '../ShowColor';
@@ -15,6 +15,9 @@ export const ShowPalette: Component<Props> = props => {
 
     return (
         <Flex direction="row" gap="m">
+            <Show when={props.p !== 'labels'}>
+                <Label>{props.p}</Label>
+            </Show>
             <Flex direction="row">
                 <For each={levels()}>
                     {level => (
@@ -22,9 +25,6 @@ export const ShowPalette: Component<Props> = props => {
                     )}
                 </For>
             </Flex>
-            <Show when={props.p !== 'labels'}>
-                <Display>{props.p}</Display>
-            </Show>
         </Flex>
     );
 };

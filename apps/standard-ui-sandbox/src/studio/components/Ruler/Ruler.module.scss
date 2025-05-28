@@ -1,0 +1,54 @@
+@use '@noodlestan/standard-ui/scss/mixins/color.scss' as *;
+
+@layer standard-ui-sandbox {
+    .Ruler {
+        border-block-end: solid var(--border-width-thin);
+        border-radius: var(--radius-s);
+        overflow: hidden;
+        height: var(--scale-2xs);
+
+        user-select: none;
+
+        @include set-color(__fg, graphics-1, fg-muted, translucid);
+        @include set-color(__bg, graphics-1, bg-1, transparent);
+        @include set-color(__border, graphics-1, border, opaque);
+        @include set-color(__tick, primary, graphics, opaque);
+
+        @include apply-color(color, __fg);
+        @include apply-color(border-color, __border);
+
+        span {
+            width: var(--__ruler-size);
+        }
+    }
+
+    .ticks {
+        position: absolute;
+        inset-inline: 0;
+        height: calc(var(--scale-2xs) - 1px);
+        @include apply-color(background-color, __bg);
+    }
+
+    .tick::before {
+        display: block;
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: var(--scale-4xs);
+        border-inline-start: solid 1px;
+        @include apply-color(border-color, __border);
+    }
+
+    .tick {
+        flex: 0 0 var(--__ruler-size);
+    }
+
+    .tick span {
+        display: block;
+        position: relative;
+        width: var(--__ruler-size);
+        margin-left: calc(var(--__ruler-size) / -2);
+        text-align: center;
+        font-size: 11px;
+    }
+}
