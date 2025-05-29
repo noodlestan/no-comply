@@ -3,5 +3,6 @@ export * from './ComponentMeta';
 export * from './DemoGroup';
 export * from './DemoItem';
 export * from './ImportStatement';
+export * from './ResponsiveRuler';
 export * from './SurfaceVariantExample';
 export * from './ThemeSelect';

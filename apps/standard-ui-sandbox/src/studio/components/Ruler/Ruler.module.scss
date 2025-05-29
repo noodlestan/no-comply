@@ -2,31 +2,32 @@
 
 @layer standard-ui-sandbox {
     .Ruler {
+        position: relative;
         border-block-end: solid var(--border-width-thin);
         border-radius: var(--radius-s);
-        overflow: hidden;
-        height: var(--scale-2xs);
+        height: var(--scale-xs);
 
         user-select: none;
 
-        @include set-color(__fg, graphics-1, fg-muted, translucid);
-        @include set-color(__bg, graphics-1, bg-1, transparent);
+        @include set-color(__fg, primary, fg-disabled, opaque);
+        @include set-color(__bg, graphics-1, bg-2, opaque);
         @include set-color(__border, graphics-1, border, opaque);
-        @include set-color(__tick, primary, graphics, opaque);
+        @include set-color(__tick, graphics-2, graphics, opaque);
+
+        @include set-color(__marker-fg, primary, fg-muted, opaque);
+        @include set-color(__marker-bg, primary, bg-2, transparent);
+        @include set-color(__marker-tick, primary, fg-muted, opaque);
 
         @include apply-color(color, __fg);
+        @include apply-color(background-color, __bg);
         @include apply-color(border-color, __border);
-
-        span {
-            width: var(--__ruler-size);
-        }
     }
 
     .ticks {
         position: absolute;
         inset-inline: 0;
-        height: calc(var(--scale-2xs) - 1px);
-        @include apply-color(background-color, __bg);
+        bottom: 0px;
+        overflow: hidden;
     }
 
     .tick::before {
@@ -49,6 +50,36 @@
         width: var(--__ruler-size);
         margin-left: calc(var(--__ruler-size) / -2);
         text-align: center;
-        font-size: 11px;
+    }
+
+    .markers {
+        position: absolute;
+        inset: 0;
+    }
+
+    .marker {
+        position: absolute;
+        height: 100%;
+        transform: translateX(-50%);
+        padding: var(--space-pad--2) var(--space-pad-0);
+        display: block;
+        min-width: max-content;
+        @include apply-color(color, __marker-fg);
+        @include apply-color(background-color, __marker-bg);
+
+        & span {
+            display: block;
+            line-height: 1;
+        }
+    }
+
+    .marker:before {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 6px solid transparent;
+        @include apply-color(border-top-color, __marker-tick);
     }
 }

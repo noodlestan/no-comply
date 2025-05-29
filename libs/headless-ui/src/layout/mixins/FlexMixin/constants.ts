@@ -6,6 +6,7 @@ export const FLEX_MIXIN_PROPS = definePropKeys<FlexMixinProps>()([
     'direction',
     'align',
     'justify',
+    'gap',
     'shrink',
     'inline',
     'wrap',

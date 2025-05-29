@@ -2,9 +2,6 @@
 
 @layer standard-ui {
     .NavLink {
-        @include set-color(__bg, surface, content-bg-1, invisible);
-        @include set-color(__highlight, primary, border-active, invisible);
-
         position: relative;
         display: flex;
         flex-direction: row;
@@ -19,6 +16,9 @@
             background-color ease var(--animation-duration-short),
             border-color ease var(--animation-duration-short);
 
+        @include set-color(__bg, surface, content-bg-1, invisible);
+        @include set-color(__highlight, primary, border-active, invisible);
+
         @include apply-color(background-color, __bg);
         @include apply-color(--__highlight, __highlight);
 
@@ -31,16 +31,18 @@
         }
 
         &:active {
+            text-decoration: none;
+
             @include set-level(__fg, fg-contrast);
             @include set-level(__bg, content-bg-0);
             @include set-level(__highlight, fg-muted);
-            text-decoration: none;
         }
 
         &[data-nav-link-current] {
+            text-decoration: none;
+
             @include set-level(__bg, content-bg-2);
             @include set-palette(__highlight, interactive);
-            text-decoration: none;
         }
 
         &::before {

@@ -1,9 +1,0 @@
-@layer standard-ui-sandbox {
-    @layer components {
-        .ExampleLayoutChild {
-            color: --f-color(var(--p-info), var(--l-fg-muted));
-            border: 1px dotted --f-color(var(--p-info), var(--l-border));
-            background-color: --f-alpha(--f-color(var(--p-info), var(--l-bg-saturated)), 0.5);
-        }
-    }
-}

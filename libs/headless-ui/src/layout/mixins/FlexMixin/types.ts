@@ -1,9 +1,10 @@
-import { type ClassList } from '@noodlestan/context-ui-primitives';
+import { type ClassList, type ResponsiveProp } from '@noodlestan/context-ui-primitives';
 
 export type FlexMixinProps = {
     direction?: FlexMixinDirection;
     align?: FlexMixinAlign;
     justify?: FlexMixinJustify;
+    gap?: ResponsiveProp<string>;
     shrink?: boolean | number;
     inline?: boolean;
     wrap?: boolean;

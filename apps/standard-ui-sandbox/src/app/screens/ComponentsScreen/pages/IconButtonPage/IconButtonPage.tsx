@@ -1,6 +1,6 @@
 import { staticClassList } from '@noodlestan/context-ui-primitives';
-import { IconButton } from '@noodlestan/standard-ui';
-import { EyeIcon, PlusIcon, TrashIcon } from 'lucide-solid';
+import { Flex, IconButton } from '@noodlestan/standard-ui';
+import { CheckIcon, PlusIcon, TrashIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -14,113 +14,125 @@ export const IconButtonPage: Component = () => {
 
     const COMPONENT = findComponent('IconButton');
 
+    const $add = { icon: PlusIcon, label: 'Add an item' };
+    const $check = { icon: CheckIcon, label: 'Add an item' };
+    const $delete = { icon: TrashIcon, label: 'Delete item' };
+
     return (
         <DemoPage title="IconButton" classList={staticClassList(styles, 'IconButtonPage')}>
             <ComponentMeta component={COMPONENT} />
+
             <DemoGroup title="defaults">
                 <DemoItem row>
-                    <IconButton icon={PlusIcon} label="Add" />
+                    <IconButton {...$add} />
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="variant">
-                <DemoItem row title="primary">
-                    <IconButton variant="primary" icon={PlusIcon} label="Add" />
+                <DemoItem row title="primary" gap="m">
+                    <IconButton {...$add} variant="primary" />
+                    <IconButton {...$add} variant="primary" disabled />
                 </DemoItem>
-                <DemoItem row title="secondary">
-                    <IconButton variant="secondary" icon={PlusIcon} label="Add" />
+                <DemoItem row title="secondary" gap="m">
+                    <IconButton {...$add} variant="secondary" />
+                    <IconButton {...$add} variant="secondary" disabled />
                 </DemoItem>
-                <DemoItem row title="plain">
-                    <IconButton variant="plain" icon={PlusIcon} label="Add" />
+                <DemoItem row title="plain" gap="m">
+                    <IconButton {...$add} variant="plain" />
+                    <IconButton {...$add} variant="plain" disabled />
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="intent">
-                <DemoItem row title="positive">
-                    <IconButton variant="primary" intent="positive" icon={PlusIcon} label="Add" />
-                    <IconButton variant="secondary" intent="positive" icon={PlusIcon} label="Add" />
-                    <IconButton variant="plain" intent="positive" icon={PlusIcon} label="Add" />
-                    <IconButton
-                        variant="plain"
-                        intent="positive"
-                        icon={PlusIcon}
-                        label="Add"
-                        disabled
-                    />
+                <DemoItem title="positive" gap="l">
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$check} variant="primary" intent="positive" />
+                        <IconButton {...$check} variant="primary" intent="positive" disabled />
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$check} variant="secondary" intent="positive" />
+                        <IconButton {...$check} variant="secondary" intent="positive" disabled />
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$check} variant="plain" intent="positive" />
+                        <IconButton {...$check} variant="plain" intent="positive" disabled />
+                    </Flex>
                 </DemoItem>
-                <DemoItem row title="negative">
-                    <IconButton variant="primary" intent="negative" icon={TrashIcon} label="Add" />
-                    <IconButton
-                        variant="secondary"
-                        intent="negative"
-                        icon={TrashIcon}
-                        label="Add"
-                    />
-                    <IconButton variant="plain" intent="negative" icon={TrashIcon} label="Add" />
-                    <IconButton
-                        variant="plain"
-                        intent="negative"
-                        icon={TrashIcon}
-                        label="Add"
-                        disabled
-                    />
+                <DemoItem title="negative" gap="l">
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$delete} variant="primary" intent="negative" />
+                        <IconButton {...$delete} variant="primary" intent="negative" disabled />
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$delete} variant="secondary" intent="negative" />
+                        <IconButton {...$delete} variant="secondary" intent="negative" disabled />
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$delete} variant="plain" intent="negative" />
+                        <IconButton {...$delete} variant="plain" intent="negative" disabled />
+                    </Flex>
                 </DemoItem>
-                <DemoItem row title="neutral">
-                    <IconButton variant="primary" intent="neutral" icon={EyeIcon} label="Add" />
-                    <IconButton variant="secondary" intent="neutral" icon={EyeIcon} label="Add" />
-                    <IconButton variant="plain" intent="neutral" icon={EyeIcon} label="Add" />
-                    <IconButton
-                        variant="plain"
-                        intent="neutral"
-                        icon={EyeIcon}
-                        label="Add"
-                        disabled
-                    />
+                <DemoItem title="neutral" gap="l">
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$add} variant="primary" intent="neutral" />
+                        <IconButton {...$add} variant="primary" intent="neutral" disabled />
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$add} variant="secondary" intent="neutral" />
+                        <IconButton {...$add} variant="secondary" intent="neutral" disabled />
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <IconButton {...$add} variant="plain" intent="neutral" />
+                        <IconButton {...$add} variant="plain" intent="neutral" disabled />
+                    </Flex>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="size">
                 <DemoItem row title="large">
-                    <IconButton size="large" icon={PlusIcon} label="Add" />
+                    <IconButton {...$add} size="large" />
                 </DemoItem>
                 <DemoItem row title="medium">
-                    <IconButton size="medium" icon={PlusIcon} label="Add" />
+                    <IconButton {...$add} size="medium" />
                 </DemoItem>
                 <DemoItem row title="normal">
-                    <IconButton size="normal" icon={PlusIcon} label="Add" />
+                    <IconButton {...$add} size="normal" />
                 </DemoItem>
                 <DemoItem row title="small">
-                    <IconButton size="small" icon={PlusIcon} label="Add" />
+                    <IconButton {...$add} size="small" />
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="round">
                 <DemoItem row title="large">
-                    <IconButton size="large" icon={PlusIcon} label="Add" round />
+                    <IconButton {...$add} size="large" round />
                 </DemoItem>
                 <DemoItem row title="medium">
-                    <IconButton size="medium" icon={PlusIcon} label="Add" round />
+                    <IconButton {...$add} size="medium" round />
                 </DemoItem>
                 <DemoItem row title="normal">
-                    <IconButton size="normal" icon={PlusIcon} label="Add" round />
+                    <IconButton {...$add} size="normal" round />
                 </DemoItem>
                 <DemoItem row title="small">
-                    <IconButton size="small" icon={PlusIcon} label="Add" round />
+                    <IconButton {...$add} size="small" round />
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="disabled">
                 <DemoItem row title="">
-                    <IconButton icon={PlusIcon} label="Add" disabled />
+                    <IconButton {...$add} disabled />
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="onPress">
                 <DemoItem row note="see console log">
-                    <IconButton icon={PlusIcon} label="Add" onPress={handlePress} />
+                    <IconButton {...$add} onPress={handlePress} />
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="classList">
                 <DemoItem row note="Should override background color">
-                    <IconButton
-                        icon={PlusIcon}
-                        label="Add"
-                        classList={staticClassList(styles, 'override')}
-                    />
+                    <IconButton {...$add} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoGroup>
         </DemoPage>

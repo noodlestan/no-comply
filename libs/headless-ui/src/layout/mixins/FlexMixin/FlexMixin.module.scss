@@ -1,88 +1,102 @@
 @use '../../../scss/mixins/display.scss' as *;
+@use '../../../scss/mixins/variants.scss' as *;
 
 @layer headless-ui {
     .Flex {
         flex-wrap: nowrap;
         @include display(flex);
+
+        @include responsive-variants($COMP_UI_FLEX_GAP_BREAKPOINTS) using ($bp) {
+            @include variant-classes('gap', $COMP_UI_FLEX_GAP_VARIANTS, $bp) using ($key, $value) {
+                gap: $value;
+            }
+        }
+
+        @include responsive-variants($COMP_UI_LAYOUT_PADDING_BREAKPOINTS) using ($bp) {
+            @include variant-classes('padding', $COMP_UI_LAYOUT_PADDING_VARIANTS, $bp) using
+                ($key, $value) {
+                padding: $value;
+            }
+        }
     }
 
-    .Flex-direction-row {
+    .direction-row {
         flex-direction: row;
     }
 
-    .Flex-direction-row-reverse {
+    .direction-row-reverse {
         flex-direction: row-reverse;
     }
 
-    .Flex-direction-column {
+    .direction-column {
         flex-direction: column;
     }
 
-    .Flex-direction-column-reverse {
+    .direction-column-reverse {
         flex-direction: column-reverse;
     }
 
-    .Flex-align-start {
+    .align-start {
         align-items: flex-start;
     }
 
-    .Flex-align-center {
+    .align-center {
         align-items: center;
     }
 
-    .Flex-align-baseline {
+    .align-baseline {
         align-items: baseline;
     }
 
-    .Flex-align-end {
+    .align-end {
         align-items: flex-end;
     }
 
-    .Flex-align-stretch {
+    .align-stretch {
         align-items: stretch;
     }
 
-    .Flex-justify-start {
+    .justify-start {
         justify-content: flex-start;
     }
 
-    .Flex-justify-center {
+    .justify-center {
         justify-content: center;
     }
 
-    .Flex-justify-end {
+    .justify-end {
         justify-content: flex-end;
     }
 
-    .Flex-justify-between {
+    .justify-between {
         justify-content: space-between;
     }
 
-    .Flex-justify-around {
+    .justify-around {
         justify-content: space-around;
     }
 
-    .Flex-justify-stretch {
+    .justify-stretch {
         justify-content: stretch;
     }
 
-    .Flex-inline {
+    .inline {
         @include display(inline-flex);
     }
 
-    .Flex-shrink {
+    .shrink {
         flex-shrink: 1;
     }
 
-    .Flex-no-shrink {
+    .no-shrink {
         flex-shrink: 0;
     }
 
-    .Flex-flex {
+    .flex {
         flex: var(--flex-flex);
     }
 
-    .Flex-wrap {
+    .wrap {
         flex-wrap: wrap;
     }
 }

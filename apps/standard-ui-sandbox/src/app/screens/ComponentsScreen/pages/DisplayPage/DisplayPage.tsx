@@ -64,7 +64,7 @@ export const DisplayPage: Component = () => {
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="nowrap">
-                <DemoItem title="true" width={'250px'}>
+                <DemoItem title="true" width="var(--scale-3xl)">
                     <Display level={1} variant="l" nowrap>
                         Nam scelerisque, lectus sed pulvinar aliquet turpis quis nulla dapibus
                         vulputate in a justo duis fermentum faucibus est non semper nisl

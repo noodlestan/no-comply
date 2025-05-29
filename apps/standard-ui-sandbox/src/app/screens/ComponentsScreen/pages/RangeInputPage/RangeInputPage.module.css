@@ -1,7 +1,7 @@
 @layer standard-ui-sandbox {
     @layer pages {
         .RangeInputPage .override {
-            color: red !important;
+            color: red;
         }
     }
 }

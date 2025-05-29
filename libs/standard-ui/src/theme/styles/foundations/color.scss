@@ -17,7 +17,7 @@
                 @include set-level(border-active, focus-ring);
                 @include def-color-level(graphics, 400);
 
-                @include def-color-level(border-disabled, 700);
+                @include def-color-level(border-muted, 700);
                 @include def-color-level(bg-disabled, 700);
                 @include def-color-level(bg-saturated, 800);
 

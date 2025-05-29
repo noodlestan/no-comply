@@ -2,6 +2,25 @@
 
 @layer standard-ui {
     .Action {
+        --__border-style: solid;
+
+        display: flex;
+        gap: var(--__gap, 0);
+        flex-direction: row;
+        height: var(--__height);
+        min-height: var(--__height);
+        padding-block: var(--__padding-block, 0);
+        padding-inline: var(--__padding-inline, var(--space-pad-0));
+        border: none;
+        border-width: var(--action-border-width);
+        border-style: var(--__border-style);
+        border-radius: var(--action-border-radius);
+        text-decoration: none;
+        transition:
+            color ease var(--animation-duration-blip),
+            background-color ease var(--animation-duration-blip),
+            border-color ease var(--animation-duration-blip);
+
         @include set-palette(__intent, primary);
 
         @include set-palette(__fg, primary);
@@ -23,26 +42,6 @@
         @include set-level(__fg-active, fg-contrast);
         @include set-level(__bg-active, content-bg-0);
         @include set-level(__border-active, border-active);
-
-        --__border-style: solid;
-
-        display: flex;
-        gap: var(--__gap, 0);
-        flex-direction: row;
-        height: var(--__height);
-        min-height: var(--__height);
-        padding-block: var(--__padding-block, 0);
-        padding-inline: var(--__padding-inline, var(--space-pad-0));
-        border: none;
-        border-width: var(--action-border-width);
-        border-style: var(--__border-style);
-        border-radius: var(--action-border-radius);
-        text-decoration: none;
-        transition:
-            color ease var(--animation-duration-blip),
-            background-color ease var(--animation-duration-blip),
-            border-color ease var(--animation-duration-blip);
-
         @include set-level(__fg, __fg-rest);
         @include set-level(__bg, __bg-rest);
         @include set-level(__border, __border-rest);
@@ -59,7 +58,7 @@
     .Action:is([data-disabled], [data-inactive]) {
         @include set-color(__fg, primary, fg-disabled, content-fg);
         @include set-color(__bg, primary, bg-disabled, content-bg);
-        @include set-color(__border, __intent, border-disabled, content-bg);
+        @include set-color(__border, __intent, border-muted, content-bg);
     }
 
     .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {

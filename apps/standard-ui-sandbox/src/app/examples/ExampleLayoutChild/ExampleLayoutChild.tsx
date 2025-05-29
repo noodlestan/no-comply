@@ -5,31 +5,18 @@ import {
 } from '@noodlestan/context-ui-primitives';
 import { type Component, splitProps } from 'solid-js';
 
-import styles from './ExampleLayoutChild.module.css';
+import styles from './ExampleLayoutChild.module.scss';
 
 type Props = ClosedTagProps & {
     content?: string;
-    width?: number;
-    stretch?: boolean;
 };
 
 export const ExampleLayoutChild: Component<Props> = props => {
     const [locals, $others] = splitProps(props, ['content']);
 
-    const classList = staticClassList(styles, 'ExampleLayoutChild');
-    const style = () => ({
-        width: props.width ? `${props.width}px` : 'auto',
-        height: props.stretch ? `100%` : 'auto',
-    });
-    const $root = {
-        classList,
-    };
+    const $localRoot = { classList: staticClassList(styles, 'ExampleLayoutChild') };
 
-    const $ = mergeProps($others, $root);
+    const $ = mergeProps($others, $localRoot);
 
-    return (
-        <div {...$} style={style()}>
-            {locals.content || 'Lorem ipsum'}
-        </div>
-    );
+    return <div {...$}>{locals.content ?? 'Lorem ipsum'}</div>;
 };

@@ -1,7 +1,7 @@
 @layer standard-ui-sandbox {
     @layer pages {
         .AnchoredPopoverPage .override {
-            background-color: red !important;
+            background-color: red;
         }
     }
 }

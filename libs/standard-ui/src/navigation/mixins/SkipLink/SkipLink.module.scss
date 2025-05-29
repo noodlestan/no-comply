@@ -23,12 +23,12 @@
     }
 
     .floating {
-        @include set-alpha(__bg, transparent);
-
         position: absolute;
         inset-block-start: 0;
         inset-inline-start: 0;
         z-index: 1000;
+
+        @include set-alpha(__bg, transparent);
     }
 
     .SkipLink:focus-within {

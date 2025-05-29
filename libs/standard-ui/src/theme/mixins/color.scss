@@ -1,25 +1,35 @@
 @mixin def-color-level($name, $level) {
-    --#{$name}-level: #{$level};
-    --#{$name}-light: var(--l-#{$level});
+    & {
+        --#{$name}-level: #{$level};
+        --#{$name}-light: var(--l-#{$level});
+    }
 }
 
 @mixin def-color-palette($name, $palette) {
-    --#{$name}-palette: var(#{$palette});
-    --#{$name}-color: var(#{$palette}-center);
+    & {
+        --#{$name}-palette: var(#{$palette});
+        --#{$name}-color: var(#{$palette}-center);
+    }
 }
 
 @mixin set-palette($name, $palette) {
-    --#{$name}-palette: var(--#{$palette}-palette);
-    --#{$name}-color: var(--#{$palette}-color);
+    & {
+        --#{$name}-palette: var(--#{$palette}-palette);
+        --#{$name}-color: var(--#{$palette}-color);
+    }
 }
 
 @mixin set-level($name, $level) {
-    --#{$name}-level: var(--#{$level}-level);
-    --#{$name}-light: var(--#{$level}-light);
+    & {
+        --#{$name}-level: var(--#{$level}-level);
+        --#{$name}-light: var(--#{$level}-light);
+    }
 }
 
 @mixin set-alpha($name, $alpha) {
-    --#{$name}-alpha: var(--#{$alpha}-alpha);
+    & {
+        --#{$name}-alpha: var(--#{$alpha}-alpha);
+    }
 }
 
 @mixin set-color($name, $palette, $level, $alpha) {
@@ -40,8 +50,8 @@
 }
 
 @mixin apply-palette-color($prop, $name) {
-    & {
-        @supports (color: --f-color(black, 100)) {
+    @supports (color: --f-color(black, 100)) {
+        & {
             /* prettier-ignore */
             #{$prop}: --f-alpha(
                 --f-color(var(--#{$name}-palette),

@@ -1,23 +1,7 @@
 @layer standard-ui-sandbox {
     @layer pages {
         .LayoutPage .override {
-            color: red !important;
-        }
-
-        .LayoutPage--Item [data-demo-item-contents] {
-            border: 1px dotted #e821e8;
-            background-color: #e821e880;
-        }
-
-        .LayoutPage--OverflowItem [data-demo-item-contents] {
-            border: 1px dotted #e821e8;
-            background-color: #e821e880;
-            width: 320px;
-            height: 160px;
-        }
-
-        .LayoutPage--OverflowItem [data-demo-item-contents] {
-            width: 400px;
+            border: 1px solid red;
         }
 
         .LayoutPage--StretchItem [data-demo-item-contents] {

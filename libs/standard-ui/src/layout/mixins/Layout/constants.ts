@@ -3,7 +3,4 @@ import { LAYOUT_MIXIN_PROPS as HEADLESS_LAYOUT_MIXIN_PROPS } from '@noodlestan/h
 
 import type { LayoutMixinProps } from './types';
 
-export const LAYOUT_MIXIN_PROPS = definePropKeys<LayoutMixinProps>()([
-    ...HEADLESS_LAYOUT_MIXIN_PROPS,
-    'padding',
-]);
+export const LAYOUT_MIXIN_PROPS = definePropKeys<LayoutMixinProps>()(HEADLESS_LAYOUT_MIXIN_PROPS);

@@ -1,32 +1,42 @@
 import {
+    type PickProps,
     type PickRequired,
     createClassList,
     createComputedProps,
 } from '@noodlestan/context-ui-primitives';
 
+import { responsiveClassMap } from '../../../responsive';
+
 import styles from './FlexMixin.module.scss';
 import type { FlexMixinAPI, FlexMixinProps } from './types';
 
-const defaultProps: PickRequired<FlexMixinProps, 'direction' | 'align' | 'justify'> = {
+type Defaults = Partial<PickProps<FlexMixinProps, 'gap' | 'direction' | 'align' | 'justify'>>;
+
+const _defaults: PickRequired<FlexMixinProps, 'direction' | 'align' | 'justify'> = {
     direction: 'column',
     align: 'stretch',
     justify: 'start',
 };
 
-export function createFlexMixin(props: FlexMixinProps): FlexMixinAPI {
-    const direction = () => props.direction ?? defaultProps.direction;
-    const align = () => props.align ?? defaultProps.align;
-    const justify = () => props.justify ?? defaultProps.justify;
+export function createFlexMixin(
+    props: FlexMixinProps,
+    defaults: Defaults = {},
+    breakpoints: readonly string[] = [],
+): FlexMixinAPI {
+    const direction = () => props.direction ?? defaults.direction ?? _defaults.direction;
+    const align = () => props.align ?? defaults.align ?? _defaults.align;
+    const justify = () => props.justify ?? defaults.justify ?? _defaults.justify;
     const classList = createClassList(styles, () => ({
         Flex: true,
-        [`Flex-direction-${direction()}`]: true,
-        [`Flex-align-${align()}`]: true,
-        [`Flex-justify-${justify()}`]: true,
-        [`Flex-shrink`]: props.shrink === true,
-        [`Flex-no-shrink`]: props.shrink === false,
-        [`Flex-wrap`]: Boolean(props.wrap),
-        [`Flex-inline`]: Boolean(props.inline),
-        [`Flex-flex`]: props.flex !== undefined,
+        ...responsiveClassMap(breakpoints, 'gap', props.gap, defaults.gap),
+        [`direction-${direction()}`]: true,
+        [`align-${align()}`]: true,
+        [`justify-${justify()}`]: true,
+        [`shrink`]: props.shrink === true,
+        [`no-shrink`]: props.shrink === false,
+        [`wrap`]: Boolean(props.wrap),
+        [`inline`]: Boolean(props.inline),
+        [`flex`]: props.flex !== undefined,
     }));
     const $localRoot = createComputedProps({ classList });
 

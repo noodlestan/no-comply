@@ -11,4 +11,11 @@ export default defineConfig({
     build: {
         target: 'esnext',
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use "@noodlestan/standard-ui/scss/globals.scss" as *;`,
+            },
+        },
+    },
 });

@@ -3,6 +3,11 @@
 @layer standard-ui-theme {
     @layer surfaces {
         [data-theme-standard] [data-surface] {
+            --__border-style: 0;
+            --__border-width: 0;
+            --__border-radius: 0;
+            --__shadow-size: 0 0;
+
             @include def-color-palette(interactive, --p-ocean);
 
             @include set-alpha(content-fg, opaque);
@@ -17,11 +22,7 @@
             @include set-color(__fg, primary, fg-primary, content-fg);
             @include set-color(__bg, primary, bg-stage, opaque);
             @include set-color(__border, primary, border, transparent);
-            --__border-style: 0;
-            --__border-width: 0;
-            --__border-radius: 0;
             @include set-color(__shadow, primary, shadow, shadow);
-            --__shadow-size: 0 0;
         }
 
         [data-theme-standard] [data-surface-page] {
@@ -31,11 +32,11 @@
         }
 
         [data-theme-standard] [data-surface-panel] {
+            --__shadow-size: var(--box-shadow-2);
+
             @include set-level(__bg, bg-1);
             @include set-level(content-bg-1, bg-3);
             @include set-level(content-bg-2, bg-2);
-
-            --__shadow-size: var(--box-shadow-2);
         }
 
         /* TODO
@@ -46,12 +47,12 @@
         */
 
         [data-theme-standard] [data-surface-card] {
+            --__border-radius: var(--radius-l);
+
             @include set-level(__bg, bg-2);
             @include set-level(content-bg-0, bg-0);
             @include set-level(content-bg-1, bg-1);
             @include set-level(content-bg-2, bg-2);
-
-            --__border-radius: var(--radius-l);
         }
 
         /* TODO
@@ -61,6 +62,10 @@
         */
 
         [data-theme-standard] [data-surface-message] {
+            --__border-width: var(--border-width-thin);
+            --__border-style: solid;
+            --__border-radius: var(--radius-s);
+
             @include def-color-palette(interactive, --p-neutral);
 
             @include set-palette(__fg, __message-variant);
@@ -73,10 +78,6 @@
 
             @include set-palette(__border, __message-variant);
             @include set-alpha(__border, opaque);
-
-            --__border-width: var(--border-width-thin);
-            --__border-style: solid;
-            --__border-radius: var(--radius-s);
         }
 
         [data-theme-standard] [data-surface-message][data-message='passive'] {
@@ -114,6 +115,7 @@
 
             --__shadow-size: var(--box-shadow-1);
             backdrop-filter: blur(12px);
+
             @include set-alpha(__bg, translucid);
         }
     }

@@ -1,7 +1,7 @@
 @layer standard-ui-sandbox {
     @layer pages {
         .DataItemPage .override {
-            color: red !important;
+            color: red;
         }
     }
 }

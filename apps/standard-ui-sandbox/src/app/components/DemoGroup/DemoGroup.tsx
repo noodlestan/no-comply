@@ -12,11 +12,11 @@ export const DemoGroup: ParentComponent<Props> = props => {
 
     return (
         <Surface variant="page" classList={props.classList} aria-labelledby={labelId}>
-            <Flex padding="s" gap="m">
+            <Flex gap="xl">
                 <Display level={3} id={labelId}>
                     {props.title}
                 </Display>
-                <Flex gap="s">{props.children}</Flex>
+                <Flex gap="xl">{props.children}</Flex>
             </Flex>
         </Surface>
     );

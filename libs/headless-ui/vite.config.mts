@@ -11,7 +11,10 @@ const NAME = JSON.parse(readFileSync('package.json', 'utf8')).name;
 export default defineConfig({
     plugins: [solidPlugin(), SolidSVG(), topLevelAwait()],
     resolve: {
-        alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
+        alias: [
+            { find: '~build', replacement: resolve(__dirname, 'build') },
+            { find: '@', replacement: resolve(__dirname, 'src') },
+        ],
     },
     server: {
         port: 3000,
@@ -35,6 +38,13 @@ export default defineConfig({
                 'lucide-solid',
                 'solid-js',
             ],
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use "~build/globals.scss" as *;`,
+            },
         },
     },
 });

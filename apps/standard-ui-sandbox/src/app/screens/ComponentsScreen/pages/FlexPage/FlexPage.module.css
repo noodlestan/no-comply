@@ -1,16 +1,7 @@
 @layer standard-ui-sandbox {
     @layer pages {
         .FlexPage .override {
-            color: red !important;
-        }
-
-        .FlexPage--Item [data-demo-item-contents] {
-            border: 1px dotted #e821e8;
-            background-color: #e821e880;
-        }
-
-        .FlexPage--JustifyDemo label + div {
-            height: 120px;
+            border: 1px solid red;
         }
     }
 }

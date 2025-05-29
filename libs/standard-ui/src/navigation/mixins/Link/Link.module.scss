@@ -2,11 +2,10 @@
 
 @layer standard-ui {
     :where(.Link) {
-        @include set-color(__fg, interactive, fg-saturated, content-fg);
-
         text-decoration: underline;
         border-radius: var(--link-border-radius);
 
+        @include set-color(__fg, interactive, fg-saturated, content-fg);
         @include apply-color(color, __fg);
     }
 

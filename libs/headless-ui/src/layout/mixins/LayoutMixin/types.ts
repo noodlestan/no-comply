@@ -1,6 +1,7 @@
-import { type ClassList } from '@noodlestan/context-ui-primitives';
+import { type ClassList, type ResponsiveProp } from '@noodlestan/context-ui-primitives';
 
 export type LayoutMixinProps = {
+    padding?: ResponsiveProp<string>;
     stretch?: LayoutMixinStretch;
     uncontained?: boolean;
     overflow?: LayoutMixinOverflow;

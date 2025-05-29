@@ -18,9 +18,9 @@ export const NavLinkPage: Component = () => {
             <ComponentMeta component={COMPONENT} />
             <DemoGroup title="defaults">
                 <DemoItem row>
-                    <NavLink href="/component/NavLink">Noodlestan</NavLink>
-                    <NavLink href="/component/Button">Noodlestan</NavLink>
-                    <NavLink href="/component/IconButton">Noodlestan</NavLink>
+                    <NavLink href="/features/components/NavLink">NavLink</NavLink>
+                    <NavLink href="/features/components/Button">Button</NavLink>
+                    <NavLink href="/features/components/IconButton">IconButton</NavLink>
                 </DemoItem>
             </DemoGroup>
             <DemoGroup title="current">

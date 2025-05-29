@@ -1,6 +1,6 @@
 import { staticClassList } from '@noodlestan/context-ui-primitives';
-import { Button, Icon } from '@noodlestan/standard-ui';
-import { LockIcon } from 'lucide-solid';
+import { Button, Flex, Icon } from '@noodlestan/standard-ui';
+import { UnlockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
@@ -17,90 +17,121 @@ export const ButtonPage: Component = () => {
     return (
         <DemoPage title="Button" classList={staticClassList(styles, 'ButtonPage')}>
             <ComponentMeta component={COMPONENT} />
+
             <DemoGroup title="defaults">
-                <DemoItem row>
-                    <Button>Foobar</Button>
+                <DemoItem row title="label only">
+                    <Button>View more items</Button>
                 </DemoItem>
-                <DemoItem row>
+                <DemoItem row title="with icon">
                     <Button>
-                        <Icon icon={LockIcon} size="small" />
-                        Foobar
+                        <Icon icon={UnlockIcon} size="small" />
+                        Unlock items
                     </Button>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="variant">
-                <DemoItem row title="primary">
+                <DemoItem row title="primary" gap="l">
                     <Button variant="primary">Primary</Button>
+                    <Button variant="primary" disabled>
+                        Disabled
+                    </Button>
                 </DemoItem>
-                <DemoItem row title="secondary">
+                <DemoItem row title="secondary" gap="l">
                     <Button variant="secondary">Secondary</Button>
+                    <Button variant="secondary" disabled>
+                        Disabled
+                    </Button>
                 </DemoItem>
-                <DemoItem row title="plain">
+                <DemoItem row title="plain" gap="l">
                     <Button variant="plain">Plain</Button>
+                    <Button variant="plain" disabled>
+                        Disabled
+                    </Button>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="intent">
-                <DemoItem row title="positive">
-                    <Button variant="primary" intent="positive">
-                        Primary
-                    </Button>
-                    <Button variant="primary" intent="positive" disabled>
-                        Disabled
-                    </Button>
-                    <Button variant="secondary" intent="positive">
-                        Secondary
-                    </Button>
-                    <Button variant="secondary" intent="positive" disabled>
-                        Disabled
-                    </Button>
-                    <Button variant="plain" intent="positive">
-                        Plain
-                    </Button>
-                    <Button variant="plain" intent="positive" disabled>
-                        Disabled
-                    </Button>
+                <DemoItem title="positive" gap="l">
+                    <Flex direction="row" gap="l">
+                        <Button variant="primary" intent="positive">
+                            Primary
+                        </Button>
+                        <Button variant="primary" intent="positive" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <Button variant="secondary" intent="positive">
+                            Secondary
+                        </Button>
+                        <Button variant="secondary" intent="positive" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <Button variant="plain" intent="positive">
+                            Plain
+                        </Button>
+                        <Button variant="plain" intent="positive" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
                 </DemoItem>
-                <DemoItem row title="negative">
-                    <Button variant="primary" intent="negative">
-                        Primary
-                    </Button>
-                    <Button variant="primary" intent="negative" disabled>
-                        Disabled
-                    </Button>
-                    <Button variant="secondary" intent="negative">
-                        Secondary
-                    </Button>
-                    <Button variant="secondary" intent="negative" disabled>
-                        Disabled
-                    </Button>
-                    <Button variant="plain" intent="negative">
-                        Plain
-                    </Button>
-                    <Button variant="plain" intent="negative" disabled>
-                        Disabled
-                    </Button>
+                <DemoItem title="negative" gap="l">
+                    <Flex direction="row" gap="l">
+                        <Button variant="primary" intent="negative">
+                            Primary
+                        </Button>
+                        <Button variant="primary" intent="negative" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <Button variant="secondary" intent="negative">
+                            Secondary
+                        </Button>
+                        <Button variant="secondary" intent="negative" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <Button variant="plain" intent="negative">
+                            Plain
+                        </Button>
+                        <Button variant="plain" intent="negative" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
                 </DemoItem>
-                <DemoItem row title="neutral">
-                    <Button variant="primary" intent="neutral">
-                        Primary
-                    </Button>
-                    <Button variant="primary" intent="neutral" disabled>
-                        Disabled
-                    </Button>
-                    <Button variant="secondary" intent="neutral">
-                        Secondary
-                    </Button>
-                    <Button variant="secondary" intent="neutral" disabled>
-                        Disabled
-                    </Button>
-                    <Button variant="plain" intent="neutral">
-                        Plain
-                    </Button>
-                    <Button variant="plain" intent="neutral" disabled>
-                        Disabled
-                    </Button>
+                <DemoItem title="neutral" gap="l">
+                    <Flex direction="row" gap="l">
+                        <Button variant="primary" intent="neutral">
+                            Primary
+                        </Button>
+                        <Button variant="primary" intent="neutral" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <Button variant="secondary" intent="neutral">
+                            Secondary
+                        </Button>
+                        <Button variant="secondary" intent="neutral" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
+                    <Flex direction="row" gap="l">
+                        <Button variant="plain" intent="neutral">
+                            Plain
+                        </Button>
+                        <Button variant="plain" intent="neutral" disabled>
+                            Disabled
+                        </Button>
+                    </Flex>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="size">
                 <DemoItem row title="large">
                     <Button size="large">Size Large</Button>
@@ -115,16 +146,19 @@ export const ButtonPage: Component = () => {
                     <Button size="small">Size Small</Button>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="disabled">
                 <DemoItem row title="">
                     <Button disabled>Disabled</Button>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="onPress">
                 <DemoItem row note="see console log">
                     <Button onPress={handlePress}>Foobar</Button>
                 </DemoItem>
             </DemoGroup>
+
             <DemoGroup title="classList">
                 <DemoItem row note="Should override background color">
                     <Button classList={staticClassList(styles, 'override')}>Foobar</Button>

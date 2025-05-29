@@ -1,0 +1,20 @@
+@use 'sass:string';
+
+@mixin variant-classes($prefix, $map, $bp: null) {
+    @each $key, $value in $map {
+        $suffix: if($bp == null or $bp == _, '', '-#{$bp}');
+        .#{$prefix}-#{$key}#{$suffix} {
+            @content ($key, $value);
+        }
+    }
+}
+
+@mixin responsive-variants($breakpoints) {
+    @content ('_');
+
+    @each $bp, $media in $breakpoints {
+        @media #{string.unquote($media)} {
+            @content ($bp);
+        }
+    }
+}
