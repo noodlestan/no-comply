@@ -1,7 +1,0 @@
-@layer standard-ui-sandbox {
-    @layer pages {
-        .SelectPage .override {
-            color: red;
-        }
-    }
-}

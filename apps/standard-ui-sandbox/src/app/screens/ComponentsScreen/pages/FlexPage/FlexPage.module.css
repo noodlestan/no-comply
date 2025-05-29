@@ -1,7 +1,0 @@
-@layer standard-ui-sandbox {
-    @layer pages {
-        .FlexPage .override {
-            border: 1px solid red;
-        }
-    }
-}

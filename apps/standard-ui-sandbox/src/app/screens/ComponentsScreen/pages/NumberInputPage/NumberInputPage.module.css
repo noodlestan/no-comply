@@ -1,7 +1,0 @@
-@layer standard-ui-sandbox {
-    @layer pages {
-        .NumberInputPage .override {
-            color: red;
-        }
-    }
-}

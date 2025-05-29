@@ -1,0 +1,11 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .IconDemoPage .override {
+            color: red;
+        }
+
+        .IconDemoPage--Recoloring {
+            color: orange;
+        }
+    }
+}

@@ -2,64 +2,64 @@ import { Route } from '@solidjs/router';
 import type { Component } from 'solid-js';
 
 import {
-    AnchoredPopoverPage,
-    ButtonPage,
-    CalloutPage,
-    CheckboxPage,
-    CloseButtonPage,
-    ComponentsPage,
+    AnchoredPopoverDemoPage,
+    ButtonDemoPage,
+    CalloutDemoPage,
+    CheckboxDemoPage,
+    CloseButtonDemoPage,
+    ComponentsListPage,
     ComponentsScreen,
-    DataItemPage,
-    DataValuePage,
-    DisplayPage,
-    DividerPage,
-    ExpandButtonPage,
-    FlexPage,
-    IconButtonPage,
-    IconPage,
-    LabelPage,
-    LayoutPage,
-    LinkPage,
-    MenuItemActionPage,
-    MenuPage,
-    NavLinkPage,
-    NumberInputPage,
-    PopoverPage,
-    RangeInputPage,
-    SelectPage,
-    SurfacePage,
-    TextInputPage,
-    TextPage,
+    DataItemDemoPage,
+    DataValueDemoPage,
+    DisplayDemoPage,
+    DividerDemoPage,
+    ExpandButtonDemoPage,
+    FlexDemoPage,
+    IconButtonDemoPage,
+    IconDemoPage,
+    LabelDemoPage,
+    LayoutDemoPage,
+    LinkDemoPage,
+    MenuDemoPage,
+    MenuItemActionDemoPage,
+    NavLinkDemoPage,
+    NumberInputDemoPage,
+    PopoverDemoPage,
+    RangeInputDemoPage,
+    SelectDemoPage,
+    SurfaceDemoPage,
+    TextDemoPage,
+    TextInputDemoPage,
 } from '../ComponentsScreen/';
 
 export const FeaturesRoutes: Component = () => (
     <Route path="/features/components" component={ComponentsScreen}>
-        <Route path="/" component={ComponentsPage} />
-        <Route path="/AnchoredPopover" component={AnchoredPopoverPage} />
-        <Route path="/Button" component={ButtonPage} />
-        <Route path="/Callout" component={CalloutPage} />
-        <Route path="/Checkbox" component={CheckboxPage} />
-        <Route path="/CloseButton" component={CloseButtonPage} />
-        <Route path="/DataItem" component={DataItemPage} />
-        <Route path="/DataValue" component={DataValuePage} />
-        <Route path="/Display" component={DisplayPage} />
-        <Route path="/Divider" component={DividerPage} />
-        <Route path="/ExpandButton" component={ExpandButtonPage} />
-        <Route path="/Flex" component={FlexPage} />
-        <Route path="/IconButton" component={IconButtonPage} />
-        <Route path="/Icon" component={IconPage} />
-        <Route path="/Label" component={LabelPage} />
-        <Route path="/Layout" component={LayoutPage} />
-        <Route path="/Link" component={LinkPage} />
-        <Route path="/Menu" component={MenuPage} />
-        <Route path="/MenuItemAction" component={MenuItemActionPage} />
-        <Route path="/NavLink" component={NavLinkPage} />
-        <Route path="/Popover" component={PopoverPage} />
-        <Route path="/NumberInput" component={NumberInputPage} />
-        <Route path="/RangeInput" component={RangeInputPage} />
-        <Route path="/Select" component={SelectPage} />
-        <Route path="/Surface" component={SurfacePage} />
-        <Route path="/Text" component={TextPage} />
-        <Route path="/TextInput" component={TextInputPage} />
+        <Route path="/" component={ComponentsListPage} />
+        <Route path="/AnchoredPopover" component={AnchoredPopoverDemoPage} />
+        <Route path="/Button" component={ButtonDemoPage} />
+        <Route path="/Callout" component={CalloutDemoPage} />
+        <Route path="/Checkbox" component={CheckboxDemoPage} />
+        <Route path="/CloseButton" component={CloseButtonDemoPage} />
+        <Route path="/DataItem" component={DataItemDemoPage} />
+        <Route path="/DataValue" component={DataValueDemoPage} />
+        <Route path="/Display" component={DisplayDemoPage} />
+        <Route path="/Divider" component={DividerDemoPage} />
+        <Route path="/ExpandButton" component={ExpandButtonDemoPage} />
+        <Route path="/Flex" component={FlexDemoPage} />
+        <Route path="/IconButton" component={IconButtonDemoPage} />
+        <Route path="/Icon" component={IconDemoPage} />
+        <Route path="/Label" component={LabelDemoPage} />
+        <Route path="/Layout" component={LayoutDemoPage} />
+        <Route path="/Link" component={LinkDemoPage} />
+        <Route path="/Menu" component={MenuDemoPage} />
+        <Route path="/MenuItemAction" component={MenuItemActionDemoPage} />
+        <Route path="/NavLink" component={NavLinkDemoPage} />
+        <Route path="/Popover" component={PopoverDemoPage} />
+        <Route path="/NumberInput" component={NumberInputDemoPage} />
+        <Route path="/RangeInput" component={RangeInputDemoPage} />
+        <Route path="/Select" component={SelectDemoPage} />
+        <Route path="/Surface" component={SurfaceDemoPage} />
+        <Route path="/Text" component={TextDemoPage} />
+        <Route path="/TextInput" component={TextInputDemoPage} />
     </Route>
 );

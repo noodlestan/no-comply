@@ -1,0 +1,7 @@
+@layer standard-ui-sandbox {
+    @layer pages {
+        .FlexDemoPage .override {
+            border: 1px solid red;
+        }
+    }
+}

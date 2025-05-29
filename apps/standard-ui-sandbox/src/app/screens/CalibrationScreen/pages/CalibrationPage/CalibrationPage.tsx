@@ -5,9 +5,16 @@ import { DemoPage } from '../../../../templates';
 
 export const CalibrationPage: Component = () => {
     return (
-        <DemoPage title="Calibration">
+        <DemoPage
+            title="Calibration"
+            undertitle={() => (
+                <Display tag="p" variant="m">
+                    Sandbox pages
+                </Display>
+            )}
+        >
             <Flex direction="column" gap="m">
-                <Display level={3}>Sandbox pages</Display>
+                ...
             </Flex>
         </DemoPage>
     );
