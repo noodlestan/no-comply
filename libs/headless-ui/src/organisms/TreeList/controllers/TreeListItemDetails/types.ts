@@ -2,7 +2,7 @@ import type { AriaLabelledProps } from '@noodlestan/context-ui-aria';
 import type { PropsWithComponent } from '@noodlestan/context-ui-primitives';
 import type { Accessor } from 'solid-js';
 
-import type { ExpandActionProps } from '../../../../actions';
+import type { ExpandActionProps } from '../../../../action';
 import type { FocusableBaseProps } from '../../../../focus';
 import type { TreeListItemContentsProps, TreeNode } from '../../types';
 

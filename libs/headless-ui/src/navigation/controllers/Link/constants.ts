@@ -1,6 +1,6 @@
 import { definePropKeys } from '@noodlestan/context-ui-primitives';
 
-import { PRESSABLE_PROPS } from '../../../actions';
+import { PRESSABLE_PROPS } from '../../../action';
 
 import type { LinkProps } from './types';
 

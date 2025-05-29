@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import type { ExpandActionProps } from '../../../../actions';
+import type { ExpandActionProps } from '../../../../action';
 import type {
     TreeListAPI,
     TreeListItemChildrenProps,

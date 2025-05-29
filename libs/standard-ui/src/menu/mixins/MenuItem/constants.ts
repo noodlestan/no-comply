@@ -1,6 +1,6 @@
 import { definePropKeys, omitPropKeys } from '@noodlestan/context-ui-primitives';
 
-import { ACTION_MIXIN_PROPS } from '../../../actions';
+import { ACTION_MIXIN_PROPS } from '../../../action';
 
 import type { MenuItemMixinProps } from './types';
 

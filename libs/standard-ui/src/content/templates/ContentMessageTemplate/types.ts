@@ -2,7 +2,7 @@ import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type { ContentMessageAPI } from '@noodlestan/headless-ui';
 import type { Accessor } from 'solid-js';
 
-import type { CloseButtonProps } from '../../../actions';
+import type { CloseButtonProps } from '../../../action';
 import type { FlexGap, LayoutPadding } from '../../../layout';
 import type { ContentSize, SizeScale } from '../../../types';
 import type { DisplayMixinVariant, TextVariant } from '../../../typography';

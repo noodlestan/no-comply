@@ -6,7 +6,7 @@ import type {
     FormTagName,
 } from '@noodlestan/context-ui-aria';
 
-import type { PressableProps } from '../../../actions';
+import type { PressableProps } from '../../../action';
 
 export type FormProps = AriaFormProps &
     FormContextOptions & {

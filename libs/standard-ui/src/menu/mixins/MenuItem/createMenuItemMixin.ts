@@ -6,7 +6,7 @@ import {
 } from '@noodlestan/context-ui-primitives';
 import { splitProps } from 'solid-js';
 
-import { createActionMixin } from '../../../actions';
+import { createActionMixin } from '../../../action';
 import type { ContentSize } from '../../../types';
 
 import styles from './MenuItemMixin.module.scss';

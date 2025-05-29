@@ -1,7 +1,7 @@
 import { l } from '@noodlestan/context-ui';
 import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
-import { createExtendedPressable } from '../../../../actions';
+import { createExtendedPressable } from '../../../../action';
 import { getTreeSelectionUntil } from '../../helpers';
 import { useTreeList } from '../../providers';
 import type { TreeNode } from '../../types';

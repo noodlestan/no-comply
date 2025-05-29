@@ -1,7 +1,7 @@
 import type { AriaAttributes } from '@noodlestan/context-ui-aria';
 import type { PressEventHandlers } from '@noodlestan/context-ui-primitives';
 
-import type { PressableProps } from '../../../actions';
+import type { PressableProps } from '../../../action';
 
 export type LinkProps = PressableProps &
     PressEventHandlers & {

@@ -1,7 +1,7 @@
 import { Show, splitProps } from 'solid-js';
 import type { ParentComponent } from 'solid-js';
 
-import { CloseButton } from '../../../actions';
+import { CloseButton } from '../../../action';
 import { Icon } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';

@@ -1,6 +1,6 @@
 import type { ClassList } from '@noodlestan/context-ui-primitives';
 
-import type { ActionMixinAPI, ActionMixinProps } from '../../../actions';
+import type { ActionMixinAPI, ActionMixinProps } from '../../../action';
 
 export type MenuItemMixinProps = Omit<ActionMixinProps, 'size'>;
 

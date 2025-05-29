@@ -1,6 +1,6 @@
 import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 
-import { createPressable } from '../../../actions';
+import { createPressable } from '../../../action';
 import { isExternalURL, linkRelFor } from '../../helpers';
 
 import type { LinkAPI, LinkProps } from './types';
