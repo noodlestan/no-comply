@@ -1,3 +1,35 @@
+## Menu items
+
+## rename packages
+
+- context-ui
+- accessible-ui
+- composable-ui
+- standard-ui
+  dream on
+- proto-ui
+- studio-ui
+- touchdown-ui
+
+## compact class names in all CSS modules
+
+and rename all mixin files to SomethingMixin.module.scss
+
+## use logical attributes everywhere
+
+example:
+inset-block-start: 0;
+inset-inline-end: 0;
+
+## Layout width references
+
+reading length
+max-width: 600px; // WIP Layout width references
+
+## Separator
+
+aria-separator
+
 ## Callout
 
 use Flex padding-inline / padding-block instead of double padding
@@ -15,6 +47,11 @@ offset the closeButton if there is one
   )}
 </Button>
 ```
+
+## Display, Heading, Text
+
+add aria-heading (+aria-level) when not hX
+and aria-paragraph when not p?
 
 ## supports test
 
@@ -98,17 +135,6 @@ setTimeout(() => setIsActive(false), 150);
 // event.preventDefault();
 => it also cancels the focus-ring user feedback
 
-## rename packages
-
-- context-ui
-- accessible-ui
-- composable-ui
-- standard-ui
-  dream on
-- proto-ui
-- studio-ui
-- touchdown-ui
-
 ## string | undefined => DataBooleanAttribute
 
 'data-is-active': createDataBooleanProp(isActive),
@@ -119,21 +145,6 @@ use only data-inactive in CSS
 
 should be on when disabled, aria-disabled, or inactive are true
 implement in pressable and others?
-
-## use logical attributes everywhere
-
-example:
-inset-block-start: 0;
-inset-inline-end: 0;
-
-## Layout width references
-
-reading length
-max-width: 600px; // WIP Layout width references
-
-## compact class names in all CSS modules
-
-and rename all mixin files to SomethingMixin.module.scss
 
 ## generalize debug
 
@@ -158,28 +169,15 @@ vs router (or custom) via navigation service
 
 ## FormGroupContext
 
-## Display, Heading, Text
-
-add aria-heading (+aria-level)
-and aria-paragraph
-
 ## Safari
 
 - no scrollbars
 - links are not focusable
 
-## Separator
-
-aria-separator
-
 ## Scope surface vars
 
 `@scope ([data-surface]) to ([data-surface])`
 https://css-tricks.com/almanac/rules/s/scope/
-
-## data-disabled
-
-make sure it is added to all disable-able controllers (from aria up)
 
 ## abstract input controller around a focus context
 

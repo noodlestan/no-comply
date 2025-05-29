@@ -1,5 +1,6 @@
-import { ErrorBoundary as Boundary, type IconComponent } from '@noodlestan/context-ui';
+import { type IconComponent } from '@noodlestan/context-ui';
 import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { ErrorBoundary as HeadlessErrorBoundary } from '@noodlestan/headless-ui';
 import { Display, Flex, Icon, Layout } from '@noodlestan/standard-ui';
 import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
@@ -70,8 +71,8 @@ export const ErrorScreen: ParentComponent = () => {
 
 export const ErrorBoundaryScreen: ParentComponent = props => {
     return (
-        <Boundary fallback={ErrorScreen} onError={logError}>
+        <HeadlessErrorBoundary fallback={ErrorScreen} onError={logError}>
             {props.children}
-        </Boundary>
+        </HeadlessErrorBoundary>
     );
 };

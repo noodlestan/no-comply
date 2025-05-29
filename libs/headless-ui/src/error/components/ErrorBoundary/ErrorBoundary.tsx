@@ -9,11 +9,6 @@ export type ErrorBoundaryProps = {
     reset?: () => void;
 };
 
-// TODO problem solidjs error boundary renders (at least some) children again
-// before rendering the fallback
-// particularly errors in <ScenarioStage> or <DriveStage> cause this components to render again
-// before their onCleanup() was declared, leading to a new Error, obscuring the first, sad face
-
 export const ErrorBoundary: ParentComponent<ErrorBoundaryProps> = props => {
     return (
         <Boundary
