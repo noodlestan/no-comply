@@ -1,5 +1,5 @@
-import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
-import { PopoverContextProvider } from '@noodlestan/headless-ui';
+import { PopoverContextProvider } from '@no-comply/solid-composables';
+import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

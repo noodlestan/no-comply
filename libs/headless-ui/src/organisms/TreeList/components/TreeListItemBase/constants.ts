@@ -1,8 +1,0 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-
-import { TREE_LIST_ITEM_PROPS } from '../../controllers';
-
-import type { TreeListItemBaseProps } from './types';
-
-export const TREE_LIST_ITEM_BASE_PROPS =
-    definePropKeys<TreeListItemBaseProps>()(TREE_LIST_ITEM_PROPS);

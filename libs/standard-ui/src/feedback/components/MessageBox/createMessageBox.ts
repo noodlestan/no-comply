@@ -1,4 +1,4 @@
-import { createFeedbackMessage } from '@noodlestan/headless-ui';
+import { createFeedbackMessage } from '@no-comply/solid-composables';
 
 import type { MessageBoxAPI, MessageBoxProps } from './types';
 

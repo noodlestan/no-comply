@@ -4,7 +4,7 @@ import {
     createComputedProps,
     mergeProps,
     staticClassList,
-} from '@noodlestan/context-ui-primitives';
+} from '@no-comply/solid-primitives';
 
 import styles from './ContentMessageTemplate.module.scss';
 import type { ContentMessageTemplateAPI, ContentMessageTemplateProps } from './types';

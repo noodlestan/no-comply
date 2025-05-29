@@ -1,5 +1,7 @@
-@layer standard-ui {
-    .Scrollable {
-        overflow: hidden;
+@layer lib {
+    @layer standard-ui {
+        .Scrollable {
+            overflow: hidden;
+        }
     }
 }

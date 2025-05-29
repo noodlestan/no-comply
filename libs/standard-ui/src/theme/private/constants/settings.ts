@@ -1,4 +1,4 @@
-import type { Setting } from '@noodlestan/context-ui';
+import type { Setting } from '@no-comply/solid-contexts';
 
 export const THEME_SETTING_MODE: Setting = {
     id: 'standard-ui.mode.value',

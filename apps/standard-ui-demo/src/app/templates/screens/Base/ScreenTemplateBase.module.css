@@ -1,0 +1,5 @@
+@layer app {
+    .ScreenTemplateBase--Layout {
+        z-index: 0;
+    }
+}

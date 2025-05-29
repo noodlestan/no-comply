@@ -1,15 +1,10 @@
-@layer reset, headless-ui, standard-ui-theme, standard-ui;
+@layer reset, composables, lib, theme;
 
-@layer headless-ui {
-    @layer mixins;
-}
-
-@layer standard-ui-theme {
-    @layer foundations, surfaces, patterns;
-    @layer mode {
+@layer theme {
+    @layer standard-ui {
         @layer foundations, surfaces, patterns;
+        @layer mode-light {
+            @layer foundations, surfaces, patterns;
+        }
     }
-}
-
-@layer standard-ui {
 }

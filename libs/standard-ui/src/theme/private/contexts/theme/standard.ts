@@ -1,4 +1,4 @@
-import { createThemeVariant } from '@noodlestan/context-ui';
+import { createThemeVariant } from '@no-comply/solid-contexts';
 
 import { contextVars } from './functions';
 

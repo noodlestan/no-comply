@@ -1,7 +1,7 @@
 /* eslint-disable solid/reactivity */
-import { FormContextProvider } from '@noodlestan/context-ui';
-import { type RenderProp, mergeProps } from '@noodlestan/context-ui-primitives';
-import { FORM_PROPS, type FormAPI, createForm } from '@noodlestan/headless-ui';
+import { FORM_PROPS, type FormAPI, createForm } from '@no-comply/solid-composables';
+import { FormContextProvider } from '@no-comply/solid-contexts';
+import { type RenderProp, mergeProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

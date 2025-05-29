@@ -1,5 +1,5 @@
-import type { HeadingTagName } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import type { HeadingTagName } from '@no-comply/solid-accessibility';
+import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { type DisplayMixinLevel, createDisplayMixin } from '../../mixins';
 

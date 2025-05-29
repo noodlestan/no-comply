@@ -1,4 +1,4 @@
-import type { ActionLabelTagName } from '@noodlestan/context-ui-aria';
+import type { ActionLabelTagName } from '@no-comply/solid-accessibility';
 
 import type { ActionLabelMixinAPI, ActionLabelMixinProps } from '../..';
 

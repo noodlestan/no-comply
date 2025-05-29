@@ -1,0 +1,9 @@
+@use '@no-comply/solid-composables/scss/mixins/layout.scss' as *;
+
+@layer app {
+    .PageContentsLayout {
+        padding-block-start: var(--scale-l);
+        padding-block-end: var(--scale-2xl);
+        @include container-inline-padding(var(--scale-m));
+    }
+}

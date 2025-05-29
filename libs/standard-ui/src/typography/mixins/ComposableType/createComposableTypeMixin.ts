@@ -1,4 +1,4 @@
-import { createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createComputedProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../ActionLabel';
 import { createDisplayMixin } from '../Display';

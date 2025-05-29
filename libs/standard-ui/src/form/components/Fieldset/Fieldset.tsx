@@ -1,5 +1,5 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { FlexMixinDirection } from '@noodlestan/headless-ui';
+import type { FlexMixinDirection } from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
 import { Flex } from '../../../layout';

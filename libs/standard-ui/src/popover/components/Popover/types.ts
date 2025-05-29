@@ -2,7 +2,7 @@ import type {
     PopoverAPI as HeadlessPopoverAPI,
     PopoverProps as HeadlessPopoverProps,
     PopoverMixinAPI,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
 
 export type PopoverProps = HeadlessPopoverProps;
 

@@ -3,7 +3,7 @@ import type {
     AnchoredPopoverMixinAPI,
     AnchoredPopoverAPI as HeadlessAnchoredPopoverAPI,
     AnchoredPopoverProps as HeadlessAnchoredPopoverProps,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
 
 export type AnchoredPopoverProps = AnchoredPopoverBaseProps & HeadlessAnchoredPopoverProps;
 

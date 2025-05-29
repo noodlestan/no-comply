@@ -1,28 +1,30 @@
-@layer standard-ui {
-    .FieldsetLabel {
-        color: hsla(var(--label-fieldset-fg-color), var(--o-input-label));
-        font-family: var(--label-type-family);
-        cursor: unset;
-    }
+@layer lib {
+    @layer standard-ui {
+        .FieldsetLabel {
+            color: hsla(var(--label-fieldset-fg-color), var(--o-input-label));
+            font-family: var(--label-type-family);
+            cursor: unset;
+        }
 
-    .FieldsetLabel-size-small {
-        font-weight: 900;
-        font-size: var(--label-type-size-s);
-        font-weight: var(--label-type-weight-l);
-    }
+        .FieldsetLabel-size-small {
+            font-weight: 900;
+            font-size: var(--label-type-size-s);
+            font-weight: var(--label-type-weight-l);
+        }
 
-    .FieldsetLabel-size-normal {
-        font-size: var(--label-type-size-m);
-        font-weight: var(--label-type-weight-s);
-    }
+        .FieldsetLabel-size-normal {
+            font-size: var(--label-type-size-m);
+            font-weight: var(--label-type-weight-s);
+        }
 
-    .FieldsetLabel-size-medium {
-        font-size: var(--label-type-size-l);
-        font-weight: var(--label-type-weight-m);
-    }
+        .FieldsetLabel-size-medium {
+            font-size: var(--label-type-size-l);
+            font-weight: var(--label-type-weight-m);
+        }
 
-    .FieldsetLabel-size-large {
-        font-size: var(--label-type-size-xl);
-        font-weight: var(--label-type-weight-l);
+        .FieldsetLabel-size-large {
+            font-size: var(--label-type-size-xl);
+            font-weight: var(--label-type-weight-l);
+        }
     }
 }

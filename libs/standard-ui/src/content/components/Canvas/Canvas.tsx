@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { staticClassList } from '@no-comply/solid-primitives';
 import { type Component, onMount } from 'solid-js';
 
 import styles from './Canvas.module.css';

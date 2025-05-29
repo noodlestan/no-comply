@@ -1,12 +1,14 @@
-@layer standard-ui-theme {
-    @layer foundations {
-        @layer radius {
-            [data-theme-standard] {
-                --radius-xs: var(--scale-5xs);
-                --radius-s: var(--scale-4xs);
-                --radius-m: var(--scale-3xs);
-                --radius-l: var(--scale-2xs);
-                --radius-xl: var(--scale-xs);
+@layer theme {
+    @layer standard-ui {
+        @layer foundations {
+            @layer radius {
+                [data-theme-standard] {
+                    --radius-xs: var(--scale-5xs);
+                    --radius-s: var(--scale-4xs);
+                    --radius-m: var(--scale-3xs);
+                    --radius-l: var(--scale-2xs);
+                    --radius-xl: var(--scale-xs);
+                }
             }
         }
     }

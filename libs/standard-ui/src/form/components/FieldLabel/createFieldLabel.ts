@@ -1,13 +1,13 @@
 import {
+    createFieldLabelMixin,
+    createFieldLabel as createHeadlessFieldLabel,
+} from '@no-comply/solid-composables';
+import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import {
-    createFieldLabelMixin,
-    createFieldLabel as createHeadlessFieldLabel,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-primitives';
 
 import styles from './FieldLabel.module.css';
 import type { FieldLabelAPI, FieldLabelProps } from './types';

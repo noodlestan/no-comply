@@ -1,8 +1,4 @@
-import {
-    createClassList,
-    createComputedProps,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
+import { createClassList, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../../../typography';
 import { createActionMixin } from '../Action';

@@ -1,8 +1,8 @@
-import type { ClassList, ResponsiveProp } from '@noodlestan/context-ui-primitives';
 import {
     type LayoutMixinAPI as HeadlessLayoutMixinAPI,
     type LayoutMixinProps as HeadlessLayoutMixinProps,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { ClassList, ResponsiveProp } from '@no-comply/solid-primitives';
 
 export type LayoutMixinProps = Omit<HeadlessLayoutMixinProps, 'padding'> & {
     padding?: ResponsiveProp<LayoutPadding>;

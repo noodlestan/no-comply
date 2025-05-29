@@ -1,4 +1,4 @@
-import { createModeVariant } from '@noodlestan/context-ui';
+import { createModeVariant } from '@no-comply/solid-contexts';
 
 export const STANDARD_UI_MODE_DARK = createModeVariant({
     name: 'dark',

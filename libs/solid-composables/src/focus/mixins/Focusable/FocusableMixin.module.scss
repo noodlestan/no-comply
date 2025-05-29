@@ -1,0 +1,21 @@
+@use '@no-comply/solid-accessibility/scss/mixins/visibility.scss' as *;
+@use '../../../scss/mixins/focus.scss' as *;
+
+@layer composables {
+    .Focusable {
+        position: relative;
+        cursor: pointer;
+        pointer-events: all;
+        user-select: none;
+
+        @include focus-ring;
+    }
+
+    .Focusable--button {
+        @include visually-hidden;
+    }
+
+    .Focusable[data-disabled] {
+        cursor: default;
+    }
+}

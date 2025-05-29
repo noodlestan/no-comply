@@ -1,5 +1,5 @@
 {
-  "name": "context-ui",
+  "name": "no-comply",
   "version": "0.0.11",
   "description": "Context-aware UI system built with SolidJS and modern CSS.",
   "author": "Noodlestan Collective",
@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
     "build": "turbo run build",
     "ci": "turbo run ci --ui stream"

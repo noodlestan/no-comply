@@ -1,11 +1,11 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type {
     FocusRingAPI,
     LinkAPI as HeadlessLinkAPI,
     LinkProps as HeadlessLinkProps,
     NavLinkAPI as HeadlessNavLinkAPI,
     NavLinkProps as HeadlessNavLinkProps,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 import type { NavLinkMixinAPI, NavLinkMixinProps } from '../../mixins';
 

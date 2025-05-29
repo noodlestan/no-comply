@@ -1,10 +1,10 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
 import {
     type NavLinkAPI,
     createFocusRing,
     createLink as createHeadlessLink,
     createNavLink as createHeadlessNavLink,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import { mergeProps } from '@no-comply/solid-primitives';
 
 import { createNavLinkMixin } from '../../mixins';
 

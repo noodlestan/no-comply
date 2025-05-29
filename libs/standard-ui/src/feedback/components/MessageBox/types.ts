@@ -1,4 +1,4 @@
-import type { FeedbackMessageAPI, FeedbackMessageProps } from '@noodlestan/headless-ui';
+import type { FeedbackMessageAPI, FeedbackMessageProps } from '@no-comply/solid-composables';
 
 import type { ContentMessageTemplateOwnProps } from '../../../content';
 

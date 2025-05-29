@@ -1,5 +1,5 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { FocusRingAPI, PressableAPI, PressableProps } from '@noodlestan/headless-ui';
+import type { FocusRingAPI, PressableAPI, PressableProps } from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
 import type { ContentSize } from '../../../types';

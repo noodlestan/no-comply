@@ -1,6 +1,6 @@
-import { createAriaMenu } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps, shortId } from '@noodlestan/context-ui-primitives';
-import { usePopoverMaybe } from '@noodlestan/headless-ui';
+import { createAriaMenu } from '@no-comply/solid-accessibility';
+import { usePopoverMaybe } from '@no-comply/solid-composables';
+import { createComputedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
 import { createContext, createMemo, useContext } from 'solid-js';
 
 import { createSurface } from '../../../surface';

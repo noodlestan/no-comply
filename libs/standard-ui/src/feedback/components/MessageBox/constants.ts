@@ -1,5 +1,5 @@
-import { definePropKeys, omitPropKeys } from '@noodlestan/context-ui-primitives';
-import { STATIC_MESSAGE_PROPS } from '@noodlestan/headless-ui';
+import { STATIC_MESSAGE_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys, omitPropKeys } from '@no-comply/solid-primitives';
 
 import { CONTENT_MESSAGE_TEMPLATE_OWN_PROPS } from '../../../content';
 

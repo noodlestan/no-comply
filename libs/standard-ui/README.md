@@ -1,10 +1,10 @@
-# Standard UI
+# No Comply / Standard UI
 
-> Themeable component library built with [Context UI](https://github.com/noodlestan/context-ui), [SolidJS](https://www.solidjs.com/) and modern CSS.
+> Themeable component library built with [[No Comply]](https://no-comply.noodlestan.org/), [SolidJS](https://www.solidjs.com/) and modern CSS.
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/ui-system/blob/README.md) first.
+Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
 
 ### Build Targets
 

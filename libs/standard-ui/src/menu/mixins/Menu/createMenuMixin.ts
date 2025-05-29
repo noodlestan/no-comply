@@ -1,4 +1,4 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
+import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingMixin } from '../../../focus';
 

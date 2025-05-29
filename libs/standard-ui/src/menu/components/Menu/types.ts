@@ -1,5 +1,5 @@
-import type { BaseContext } from '@noodlestan/context-ui';
-import type { AriaMenuAPI, AriaMenuProps } from '@noodlestan/context-ui-aria';
+import type { AriaMenuAPI, AriaMenuProps } from '@no-comply/solid-accessibility';
+import type { BaseContext } from '@no-comply/solid-contexts';
 import type { Accessor } from 'solid-js';
 
 import type { SurfaceAPI } from '../../../surface';

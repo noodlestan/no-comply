@@ -1,4 +1,4 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { COMPOSABLE_TYPE_MIXIN_PROPS, FIRST_LINE_ALIGN_MIXIN_PROPS } from '../../mixins';
 

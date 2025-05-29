@@ -3,7 +3,7 @@ import {
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
+} from '@no-comply/solid-primitives';
 
 import { createLinkMixin } from '../Link';
 

@@ -1,10 +1,6 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
-import { type IconComponent } from '@noodlestan/context-ui/src/icons';
-import {
-    type ClassList,
-    type PickRequired,
-    createClassList,
-} from '@noodlestan/context-ui-primitives';
+import { type IconComponent } from '@no-comply/solid-contexts/src/icons';
+import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type JSX, type ParentComponent, Show } from 'solid-js';
 
 import { Icon } from '../../../icon';

@@ -1,4 +1,4 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { TEXT_OWN_PROPS } from '../Text';
 

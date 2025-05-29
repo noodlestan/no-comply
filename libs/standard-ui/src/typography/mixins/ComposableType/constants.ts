@@ -1,4 +1,4 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { ACTION_LABEL_MIXIN_PROPS } from '../ActionLabel';
 import { DISPLAY_MIXIN_PROPS } from '../Display';

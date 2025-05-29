@@ -1,5 +1,5 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
-import { createFocusRing, createLink as createHeadlessLink } from '@noodlestan/headless-ui';
+import { createFocusRing, createLink as createHeadlessLink } from '@no-comply/solid-composables';
+import { mergeProps } from '@no-comply/solid-primitives';
 
 import { createSkipLinkMixin } from '../../mixins';
 

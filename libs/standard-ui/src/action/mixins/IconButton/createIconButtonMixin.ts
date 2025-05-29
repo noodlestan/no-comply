@@ -1,8 +1,4 @@
-import {
-    createClassList,
-    createComputedProps,
-    staticClassList,
-} from '@noodlestan/context-ui-primitives';
+import { createClassList, createComputedProps, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './IconButtonMixin.module.scss';
 import { ICON_BUTTOM_MAP_SIZE_TO_ICON_SIZE } from './constants';

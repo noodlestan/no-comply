@@ -1,0 +1,5 @@
+@layer composables {
+    .AlignFirstLine {
+        margin-top: calc((var(--__align-height, 0px) - var(--__align-to-height, 0px)) / 2);
+    }
+}

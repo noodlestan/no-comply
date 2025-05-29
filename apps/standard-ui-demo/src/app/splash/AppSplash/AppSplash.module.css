@@ -1,0 +1,27 @@
+@layer app {
+    @layer app {
+        .AppSplash {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .AppSplash main {
+            height: 100%;
+            padding: 0;
+            gap: var(--space-gap-4);
+        }
+
+        .AppSplash [data-splash-box] {
+            height: 50vh;
+            width: 100%;
+        }
+
+        .AppSplash [data-splash-spinner] {
+            height: 20vh;
+            position: relative;
+            top: 40%;
+            transform: scale(4);
+            opacity: 0.5;
+        }
+    }
+}

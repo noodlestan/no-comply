@@ -1,4 +1,4 @@
-import { createStaticMessage } from '@noodlestan/headless-ui';
+import { createStaticMessage } from '@no-comply/solid-composables';
 
 import type { CalloutAPI, CalloutProps } from './types';
 

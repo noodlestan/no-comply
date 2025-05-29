@@ -1,5 +1,5 @@
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
-import { createIconAction } from '@noodlestan/headless-ui';
+import { createIconAction } from '@no-comply/solid-composables';
+import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createIconButtonMixin } from '../../mixins';
 import { createButton } from '../Button';

@@ -1,5 +1,0 @@
-@layer reset, headless-ui, standard-ui-theme, standard-ui, standard-ui-sandbox;
-
-@layer standard-ui-sandbox {
-    @layer components, pages, screens, app;
-}

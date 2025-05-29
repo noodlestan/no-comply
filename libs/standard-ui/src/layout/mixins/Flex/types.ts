@@ -1,8 +1,8 @@
-import type { ClassList, ResponsiveProp } from '@noodlestan/context-ui-primitives';
 import {
     type FlexMixinAPI as HeadlessFlexMixinAPI,
     type FlexMixinProps as HeadlessFlexMixinProps,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { ClassList, ResponsiveProp } from '@no-comply/solid-primitives';
 
 import type { GlobalBreakpointName } from '../../../theme';
 

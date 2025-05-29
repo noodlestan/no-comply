@@ -1,10 +1,10 @@
-import { createIconValue } from '@noodlestan/context-ui';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
 import {
     type ExpandActionIcons,
     type ExpandActionLabels,
     createExpandAction,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import { createIconValue } from '@no-comply/solid-contexts';
+import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';

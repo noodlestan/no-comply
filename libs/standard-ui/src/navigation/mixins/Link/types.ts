@@ -1,5 +1,5 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import { type LinkMixinAPI as HeadlessLinkMixinAPI } from '@noodlestan/headless-ui';
+import { type LinkMixinAPI as HeadlessLinkMixinAPI } from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 import type { FocusRingMixinAPI, FocusRingMixinProps } from '../../../focus';
 

@@ -1,4 +1,4 @@
-import type { LayoutTagName } from '@noodlestan/context-ui-aria';
+import type { LayoutTagName } from '@no-comply/solid-accessibility';
 
 import { type LayoutMixinAPI, type LayoutMixinProps } from '../../mixins';
 

@@ -1,10 +1,10 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
 import type {
     IconAPI as HeadlessIconAPI,
     IconProps as HeadlessIconProps,
     IconMixinAPI,
     IconMixinProps,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 import type { ContentSize } from '../../../types';
 

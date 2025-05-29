@@ -1,5 +1,5 @@
-import { createAriaGroup } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import { createAriaGroup } from '@no-comply/solid-accessibility';
+import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 import { createContext, createSignal, useContext } from 'solid-js';
 
 import { createMenuItemGroupMixin } from '../../mixins';

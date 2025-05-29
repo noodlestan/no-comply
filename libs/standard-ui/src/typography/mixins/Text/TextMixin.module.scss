@@ -1,36 +1,38 @@
-@layer standard-ui {
-    .Text {
-        --__text-family: var(--text-base-family);
-        --__text-font-style: normal;
-        --__text-transform: none;
-        --__text-wrap-style: auto;
-    }
+@layer lib {
+    @layer standard-ui {
+        .Text {
+            --__text-family: var(--text-base-family);
+            --__text-font-style: normal;
+            --__text-transform: none;
+            --__text-wrap-style: auto;
+        }
 
-    .Text-variant-small {
-        --__text-font-size: var(--text-variant-small-size);
-        --__text-font-weight: var(--text-variant-small-weight, var(--text-base-weight));
-        --__text-line-height: var(--text-variant-small-height, var(--text-base-height));
-        --__text-letter-spacing: var(--text-variant-small-spacing, var(--text-base-spacing));
-    }
+        .Text-variant-small {
+            --__text-font-size: var(--text-variant-small-size);
+            --__text-font-weight: var(--text-variant-small-weight, var(--text-base-weight));
+            --__text-line-height: var(--text-variant-small-height, var(--text-base-height));
+            --__text-letter-spacing: var(--text-variant-small-spacing, var(--text-base-spacing));
+        }
 
-    .Text-variant-normal {
-        --__text-font-size: var(--text-variant-normal-size);
-        --__text-font-weight: var(--text-variant-normal-weight, var(--text-base-weight));
-        --__text-line-height: var(--text-variant-normal-height, var(--text-base-height));
-        --__text-letter-spacing: var(--text-variant-normal-spacing, var(--text-base-spacing));
-    }
+        .Text-variant-normal {
+            --__text-font-size: var(--text-variant-normal-size);
+            --__text-font-weight: var(--text-variant-normal-weight, var(--text-base-weight));
+            --__text-line-height: var(--text-variant-normal-height, var(--text-base-height));
+            --__text-letter-spacing: var(--text-variant-normal-spacing, var(--text-base-spacing));
+        }
 
-    .Text-variant-medium {
-        --__text-font-size: var(--text-variant-medium-size);
-        --__text-font-weight: var(--text-variant-medium-weight, var(--text-base-weight));
-        --__text-line-height: var(--text-variant-medium-height, var(--text-base-height));
-        --__text-letter-spacing: var(--text-variant-medium-spacing, var(--text-base-spacing));
-    }
+        .Text-variant-medium {
+            --__text-font-size: var(--text-variant-medium-size);
+            --__text-font-weight: var(--text-variant-medium-weight, var(--text-base-weight));
+            --__text-line-height: var(--text-variant-medium-height, var(--text-base-height));
+            --__text-letter-spacing: var(--text-variant-medium-spacing, var(--text-base-spacing));
+        }
 
-    .Text-variant-large {
-        --__text-font-size: var(--text-variant-large-size);
-        --__text-font-weight: var(--text-variant-large-weight, var(--text-base-weight));
-        --__text-line-height: var(--text-variant-large-height, var(--text-base-height));
-        --__text-letter-spacing: var(--text-variant-large-spacing, var(--text-base-spacing));
+        .Text-variant-large {
+            --__text-font-size: var(--text-variant-large-size);
+            --__text-font-weight: var(--text-variant-large-weight, var(--text-base-weight));
+            --__text-line-height: var(--text-variant-large-height, var(--text-base-height));
+            --__text-letter-spacing: var(--text-variant-large-spacing, var(--text-base-spacing));
+        }
     }
 }

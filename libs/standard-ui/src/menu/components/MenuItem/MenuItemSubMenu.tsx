@@ -1,9 +1,5 @@
-import {
-    type ClosedTagProps,
-    type RenderProp,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { PopoverContextProvider } from '@noodlestan/headless-ui';
+import { PopoverContextProvider } from '@no-comply/solid-composables';
+import { type ClosedTagProps, type RenderProp, mergeProps } from '@no-comply/solid-primitives';
 import { ChevronRightIcon } from 'lucide-solid';
 import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';

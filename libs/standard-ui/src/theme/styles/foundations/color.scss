@@ -1,68 +1,70 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer standard-ui-theme {
-    @layer foundations {
-        @layer color {
-            [data-theme-standard] {
-                @include def-color-level(fg-contrast, 50);
-                @include def-color-level(fg-primary, 100);
-                @include def-color-level(fg-muted, 200);
-                @include def-color-level(fg-saturated, 300);
-                @include def-color-level(fg-disabled, 500);
+@layer theme {
+    @layer standard-ui {
+        @layer foundations {
+            @layer color {
+                [data-theme-standard] {
+                    @include def-color-level(fg-contrast, 50);
+                    @include def-color-level(fg-primary, 100);
+                    @include def-color-level(fg-muted, 200);
+                    @include def-color-level(fg-saturated, 300);
+                    @include def-color-level(fg-disabled, 500);
 
-                @include def-color-level(shadow, 700);
-                @include def-color-level(focus-ring, 500);
-                @include def-color-level(border, 600);
-                @include def-color-level(border-hover, 600);
-                @include set-level(border-active, focus-ring);
-                @include def-color-level(graphics, 400);
+                    @include def-color-level(shadow, 700);
+                    @include def-color-level(focus-ring, 500);
+                    @include def-color-level(border, 600);
+                    @include def-color-level(border-hover, 600);
+                    @include set-level(border-active, focus-ring);
+                    @include def-color-level(graphics, 400);
 
-                @include def-color-level(border-muted, 700);
-                @include def-color-level(bg-disabled, 700);
-                @include def-color-level(bg-saturated, 800);
+                    @include def-color-level(border-muted, 700);
+                    @include def-color-level(bg-disabled, 700);
+                    @include def-color-level(bg-saturated, 800);
 
-                @include def-color-level(bg-stage, 850);
-                @include def-color-level(bg-0, 1000);
-                @include def-color-level(bg-1, 950);
-                @include def-color-level(bg-2, 900);
-                @include def-color-level(bg-3, 800);
-                @include def-color-level(bg-4, 700);
+                    @include def-color-level(bg-stage, 850);
+                    @include def-color-level(bg-0, 1000);
+                    @include def-color-level(bg-1, 950);
+                    @include def-color-level(bg-2, 900);
+                    @include def-color-level(bg-3, 800);
+                    @include def-color-level(bg-4, 700);
 
-                @include def-color-level(static-fg-contrast, 50);
-                @include def-color-level(static-fg-primary, 100);
-                @include def-color-level(static-border, 500);
-                @include def-color-level(static-bg-3, 600);
-                @include def-color-level(static-bg-2, 700);
-                @include def-color-level(static-bg-1, 800);
-                @include def-color-level(static-bg-0, 900);
-                @include def-color-level(static-bg-contrast, 950);
+                    @include def-color-level(static-fg-contrast, 50);
+                    @include def-color-level(static-fg-primary, 100);
+                    @include def-color-level(static-border, 500);
+                    @include def-color-level(static-bg-3, 600);
+                    @include def-color-level(static-bg-2, 700);
+                    @include def-color-level(static-bg-1, 800);
+                    @include def-color-level(static-bg-0, 900);
+                    @include def-color-level(static-bg-contrast, 950);
 
-                @include def-color-level(invert-fg-contrast, 950);
-                @include def-color-level(invert-fg-primary, 1000);
-                @include def-color-level(invert-border, 600);
-                @include def-color-level(invert-bg-3, 500);
-                @include def-color-level(invert-bg-2, 400);
-                @include def-color-level(invert-bg-1, 300);
-                @include def-color-level(invert-bg-0, 200);
-                @include def-color-level(invert-bg-contrast, 100);
+                    @include def-color-level(invert-fg-contrast, 950);
+                    @include def-color-level(invert-fg-primary, 1000);
+                    @include def-color-level(invert-border, 600);
+                    @include def-color-level(invert-bg-3, 500);
+                    @include def-color-level(invert-bg-2, 400);
+                    @include def-color-level(invert-bg-1, 300);
+                    @include def-color-level(invert-bg-0, 200);
+                    @include def-color-level(invert-bg-contrast, 100);
 
-                @include def-color-palette(primary, --p-neutral);
-                @include def-color-palette(brand, --p-pink);
-                @include def-color-palette(interactive, --p-ocean);
-                @include def-color-palette(info, --p-blue);
-                @include def-color-palette(good, --p-green);
-                @include def-color-palette(meh, --p-yellow);
-                @include def-color-palette(bad, --p-red);
-                @include def-color-palette(selected, --p-olive);
-                @include def-color-palette(focused, --p-indigo);
+                    @include def-color-palette(primary, --p-neutral);
+                    @include def-color-palette(brand, --p-pink);
+                    @include def-color-palette(interactive, --p-ocean);
+                    @include def-color-palette(info, --p-blue);
+                    @include def-color-palette(good, --p-green);
+                    @include def-color-palette(meh, --p-yellow);
+                    @include def-color-palette(bad, --p-red);
+                    @include def-color-palette(selected, --p-olive);
+                    @include def-color-palette(focused, --p-indigo);
 
-                @include def-color-palette(graphics-1, --p-violet);
-                @include def-color-palette(graphics-2, --p-pink);
-                @include def-color-palette(graphics-3, --p-blue);
-                @include def-color-palette(graphics-4, --p-green);
-                @include def-color-palette(graphics-5, --p-yellow);
-                @include def-color-palette(graphics-6, --p-olive);
-                @include def-color-palette(graphics-7, --p-red);
+                    @include def-color-palette(graphics-1, --p-violet);
+                    @include def-color-palette(graphics-2, --p-pink);
+                    @include def-color-palette(graphics-3, --p-blue);
+                    @include def-color-palette(graphics-4, --p-green);
+                    @include def-color-palette(graphics-5, --p-yellow);
+                    @include def-color-palette(graphics-6, --p-olive);
+                    @include def-color-palette(graphics-7, --p-red);
+                }
             }
         }
     }

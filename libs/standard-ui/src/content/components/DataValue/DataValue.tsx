@@ -1,8 +1,4 @@
-import {
-    type ClassList,
-    type PickRequired,
-    createClassList,
-} from '@noodlestan/context-ui-primitives';
+import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import type { JSX, ParentComponent } from 'solid-js';
 
 import type { ContentSize } from '../../../types';

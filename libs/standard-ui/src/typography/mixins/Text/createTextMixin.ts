@@ -1,10 +1,10 @@
+import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createTextMixin as createHeadlessTextMixin } from '@noodlestan/headless-ui';
+} from '@no-comply/solid-primitives';
 
 import styles from './TextMixin.module.scss';
 import type { TextMixinAPI, TextMixinProps } from './types';

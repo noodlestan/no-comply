@@ -1,6 +1,6 @@
-import { ContextNodeProvider, createContextNode } from '@noodlestan/context-ui';
-import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
-import { SurfaceBase } from '@noodlestan/headless-ui';
+import { SurfaceBase } from '@no-comply/solid-composables';
+import { ContextNodeProvider, createContextNode } from '@no-comply/solid-contexts';
+import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

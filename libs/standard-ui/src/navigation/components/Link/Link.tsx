@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 
 import { LINK_PROPS } from './constants';

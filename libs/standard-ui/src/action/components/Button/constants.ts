@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { PRESSABLE_PROPS } from '@noodlestan/headless-ui';
+import { PRESSABLE_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { BUTTON_MIXIN_PROPS } from '../../mixins';
 

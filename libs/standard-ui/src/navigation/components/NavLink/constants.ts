@@ -1,8 +1,8 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
 import {
     LINK_PROPS as HEADLESS_LINK_PROPS,
     NAV_LINK_PROPS as HEADLESS_NAV_LINK_PROPS,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { NAV_LINK_MIXIN_PROPS } from '../../mixins';
 

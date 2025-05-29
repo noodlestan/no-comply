@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { TEXT_MIXIN_PROPS as HEADLESS_TEXT_MIXIN_PROPS } from '@noodlestan/headless-ui';
+import { TEXT_MIXIN_PROPS as HEADLESS_TEXT_MIXIN_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { TextMixinProps } from './types';
 

@@ -1,12 +1,14 @@
-@layer standard-ui {
-    .Menu {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: start;
-        gap: var(--space-gap--1);
-        min-width: 200px;
-        max-width: 280px;
-        user-select: none;
+@layer lib {
+    @layer standard-ui {
+        .Menu {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: start;
+            gap: var(--space-gap--1);
+            min-width: 200px;
+            max-width: 280px;
+            user-select: none;
+        }
     }
 }

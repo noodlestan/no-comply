@@ -1,4 +1,4 @@
-import type { LabelTagName } from '@noodlestan/context-ui-aria';
+import type { LabelTagName } from '@no-comply/solid-accessibility';
 
 import type { LabelMixinAPI, LabelMixinProps } from '../../mixins';
 

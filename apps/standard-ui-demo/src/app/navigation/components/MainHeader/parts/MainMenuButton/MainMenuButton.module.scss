@@ -1,0 +1,7 @@
+@layer app {
+    @media screen and (min-width: 600px) {
+        .MainMenuButton {
+            display: none;
+        }
+    }
+}

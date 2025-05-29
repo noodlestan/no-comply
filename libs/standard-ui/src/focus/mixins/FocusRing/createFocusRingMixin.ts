@@ -1,5 +1,5 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
-import { createFocusRingMixin as createHeadlessFocusRingMixin } from '@noodlestan/headless-ui';
+import { createFocusRingMixin as createHeadlessFocusRingMixin } from '@no-comply/solid-composables';
+import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingOffsetMixin } from '../FocusRingOffset';
 

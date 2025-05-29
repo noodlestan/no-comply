@@ -1,5 +1,5 @@
-import type { ClosedTagProps, RenderProp } from '@noodlestan/context-ui-primitives';
-import { ModalPortal, type SurfaceAPI } from '@noodlestan/headless-ui';
+import { ModalPortal, type SurfaceAPI } from '@no-comply/solid-composables';
+import type { ClosedTagProps, RenderProp } from '@no-comply/solid-primitives';
 import { type Component } from 'solid-js';
 
 import { Surface } from '../../../surface';

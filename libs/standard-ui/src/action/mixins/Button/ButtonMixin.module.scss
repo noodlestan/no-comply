@@ -1,31 +1,33 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer standard-ui {
-    .Button {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-    }
+@layer lib {
+    @layer standard-ui {
+        .Button {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .size-small {
-        --__gap: var(--space-gap--1);
-        --__padding-inline: var(--space-pad-0);
-    }
+        .size-small {
+            --__gap: var(--space-gap--1);
+            --__padding-inline: var(--space-pad-0);
+        }
 
-    .size-normal {
-        --__gap: var(--space-gap-0);
-        --__padding-inline: var(--space-pad-1);
-    }
+        .size-normal {
+            --__gap: var(--space-gap-0);
+            --__padding-inline: var(--space-pad-1);
+        }
 
-    .size-medium {
-        --__gap: var(--space-gap-1);
-        --__padding-inline: var(--space-pad-2);
-    }
+        .size-medium {
+            --__gap: var(--space-gap-1);
+            --__padding-inline: var(--space-pad-2);
+        }
 
-    .size-large {
-        --__gap: var(--space-gap-2);
-        --__padding-inline: var(--space-pad-3);
+        .size-large {
+            --__gap: var(--space-gap-2);
+            --__padding-inline: var(--space-pad-3);
+        }
     }
 }

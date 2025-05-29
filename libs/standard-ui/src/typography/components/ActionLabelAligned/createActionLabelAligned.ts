@@ -1,4 +1,4 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { mergeProps } from '@no-comply/solid-primitives';
 
 import type { ComposableActionLabelProps } from '../../mixins';
 import { useFirstLineAlign } from '../../providers';

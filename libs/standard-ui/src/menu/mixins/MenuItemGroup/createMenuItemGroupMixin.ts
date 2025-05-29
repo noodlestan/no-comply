@@ -1,4 +1,4 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
+import { staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './MenuItemGroupMixin.module.scss';
 import type { MenuItemGroupMixinAPI } from './types';

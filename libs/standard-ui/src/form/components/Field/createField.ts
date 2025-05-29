@@ -1,10 +1,10 @@
+import { createFieldMixin, createField as createHeadlessField } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createFieldMixin, createField as createHeadlessField } from '@noodlestan/headless-ui';
+} from '@no-comply/solid-primitives';
 
 import styles from './Field.module.css';
 import type { FieldAPI, FieldProps } from './types';

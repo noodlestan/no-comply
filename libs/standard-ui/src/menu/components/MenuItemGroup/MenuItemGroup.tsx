@@ -1,5 +1,5 @@
-import { ContextNodeProvider, createContextNode } from '@noodlestan/context-ui';
-import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import { ContextNodeProvider, createContextNode } from '@no-comply/solid-contexts';
+import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show, splitProps } from 'solid-js';
 
 import { Label, Text } from '../../../typography';

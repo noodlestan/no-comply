@@ -3,7 +3,7 @@ import type {
     ModalDialogProps as HeadlessModalDialogProps,
     ModalDialogMixinAPI,
     SurfaceAPI,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
 
 export type ModalDialogSize = 's' | 'm' | 'l';
 

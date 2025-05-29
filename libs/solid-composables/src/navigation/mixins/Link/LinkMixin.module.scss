@@ -1,0 +1,10 @@
+@layer composables {
+    .Link {
+        cursor: pointer;
+        pointer-events: all;
+    }
+
+    .Link[data-disabled] {
+        cursor: not-allowed;
+    }
+}

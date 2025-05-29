@@ -1,4 +1,4 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 import type { FocusRingMixinAPI } from '../../../focus';
 

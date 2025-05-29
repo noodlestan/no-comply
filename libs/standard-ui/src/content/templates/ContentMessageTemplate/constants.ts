@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import type { ContentMessageAPI } from '@noodlestan/headless-ui';
+import type { ContentMessageAPI } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { ContentMessageTemplateOwnProps, ContentMessageTemplateProps } from './types';
 

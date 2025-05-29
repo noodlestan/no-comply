@@ -1,5 +1,9 @@
-import { staticClassList } from '@noodlestan/context-ui-primitives';
-import { FocusableBase, type TreeNode, createTreeListItemDetails } from '@noodlestan/headless-ui';
+import {
+    FocusableBase,
+    type TreeNode,
+    createTreeListItemDetails,
+} from '@no-comply/solid-composables';
+import { staticClassList } from '@no-comply/solid-primitives';
 import { type Component, Show } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

@@ -1,11 +1,11 @@
-import type { IconComponent } from '@noodlestan/context-ui';
-import type { AriaAttributes, AriaLabelledAPI } from '@noodlestan/context-ui-aria';
+import type { AriaAttributes, AriaLabelledAPI } from '@no-comply/solid-accessibility';
 import type {
     AnchoredPopoverAPI,
     FocusRingAPI,
     PressableAPI,
     PressableProps,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { IconComponent } from '@no-comply/solid-contexts';
 import type { Accessor } from 'solid-js';
 
 import type { IconProps } from '../../../icon';

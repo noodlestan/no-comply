@@ -2,7 +2,7 @@ import {
     type ClosedTagProps,
     type PopoverTriggerTagProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
+} from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

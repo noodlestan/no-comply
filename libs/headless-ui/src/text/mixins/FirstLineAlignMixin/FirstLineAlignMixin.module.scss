@@ -1,9 +1,0 @@
-@layer headless-ui {
-    .FirstLineAlign {
-        display: contents;
-        --__align-height: max(
-            calc(var(--__text-font-size) * var(--__text-line-height)),
-            var(--__align-content-height)
-        );
-    }
-}

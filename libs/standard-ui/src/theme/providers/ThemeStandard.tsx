@@ -1,4 +1,4 @@
-import { useContextVariantsProducer } from '@noodlestan/context-ui';
+import { useContextVariantsProducer } from '@no-comply/solid-contexts';
 import { type Component } from 'solid-js';
 
 import { STANDARD_UI_CONTEXTS } from '../private';

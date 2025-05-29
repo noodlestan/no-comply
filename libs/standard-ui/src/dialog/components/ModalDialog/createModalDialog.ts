@@ -1,13 +1,13 @@
 import {
+    createModalDialog as createHeadnlessModalDialog,
+    createModalDialogMixin,
+} from '@no-comply/solid-composables';
+import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import {
-    createModalDialog as createHeadnlessModalDialog,
-    createModalDialogMixin,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-primitives';
 
 import styles from './ModalDialog.module.css';
 import type { ModalDialogAPI, ModalDialogProps } from './types';

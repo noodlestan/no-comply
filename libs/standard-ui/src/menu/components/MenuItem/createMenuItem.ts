@@ -1,19 +1,19 @@
-import type { IconComponent } from '@noodlestan/context-ui';
-import { createAriaMenuItem } from '@noodlestan/context-ui-aria';
-import {
-    type PressEvent,
-    createComputedProps,
-    mergeProps,
-    pickProps,
-    shortId,
-} from '@noodlestan/context-ui-primitives';
+import { createAriaMenuItem } from '@no-comply/solid-accessibility';
 import {
     PLACEMENT_AXIS_INLINE,
     createAnchoredPopover,
     createAnchoredPopoverMixin,
     createFocusRing,
     createPressable,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { IconComponent } from '@no-comply/solid-contexts';
+import {
+    type PressEvent,
+    createComputedProps,
+    mergeProps,
+    pickProps,
+    shortId,
+} from '@no-comply/solid-primitives';
 import { createMemo, onCleanup } from 'solid-js';
 
 import { createMenuItemMixin } from '../../mixins';

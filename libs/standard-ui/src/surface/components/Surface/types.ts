@@ -1,4 +1,4 @@
-import type { LayoutMixinAPI, SurfaceBaseProps } from '@noodlestan/headless-ui';
+import type { LayoutMixinAPI, SurfaceBaseProps } from '@no-comply/solid-composables';
 
 import type { LayoutMixinProps } from '../../../layout';
 

@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { ICON_ACTION_PROPS } from '@noodlestan/headless-ui';
+import { ICON_ACTION_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { ICON_BUTTON_MIXIN_PROPS } from '../../mixins';
 import { BUTTON_PROPS } from '../Button';

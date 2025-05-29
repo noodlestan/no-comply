@@ -1,5 +1,5 @@
-import { mergeProps, staticClassList } from '@noodlestan/context-ui-primitives';
-import { createScrollableMixin } from '@noodlestan/headless-ui';
+import { createScrollableMixin } from '@no-comply/solid-composables';
+import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './Scrollable.module.css';
 import type { ScrollableAPI, ScrollableProps } from './types';

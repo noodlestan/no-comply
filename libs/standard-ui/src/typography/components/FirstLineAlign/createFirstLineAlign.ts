@@ -3,7 +3,7 @@ import {
     createComputedProps,
     mergeProps,
     pickProps,
-} from '@noodlestan/context-ui-primitives';
+} from '@no-comply/solid-primitives';
 
 import {
     COMPOSABLE_TYPE_MIXIN_PROPS,

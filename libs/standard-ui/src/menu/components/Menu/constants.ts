@@ -1,5 +1,5 @@
-import { ARIA_MENU_PROPS } from '@noodlestan/context-ui-aria';
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
+import { ARIA_MENU_PROPS } from '@no-comply/solid-accessibility';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { MENU_MIXIN_PROPS } from '../../mixins';
 

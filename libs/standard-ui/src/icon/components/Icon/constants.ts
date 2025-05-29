@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { ICON_PROPS as HEADLESS_ICON_PROPS, ICON_MIXIN_PROPS } from '@noodlestan/headless-ui';
+import { ICON_PROPS as HEADLESS_ICON_PROPS, ICON_MIXIN_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { IconProps } from './types';
 

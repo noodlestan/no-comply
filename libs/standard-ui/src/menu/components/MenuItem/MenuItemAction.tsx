@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@noodlestan/context-ui-primitives';
+import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
 import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

@@ -1,20 +1,22 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer standard-ui {
-    .MenuItemGroup {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: start;
-        gap: var(--space-gap-0);
-        padding-block: var(--space-gap-0);
-    }
+@layer lib {
+    @layer standard-ui {
+        .MenuItemGroup {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: start;
+            gap: var(--space-gap-0);
+            padding-block: var(--space-gap-0);
+        }
 
-    .MenuItemGroup--Label {
-        /* */
-    }
+        .MenuItemGroup--Label {
+            /* */
+        }
 
-    .MenuItemGroup--Description {
-        /* */
+        .MenuItemGroup--Description {
+            /* */
+        }
     }
 }

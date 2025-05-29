@@ -1,9 +1,5 @@
-import { FieldContextProvider } from '@noodlestan/context-ui';
-import {
-    type ClosedTagProps,
-    type RenderProp,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
+import { FieldContextProvider } from '@no-comply/solid-contexts';
+import { type ClosedTagProps, type RenderProp, mergeProps } from '@no-comply/solid-primitives';
 import { type Component, type JSX, splitProps } from 'solid-js';
 
 import { Flex } from '../../../layout';

@@ -1,11 +1,14 @@
-@layer standard-ui-theme {
-    @layer patterns {
-        @layer pills {
-            [data-theme-standard] {
-                --pill-border-width: var(--border-width-thin);
-                --pill-border-color: var(--color-primary-hue-sat), var(--color-faded-light);
-                --pill-border-radius: var(--radius-s);
-                --pill-inactive-border-color: var(--color-primary-hue-sat), var(--color-bg-light-6);
+@layer theme {
+    @layer standard-ui {
+        @layer patterns {
+            @layer pills {
+                [data-theme-standard] {
+                    --pill-border-width: var(--border-width-thin);
+                    --pill-border-color: var(--color-primary-hue-sat), var(--color-faded-light);
+                    --pill-border-radius: var(--radius-s);
+                    --pill-inactive-border-color: var(--color-primary-hue-sat),
+                        var(--color-bg-light-6);
+                }
             }
         }
     }

@@ -1,6 +1,6 @@
-import type { ScrollableTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { ScrollableMixinAPI, ScrollableMixinProps } from '@noodlestan/headless-ui';
+import type { ScrollableTagName } from '@no-comply/solid-accessibility';
+import type { ScrollableMixinAPI, ScrollableMixinProps } from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 export type ScrollableProps = ScrollableMixinProps & {
     padding?: ScrollablePadding;

@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { FIELD_LABEL_PROPS as HEADLESS_FIELD_LABEL_PROPS } from '@noodlestan/headless-ui';
+import { FIELD_LABEL_PROPS as HEADLESS_FIELD_LABEL_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { FieldLabelProps } from './types';
 

@@ -1,5 +1,5 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
-import type { FormProps as HeadlessFormProps } from '@noodlestan/headless-ui';
+import type { FormProps as HeadlessFormProps } from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 import type { ContentSize } from '../../../types';
 

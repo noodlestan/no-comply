@@ -1,4 +1,4 @@
-import type { TextTagName } from '@noodlestan/context-ui-aria';
+import type { TextTagName } from '@no-comply/solid-accessibility';
 
 import type { TextMixinAPI, TextMixinProps } from '../../mixins';
 

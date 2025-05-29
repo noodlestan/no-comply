@@ -1,4 +1,4 @@
-import type { StaticMessageAPI, StaticMessageProps } from '@noodlestan/headless-ui';
+import type { StaticMessageAPI, StaticMessageProps } from '@no-comply/solid-composables';
 
 import type { ContentMessageTemplateOwnProps } from '../../templates';
 

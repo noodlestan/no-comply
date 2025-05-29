@@ -1,10 +1,10 @@
-import type { ClassList } from '@noodlestan/context-ui-primitives';
 import {
     type FocusRingAPI,
     type LinkAPI as HeadlessLinkAPI,
     type LinkProps as HeadlessLinkProps,
     type LinkMixinAPI,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import type { ClassList } from '@no-comply/solid-primitives';
 
 export type LinkProps = HeadlessLinkProps;
 

@@ -1,9 +1,5 @@
-import {
-    createClassList,
-    createComputedProps,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createTextMixin as createHeadlessTextMixin } from '@noodlestan/headless-ui';
+import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
+import { createClassList, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import styles from './ActionLabelMixin.module.scss';
 import type { ActionLabelMixinAPI, ActionLabelMixinProps } from './types';

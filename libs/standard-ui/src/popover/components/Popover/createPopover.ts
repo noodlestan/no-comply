@@ -1,8 +1,8 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
 import {
     createPopover as createHeadlessPopover,
     createPopoverMixin,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import { mergeProps } from '@no-comply/solid-primitives';
 
 import type { PopoverAPI, PopoverProps } from './types';
 

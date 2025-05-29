@@ -1,10 +1,10 @@
+import { createDividerMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createDividerMixin } from '@noodlestan/headless-ui';
+} from '@no-comply/solid-primitives';
 
 import styles from './Divider.module.css';
 import type { DividerAPI, DividerLength, DividerProps } from './types';

@@ -1,4 +1,4 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { mergeProps } from '@no-comply/solid-primitives';
 import { XIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';

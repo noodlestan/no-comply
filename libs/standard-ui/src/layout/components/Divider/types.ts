@@ -1,6 +1,6 @@
-import type { DividerTagName } from '@noodlestan/context-ui-aria';
-import type { ClassList, Styles } from '@noodlestan/context-ui-primitives';
-import type { DividerMixinAPI, DividerMixinProps } from '@noodlestan/headless-ui';
+import type { DividerTagName } from '@no-comply/solid-accessibility';
+import type { DividerMixinAPI, DividerMixinProps } from '@no-comply/solid-composables';
+import type { ClassList, Styles } from '@no-comply/solid-primitives';
 
 export type DividerProps = DividerMixinProps & {
     variant?: DividerVariant;

@@ -1,4 +1,4 @@
-import { createClassList, createComputedProps } from '@noodlestan/context-ui-primitives';
+import { createClassList, createComputedProps } from '@no-comply/solid-primitives';
 
 import styles from './FocusRingOffset.module.css';
 import { type FocusRingOffsetMixinAPI, type FocusRingOffsetMixinProps } from './types';

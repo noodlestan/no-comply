@@ -1,5 +1,5 @@
-import type { PickProps } from '@noodlestan/context-ui-primitives';
-import { createFlexMixin as createHeadlessFlexMixin } from '@noodlestan/headless-ui';
+import { createFlexMixin as createHeadlessFlexMixin } from '@no-comply/solid-composables';
+import type { PickProps } from '@no-comply/solid-primitives';
 
 import { GLOBAL_BP_NAMES } from '../../../theme';
 

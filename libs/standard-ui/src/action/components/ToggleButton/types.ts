@@ -1,5 +1,5 @@
-import type { AriaSwitchAPI } from '@noodlestan/context-ui-aria';
-import type { ToggleActionAPI, ToggleActionProps } from '@noodlestan/headless-ui';
+import type { AriaSwitchAPI } from '@no-comply/solid-accessibility';
+import type { ToggleActionAPI, ToggleActionProps } from '@no-comply/solid-composables';
 
 import type { IconButtonProps } from '../IconButton';
 

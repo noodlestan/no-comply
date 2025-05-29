@@ -1,10 +1,13 @@
-# Noodlestan Context UI
+# [No Comply]
 
 > Context-aware UI system built with [SolidJS](https://www.solidjs.com/) and modern CSS.
 
+- [[No Comply] Docs](https://no-comply.noodlestan.org/)
+- [Standard UI Demo](https://standard-ui.noodlestan.org/)
+
 ## Noodlestan 🐘 Collective
 
-We are an open collective of people dedicated to the design and software crafts: UX, design, code, web, 3d, audio, the works. Learn more about us and our projects at [Noodlestan.org](https://noodlestan.org).
+We are an open collective of people dedicated to the design and software crafts: UX, design, code, web, 3d, audio, the works. Learn more about us and our projects at [Noodlestan.org](https://noodlestan.org/).
 
 **👐 Your contribution is welcome! 👐**
 
@@ -26,7 +29,7 @@ First make sure you are using the correct node version by running `nvm use`.
 
 Install dependencies with `npm install`.
 
-In the Standard UI Sandbox application `apps/standard-ui-sandbox/` run `npm run dev` to launch a development server.
+In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev` to launch a development server.
 
 Launch Chrome Canary with support for `@function` and `@mixin` in CSS:
 
@@ -38,22 +41,22 @@ open -a "Google Chrome Canary" --args --enable-experimental-web-platform-feature
 
 Apps:
 
-- [Standard UI Sandbox](https://github.com/noodlestan/context-ui/blob/apps/standard-ui-sandbox/README.md) - Sandbox for developing and testing Standard UI features.
+- [Standard UI Demo](https://github.com/noodlestan/no-comply/blob/apps/standard-ui-demo/README.md) - Demo application built with [Standard UI](https://standard-ui.noodlestan.org/).
 
 Libraries:
 
-- [Context UI](https://github.com/noodlestan/context-ui/blob/libs/context-ui/README.md) - Context-aware application services, and controllers.
-- [Context UI Types](https://github.com/noodlestan/context-ui/blob/libs/context-ui-primitives/README.md) - Core types and utils.
-- [Context UI Aria](https://github.com/noodlestan/context-ui/blob/libs/context-ui-aria/README.md) - Aria types, primitives, and utils.
-- [Context UI Headless](https://github.com/noodlestan/context-ui/blob/libs/headless-ui/README.md) - Headless component library.
-- [Context UI Dev](https://github.com/noodlestan/context-ui/blob/libs/context-ui-dev/README.md) - Instrumentation and debug tools.
-- [Standard UI](https://github.com/noodlestan/context-ui/blob/libs/standard-ui/README.md) - Themeable component library.
+- [Solid Contexts](https://github.com/noodlestan/no-comply/blob/libs/solid-contexts/README.md) - Context-aware application services, and controllers.
+- [Solid Primitives](https://github.com/noodlestan/no-comply/blob/libs/solid-primitives/README.md) - Core types and utils.
+- [Solid Accessibility](https://github.com/noodlestan/no-comply/blob/libs/solid-accessibility/README.md) - Aria types, primitives, and utils.
+- [Solid Composables](https://github.com/noodlestan/no-comply/blob/libs/solid-composables/README.md) - Composable components, controllers, and mixins.
+- [Solid Dev](https://github.com/noodlestan/no-comply/blob/libs/solid-dev-tools/README.md) - Instrumentation and debug tools.
+- [Standard UI](https://github.com/noodlestan/no-comply/blob/libs/standard-ui/README.md) - Themeable component library.
 
 ### Stack
 
-This component library targets the [Solid JS](https://www.solidjs.com/) ([docs](https://docs.solidjs.com/)).
+This project is built targets [Solid JS](https://www.solidjs.com/) ([docs](https://docs.solidjs.com/)) applications and component libraries.
 
-Most libraries are coupled with this framework wherever signals and other reactive primitives are used.
+It depends only on SolidJS core and a few [Solid Primitives](https://primitives.solidjs.community/).
 
 Documentation is built on top of [Astro](https://docs.astro.build) / [Starlight](https://starlight.astro.build/).
 

@@ -1,8 +1,4 @@
-import {
-    type PickRequired,
-    createComputedProps,
-    mergeProps,
-} from '@noodlestan/context-ui-primitives';
+import { type PickRequired, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createTextMixin } from '../../mixins';
 

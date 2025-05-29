@@ -3,7 +3,7 @@ import {
     createComputedProps,
     mergeProps,
     staticClassList,
-} from '@noodlestan/context-ui-primitives';
+} from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
 
 import { createLayoutMixin } from '../../../layout';

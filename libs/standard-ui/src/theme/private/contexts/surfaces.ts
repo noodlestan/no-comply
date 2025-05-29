@@ -1,4 +1,4 @@
-import { createSurfaceVariant } from '@noodlestan/context-ui';
+import { createSurfaceVariant } from '@no-comply/solid-contexts';
 
 export const STANDARD_UI_SURFACE_STAGE = createSurfaceVariant({
     name: 'stage',

@@ -1,4 +1,4 @@
-import type { ExpandActionAPI, ExpandActionProps } from '@noodlestan/headless-ui';
+import type { ExpandActionAPI, ExpandActionProps } from '@no-comply/solid-composables';
 
 import type { IconButtonProps } from '../IconButton';
 

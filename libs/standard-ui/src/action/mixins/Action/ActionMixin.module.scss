@@ -1,155 +1,157 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer standard-ui {
-    .Action {
-        --__border-style: solid;
+@layer lib {
+    @layer standard-ui {
+        .Action {
+            --__border-style: solid;
 
-        display: flex;
-        gap: var(--__gap, 0);
-        flex-direction: row;
-        height: var(--__height);
-        min-height: var(--__height);
-        padding-block: var(--__padding-block, 0);
-        padding-inline: var(--__padding-inline, var(--space-pad-0));
-        border: none;
-        border-width: var(--action-border-width);
-        border-style: var(--__border-style);
-        border-radius: var(--action-border-radius);
-        text-decoration: none;
-        transition:
-            color ease var(--animation-duration-blip),
-            background-color ease var(--animation-duration-blip),
-            border-color ease var(--animation-duration-blip);
+            display: flex;
+            gap: var(--__gap, 0);
+            flex-direction: row;
+            height: var(--__height);
+            min-height: var(--__height);
+            padding-block: var(--__padding-block, 0);
+            padding-inline: var(--__padding-inline, var(--space-pad-0));
+            border: none;
+            border-width: var(--action-border-width);
+            border-style: var(--__border-style);
+            border-radius: var(--action-border-radius);
+            text-decoration: none;
+            transition:
+                color ease var(--animation-duration-blip),
+                background-color ease var(--animation-duration-blip),
+                border-color ease var(--animation-duration-blip);
 
-        @include set-palette(__intent, primary);
+            @include set-palette(__intent, primary);
 
-        @include set-palette(__fg, primary);
-        @include set-palette(__bg, primary);
-        @include set-palette(__border, primary);
+            @include set-palette(__fg, primary);
+            @include set-palette(__bg, primary);
+            @include set-palette(__border, primary);
 
-        @include set-alpha(__fg-rest, content-fg);
-        @include set-alpha(__bg-rest, content-bg);
-        @include set-alpha(__border-rest, content-bg);
+            @include set-alpha(__fg-rest, content-fg);
+            @include set-alpha(__bg-rest, content-bg);
+            @include set-alpha(__border-rest, content-bg);
 
-        @include set-level(__fg-rest, fg-primary);
-        @include set-level(__bg-rest, content-bg-2);
-        @include set-level(__border-rest, border);
+            @include set-level(__fg-rest, fg-primary);
+            @include set-level(__bg-rest, content-bg-2);
+            @include set-level(__border-rest, border);
 
-        @include set-level(__fg-hover, fg-contrast);
-        @include set-level(__bg-hover, content-bg-1);
-        @include set-level(__border-hover, border-hover);
+            @include set-level(__fg-hover, fg-contrast);
+            @include set-level(__bg-hover, content-bg-1);
+            @include set-level(__border-hover, border-hover);
 
-        @include set-level(__fg-active, fg-contrast);
-        @include set-level(__bg-active, content-bg-0);
-        @include set-level(__border-active, border-active);
-        @include set-level(__fg, __fg-rest);
-        @include set-level(__bg, __bg-rest);
-        @include set-level(__border, __border-rest);
+            @include set-level(__fg-active, fg-contrast);
+            @include set-level(__bg-active, content-bg-0);
+            @include set-level(__border-active, border-active);
+            @include set-level(__fg, __fg-rest);
+            @include set-level(__bg, __bg-rest);
+            @include set-level(__border, __border-rest);
 
-        @include apply-color(color, __fg);
-        @include apply-color(background-color, __bg);
-        @include apply-color(border-color, __border);
+            @include apply-color(color, __fg);
+            @include apply-color(background-color, __bg);
+            @include apply-color(border-color, __border);
 
-        &:focus-visible {
-            border-color: transparent;
+            &:focus-visible {
+                border-color: transparent;
+            }
         }
-    }
 
-    .Action:is([data-disabled], [data-inactive]) {
-        @include set-color(__fg, primary, fg-disabled, content-fg);
-        @include set-color(__bg, primary, bg-disabled, content-bg);
-        @include set-color(__border, __intent, border-muted, content-bg);
-    }
+        .Action:is([data-disabled], [data-inactive]) {
+            @include set-color(__fg, primary, fg-disabled, content-fg);
+            @include set-color(__bg, primary, bg-disabled, content-bg);
+            @include set-color(__border, __intent, border-muted, content-bg);
+        }
 
-    .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
-        @include set-level(__fg, __fg-hover);
-        @include set-level(__bg, __bg-hover);
-        @include set-level(__border, __border-hover);
-    }
+        .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+            @include set-level(__fg, __fg-hover);
+            @include set-level(__bg, __bg-hover);
+            @include set-level(__border, __border-hover);
+        }
 
-    .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-        @include set-level(__fg, __fg-active);
-        @include set-level(__bg, __bg-active);
-        @include set-level(__border, __border-active);
-    }
+        .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
+            @include set-level(__fg, __fg-active);
+            @include set-level(__bg, __bg-active);
+            @include set-level(__border, __border-active);
+        }
 
-    .variant-primary {
-        @include set-palette(__fg, __intent);
-        @include set-palette(__bg, __intent);
-        @include set-palette(__border, __intent);
+        .variant-primary {
+            @include set-palette(__fg, __intent);
+            @include set-palette(__bg, __intent);
+            @include set-palette(__border, __intent);
 
-        @include set-level(__fg-rest, static-fg-primary);
-        @include set-level(__bg-rest, static-bg-2);
-        @include set-level(__border-rest, static-border);
+            @include set-level(__fg-rest, static-fg-primary);
+            @include set-level(__bg-rest, static-bg-2);
+            @include set-level(__border-rest, static-border);
 
-        @include set-level(__fg-hover, static-fg-contrast);
-        @include set-level(__bg-hover, static-bg-1);
-        @include set-level(__border-hover, static-bg-3);
+            @include set-level(__fg-hover, static-fg-contrast);
+            @include set-level(__bg-hover, static-bg-1);
+            @include set-level(__border-hover, static-bg-3);
 
-        @include set-level(__fg-active, static-fg-contrast);
-        @include set-level(__bg-active, static-bg-3);
-        @include set-level(__border-active, static-border);
-    }
+            @include set-level(__fg-active, static-fg-contrast);
+            @include set-level(__bg-active, static-bg-3);
+            @include set-level(__border-active, static-border);
+        }
 
-    .variant-secondary {
-        @include set-palette(__fg, __intent);
-        @include set-palette(__border, __intent);
+        .variant-secondary {
+            @include set-palette(__fg, __intent);
+            @include set-palette(__border, __intent);
 
-        @include set-level(__fg-rest, fg-saturated);
-        @include set-level(__bg-rest, content-bg-0);
+            @include set-level(__fg-rest, fg-saturated);
+            @include set-level(__bg-rest, content-bg-0);
 
-        @include set-alpha(__border, translucid);
-    }
+            @include set-alpha(__border, translucid);
+        }
 
-    .variant-secondary:is([data-disabled], [data-inactive]) {
-        @include set-alpha(__bg, invisible);
-    }
+        .variant-secondary:is([data-disabled], [data-inactive]) {
+            @include set-alpha(__bg, invisible);
+        }
 
-    .variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
-        @include set-alpha(__border, invisible);
-        @include set-alpha(__border, opaque);
-    }
+        .variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+            @include set-alpha(__border, invisible);
+            @include set-alpha(__border, opaque);
+        }
 
-    .variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-        @include set-alpha(__border, opaque);
-    }
+        .variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
+            @include set-alpha(__border, opaque);
+        }
 
-    .variant-plain {
-        @include set-palette(__fg, __intent);
+        .variant-plain {
+            @include set-palette(__fg, __intent);
 
-        @include set-level(__fg-rest, fg-saturated);
+            @include set-level(__fg-rest, fg-saturated);
 
-        @include set-alpha(__bg, invisible);
-        @include set-alpha(__border, invisible);
-    }
+            @include set-alpha(__bg, invisible);
+            @include set-alpha(__border, invisible);
+        }
 
-    .variant-plain:is([data-disabled], [data-inactive]) {
-        @include set-alpha(__bg, invisible);
-        @include set-alpha(__border, transparent);
-    }
+        .variant-plain:is([data-disabled], [data-inactive]) {
+            @include set-alpha(__bg, invisible);
+            @include set-alpha(__border, transparent);
+        }
 
-    .variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
-        @include set-alpha(__bg, opaque);
-    }
+        .variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+            @include set-alpha(__bg, opaque);
+        }
 
-    .variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-        @include set-alpha(__bg, opaque);
-    }
+        .variant-plain:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
+            @include set-alpha(__bg, opaque);
+        }
 
-    .intent-positive {
-        @include set-palette(__intent, interactive);
-    }
+        .intent-positive {
+            @include set-palette(__intent, interactive);
+        }
 
-    .intent-negative {
-        @include set-palette(__intent, bad);
-    }
+        .intent-negative {
+            @include set-palette(__intent, bad);
+        }
 
-    .intent-neutral.variant-primary:not([data-disabled], [data-inactive]) {
-        @include set-level(__fg-rest, invert-fg-primary);
-        @include set-level(__fg-hover, invert-fg-contrast);
-        @include set-level(__fg-active, invert-fg-contrast);
-        @include set-level(__bg-rest, invert-bg-0);
-        @include set-level(__bg-hover, invert-bg-1);
-        @include set-level(__bg-active, invert-bg-contrast);
+        .intent-neutral.variant-primary:not([data-disabled], [data-inactive]) {
+            @include set-level(__fg-rest, invert-fg-primary);
+            @include set-level(__fg-hover, invert-fg-contrast);
+            @include set-level(__fg-active, invert-fg-contrast);
+            @include set-level(__bg-rest, invert-bg-0);
+            @include set-level(__bg-hover, invert-bg-1);
+            @include set-level(__bg-active, invert-bg-contrast);
+        }
     }
 }

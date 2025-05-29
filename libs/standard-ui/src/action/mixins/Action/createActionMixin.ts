@@ -1,10 +1,10 @@
+import { createActionMixin as createHeadlessActionMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     createClassList,
     createComputedProps,
     mergeProps,
-} from '@noodlestan/context-ui-primitives';
-import { createActionMixin as createHeadlessActionMixin } from '@noodlestan/headless-ui';
+} from '@no-comply/solid-primitives';
 
 import { createFocusRingMixin } from '../../../focus';
 

@@ -1,5 +1,5 @@
-import { definePropKeys } from '@noodlestan/context-ui-primitives';
-import { MODAL_DIALOG_PROPS as HEADLESS_MODAL_DIALOG_PROPS } from '@noodlestan/headless-ui';
+import { MODAL_DIALOG_PROPS as HEADLESS_MODAL_DIALOG_PROPS } from '@no-comply/solid-composables';
+import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { ModalDialogProps } from './types';
 

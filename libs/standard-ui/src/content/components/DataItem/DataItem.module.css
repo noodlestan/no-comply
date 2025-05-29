@@ -1,17 +1,19 @@
-@layer standard-ui {
-    .DataItem {
-        --data-item-length-xs: var(--size-xs);
-        --data-item-length-s: var(--size-s);
-        --data-item-length-m: var(--size-xl);
-        --data-item-length-l: var(--size-3xl);
-        display: flex;
-        align-items: center;
-        gap: var(--space-gap-0);
-        width: var(--data-item-length);
-        margin: 0;
-        padding: 0;
-        font-family: var(--data-type-family);
-        text-align: left;
-        overflow: hidden;
+@layer lib {
+    @layer standard-ui {
+        .DataItem {
+            --data-item-length-xs: var(--size-xs);
+            --data-item-length-s: var(--size-s);
+            --data-item-length-m: var(--size-xl);
+            --data-item-length-l: var(--size-3xl);
+            display: flex;
+            align-items: center;
+            gap: var(--space-gap-0);
+            width: var(--data-item-length);
+            margin: 0;
+            padding: 0;
+            font-family: var(--data-type-family);
+            text-align: left;
+            overflow: hidden;
+        }
     }
 }

@@ -28,10 +28,10 @@ export default defineConfig({
         },
         rollupOptions: {
             external: [
-                '@noodlestan/context-ui',
-                '@noodlestan/context-ui-aria',
-                '@noodlestan/context-ui-primitives',
-                '@noodlestan/headless-ui',
+                '@no-comply/solid-contexts',
+                '@no-comply/solid-accessibility',
+                '@no-comply/solid-primitives',
+                '@no-comply/solid-composables',
                 'lucide-solid',
                 'solid-js',
             ],

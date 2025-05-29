@@ -1,4 +1,4 @@
-import { mergeProps } from '@noodlestan/context-ui-primitives';
+import { mergeProps } from '@no-comply/solid-primitives';
 
 import { createFlexMixin } from '../../mixins';
 import { createLayout } from '../Layout';

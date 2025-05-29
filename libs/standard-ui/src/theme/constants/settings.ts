@@ -1,4 +1,4 @@
-import type { Setting, SettingGroup } from '@noodlestan/context-ui';
+import type { Setting, SettingGroup } from '@no-comply/solid-contexts';
 
 import {
     THEME_SETTING_COLORS_ACTION,

@@ -1,11 +1,11 @@
-import { createIconValue } from '@noodlestan/context-ui';
-import { createAriaSwitch } from '@noodlestan/context-ui-aria';
-import { createComputedProps, mergeProps, pickProps } from '@noodlestan/context-ui-primitives';
+import { createAriaSwitch } from '@no-comply/solid-accessibility';
 import {
     type ToggleActionIcons,
     type ToggleActionLabels,
     createToggleAction,
-} from '@noodlestan/headless-ui';
+} from '@no-comply/solid-composables';
+import { createIconValue } from '@no-comply/solid-contexts';
+import { createComputedProps, mergeProps, pickProps } from '@no-comply/solid-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';

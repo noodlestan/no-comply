@@ -1,0 +1,18 @@
+@layer composables {
+    .Action {
+        display: block;
+        text-align: inherit;
+        color: inherit;
+        padding: unset;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        cursor: pointer;
+        pointer-events: all;
+        user-select: none;
+    }
+
+    .Action[data-disabled] {
+        cursor: not-allowed;
+    }
+}
