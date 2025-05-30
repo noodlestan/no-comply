@@ -50,7 +50,7 @@
         height: 100%;
     }
 
-    :where(.is-expanded) {
+    .is-expanded {
         .-Sidebar {
             transform: translateX(0);
             display: block;

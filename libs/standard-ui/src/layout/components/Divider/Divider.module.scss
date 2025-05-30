@@ -1,61 +1,53 @@
-@layer lib {
-    @layer standard-ui {
-        .Divider[data-divider='horizontal'] {
-            border-bottom: var(--__divider-border);
-            border-bottom-color: var(--__divider-border-color);
-        }
+@layer lib.standard-ui.divider {
+    .Divider[data-divider='horizontal'] {
+        border-bottom: var(--__divider-border);
+        border-bottom-color: var(--__divider-border-color);
+    }
 
-        .Divider[data-divider='vertical'] {
-            border-bottom: var();
-            border-bottom-color: var();
-        }
+    .Divider[data-divider='vertical'] {
+        border-bottom: var();
+        border-bottom-color: var();
+    }
 
-        .length-s {
-            --__divider-length: var(--size-s);
-        }
+    .length-s {
+        --__divider-length: var(--size-s);
+    }
 
-        .length-m {
-            --__divider-length: var(--size-m);
-        }
+    .length-m {
+        --__divider-length: var(--size-m);
+    }
 
-        .length-l {
-            --__divider-length: var(--size-l);
-        }
+    .length-l {
+        --__divider-length: var(--size-l);
+    }
 
-        .length-full {
-            --__divider-length: 100%;
-        }
+    .length-full {
+        --__divider-length: 100%;
+    }
 
-        .variant-base {
-            --__divider-border: var(--surface-divider-base);
-            --__divider-border-color: hsla(
-                var(--surface-divider-base-color),
-                var(--o-surface-divider)
-            );
-        }
+    .variant-base {
+        --__divider-border: var(--surface-divider-base);
+        --__divider-border-color: hsla(var(--surface-divider-base-color), var(--o-surface-divider));
+    }
 
-        .variant-strong {
-            --__divider-border: var(--surface-divider-strong);
-            --__divider-border-color: hsla(
-                var(--surface-divider-strong-color),
-                var(--o-surface-divider)
-            );
-        }
+    .variant-strong {
+        --__divider-border: var(--surface-divider-strong);
+        --__divider-border-color: hsla(
+            var(--surface-divider-strong-color),
+            var(--o-surface-divider)
+        );
+    }
 
-        .variant-muted {
-            --__divider-border: var(--surface-divider-muted);
-            --__divider-border-color: hsla(
-                var(--surface-divider-muted-color),
-                var(--o-surface-divider)
-            );
-        }
+    .variant-muted {
+        --__divider-border: var(--surface-divider-muted);
+        --__divider-border-color: hsla(
+            var(--surface-divider-muted-color),
+            var(--o-surface-divider)
+        );
+    }
 
-        .variant-alt {
-            --__divider-border: var(--surface-divider-alt);
-            --__divider-border-color: hsla(
-                var(--surface-divider-alt-color),
-                var(--o-surface-divider)
-            );
-        }
+    .variant-alt {
+        --__divider-border: var(--surface-divider-alt);
+        --__divider-border-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
     }
 }

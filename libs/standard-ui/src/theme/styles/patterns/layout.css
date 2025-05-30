@@ -1,12 +1,6 @@
-@layer theme {
-    @layer standard-ui {
-        @layer patterns {
-            @layer layout {
-                [data-theme-standard] {
-                    --layout-reading-max-width: 560px;
-                    --layout-column-max-width: 960px;
-                }
-            }
-        }
+@layer theme.standard.patterns {
+    [data-theme-standard] {
+        --layout-reading-max-width: 560px;
+        --layout-column-max-width: 960px;
     }
 }

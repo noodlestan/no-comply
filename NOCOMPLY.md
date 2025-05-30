@@ -1,6 +1,29 @@
 # No Comply
 
+## Responsive Flex and Grid
+
+## remove flex defaults
+
+go throw existing components and discover the patterns - <Column> => column / justify-start / align-start - <Stack> => column / justify-start / align-stretch - <Row> => row / justify-start / align-start - <Bar> => row / justify-between / align-center
+same for the app
+
+compose flex / grid into surface?
+
+## user-select and pointer-events
+
+action and link already have pointer-events:all
+(test with rest pointer-events:none)
+
+test out both "selectable/not" base resets with [data-selectable] and [data-not-selectable] overrides
+make sure actions and links are still ALWAYS not selectable
+
+if display/text components expose [data-display] [data-text] it would be possible to have the reset layer exclude them from the "not selectable" rule
+
+think also labels, data values
+
 ## Menu items
+
+## AlignToFirstLineMixin and FirstLineAlignMixin naming!
 
 ## use logical attributes everywhere
 
@@ -21,6 +44,7 @@ aria-separator
 
 use Flex padding-inline / padding-block instead of double padding
 offset the closeButton if there is one
+do not render children wrapper if no children present
 
 ## Button
 

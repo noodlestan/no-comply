@@ -1,8 +1,6 @@
-@layer theme {
-    @layer standard-ui {
-        @layer mode-light {
-            @layer surfaces {
-            }
-        }
-    }
+@layer theme.standard {
+    @layer base, light;
+}
+
+@layer theme.standard.light.surfaces {
 }

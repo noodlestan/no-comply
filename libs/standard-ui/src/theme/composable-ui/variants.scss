@@ -1,7 +1,7 @@
 @use './responsive.scss' as *;
 
-$COMP_UI_LAYOUT_PADDING_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
-$COMP_UI_LAYOUT_PADDING_VARIANTS: (
+$NC_COMP_LAYOUT_PADDING_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
+$NC_COMP_LAYOUT_PADDING_VARIANTS: (
     none: 0,
     xs: var(--space-pad--1),
     s: var(--space-pad-0),
@@ -10,8 +10,8 @@ $COMP_UI_LAYOUT_PADDING_VARIANTS: (
     xl: var(--space-pad-3),
 );
 
-$COMP_UI_FLEX_GAP_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
-$COMP_UI_FLEX_GAP_VARIANTS: (
+$NC_COMP_FLEX_GAP_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
+$NC_COMP_FLEX_GAP_VARIANTS: (
     none: 0,
     xs: var(--space-gap--1),
     s: var(--space-gap-0),
@@ -19,4 +19,19 @@ $COMP_UI_FLEX_GAP_VARIANTS: (
     l: var(--space-gap-2),
     xl: var(--space-gap-3),
     2xl: var(--space-gap-4),
+);
+
+$NC_COMP_GRID_GAP_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
+$NC_COMP_GRID_GAP_VARIANTS: (
+    none: 0,
+);
+
+$NC_COMP_GRID_COLUMNS_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
+$NC_COMP_GRID_COLUMNS_VARIANTS: (
+    none: 0,
+);
+
+$NC_COMP_GRID_ROWS_BREAKPOINTS: $GLOBAL_BREAKPOINTS;
+$NC_COMP_GRID_ROWS_VARIANTS: (
+    none: 0,
 );

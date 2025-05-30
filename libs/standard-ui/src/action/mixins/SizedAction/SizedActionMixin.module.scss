@@ -1,32 +1,34 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer lib {
-    @layer standard-ui {
-        .SizedAction {
-            display: flex;
-            gap: var(--__gap, 0);
-            flex-direction: row;
-            height: var(--__height);
-            min-height: var(--__height);
-            padding-inline: var(--__padding-inline, var(--space-pad-0));
+@layer lib.standard-ui {
+    @layer action, sized-action;
+}
 
-            --__align-to-height: var(--__height);
-        }
+@layer lib.standard-ui.sized-action {
+    .SizedAction {
+        display: flex;
+        gap: var(--__gap, 0);
+        flex-direction: row;
+        height: var(--__height);
+        min-height: var(--__height);
+        padding-inline: var(--__padding-inline, var(--space-pad-0));
 
-        .size-small {
-            --__height: var(--size-xs);
-        }
+        --__align-to-height: var(--__height);
+    }
 
-        .size-normal {
-            --__height: var(--size-s);
-        }
+    .size-small {
+        --__height: var(--size-xs);
+    }
 
-        .size-medium {
-            --__height: var(--size-m);
-        }
+    .size-normal {
+        --__height: var(--size-s);
+    }
 
-        .size-large {
-            --__height: var(--size-l);
-        }
+    .size-medium {
+        --__height: var(--size-m);
+    }
+
+    .size-large {
+        --__height: var(--size-l);
     }
 }

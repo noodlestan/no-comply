@@ -1,7 +1,5 @@
-@layer lib {
-    @layer standard-ui {
-        .FocusRing {
-            /* transition: outline-offset 2s ease-in; */
-        }
+@layer lib.standard-ui.focus-ring {
+    .FocusRing {
+        /* transition: outline-offset 2s ease-in; */
     }
 }

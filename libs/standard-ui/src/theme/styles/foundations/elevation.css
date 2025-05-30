@@ -1,11 +1,5 @@
-@layer theme {
-    @layer standard-ui {
-        @layer foundations {
-            @layer elevation {
-                [data-theme-standard] {
-                    --elevation-max: 1000;
-                }
-            }
-        }
+@layer theme.standard.foundations {
+    [data-theme-standard] {
+        --elevation-max: 1000;
     }
 }

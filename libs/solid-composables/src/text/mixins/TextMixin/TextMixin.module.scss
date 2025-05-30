@@ -1,5 +1,5 @@
-@layer composables {
-    :where(.Text) {
+@layer composables.text {
+    .Text {
         display: block;
         margin: 0;
         font-family: var(--__text-family);
@@ -15,7 +15,7 @@
         --__align-to-height: calc(var(--__text-font-size) * var(--__text-line-height));
     }
 
-    :where(.nowrap) {
+    .nowrap {
         max-width: 100%;
         white-space: nowrap;
         overflow: hidden;

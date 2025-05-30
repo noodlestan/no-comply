@@ -1,124 +1,120 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer theme {
-    @layer standard-ui {
-        @layer surfaces {
-            [data-theme-standard] [data-surface] {
-                --__border-style: 0;
-                --__border-width: 0;
-                --__border-radius: 0;
-                --__shadow-size: 0 0;
+@layer theme.standard.base.surfaces {
+    [data-theme-standard] [data-surface] {
+        --__border-style: 0;
+        --__border-width: 0;
+        --__border-radius: 0;
+        --__shadow-size: 0 0;
 
-                @include def-color-palette(interactive, --p-ocean);
+        @include def-color-palette(interactive, --p-ocean);
 
-                @include set-alpha(content-fg, opaque);
-                @include set-alpha(content-bg, opaque);
+        @include set-alpha(content-fg, opaque);
+        @include set-alpha(content-bg, opaque);
 
-                @include set-level(content-bg-0, bg-0);
-                @include set-level(content-bg-1, bg-2);
-                @include set-level(content-bg-2, bg-1);
+        @include set-level(content-bg-0, bg-0);
+        @include set-level(content-bg-1, bg-2);
+        @include set-level(content-bg-2, bg-1);
 
-                @include set-color(surface, __bg, __bg, __bg);
+        @include set-color(surface, __bg, __bg, __bg);
 
-                @include set-color(__fg, primary, fg-primary, content-fg);
-                @include set-color(__bg, primary, bg-stage, opaque);
-                @include set-color(__border, primary, border, transparent);
-                @include set-color(__shadow, primary, shadow, shadow);
-            }
+        @include set-color(__fg, primary, fg-primary, content-fg);
+        @include set-color(__bg, primary, bg-stage, opaque);
+        @include set-color(__border, primary, border, transparent);
+        @include set-color(__shadow, primary, shadow, shadow);
+    }
 
-            [data-theme-standard] [data-surface-page] {
-                @include set-level(__bg, bg-0);
-                @include set-level(content-bg-1, bg-2);
-                @include set-level(content-bg-2, bg-3);
-            }
+    [data-theme-standard] [data-surface-page] {
+        @include set-level(__bg, bg-0);
+        @include set-level(content-bg-1, bg-2);
+        @include set-level(content-bg-2, bg-3);
+    }
 
-            [data-theme-standard] [data-surface-panel] {
-                --__shadow-size: var(--box-shadow-2);
+    [data-theme-standard] [data-surface-panel] {
+        --__shadow-size: var(--box-shadow-2);
 
-                @include set-level(__bg, bg-1);
-                @include set-level(content-bg-1, bg-3);
-                @include set-level(content-bg-2, bg-2);
-            }
+        @include set-level(__bg, bg-1);
+        @include set-level(content-bg-1, bg-3);
+        @include set-level(content-bg-2, bg-2);
+    }
 
-            /* TODO
+    /* TODO
         [data-theme-standard] [data-surface-floating-panel] {
             --__bg-alpha:
             filter: blur(2px)
         }
         */
 
-            [data-theme-standard] [data-surface-card] {
-                --__border-radius: var(--radius-l);
+    [data-theme-standard] [data-surface-card] {
+        --__border-radius: var(--radius-l);
 
-                @include set-level(__bg, bg-2);
-                @include set-level(content-bg-0, bg-0);
-                @include set-level(content-bg-1, bg-1);
-                @include set-level(content-bg-2, bg-2);
-            }
+        @include set-level(__bg, bg-2);
+        @include set-level(content-bg-0, bg-0);
+        @include set-level(content-bg-1, bg-1);
+        @include set-level(content-bg-2, bg-2);
+    }
 
-            /* TODO
+    /* TODO
         [data-theme-standard] [data-surface-inverse] {
 
         }
         */
 
-            [data-theme-standard] [data-surface-message] {
-                --__border-width: var(--border-width-thin);
-                --__border-style: solid;
-                --__border-radius: var(--radius-s);
+    [data-theme-standard] [data-surface-message] {
+        --__border-width: var(--border-width-thin);
+        --__border-style: solid;
+        --__border-radius: var(--radius-s);
 
-                @include def-color-palette(interactive, --p-neutral);
+        @include def-color-palette(interactive, --p-neutral);
 
-                @include set-palette(__fg, __message-variant);
+        @include set-palette(__fg, __message-variant);
 
-                @include set-palette(__bg, __message-variant);
-                @include set-level(__bg, bg-3);
-                @include set-level(content-bg-0, bg-0);
-                @include set-level(content-bg-1, bg-4);
-                @include set-level(content-bg-2, bg-2);
+        @include set-palette(__bg, __message-variant);
+        @include set-level(__bg, bg-3);
+        @include set-level(content-bg-0, bg-0);
+        @include set-level(content-bg-1, bg-4);
+        @include set-level(content-bg-2, bg-2);
 
-                @include set-palette(__border, __message-variant);
-                @include set-alpha(__border, opaque);
-            }
+        @include set-palette(__border, __message-variant);
+        @include set-alpha(__border, opaque);
+    }
 
-            [data-theme-standard] [data-surface-message][data-message='passive'] {
-                @include set-palette(__message-variant, primary);
-            }
+    [data-theme-standard] [data-surface-message][data-message='passive'] {
+        @include set-palette(__message-variant, primary);
+    }
 
-            [data-theme-standard] [data-surface-message][data-message='info'] {
-                @include set-palette(__message-variant, info);
-            }
+    [data-theme-standard] [data-surface-message][data-message='info'] {
+        @include set-palette(__message-variant, info);
+    }
 
-            [data-theme-standard] [data-surface-message][data-message='success'] {
-                @include set-palette(__message-variant, good);
-            }
+    [data-theme-standard] [data-surface-message][data-message='success'] {
+        @include set-palette(__message-variant, good);
+    }
 
-            [data-theme-standard] [data-surface-message][data-message='warning'] {
-                @include set-palette(__message-variant, meh);
-            }
+    [data-theme-standard] [data-surface-message][data-message='warning'] {
+        @include set-palette(__message-variant, meh);
+    }
 
-            [data-theme-standard] [data-surface-message][data-message='danger'] {
-                @include set-palette(__message-variant, bad);
-            }
+    [data-theme-standard] [data-surface-message][data-message='danger'] {
+        @include set-palette(__message-variant, bad);
+    }
 
-            [data-theme-standard] [data-surface-toast] {
-                --__border-radius: var(--radius-m);
-                --__shadow-size: var(--box-shadow-2);
-            }
+    [data-theme-standard] [data-surface-toast] {
+        --__border-radius: var(--radius-m);
+        --__shadow-size: var(--box-shadow-2);
+    }
 
-            [data-theme-standard] [data-surface-dialog] {
-                --__border-radius: var(--radius-xl);
-                --__shadow-size: var(--box-shadow-3);
-            }
+    [data-theme-standard] [data-surface-dialog] {
+        --__border-radius: var(--radius-xl);
+        --__shadow-size: var(--box-shadow-3);
+    }
 
-            [data-theme-standard] [data-surface-menu] {
-                --__border-radius: var(--radius-s);
+    [data-theme-standard] [data-surface-menu] {
+        --__border-radius: var(--radius-s);
 
-                --__shadow-size: var(--box-shadow-1);
-                backdrop-filter: blur(12px);
+        --__shadow-size: var(--box-shadow-1);
+        backdrop-filter: blur(12px);
 
-                @include set-alpha(__bg, translucid);
-            }
-        }
+        @include set-alpha(__bg, translucid);
     }
 }

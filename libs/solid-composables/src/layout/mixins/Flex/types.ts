@@ -6,9 +6,9 @@ export type FlexMixinProps = {
     justify?: FlexMixinJustify;
     gap?: ResponsiveProp<string>;
     shrink?: boolean | number;
-    inline?: boolean;
     wrap?: boolean;
     flex?: number;
+    inline?: boolean;
 };
 
 export type FlexMixinDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';

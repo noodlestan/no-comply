@@ -2,18 +2,22 @@
 @use '../../../scss/mixins/variants.scss' as *;
 
 @layer composables {
+    @layer layout, flex;
+}
+
+@layer composables.flex {
     .Flex {
         flex-wrap: nowrap;
         @include display(flex);
 
-        @include responsive-variants($COMP_UI_FLEX_GAP_BREAKPOINTS) using ($bp) {
-            @include variant-classes('gap', $COMP_UI_FLEX_GAP_VARIANTS, $bp) using ($key, $value) {
+        @include responsive-variants($NC_COMP_FLEX_GAP_BREAKPOINTS) using ($bp) {
+            @include variant-classes('gap', $NC_COMP_FLEX_GAP_VARIANTS, $bp) using ($key, $value) {
                 gap: $value;
             }
         }
 
-        @include responsive-variants($COMP_UI_LAYOUT_PADDING_BREAKPOINTS) using ($bp) {
-            @include variant-classes('padding', $COMP_UI_LAYOUT_PADDING_VARIANTS, $bp) using
+        @include responsive-variants($NC_COMP_LAYOUT_PADDING_BREAKPOINTS) using ($bp) {
+            @include variant-classes('padding', $NC_COMP_LAYOUT_PADDING_VARIANTS, $bp) using
                 ($key, $value) {
                 padding: $value;
             }
@@ -80,10 +84,6 @@
         justify-content: stretch;
     }
 
-    .inline {
-        @include display(inline-flex);
-    }
-
     .shrink {
         flex-shrink: 1;
     }
@@ -98,5 +98,9 @@
 
     .wrap {
         flex-wrap: wrap;
+    }
+
+    .inline {
+        @include display(inline-flex);
     }
 }

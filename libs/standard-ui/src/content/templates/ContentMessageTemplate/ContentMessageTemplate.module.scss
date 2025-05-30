@@ -1,29 +1,27 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer lib {
-    @layer standard-ui {
-        .ContentMessage {
-            width: var(--_content-message-width);
-            padding-inline-start: var(--space-pad-0);
-        }
+@layer lib.standard-ui.content-message {
+    .ContentMessage {
+        width: var(--_content-message-width);
+        padding-inline-start: var(--space-pad-0);
+    }
 
-        .-Title {
-            @include set-level(surface-fg, fg-muted);
-            @include apply-color(color, surface-fg);
-        }
+    .-Title {
+        @include set-level(surface-fg, fg-muted);
+        @include apply-color(color, surface-fg);
+    }
 
-        .-Icon {
-            @include set-level(surface-fg, graphics);
-            @include apply-color(color, surface-fg);
-        }
+    .-Icon {
+        @include set-level(surface-fg, graphics);
+        @include apply-color(color, surface-fg);
+    }
 
-        .length-full {
-            --_content-message-width: 100%;
-        }
+    .length-full {
+        --_content-message-width: 100%;
+    }
 
-        .length-compact {
-            --_content-message-width: max-content;
-            max-width: 600px; // WIP Layout width references
-        }
+    .length-compact {
+        --_content-message-width: max-content;
+        max-width: 600px; // WIP Layout width references
     }
 }

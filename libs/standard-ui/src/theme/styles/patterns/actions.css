@@ -1,13 +1,7 @@
-@layer theme {
-    @layer standard-ui {
-        @layer patterns {
-            @layer actions {
-                [data-theme-standard] {
-                    --action-border-radius: var(--radius-m);
-                    --action-border-width: var(--border-width-thin);
-                    --link-border-radius: var(--radius-s);
-                }
-            }
-        }
+@layer theme.standard.patterns {
+    [data-theme-standard] {
+        --action-border-radius: var(--radius-m);
+        --action-border-width: var(--border-width-thin);
+        --link-border-radius: var(--radius-s);
     }
 }

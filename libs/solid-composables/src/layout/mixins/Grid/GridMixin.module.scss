@@ -1,0 +1,50 @@
+@use '../../../scss/mixins/display.scss' as *;
+@use '../../../scss/mixins/variants.scss' as *;
+
+@layer composables {
+    @layer layout, grid;
+}
+
+@layer composables.grid {
+    .Grid {
+        display: grid;
+        grid-auto-flow: row;
+
+        @include responsive-variants($NC_COMP_GRID_GAP_BREAKPOINTS) using ($bp) {
+            @include variant-classes('gap', $NC_COMP_GRID_GAP_VARIANTS, $bp) using ($key, $value) {
+                gap: $value;
+            }
+        }
+        @include responsive-variants($NC_COMP_GRID_COLUMNS_BREAKPOINTS) using ($bp) {
+            @include variant-classes('columns', $NC_COMP_GRID_COLUMNS_VARIANTS, $bp) using
+                ($key, $value) {
+                grid-template-columns: repeat($value, 1fr);
+            }
+        }
+        @include responsive-variants($NC_COMP_GRID_ROWS_BREAKPOINTS) using ($bp) {
+            @include variant-classes('rows', $NC_COMP_GRID_ROWS_VARIANTS, $bp) using ($key, $value) {
+                grid-template-rows: repeat($value, 1fr);
+            }
+        }
+    }
+
+    .autoFlow-row {
+        grid-auto-flow: row;
+    }
+
+    .autoFlow-column {
+        grid-auto-flow: column;
+    }
+
+    .autoFlow-dense {
+        grid-auto-flow: dense;
+    }
+
+    .autoFlow-row-dense {
+        grid-auto-flow: row dense;
+    }
+
+    .autoFlow-column-dense {
+        grid-auto-flow: column dense;
+    }
+}

@@ -1,21 +1,15 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer theme {
-    @layer standard-ui {
-        @layer foundations {
-            @layer outline {
-                [data-theme-standard] {
-                    --outline-offset: var(--border-width-base);
-                    --outline-inset-offset: calc(var(--border-width-base) * -1);
-                    --outline-active-offset: calc(var(--border-width-base) / 2);
-                    --outline-active-inset-offset: calc(var(--border-width-base) * -1.5);
-                    --outline-width: var(--border-width-base);
-                    --outline-style: solid;
+@layer theme.standard.base.foundations {
+    [data-theme-standard] {
+        --outline-offset: var(--border-width-base);
+        --outline-inset-offset: calc(var(--border-width-base) * -1);
+        --outline-active-offset: calc(var(--border-width-base) / 2);
+        --outline-active-inset-offset: calc(var(--border-width-base) * -1.5);
+        --outline-width: var(--border-width-base);
+        --outline-style: solid;
 
-                    @include set-color(__outline, focused, focus-ring, opaque);
-                    @include apply-computed-color(--outline-color, __outline);
-                }
-            }
-        }
+        @include set-color(__outline, focused, focus-ring, opaque);
+        @include apply-computed-color(--outline-color, __outline);
     }
 }

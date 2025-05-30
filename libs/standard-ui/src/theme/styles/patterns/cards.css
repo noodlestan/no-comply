@@ -1,11 +1,5 @@
-@layer theme {
-    @layer standard-ui {
-        @layer patterns {
-            @layer cards {
-                [data-theme-standard] {
-                    --card-border-radius: var(--radius-m);
-                }
-            }
-        }
+@layer theme.standard.patterns {
+    [data-theme-standard] {
+        --card-border-radius: var(--radius-m);
     }
 }

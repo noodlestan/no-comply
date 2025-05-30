@@ -8,7 +8,7 @@ export const FLEX_MIXIN_PROPS = definePropKeys<FlexMixinProps>()([
     'justify',
     'gap',
     'shrink',
-    'inline',
     'wrap',
     'flex',
+    'inline',
 ]);

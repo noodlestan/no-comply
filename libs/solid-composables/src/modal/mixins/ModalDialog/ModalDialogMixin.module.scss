@@ -1,8 +1,5 @@
 @layer composables {
     .ModalDialog {
-        display: flex;
-        align-items: stretch;
-        justify-content: stretch;
         min-width: var(--__modal-dialog-min-width, min-content);
         max-width: var(--__modal-dialog-max-width);
         min-height: var(--__modal-dialog-min-height);
@@ -10,11 +7,11 @@
         padding: 0;
         pointer-events: none;
 
-        [data-modal-dialog-is-active] {
+        &[data-modal-dialog-is-active] {
             pointer-events: unset;
         }
 
-        [data-modal-dialog-is-closing] {
+        &[data-modal-dialog-is-closing] {
             transition: all 1ms;
         }
     }

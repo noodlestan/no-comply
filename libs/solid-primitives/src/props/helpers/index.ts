@@ -4,6 +4,7 @@ export * from './definePropKeys';
 export * from './mergeProps';
 export * from './omitPropKeys';
 export * from './pickProps';
+export * from './resolveAxisShorthandProps';
 export * from './resolveRenderProp';
 export * from './resolveValue';
 export * from './withDefault';

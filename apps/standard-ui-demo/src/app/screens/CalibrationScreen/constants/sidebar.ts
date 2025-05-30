@@ -11,6 +11,15 @@ export const CALIBRATION_SIDEBAR_ITEMS: SidebarItemGroup[] = [
         ],
     },
     {
+        title: 'Typography',
+        items: [
+            {
+                title: 'Variants',
+                route: routeFor.calibration('typography/variants'),
+            },
+        ],
+    },
+    {
         title: 'Color',
         items: [
             {
