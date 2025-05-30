@@ -6,7 +6,7 @@ import { type Component } from 'solid-js';
 
 import { DebugContextTreePanel } from '../../panels';
 
-import styles from './DebugDrawer.module.css';
+import styles from './DebugDrawer.module.scss';
 
 export const DebugDrawer: Component = () => {
     const region = createAriaRegion();

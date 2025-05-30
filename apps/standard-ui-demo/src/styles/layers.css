@@ -1,4 +1,4 @@
-@layer reset, composables, lib, theme, app, dev-tools;
+@layer reset, composables, theme, lib, app, dev-tools;
 
 @layer lib {
     @layer standard-ui;

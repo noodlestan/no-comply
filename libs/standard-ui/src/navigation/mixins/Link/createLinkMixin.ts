@@ -3,7 +3,7 @@ import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingMixin } from '../../../focus';
 
-import styles from './Link.module.scss';
+import styles from './LinkMixin.module.scss';
 import type { LinkMixinAPI, LinkMixinProps } from './types';
 
 export const createLinkMixin = (props: LinkMixinProps = {}): LinkMixinAPI => {

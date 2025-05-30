@@ -2,7 +2,7 @@ import { createClassList, createComputedProps, mergeProps } from '@no-comply/sol
 
 import { createLinkMixin } from '../Link';
 
-import styles from './SkipLink.module.scss';
+import styles from './SkipLinkMixin.module.scss';
 import type { SkipLinkMixinAPI, SkipLinkMixinProps } from './types';
 
 export const createSkipLinkMixin = (props: SkipLinkMixinProps = {}): SkipLinkMixinAPI => {

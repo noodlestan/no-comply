@@ -4,7 +4,7 @@ import {
     createComputedProps,
 } from '@no-comply/solid-primitives';
 
-import styles from './ScrollableMixin.module.css';
+import styles from './ScrollableMixin.module.scss';
 import type { ScrollableMixinAPI, ScrollableMixinProps } from './types';
 
 const defaultProps: PickRequired<ScrollableMixinProps, 'tag'> = {

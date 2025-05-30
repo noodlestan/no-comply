@@ -6,7 +6,7 @@ import { type Component } from 'solid-js';
 import type { ComponentMetadata } from '../../../data';
 import { ImportStatement } from '../ImportStatement';
 
-import styles from './ComponentMeta.module.css';
+import styles from './ComponentMeta.module.scss';
 
 type Props = {
     component: ComponentMetadata;

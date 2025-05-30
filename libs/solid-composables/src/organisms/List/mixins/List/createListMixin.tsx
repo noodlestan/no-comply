@@ -1,6 +1,6 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './ListMixin.module.css';
+import styles from './ListMixin.module.scss';
 import type { ListMixinAPI } from './types';
 
 export const createListixin = (): ListMixinAPI => {

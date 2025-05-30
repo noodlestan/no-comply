@@ -1,6 +1,6 @@
 import { createComputedProps, staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './SurfaceMixin.module.css';
+import styles from './SurfaceMixin.module.scss';
 import type { SurfaceMixinAPI } from './types';
 
 export const createSurfaceMixin = (): SurfaceMixinAPI => {

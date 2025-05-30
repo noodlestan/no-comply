@@ -9,7 +9,7 @@ import {
 import { Layout } from '@no-comply/standard-ui';
 import { type Accessor, type JSX, type ParentComponent, splitProps } from 'solid-js';
 
-import styles from './WithSidebarLayout.module.css';
+import styles from './WithSidebarLayout.module.scss';
 
 type Props = ClosedTagProps & {
     contain?: boolean;

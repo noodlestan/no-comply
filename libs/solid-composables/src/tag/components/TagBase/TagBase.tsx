@@ -8,7 +8,7 @@ import {
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import styles from './TagBase.module.css';
+import styles from './TagBase.module.scss';
 import { TAG_BASE_PROPS } from './constants';
 import { type TagBaseProps } from './types';
 

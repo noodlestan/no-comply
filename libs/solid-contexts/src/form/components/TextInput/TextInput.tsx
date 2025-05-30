@@ -1,7 +1,7 @@
 import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
-import './TextInput.css';
+import './TextInput.module.scss';
 
 export type TextInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type TextInputLength = 's' | 'm' | 'l' | 'full' | 'auto';

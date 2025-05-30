@@ -3,7 +3,7 @@ import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingOffsetMixin } from '../FocusRingOffset';
 
-import styles from './FocusRing.module.css';
+import styles from './FocusRing.module.scss';
 import { type FocusRingMixinAPI, type FocusRingMixinProps } from './types';
 
 export const createFocusRingMixin = (props: FocusRingMixinProps = {}): FocusRingMixinAPI => {

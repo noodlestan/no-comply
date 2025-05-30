@@ -16,7 +16,7 @@ import {
 import { ClockIcon, LockIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';
 
-import styles from './ExampleLarge.module.css';
+import styles from './ExampleLarge.module.scss';
 
 type ExampleLargeProps = {
     title?: string;

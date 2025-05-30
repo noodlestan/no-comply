@@ -8,7 +8,7 @@ import type { ContentSize } from '../../../types';
 import { Label } from '../../../typography';
 import { DataValue, type DataValueLength } from '../DataValue';
 
-import styles from './DataItem.module.css';
+import styles from './DataItem.module.scss';
 
 export type DataItemProps = {
     id?: string;

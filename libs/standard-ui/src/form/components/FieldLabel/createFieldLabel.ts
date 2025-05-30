@@ -9,7 +9,7 @@ import {
     mergeProps,
 } from '@no-comply/solid-primitives';
 
-import styles from './FieldLabel.module.css';
+import styles from './FieldLabel.module.scss';
 import type { FieldLabelAPI, FieldLabelProps } from './types';
 
 const defaultProps: PickRequired<FieldLabelProps, 'size'> = {

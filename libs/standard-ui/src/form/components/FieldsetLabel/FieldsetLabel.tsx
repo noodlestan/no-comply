@@ -3,7 +3,7 @@ import type { ParentComponent } from 'solid-js';
 
 import type { ContentSize } from '../../../types';
 
-import styles from './FieldsetLabel.module.css';
+import styles from './FieldsetLabel.module.scss';
 
 export type FieldsetLabelProps = {
     size?: ContentSize;

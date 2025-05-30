@@ -1,6 +1,6 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './Popover.module.scss';
+import styles from './PopoverMixin.module.scss';
 import type { PopoverMixinAPI } from './types';
 
 export const createPopoverMixin = (): PopoverMixinAPI => {

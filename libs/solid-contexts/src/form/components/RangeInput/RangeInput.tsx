@@ -1,7 +1,7 @@
 import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
-import './RangeInput.css';
+import './RangeInput.module.scss';
 
 export type RangeInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type RangeInputLength = 's' | 'm' | 'l' | 'full' | 'auto';

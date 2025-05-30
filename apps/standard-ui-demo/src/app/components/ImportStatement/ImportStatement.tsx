@@ -1,7 +1,7 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 import { type Component } from 'solid-js';
 
-import styles from './ImportStatement.module.css';
+import styles from './ImportStatement.module.scss';
 
 type ImportStatementProps = {
     name: string;

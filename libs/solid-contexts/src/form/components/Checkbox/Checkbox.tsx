@@ -4,7 +4,7 @@ import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
 import { CheckIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';
 
-import './Checkbox.css';
+import './Checkbox.module.scss';
 
 export type CheckboxSize = 's' | 'm' | 'l';
 

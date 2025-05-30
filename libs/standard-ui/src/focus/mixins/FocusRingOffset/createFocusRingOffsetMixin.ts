@@ -1,6 +1,6 @@
 import { createClassList, createComputedProps } from '@no-comply/solid-primitives';
 
-import styles from './FocusRingOffset.module.css';
+import styles from './FocusRingOffsetMixin.module.scss';
 import { type FocusRingOffsetMixinAPI, type FocusRingOffsetMixinProps } from './types';
 
 export const createFocusRingOffsetMixin = (

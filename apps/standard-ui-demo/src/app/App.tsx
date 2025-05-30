@@ -6,7 +6,7 @@ import { type Component, type ParentComponent, Show } from 'solid-js';
 
 import { AppServicesProvider, UIRootProvider, useAppServices } from '../providers';
 
-import styles from './App.module.css';
+import styles from './App.module.scss';
 import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';

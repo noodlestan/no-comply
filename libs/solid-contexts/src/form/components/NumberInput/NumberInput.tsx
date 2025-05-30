@@ -13,7 +13,7 @@ import {
 } from './functions';
 import type { NumberInputLength, NumberInputSize } from './types';
 
-import './NumberInput.css';
+import './NumberInput.module.scss';
 
 export type NumberInputProps = {
     id?: string;

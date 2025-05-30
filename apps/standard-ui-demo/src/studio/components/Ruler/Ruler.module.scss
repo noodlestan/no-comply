@@ -67,7 +67,7 @@
         @include apply-color(color, __marker-fg);
         @include apply-color(background-color, __marker-bg);
 
-        & span {
+        span {
             display: block;
             line-height: 1;
         }

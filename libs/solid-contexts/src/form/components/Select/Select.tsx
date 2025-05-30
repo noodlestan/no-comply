@@ -1,7 +1,7 @@
 import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show } from 'solid-js';
 
-import './Select.css';
+import './Select.module.scss';
 
 export type SelectSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type SelectLength = 's' | 'm' | 'l' | 'full' | 'auto';

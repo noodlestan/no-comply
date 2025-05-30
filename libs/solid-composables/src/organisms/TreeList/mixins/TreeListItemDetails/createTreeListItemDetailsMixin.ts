@@ -1,6 +1,6 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './TreeListItemDetailsMixin.module.css';
+import styles from './TreeListItemDetailsMixin.module.scss';
 import type { TreeListItemDetailsMixinAPI } from './types';
 
 export const createTreeListItemDetailsMixin = (): TreeListItemDetailsMixinAPI => {

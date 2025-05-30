@@ -9,7 +9,7 @@ import { Dynamic } from 'solid-js/web';
 
 import { Flex } from '../layout';
 
-import styles from './TreeListItemDetails.module.css';
+import styles from './TreeListItemDetails.module.scss';
 
 export type TreeListItemDetailsProps = {
     node: TreeNode;

@@ -4,7 +4,7 @@ import {
     staticClassList,
 } from '@no-comply/solid-primitives';
 
-import styles from './DividerMixin.module.css';
+import styles from './DividerMixin.module.scss';
 import type { DividerMixinAPI, DividerMixinProps } from './types';
 
 const defaultProps: PickRequired<DividerMixinProps, 'tag' | 'orientation'> = {

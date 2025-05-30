@@ -1,6 +1,6 @@
 import { createComputedProps, staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './FieldMixin.module.css';
+import styles from './FieldMixin.module.scss';
 import type { FieldMixinApi } from './types';
 
 export const createFieldMixin = (): FieldMixinApi => {

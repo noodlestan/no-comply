@@ -1,6 +1,6 @@
 /* @index(['./*.css', './*.scss'], f => `@import '${f.path}${f.ext}';`) */
 @import './layers.css';
-@import './reset.scss';
+@import './reset.css';
 /* @endindex */
 
 /* @index(['./**\/index.css'], f => `@import '${f.path}.css';`) */

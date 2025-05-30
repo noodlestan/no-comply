@@ -9,7 +9,7 @@ import {
 } from '@no-comply/standard-ui';
 import { type ParentComponent, splitProps } from 'solid-js';
 
-import styles from './SurfaceVariantExample.module.css';
+import styles from './SurfaceVariantExample.module.scss';
 
 type Props = SurfaceProps & {
     onVariant: SurfaceVariant;

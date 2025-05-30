@@ -2,7 +2,7 @@ import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createAlignToFirstLineMixin } from '../../../text';
 
-import styles from './IconMixin.module.css';
+import styles from './IconMixin.module.scss';
 import type { IconMixinAPI, IconMixinProps } from './types';
 
 export const createIconMixin = (props: IconMixinProps): IconMixinAPI => {

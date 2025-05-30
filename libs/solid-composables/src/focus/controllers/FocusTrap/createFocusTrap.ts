@@ -2,7 +2,7 @@ import { createComputedProps, staticClassList } from '@no-comply/solid-primitive
 
 import { getFocusableElements } from '../../helpers';
 
-import styles from './FocusTrap.module.css';
+import styles from './FocusTrap.module.scss';
 import type { FocusTrapAPI, FocusTrapProps } from './types';
 
 export const createFocusTrap = (props: FocusTrapProps = {}): FocusTrapAPI => {

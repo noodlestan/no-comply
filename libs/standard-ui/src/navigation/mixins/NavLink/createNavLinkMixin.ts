@@ -7,7 +7,7 @@ import {
 
 import { createLinkMixin } from '../Link';
 
-import styles from './NavLink.module.scss';
+import styles from './NavLinkMixin.module.scss';
 import type { NavLinkMixinAPI, NavLinkMixinProps } from './types';
 
 const defaultProps: PickRequired<NavLinkMixinProps, 'layout' | 'size' | 'highlight'> = {

@@ -6,7 +6,7 @@ import {
     mergeProps,
 } from '@no-comply/solid-primitives';
 
-import styles from './Field.module.css';
+import styles from './Field.module.scss';
 import type { FieldAPI, FieldProps } from './types';
 
 const defaultProps: PickRequired<FieldProps, 'size'> = {

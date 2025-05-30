@@ -2,7 +2,7 @@
 // import { themeStore } from '@no-comply/solid-contexts';
 import { type Component } from 'solid-js';
 
-// import styles from './ThemeSelect.module.css';
+// import styles from './ThemeSelect.module.scss';
 
 export const ThemeSelect: Component = () => {
     // const { theme, setTheme } = themeStore;

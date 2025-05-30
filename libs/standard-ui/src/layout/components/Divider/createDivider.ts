@@ -6,7 +6,7 @@ import {
     mergeProps,
 } from '@no-comply/solid-primitives';
 
-import styles from './Divider.module.css';
+import styles from './Divider.module.scss';
 import type { DividerAPI, DividerLength, DividerProps } from './types';
 
 const defaultProps: PickRequired<DividerProps, 'variant' | 'length'> = {

@@ -1,7 +1,7 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 import { type Component, onMount } from 'solid-js';
 
-import styles from './Canvas.module.css';
+import styles from './Canvas.module.scss';
 
 export type CanvasProps = {
     onMount?: (canvas: HTMLCanvasElement) => void;

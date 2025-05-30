@@ -5,7 +5,7 @@ import { type Component } from 'solid-js';
 import { Spinner } from '../../atoms';
 import { SplashBox } from '../../molecules';
 
-import styles from './AppSplash.module.css';
+import styles from './AppSplash.module.scss';
 
 export const AppSplash: Component = () => {
     const labelId = shortId();

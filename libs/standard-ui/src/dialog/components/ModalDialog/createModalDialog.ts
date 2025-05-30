@@ -9,7 +9,7 @@ import {
     mergeProps,
 } from '@no-comply/solid-primitives';
 
-import styles from './ModalDialog.module.css';
+import styles from './ModalDialog.module.scss';
 import type { ModalDialogAPI, ModalDialogProps } from './types';
 
 const defaultProps: PickRequired<ModalDialogProps, 'size'> = {

@@ -2,7 +2,7 @@ import { createClassList, createComputedProps, mergeProps } from '@no-comply/sol
 
 import { createAlignToFirstLineMixin } from '../AlignToFirstLineMixin';
 
-import styles from './TextMixin.module.css';
+import styles from './TextMixin.module.scss';
 import type { TextMixinAPI, TextMixinProps } from './types';
 
 export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {

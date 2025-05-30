@@ -2,7 +2,7 @@ import { createClassList } from '@no-comply/solid-primitives';
 import { CircleDashedIcon } from 'lucide-solid';
 import { type Component, Show } from 'solid-js';
 
-import styles from './Spinner.module.css';
+import styles from './Spinner.module.scss';
 
 type SpinnerProps = {
     size?: 's' | 'm' | 'l';

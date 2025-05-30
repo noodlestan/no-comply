@@ -4,7 +4,7 @@ import { type ParentComponent } from 'solid-js';
 
 import { MainHeader } from '../../../navigation';
 
-import styles from './ScreenTemplateBase.module.css';
+import styles from './ScreenTemplateBase.module.scss';
 
 export const ScreenTemplateBase: ParentComponent = props => {
     const classList = staticClassList(styles, 'ScreenTemplateBase--Layout');

@@ -5,7 +5,7 @@ import { Display, Flex, Icon, Layout } from '@no-comply/standard-ui';
 import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
 
-import styles from './ErrorBoundaryScreen.module.css';
+import styles from './ErrorBoundaryScreen.module.scss';
 
 const logError = (error: Error) => {
     console.error(error);

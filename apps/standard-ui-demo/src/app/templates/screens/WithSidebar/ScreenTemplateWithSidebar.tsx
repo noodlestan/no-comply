@@ -7,7 +7,7 @@ import type { JSX } from 'solid-js/jsx-runtime';
 import { WithSidebarLayout } from '../../../layouts';
 import { MainHeader, SIDEBAR_NAV_TARGET } from '../../../navigation';
 
-import styles from './ScreenTemplateWithSidebar.module.css';
+import styles from './ScreenTemplateWithSidebar.module.scss';
 
 type Props = {
     sidebar: JSX.Element;

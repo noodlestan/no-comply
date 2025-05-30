@@ -1,6 +1,6 @@
 import { createComputedProps, staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './ModalDialogMixin.module.css';
+import styles from './ModalDialogMixin.module.scss';
 import type { ModalDialogMixinAPI } from './types';
 
 export function createModalDialogMixin(): ModalDialogMixinAPI {

@@ -3,7 +3,7 @@ import type { JSX, ParentComponent } from 'solid-js';
 
 import type { ContentSize } from '../../../types';
 
-import styles from './DataValue.module.css';
+import styles from './DataValue.module.scss';
 
 export type DataValueLength = 's' | 'm' | 'l' | 'full' | 'auto';
 export type DataValueAlign = 'left' | 'right';

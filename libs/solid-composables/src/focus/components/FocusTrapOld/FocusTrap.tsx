@@ -3,7 +3,7 @@ import { type ParentComponent, createEffect } from 'solid-js';
 
 import { getFocusableElements } from '../../helpers';
 
-import styles from './FocusTrap.module.css';
+import styles from './FocusTrap.module.scss';
 import type { FocusTrapProps } from './types';
 
 export const FocusTrap: ParentComponent<FocusTrapProps> = props => {

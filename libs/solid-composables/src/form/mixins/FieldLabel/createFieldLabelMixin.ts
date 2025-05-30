@@ -1,6 +1,6 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 
-import styles from './FieldLabelMixin.module.css';
+import styles from './FieldLabelMixin.module.scss';
 import type { FieldLabelMixinAPI } from './types';
 
 export const createFieldLabelMixin = (): FieldLabelMixinAPI => {
