@@ -7,7 +7,10 @@ import { CALIBRATION_SIDEBAR_ITEMS } from './constants';
 
 export const CalibrationScreen: ParentComponent = props => {
     return (
-        <ScreenTemplateWithSidebar sidebar={<SidebarNav items={CALIBRATION_SIDEBAR_ITEMS} />}>
+        <ScreenTemplateWithSidebar
+            id="calibration"
+            sidebar={<SidebarNav items={CALIBRATION_SIDEBAR_ITEMS} />}
+        >
             {props.children}
         </ScreenTemplateWithSidebar>
     );

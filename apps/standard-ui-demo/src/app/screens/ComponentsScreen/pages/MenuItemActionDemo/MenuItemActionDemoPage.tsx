@@ -4,8 +4,7 @@ import { TrashIcon } from 'lucide-solid';
 import { type Component, type ParentComponent, splitProps } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem, type DemoItemProps } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, type DemoItemProps, DemoSection } from '../../private';
 
 import styles from './MenuItemActionDemoPage.module.scss';
 
@@ -29,22 +28,22 @@ export const MenuItemActionDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'MenuItemActionDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoMenu>
                     <MenuItemAction label="Foobar" />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoMenu title="plain">
                     <MenuItemAction variant="plain" label="Plain" />
                 </DemoMenu>
                 <DemoMenu title="secondary">
                     <MenuItemAction variant="secondary" label="Secondary" />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="intent">
+            <DemoSection title="intent">
                 <DemoMenu title="positive">
                     <MenuItemAction variant="plain" intent="positive" label="Plain" />
                     <MenuItemAction variant="secondary" intent="positive" label="Secondary" />
@@ -60,15 +59,15 @@ export const MenuItemActionDemoPage: Component = () => {
                     <MenuItemAction variant="secondary" intent="neutral" label="Secondary" />
                     <MenuItemAction variant="plain" intent="neutral" disabled label="Disabled" />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="icon">
+            <DemoSection title="icon">
                 <DemoMenu>
                     <MenuItemAction label="Active" intent="negative" icon={TrashIcon} />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="description">
+            <DemoSection title="description">
                 <DemoMenu>
                     <MenuItemAction
                         label="Active"
@@ -76,28 +75,28 @@ export const MenuItemActionDemoPage: Component = () => {
                         description="Lorem ipsum dolor sit amet"
                     />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoMenu title="">
                     <MenuItemAction disabled label="Disabled" />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onPress">
+            <DemoSection title="onPress">
                 <DemoMenu note="see console log">
                     <MenuItemAction onPress={handlePress} label="Foobar" />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoMenu note="Should override background color">
                     <MenuItemAction
                         classList={staticClassList(styles, 'override')}
                         label="Foobar"
                     />
                 </DemoMenu>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

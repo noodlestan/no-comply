@@ -5,6 +5,8 @@ import { Display, Flex, Icon, Layout } from '@no-comply/standard-ui';
 import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
 
+import { ScreenTemplateBase } from '../../templates';
+
 import styles from './ErrorBoundaryScreen.module.scss';
 
 const logError = (error: Error) => {
@@ -50,22 +52,24 @@ export const ErrorScreen: ParentComponent = () => {
     const iconClassList = staticClassList(styles, '-Icon');
 
     return (
-        <Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
-            <Flex padding="xl" gap="l" align="center">
-                <Flex direction="row" gap="s" justify="around">
-                    <div style={{ '--error-icon-color-name': color(0) }}>
-                        <Icon icon={icon(0)} classList={iconClassList} />
-                    </div>
-                    <div style={{ '--error-icon-color-name': color(1) }}>
-                        <Icon icon={icon(1)} classList={iconClassList} />
-                    </div>
-                    <div style={{ '--error-icon-color-name': color(2) }}>
-                        <Icon icon={icon(2)} classList={iconClassList} />
-                    </div>
+        <ScreenTemplateBase id="error">
+            <Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
+                <Flex padding="xl" gap="l" align="center">
+                    <Flex direction="row" gap="s" justify="around">
+                        <div style={{ '--error-icon-color-name': color(0) }}>
+                            <Icon icon={icon(0)} classList={iconClassList} />
+                        </div>
+                        <div style={{ '--error-icon-color-name': color(1) }}>
+                            <Icon icon={icon(1)} classList={iconClassList} />
+                        </div>
+                        <div style={{ '--error-icon-color-name': color(2) }}>
+                            <Icon icon={icon(2)} classList={iconClassList} />
+                        </div>
+                    </Flex>
+                    <Display variant="xl">Ouch</Display>
                 </Flex>
-                <Display variant="xl">Ouch</Display>
-            </Flex>
-        </Layout>
+            </Layout>
+        </ScreenTemplateBase>
     );
 };
 

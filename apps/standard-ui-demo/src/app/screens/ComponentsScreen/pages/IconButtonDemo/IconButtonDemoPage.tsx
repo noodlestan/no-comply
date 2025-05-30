@@ -4,8 +4,7 @@ import { CheckIcon, PlusIcon, TrashIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './IconButtonDemoPage.module.scss';
 
@@ -23,13 +22,13 @@ export const IconButtonDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'IconButtonDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem row>
                     <IconButton {...$add} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem row title="primary" gap="m">
                     <IconButton {...$add} variant="primary" />
                     <IconButton {...$add} variant="primary" disabled />
@@ -42,9 +41,9 @@ export const IconButtonDemoPage: Component = () => {
                     <IconButton {...$add} variant="plain" />
                     <IconButton {...$add} variant="plain" disabled />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="intent">
+            <DemoSection title="intent">
                 <DemoItem title="positive" gap="l">
                     <Flex direction="row" gap="l">
                         <IconButton {...$check} variant="primary" intent="positive" />
@@ -87,9 +86,9 @@ export const IconButtonDemoPage: Component = () => {
                         <IconButton {...$add} variant="plain" intent="neutral" disabled />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem row title="large">
                     <IconButton {...$add} size="large" />
                 </DemoItem>
@@ -102,9 +101,9 @@ export const IconButtonDemoPage: Component = () => {
                 <DemoItem row title="small">
                     <IconButton {...$add} size="small" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="round">
+            <DemoSection title="round">
                 <DemoItem row title="large">
                     <IconButton {...$add} size="large" round />
                 </DemoItem>
@@ -117,25 +116,25 @@ export const IconButtonDemoPage: Component = () => {
                 <DemoItem row title="small">
                     <IconButton {...$add} size="small" round />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem row title="">
                     <IconButton {...$add} disabled />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onPress">
+            <DemoSection title="onPress">
                 <DemoItem row note="see console log">
                     <IconButton {...$add} onPress={handlePress} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem row note="Should override background color">
                     <IconButton {...$add} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

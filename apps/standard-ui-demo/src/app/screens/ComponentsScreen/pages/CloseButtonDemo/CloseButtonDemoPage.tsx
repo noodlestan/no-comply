@@ -3,8 +3,7 @@ import { CloseButton } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './CloseButtonDemoPage.module.scss';
 
@@ -18,13 +17,13 @@ export const CloseButtonDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'CloseButtonDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem row>
                     <CloseButton label="Close" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem row title="medium">
                     <CloseButton size="medium" label="Close" />
                 </DemoItem>
@@ -34,25 +33,25 @@ export const CloseButtonDemoPage: Component = () => {
                 <DemoItem row title="small">
                     <CloseButton size="small" label="Close" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem row title="">
                     <CloseButton disabled label="Close" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onPress">
+            <DemoSection title="onPress">
                 <DemoItem row note="see console log">
                     <CloseButton label="Close" onPress={handlePress} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem row note="Should override background color">
                     <CloseButton label="Close" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

@@ -11,11 +11,11 @@ import {
 import { PiIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
-import { DemoPage } from '../../../../../templates';
+import { CalibrationPage } from '../../../private';
 
 export const LargeCompositionsPage: Component = () => {
     return (
-        <DemoPage title="Large Compositions">
+        <CalibrationPage title="Large Compositions">
             <Display level={3}>Hero</Display>
 
             <Surface variant="card" padding="l">
@@ -110,6 +110,6 @@ export const LargeCompositionsPage: Component = () => {
                     </Flex>
                 </Flex>
             </Surface>
-        </DemoPage>
+        </CalibrationPage>
     );
 };

@@ -16,7 +16,7 @@ export const AppHomeScreen: ParentComponent = () => {
     };
 
     return (
-        <ScreenTemplateWithSidebar sidebar={<SidebarNav items={APP_SIDEBAR_ITEMS} />}>
+        <ScreenTemplateWithSidebar id="app" sidebar={<SidebarNav items={APP_SIDEBAR_ITEMS} />}>
             <SignupPage />
             <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 1</Button>
             <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 2</Button>

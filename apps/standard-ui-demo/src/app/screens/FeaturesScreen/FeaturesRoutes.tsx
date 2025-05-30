@@ -7,7 +7,7 @@ import {
     CalloutDemoPage,
     CheckboxDemoPage,
     CloseButtonDemoPage,
-    ComponentsListPage,
+    ComponentsIndexPage,
     ComponentsScreen,
     DataItemDemoPage,
     DataValueDemoPage,
@@ -34,7 +34,7 @@ import {
 
 export const FeaturesRoutes: Component = () => (
     <Route path="/features/components" component={ComponentsScreen}>
-        <Route path="/" component={ComponentsListPage} />
+        <Route path="/" component={ComponentsIndexPage} />
         <Route path="/AnchoredPopover" component={AnchoredPopoverDemoPage} />
         <Route path="/Button" component={ButtonDemoPage} />
         <Route path="/Callout" component={CalloutDemoPage} />

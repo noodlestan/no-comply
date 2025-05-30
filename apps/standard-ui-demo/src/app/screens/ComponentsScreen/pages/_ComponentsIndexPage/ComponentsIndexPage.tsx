@@ -1,14 +1,14 @@
 import { AnchoredPopover, Button } from '@no-comply/standard-ui';
 import type { Component } from 'solid-js';
 
-import { DemoGroup, DemoItem } from '../../../../components';
 import { ExamplePopoverContents } from '../../../../examples';
-import { DemoPage } from '../../../../templates';
+import { BasePage } from '../../../../templates';
+import { DemoItem, DemoSection } from '../../private';
 
-export const ComponentsListPage: Component = () => {
+export const ComponentsIndexPage: Component = () => {
     return (
-        <DemoPage title="Components">
-            <DemoGroup title="Demo">
+        <BasePage title="Components">
+            <DemoSection title="Demo">
                 <DemoItem row>
                     <AnchoredPopover
                         anchor="start-end"
@@ -19,7 +19,7 @@ export const ComponentsListPage: Component = () => {
                         {popover => <ExamplePopoverContents id={popover.id} />}
                     </AnchoredPopover>
                 </DemoItem>
-            </DemoGroup>
-        </DemoPage>
+            </DemoSection>
+        </BasePage>
     );
 };

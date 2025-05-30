@@ -3,8 +3,7 @@ import { Label } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './LabelDemoPage.module.scss';
 
@@ -16,13 +15,13 @@ export const LabelDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'LabelDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Label>Foobar</Label>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem title="large">
                     <Label size="large">Foobar</Label>
                 </DemoItem>
@@ -35,13 +34,13 @@ export const LabelDemoPage: Component = () => {
                 <DemoItem title="small">
                     <Label size="small">Foobar</Label>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <Label classList={staticClassList(styles, 'override')}>Foobar</Label>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

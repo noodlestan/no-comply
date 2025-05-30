@@ -10,7 +10,7 @@ type Props = {
     ['aria-labelledby']: string;
 };
 
-export const PageMain: ParentComponent<Props> = props => {
+export const EmptyPage: ParentComponent<Props> = props => {
     const [setMainRef] = createFocusTargetRef(SCREEN_MAIN_TARGET, { transient: true });
 
     const { $root: $focusRing } = createFocusRing({ passive: true });

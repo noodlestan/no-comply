@@ -3,8 +3,7 @@ import { Callout, DataItem, NumberInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './NumberInputDemoPage.module.scss';
 
@@ -38,28 +37,28 @@ export const NumberInputDemoPage: Component = () => {
                 <DataItem label="Number value">{Number(value())}</DataItem>
             </Callout>
 
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <NumberInput value={emptyValue()} onChangeValue={setEmptyValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="value">
+            <DemoSection title="value">
                 <DemoItem title="updated via onChangeValue()">
                     <NumberInput value={value()} onChangeValue={setValue} />
                 </DemoItem>
                 <DemoItem title="updated via onConfirmValue()" note="press ENTER or ESC">
                     <NumberInput value={value()} onConfirmValue={handleConfirmValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="placeholder">
+            <DemoSection title="placeholder">
                 <DemoItem>
                     <NumberInput placeholder="E.g.: 1234" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="xl">
                     <NumberInput value={value()} onChangeValue={setValue} size="xl" />
                 </DemoItem>
@@ -75,9 +74,9 @@ export const NumberInputDemoPage: Component = () => {
                 <DemoItem title="xs">
                     <NumberInput value={value()} onChangeValue={setValue} size="xs" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <NumberInput value={value()} onChangeValue={setValue} length="full" />
                 </DemoItem>
@@ -101,21 +100,21 @@ export const NumberInputDemoPage: Component = () => {
                         maxLength={3}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="maxLength">
+            <DemoSection title="maxLength">
                 <DemoItem title="6" note="input resized when length='auto'">
                     <NumberInput value={value()} onChangeValue={setValue} maxLength={6} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="min/max">
+            <DemoSection title="min/max">
                 <DemoItem title="1/10">
                     <NumberInput value={value()} onChangeValue={setValue} min={1} max={10} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="steps">
+            <DemoSection title="steps">
                 <DemoItem title="0.1" note="min: -1, max: 1">
                     <NumberInput
                         value={value()}
@@ -134,49 +133,49 @@ export const NumberInputDemoPage: Component = () => {
                         max={50}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="modified">
+            <DemoSection title="modified">
                 <DemoItem>
                     <NumberInput value={value()} modified />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem>
                     <NumberInput value={value()} disabled />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="invalid">
+            <DemoSection title="invalid">
                 <DemoItem>
                     <NumberInput value={value()} invalid />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onChangeValue">
+            <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <NumberInput value={value()} onChangeValue={handleValueChange} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onConfirmValue">
+            <DemoSection title="onConfirmValue">
                 <DemoItem note="see console log">
                     <NumberInput value={value()} onConfirmValue={handleConfirmValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onCancelValue">
+            <DemoSection title="onCancelValue">
                 <DemoItem note="see console log">
                     <NumberInput value={value()} onCancelValue={handleCancelValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <NumberInput value="123" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

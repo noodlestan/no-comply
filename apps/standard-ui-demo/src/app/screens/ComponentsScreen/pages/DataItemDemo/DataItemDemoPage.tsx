@@ -3,8 +3,7 @@ import { DataItem } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './DataItemDemoPage.module.scss';
 
@@ -20,25 +19,25 @@ export const DataItemDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'DataItemDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <DataItem>{DATA_VALUE}</DataItem>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="value">
+            <DemoSection title="value">
                 <DemoItem note="value is an alias for children">
                     <DataItem value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="label">
+            <DemoSection title="label">
                 <DemoItem>
                     <DataItem label="Lorem ipsum" value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="l">
                     <DataItem label="Lorem ipsum" size="large" value={DATA_VALUE} />
                 </DemoItem>
@@ -48,9 +47,9 @@ export const DataItemDemoPage: Component = () => {
                 <DemoItem title="s">
                     <DataItem label="Lorem ipsum" size="small" value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <DataItem label="Lorem ipsum" length="full" value={DATA_VALUE} />
                 </DemoItem>
@@ -66,15 +65,15 @@ export const DataItemDemoPage: Component = () => {
                 <DemoItem title="auto">
                     <DataItem label="Lorem ipsum" length="auto" value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onClick">
+            <DemoSection title="onClick">
                 <DemoItem note="see console log">
                     <DataItem label="Lorem ipsum" onClick={handleClick} value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <DataItem
                         label="Lorem ipsum"
@@ -82,7 +81,7 @@ export const DataItemDemoPage: Component = () => {
                         value={DATA_VALUE}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

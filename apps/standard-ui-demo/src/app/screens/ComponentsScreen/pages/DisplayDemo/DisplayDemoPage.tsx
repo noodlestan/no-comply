@@ -3,8 +3,7 @@ import { Display } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './DisplayDemoPage.module.scss';
 
@@ -16,13 +15,13 @@ export const DisplayDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'DisplayDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Display>Vitae elementum ipsum</Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="level">
+            <DemoSection title="level">
                 <DemoItem title="1">
                     <Display level={1}>Vitae elementum ipsum</Display>
                 </DemoItem>
@@ -38,9 +37,9 @@ export const DisplayDemoPage: Component = () => {
                 <DemoItem title="5">
                     <Display level={5}>Sapien consectetur purus ut</Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem title="hero">
                     <Display variant="hero">Vestibulum ultricies molestie tellus</Display>
                 </DemoItem>
@@ -59,38 +58,38 @@ export const DisplayDemoPage: Component = () => {
                 <DemoItem title="xs">
                     <Display variant="xs">Sed congue cursus diam at cursus</Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="level + variant">
+            <DemoSection title="level + variant">
                 <DemoItem title="applies size">
                     <Display level={1} variant="s">
                         Nam scelerisque, lectus sed pulvinar aliquet
                     </Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="nowrap">
+            <DemoSection title="nowrap">
                 <DemoItem title="true" width="var(--scale-3xl)">
                     <Display level={1} variant="l" nowrap>
                         Nam scelerisque, lectus sed pulvinar aliquet turpis quis nulla dapibus
                         vulputate in a justo duis fermentum faucibus est non semper nisl
                     </Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="tag">
+            <DemoSection title="tag">
                 <DemoItem note="Should render a <h1>">
                     <Display level={3} tag="h1">
                         Duis fermentum faucibus est non semper nisl
                     </Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <Display classList={staticClassList(styles, 'override')}>Lorem ipsum</Display>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

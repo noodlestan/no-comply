@@ -1,8 +1,8 @@
 import { Display } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
-import { PageContentsLayout } from '../../../../layouts';
 import { $ID_SCREEN_TITLE } from '../../../../templates';
+import { PageContentsLayout } from '../../../../templates/layouts';
 
 export const WelcomePage: Component = () => {
     return (

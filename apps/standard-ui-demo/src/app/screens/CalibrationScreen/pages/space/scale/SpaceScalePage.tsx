@@ -3,8 +3,8 @@ import { createResizeObserver } from '@solid-primitives/resize-observer';
 import { type Component, createSignal, onMount } from 'solid-js';
 
 import { Ruler } from '../../../../../../studio';
-import { DemoPage } from '../../../../../templates';
 import { ShowSpace } from '../../../components';
+import { CalibrationPage } from '../../../private';
 
 export const SpaceScalePage: Component = () => {
     let container: HTMLElement;
@@ -22,7 +22,7 @@ export const SpaceScalePage: Component = () => {
     });
 
     return (
-        <DemoPage title="Space Scales">
+        <CalibrationPage title="Space Scales">
             <Layout uncontained ref={setContainerRef}>
                 <Layout padding="l">
                     <Surface variant="panel" padding="s">
@@ -47,6 +47,6 @@ export const SpaceScalePage: Component = () => {
                 <ShowSpace size="l" />
                 <ShowSpace size="xl" />
             </Flex>
-        </DemoPage>
+        </CalibrationPage>
     );
 };

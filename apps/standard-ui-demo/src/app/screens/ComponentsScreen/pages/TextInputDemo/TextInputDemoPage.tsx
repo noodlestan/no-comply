@@ -3,8 +3,7 @@ import { TextInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './TextInputDemoPage.module.scss';
 
@@ -27,19 +26,19 @@ export const TextInputDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'TextInputDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <TextInput value={emptyValue()} onChangeValue={setEmptyValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="value">
+            <DemoSection title="value">
                 <DemoItem title="updated via onChangeValue()">
                     <TextInput value={value()} onChangeValue={setValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="type">
+            <DemoSection title="type">
                 <DemoItem title="number">
                     <TextInput type="number" value={numValue()} onChangeValue={setNumValue} />
                 </DemoItem>
@@ -53,15 +52,15 @@ export const TextInputDemoPage: Component = () => {
                 <DemoItem title="email">
                     <TextInput type="email" value={emailValue()} onChangeValue={setEmailValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="placeholder">
+            <DemoSection title="placeholder">
                 <DemoItem>
                     <TextInput placeholder="E.g§.: Foobar" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="xl">
                     <TextInput value={value()} onChangeValue={setValue} size="xl" />
                 </DemoItem>
@@ -77,9 +76,9 @@ export const TextInputDemoPage: Component = () => {
                 <DemoItem title="xs">
                     <TextInput value={value()} onChangeValue={setValue} size="xs" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <TextInput value={value()} onChangeValue={setValue} length="full" />
                 </DemoItem>
@@ -103,9 +102,9 @@ export const TextInputDemoPage: Component = () => {
                         maxLength={3}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="maxLength">
+            <DemoSection title="maxLength">
                 <DemoItem title="10">
                     <TextInput value={value()} onChangeValue={setValue} maxLength={6} />
                 </DemoItem>
@@ -117,9 +116,9 @@ export const TextInputDemoPage: Component = () => {
                         maxLength={6}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="min/max">
+            <DemoSection title="min/max">
                 <DemoItem title="1/10">
                     <TextInput
                         type="number"
@@ -129,37 +128,37 @@ export const TextInputDemoPage: Component = () => {
                         max={10}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="modified">
+            <DemoSection title="modified">
                 <DemoItem>
                     <TextInput value={value()} modified />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem>
                     <TextInput value={value()} disabled />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="invalid">
+            <DemoSection title="invalid">
                 <DemoItem>
                     <TextInput value={value()} invalid />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onChangeValue">
+            <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <TextInput value={value()} onChangeValue={handleValueChange} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <TextInput value="Foobar" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

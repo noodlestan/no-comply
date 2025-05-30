@@ -3,8 +3,7 @@ import { Divider, Flex, Label, Surface } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './DividerDemoPage.module.scss';
 
@@ -31,7 +30,7 @@ export const DividerDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'DividerDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem title="stage" padding="l">
                     <Surface variant="stage" padding="l">
                         <Dividers />
@@ -57,9 +56,9 @@ export const DividerDemoPage: Component = () => {
                         <Dividers />
                     </Surface>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem title="base" padding="l">
                     <Divider variant="base" />
                 </DemoItem>
@@ -72,9 +71,9 @@ export const DividerDemoPage: Component = () => {
                 <DemoItem title="muted" padding="l">
                     <Divider variant="muted" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full" padding="m">
                     <Divider length={'full'} />
                 </DemoItem>
@@ -90,13 +89,13 @@ export const DividerDemoPage: Component = () => {
                 <DemoItem title="number (rem)" padding="m" note="7rem">
                     <Divider length={7} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="override">
+            <DemoSection title="override">
                 <DemoItem row note="Should override background color">
                     <Divider length={'full'} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

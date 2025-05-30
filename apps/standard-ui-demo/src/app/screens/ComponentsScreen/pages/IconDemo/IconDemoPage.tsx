@@ -4,8 +4,7 @@ import { ClockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './IconDemoPage.module.scss';
 
@@ -17,13 +16,13 @@ export const IconDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'IconDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Icon icon={ClockIcon} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="large">
                     <Icon icon={ClockIcon} size="large" />
                 </DemoItem>
@@ -36,19 +35,19 @@ export const IconDemoPage: Component = () => {
                 <DemoItem title="small">
                     <Icon icon={ClockIcon} size="small" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="recoloring">
+            <DemoSection title="recoloring">
                 <div class="IconDemoPage--Recoloring">
                     <Icon icon={ClockIcon} />
                 </div>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override icon color">
                     <Icon icon={ClockIcon} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

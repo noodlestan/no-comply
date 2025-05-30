@@ -8,8 +8,8 @@ import { Callout, Flex, Link, ToggleButton } from '@no-comply/standard-ui';
 import { EyeIcon, EyeOffIcon } from 'lucide-solid';
 import { type Component, For, Show, createSignal } from 'solid-js';
 
-import { DemoPage } from '../../../../../templates';
 import { ShowPalette } from '../../../components';
+import { CalibrationPage } from '../../../private';
 
 const LABELS: ToggleActionLabels = {
     on: 'Palettes enabled',
@@ -35,7 +35,7 @@ export const ColorPalettesPage: Component = () => {
     const handleSwitchModePress = () => setenablePalettes(v => !v);
 
     return (
-        <DemoPage title="Palettes">
+        <CalibrationPage title="Palettes">
             <Flex direction="column" gap="m">
                 <Flex direction="row" align="center" gap="s">
                     <ToggleButton
@@ -62,6 +62,6 @@ export const ColorPalettesPage: Component = () => {
                     {palette => <ShowPalette p={palette} enablePalettes={enablePalettes()} />}
                 </For>
             </Flex>
-        </DemoPage>
+        </CalibrationPage>
     );
 };

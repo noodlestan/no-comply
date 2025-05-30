@@ -3,7 +3,7 @@ import type { ParentComponent } from 'solid-js';
 
 import type { ComponentMetadata } from '../../../../../../data';
 import { ComponentMeta } from '../../../../../components';
-import { DemoPage } from '../../../../../templates';
+import { BasePage } from '../../../../../templates';
 
 type Props = {
     component: ComponentMetadata;
@@ -12,12 +12,13 @@ type Props = {
 
 export const ComponentDemoPage: ParentComponent<Props> = props => {
     return (
-        <DemoPage
+        <BasePage
             title={props.component.name}
-            undertitle={() => <ComponentMeta component={props.component} />}
+            undertitle={<ComponentMeta component={props.component} />}
             classList={props.classList}
+            data-component-page
         >
             {props.children}
-        </DemoPage>
+        </BasePage>
     );
 };

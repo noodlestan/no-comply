@@ -3,8 +3,7 @@ import { DataItem, Select } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './SelectDemoPage.module.scss';
 
@@ -34,16 +33,16 @@ export const SelectDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'SelectDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DataItem label="value">{emptyValue() || 'undefined'}</DataItem>
                 <DemoItem>
                     <Select value={emptyValue()} onChangeValue={setEmptyValue}>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="placeholder">
+            <DemoSection title="placeholder">
                 <DataItem label="value">{emptyValue() ?? 'undefined'}</DataItem>
                 <DemoItem>
                     <Select
@@ -54,18 +53,18 @@ export const SelectDemoPage: Component = () => {
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="value">
+            <DemoSection title="value">
                 <DataItem label="value">{value()}</DataItem>
                 <DemoItem title="updated via onChangeValue()">
                     <Select value={value()} onChangeValue={setValue}>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="xl">
                     <Select value={value()} onChangeValue={setValue} size="xl">
                         <Options />
@@ -91,9 +90,9 @@ export const SelectDemoPage: Component = () => {
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <Select value={value()} onChangeValue={setValue} length="full">
                         <Options />
@@ -124,47 +123,47 @@ export const SelectDemoPage: Component = () => {
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="modified">
+            <DemoSection title="modified">
                 <DemoItem>
                     <Select value={value()} modified>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem>
                     <Select value={value()} disabled>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="invalid">
+            <DemoSection title="invalid">
                 <DemoItem>
                     <Select value={value()} invalid>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onChangeValue">
+            <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <Select value={value()} onChangeValue={handleValueChange}>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <Select value={value()} classList={staticClassList(styles, 'override')}>
                         <Options />
                     </Select>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

@@ -11,8 +11,7 @@ import { MoreHorizontalIcon, PencilIcon, TrashIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './MenuDemoPage.module.scss';
 
@@ -24,7 +23,7 @@ export const MenuDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'MenuDemoPage')}
         >
-            <DemoGroup title="Demo">
+            <DemoSection title="Demo">
                 <DemoItem>
                     <AnchoredPopover
                         direction="inline"
@@ -65,13 +64,13 @@ export const MenuDemoPage: Component = () => {
                         )}
                     </AnchoredPopover>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem row note="Should override background color">
                     {/* <Menu classList={staticClassList(styles, 'override')}>Foobar</Menu> */}
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

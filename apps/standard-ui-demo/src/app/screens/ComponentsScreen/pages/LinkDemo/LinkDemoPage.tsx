@@ -3,8 +3,7 @@ import { Link, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './LinkDemoPage.module.scss';
 
@@ -18,7 +17,7 @@ export const LinkDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'LinkDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Text>
                         Lorem ipsum dolor sit amet, consectetur <Link href="#">Foobar</Link>{' '}
@@ -26,9 +25,9 @@ export const LinkDemoPage: Component = () => {
                         id sem a, gravida semper nisl. Duis fermentum faucibus est non porta.
                     </Text>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="href">
+            <DemoSection title="href">
                 <DemoItem>
                     <Text>
                         Lorem ipsum dolor sit amet, consectetur{' '}
@@ -37,31 +36,31 @@ export const LinkDemoPage: Component = () => {
                         nisl. Duis fermentum faucibus est non porta.
                     </Text>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem title="true">
                     <Link href="#" disabled>
                         Foobar
                     </Link>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onPress">
+            <DemoSection title="onPress">
                 <DemoItem note="See console log">
                     <Link href="#" onPress={handlePress}>
                         Foobar
                     </Link>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <Link href="#" classList={staticClassList(styles, 'override')}>
                         Foobar
                     </Link>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

@@ -1,21 +1,21 @@
 import { Display, Flex } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
-import { DemoPage } from '../../../../templates';
+import { CalibrationPage } from '../../private';
 
-export const CalibrationPage: Component = () => {
+export const CalibrationIndexPage: Component = () => {
     return (
-        <DemoPage
+        <CalibrationPage
             title="Calibration"
-            undertitle={() => (
+            undertitle={
                 <Display tag="p" variant="m">
                     Sandbox pages
                 </Display>
-            )}
+            }
         >
             <Flex direction="column" gap="m">
                 ...
             </Flex>
-        </DemoPage>
+        </CalibrationPage>
     );
 };

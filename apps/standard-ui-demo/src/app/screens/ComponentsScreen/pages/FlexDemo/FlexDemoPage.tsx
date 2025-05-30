@@ -3,9 +3,9 @@ import { Flex } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem, ResponsiveRuler } from '../../../../components';
+import { ResponsiveRuler } from '../../../../components';
 import { ExampleLayoutChild } from '../../../../examples';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './FlexDemoPage.module.scss';
 
@@ -17,7 +17,7 @@ export const FlexDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'FlexDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem styled>
                     <Flex>
                         <ExampleLayoutChild />
@@ -25,9 +25,9 @@ export const FlexDemoPage: Component = () => {
                         <ExampleLayoutChild />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="gap">
+            <DemoSection title="gap">
                 <DemoItem title="none" styled defaultValue>
                     <Flex padding="l" direction="row" gap="none">
                         <ExampleLayoutChild />
@@ -75,9 +75,9 @@ export const FlexDemoPage: Component = () => {
                         <ExampleLayoutChild />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="direction">
+            <DemoSection title="direction">
                 <DemoItem title="column" styled defaultValue>
                     <Flex padding="l" gap="m" direction="column">
                         <ExampleLayoutChild content="Item 1" />
@@ -106,9 +106,9 @@ export const FlexDemoPage: Component = () => {
                         <ExampleLayoutChild content="Item 3" />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="align">
+            <DemoSection title="align">
                 <DemoItem title="stretch" styled defaultValue>
                     <Flex padding="l" gap="m" direction="row" align="stretch">
                         <ExampleLayoutChild
@@ -159,9 +159,9 @@ export const FlexDemoPage: Component = () => {
                         <ExampleLayoutChild />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="justify">
+            <DemoSection title="justify">
                 <DemoItem title="start" styled defaultValue>
                     <Flex padding="l" gap="m" direction="row" justify="start" stretch="width">
                         <ExampleLayoutChild />
@@ -197,15 +197,15 @@ export const FlexDemoPage: Component = () => {
                         <ExampleLayoutChild />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override border" styled>
                     <Flex padding="l" classList={staticClassList(styles, 'override')}>
                         <ExampleLayoutChild />
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

@@ -1,6 +1,6 @@
 import { type Component } from 'solid-js';
 
-import { DemoPage } from '../../../../templates';
+import { BasePage } from '../../../../templates';
 import { SignupForm } from '../../forms';
 
 export const SignupPage: Component = () => {
@@ -11,8 +11,8 @@ export const SignupPage: Component = () => {
         console.info('complete');
     };
     return (
-        <DemoPage title="Signup">
+        <BasePage title="Signup">
             <SignupForm onCancel={handleFormCancel} onComplete={handleFormComplete} />
-        </DemoPage>
+        </BasePage>
     );
 };

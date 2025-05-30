@@ -3,8 +3,7 @@ import { DataValue } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './DataValueDemoPage.module.scss';
 
@@ -20,19 +19,19 @@ export const DataValueDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'DataValueDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <DataValue>{DATA_VALUE}</DataValue>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="value">
+            <DemoSection title="value">
                 <DemoItem note="value is an alias for children">
                     <DataValue value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="l">
                     <DataValue size="large" value={DATA_VALUE} />
                 </DemoItem>
@@ -42,9 +41,9 @@ export const DataValueDemoPage: Component = () => {
                 <DemoItem title="s">
                     <DataValue size="small" value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <DataValue length="full" value={DATA_VALUE} />
                 </DemoItem>
@@ -60,19 +59,19 @@ export const DataValueDemoPage: Component = () => {
                 <DemoItem title="auto">
                     <DataValue length="auto" value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onClick">
+            <DemoSection title="onClick">
                 <DemoItem note="See console log">
                     <DataValue onClick={handleClick} value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <DataValue classList={staticClassList(styles, 'override')} value={DATA_VALUE} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

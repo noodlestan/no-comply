@@ -3,9 +3,8 @@ import { AnchoredPopover, Button } from '@no-comply/standard-ui';
 import type { Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
 import { ExamplePopoverContents } from '../../../../examples';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './AnchoredPopoverDemoPage.module.scss';
 
@@ -17,7 +16,7 @@ export const AnchoredPopoverDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'AnchoredPopoverDemoPage')}
         >
-            <DemoGroup title="Demo">
+            <DemoSection title="Demo">
                 <DemoItem row>
                     <AnchoredPopover
                         anchor="start-end"
@@ -28,13 +27,13 @@ export const AnchoredPopoverDemoPage: Component = () => {
                         {popover => <ExamplePopoverContents id={popover.id} />}
                     </AnchoredPopover>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem row note="Should override background color">
                     {/* <Menu classList={staticClassList(styles, 'override')}>Foobar</Menu> */}
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

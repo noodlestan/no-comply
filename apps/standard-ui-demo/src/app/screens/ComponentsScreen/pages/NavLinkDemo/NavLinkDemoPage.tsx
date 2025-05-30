@@ -3,8 +3,7 @@ import { NavLink } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './NavLinkDemoPage.module.scss';
 
@@ -18,15 +17,15 @@ export const NavLinkDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'NavLinkDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem row>
                     <NavLink href="/features/components/NavLink">NavLink</NavLink>
                     <NavLink href="/features/components/Button">Button</NavLink>
                     <NavLink href="/features/components/IconButton">IconButton</NavLink>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="current">
+            <DemoSection title="current">
                 <DemoItem title="true/false" row>
                     <NavLink href="#" current={false}>
                         Noodlestan
@@ -38,33 +37,33 @@ export const NavLinkDemoPage: Component = () => {
                         Noodlestan
                     </NavLink>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem title="true">
                     <NavLink href="/foobar" disabled>
                         Foobar
                     </NavLink>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="current + disabled">
+            <DemoSection title="current + disabled">
                 <DemoItem title="true">
                     <NavLink href="#" current disabled>
                         Foobar
                     </NavLink>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onPress">
+            <DemoSection title="onPress">
                 <DemoItem note="See console log">
                     <NavLink href="#" current={false} onPress={handlePress}>
                         Foobar
                     </NavLink>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <NavLink
                         href="#"
@@ -74,7 +73,7 @@ export const NavLinkDemoPage: Component = () => {
                         Foobar
                     </NavLink>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

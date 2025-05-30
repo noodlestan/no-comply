@@ -3,8 +3,7 @@ import { Callout } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './CalloutDemoPage.module.scss';
 
@@ -16,7 +15,7 @@ export const CalloutDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'CalloutDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Callout title="Lorem ipsum">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi feugiat
@@ -26,9 +25,9 @@ export const CalloutDemoPage: Component = () => {
                         pellentesque, mauris ex bibendum velit, vitae convallis nisl sem ut libero.
                     </Callout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem title="passive">
                     <Callout title="Lorem ipsum" variant="passive">
                         Lorem ipsum dolor sit amet.
@@ -54,9 +53,9 @@ export const CalloutDemoPage: Component = () => {
                         Lorem ipsum dolor sit amet.
                     </Callout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="normal">
                     <Callout title="Lorem ipsum" size="normal">
                         Lorem ipsum dolor sit amet.
@@ -67,9 +66,9 @@ export const CalloutDemoPage: Component = () => {
                         Lorem ipsum dolor sit amet.
                     </Callout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <Callout title="Lorem ipsum" length="full">
                         Lorem ipsum dolor sit amet.
@@ -80,15 +79,15 @@ export const CalloutDemoPage: Component = () => {
                         Lorem ipsum dolor sit amet.
                     </Callout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override border color and background color">
                     <Callout title="Lorem ipsum" classList={staticClassList(styles, 'override')}>
                         Lorem ipsum dolor sit amet.
                     </Callout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

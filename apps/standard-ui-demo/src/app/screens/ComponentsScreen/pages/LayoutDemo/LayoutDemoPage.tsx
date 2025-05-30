@@ -3,9 +3,9 @@ import { Layout } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem, ResponsiveRuler } from '../../../../components';
+import { ResponsiveRuler } from '../../../../components';
 import { ExampleLayoutChild } from '../../../../examples';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './LayoutDemoPage.module.scss';
 
@@ -22,15 +22,15 @@ export const LayoutDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'LayoutDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem styled>
                     <Layout>
                         <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="padding">
+            <DemoSection title="padding">
                 <DemoItem styled title="none">
                     <Layout>
                         <ExampleLayoutChild />
@@ -61,9 +61,9 @@ export const LayoutDemoPage: Component = () => {
                         <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="stretch">
+            <DemoSection title="stretch">
                 <DemoItem title="no stretch" styled classList={stretchItemClassList}>
                     <Layout padding="l">
                         <ExampleLayoutChild style={{ height: '100%' }} />
@@ -84,9 +84,9 @@ export const LayoutDemoPage: Component = () => {
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="overflow">
+            <DemoSection title="overflow">
                 <DemoItem title="auto" width="var(--scale-4xl)" height="var(--scale-xl)" styled>
                     <Layout padding="l" overflow="auto">
                         <ExampleLayoutChild content={longLoremIpsum} style={{ width: '500px' }} />
@@ -107,15 +107,15 @@ export const LayoutDemoPage: Component = () => {
                         <ExampleLayoutChild content={longLoremIpsum} style={{ width: '500px' }} />
                     </Layout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override border" styled>
                     <Layout padding="l" classList={staticClassList(styles, 'override')}>
                         <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

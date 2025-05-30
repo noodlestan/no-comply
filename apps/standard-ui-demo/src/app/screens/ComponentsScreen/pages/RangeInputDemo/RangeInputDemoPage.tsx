@@ -3,8 +3,7 @@ import { DataItem, RangeInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './RangeInputDemoPage.module.scss';
 
@@ -34,14 +33,14 @@ export const RangeInputDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'RangeInputDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DataItem label="value">{emptyValue()}</DataItem>
                 <DemoItem>
                     <RangeInput value={emptyValue()} onChangeValue={setEmptyValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="value">
+            <DemoSection title="value">
                 <DataItem label="value">{value()}</DataItem>
                 <DemoItem title="updated via onChangeValue()">
                     <RangeInput value={value()} onChangeValue={setValue} />
@@ -49,9 +48,9 @@ export const RangeInputDemoPage: Component = () => {
                 <DemoItem title="updated via onConfirmValue()" note="press ENTER or ESC">
                     <RangeInput value={value()} onConfirmValue={handleConfirmValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem title="xl">
                     <RangeInput value={value()} onChangeValue={setValue} size="xl" />
                 </DemoItem>
@@ -67,9 +66,9 @@ export const RangeInputDemoPage: Component = () => {
                 <DemoItem title="xs">
                     <RangeInput value={value()} onChangeValue={setValue} size="xs" />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="length">
+            <DemoSection title="length">
                 <DemoItem title="full">
                     <RangeInput value={value()} onChangeValue={setValue} length="full" />
                 </DemoItem>
@@ -85,56 +84,56 @@ export const RangeInputDemoPage: Component = () => {
                 <DemoItem title="3">
                     <RangeInput value={value()} onChangeValue={setValue} length={3} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="min/max">
+            <DemoSection title="min/max">
                 <DataItem label="value">{numValue()}</DataItem>
                 <DemoItem title="1/10">
                     <RangeInput value={numValue()} onChangeValue={setNumValue} min={1} max={10} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="modified">
+            <DemoSection title="modified">
                 <DemoItem>
                     <RangeInput value={value()} modified />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem>
                     <RangeInput value={value()} disabled />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="invalid">
+            <DemoSection title="invalid">
                 <DemoItem>
                     <RangeInput value={value()} invalid />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onChangeValue">
+            <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <RangeInput value={value()} onChangeValue={handleValueChange} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onConfirmValue">
+            <DemoSection title="onConfirmValue">
                 <DemoItem note="see console log">
                     <RangeInput value={value()} onConfirmValue={handleConfirmValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onCancelValue">
+            <DemoSection title="onCancelValue">
                 <DemoItem note="see console log">
                     <RangeInput value={value()} onCancelValue={handleCancelValue} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <RangeInput value="Foobar" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

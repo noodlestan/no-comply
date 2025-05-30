@@ -6,12 +6,16 @@ import { MainHeader } from '../../../navigation';
 
 import styles from './ScreenTemplateBase.module.scss';
 
-export const ScreenTemplateBase: ParentComponent = props => {
+type Props = {
+    id: string;
+};
+
+export const ScreenTemplateBase: ParentComponent<Props> = props => {
     const classList = staticClassList(styles, 'ScreenTemplateBase');
     const layoutClassList = staticClassList(styles, '-Layout');
 
     return (
-        <Surface variant="stage" stretch="height" classList={classList}>
+        <Surface variant="stage" stretch="height" classList={classList} data-screen={props.id}>
             <Flex direction="column" stretch="full" justify="stretch">
                 <MainHeader sidebarHidden />
                 <Flex stretch="full" classList={layoutClassList}>

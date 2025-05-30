@@ -13,11 +13,11 @@ import {
 import { PiIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
-import { DemoPage } from '../../../../../templates';
+import { CalibrationPage } from '../../../private';
 
 export const MediumCompositionsPage: Component = () => {
     return (
-        <DemoPage title="Medium Compositions">
+        <CalibrationPage title="Medium Compositions">
             <Display level={3}>Medium Heading</Display>
 
             <Surface variant="card" padding="l">
@@ -101,6 +101,6 @@ export const MediumCompositionsPage: Component = () => {
                     </Flex>
                 </Flex>
             </Surface>
-        </DemoPage>
+        </CalibrationPage>
     );
 };

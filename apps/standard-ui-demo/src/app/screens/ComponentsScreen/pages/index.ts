@@ -4,7 +4,7 @@ export * from './ButtonDemo';
 export * from './CalloutDemo';
 export * from './CheckboxDemo';
 export * from './CloseButtonDemo';
-export * from './_ComponentsListPage';
+export * from './_ComponentsIndexPage';
 export * from './DataItemDemo';
 export * from './DataValueDemo';
 export * from './DisplayDemo';

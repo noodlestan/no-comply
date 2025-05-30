@@ -4,12 +4,13 @@ import { Flex, Surface } from '@no-comply/standard-ui';
 import { type ParentComponent, createEffect, createSignal } from 'solid-js';
 import type { JSX } from 'solid-js/jsx-runtime';
 
-import { WithSidebarLayout } from '../../../layouts';
 import { MainHeader, SIDEBAR_NAV_TARGET } from '../../../navigation';
+import { WithSidebarLayout } from '../../layouts';
 
 import styles from './ScreenTemplateWithSidebar.module.scss';
 
 type Props = {
+    id: string;
     sidebar: JSX.Element;
 };
 
@@ -46,7 +47,7 @@ export const ScreenTemplateWithSidebar: ParentComponent<Props> = props => {
     }));
 
     return (
-        <Surface variant="stage" stretch="height" classList={classList}>
+        <Surface variant="stage" stretch="height" classList={classList} data-screen={props.id}>
             <Flex direction="column" stretch="full" justify="stretch">
                 <MainHeader
                     setMenuButtonRef={setToggleButtonRef}

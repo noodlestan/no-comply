@@ -5,8 +5,7 @@ import { ChevronDownIcon, ChevronRightIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './ExpandButtonDemoPage.module.scss';
 
@@ -37,14 +36,14 @@ export const ExpandButtonDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'ExpandButtonDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem row align="center">
                     <ExpandButton expanded={expanded()} {...props} />
                     <label id={id}>{expanded() ? 'expanded' : 'collapsed'}</label>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem row title="large">
                     <ExpandButton size="large" expanded={expanded()} {...props} />
                 </DemoItem>
@@ -57,15 +56,15 @@ export const ExpandButtonDemoPage: Component = () => {
                 <DemoItem row title="small">
                     <ExpandButton size="small" expanded={expanded()} {...props} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem row title="">
                     <ExpandButton disabled expanded={expanded()} {...props} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem row note="Should override background color">
                     <ExpandButton
                         classList={staticClassList(styles, 'override')}
@@ -73,7 +72,7 @@ export const ExpandButtonDemoPage: Component = () => {
                         {...props}
                     />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

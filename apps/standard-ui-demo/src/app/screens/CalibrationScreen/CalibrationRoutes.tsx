@@ -3,7 +3,7 @@ import type { Component } from 'solid-js';
 
 import { CalibrationScreen } from './CalibrationScreen';
 import {
-    CalibrationPage,
+    CalibrationIndexPage,
     ColorPalettesPage,
     LargeCompositionsPage,
     MediumCompositionsPage,
@@ -14,7 +14,7 @@ import {
 
 export const CalibrationRoutes: Component = () => (
     <Route path="/calibration" component={CalibrationScreen}>
-        <Route path="/" component={CalibrationPage} />
+        <Route path="/" component={CalibrationIndexPage} />
         <Route path="/space/scales" component={SpaceScalePage} />
         <Route path="/color/palettes" component={ColorPalettesPage} />
         <Route path="/typography/variants" component={TypographyVariantsPage} />

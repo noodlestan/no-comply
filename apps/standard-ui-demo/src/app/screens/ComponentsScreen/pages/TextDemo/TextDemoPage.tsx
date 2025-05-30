@@ -3,8 +3,7 @@ import { Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './TextDemoPage.module.scss';
 
@@ -16,13 +15,13 @@ export const TextDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'TextDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem title="large">
                     <Text variant="large">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -49,19 +48,19 @@ export const TextDemoPage: Component = () => {
                         Pellentesque faucibus, ipsum eu euismod accumsan, ipsum sapien.
                     </Text>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="tag">
+            <DemoSection title="tag">
                 <DemoItem note="Should render a <h1>">
                     <Text tag="h1">Foobar</Text>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <Text classList={staticClassList(styles, 'override')}>Lorem ipsum</Text>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

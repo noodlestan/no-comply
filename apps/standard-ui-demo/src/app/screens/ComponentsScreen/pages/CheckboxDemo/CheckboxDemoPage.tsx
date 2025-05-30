@@ -3,8 +3,7 @@ import { Checkbox } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './CheckboxDemoPage.module.scss';
 
@@ -24,17 +23,17 @@ export const CheckboxDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'CheckboxDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem>
                     <Checkbox checked={Boolean(emptyValue())} onChangeValue={setEmptyValue} />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="value">
+            </DemoSection>
+            <DemoSection title="value">
                 <DemoItem title="updated via onChangeValue()">
                     <Checkbox checked={value()} onChangeValue={setValue} />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="size">
+            </DemoSection>
+            <DemoSection title="size">
                 <DemoItem title="l">
                     <Checkbox checked={value()} onChangeValue={setValue} size="l" />
                 </DemoItem>
@@ -44,35 +43,35 @@ export const CheckboxDemoPage: Component = () => {
                 <DemoItem title="s">
                     <Checkbox checked={value()} onChangeValue={setValue} size="s" />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="modified">
+            </DemoSection>
+            <DemoSection title="modified">
                 <DemoItem row>
                     <Checkbox checked modified />
                     <Checkbox modified />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="disabled">
+            </DemoSection>
+            <DemoSection title="disabled">
                 <DemoItem row>
                     <Checkbox checked disabled />
                     <Checkbox disabled />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="invalid">
+            </DemoSection>
+            <DemoSection title="invalid">
                 <DemoItem row>
                     <Checkbox checked invalid />
                     <Checkbox invalid />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="onChangeValue">
+            </DemoSection>
+            <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <Checkbox checked={value()} onChangeValue={handleValueChange} />
                 </DemoItem>
-            </DemoGroup>
-            <DemoGroup title="classList">
+            </DemoSection>
+            <DemoSection title="classList">
                 <DemoItem note="Should override text color">
                     <Checkbox checked={true} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

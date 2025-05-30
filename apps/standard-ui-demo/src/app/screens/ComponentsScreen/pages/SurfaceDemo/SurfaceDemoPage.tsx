@@ -3,11 +3,11 @@ import { Flex, Label, Surface, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, SurfaceVariantExample } from '../../../../components';
 import { ExampleLarge, ExampleMedium, ExampleSmall, ExampleTiny } from '../../../../examples';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoSection } from '../../private';
 
 import styles from './SurfaceDemoPage.module.scss';
+import { SurfaceVariantExample } from './private';
 
 export const SurfaceDemoPage: Component = () => {
     const COMPONENT = findComponent('Surface');
@@ -17,16 +17,16 @@ export const SurfaceDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'SurfaceDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <Flex gap="s">
                     <Label>stage</Label>
                     <Surface variant="stage">
                         <ExampleTiny title="Foobar" />
                     </Surface>
                 </Flex>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <Flex gap="xl">
                     <SurfaceVariantExample variant="page" onVariant="stage">
                         <ExampleLarge title="Page" />
@@ -53,28 +53,28 @@ export const SurfaceDemoPage: Component = () => {
                         <ExampleMedium title="Inverse" />
                     </SurfaceVariantExample>
                 </Flex>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="tag">
+            <DemoSection title="tag">
                 <Flex gap="s">
                     <Surface variant="card" tag="section">
                         <ExampleSmall title="Foobar" />
                     </Surface>
                 </Flex>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <Surface variant="card" disabled>
                     <ExampleSmall title="Foobar" />
                 </Surface>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <Surface variant="card" classList={staticClassList(styles, 'override')}>
                     <ExampleSmall title="Foobar" />
                 </Surface>
                 <Text variant="small">Should override text color</Text>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };

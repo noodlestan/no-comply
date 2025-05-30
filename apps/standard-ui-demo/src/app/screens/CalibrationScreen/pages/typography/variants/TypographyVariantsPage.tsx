@@ -1,11 +1,11 @@
 import { ActionLabel, Display, Flex, Label, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
-import { DemoPage } from '../../../../../templates';
+import { CalibrationPage } from '../../../private';
 
 export const TypographyVariantsPage: Component = () => {
     return (
-        <DemoPage title="Variants">
+        <CalibrationPage title="Variants">
             <Display level={3}>Display</Display>
 
             <Flex direction="column" gap="l">
@@ -43,6 +43,6 @@ export const TypographyVariantsPage: Component = () => {
                 <ActionLabel size="normal">Lorem ipsum dolor sit amet.</ActionLabel>
                 <ActionLabel size="small">Lorem ipsum dolor sit amet.</ActionLabel>
             </Flex>
-        </DemoPage>
+        </CalibrationPage>
     );
 };

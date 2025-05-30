@@ -4,8 +4,7 @@ import { UnlockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { DemoGroup, DemoItem } from '../../../../components';
-import { ComponentDemoPage } from '../../private';
+import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
 import styles from './ButtonDemoPage.module.scss';
 
@@ -19,7 +18,7 @@ export const ButtonDemoPage: Component = () => {
             component={COMPONENT}
             classList={staticClassList(styles, 'ButtonDemoPage')}
         >
-            <DemoGroup title="defaults">
+            <DemoSection title="defaults">
                 <DemoItem row title="label only">
                     <Button>View more items</Button>
                 </DemoItem>
@@ -29,9 +28,9 @@ export const ButtonDemoPage: Component = () => {
                         Unlock items
                     </Button>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="variant">
+            <DemoSection title="variant">
                 <DemoItem row title="primary" gap="l">
                     <Button variant="primary">Primary</Button>
                     <Button variant="primary" disabled>
@@ -50,9 +49,9 @@ export const ButtonDemoPage: Component = () => {
                         Disabled
                     </Button>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="intent">
+            <DemoSection title="intent">
                 <DemoItem title="positive" gap="l">
                     <Flex direction="row" gap="l">
                         <Button variant="primary" intent="positive">
@@ -131,9 +130,9 @@ export const ButtonDemoPage: Component = () => {
                         </Button>
                     </Flex>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="size">
+            <DemoSection title="size">
                 <DemoItem row title="large">
                     <Button size="large">Size Large</Button>
                 </DemoItem>
@@ -146,25 +145,25 @@ export const ButtonDemoPage: Component = () => {
                 <DemoItem row title="small">
                     <Button size="small">Size Small</Button>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="disabled">
+            <DemoSection title="disabled">
                 <DemoItem row title="">
                     <Button disabled>Disabled</Button>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="onPress">
+            <DemoSection title="onPress">
                 <DemoItem row note="see console log">
                     <Button onPress={handlePress}>Foobar</Button>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
 
-            <DemoGroup title="classList">
+            <DemoSection title="classList">
                 <DemoItem row note="Should override background color">
                     <Button classList={staticClassList(styles, 'override')}>Foobar</Button>
                 </DemoItem>
-            </DemoGroup>
+            </DemoSection>
         </ComponentDemoPage>
     );
 };
