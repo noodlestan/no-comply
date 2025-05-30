@@ -1,8 +1,6 @@
+# No Comply
+
 ## Menu items
-
-## compact class names in all CSS modules
-
-and rename all mixin files to SomethingMixin.module.scss
 
 ## use logical attributes everywhere
 
@@ -41,6 +39,11 @@ offset the closeButton if there is one
 
 add aria-heading (+aria-level) when not hX
 and aria-paragraph when not p?
+
+## BUG: with sidebar does not update all styles
+
+- resize to mobile, open sidebar, resize to desktop
+- navbar shadow not visible over sidebar
 
 ## supports test
 

@@ -120,11 +120,11 @@ export const RangeInput: Component<RangeInputProps> = props => {
     const classList = () => ({
         ...props.classList,
         RangeInput: true,
-        'RangeInput-is-disabled': Boolean(props.disabled),
-        'RangeInput-is-invalid': Boolean(props.invalid),
-        'RangeInput-is-modified': isModified() || props.modified,
-        'RangeInput-is-touched': wasTouched(),
-        [`RangeInput-size-${size()}`]: true,
+        'is-disabled': Boolean(props.disabled),
+        'is-invalid': Boolean(props.invalid),
+        'is-modified': isModified() || props.modified,
+        'is-touched': wasTouched(),
+        [`size-${size()}`]: true,
     });
 
     const style = () => makeStyle(length());

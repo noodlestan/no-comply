@@ -10,9 +10,9 @@
         cursor: pointer;
         pointer-events: all;
         user-select: none;
-    }
 
-    .Action[data-disabled] {
-        cursor: not-allowed;
+        &[data-disabled] {
+            cursor: not-allowed;
+        }
     }
 }

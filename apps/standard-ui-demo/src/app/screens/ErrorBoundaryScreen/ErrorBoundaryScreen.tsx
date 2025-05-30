@@ -47,7 +47,7 @@ export const ErrorScreen: ParentComponent = () => {
     const icon = (index: 0 | 1 | 2) => ICONS[icons()[index]] as IconComponent;
     const color = (index: 0 | 1 | 2) => COLOR_NAMES[colorIndexes()[index]];
 
-    const iconClassList = staticClassList(styles, 'ErrorScreen--Icon');
+    const iconClassList = staticClassList(styles, '-Icon');
 
     return (
         <Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>

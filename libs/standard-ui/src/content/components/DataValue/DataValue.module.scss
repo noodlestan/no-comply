@@ -17,45 +17,45 @@
             user-select: text;
         }
 
-        .DataValue-align-right {
+        .align-right {
             text-align: right;
         }
 
-        .DataValue-wrap {
+        .wrap {
             white-space: normal;
         }
 
-        .DataValue-size-xs {
+        .size-xs {
             font-size: var(--data-type-size-xs);
             font-weight: var(--data-type-weight-s);
         }
 
-        .DataValue-size-s {
+        .size-s {
             font-size: var(--data-type-size-s);
             font-weight: var(--data-type-weight-s);
         }
 
-        .DataValue-size-m {
+        .size-m {
             font-size: var(--data-type-size-m);
             font-weight: var(--data-type-weight-m);
         }
 
-        .DataValue-size-l {
+        .size-l {
             font-size: var(--data-type-size-l);
             font-weight: var(--data-type-weight-l);
         }
 
-        .DataValue-is-interactive {
+        .is-interactive {
             cursor: pointer;
         }
 
-        .DataValue-is-interactive:hover {
+        .is-interactive:hover {
             color: --f-color(var(--p-interactive));
             text-decoration: underline;
         }
 
-        .DataValue-is-interactive:focus,
-        .DataValue-is-interactive:focus-visible {
+        .is-interactive:focus,
+        .is-interactive:focus-visible {
             text-decoration: underline;
             outline-offset: var(--outline-offset);
             outline-style: var(--outline-style);

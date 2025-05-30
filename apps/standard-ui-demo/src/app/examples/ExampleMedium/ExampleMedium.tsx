@@ -1,5 +1,14 @@
-import { TextInput } from '@no-comply/solid-contexts';
-import { Button, Display, Flex, Icon, IconButton, Label, Link, Text } from '@no-comply/standard-ui';
+import {
+    Button,
+    Display,
+    Flex,
+    Icon,
+    IconButton,
+    Label,
+    Link,
+    Text,
+    TextInput,
+} from '@no-comply/standard-ui';
 import { LockIcon, UnlockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 

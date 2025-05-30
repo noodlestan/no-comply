@@ -23,8 +23,8 @@ export const TreeListItemDetails: Component<TreeListItemDetailsProps> = props =>
     const { hasToggle, $root, focusableProps, expandButtonProps, itemContentsProps } =
         createTreeListItemDetails(props);
 
-    const toggleClassList = staticClassList(styles, 'TreeListItemDetails--toggle');
-    const contentsClassList = staticClassList(styles, 'TreeListItemDetails--contents');
+    const toggleClassList = staticClassList(styles, '-Toggle');
+    const contentsClassList = staticClassList(styles, '-Contents');
 
     return (
         <Flex direction="row" align="center" {...$root}>

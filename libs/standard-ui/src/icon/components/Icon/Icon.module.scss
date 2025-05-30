@@ -1,18 +1,18 @@
 @layer lib {
     @layer standard-ui {
-        .Icon-size-small {
+        .size-small {
             --__icon-size: var(--size-2xs);
         }
 
-        .Icon-size-normal {
+        .size-normal {
             --__icon-size: var(--size-xs);
         }
 
-        .Icon-size-medium {
+        .size-medium {
             --__icon-size: var(--size-s);
         }
 
-        .Icon-size-large {
+        .size-large {
             --__icon-size: var(--size-m);
         }
     }

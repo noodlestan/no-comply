@@ -21,6 +21,12 @@
 
             @include set-color(__bg, primary, content-bg-1, opaque);
             @include apply-color(background-color, __bg);
+
+            &:focus-within {
+                opacity: var(--alpha-opaque);
+                padding-block: var(--space-pad-1);
+                max-height: min-content;
+            }
         }
 
         .floating {
@@ -30,12 +36,6 @@
             z-index: 1000;
 
             @include set-alpha(__bg, transparent);
-        }
-
-        .SkipLink:focus-within {
-            opacity: var(--alpha-opaque);
-            padding-block: var(--space-pad-1);
-            max-height: min-content;
         }
     }
 }

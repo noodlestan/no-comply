@@ -27,7 +27,7 @@ export const createModalDialog = (props: ModalDialogProps): ModalDialogAPI => {
     const { $root: $dialogMixinRoot } = createModalDialogMixin();
 
     const size = () => props.size ?? defaultProps.size;
-    const classList = createClassList(styles, () => ['ModalDialog', `ModalDialog-size-${size()}`]);
+    const classList = createClassList(styles, () => ['ModalDialog', `size-${size()}`]);
     const $localRoot = createComputedProps({
         classList,
     });

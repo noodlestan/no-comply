@@ -17,7 +17,7 @@ export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
     const { $root: $textMixinRoot } = createHeadlessTextMixin(props);
 
     const variant = () => props.variant ?? defaultProps.variant;
-    const classList = createClassList(styles, () => ['Text', `Text-variant-${variant()}`]);
+    const classList = createClassList(styles, () => ['Text', `variant-${variant()}`]);
     const $localRoot = createComputedProps({
         classList,
     });

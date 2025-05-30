@@ -6,23 +6,23 @@
             cursor: unset;
         }
 
-        .Field-size-small {
+        .small {
             font-weight: 900;
             font-size: var(--fieldset-type-size-s);
             font-weight: var(--fieldset-type-weight-l);
         }
 
-        .Field-size-normal {
+        .normal {
             font-size: var(--fieldset-type-size-m);
             font-weight: var(--fieldset-type-weight-s);
         }
 
-        .Field-size-medium {
+        .medium {
             font-size: var(--fieldset-type-size-l);
             font-weight: var(--fieldset-type-weight-m);
         }
 
-        .Field-size-large {
+        .large {
             font-size: var(--fieldset-type-size-xl);
             font-weight: var(--fieldset-type-weight-l);
         }

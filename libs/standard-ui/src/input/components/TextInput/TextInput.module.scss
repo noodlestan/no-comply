@@ -1,0 +1,82 @@
+@layer lib {
+    @layer standard-ui {
+        .TextInput {
+            --input-length-s: var(--size-2xl);
+            --input-length-m: var(--size-3xl);
+            --input-length-l: var(--size-4xl);
+            width: var(--input-length);
+            height: var(--size-m);
+            margin: 0;
+            padding: 0 var(--space-pad-0);
+            font-family: var(--data-type-family);
+            line-height: 1;
+            text-align: left;
+            color: hsla(var(--input-fg), var(--o-input-fg));
+            background-color: hsla(var(--input-bg), var(--o-input-bg));
+            border: var(--input-border);
+            border-color: hsla(var(--input-border-color), var(--o-input-border));
+            border-radius: var(--input-border-radius);
+            pointer-events: all;
+
+            &:focus,
+            &:focus-visible {
+                /* --input-border-offset: calc(var(--outline-width) - var(--input-border-width)); */
+                color: hsla(var(--data-focused-fg-color), var(--o-surface-fg));
+                border-color: hsla(var(--input-border-focused-color), var(--o-input-border));
+                outline-offset: var(--outline-offset);
+                outline-style: var(--outline-style);
+                outline-width: var(--outline-width);
+                outline-color: --f-color(var(--outline-palette));
+            }
+        }
+
+        .size-xs {
+            height: var(--size-xs);
+            padding: calcvar(--space-pad--1);
+            font-size: var(--data-type-size-xs);
+            font-weight: var(--data-type-weight-s);
+        }
+
+        .size-s {
+            height: var(--size-xs);
+            padding: 0 var(--space-pad--1);
+            font-size: var(--data-type-size-s);
+            font-weight: var(--data-type-weight-m);
+        }
+
+        .size-m {
+            height: var(--size-s);
+            padding: 0 var(--space-pad-0);
+            font-size: var(--data-type-size-m);
+            font-weight: var(--data-type-weight-m);
+        }
+
+        .size-l {
+            height: var(--size-m);
+            padding: 0 var(--space-pad-1);
+            font-size: var(--data-type-size-l);
+            font-weight: var(--data-type-weight-l);
+        }
+
+        .size-xl {
+            height: var(--size-l);
+            padding: 0 var(--space-pad-2);
+            font-size: var(--data-type-size-xl);
+            font-weight: var(--data-type-weight-l);
+        }
+
+        .is-modified:not(.is-disabled) {
+            color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
+            border-color: hsla(var(--data-modified-border-color), var(--o-input-border));
+        }
+
+        .is-invalid:not(.is-disabled) {
+            color: hsla(var(--data-error-fg-color), var(--o-input-fg));
+            border-color: hsla(var(--data-error-border-color), var(--o-input-border));
+        }
+
+        .is-disabled {
+            cursor: not-allowed;
+        }
+    }
+}

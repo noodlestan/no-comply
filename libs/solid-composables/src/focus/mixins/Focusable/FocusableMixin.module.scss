@@ -8,14 +8,14 @@
         pointer-events: all;
         user-select: none;
 
+        &[data-disabled] {
+            cursor: default;
+        }
+
         @include focus-ring;
     }
 
-    .Focusable--button {
+    .-Button {
         @include visually-hidden;
-    }
-
-    .Focusable[data-disabled] {
-        cursor: default;
     }
 }

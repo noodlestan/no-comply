@@ -7,12 +7,12 @@
             padding-inline-start: var(--space-pad-0);
         }
 
-        .ContentMessage--Title {
+        .-Title {
             @include set-level(surface-fg, fg-muted);
             @include apply-color(color, surface-fg);
         }
 
-        .ContentMessage--Icon {
+        .-Icon {
             @include set-level(surface-fg, graphics);
             @include apply-color(color, surface-fg);
         }

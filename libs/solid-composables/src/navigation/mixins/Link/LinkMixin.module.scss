@@ -2,9 +2,9 @@
     .Link {
         cursor: pointer;
         pointer-events: all;
-    }
 
-    .Link[data-disabled] {
-        cursor: not-allowed;
+        &[data-disabled] {
+            cursor: not-allowed;
+        }
     }
 }

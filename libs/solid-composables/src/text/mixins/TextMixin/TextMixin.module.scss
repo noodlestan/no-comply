@@ -15,7 +15,7 @@
         --__align-to-height: calc(var(--__text-font-size) * var(--__text-line-height));
     }
 
-    :where(.Text-nowrap) {
+    :where(.nowrap) {
         max-width: 100%;
         white-space: nowrap;
         overflow: hidden;

@@ -9,11 +9,11 @@ export const createMenuItemGroupMixin = (): MenuItemGroupMixinAPI => {
     };
 
     const $label = {
-        classList: staticClassList(styles, 'MenuItemGroup--Label'),
+        classList: staticClassList(styles, '-Label'),
     };
 
     const $description = {
-        classList: staticClassList(styles, 'MenuItemGroup--Description'),
+        classList: staticClassList(styles, '-Description'),
     };
 
     return {

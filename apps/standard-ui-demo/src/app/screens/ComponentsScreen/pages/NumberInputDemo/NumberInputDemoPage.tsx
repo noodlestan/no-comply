@@ -1,6 +1,5 @@
-import { NumberInput } from '@no-comply/solid-contexts';
 import { staticClassList } from '@no-comply/solid-primitives';
-import { Callout, DataItem } from '@no-comply/standard-ui';
+import { Callout, DataItem, NumberInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';

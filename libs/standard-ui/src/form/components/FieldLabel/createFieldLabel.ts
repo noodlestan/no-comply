@@ -21,7 +21,7 @@ export const createFieldLabel = (props: FieldLabelProps): FieldLabelAPI => {
     const { $root: $fieldLabelMixinRoot } = createFieldLabelMixin();
 
     const size = () => props.size ?? defaultProps.size;
-    const classList = createClassList(styles, () => ['FieldLabel', `FieldLabel-size-${size()}`]);
+    const classList = createClassList(styles, () => ['FieldLabel', `size-${size()}`]);
     const $localRoot = createComputedProps({
         classList,
     });

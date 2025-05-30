@@ -30,26 +30,26 @@
         overflow: hidden;
     }
 
-    .tick::before {
-        display: block;
-        content: '';
-        position: absolute;
-        bottom: 0;
-        height: var(--scale-4xs);
-        border-inline-start: solid 1px;
-        @include apply-color(border-color, __border);
-    }
-
     .tick {
         flex: 0 0 var(--__ruler-size);
-    }
 
-    .tick span {
-        display: block;
-        position: relative;
-        width: var(--__ruler-size);
-        margin-left: calc(var(--__ruler-size) / -2);
-        text-align: center;
+        &::before {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: var(--scale-4xs);
+            border-inline-start: solid 1px;
+            @include apply-color(border-color, __border);
+        }
+
+        span {
+            display: block;
+            position: relative;
+            width: var(--__ruler-size);
+            margin-left: calc(var(--__ruler-size) / -2);
+            text-align: center;
+        }
     }
 
     .markers {
@@ -67,19 +67,19 @@
         @include apply-color(color, __marker-fg);
         @include apply-color(background-color, __marker-bg);
 
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            @include apply-color(border-top-color, __marker-tick);
+        }
+
         span {
             display: block;
             line-height: 1;
         }
-    }
-
-    .marker:before {
-        content: '';
-        position: absolute;
-        bottom: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        border: 6px solid transparent;
-        @include apply-color(border-top-color, __marker-tick);
     }
 }

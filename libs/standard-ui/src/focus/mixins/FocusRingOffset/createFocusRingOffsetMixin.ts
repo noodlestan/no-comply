@@ -8,7 +8,7 @@ export const createFocusRingOffsetMixin = (
 ): FocusRingOffsetMixinAPI => {
     const classList = createClassList(styles, () => ({
         FocusRingOffset: true,
-        'FocusRingOffset-inset': Boolean(props.inset),
+        inset: Boolean(props.inset),
     }));
     const $localRoot = createComputedProps({ classList });
 

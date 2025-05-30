@@ -10,7 +10,7 @@ export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
 
     const classList = createClassList(styles, () => ({
         Text: true,
-        [`Text-nowrap`]: Boolean(props.nowrap),
+        nowrap: Boolean(props.nowrap),
     }));
 
     const $localRoot = createComputedProps({

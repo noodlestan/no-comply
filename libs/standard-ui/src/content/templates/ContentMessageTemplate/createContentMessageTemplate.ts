@@ -25,11 +25,11 @@ export const createContentMessageTemplate = (
     });
 
     const $title = {
-        classList: staticClassList(styles, 'ContentMessage--Title'),
+        classList: staticClassList(styles, '-Title'),
     };
 
     const iconStaticProps = {
-        classList: staticClassList(styles, 'ContentMessage--Icon'),
+        classList: staticClassList(styles, '-Icon'),
     };
     const iconProps = createComputedProps(iconStaticProps, {
         size,

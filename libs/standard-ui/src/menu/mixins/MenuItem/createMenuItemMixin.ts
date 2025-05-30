@@ -28,23 +28,23 @@ export const createMenuItemMixin = (props: MenuItemMixinProps): MenuItemMixinAPI
     };
 
     const $iconSlot = {
-        classList: staticClassList(styles, 'MenuItem--Icon'),
+        classList: staticClassList(styles, '-Icon'),
     };
 
     const $labelSlot = {
-        classList: staticClassList(styles, 'MenuItem--Label'),
+        classList: staticClassList(styles, '-Label'),
     };
 
     const $subLabelSlot = {
-        classList: staticClassList(styles, 'MenuItem--LabelSub'),
+        classList: staticClassList(styles, '-LabelSub'),
     };
 
     const $descriptionSlot = {
-        classList: staticClassList(styles, 'MenuItem--Description'),
+        classList: staticClassList(styles, '-Description'),
     };
 
     const $expandSlot = {
-        classList: staticClassList(styles, 'MenuItem--Expand'),
+        classList: staticClassList(styles, '-Expand'),
     };
 
     return {

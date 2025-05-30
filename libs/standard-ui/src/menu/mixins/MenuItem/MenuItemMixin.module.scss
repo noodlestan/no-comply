@@ -29,7 +29,7 @@
             @include set-level(__bg, static-bg-contrast);
         }
 
-        .MenuItem--Icon {
+        .-Icon {
             display: flex;
             align-items: center;
             width: var(--size-xs);
@@ -37,22 +37,22 @@
             height: 26px;
         }
 
-        .MenuItem--Label {
+        .-Label {
             flex: 1;
             cursor: inherit;
             white-space: break-spaces;
             word-break: break-word;
         }
 
-        .MenuItem--LabelSub {
+        .-LabelSub {
             /* */
         }
 
-        .MenuItem--Description * {
+        .-Description * {
             cursor: inherit;
         }
 
-        .MenuItem--Expand {
+        .-Expand {
             width: var(--size-xs);
         }
     }

@@ -6,7 +6,7 @@
         width: auto;
     }
 
-    .ErrorScreen--Icon {
+    .-Icon {
         color: --f-color(var(--error-icon-color-name), var(--color-level-mid));
         min-height: var(--scale-l);
         min-width: var(--scale-l);

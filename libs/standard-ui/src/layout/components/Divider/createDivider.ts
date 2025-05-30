@@ -29,8 +29,8 @@ export const createDivider = (props: DividerProps): DividerAPI => {
     const style = () => makeStyle(length());
     const classList = createClassList(styles, () => [
         'Divider',
-        `Divider-variant-${variant()}`,
-        { [`Divider-length-${length()}`]: typeof length() !== 'number' },
+        `variant-${variant()}`,
+        { [`length-${length()}`]: typeof length() !== 'number' },
     ]);
     const $localRoot = createComputedProps({ classList, style });
 

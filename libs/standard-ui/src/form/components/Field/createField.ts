@@ -27,7 +27,7 @@ export const createField = (props: FieldProps): FieldAPI => {
     const { $root: $fieldMixinRoot } = createFieldMixin();
 
     const size = () => props.size || defaultProps.size;
-    const classList = createClassList(styles, () => ['Field', `.Field-size-${size()}`]);
+    const classList = createClassList(styles, () => ['Field', `size-${size()}`]);
     const $localRoot = createComputedProps({
         classList,
     });

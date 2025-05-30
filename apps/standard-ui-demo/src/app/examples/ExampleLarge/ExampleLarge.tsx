@@ -1,4 +1,3 @@
-import { TextInput } from '@no-comply/solid-contexts';
 import { shortId, staticClassList } from '@no-comply/solid-primitives';
 import {
     Button,
@@ -12,6 +11,7 @@ import {
     Link,
     Surface,
     Text,
+    TextInput,
 } from '@no-comply/standard-ui';
 import { ClockIcon, LockIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';

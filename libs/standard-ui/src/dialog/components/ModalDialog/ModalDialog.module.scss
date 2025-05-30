@@ -1,18 +1,22 @@
 @layer lib {
     @layer standard-ui {
-        .ModalDialog-size-s {
+        .ModalDialog {
+            /* */
+        }
+
+        .size-s {
             min-width: 30vw;
             max-width: 50vw;
             min-height: 30vh;
             max-height: 50vw;
         }
-        .ModalDialog-size-m {
+        .size-m {
             min-width: 50vw;
             max-width: 75vw;
             min-height: 50vh;
             max-height: 75vw;
         }
-        .ModalDialog-size-l {
+        .size-l {
             min-width: 75vw;
             max-width: 90vw;
             min-height: 75vh;

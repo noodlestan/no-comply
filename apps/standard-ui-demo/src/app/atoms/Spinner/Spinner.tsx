@@ -13,14 +13,14 @@ type SpinnerProps = {
 export const Spinner: Component<SpinnerProps> = props => {
     const classList = createClassList(styles, () => [
         'Spinner',
-        `Spinner-size-${props.size ?? 's'}`,
-        `Spinner-speed-${props.speed ?? 'fast'}`,
+        `size-${props.size ?? 's'}`,
+        `speed-${props.speed ?? 'fast'}`,
     ]);
 
     return (
         <Show when={props.when}>
             <span classList={classList()}>
-                <span class="Spinner--Icon">
+                <span class="-Icon">
                     <CircleDashedIcon />
                 </span>
             </span>

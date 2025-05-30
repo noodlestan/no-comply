@@ -192,11 +192,11 @@ export const NumberInput: Component<NumberInputProps> = props => {
     const classList = () => ({
         ...props.classList,
         NumberInput: true,
-        'NumberInput-is-disabled': Boolean(props.disabled),
-        'NumberInput-is-invalid': Boolean(props.invalid),
-        'NumberInput-is-modified': isModified() || props.modified,
-        'NumberInput-is-touched': wasTouched(),
-        [`NumberInput-size-${size()}`]: true,
+        'is-disabled': Boolean(props.disabled),
+        'is-invalid': Boolean(props.invalid),
+        'is-modified': isModified() || props.modified,
+        'is-touched': wasTouched(),
+        [`size-${size()}`]: true,
     });
 
     const style = () => makeStyle(length(), props.maxLength);

@@ -41,8 +41,8 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
     const contain = () => locals.contain ?? true;
     const classList = createClassList(styles, () => ({
         WithSidebarLayout: true,
-        'WithSidebarLayout-contain': contain(),
-        'WithSidebarLayout-is-expanded': props.sidebarExpanded,
+        contain: contain(),
+        'is-expanded': props.sidebarExpanded,
     }));
     const $localRoot = createComputedProps({
         'data-layout-large': () => (isDesktop() ? '' : undefined),
@@ -53,18 +53,16 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
 
     return (
         <Layout stretch="full" {...$}>
-            <div classList={staticClassList(styles, 'WithSidebarLayoutWrapper')}>
+            <div classList={staticClassList(styles, '-Wrapper')}>
                 <div
-                    classList={staticClassList(styles, 'WithSidebarLayout--Sidebar')}
+                    classList={staticClassList(styles, '-Sidebar')}
                     {...$dismissible}
                     inert={!isDesktop() && !props.sidebarExpanded}
                     aria-hidden={!isDesktop() && !props.sidebarExpanded}
                 >
                     {props.sidebar}
                 </div>
-                <div classList={staticClassList(styles, 'WithSidebarLayout--Contents')}>
-                    {props.children}
-                </div>
+                <div classList={staticClassList(styles, '-Contents')}>{props.children}</div>
             </div>
         </Layout>
     );

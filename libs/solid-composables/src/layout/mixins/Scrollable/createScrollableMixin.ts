@@ -15,8 +15,8 @@ export const createScrollableMixin = (props: ScrollableMixinProps): ScrollableMi
     const component = () => props.tag ?? defaultProps.tag;
     const classList = createClassList(styles, () => ({
         Scrollable: true,
-        [`Scrollable-x`]: Boolean(props.x),
-        [`Scrollable-y`]: Boolean(props.y),
+        x: Boolean(props.x),
+        y: Boolean(props.y),
     }));
     const $localRoot = createComputedProps({ classList, component });
 

@@ -13,10 +13,7 @@ const defaultProps: PickRequired<ContentColorMixinProps, 'color'> = {
 
 export const createContentColorMixin = (props: ContentColorMixinProps): ContentColorMixinAPI => {
     const color = () => props.color ?? defaultProps.color;
-    const classList = createClassList(styles, () => [
-        'ContentColor',
-        `ContentColor-color-${color()}`,
-    ]);
+    const classList = createClassList(styles, () => ['ContentColor', `color-${color()}`]);
 
     const elProps = createComputedProps({ classList });
 

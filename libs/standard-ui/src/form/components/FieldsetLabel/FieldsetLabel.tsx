@@ -19,7 +19,7 @@ export const FieldsetLabel: ParentComponent<FieldsetLabelProps> = props => {
 
     const classList = createClassList(
         styles,
-        () => ['FieldsetLabel', `FieldsetLabel-size-${size()}`],
+        () => ['FieldsetLabel', `size-${size()}`],
         () => props.classList,
     );
 

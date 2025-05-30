@@ -59,10 +59,10 @@ export const DataValue: ParentComponent<DataValueProps> = props => {
         styles,
         () => ({
             DataValue: true,
-            [`DataValue-align-right`]: props.align === 'right',
-            [`DataValue-is-interactive`]: Boolean(props.onClick),
-            [`DataValue-size-${size()}`]: true,
-            [`DataValue-wrap`]: !!props.wrap,
+            [`align-right`]: props.align === 'right',
+            [`is-interactive`]: Boolean(props.onClick),
+            [`size-${size()}`]: true,
+            [`wrap`]: !!props.wrap,
         }),
         () => props.classList,
     );

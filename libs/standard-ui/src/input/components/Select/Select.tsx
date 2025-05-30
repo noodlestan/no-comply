@@ -70,10 +70,10 @@ export const Select: ParentComponent<SelectProps> = props => {
     const classList = () => ({
         ...props.classList,
         Select: true,
-        'Select-is-disabled': props.disabled,
-        'Select-is-invalid': Boolean(props.invalid),
-        'Select-is-modified': Boolean(props.modified),
-        [`Select-size-${size()}`]: true,
+        'is-disabled': props.disabled,
+        'is-invalid': Boolean(props.invalid),
+        'is-modified': Boolean(props.modified),
+        [`size-${size()}`]: true,
     });
 
     const style = () => makeStyle(length());

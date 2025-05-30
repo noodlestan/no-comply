@@ -126,11 +126,11 @@ export const TextInput: Component<TextInputProps> = props => {
     const classList = () => ({
         ...props.classList,
         TextInput: true,
-        'TextInput-is-disabled': props.disabled,
-        'TextInput-is-invalid': Boolean(props.invalid),
-        'TextInput-is-modified': isModified() || props.modified,
-        'TextInput-was-touched': wasTouched(),
-        [`TextInput-size-${size()}`]: true,
+        'is-disabled': props.disabled,
+        'is-invalid': Boolean(props.invalid),
+        'is-modified': isModified() || props.modified,
+        'was-touched': wasTouched(),
+        [`size-${size()}`]: true,
     });
 
     const style = () => makeStyle(length(), props.maxLength);

@@ -1,6 +1,6 @@
 @layer app {
     @layer screens {
-        .ScreenTemplateWithSidebar--Layout {
+        .ScreenTemplateWithSidebar .-Layout {
             z-index: 0;
         }
     }

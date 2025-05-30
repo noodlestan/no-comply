@@ -1,5 +1,5 @@
 import { useFocusTarget, useNavigation } from '@no-comply/solid-contexts';
-import { createClassList } from '@no-comply/solid-primitives';
+import { createClassList, staticClassList } from '@no-comply/solid-primitives';
 import { Flex, Surface } from '@no-comply/standard-ui';
 import { type ParentComponent, createEffect, createSignal } from 'solid-js';
 import type { JSX } from 'solid-js/jsx-runtime';
@@ -39,12 +39,14 @@ export const ScreenTemplateWithSidebar: ParentComponent<Props> = props => {
 
     const handleDismiss = () => setSidebarExpanded(false);
 
-    const classList = createClassList(styles, () => ({
-        'ScreenTemplateWithSidebar--Layout': !sidebarExpanded(),
+    const classList = staticClassList(styles, 'ScreenTemplateWithSidebar');
+
+    const layoutClassList = createClassList(styles, () => ({
+        '-Layout': !sidebarExpanded(),
     }));
 
     return (
-        <Surface variant="stage" stretch="height">
+        <Surface variant="stage" stretch="height" classList={classList}>
             <Flex direction="column" stretch="full" justify="stretch">
                 <MainHeader
                     setMenuButtonRef={setToggleButtonRef}
@@ -57,7 +59,7 @@ export const ScreenTemplateWithSidebar: ParentComponent<Props> = props => {
                     sidebarExpanded={sidebarExpanded()}
                     onSidebarDismiss={handleDismiss}
                     exclude={() => (toggleButtonEl ? [toggleButtonEl] : [])}
-                    classList={classList()}
+                    classList={layoutClassList()}
                 >
                     {props.children}
                 </WithSidebarLayout>

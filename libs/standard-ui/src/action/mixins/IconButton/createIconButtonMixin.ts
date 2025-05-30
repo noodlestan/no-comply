@@ -6,7 +6,7 @@ import type { IconButtonMixinAPI, IconButtonMixinProps } from './types';
 
 export const createIconButtonMixin = (props: IconButtonMixinProps): IconButtonMixinAPI => {
     const iconStaticProps = {
-        classList: staticClassList(styles, 'IconButton--Icon'),
+        classList: staticClassList(styles, '-Icon'),
     };
     const iconProps = createComputedProps(iconStaticProps, {
         size: () => ICON_BUTTOM_MAP_SIZE_TO_ICON_SIZE[props.size],

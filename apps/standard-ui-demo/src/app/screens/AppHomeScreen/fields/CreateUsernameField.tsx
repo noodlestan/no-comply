@@ -1,5 +1,4 @@
-import { type InputControllerProps, TextInput } from '@no-comply/solid-contexts';
-import { Field } from '@no-comply/standard-ui';
+import { Field, type InputControllerProps, TextInput } from '@no-comply/standard-ui';
 import { type Component, Show } from 'solid-js';
 
 type Props = InputControllerProps<string>;

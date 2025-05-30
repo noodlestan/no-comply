@@ -4,23 +4,36 @@
         container-name: WithSidebarLayout;
         display: block;
         height: 100%;
+
+        &[data-layout-large] .-Sidebar {
+            position: unset;
+            transform: none;
+            display: block;
+            transition: none;
+        }
+
+        &[data-layout-large] .-Contents {
+            opacity: unset;
+            filter: unset;
+            pointer-events: unset;
+        }
     }
 
-    .WithSidebarLayoutWrapper {
+    .-Wrapper {
         display: flex;
         flex-wrap: nowrap;
         align-items: stretch;
         height: 100%;
         container-name: WithSidebarLayoutWrapper;
-        --WithSidebarLayout-size: small;
+        --size: small;
     }
 
-    .WithSidebarLayout-contain {
+    .contain {
         position: relative;
         overflow: hidden;
     }
 
-    .WithSidebarLayout--Sidebar {
+    .-Sidebar {
         position: absolute;
         top: 0;
         left: 0;
@@ -32,32 +45,20 @@
         z-index: 10;
     }
 
-    .WithSidebarLayout-is-expanded .WithSidebarLayout--Sidebar {
-        transform: translateX(0);
-        display: block;
-    }
-
-    .WithSidebarLayout--Contents {
+    .-Contents {
         flex: 1;
         height: 100%;
     }
 
-    :where(.WithSidebarLayout-is-expanded) .WithSidebarLayout--Contents {
-        opacity: 0.5;
-        filter: blur(1px);
-        pointer-events: none;
-    }
-
-    .WithSidebarLayout[data-layout-large] .WithSidebarLayout--Sidebar {
-        position: unset;
-        transform: none;
-        display: block;
-        transition: none;
-    }
-
-    .WithSidebarLayout[data-layout-large] .WithSidebarLayout--Contents {
-        opacity: unset;
-        filter: unset;
-        pointer-events: unset;
+    :where(.is-expanded) {
+        .-Sidebar {
+            transform: translateX(0);
+            display: block;
+        }
+        .-Contents {
+            opacity: 0.5;
+            filter: blur(1px);
+            pointer-events: none;
+        }
     }
 }

@@ -50,10 +50,10 @@
             @include apply-color(color, __fg);
             @include apply-color(background-color, __bg);
             @include apply-color(border-color, __border);
+        }
 
-            &:focus-visible {
-                border-color: transparent;
-            }
+        .Action:focus-visible {
+            border-color: transparent;
         }
 
         .Action:is([data-disabled], [data-inactive]) {

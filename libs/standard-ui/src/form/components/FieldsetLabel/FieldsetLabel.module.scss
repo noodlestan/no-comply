@@ -6,23 +6,23 @@
             cursor: unset;
         }
 
-        .FieldsetLabel-size-small {
+        .size-small {
             font-weight: 900;
             font-size: var(--label-type-size-s);
             font-weight: var(--label-type-weight-l);
         }
 
-        .FieldsetLabel-size-normal {
+        .size-normal {
             font-size: var(--label-type-size-m);
             font-weight: var(--label-type-weight-s);
         }
 
-        .FieldsetLabel-size-medium {
+        .size-medium {
             font-size: var(--label-type-size-l);
             font-weight: var(--label-type-weight-m);
         }
 
-        .FieldsetLabel-size-large {
+        .size-large {
             font-size: var(--label-type-size-xl);
             font-weight: var(--label-type-weight-l);
         }

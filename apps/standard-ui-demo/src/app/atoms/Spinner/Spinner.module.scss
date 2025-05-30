@@ -12,39 +12,39 @@
         justify-content: center;
     }
 
-    .Spinner--Icon {
+    .Icon {
         display: block;
         width: var(--spinner-size);
         height: var(--spinner-size);
         animation: spinner-rotate var(--spinner-duration) infinite backwards;
     }
 
-    .Spinner--Icon > svg {
+    .Icon > svg {
         width: 100%;
         height: 100%;
     }
 
-    .Spinner-size-s {
+    .size-s {
         --spinner-size: var(--scale-s);
     }
 
-    .Spinner-size-m {
+    .size-m {
         --spinner-size: var(--scale-l);
     }
 
-    .Spinner-size-l {
+    .size-l {
         --spinner-size: var(--scale-2xl);
     }
 
-    .Spinner-speed-slow {
+    .speed-slow {
         --spinner-duration: 10s;
     }
 
-    .Spinner-speed-medium {
+    .speed-medium {
         --spinner-duration: 3s;
     }
 
-    .Spinner-speed-fast {
+    .speed-fast {
         --spinner-duration: 1s;
     }
 }
