@@ -1,8 +1,8 @@
 import {
+    AlignFirstLine,
     Button,
     Display,
     DisplayAligned,
-    FirstLineAlign,
     Flex,
     Icon,
     IconButton,
@@ -23,7 +23,7 @@ export const MediumCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="s" type="display" variant="m">
+                        <AlignFirstLine height="s" type="display" variant="m">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="normal" icon={PiIcon} aligned />
                                 <Flex>
@@ -34,7 +34,7 @@ export const MediumCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="normal" icon={PiIcon} label="normal" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="m">
                         <Button intent="positive" size="normal">
@@ -52,7 +52,7 @@ export const MediumCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="s" type="display" variant="s">
+                        <AlignFirstLine height="s" type="display" variant="s">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="normal" icon={PiIcon} aligned />
                                 <Flex>
@@ -60,7 +60,7 @@ export const MediumCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="normal" icon={PiIcon} label="normal" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="s">
                         <Button intent="positive" size="normal">
@@ -78,7 +78,7 @@ export const MediumCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="m" type="text" variant="large">
+                        <AlignFirstLine height="m" type="text" variant="large">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="medium" icon={PiIcon} aligned />
                                 <Flex>
@@ -89,7 +89,7 @@ export const MediumCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="medium" icon={PiIcon} label="medium" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="l">
                         <Button intent="positive" size="medium">

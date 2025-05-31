@@ -2,6 +2,6 @@
 export * from './ActionLabel';
 export * from './ComposableType';
 export * from './Display';
-export * from './FirstLineAlign';
+export * from './AlignFirstLine';
 export * from './Label';
 export * from './Text';

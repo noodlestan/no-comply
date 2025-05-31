@@ -1,4 +1,4 @@
-import { createAlignToFirstLineMixin } from '@no-comply/solid-composables';
+import { createAlignedToFirstLineMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     combineProps,
@@ -14,7 +14,7 @@ const defaultProps: PickRequired<SizedActionMixinProps, 'size'> = {
 };
 
 export const createSizedActionMixin = (props: SizedActionMixinProps): SizedActionMixinAPI => {
-    const { $root: $alignToFirstLineRoot } = createAlignToFirstLineMixin(props);
+    const { $root: $alignedToFirstLineRoot } = createAlignedToFirstLineMixin(props);
 
     const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => [`SizedAction`, `size-${size()}`]);
@@ -23,7 +23,7 @@ export const createSizedActionMixin = (props: SizedActionMixinProps): SizedActio
     });
 
     return {
-        $root: combineProps($alignToFirstLineRoot, $root),
+        $root: combineProps($alignedToFirstLineRoot, $root),
         size,
     };
 };

@@ -1,8 +1,8 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { AlignToFirstLineMixinProps } from '../AlignToFirstLineMixin';
+import type { AlignedToFirstLineMixinProps } from '../AlignedToFirstLine';
 
-export type TextMixinProps = AlignToFirstLineMixinProps & {
+export type TextMixinProps = AlignedToFirstLineMixinProps & {
     nowrap?: boolean;
 };
 

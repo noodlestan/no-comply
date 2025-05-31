@@ -1,10 +1,10 @@
 @layer composables {
-    .FirstLineAlign {
+    .AlignFirstLine {
         display: contents;
 
-        --__align-height: max(
+        --__first-line-target-height: max(
             calc(var(--__text-font-size) * var(--__text-line-height)),
-            var(--__align-content-height)
+            var(--__first-line-content-height)
         );
     }
 }

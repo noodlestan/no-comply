@@ -1,9 +1,5 @@
 # No Comply
 
-## rename mergeProps to combineProps, avoids importing Solid's by mistake
-
-## rename createComputedProps to computedProps
-
 ## data-\* in all components
 
 ## remove flex defaults
@@ -27,7 +23,7 @@ if display/text components expose [data-display] [data-text] it would be possibl
 
 think also labels, data values
 
-## AlignToFirstLineMixin and FirstLineAlignMixin naming!
+## AlignedToFirstLineMixin and FirstLineAlignMixin naming!
 
 ## use logical attributes everywhere
 
@@ -66,6 +62,16 @@ do not render children wrapper if no children present
 ## IconButton / Icon
 
 aspect-ratio
+
+## Menu
+
+- max/min width
+- fallback popover placement
+  - add [data-popover-overflow], center it and style backdrop
+  - when overflown, what to do with submenu?
+    - show "in place", animate?
+    - add label and < to submenu?
+- hover and active states should be inverted (not static)
 
 ## MenuItemGroup and MenuItem\*
 

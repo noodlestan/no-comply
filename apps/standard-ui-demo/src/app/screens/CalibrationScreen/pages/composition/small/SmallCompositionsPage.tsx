@@ -1,8 +1,8 @@
 import {
+    AlignFirstLine,
     Button,
     Display,
     DisplayAligned,
-    FirstLineAlign,
     Flex,
     Icon,
     IconButton,
@@ -23,7 +23,7 @@ export const SmallCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="2xs" type="display" variant="xs">
+                        <AlignFirstLine height="2xs" type="display" variant="xs">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="small" icon={PiIcon} aligned />
                                 <Flex>
@@ -31,7 +31,7 @@ export const SmallCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="small" icon={PiIcon} label="small" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="s">
                         <Button intent="positive" size="small">
@@ -49,7 +49,7 @@ export const SmallCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="s" type="text" variant="medium">
+                        <AlignFirstLine height="s" type="text" variant="medium">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="normal" icon={PiIcon} aligned />
                                 <Flex>
@@ -60,7 +60,7 @@ export const SmallCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="normal" icon={PiIcon} label="normal" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="l">
                         <Button intent="positive" size="normal">
@@ -78,7 +78,7 @@ export const SmallCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="s" type="text" variant="normal">
+                        <AlignFirstLine height="s" type="text" variant="normal">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="normal" icon={PiIcon} aligned />
                                 <Flex>
@@ -87,7 +87,7 @@ export const SmallCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="normal" icon={PiIcon} label="normal" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="m">
                         <Button intent="positive" size="normal">
@@ -105,7 +105,7 @@ export const SmallCompositionsPage: Component = () => {
             <Surface variant="card" padding="l">
                 <Flex direction="column" gap="xl">
                     <Flex direction="row" align="start" justify="between">
-                        <FirstLineAlign height="xs" type="text" variant="small">
+                        <AlignFirstLine height="xs" type="text" variant="small">
                             <Flex direction="row" gap="s" align="start">
                                 <Icon size="small" icon={PiIcon} aligned />
                                 <Flex>
@@ -113,7 +113,7 @@ export const SmallCompositionsPage: Component = () => {
                                 </Flex>
                             </Flex>
                             <IconButton size="small" icon={PiIcon} label="small" aligned />
-                        </FirstLineAlign>
+                        </AlignFirstLine>
                     </Flex>
                     <Flex direction="row" gap="s">
                         <Button intent="positive" size="small">

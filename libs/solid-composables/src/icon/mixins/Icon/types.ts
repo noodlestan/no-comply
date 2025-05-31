@@ -1,11 +1,11 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { AlignToFirstLineMixinAPI, AlignToFirstLineMixinProps } from '../../../text';
+import type { AlignedToFirstLineMixinAPI, AlignedToFirstLineMixinProps } from '../../../text';
 
-export type IconMixinProps = AlignToFirstLineMixinProps;
+export type IconMixinProps = AlignedToFirstLineMixinProps;
 
 export type IconMixinAPI = {
-    $root: AlignToFirstLineMixinAPI['$root'] & {
+    $root: AlignedToFirstLineMixinAPI['$root'] & {
         classList: ClassList;
     };
 };

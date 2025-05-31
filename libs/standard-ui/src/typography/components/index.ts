@@ -3,7 +3,7 @@ export * from './ActionLabel';
 export * from './ActionLabelAligned';
 export * from './Display';
 export * from './DisplayAligned';
-export * from './FirstLineAlign';
+export * from './AlignFirstLine';
 export * from './Label';
 export * from './LabelAligned';
 export * from './Text';

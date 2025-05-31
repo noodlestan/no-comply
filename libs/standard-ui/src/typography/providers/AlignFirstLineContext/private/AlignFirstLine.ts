@@ -2,4 +2,4 @@ import { createContext } from 'solid-js';
 
 import type { ComposableTypeMixinProps } from '../../../mixins';
 
-export const FirstLineAlignContextCTX = createContext<ComposableTypeMixinProps>();
+export const AlignFirstLineContextProviderCTX = createContext<ComposableTypeMixinProps>();

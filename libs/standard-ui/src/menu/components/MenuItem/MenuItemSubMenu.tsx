@@ -6,7 +6,7 @@ import { Dynamic } from 'solid-js/web';
 
 import { Icon } from '../../../icon';
 import { Popover } from '../../../popover';
-import { FirstLineAlign, Label, Text } from '../../../typography';
+import { AlignFirstLine, Label, Text } from '../../../typography';
 
 import { MENU_ITEM_SUB_MENU_PROPS } from './constants';
 import { createMenuItemSubMenu } from './createMenuItem';
@@ -45,7 +45,7 @@ export const MenuItemSubMenu: Component<Props> = props => {
     return (
         <PopoverContextProvider context={contextValue}>
             <Dynamic {...$}>
-                <FirstLineAlign height={'xs'} type="action" variant={labelProps.variant}>
+                <AlignFirstLine height={'xs'} type="action" variant={labelProps.variant}>
                     <Show when={groupHasIcons()}>
                         <span {...$iconSlot}>
                             {hasIcon() ? <Icon {...iconProps} /> : undefined}
@@ -62,7 +62,7 @@ export const MenuItemSubMenu: Component<Props> = props => {
                     <span {...$expandSlot}>
                         <Icon icon={ChevronRightIcon} />
                     </span>
-                </FirstLineAlign>
+                </AlignFirstLine>
             </Dynamic>
             <Popover {...$popover}>{locals.children({ subMenu: subMenuProps })}</Popover>
         </PopoverContextProvider>

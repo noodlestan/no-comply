@@ -1,18 +1,18 @@
 import type {
-    AlignToFirstLineMixinAPI,
-    AlignToFirstLineMixinProps,
+    AlignedToFirstLineMixinAPI,
+    AlignedToFirstLineMixinProps,
 } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
 import type { ContentSize } from '../../../types';
 
-export type SizedActionMixinProps = AlignToFirstLineMixinProps & {
+export type SizedActionMixinProps = AlignedToFirstLineMixinProps & {
     size?: ContentSize;
 };
 
 export type SizedActionMixinAPI = {
-    $root: AlignToFirstLineMixinAPI['$root'] & {
+    $root: AlignedToFirstLineMixinAPI['$root'] & {
         classList: ClassList;
     };
     size: Accessor<ContentSize>;

@@ -1,10 +1,10 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-export type AlignToFirstLineMixinProps = {
+export type AlignedToFirstLineMixinProps = {
     aligned?: boolean;
 };
 
-export type AlignToFirstLineMixinAPI = {
+export type AlignedToFirstLineMixinAPI = {
     $root: {
         classList: ClassList;
     };

@@ -1,6 +1,6 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-export type FirstLineAlignMixinAPI = {
+export type AlignFirstLineMixinAPI = {
     $root: {
         classList: ClassList;
     };

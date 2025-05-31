@@ -12,7 +12,7 @@
         white-space: inherit;
         text-wrap-style: var(--__text-wrap-style, inherit);
 
-        --__align-to-height: calc(var(--__text-font-size) * var(--__text-line-height));
+        --__first-line-element-height: calc(var(--__text-font-size) * var(--__text-line-height));
     }
 
     .nowrap {

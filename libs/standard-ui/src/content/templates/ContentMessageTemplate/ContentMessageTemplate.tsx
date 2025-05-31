@@ -5,7 +5,7 @@ import { CloseButton } from '../../../action';
 import { Icon } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
-import { DisplayAligned, FirstLineAlign, Text } from '../../../typography';
+import { AlignFirstLine, DisplayAligned, Text } from '../../../typography';
 
 import { createContentMessageTemplate } from './createContentMessageTemplate';
 import type { ContentMessageTemplateProps } from './types';
@@ -32,7 +32,7 @@ export const ContentMessageTemplate: ParentComponent<Props> = props => {
     return (
         <Surface variant="message" {...$root} aria-labelledby={$title.id}>
             <Flex direction="row" align="start" padding={padding()} gap={gap()} justify="between">
-                <FirstLineAlign
+                <AlignFirstLine
                     height={alignmentHeight()}
                     type="display"
                     level={4}
@@ -50,7 +50,7 @@ export const ContentMessageTemplate: ParentComponent<Props> = props => {
                     <Show when={hasCloseButton()}>
                         <CloseButton label="Close" size={closeButtonSize()} aligned />
                     </Show>
-                </FirstLineAlign>
+                </AlignFirstLine>
             </Flex>
         </Surface>
     );
