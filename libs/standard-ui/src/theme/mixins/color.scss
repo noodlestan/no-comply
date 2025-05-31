@@ -1,3 +1,21 @@
+[data-theme-standard] {
+    --__desat-base-center: 0.6;
+    --__desat-base-max: 0.85;
+    --__desat-base-factor: 1;
+    --__desat-center: var(--__desat-base-center);
+    --__desat-max: var(--__desat-base-max);
+    --__desat-factor: var(--__desat-base-factor);
+}
+
+[data-theme-standard][data-mode-light] {
+    --__desat-light-center: 0.3;
+    --__desat-light-max: 0.95;
+    --__desat-light-factor: 1.2;
+    --__desat-center: var(--__desat-light-center);
+    --__desat-max: var(--__desat-light-max);
+    --__desat-factor: var(--__desat-light-factor);
+}
+
 @mixin def-color-level($name, $level) {
     & {
         --#{$name}-level: #{$level};
@@ -40,11 +58,14 @@
 
 @mixin apply-computed-color($prop, $name) {
     & {
-        --__#{$prop}-desat: calc(1 - abs(0.5 - var(--#{$name}-light)) * 2);
+        /* abs(0.5 - var(--#{$name}-light)) */
+        --__#{$prop}-c1: calc(var(--#{$name}-light) - var(--__desat-center));
+        --__#{$prop}-c2: max(var(--__#{$prop}-c1), -1 * var(--__#{$prop}-c1));
+        --__#{$prop}-sat: calc(var(--__desat-max) - var(--__#{$prop}-c2) * var(--__desat-factor));
         /* prettier-ignore */
         #{$prop}: oklch(
             from var(--#{$name}-color)
-                var(--#{$name}-light) calc(c * var(--__#{$prop}-desat)) h / var(--#{$name}-alpha, 1)
+                var(--#{$name}-light) calc(c * var(--__#{$prop}-sat)) h / var(--#{$name}-alpha, 1)
         );
     }
 }
