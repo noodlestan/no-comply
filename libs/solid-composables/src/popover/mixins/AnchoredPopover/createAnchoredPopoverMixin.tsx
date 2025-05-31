@@ -1,4 +1,4 @@
-import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createPopoverMixin } from '../Popover';
 
@@ -13,6 +13,6 @@ export const createAnchoredPopoverMixin = (): AnchoredPopoverMixinAPI => {
     };
 
     return {
-        $root: mergeProps($popoverMixinRoot, $root),
+        $root: combineProps($popoverMixinRoot, $root),
     };
 };

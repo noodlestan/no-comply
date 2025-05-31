@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps, staticClassList } from '@no-comply/solid-primitives';
 import { Flex, type FlexProps } from '@no-comply/standard-ui';
 import { type ParentComponent, splitProps } from 'solid-js';
 
@@ -12,7 +12,7 @@ export const PageContentsLayout: ParentComponent<Props> = props => {
     const $static = {
         classList: staticClassList(styles, 'PageContentsLayout'),
     };
-    const $ = mergeProps($static, $others);
+    const $ = combineProps($static, $others);
 
     return (
         <Flex direction="column" {...$}>

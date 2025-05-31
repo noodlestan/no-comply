@@ -1,8 +1,8 @@
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import { createLinkMixin } from '../Link';
@@ -34,6 +34,6 @@ export const createNavLinkMixin = (props: NavLinkMixinProps): NavLinkMixinAPI =>
     });
 
     return {
-        $root: mergeProps($linkMixinRoot, $root),
+        $root: combineProps($linkMixinRoot, $root),
     };
 };

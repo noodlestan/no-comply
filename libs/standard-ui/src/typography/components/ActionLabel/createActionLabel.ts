@@ -1,4 +1,4 @@
-import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../..';
 
@@ -17,6 +17,6 @@ export const createActionLabel = (props: ActionLabelProps): ActionLabelAPI => {
     });
 
     return {
-        $root: mergeProps($actionlabelMixinRoot, $root),
+        $root: combineProps($actionlabelMixinRoot, $root),
     };
 };

@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 
 import { FirstLineAlignContextProvider } from '../../providers';
@@ -13,7 +13,7 @@ export const FirstLineAlign: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props as FirstLineAlignAllProps, FIRST_LINE_ALIGN_PROPS);
 
     const { $root, composableTypeProps } = createFirstLineAlign(locals as FirstLineAlignProps);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <FirstLineAlignContextProvider props={composableTypeProps}>

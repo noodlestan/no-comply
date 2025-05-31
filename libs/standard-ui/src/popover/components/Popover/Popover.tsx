@@ -1,5 +1,5 @@
 import { type PopoverBaseProps, PopoverContextProvider } from '@no-comply/solid-composables';
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -13,7 +13,7 @@ export const Popover: ParentComponent<Props> = props => {
 
     const { $root, contextValue } = createPopover(locals);
 
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <PopoverContextProvider context={contextValue}>

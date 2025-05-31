@@ -1,4 +1,4 @@
-import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingMixin } from '../../../focus';
 
@@ -14,6 +14,6 @@ export const createMenuMixin = (): MenuMixinAPI => {
     };
 
     return {
-        $root: mergeProps($root, $focusRing),
+        $root: combineProps($root, $focusRing),
     };
 };

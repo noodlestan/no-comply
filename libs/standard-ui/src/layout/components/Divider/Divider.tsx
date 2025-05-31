@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -12,7 +12,7 @@ export const Divider: Component<Props> = props => {
     const [locals, $others] = splitProps(props, DIVIDER_PROPS);
 
     const { $root } = createDivider(locals);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return <Dynamic {...$} />;
 };

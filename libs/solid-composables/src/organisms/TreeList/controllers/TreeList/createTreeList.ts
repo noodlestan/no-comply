@@ -1,5 +1,5 @@
 import { createAriaTree } from '@no-comply/solid-accessibility';
-import { computedProps, mergeProps, withDefault } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, withDefault } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
 
 import { createTreeListContext } from '../../contexts';
@@ -15,7 +15,7 @@ export const createTreeList = (props: TreeListProps): TreeListAPI => {
         labels: () => Object.assign({}, LABELS, props.labels),
         icons: () => Object.assign({}, ICONS, props.icons),
     });
-    const contextValue = createTreeListContext(mergeProps(others, contextProps));
+    const contextValue = createTreeListContext(combineProps(others, contextProps));
     const [context] = contextValue;
     const { components } = context;
 
@@ -42,7 +42,7 @@ export const createTreeList = (props: TreeListProps): TreeListAPI => {
     });
 
     return {
-        $root: mergeProps($treeRoot, $root),
+        $root: combineProps($treeRoot, $root),
         $label,
         $description,
         itemProps,

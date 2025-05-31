@@ -1,4 +1,4 @@
-import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
 import { AlertTriangleIcon, InfoIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { type Component, splitProps } from 'solid-js';
 
@@ -27,7 +27,7 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
         icon,
     });
     const { $root: $contentMessageRoot, ...rest } = createContentMessage(
-        mergeProps(props, contentMessageProps),
+        combineProps(props, contentMessageProps),
     );
 
     const [, $contentMessageRootPicked] = splitProps($contentMessageRoot, ['data-message', 'role']);
@@ -41,6 +41,6 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
 
     return {
         ...rest,
-        $root: mergeProps($contentMessageRootPicked, $root),
+        $root: combineProps($contentMessageRootPicked, $root),
     };
 };

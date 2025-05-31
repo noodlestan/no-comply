@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createFocusable } from '../../controllers';
 import { createFocusableMixin } from '../../mixins';
@@ -12,6 +12,6 @@ export const createFocusableBase = (props: FocusableBaseProps): FocusableBaseAPI
 
     return {
         ...rest,
-        $root: mergeProps($root, $focusableMixinRoot),
+        $root: combineProps($root, $focusableMixinRoot),
     };
 };

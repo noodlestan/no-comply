@@ -1,4 +1,4 @@
-import { computedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, shortId } from '@no-comply/solid-primitives';
 import { createMemo } from 'solid-js';
 
 import { createPlacement } from '../../../placement';
@@ -42,14 +42,14 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): Anchore
         reset: resetPlacement,
     } = createPlacement(props);
 
-    const popoverProps = mergeProps(props, {
+    const popoverProps = combineProps(props, {
         onShow: updatePlacement,
         onHide: resetPlacement,
     });
     const { $root: $popoverRoot, context, contextValue } = createPopover(popoverProps);
 
     const popoverStaticProps = { component: 'div' } as const;
-    const $popover = mergeProps($popoverRoot, popoverStaticProps);
+    const $popover = combineProps($popoverRoot, popoverStaticProps);
 
     const randomId = createMemo(shortId);
     const triggerId = () => randomId();
@@ -67,8 +67,8 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): Anchore
     });
 
     return {
-        $root: mergeProps($popover, $target),
-        $trigger: mergeProps($triggerRoot, $anchor),
+        $root: combineProps($popover, $target),
+        $trigger: combineProps($triggerRoot, $anchor),
         contentProps,
         context,
         contextValue,

@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createAriaLabelled } from '../label';
 
@@ -18,7 +18,7 @@ export const createAriaListItem = (props: AriaListItemProps): AriaListItemAPI =>
     });
 
     return {
-        $root: mergeProps($regionRoot, $root),
+        $root: combineProps($regionRoot, $root),
         $label,
         $description,
     };

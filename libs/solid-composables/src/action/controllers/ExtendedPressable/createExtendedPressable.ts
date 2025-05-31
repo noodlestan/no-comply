@@ -1,5 +1,5 @@
 import type { PressEvent } from '@no-comply/solid-primitives';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../Pressable';
 
@@ -27,7 +27,7 @@ export const createExtendedPressable = (props: ExtendedPressableProps): Extended
             }
         }
     };
-    const pressableProps = mergeProps({ onPress }, props);
+    const pressableProps = combineProps({ onPress }, props);
     const { $root: $pressableRoot } = createPressable(pressableProps);
 
     const state: ExtendedPressableState = {
@@ -115,6 +115,6 @@ export const createExtendedPressable = (props: ExtendedPressableProps): Extended
     };
 
     return {
-        $root: mergeProps($pressableRoot, $handlers),
+        $root: combineProps($pressableRoot, $handlers),
     };
 };

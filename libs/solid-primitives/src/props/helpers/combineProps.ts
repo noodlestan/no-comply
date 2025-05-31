@@ -10,16 +10,16 @@ import type { AccessorOrValue } from '../types';
 import { $COMPUTED, getMergedProperty, resolveSource } from './private';
 import type { Props } from './private';
 
-export function mergeProps<T extends Props = Props, U extends Props = Props>(
+export function combineProps<T extends Props = Props, U extends Props = Props>(
     source1: AccessorOrValue<T>,
     source2: AccessorOrValue<U>,
 ): T & U;
-export function mergeProps<
+export function combineProps<
     T extends Props = Props,
     U extends Props = Props,
     V extends Props = Props,
 >(source1: AccessorOrValue<T>, source2: AccessorOrValue<U>, source3: AccessorOrValue<V>): T & U & V;
-export function mergeProps<
+export function combineProps<
     T extends Props = Props,
     U extends Props = Props,
     V extends Props = Props,
@@ -30,7 +30,7 @@ export function mergeProps<
     source3: AccessorOrValue<V>,
     source4: AccessorOrValue<W>,
 ): T & U & V & W;
-export function mergeProps(...sources: AccessorOrValue<Props>[]): Props {
+export function combineProps(...sources: AccessorOrValue<Props>[]): Props {
     const traps = {
         get(_: unknown, key: string | symbol) {
             if (key === $COMPUTED) {

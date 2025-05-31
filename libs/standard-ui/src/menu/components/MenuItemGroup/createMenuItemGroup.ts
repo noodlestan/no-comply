@@ -1,5 +1,5 @@
 import { createAriaGroup } from '@no-comply/solid-accessibility';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { createContext, createSignal, useContext } from 'solid-js';
 
 import { createMenuItemGroupMixin } from '../../mixins';
@@ -90,9 +90,9 @@ export const createHeadlessMenuItemGroup = (
     });
 
     return {
-        $root: mergeProps($groupRoot, $root),
-        $label: mergeProps($label, $localLabel),
-        $description: mergeProps($description, $localDescription),
+        $root: combineProps($groupRoot, $root),
+        $label: combineProps($label, $localLabel),
+        $description: combineProps($description, $localDescription),
         hasLabel,
         context,
         contextValue,
@@ -123,9 +123,9 @@ export const createMenuItemGroup = (props: MenuItemGroupProps): MenuItemGroupAPI
 
     return {
         ...rest,
-        $root: mergeProps($headlessRoot, $groupMixinRoot),
-        labelProps: mergeProps($headlessLabel, $groupMixinLabel, labelProps),
-        descriptionProps: mergeProps(
+        $root: combineProps($headlessRoot, $groupMixinRoot),
+        labelProps: combineProps($headlessLabel, $groupMixinLabel, labelProps),
+        descriptionProps: combineProps(
             $headlessDescription,
             $groupMixinDescription,
             descriptionProps,

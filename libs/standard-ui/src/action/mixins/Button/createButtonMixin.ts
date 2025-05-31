@@ -1,4 +1,4 @@
-import { createClassList, computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../../../typography';
 import { createActionMixin } from '../Action';
@@ -23,7 +23,7 @@ export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
     };
 
     return {
-        $root: mergeProps($actionMixinRoot, $sizedActionMixinRoot, $actionLabelMixinRoot, $root),
+        $root: combineProps($actionMixinRoot, $sizedActionMixinRoot, $actionLabelMixinRoot, $root),
         size,
     };
 };

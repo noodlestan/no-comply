@@ -1,5 +1,9 @@
 import { type SurfaceAPI, SurfaceBase } from '@no-comply/solid-composables';
-import { type ClosedTagProps, type MaybeRenderProp, mergeProps } from '@no-comply/solid-primitives';
+import {
+    type ClosedTagProps,
+    type MaybeRenderProp,
+    combineProps,
+} from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 
 import { SURFACE_PROPS } from './constants';
@@ -20,7 +24,7 @@ export const Surface: Component<Props> = props => {
 
     const surface = createSurface(locals);
     const { surfaceProps } = surface;
-    const $ = mergeProps(surfaceProps, $others);
+    const $ = combineProps(surfaceProps, $others);
 
     return <SurfaceBase {...$} />;
 };

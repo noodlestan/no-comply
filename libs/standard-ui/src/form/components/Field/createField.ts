@@ -1,9 +1,9 @@
 import { createFieldMixin, createField as createHeadlessField } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './Field.module.scss';
@@ -37,8 +37,8 @@ export const createField = (props: FieldProps): FieldAPI => {
     });
 
     return {
-        $root: mergeProps($fieldRoot, $fieldMixinRoot, $root),
-        fieldLabelProps: mergeProps($label, fieldLabelProps),
+        $root: combineProps($fieldRoot, $fieldMixinRoot, $root),
+        fieldLabelProps: combineProps($label, fieldLabelProps),
         $description,
         $input,
         $feedback,

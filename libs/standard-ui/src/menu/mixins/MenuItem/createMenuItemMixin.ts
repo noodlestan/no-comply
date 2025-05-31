@@ -1,7 +1,7 @@
 import {
     type PickRequired,
+    combineProps,
     computedProps,
-    mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
@@ -48,7 +48,7 @@ export const createMenuItemMixin = (props: MenuItemMixinProps): MenuItemMixinAPI
     };
 
     return {
-        $root: mergeProps($actionMixinRoot, $root),
+        $root: combineProps($actionMixinRoot, $root),
         $iconSlot,
         $expandSlot,
         $labelSlot,

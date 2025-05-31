@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -25,7 +25,7 @@ export const AnchoredPopoverBase: Component<Props> = props => {
     const { $root, $trigger, contentProps, contextValue } = createAnchoredPopover(locals);
     const { $root: $mixinRoot } = createAnchoredPopoverMixin();
 
-    const $ = mergeProps($others, $root, $mixinRoot);
+    const $ = combineProps($others, $root, $mixinRoot);
 
     return (
         <PopoverContextProvider context={contextValue}>

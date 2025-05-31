@@ -1,5 +1,5 @@
 import { FieldContextProvider } from '@no-comply/solid-contexts';
-import { type ClosedTagProps, type RenderProp, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, type RenderProp, combineProps } from '@no-comply/solid-primitives';
 import { type Component, type JSX, splitProps } from 'solid-js';
 
 import { Flex } from '../../../layout';
@@ -22,7 +22,7 @@ export const Field: Component<Props> = props => {
     const field = createField(locals);
     const { $root, fieldLabelProps, contextValue } = field;
 
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <FieldContextProvider context={contextValue}>

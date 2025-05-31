@@ -1,5 +1,5 @@
 import { createFieldContext, useFormMaybe } from '@no-comply/solid-contexts';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
 import type { FieldAPI, FieldProps } from './types';
@@ -24,7 +24,7 @@ export const createField = (props: FieldProps): FieldAPI => {
         modified: isModified,
         invalid: isInvalid,
     });
-    const fieldContextOptions = mergeProps(props, fieldContextState);
+    const fieldContextOptions = combineProps(props, fieldContextState);
     const contextValue = createFieldContext(fieldContextOptions);
     const [context] = contextValue;
 

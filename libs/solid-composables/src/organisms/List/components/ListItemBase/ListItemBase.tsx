@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -12,7 +12,7 @@ export const ListItemBase: Component<Props> = props => {
     const [locals, $others] = splitProps(props, LIST_ITEM_BASE_PROPS);
 
     const { $root, itemContentsProps } = createListItemBase(locals);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <div {...$}>

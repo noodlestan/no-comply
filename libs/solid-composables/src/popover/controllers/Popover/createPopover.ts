@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createFocusOut } from '../../../focus';
 import { createPopoverContext } from '../../contexts';
@@ -58,7 +58,7 @@ export const createPopover = (props: PopoverProps): PopoverAPI => {
     });
 
     return {
-        $root: mergeProps($root, $focusOutRoot),
+        $root: combineProps($root, $focusOutRoot),
         context,
         contextValue,
     };

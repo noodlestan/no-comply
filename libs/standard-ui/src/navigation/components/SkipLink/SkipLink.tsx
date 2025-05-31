@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { ArrowDownIcon } from 'lucide-solid';
 import { type ParentComponent, splitProps } from 'solid-js';
 
@@ -14,7 +14,7 @@ export const SkipLink: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props, [...SKIP_LINK_PROPS, 'children']);
 
     const { $root } = createSkipLink(locals);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <a {...$}>

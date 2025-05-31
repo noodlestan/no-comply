@@ -4,9 +4,9 @@ import {
 } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './ModalDialog.module.scss';
@@ -34,7 +34,7 @@ export const createModalDialog = (props: ModalDialogProps): ModalDialogAPI => {
 
     const localSurfaceProps = { variant: 'dialog' } as const;
 
-    const surfaceProps = mergeProps(localSurfaceProps, $root, $dialogRoot, $dialogMixinRoot);
+    const surfaceProps = combineProps(localSurfaceProps, $root, $dialogRoot, $dialogMixinRoot);
 
     return {
         surfaceProps,

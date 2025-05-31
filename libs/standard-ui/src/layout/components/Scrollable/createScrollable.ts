@@ -1,5 +1,5 @@
 import { createScrollableMixin } from '@no-comply/solid-composables';
-import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './Scrollable.module.scss';
 import type { ScrollableAPI, ScrollableProps } from './types';
@@ -12,6 +12,6 @@ export const createScrollable = (props: ScrollableProps): ScrollableAPI => {
     };
 
     return {
-        $root: mergeProps($scrollableMixinRoot, $root),
+        $root: combineProps($scrollableMixinRoot, $root),
     };
 };

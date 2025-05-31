@@ -9,8 +9,8 @@ import {
 import type { IconComponent } from '@no-comply/solid-contexts';
 import {
     type PressEvent,
+    combineProps,
     computedProps,
-    mergeProps,
     pickProps,
     shortId,
 } from '@no-comply/solid-primitives';
@@ -110,9 +110,9 @@ export const createMenuItemBase = (
     const context = useMenuItemGroupChild(menuItemAPI);
 
     return {
-        $root: mergeProps($pressableRoot, $ariaMenuItemRoot, $root),
-        $label: mergeProps($ariaMenuItemLabel, $localLabel),
-        $description: mergeProps($ariaMenuItemDescription, $localDescription),
+        $root: combineProps($pressableRoot, $ariaMenuItemRoot, $root),
+        $label: combineProps($ariaMenuItemLabel, $localLabel),
+        $description: combineProps($ariaMenuItemDescription, $localDescription),
         iconProps,
         hasIcon,
         isSubMenu,
@@ -130,7 +130,7 @@ export const createHeadlessMenuItemAction = (
         props,
         HEADLESS_MENU_ITEM_ACTION_PROPS.filter(i => i !== 'onPress'),
     );
-    const menuItemBaseProps = mergeProps(picked, {
+    const menuItemBaseProps = combineProps(picked, {
         onPress: (ev: PressEvent) => {
             props.onPress?.(ev);
             if (!ev.defaultPrevented) {
@@ -173,7 +173,7 @@ export const createHeadlessMenuItemSubMenu = (
 
     return {
         ...rest,
-        $root: mergeProps($root, $trigger),
+        $root: combineProps($root, $trigger),
         $label,
         $popover,
         subMenuProps,
@@ -219,11 +219,11 @@ export const createMenuItemAction = (props: MenuItemActionProps): MenuItemAction
 
     return {
         ...rest,
-        $root: mergeProps($headlessMenuItem, $focusRingRoot, $menuItemMixinRoot),
+        $root: combineProps($headlessMenuItem, $focusRingRoot, $menuItemMixinRoot),
         ...mixinRest,
-        labelProps: mergeProps($headlessLabel, labelProps),
-        descriptionProps: mergeProps($headlessDescription, descriptionProps),
-        iconProps: mergeProps(headlessIconProps, iconProps),
+        labelProps: combineProps($headlessLabel, labelProps),
+        descriptionProps: combineProps($headlessDescription, descriptionProps),
+        iconProps: combineProps(headlessIconProps, iconProps),
     };
 };
 
@@ -243,11 +243,11 @@ export const createMenuItemSubMenu = (props: MenuItemSubMenuProps): MenuItemSubM
 
     return {
         ...rest,
-        $root: mergeProps($headlessMenuItem, $focusRingRoot, $menuItemMixinRoot),
-        $popover: mergeProps($popover, $popoverMixin),
+        $root: combineProps($headlessMenuItem, $focusRingRoot, $menuItemMixinRoot),
+        $popover: combineProps($popover, $popoverMixin),
         ...mixinRest,
-        labelProps: mergeProps($headlessLabel, labelProps),
-        descriptionProps: mergeProps($headlessDescription, descriptionProps),
-        iconProps: mergeProps(headlessIconProps, iconProps),
+        labelProps: combineProps($headlessLabel, labelProps),
+        descriptionProps: combineProps($headlessDescription, descriptionProps),
+        iconProps: combineProps(headlessIconProps, iconProps),
     };
 };

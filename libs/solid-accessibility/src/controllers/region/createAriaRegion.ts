@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import type { AriaRoleName } from '../../types';
 import { createAriaLabelled } from '../label';
@@ -31,7 +31,7 @@ export function createAriaRegion(
     });
 
     return {
-        $root: mergeProps($labelledRoot, $root),
+        $root: combineProps($labelledRoot, $root),
         $label,
         $description,
         hasLabel,

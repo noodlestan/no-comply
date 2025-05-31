@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 import { XIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';
@@ -12,6 +12,6 @@ export const createCloseButton = (props: CloseButtonProps): CloseButtonAPI => {
     };
 
     return {
-        iconButtonProps: mergeProps(props, staticIconButtonProps),
+        iconButtonProps: combineProps(props, staticIconButtonProps),
     };
 };

@@ -1,9 +1,9 @@
 import { createContainerQuery, createDismissible } from '@no-comply/solid-composables';
 import {
     type ClosedTagProps,
+    combineProps,
     computedProps,
     createClassList,
-    mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
 import { Layout } from '@no-comply/standard-ui';
@@ -49,7 +49,7 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
         classList,
     });
 
-    const $ = mergeProps($others, $queryRoot, $root);
+    const $ = combineProps($others, $queryRoot, $root);
 
     return (
         <Layout stretch="full" {...$}>

@@ -1,7 +1,7 @@
 import {
     type ClosedTagProps,
     type PopoverTriggerTagProps,
-    mergeProps,
+    combineProps,
 } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 
@@ -17,7 +17,7 @@ export const CloseButton: Component<Props> = props => {
     const [locals, $others] = splitProps(props, CLOSE_BUTTON_PROPS);
 
     const { iconButtonProps } = createCloseButton(locals);
-    const $ = mergeProps($others, iconButtonProps);
+    const $ = combineProps($others, iconButtonProps);
 
     return <IconButton {...$} />;
 };

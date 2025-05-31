@@ -1,5 +1,5 @@
 import { createFocusRing, createPressable } from '@no-comply/solid-composables';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createButtonMixin } from '../../mixins';
 
@@ -11,7 +11,7 @@ export const createButton = (props: ButtonProps): ButtonAPI => {
     const { $root: $buttonMixinRoot, size } = createButtonMixin(props);
 
     return {
-        $root: mergeProps($pressableRoot, $focusRingRoot, $buttonMixinRoot),
+        $root: combineProps($pressableRoot, $focusRingRoot, $buttonMixinRoot),
         size,
     };
 };

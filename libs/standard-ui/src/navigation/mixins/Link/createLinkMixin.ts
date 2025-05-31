@@ -1,5 +1,5 @@
 import { createLinkMixin as createHeadlessLinkMixin } from '@no-comply/solid-composables';
-import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingMixin } from '../../../focus';
 
@@ -15,6 +15,6 @@ export const createLinkMixin = (props: LinkMixinProps = {}): LinkMixinAPI => {
     };
 
     return {
-        $root: mergeProps($linkMixinRoot, $focusRing, $root),
+        $root: combineProps($linkMixinRoot, $focusRing, $root),
     };
 };

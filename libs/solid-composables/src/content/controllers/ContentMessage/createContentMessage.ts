@@ -1,10 +1,10 @@
 import { createAriaRegion } from '@no-comply/solid-accessibility';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import type { ContentMessageAPI, ContentMessageProps } from './types';
 
 export const createContentMessage = (props: ContentMessageProps): ContentMessageAPI => {
-    const regionProps = mergeProps(props, { labelled: true, described: true });
+    const regionProps = combineProps(props, { labelled: true, described: true });
     const { $root: $regionRoot, $label, $description } = createAriaRegion(regionProps, 'note');
 
     const $root = computedProps({
@@ -21,8 +21,8 @@ export const createContentMessage = (props: ContentMessageProps): ContentMessage
     });
 
     return {
-        $root: mergeProps($regionRoot, $root),
-        $title: mergeProps($label, $title),
+        $root: combineProps($regionRoot, $root),
+        $title: combineProps($label, $title),
         $description,
         iconProps,
     };

@@ -1,6 +1,6 @@
 import { createAriaDialog } from '@no-comply/solid-accessibility';
 import { createModalContext } from '@no-comply/solid-contexts';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createFocusTrap } from '../../../focus';
 
@@ -39,7 +39,7 @@ export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI 
     });
 
     state.api = {
-        $root: mergeProps($dialogRoot, $dialogContextRoot, $focusTrapRoot, $root),
+        $root: combineProps($dialogRoot, $dialogContextRoot, $focusTrapRoot, $root),
         $label,
         $description,
         context,

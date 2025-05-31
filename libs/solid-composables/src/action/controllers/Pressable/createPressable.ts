@@ -1,5 +1,5 @@
 import { type PressableRoleName, createAriaPressable } from '@no-comply/solid-accessibility';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import type { GenericPressableAPI, PressableAPI, PressableProps } from './types';
 
@@ -40,6 +40,6 @@ export function createPressable(
     };
 
     return {
-        $root: mergeProps($pressableRoot, $root),
+        $root: combineProps($pressableRoot, $root),
     };
 }

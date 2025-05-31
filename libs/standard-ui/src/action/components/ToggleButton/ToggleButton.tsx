@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 
 import { IconButton } from '../IconButton';
@@ -13,7 +13,7 @@ export const ToggleButton: Component<Props> = props => {
     const [locals, $others] = splitProps(props, TOGGLE_BUTTON_PROPS);
 
     const { iconButtonProps } = createToggleButton(locals);
-    const $ = mergeProps($others, iconButtonProps);
+    const $ = combineProps($others, iconButtonProps);
 
     return <IconButton {...$} />;
 };

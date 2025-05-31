@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createTreeListItemDetails } from '../../controllers';
 import { createTreeListItemDetailsMixin } from '../../mixins';
@@ -23,11 +23,11 @@ export const createTreeListItemDetailsBase = (
         $contents,
     } = createTreeListItemDetailsMixin();
 
-    const focusableProps = mergeProps(itemDetailsFocusableProps, $mixinFocusable);
-    // const itemContentsProps = mergeProps(componentProps, $contents);
+    const focusableProps = combineProps(itemDetailsFocusableProps, $mixinFocusable);
+    // const itemContentsProps = combineProps(componentProps, $contents);
 
     return {
-        $root: mergeProps($itemDetailsRoot, $mixinRoot),
+        $root: combineProps($itemDetailsRoot, $mixinRoot),
         focusableProps,
         $toggle,
         expandButtonProps,

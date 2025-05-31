@@ -1,5 +1,5 @@
 import { FocusContextProvider } from '@no-comply/solid-contexts';
-import { type ClosedTagProps, type RenderProp, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, type RenderProp, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -23,7 +23,7 @@ export const FocusableBase: Component<Props> = props => {
 
     const focusable = createFocusableBase(locals);
     const { $root, contextValue } = focusable;
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <FocusContextProvider context={contextValue}>

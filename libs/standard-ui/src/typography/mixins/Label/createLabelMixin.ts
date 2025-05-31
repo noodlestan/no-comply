@@ -1,9 +1,9 @@
 import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './LabelMixin.module.scss';
@@ -23,6 +23,6 @@ export const createLabelMixin = (props: LabelMixinProps): LabelMixinAPI => {
     });
 
     return {
-        $root: mergeProps($textMixinRoot, $root),
+        $root: combineProps($textMixinRoot, $root),
     };
 };

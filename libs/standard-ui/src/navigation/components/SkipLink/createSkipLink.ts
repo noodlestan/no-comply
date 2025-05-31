@@ -1,5 +1,5 @@
 import { createFocusRing, createLink as createHeadlessLink } from '@no-comply/solid-composables';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createSkipLinkMixin } from '../../mixins';
 
@@ -11,6 +11,6 @@ export const createSkipLink = (props: SkipLinkProps): SkipLinkAPI => {
     const { $root: $navLinkMixinRoot } = createSkipLinkMixin();
 
     return {
-        $root: mergeProps($linkRoot, $focusRingRoot, $navLinkMixinRoot),
+        $root: combineProps($linkRoot, $focusRingRoot, $navLinkMixinRoot),
     };
 };

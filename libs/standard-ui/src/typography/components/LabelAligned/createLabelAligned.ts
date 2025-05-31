@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import type { ComposableLabelProps } from '../../mixins';
 import { useFirstLineAlign } from '../../providers';
@@ -9,7 +9,7 @@ import type { LabelAlignedAPI, LabelAlignedProps } from './types';
 export const createLabelAligned = (props: LabelAlignedProps): LabelAlignedAPI => {
     const alignedProps = useFirstLineAlign<ComposableLabelProps>('label');
 
-    const merged = mergeProps(props, alignedProps, { aligned: true });
+    const merged = combineProps(props, alignedProps, { aligned: true });
 
     return createLabel(merged);
 };

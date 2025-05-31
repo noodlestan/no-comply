@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createSurface } from '../../controllers';
 import { createSurfaceMixin } from '../../mixins';
@@ -11,6 +11,6 @@ export const createSurfaceBase = (props: SurfaceBaseProps): SurfaceBaseAPI => {
 
     return {
         ...rest,
-        $root: mergeProps($root, $focusableMixinRoot),
+        $root: combineProps($root, $focusableMixinRoot),
     };
 };

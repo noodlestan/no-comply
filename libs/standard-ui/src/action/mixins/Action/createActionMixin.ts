@@ -1,9 +1,9 @@
 import { createActionMixin as createHeadlessActionMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import { createFocusRingMixin } from '../../../focus';
@@ -32,6 +32,6 @@ export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
     });
 
     return {
-        $root: mergeProps($buttonMixinRoot, $focusRing, $root),
+        $root: combineProps($buttonMixinRoot, $focusRing, $root),
     };
 };

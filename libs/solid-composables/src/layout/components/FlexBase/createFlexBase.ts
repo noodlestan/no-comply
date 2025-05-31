@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createFlexMixin } from '../../mixins';
 import { createLayoutBase } from '../LayoutBase';
@@ -10,6 +10,6 @@ export const createFlexBase = (props: FlexBaseProps): FlexBaseAPI => {
     const { $root: $flexMixinRoot } = createFlexMixin(props);
 
     return {
-        $root: mergeProps($layoutMixinRoot, $flexMixinRoot),
+        $root: combineProps($layoutMixinRoot, $flexMixinRoot),
     };
 };

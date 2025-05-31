@@ -1,6 +1,6 @@
 import { createFocusRing } from '@no-comply/solid-composables';
 import { createFocusTargetRef } from '@no-comply/solid-contexts';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 import { Surface, createFocusRingMixin } from '@no-comply/standard-ui';
 import { type ParentComponent } from 'solid-js';
 
@@ -16,7 +16,7 @@ export const EmptyPage: ParentComponent<Props> = props => {
     const { $root: $focusRing } = createFocusRing({ passive: true });
     const { $root: $focusRingMixin } = createFocusRingMixin({ inset: true });
 
-    const $ = mergeProps($focusRing, $focusRingMixin);
+    const $ = combineProps($focusRing, $focusRingMixin);
 
     return (
         <Surface

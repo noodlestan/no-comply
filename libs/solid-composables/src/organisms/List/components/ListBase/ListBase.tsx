@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, For, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -15,7 +15,7 @@ export const ListBase: Component<Props> = props => {
 
     const tree = createListBase(locals);
     const { $root, itemProps, contextValue } = tree;
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <ListContextProvider context={contextValue}>

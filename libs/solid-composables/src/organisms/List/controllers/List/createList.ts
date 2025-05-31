@@ -1,5 +1,5 @@
 import { createAriaList } from '@no-comply/solid-accessibility';
-import { computedProps, mergeProps, withDefault } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, withDefault } from '@no-comply/solid-primitives';
 
 import { createListContext } from '../../contexts';
 import { createListKeyboardController } from '../ListKeyboard';
@@ -30,7 +30,7 @@ export const createList = (props: ListProps): ListAPI => {
     });
 
     return {
-        $root: mergeProps($treeRoot, $root),
+        $root: combineProps($treeRoot, $root),
         $label,
         $description,
         itemProps,

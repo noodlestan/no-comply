@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createToggleAction } from '../ToggleAction';
 
@@ -24,6 +24,6 @@ export const createExpandAction = (props: ExpandActionProps): ExpandActionAPI =>
     });
 
     return {
-        iconActionProps: mergeProps(toggleActionIconProps, iconActionLocalProps),
+        iconActionProps: combineProps(toggleActionIconProps, iconActionLocalProps),
     };
 };

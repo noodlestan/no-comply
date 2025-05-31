@@ -1,4 +1,4 @@
-import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createAlignToFirstLineMixin } from '../../../text';
 
@@ -13,6 +13,6 @@ export const createIconMixin = (props: IconMixinProps): IconMixinAPI => {
     };
 
     return {
-        $root: mergeProps($alignToFirstLineRoot, $root),
+        $root: combineProps($alignToFirstLineRoot, $root),
     };
 };

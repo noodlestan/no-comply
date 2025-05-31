@@ -2,7 +2,7 @@ import { SurfaceContextProvider } from '@no-comply/solid-contexts';
 import {
     type ClosedTagProps,
     type MaybeRenderProp,
-    mergeProps,
+    combineProps,
     resolveRenderProp,
 } from '@no-comply/solid-primitives';
 import { type Component, children, splitProps } from 'solid-js';
@@ -28,7 +28,7 @@ export const SurfaceBase: Component<Props> = props => {
 
     const surface = createSurfaceBase(locals);
     const { $root, contextValue } = surface;
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
     const c = children(() => resolveRenderProp(locals.children, { surface }));
 
     return (

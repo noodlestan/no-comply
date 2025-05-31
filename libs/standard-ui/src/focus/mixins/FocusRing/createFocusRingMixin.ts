@@ -1,5 +1,5 @@
 import { createFocusRingMixin as createHeadlessFocusRingMixin } from '@no-comply/solid-composables';
-import { mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { createFocusRingOffsetMixin } from '../FocusRingOffset';
 
@@ -14,6 +14,6 @@ export const createFocusRingMixin = (props: FocusRingMixinProps = {}): FocusRing
     const $root = { classList };
 
     return {
-        $root: mergeProps($headlessRingRoot, $ringOffsetMixin, $root),
+        $root: combineProps($headlessRingRoot, $ringOffsetMixin, $root),
     };
 };

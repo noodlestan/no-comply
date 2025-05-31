@@ -4,9 +4,9 @@ import {
 } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './FieldLabel.module.scss';
@@ -27,6 +27,6 @@ export const createFieldLabel = (props: FieldLabelProps): FieldLabelAPI => {
     });
 
     return {
-        $root: mergeProps($fieldLabelRoot, $fieldLabelMixinRoot, $root),
+        $root: combineProps($fieldLabelRoot, $fieldLabelMixinRoot, $root),
     };
 };

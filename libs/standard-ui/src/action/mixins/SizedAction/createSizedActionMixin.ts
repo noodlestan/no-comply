@@ -1,9 +1,9 @@
 import { createAlignToFirstLineMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './SizedActionMixin.module.scss';
@@ -23,7 +23,7 @@ export const createSizedActionMixin = (props: SizedActionMixinProps): SizedActio
     });
 
     return {
-        $root: mergeProps($alignToFirstLineRoot, $root),
+        $root: combineProps($alignToFirstLineRoot, $root),
         size,
     };
 };

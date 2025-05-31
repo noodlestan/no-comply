@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createAriaRegion } from '../region';
 
@@ -13,7 +13,7 @@ export const createAriaTree = (props: AriaTreeProps = {}): AriaTreeAPI => {
     });
 
     return {
-        $root: mergeProps($regionRoot, $root),
+        $root: combineProps($regionRoot, $root),
         $label,
         $description,
     };

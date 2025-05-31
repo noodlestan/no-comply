@@ -4,7 +4,7 @@ import {
     createLink as createHeadlessLink,
     createNavLink as createHeadlessNavLink,
 } from '@no-comply/solid-composables';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import { createNavLinkMixin } from '../../mixins';
 
@@ -17,6 +17,6 @@ export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
     const { $root: $navLinkMixinRoot } = createNavLinkMixin(props);
 
     return {
-        $root: mergeProps($linkRoot, $focusRingRoot, $navLinkRoot, $navLinkMixinRoot),
+        $root: combineProps($linkRoot, $focusRingRoot, $navLinkRoot, $navLinkMixinRoot),
     };
 };

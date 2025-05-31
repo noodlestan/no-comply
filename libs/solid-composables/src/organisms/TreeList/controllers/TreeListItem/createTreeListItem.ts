@@ -1,6 +1,6 @@
 import { createAriaTreeItem } from '@no-comply/solid-accessibility';
 import { l } from '@no-comply/solid-contexts/src/labels';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
@@ -54,7 +54,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
     });
 
     return {
-        $root: mergeProps($treeItemRoot, $root),
+        $root: combineProps($treeItemRoot, $root),
         detailsProps,
         childrenProps,
         isExpanded: expanded,

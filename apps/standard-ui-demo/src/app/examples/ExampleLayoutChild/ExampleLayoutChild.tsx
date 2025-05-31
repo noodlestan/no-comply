@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps, staticClassList } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps, staticClassList } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 
 import styles from './ExampleLayoutChild.module.scss';
@@ -14,7 +14,7 @@ export const ExampleLayoutChild: Component<Props> = props => {
         classList: staticClassList(styles, 'ExampleLayoutChild'),
     };
 
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return <div {...$}>{locals.content ?? 'Lorem ipsum'}</div>;
 };

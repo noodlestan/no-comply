@@ -1,5 +1,5 @@
 import { l } from '@no-comply/solid-contexts';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createExtendedPressable } from '../../../../action';
 import { getTreeSelectionUntil } from '../../helpers';
@@ -80,7 +80,7 @@ export const createTreeListItemDetails = (
             region: l(labels().details),
         },
     };
-    const focusableProps = mergeProps(focusableStaticProps, extendedPressable);
+    const focusableProps = combineProps(focusableStaticProps, extendedPressable);
 
     const $root = computedProps({
         'data-tree-item-id': () => props.node.id,

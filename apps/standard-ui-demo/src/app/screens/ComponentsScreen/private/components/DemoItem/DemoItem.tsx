@@ -1,9 +1,9 @@
 import type { FlexMixinAlign } from '@no-comply/solid-composables';
 import {
     type ClosedTagProps,
+    combineProps,
     computedProps,
     createClassList,
-    mergeProps,
     shortId,
 } from '@no-comply/solid-primitives';
 import { Flex, type FlexGap, Label, type LayoutPadding, Text } from '@no-comply/standard-ui';
@@ -55,7 +55,7 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
         classList,
     });
 
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <Flex gap="m" aria-labelledby={labelId()} {...$}>

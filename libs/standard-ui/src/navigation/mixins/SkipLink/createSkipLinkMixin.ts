@@ -1,4 +1,4 @@
-import { createClassList, computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import { createLinkMixin } from '../Link';
 
@@ -17,6 +17,6 @@ export const createSkipLinkMixin = (props: SkipLinkMixinProps = {}): SkipLinkMix
     });
 
     return {
-        $root: mergeProps($linkMixinRoot, $root),
+        $root: combineProps($linkMixinRoot, $root),
     };
 };

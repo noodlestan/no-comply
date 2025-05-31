@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -12,7 +12,7 @@ export const FlexBase: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props, FLEX_BASE_PROPS);
 
     const { $root } = createFlexBase(locals);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return <Dynamic {...$} />;
 };

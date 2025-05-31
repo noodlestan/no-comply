@@ -1,9 +1,9 @@
 import { createIcon as createHeadlessIcon, createIconMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './Icon.module.scss';
@@ -24,6 +24,6 @@ export const createIcon = (props: IconProps): IconAPI => {
     });
 
     return {
-        $root: mergeProps($iconRoot, $iconMixinRoot, $root),
+        $root: combineProps($iconRoot, $iconMixinRoot, $root),
     };
 };

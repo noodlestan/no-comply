@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
 
 import { createList } from '../../controllers';
@@ -15,5 +15,5 @@ export const createListBase = (props: ListBaseProps): ListBaseAPI => {
     const treeListProps = computedProps({
         components,
     });
-    return createList(mergeProps(others, treeListProps));
+    return createList(combineProps(others, treeListProps));
 };

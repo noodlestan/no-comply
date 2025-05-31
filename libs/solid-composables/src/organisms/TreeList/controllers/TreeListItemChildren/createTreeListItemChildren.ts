@@ -1,6 +1,6 @@
 import { createAriaGroup } from '@no-comply/solid-accessibility';
 import { l } from '@no-comply/solid-contexts/src/labels';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
@@ -35,7 +35,7 @@ export const createTreeListItemChildren = (
     });
 
     return {
-        $root: mergeProps($groupRoot, $root),
+        $root: combineProps($groupRoot, $root),
         itemProps,
     };
 };

@@ -1,6 +1,6 @@
 import { createAriaRegion } from '@no-comply/solid-accessibility';
 import { createFocusContext } from '@no-comply/solid-contexts';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import type { FocusableAPI, FocusableProps } from './types';
 
@@ -58,7 +58,7 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     });
 
     return {
-        $root: mergeProps($regionRoot, $root),
+        $root: combineProps($regionRoot, $root),
         $target,
         $label,
         $description,

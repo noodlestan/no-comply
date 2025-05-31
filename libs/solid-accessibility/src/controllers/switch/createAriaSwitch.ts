@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import type { SwitchTagName } from '../../tag';
 import { createAriaRegion } from '../region';
@@ -24,7 +24,7 @@ export const createAriaSwitch = (props: AriaSwitchProps): AriaSwitchAPI => {
     });
 
     return {
-        $root: mergeProps($regionRoot, $root),
+        $root: combineProps($regionRoot, $root),
         $label,
         $description,
     };

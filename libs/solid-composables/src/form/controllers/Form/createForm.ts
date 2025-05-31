@@ -1,6 +1,6 @@
 import { createAriaForm } from '@no-comply/solid-accessibility';
 import { createFormContext } from '@no-comply/solid-contexts';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import type { FormAPI, FormProps } from './types';
 
@@ -34,7 +34,7 @@ export const createForm = (props: FormProps = {}): FormAPI => {
     });
 
     state.api = {
-        $root: mergeProps($formRoot, $root),
+        $root: combineProps($formRoot, $root),
         $label,
         $description,
         $submitButton,

@@ -1,7 +1,7 @@
 import {
     type PickRequired,
+    combineProps,
     computedProps,
-    mergeProps,
     pickProps,
 } from '@no-comply/solid-primitives';
 
@@ -33,7 +33,7 @@ export const createFirstLineAlign = (props: FirstLineAlignProps): FirstLineAlign
     ) as ComposableTypeMixinProps;
 
     return {
-        $root: mergeProps($firstLineAlignRoot, $composableTypeRoot, $root),
+        $root: combineProps($firstLineAlignRoot, $composableTypeRoot, $root),
         composableTypeProps,
     };
 };

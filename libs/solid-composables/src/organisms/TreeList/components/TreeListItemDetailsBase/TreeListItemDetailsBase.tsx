@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -22,7 +22,7 @@ export const TreeListItemDetailsBase: Component<TreeListItemDetailsBaseProps> = 
         hasToggle,
     } = createTreeListItemDetailsBase(locals);
 
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <LayoutBase stretch="full" {...$}>

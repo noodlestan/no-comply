@@ -1,7 +1,7 @@
 import {
     type PickRequired,
+    combineProps,
     computedProps,
-    mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
@@ -27,6 +27,6 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const surfaceProps = computedProps(staticProps, { variant });
 
     return {
-        surfaceProps: mergeProps(others, $layoutMixinRoot, surfaceProps),
+        surfaceProps: combineProps(others, $layoutMixinRoot, surfaceProps),
     };
 };

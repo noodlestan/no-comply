@@ -2,7 +2,7 @@ import {
     createAnchoredPopoverMixin,
     createAnchoredPopover as createHeadlessAnchoredPopover,
 } from '@no-comply/solid-composables';
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import type { AnchoredPopoverAPI, AnchoredPopoverProps } from './types';
 
@@ -12,6 +12,6 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps): AnchoredPopo
 
     return {
         ...rest,
-        $root: mergeProps($root, $mixinRoot),
+        $root: combineProps($root, $mixinRoot),
     };
 };

@@ -1,4 +1,4 @@
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, type JSX, splitProps } from 'solid-js';
 
 import { ContentMessageTemplate } from '../../../content';
@@ -16,7 +16,7 @@ export const MessageToast: Component<Props> = props => {
     const [locals, $others] = splitProps(props, [...MESSAGE_TOAST_PROPS, 'children']);
 
     const { $root, ...rest } = createMessageToast(locals);
-    const $ = mergeProps($root, $others);
+    const $ = combineProps($root, $others);
 
     return (
         <ContentMessageTemplate {...props} $root={$} {...rest}>

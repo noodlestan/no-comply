@@ -1,7 +1,7 @@
 /* eslint-disable solid/reactivity */
 import { FORM_PROPS, type FormAPI, createForm } from '@no-comply/solid-composables';
 import { FormContextProvider } from '@no-comply/solid-contexts';
-import { type RenderProp, mergeProps } from '@no-comply/solid-primitives';
+import { type RenderProp, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
@@ -20,7 +20,7 @@ export const Form: Component<Props> = props => {
 
     const form = createForm(locals);
     const { $root, contextValue } = form;
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <FormContextProvider context={contextValue}>

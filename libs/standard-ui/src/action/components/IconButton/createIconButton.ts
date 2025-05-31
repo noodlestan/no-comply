@@ -1,5 +1,5 @@
 import { createIconAction } from '@no-comply/solid-composables';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createIconButtonMixin } from '../../mixins';
 import { createButton } from '../Button';
@@ -10,7 +10,7 @@ export const createIconButton = (props: IconButtonProps): IconButtonAPI => {
     const { $root: $buttonRoot, size } = createButton(props);
     const { $root: $iconButtonRoot, iconProps } = createIconAction(props);
 
-    const iconButttonProps = mergeProps(
+    const iconButttonProps = combineProps(
         props,
         computedProps({
             size,
@@ -20,7 +20,7 @@ export const createIconButton = (props: IconButtonProps): IconButtonAPI => {
         createIconButtonMixin(iconButttonProps);
 
     return {
-        $root: mergeProps($buttonRoot, $iconButtonRoot, $iconButtonMixinRoot),
-        iconProps: mergeProps(iconProps, iconButtonMixinProps),
+        $root: combineProps($buttonRoot, $iconButtonRoot, $iconButtonMixinRoot),
+        iconProps: combineProps(iconProps, iconButtonMixinProps),
     };
 };

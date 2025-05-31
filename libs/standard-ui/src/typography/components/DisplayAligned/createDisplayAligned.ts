@@ -1,4 +1,4 @@
-import { mergeProps } from '@no-comply/solid-primitives';
+import { combineProps } from '@no-comply/solid-primitives';
 
 import type { ComposableDisplayProps } from '../../mixins';
 import { useFirstLineAlign } from '../../providers';
@@ -9,7 +9,7 @@ import type { DisplayAlignedAPI, DisplayAlignedProps } from './types';
 export const createDisplayAligned = (props: DisplayAlignedProps): DisplayAlignedAPI => {
     const alignedProps = useFirstLineAlign<ComposableDisplayProps>('display');
 
-    const merged = mergeProps(props, alignedProps, { aligned: true });
+    const merged = combineProps(props, alignedProps, { aligned: true });
 
     return createDisplay(merged);
 };

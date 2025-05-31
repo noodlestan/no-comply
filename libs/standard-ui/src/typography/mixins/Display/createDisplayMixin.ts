@@ -1,9 +1,9 @@
 import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import type { DisplayLevel, DisplayVariant } from '../../types';
@@ -36,7 +36,7 @@ export const createDisplayMixin = (props: DisplayMixinProps): DisplayMixinAPI =>
     });
 
     return {
-        $root: mergeProps($textMixinRoot, $root),
+        $root: combineProps($textMixinRoot, $root),
         level,
     };
 };

@@ -1,8 +1,8 @@
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
     staticClassList,
 } from '@no-comply/solid-primitives';
 
@@ -45,10 +45,10 @@ export const createContentMessageTemplate = (
     const hasCloseButton = () => Boolean(props.onClose);
 
     return {
-        $root: mergeProps(props.$root, $root),
-        $title: mergeProps(props.$title, $title),
+        $root: combineProps(props.$root, $root),
+        $title: combineProps(props.$title, $title),
         $description: props.$description,
-        iconProps: mergeProps(props.iconProps, iconProps),
+        iconProps: combineProps(props.iconProps, iconProps),
         alignmentHeight,
         padding,
         gap,

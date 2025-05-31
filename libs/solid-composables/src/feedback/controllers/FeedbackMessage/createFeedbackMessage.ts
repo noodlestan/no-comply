@@ -1,4 +1,4 @@
-import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
 import { HourglassIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { type Component, splitProps } from 'solid-js';
 
@@ -26,7 +26,7 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
         icon,
     });
     const { $root: $contentMessageRoot, ...rest } = createContentMessage(
-        mergeProps(props, contentMessageProps),
+        combineProps(props, contentMessageProps),
     );
 
     const [, $contentMessageRootPicked] = splitProps($contentMessageRoot, ['data-message', 'role']);
@@ -39,6 +39,6 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
 
     return {
         ...rest,
-        $root: mergeProps($contentMessageRootPicked, $root),
+        $root: combineProps($contentMessageRootPicked, $root),
     };
 };

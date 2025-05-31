@@ -1,5 +1,5 @@
 import { ContextNodeProvider, createContextNode } from '@no-comply/solid-contexts';
-import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show, splitProps } from 'solid-js';
 
 import { Divider } from '../../../layout';
@@ -31,7 +31,7 @@ export const MenuItemGroup: ParentComponent<Props> = props => {
 
     const { $root, labelProps, descriptionProps, contextValue, hasLabel } =
         createMenuItemGroup(locals);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <MenuItemGroupContextProvider context={contextValue}>

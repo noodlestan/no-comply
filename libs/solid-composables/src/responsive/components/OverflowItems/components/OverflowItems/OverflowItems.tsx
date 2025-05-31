@@ -1,4 +1,4 @@
-import { type ClosedTagProps, type ObjectWithId, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, type ObjectWithId, combineProps } from '@no-comply/solid-primitives';
 import { type JSX, type ParentComponent, Show, splitProps } from 'solid-js';
 
 import { OverflowItemsContextProvider, OverflowItemsMeasureProvider } from '../../private';
@@ -19,7 +19,7 @@ export const OverflowItems = <T extends ObjectWithId>(
         locals as OverflowItemsProps<T>,
     );
 
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <OverflowItemsContextProvider context={contextValue}>

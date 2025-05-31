@@ -1,5 +1,5 @@
 import { PopoverContextProvider } from '@no-comply/solid-composables';
-import { type ClosedTagProps, type RenderProp, mergeProps } from '@no-comply/solid-primitives';
+import { type ClosedTagProps, type RenderProp, combineProps } from '@no-comply/solid-primitives';
 import { ChevronRightIcon } from 'lucide-solid';
 import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
@@ -40,7 +40,7 @@ export const MenuItemSubMenu: Component<Props> = props => {
         subMenuProps,
         contextValue,
     } = menuItem;
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return (
         <PopoverContextProvider context={contextValue}>

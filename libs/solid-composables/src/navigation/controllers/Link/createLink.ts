@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../../../action';
 import { isExternalURL, linkRelFor } from '../../helpers';
@@ -23,6 +23,6 @@ export const createLink = (props: LinkProps): LinkAPI => {
     });
 
     return {
-        $root: mergeProps($pressabeRoot, $root),
+        $root: combineProps($pressabeRoot, $root),
     };
 };

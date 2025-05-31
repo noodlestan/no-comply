@@ -5,7 +5,7 @@ import {
     createToggleAction,
 } from '@no-comply/solid-composables';
 import { createIconValue } from '@no-comply/solid-contexts';
-import { computedProps, mergeProps, pickProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, pickProps } from '@no-comply/solid-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';
@@ -42,7 +42,7 @@ export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI =>
     const iconButtonProps = pickProps(props, ['size', 'onPress', 'disabled']);
 
     return {
-        iconButtonProps: mergeProps(
+        iconButtonProps: combineProps(
             $switchRoot,
             iconButtonProps,
             staticIconButtonProps,

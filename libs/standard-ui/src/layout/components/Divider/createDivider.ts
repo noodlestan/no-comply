@@ -1,9 +1,9 @@
 import { createDividerMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
-    createClassList,
+    combineProps,
     computedProps,
-    mergeProps,
+    createClassList,
 } from '@no-comply/solid-primitives';
 
 import styles from './Divider.module.scss';
@@ -38,6 +38,6 @@ export const createDivider = (props: DividerProps): DividerAPI => {
     });
 
     return {
-        $root: mergeProps($dividerMixinRoot, $root),
+        $root: combineProps($dividerMixinRoot, $root),
     };
 };

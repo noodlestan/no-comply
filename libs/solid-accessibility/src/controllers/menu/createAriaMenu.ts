@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createAriaLabelled } from '../label';
 
@@ -13,6 +13,6 @@ export function createAriaMenu(props: AriaMenuProps): AriaMenuAPI {
 
     return {
         ...rest,
-        $root: mergeProps($labelledRoot, $root),
+        $root: combineProps($labelledRoot, $root),
     };
 }

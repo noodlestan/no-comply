@@ -1,5 +1,5 @@
 import { createAriaListItem } from '@no-comply/solid-accessibility';
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { batch } from 'solid-js';
 
 import { getListSelectionUntil } from '../../helpers';
@@ -25,7 +25,7 @@ export const createListItem = (props: ListItemProps): ListItemAPI => {
     const ariaComputedProps = computedProps({
         selected: isSelected,
     });
-    const ariaProps = mergeProps(props, ariaComputedProps);
+    const ariaProps = combineProps(props, ariaComputedProps);
     const { $root: $listItemRoot, $label, $description } = createAriaListItem(ariaProps);
 
     const selectItem = () => {

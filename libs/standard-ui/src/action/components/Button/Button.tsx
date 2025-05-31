@@ -1,7 +1,7 @@
 import {
     type ClosedTagProps,
     type PopoverTriggerTagProps,
-    mergeProps,
+    combineProps,
 } from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
@@ -16,7 +16,7 @@ export const Button: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props, BUTTON_PROPS);
 
     const { $root } = createButton(locals);
-    const $ = mergeProps($others, $root);
+    const $ = combineProps($others, $root);
 
     return <Dynamic {...$} />;
 };

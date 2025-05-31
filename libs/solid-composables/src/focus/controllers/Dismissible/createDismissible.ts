@@ -1,4 +1,4 @@
-import { computedProps, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { onCleanup } from 'solid-js';
 
 import { createPressOutside } from '../PressOutside';
@@ -49,6 +49,6 @@ export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
     };
 
     return {
-        $root: mergeProps($pressOutsideRoot, $root),
+        $root: combineProps($pressOutsideRoot, $root),
     };
 };

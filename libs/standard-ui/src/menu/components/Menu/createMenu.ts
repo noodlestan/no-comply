@@ -1,6 +1,6 @@
 import { createAriaMenu } from '@no-comply/solid-accessibility';
 import { usePopoverMaybe } from '@no-comply/solid-composables';
-import { computedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, shortId } from '@no-comply/solid-primitives';
 import { createContext, createMemo, useContext } from 'solid-js';
 
 import { createSurface } from '../../../surface';
@@ -81,8 +81,8 @@ export const createHeadlessMenu = (props: HeadlessMenuProps): HeadlessMenuAPI =>
     } as const;
 
     return {
-        $root: mergeProps($menuRoot, $root),
-        $label: mergeProps($ariaLabel, $localLabel),
+        $root: combineProps($menuRoot, $root),
+        $label: combineProps($ariaLabel, $localLabel),
         context,
         contextValue,
     };
@@ -101,7 +101,7 @@ export const createMenu = (props: MenuProps): MenuAPI => {
     const { $root: $menuMixinRoot } = createMenuMixin();
 
     return {
-        surfaceProps: mergeProps($root, $menuMixinRoot, $surfaceRoot),
+        surfaceProps: combineProps($root, $menuMixinRoot, $surfaceRoot),
         $label,
         contextValue,
     };

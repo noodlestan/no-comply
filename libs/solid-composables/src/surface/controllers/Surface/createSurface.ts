@@ -1,6 +1,6 @@
 import { createAriaRegion } from '@no-comply/solid-accessibility';
 import { createSurfaceContext } from '@no-comply/solid-contexts';
-import { computedProps, createDataAttributes, mergeProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, createDataAttributes } from '@no-comply/solid-primitives';
 
 import type { SurfaceAPI, SurfaceProps } from './types';
 
@@ -20,7 +20,7 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const dataAttributes = createDataAttributes(context.contextData);
 
     return {
-        $root: mergeProps(dataAttributes, $regionRoot, $root),
+        $root: combineProps(dataAttributes, $regionRoot, $root),
         $description,
         $label,
         context,
