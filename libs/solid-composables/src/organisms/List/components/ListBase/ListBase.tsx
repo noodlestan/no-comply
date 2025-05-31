@@ -14,7 +14,7 @@ export const ListBase: Component<Props> = props => {
     const [locals, $others] = splitProps(props, LIST_BASE_PROPS);
 
     const tree = createListBase(locals);
-    const { $root, itemProps, contextValue } = tree;
+    const { $root, _listItem: itemProps, contextValue } = tree;
     const $ = combineProps($others, $root);
 
     return (

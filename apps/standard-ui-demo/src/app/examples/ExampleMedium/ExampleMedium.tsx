@@ -28,9 +28,11 @@ export const ExampleMedium: Component<Props> = props => {
                 <TextInput size="s" length="m" value="password" type="password" />
             </Flex>
             <Flex direction="row" gap="m" align="center">
-                <IconButton variant="primary" intent="positive" icon={LockIcon} label="Lock" />
-                <IconButton variant="secondary" icon={UnlockIcon} label="unlock" />
-                <Button variant="plain">Plain</Button>
+                <IconButton variant="primary" intent="negative" icon={LockIcon} label="Lock" />
+                <Button variant="secondary">
+                    <Icon icon={UnlockIcon} />
+                    Unlock
+                </Button>
             </Flex>
             <Text>
                 Lorem ipsum dolor sit amet <Link href="#">Foobar</Link> elit. Nops{' '}

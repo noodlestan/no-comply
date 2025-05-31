@@ -11,14 +11,14 @@ export type MenuItemSubMenuProps = HeadlessMenuItemSubMenuProps & MenuItemMixinP
 
 export type MenuItemSubMenuAPI = Omit<
     HeadlessMenuItemSubMenuAPI,
-    '$root' | '$label' | '$description' | 'iconProps'
+    '$root' | '$label' | '$description' | '_icon'
 > &
     Omit<MenuItemMixinAPI, '$root'> & {
         $root: HeadlessMenuItemSubMenuAPI['$root'] &
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
-        labelProps: HeadlessMenuItemSubMenuAPI['$label'] & BaseMenuItemAPI['labelProps'];
-        descriptionProps: HeadlessMenuItemSubMenuAPI['$description'] &
-            BaseMenuItemAPI['descriptionProps'];
-        iconProps: HeadlessMenuItemSubMenuAPI['iconProps'] & BaseMenuItemAPI['iconProps'];
+        _label: HeadlessMenuItemSubMenuAPI['$label'] & BaseMenuItemAPI['_label'];
+        _textDescription: HeadlessMenuItemSubMenuAPI['$description'] &
+            BaseMenuItemAPI['_textDescription'];
+        _icon: HeadlessMenuItemSubMenuAPI['_icon'] & BaseMenuItemAPI['_icon'];
     };

@@ -33,7 +33,13 @@ const Main: ParentComponent = props => {
     });
 
     return (
-        <Flex stretch="full" classList={classList()} aria-busy={!status.isReady()}>
+        <Flex
+            direction="column"
+            align="stretch"
+            stretch="full"
+            classList={classList()}
+            aria-busy={!status.isReady()}
+        >
             <Show when={!status.isReady()}>
                 <AppSplash />
             </Show>
@@ -52,7 +58,7 @@ const Root: ParentComponent = props => {
         <ErrorBoundaryScreen>
             <AppServicesProvider>
                 <UIRootProvider defaultCtxId={APP.id}>
-                    {/* {props.children} */}
+                    {/* <Surface variant="menu">HELLO!</Surface> */}
                     <Main>{props.children}</Main>
                     {/* <DebugDrawer /> */}
                 </UIRootProvider>

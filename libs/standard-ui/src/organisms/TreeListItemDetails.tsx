@@ -20,7 +20,7 @@ export type TreeListItemDetailsProps = {
 };
 
 export const TreeListItemDetails: Component<TreeListItemDetailsProps> = props => {
-    const { hasToggle, $root, focusableProps, expandButtonProps, itemContentsProps } =
+    const { hasToggle, $root, _focusable, _buttonExpand, _treeListItemContents } =
         createTreeListItemDetails(props);
 
     const toggleClassList = staticClassList(styles, '-Toggle');
@@ -28,16 +28,16 @@ export const TreeListItemDetails: Component<TreeListItemDetailsProps> = props =>
 
     return (
         <Flex direction="row" align="center" {...$root}>
-            <FocusableBase {...focusableProps}>
+            <FocusableBase {..._focusable}>
                 {() => (
                     <Flex direction="row" align="center" {...$root}>
                         <Show when={hasToggle()}>
                             <div classList={toggleClassList}>
-                                <Dynamic {...expandButtonProps} />
+                                <Dynamic {..._buttonExpand} />
                             </div>
                         </Show>
                         <Flex stretch="width" classList={contentsClassList}>
-                            <Dynamic {...itemContentsProps} />
+                            <Dynamic {..._treeListItemContents} />
                         </Flex>
                     </Flex>
                 )}

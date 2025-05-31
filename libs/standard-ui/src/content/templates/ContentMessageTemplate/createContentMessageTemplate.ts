@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -7,6 +8,7 @@ import {
 } from '@no-comply/solid-primitives';
 
 import styles from './ContentMessageTemplate.module.scss';
+import { $CONTENT_MESSAGE_TEMPLATE } from './constants';
 import type { ContentMessageTemplateAPI, ContentMessageTemplateProps } from './types';
 
 const defaultProps: PickRequired<ContentMessageTemplateProps, 'size' | 'length'> = {
@@ -17,9 +19,12 @@ const defaultProps: PickRequired<ContentMessageTemplateProps, 'size' | 'length'>
 export const createContentMessageTemplate = (
     props: ContentMessageTemplateProps,
 ): ContentMessageTemplateAPI => {
-    const size = () => props.size ?? defaultProps.size;
-    const length = () => props.length ?? defaultProps.length;
+    const [locals, expose] = createExposable($CONTENT_MESSAGE_TEMPLATE, props);
+
+    const size = () => locals.size ?? defaultProps.size;
+    const length = () => locals.length ?? defaultProps.length;
     const classList = createClassList(styles, () => ['ContentMessage', `length-${length()}`]);
+
     const $root = computedProps({
         classList,
     });
@@ -28,27 +33,27 @@ export const createContentMessageTemplate = (
         classList: staticClassList(styles, '-Title'),
     };
 
-    const iconStaticProps = {
+    const _iconSstatic = {
         classList: staticClassList(styles, '-Icon'),
     };
-    const iconProps = computedProps(iconStaticProps, {
+    const _icon = computedProps(_iconSstatic, {
         size,
     });
 
-    const isSmall = () => props.size === 'small';
+    const isSmall = () => locals.size === 'small';
 
     const alignmentHeight = () => (isSmall() ? 'xs' : 's');
     const padding = () => (isSmall() ? 'xs' : 's');
     const gap = () => (isSmall() ? 's' : 'm');
     const titleVariant = () => (isSmall() ? 'xs' : 's');
 
-    const hasCloseButton = () => Boolean(props.onClose);
+    const hasCloseButton = () => Boolean(locals.onClose);
 
-    return {
-        $root: combineProps(props.$root, $root),
-        $title: combineProps(props.$title, $title),
-        $description: props.$description,
-        iconProps: combineProps(props.iconProps, iconProps),
+    return exposeAPI(expose, '$root', {
+        $root: combineProps(locals.$root, $root),
+        $title: combineProps(locals.$title, $title),
+        $description: locals.$description,
+        _icon: combineProps(locals._icon, _icon),
         alignmentHeight,
         padding,
         gap,
@@ -56,5 +61,5 @@ export const createContentMessageTemplate = (
         descriptionVariant: size,
         hasCloseButton,
         closeButtonSize: size,
-    };
+    });
 };

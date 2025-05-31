@@ -1,4 +1,5 @@
 import { createActionMixin as createHeadlessActionMixin } from '@no-comply/solid-composables';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -9,6 +10,7 @@ import {
 import { createFocusRingMixin } from '../../../focus';
 
 import styles from './ActionMixin.module.scss';
+import { $ACTION_MIXIN } from './constants';
 import type { ActionMixinAPI, ActionMixinProps } from './types';
 
 const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent'> = {
@@ -17,21 +19,24 @@ const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent'> = {
 };
 
 export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
-    const { $root: $buttonMixinRoot } = createHeadlessActionMixin();
-    const { $root: $focusRing } = createFocusRingMixin(props);
+    const [locals, expose, compose] = createExposable($ACTION_MIXIN, props);
 
-    const variant = () => props.variant ?? defaultProps.variant;
-    const intent = () => props.intent ?? defaultProps.intent;
+    const { $root: $buttonMixinRoot } = compose(createHeadlessActionMixin());
+    const { $root: focusRingRoot } = compose(createFocusRingMixin(locals));
+
+    const variant = () => locals.variant ?? defaultProps.variant;
+    const intent = () => locals.intent ?? defaultProps.intent;
     const classList = createClassList(styles, () => [
         `Action`,
         `variant-${variant()}`,
         `intent-${intent()}`,
     ]);
+
     const $root = computedProps({
         classList,
     });
 
-    return {
-        $root: combineProps($buttonMixinRoot, $focusRing, $root),
-    };
+    return exposeAPI(expose, '$root', {
+        $root: combineProps($buttonMixinRoot, focusRingRoot, $root),
+    });
 };

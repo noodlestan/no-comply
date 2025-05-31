@@ -21,8 +21,8 @@ export type TreeListItemDetailsAPI = {
         'data-tree-item-is-selected': '' | undefined;
         'data-tree-item-is-parent-selected': '' | undefined;
     };
-    focusableProps: FocusableBaseProps;
-    expandButtonProps: PropsWithComponent<ExpandActionProps>;
-    itemContentsProps: PropsWithComponent<TreeListItemContentsProps>;
+    _focusable: FocusableBaseProps;
+    _buttonExpand: PropsWithComponent<ExpandActionProps>;
+    _treeListItemContents: PropsWithComponent<TreeListItemContentsProps>;
     hasToggle: Accessor<boolean>;
 };

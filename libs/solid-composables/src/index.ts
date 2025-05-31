@@ -15,5 +15,4 @@ export * from './placement';
 export * from './popover';
 export * from './responsive';
 export * from './surface';
-export * from './tag';
 export * from './typography';

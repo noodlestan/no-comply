@@ -2,35 +2,25 @@ import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import {
-    ANCHORED_POPOVER_PROPS,
-    type AnchoredPopoverProps,
-    createAnchoredPopover,
-} from '../../controllers';
-import { createAnchoredPopoverMixin } from '../../mixins';
 import { PopoverContextProvider } from '../../providers';
 
 import { ANCHORED_POPOVER_BASE_PROPS } from './constants';
+import { createAnchoredPopoverBase } from './createAnchoredPopoverBase';
 import type { AnchoredPopoverBaseProps } from './types';
 
-type Props = ClosedTagProps & AnchoredPopoverProps & AnchoredPopoverBaseProps;
+type Props = ClosedTagProps & AnchoredPopoverBaseProps;
 
 export const AnchoredPopoverBase: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, [
-        ...ANCHORED_POPOVER_PROPS,
-        ...ANCHORED_POPOVER_BASE_PROPS,
-        'children',
-    ]);
+    const [locals, $others] = splitProps(props, [...ANCHORED_POPOVER_BASE_PROPS, 'children']);
 
-    const { $root, $trigger, contentProps, contextValue } = createAnchoredPopover(locals);
-    const { $root: $mixinRoot } = createAnchoredPopoverMixin();
+    const { $root, $trigger, $content, contextValue } = createAnchoredPopoverBase(locals);
 
-    const $ = combineProps($others, $root, $mixinRoot);
+    const $ = combineProps($others, $root);
 
     return (
         <PopoverContextProvider context={contextValue}>
-            {props.trigger($trigger)}
-            <Dynamic {...$}>{props.children(contentProps)}</Dynamic>
+            {locals.trigger($trigger)}
+            <Dynamic {...$}>{locals.children($content)}</Dynamic>
         </PopoverContextProvider>
     );
 };

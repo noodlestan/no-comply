@@ -12,8 +12,8 @@ type Props = ClosedTagProps & MenuProps;
 export const Menu: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props, [...MENU_PROPS, 'children']);
 
-    const { surfaceProps, $label, contextValue } = createMenu(locals);
-    const $ = combineProps($others, surfaceProps);
+    const { _surface, $label, contextValue } = createMenu(locals);
+    const $ = combineProps($others, _surface);
 
     return (
         <MenuContextProvider context={contextValue}>

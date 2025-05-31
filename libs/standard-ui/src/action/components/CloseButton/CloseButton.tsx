@@ -16,8 +16,8 @@ type Props = ClosedTagProps & PopoverTriggerTagProps & CloseButtonProps;
 export const CloseButton: Component<Props> = props => {
     const [locals, $others] = splitProps(props, CLOSE_BUTTON_PROPS);
 
-    const { iconButtonProps } = createCloseButton(locals);
-    const $ = combineProps($others, iconButtonProps);
+    const { _iconButton } = createCloseButton(locals);
+    const $ = combineProps($others, _iconButton);
 
     return <IconButton {...$} />;
 };

@@ -3,4 +3,6 @@ import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { FieldProps } from './types';
 
+export const $FIELD = 'component:standard:field';
+
 export const FIELD_PROPS = definePropKeys<FieldProps>()([...HEADLESS_FIELD_PROPS, 'size']);

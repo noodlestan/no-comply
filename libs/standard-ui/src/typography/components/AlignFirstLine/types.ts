@@ -19,5 +19,5 @@ export type AlignFirstLineAPI = {
         ComposableTypeMixinAPI['$root'] & {
             component: 'div';
         };
-    composableTypeProps: ComposableTypeMixinProps;
+    _composableType: ComposableTypeMixinProps;
 };

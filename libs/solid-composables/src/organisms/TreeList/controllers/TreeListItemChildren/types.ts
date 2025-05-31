@@ -19,5 +19,5 @@ export type TreeListItemChildrenAPI = {
         id: string;
         style: Styles;
     };
-    itemProps: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;
+    _treeListItem: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;
 };

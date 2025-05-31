@@ -14,11 +14,11 @@ export const TreeListItemDetailsBase: Component<TreeListItemDetailsBaseProps> = 
 
     const {
         $root,
-        focusableProps,
+        _focusable,
         $toggle,
-        expandButtonProps,
+        _buttonExpand,
         $contents,
-        itemContentsProps,
+        _treeListItemContents,
         hasToggle,
     } = createTreeListItemDetailsBase(locals);
 
@@ -26,16 +26,16 @@ export const TreeListItemDetailsBase: Component<TreeListItemDetailsBaseProps> = 
 
     return (
         <LayoutBase stretch="full" {...$}>
-            <FocusableBase {...focusableProps}>
+            <FocusableBase {..._focusable}>
                 {() => (
                     <FlexBase direction="row" align="center">
                         <Show when={hasToggle()}>
                             <div {...$toggle}>
-                                <Dynamic {...expandButtonProps} />
+                                <Dynamic {..._buttonExpand} />
                             </div>
                         </Show>
                         <FlexBase stretch="width" {...$contents}>
-                            <Dynamic {...itemContentsProps} />
+                            <Dynamic {..._treeListItemContents} />
                         </FlexBase>
                     </FlexBase>
                 )}

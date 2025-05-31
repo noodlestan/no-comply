@@ -1,6 +1,11 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+
+import { $LIST_KEYBOARD } from './constants';
 import type { ListKeyboardControllerAPI } from './types';
 
 export const createListKeyboardController = (): ListKeyboardControllerAPI => {
+    const [, expose] = createExposable($LIST_KEYBOARD);
+
     let containerEl: HTMLElement;
 
     const setContainerRef = (el: HTMLElement) => {
@@ -62,7 +67,7 @@ export const createListKeyboardController = (): ListKeyboardControllerAPI => {
         ref: setContainerRef,
     };
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 };

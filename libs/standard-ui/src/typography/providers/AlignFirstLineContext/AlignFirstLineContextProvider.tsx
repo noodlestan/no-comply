@@ -5,7 +5,7 @@ import type { ComposableTypeMixinProps } from '../../mixins';
 import { AlignFirstLineContextProviderCTX } from './private';
 
 type AlignFirstLineContextProviderProps = {
-    props: ComposableTypeMixinProps;
+    composableType: ComposableTypeMixinProps;
 };
 
 export const AlignFirstLineContextProvider: ParentComponent<
@@ -13,7 +13,7 @@ export const AlignFirstLineContextProvider: ParentComponent<
 > = props => {
     return (
         // eslint-disable-next-line solid/reactivity
-        <AlignFirstLineContextProviderCTX.Provider value={props.props}>
+        <AlignFirstLineContextProviderCTX.Provider value={props.composableType}>
             {props.children}
         </AlignFirstLineContextProviderCTX.Provider>
     );

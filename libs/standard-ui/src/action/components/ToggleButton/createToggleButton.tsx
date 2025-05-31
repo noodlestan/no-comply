@@ -4,12 +4,13 @@ import {
     type ToggleActionLabels,
     createToggleAction,
 } from '@no-comply/solid-composables';
-import { createIconValue } from '@no-comply/solid-contexts';
+import { createExposable, createIconValue, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps, pickProps } from '@no-comply/solid-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';
 
+import { $TOGGLE_BUTTON } from './constants';
 import type { ToggleButtonAPI, ToggleButtonProps } from './types';
 
 const LABELS: ToggleActionLabels = {
@@ -23,30 +24,29 @@ const ICONS: ToggleActionIcons = {
 };
 
 export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI => {
-    const toggleButtonProps = computedProps({
-        value: () => props.value,
-        labels: () => Object.assign({}, LABELS, props.labels),
-        icons: () => Object.assign({}, ICONS, props.icons),
+    const [locals, expose, compose] = createExposable($TOGGLE_BUTTON, props);
+
+    const toggleActionProps = computedProps({
+        value: () => locals.value,
+        labels: () => Object.assign({}, LABELS, locals.labels),
+        icons: () => Object.assign({}, ICONS, locals.icons),
     });
-    const { iconActionProps: toggleActionIconActionProps } = createToggleAction(toggleButtonProps);
+    const { _icon } = compose(createToggleAction(toggleActionProps));
 
     const ariaSwitchStaticProps = { tag: 'button' as const };
     const ariaSwitchProps = computedProps(ariaSwitchStaticProps, {
-        label: () => toggleActionIconActionProps.label,
-        checked: () => props.value,
-        disabled: () => Boolean(props.disabled),
+        label: () => _icon.label,
+        checked: () => locals.value,
+        disabled: () => Boolean(locals.disabled),
     });
     const { $root: $switchRoot } = createAriaSwitch(ariaSwitchProps);
 
-    const staticIconButtonProps = { variant: 'plain' as ActionVariant };
-    const iconButtonProps = pickProps(props, ['size', 'onPress', 'disabled']);
-
-    return {
-        iconButtonProps: combineProps(
-            $switchRoot,
-            iconButtonProps,
-            staticIconButtonProps,
-            toggleActionIconActionProps,
-        ),
+    const _iconButton = {
+        variant: 'plain' as ActionVariant,
     };
+    const _iconButtonAllowedProps = pickProps(locals, ['size', 'onPress', 'disabled']);
+
+    return exposeAPI(expose, '_iconButton', {
+        _iconButton: combineProps($switchRoot, _iconButton, _icon, _iconButtonAllowedProps),
+    });
 };

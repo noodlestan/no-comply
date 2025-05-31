@@ -7,7 +7,7 @@ export type ToggleButtonProps = Pick<IconButtonProps, 'size' | 'onPress' | 'disa
     ToggleActionProps;
 
 export type ToggleButtonAPI = {
-    iconButtonProps: Pick<IconButtonProps, 'variant' | 'size' | 'onPress' | 'disabled'> &
+    _iconButton: Pick<IconButtonProps, 'variant' | 'size' | 'onPress' | 'disabled'> &
         Omit<AriaSwitchAPI['$root'], 'type'> &
-        ToggleActionAPI['iconActionProps'];
+        ToggleActionAPI['_icon'];
 };

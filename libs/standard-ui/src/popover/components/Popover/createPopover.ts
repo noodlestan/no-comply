@@ -2,16 +2,20 @@ import {
     createPopover as createHeadlessPopover,
     createPopoverMixin,
 } from '@no-comply/solid-composables';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps } from '@no-comply/solid-primitives';
 
+import { $POPOVER } from './constants';
 import type { PopoverAPI, PopoverProps } from './types';
 
 export const createPopover = (props: PopoverProps): PopoverAPI => {
-    const { $root, ...rest } = createHeadlessPopover(props);
-    const { $root: $mixinRoot } = createPopoverMixin();
+    const [locals, expose, compose] = createExposable($POPOVER, props);
 
-    return {
+    const { $root: $popoverRoot, ...rest } = compose(createHeadlessPopover(locals));
+    const { $root: $mixinRoot } = compose(createPopoverMixin());
+
+    return exposeAPI(expose, '$root', {
         ...rest,
-        $root: combineProps($root, $mixinRoot),
-    };
+        $root: combineProps($popoverRoot, $mixinRoot),
+    });
 };

@@ -16,7 +16,7 @@ export type ContentColor =
     | 'selected';
 
 export type ContentColorMixinAPI = {
-    elProps: {
+    $root: {
         classList: ClassList;
     };
 };

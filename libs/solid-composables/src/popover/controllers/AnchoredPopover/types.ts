@@ -27,7 +27,7 @@ export type AnchoredPopoverAPI = {
         component: 'div';
     };
     $trigger: AnchoredPopoverTriggerAPI['$root'];
-    contentProps: {
+    $content: {
         id: string;
         ['aria-labelledby']: string;
     };

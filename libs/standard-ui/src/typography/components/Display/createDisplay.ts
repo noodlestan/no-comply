@@ -1,9 +1,11 @@
 import type { HeadingTagName } from '@no-comply/solid-accessibility';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createDisplayMixin } from '../../mixins';
 import type { DisplayLevel } from '../../types';
 
+import { $DISPLAY } from './constants';
 import type { DisplayAPI, DisplayProps } from './types';
 
 const MAP_LEVEL_TO_COMPONENT: Record<DisplayLevel, HeadingTagName> = {
@@ -15,14 +17,17 @@ const MAP_LEVEL_TO_COMPONENT: Record<DisplayLevel, HeadingTagName> = {
 };
 
 export const createDisplay = (props: DisplayProps): DisplayAPI => {
-    const { $root: $textMixinRoot, level } = createDisplayMixin(props);
+    const [locals, expose, compose] = createExposable($DISPLAY, props);
 
-    const component = () => props.tag ?? MAP_LEVEL_TO_COMPONENT[level()];
+    const { $root: $textMixinRoot, level } = compose(createDisplayMixin(locals));
+
+    const component = () => locals.tag ?? MAP_LEVEL_TO_COMPONENT[level()];
+
     const $root = computedProps({
         component,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($textMixinRoot, $root),
-    };
+    });
 };

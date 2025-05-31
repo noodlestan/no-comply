@@ -4,6 +4,8 @@ import { BASE_MENU_ITEM_PROPS } from '../../private';
 
 import type { MenuItemActionProps } from './types';
 
+export const $MENU_ITEM_ACTION = 'controller:composable:menu-item-action';
+
 export const MENU_ITEM_ACTION_PROPS = definePropKeys<MenuItemActionProps>()([
     ...BASE_MENU_ITEM_PROPS,
 ]);

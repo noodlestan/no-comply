@@ -2,6 +2,7 @@
 export * from './container';
 export * from './context';
 export * from './controller';
+export * from './expose';
 export * from './focus';
 export * from './form';
 export * from './icons';

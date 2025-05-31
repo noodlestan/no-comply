@@ -1,12 +1,16 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createFocusOut } from '../../../focus';
 import { createPopoverContext } from '../../contexts';
 
+import { $POPOVER } from './constants';
 import type { PopoverAPI, PopoverProps } from './types';
 
 export const createPopover = (props: PopoverProps): PopoverAPI => {
-    const contextValue = createPopoverContext(props);
+    const [locals, expose, compose] = createExposable($POPOVER, props);
+
+    const contextValue = compose(createPopoverContext(locals));
     const [context] = contextValue;
 
     const setFocus = () => {
@@ -27,9 +31,9 @@ export const createPopover = (props: PopoverProps): PopoverAPI => {
     const onToggle = () => {
         if (context.isShown()) {
             setTimeout(setFocus);
-            props.onShow?.();
+            locals.onShow?.();
         } else {
-            props.onHide?.();
+            locals.onHide?.();
         }
     };
 
@@ -57,9 +61,9 @@ export const createPopover = (props: PopoverProps): PopoverAPI => {
         id: context.id,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($root, $focusOutRoot),
         context,
         contextValue,
-    };
+    });
 };

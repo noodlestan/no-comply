@@ -1,16 +1,16 @@
 import type { IconProps } from '../../../icon';
 
 export type BaseMenuItemAPI = {
-    labelProps: {
+    _label: {
         variant: 'small';
         tag: 'span';
         aligned: true;
     };
-    descriptionProps: {
+    _textDescription: {
         variant: 'small';
         tag: 'span';
     };
-    iconProps: {
+    _icon: {
         size: NonNullable<IconProps['size']>;
         aligned: true;
     };

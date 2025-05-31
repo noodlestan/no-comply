@@ -1,10 +1,10 @@
-import type { AccessorOrValue } from '../../types';
+import type { AccessorOrValue, AnyProps } from '../../types';
 
 import { resolveSource } from './resolveSource';
-import { type HandlerProp, type Props } from './types';
+import { type HandlerProp } from './types';
 
 export function getHandlerProperty(
-    sources: AccessorOrValue<Props>[],
+    sources: AccessorOrValue<AnyProps>[],
     key: string,
 ): HandlerProp | undefined {
     const handlers: HandlerProp[] = [];

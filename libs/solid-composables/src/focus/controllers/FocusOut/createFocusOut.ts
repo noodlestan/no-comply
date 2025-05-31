@@ -1,7 +1,11 @@
-import { FOCUS_OUT_KEYBOARD, FOCUS_OUT_POINTER } from './constants';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+
+import { $FOCUS_OUT, FOCUS_OUT_KEYBOARD, FOCUS_OUT_POINTER } from './constants';
 import type { FocusOutAPI, FocusOutInteractionType, FocusOutProps } from './types';
 
 export const createFocusOut = (props: FocusOutProps): FocusOutAPI => {
+    const [locals, expose] = createExposable($FOCUS_OUT, props);
+
     let lastInteraction: FocusOutInteractionType = FOCUS_OUT_POINTER;
 
     const onKeyDown = (ev: KeyboardEvent) => {
@@ -18,7 +22,7 @@ export const createFocusOut = (props: FocusOutProps): FocusOutAPI => {
         if (lastInteraction === FOCUS_OUT_POINTER) {
             return;
         }
-        props.onFocusOut();
+        locals.onFocusOut();
     };
 
     const $root = {
@@ -27,7 +31,7 @@ export const createFocusOut = (props: FocusOutProps): FocusOutAPI => {
         onFocusOut,
     } as const;
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 };

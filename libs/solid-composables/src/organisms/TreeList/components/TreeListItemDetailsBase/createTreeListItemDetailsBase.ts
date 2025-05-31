@@ -1,38 +1,37 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps } from '@no-comply/solid-primitives';
 
 import { createTreeListItemDetails } from '../../controllers';
 import { createTreeListItemDetailsMixin } from '../../mixins';
 
+import { $TREE_LIST_ITEM_DETAILS_BASE } from './constants';
 import type { TreeListItemDetailsBaseAPI, TreeListItemDetailsBaseProps } from './types';
 
 export const createTreeListItemDetailsBase = (
     props: TreeListItemDetailsBaseProps,
 ): TreeListItemDetailsBaseAPI => {
+    const [locals, expose, compose] = createExposable($TREE_LIST_ITEM_DETAILS_BASE, props);
+
     const {
         $root: $itemDetailsRoot,
-        focusableProps: itemDetailsFocusableProps,
-        expandButtonProps,
-        itemContentsProps,
+        _focusable,
         hasToggle,
-    } = createTreeListItemDetails(props);
+        ...controllerRest
+    } = compose(createTreeListItemDetails(locals));
 
     const {
         $root: $mixinRoot,
         $focusable: $mixinFocusable,
-        $toggle,
-        $contents,
-    } = createTreeListItemDetailsMixin();
+        ...mixinRest
+    } = compose(createTreeListItemDetailsMixin());
 
-    const focusableProps = combineProps(itemDetailsFocusableProps, $mixinFocusable);
     // const itemContentsProps = combineProps(componentProps, $contents);
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($itemDetailsRoot, $mixinRoot),
-        focusableProps,
-        $toggle,
-        expandButtonProps,
-        $contents,
-        itemContentsProps,
+        _focusable: combineProps(_focusable, $mixinFocusable),
+        ...controllerRest,
+        ...mixinRest,
         hasToggle,
-    };
+    });
 };

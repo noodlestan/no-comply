@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type AxisShorthandInput,
     type ResponsiveProp,
@@ -11,6 +12,7 @@ import { responsiveClassMap } from '../../../responsive';
 import type { LayoutGapProps } from '../../types';
 
 import styles from './GridMixin.module.scss';
+import { $GRID_MIXIN } from './constants';
 import type { GridMixinAPI, GridMixinProps } from './types';
 
 const createGapShorthandInput = (
@@ -23,10 +25,12 @@ export function createGridMixin(
     props: GridMixinProps,
     breakpoints: readonly string[] = [],
 ): GridMixinAPI {
+    const [locals, expose] = createExposable($GRID_MIXIN, props);
+
     // const columns = () => props.columns ?? defaults.columns;
     // const rows = () => props.rows ?? defaults.rows;
 
-    const [gap, rowGap, columnGap] = resolveAxisShorthandProps(createGapShorthandInput(props));
+    const [gap, rowGap, columnGap] = resolveAxisShorthandProps(createGapShorthandInput(locals));
 
     const classList = createClassList(styles, () => ({
         Grid: true,
@@ -35,13 +39,14 @@ export function createGridMixin(
         ...responsiveClassMap(breakpoints, 'column-gap', columnGap()),
         // ...responsiveClassMap(breakpoints, 'columns', columns()),
         // ...responsiveClassMap(breakpoints, 'rows', rows()),
-        [`autoFlow-${props.flow}`]: Boolean(props.flow),
+        [`autoFlow-${locals.flow}`]: Boolean(locals.flow),
     }));
+
     const $root = computedProps({
         classList,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 }

@@ -8,7 +8,7 @@
 
         @include set-color(__fg, primary, fg-muted, opaque);
         @include set-color(__bg, graphics-2, bg-3, opaque);
-        @include set-color(__border, graphics-2, border, opaque);
+        @include set-color(__border, graphics-2, border-1, opaque);
 
         @include apply-color(color, __fg);
         @include apply-color(background-color, __bg);

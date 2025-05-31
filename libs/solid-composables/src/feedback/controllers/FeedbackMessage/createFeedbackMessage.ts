@@ -1,9 +1,11 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
 import { HourglassIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { type Component, splitProps } from 'solid-js';
 
 import { createContentMessage } from '../../../content';
 
+import { $FEEDBACK_MESSAGE } from './constants';
 import type { FeedbackMessageAPI, FeedbackMessageProps, FeedbackMessageVariant } from './types';
 
 const VARIANT_ICON_MAP: Record<FeedbackMessageVariant, Component> = {
@@ -17,16 +19,19 @@ const defaultProps: PickRequired<FeedbackMessageProps, 'variant'> = {
 };
 
 export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMessageAPI => {
-    const variant = () => props.variant ?? defaultProps.variant;
+    const [locals, expose, compose] = createExposable($FEEDBACK_MESSAGE, props);
+
+    const variant = () => locals.variant ?? defaultProps.variant;
     const role = () => (variant() === 'busy' ? ('status' as const) : ('alert' as const));
     const icon = () => VARIANT_ICON_MAP[variant()];
 
-    const contentMessageProps = computedProps({
+    const messageProps = computedProps({
         variant,
         icon,
     });
-    const { $root: $contentMessageRoot, ...rest } = createContentMessage(
-        combineProps(props, contentMessageProps),
+    const contentMessageProps = combineProps(locals, messageProps);
+    const { $root: $contentMessageRoot, ...rest } = compose(
+        createContentMessage(contentMessageProps),
     );
 
     const [, $contentMessageRootPicked] = splitProps($contentMessageRoot, ['data-message', 'role']);
@@ -37,8 +42,8 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
         'data-message': variant,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         ...rest,
         $root: combineProps($contentMessageRootPicked, $root),
-    };
+    });
 };

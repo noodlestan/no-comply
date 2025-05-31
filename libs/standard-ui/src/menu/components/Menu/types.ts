@@ -9,5 +9,5 @@ import type { MenuMixinAPI, MenuMixinProps } from '../../mixins';
 export type MenuProps = HeadlessMenuProps & MenuMixinProps;
 
 export type MenuAPI = Omit<HeadlessMenuAPI, '$root' | 'context'> & {
-    surfaceProps: HeadlessMenuAPI['$root'] & SurfaceAPI['surfaceProps'] & MenuMixinAPI['$root'];
+    _surface: HeadlessMenuAPI['$root'] & SurfaceAPI['_surface'] & MenuMixinAPI['$root'];
 };

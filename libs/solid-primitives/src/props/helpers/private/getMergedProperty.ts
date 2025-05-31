@@ -1,16 +1,15 @@
 import { $PROXY } from 'solid-js';
 
-import type { AccessorOrValue } from '../../types';
+import type { AccessorOrValue, AnyProps } from '../../types';
 
 import { $COMPUTED } from './constants';
 import { getClassListProperty } from './getClassListProperty';
 import { getHandlerProperty } from './getHandlerProperty';
 import { getStyleProperty } from './getStyleProperty';
 import { resolveSource } from './resolveSource';
-import { type Props } from './types';
 
 export function getMergedProperty(
-    sources: AccessorOrValue<Props>[],
+    sources: AccessorOrValue<AnyProps>[],
     key: string | symbol,
 ): unknown {
     if (key === $PROXY || key === $COMPUTED) {

@@ -12,7 +12,7 @@ export type IconActionAPI = {
     $root: {
         'aria-label': AriaAttributes['aria-label'];
     };
-    iconProps: Pick<IconProps, 'icon'> & {
+    icon: Pick<IconProps, 'icon'> & {
         'aria-hidden': AriaAttributes['aria-hidden'];
     };
 };

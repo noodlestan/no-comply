@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -8,6 +9,7 @@ import {
 import { createLinkMixin } from '../Link';
 
 import styles from './NavLinkMixin.module.scss';
+import { $NAV_LINK_MIXIN } from './constants';
 import type { NavLinkMixinAPI, NavLinkMixinProps } from './types';
 
 const defaultProps: PickRequired<NavLinkMixinProps, 'layout' | 'size' | 'highlight'> = {
@@ -17,23 +19,26 @@ const defaultProps: PickRequired<NavLinkMixinProps, 'layout' | 'size' | 'highlig
 };
 
 export const createNavLinkMixin = (props: NavLinkMixinProps): NavLinkMixinAPI => {
-    const { $root: $linkMixinRoot } = createLinkMixin(props);
+    const [locals, expose, compose] = createExposable($NAV_LINK_MIXIN, props);
 
-    const layout = () => props.layout ?? defaultProps.layout;
-    const size = () => props.size ?? defaultProps.size;
-    const highlight = () => props.highlight ?? defaultProps.highlight;
+    const { $root: $linkMixinRoot } = compose(createLinkMixin(locals));
+
+    const layout = () => locals.layout ?? defaultProps.layout;
+    const size = () => locals.size ?? defaultProps.size;
+    const highlight = () => locals.highlight ?? defaultProps.highlight;
     const classList = createClassList(styles, () => ({
         NavLink: true,
         [`layout-${layout()}`]: true,
         [`size-${size()}`]: true,
-        nowrap: Boolean(props.nowrap),
+        nowrap: Boolean(locals.nowrap),
         [`highlight-${highlight()}`]: true,
     }));
+
     const $root = computedProps({
         classList,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($linkMixinRoot, $root),
-    };
+    });
 };

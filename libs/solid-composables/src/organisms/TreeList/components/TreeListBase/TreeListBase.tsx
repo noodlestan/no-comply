@@ -14,13 +14,13 @@ export const TreeListBase: Component<Props> = props => {
     const [locals, $others] = splitProps(props, TREE_LIST_BASE_PROPS);
 
     const tree = createTreeListBase(locals);
-    const { $root, itemProps, contextValue } = tree;
+    const { $root, _treeListItem, contextValue } = tree;
     const $ = combineProps($others, $root);
 
     return (
         <TreeListContextProvider context={contextValue}>
             <div {...$}>
-                <Dynamic {...itemProps} />
+                <Dynamic {..._treeListItem} />
             </div>
         </TreeListContextProvider>
     );

@@ -20,9 +20,9 @@ export const MenuItemAction: Component<Props> = props => {
         $descriptionSlot,
         $labelSlot,
         $expandSlot,
-        iconProps,
-        labelProps,
-        descriptionProps,
+        _icon,
+        _label,
+        _textDescription,
         hasIcon,
         groupHasIcons,
         groupHasSubMenus,
@@ -31,15 +31,15 @@ export const MenuItemAction: Component<Props> = props => {
 
     return (
         <Dynamic {...$}>
-            <AlignFirstLine height={'xs'} type="action" variant={labelProps.variant}>
+            <AlignFirstLine height={'xs'} type="action" variant={_label.variant}>
                 <Show when={groupHasIcons()}>
-                    <span {...$iconSlot}>{hasIcon() ? <Icon {...iconProps} /> : undefined}</span>
+                    <span {...$iconSlot}>{hasIcon() ? <Icon {..._icon} /> : undefined}</span>
                 </Show>
                 <span {...$labelSlot}>
-                    <Label {...labelProps} />
-                    <Show when={descriptionProps.children}>
+                    <Label {..._label} />
+                    <Show when={_textDescription.children}>
                         <span {...$descriptionSlot}>
-                            <Text {...descriptionProps} />
+                            <Text {..._textDescription} />
                         </span>
                     </Show>
                 </span>

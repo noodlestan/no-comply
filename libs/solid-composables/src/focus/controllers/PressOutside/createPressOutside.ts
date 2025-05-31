@@ -1,8 +1,12 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { onCleanup } from 'solid-js';
 
+import { $PRESS_OUTSIDE } from './constants';
 import type { PressOutsideAPI, PressOutsideProps } from './types';
 
 export const createPressOutside = (props: PressOutsideProps): PressOutsideAPI => {
+    const [locals, expose] = createExposable($PRESS_OUTSIDE, props);
+
     let rootEl: HTMLElement | undefined;
 
     const setElementRef = (el: HTMLElement) => {
@@ -13,10 +17,10 @@ export const createPressOutside = (props: PressOutsideProps): PressOutsideAPI =>
         if (!rootEl || rootEl.contains(ev.target as Node)) {
             return;
         }
-        if (props.exclude?.().some(el => el && el.contains(ev.target as Node))) {
+        if (locals.exclude?.().some(el => el && el.contains(ev.target as Node))) {
             return;
         }
-        props.onPressOutside(ev);
+        locals.onPressOutside(ev);
     };
 
     document.addEventListener('pointerdown', onDocumentPointerDown);
@@ -29,5 +33,7 @@ export const createPressOutside = (props: PressOutsideProps): PressOutsideAPI =>
         ref: setElementRef,
     };
 
-    return { $root };
+    return exposeAPI(expose, '$root', {
+        $root,
+    });
 };

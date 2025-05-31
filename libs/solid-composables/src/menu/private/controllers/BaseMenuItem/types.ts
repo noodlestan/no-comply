@@ -19,7 +19,7 @@ export type BaseMenuItemAPI = MenuItemAPI & {
         };
     $label: AriaLabelledAPI['$label'] & { children: string };
     $description: AriaLabelledAPI['$description'] & { children: string | undefined };
-    iconProps: {
+    _icon: {
         icon: IconProps['icon'];
         aligned: boolean;
         'aria-hidden': AriaAttributes['aria-hidden'];

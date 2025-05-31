@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -12,6 +13,7 @@ import {
     createComposableTypeMixin,
 } from '../../mixins';
 
+import { $ALIGN_FIRST_LINE } from './constants';
 import type { AlignFirstLineAPI, AlignFirstLineAllProps, AlignFirstLineProps } from './types';
 
 const defaultProps: PickRequired<AlignFirstLineProps, 'tag'> = {
@@ -19,21 +21,24 @@ const defaultProps: PickRequired<AlignFirstLineProps, 'tag'> = {
 };
 
 export const createAlignFirstLine = (props: AlignFirstLineProps): AlignFirstLineAPI => {
-    const { $root: $alignFirstLineRoot } = createAlignFirstLineMixin(props);
-    const { $root: $composableTypeRoot } = createComposableTypeMixin(props);
+    const [locals, expose, compose] = createExposable($ALIGN_FIRST_LINE, props);
 
-    const component = () => props.tag ?? defaultProps.tag;
+    const { $root: $alignFirstLineRoot } = compose(createAlignFirstLineMixin(locals));
+    const { $root: $composableTypeRoot } = compose(createComposableTypeMixin(locals));
+
+    const component = () => locals.tag ?? defaultProps.tag;
+
     const $root = computedProps({
         component,
     });
 
-    const composableTypeProps = pickProps(
-        props as AlignFirstLineAllProps,
+    const _composableType = pickProps(
+        locals as AlignFirstLineAllProps,
         COMPOSABLE_TYPE_MIXIN_PROPS,
     ) as ComposableTypeMixinProps;
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($alignFirstLineRoot, $composableTypeRoot, $root),
-        composableTypeProps,
-    };
+        _composableType,
+    });
 };

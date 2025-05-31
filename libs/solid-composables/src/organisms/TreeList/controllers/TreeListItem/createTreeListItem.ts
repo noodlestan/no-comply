@@ -1,22 +1,26 @@
 import { createAriaTreeItem } from '@no-comply/solid-accessibility';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { l } from '@no-comply/solid-contexts/src/labels';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
+import { $TREE_LIST_ITEM } from './constants';
 import type { TreeListItemAPI, TreeListItemProps } from './types';
 
 export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI => {
+    const [locals, expose] = createExposable($TREE_LIST_ITEM, props);
+
     const { components, labels, isExpanded, isNodeSelected } = useTreeList();
 
-    const expanded = () => Boolean(props.expand || isExpanded(props.node.id));
-    const selected = () => isNodeSelected(props.node.object.id);
-    const level = () => props.level ?? 1;
-    const setSize = () => props.setSize ?? 1;
-    const posInSet = () => props.posInSet ?? 1;
+    const expanded = () => Boolean(locals.expand || isExpanded(locals.node.id));
+    const selected = () => isNodeSelected(locals.node.object.id);
+    const level = () => locals.level ?? 1;
+    const setSize = () => locals.setSize ?? 1;
+    const posInSet = () => locals.posInSet ?? 1;
 
     const ariaTreeItemProps = computedProps({
-        label: () => l(labels().item, props.node),
+        label: () => l(labels().item, locals.node),
         selected,
         expanded,
         level,
@@ -29,34 +33,34 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
         component: 'div' as const,
     };
 
-    const detailsProps = computedProps({
+    const _treeListItemDetails = computedProps({
         component: () => components().itemDetails,
-        node: () => props.node,
-        expand: () => props.expand,
+        node: () => locals.node,
+        expand: () => locals.expand,
         level,
-        parent: () => props.parent,
-        parentSelected: () => Boolean(props.parentSelected),
+        parent: () => locals.parent,
+        parentSelected: () => Boolean(locals.parentSelected),
     });
 
-    const childrenExpand = () => {
-        const exp = props.expand;
-        return typeof exp === 'number' && exp ? exp - 1 : exp;
+    const expandChildren = () => {
+        const expand = locals.expand;
+        return typeof expand === 'number' && expand ? expand - 1 : expand;
     };
 
-    const childrenProps = computedProps({
+    const _treeListItemChildren = computedProps({
         component: () => components().itemChildren,
-        node: () => props.node,
-        expand: () => childrenExpand(),
+        node: () => locals.node,
+        expand: () => expandChildren(),
         level: () => level(),
         setSize: () => setSize(),
-        parent: () => props.parent,
-        parentSelected: () => props.parentSelected || selected(),
+        parent: () => locals.parent,
+        parentSelected: () => locals.parentSelected || selected(),
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($treeItemRoot, $root),
-        detailsProps,
-        childrenProps,
+        _treeListItemDetails,
+        _treeListItemChildren,
         isExpanded: expanded,
-    };
+    });
 };

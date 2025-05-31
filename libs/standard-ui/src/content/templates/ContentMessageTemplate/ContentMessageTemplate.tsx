@@ -1,3 +1,4 @@
+import { combineProps } from '@no-comply/solid-primitives';
 import { Show, splitProps } from 'solid-js';
 import type { ParentComponent } from 'solid-js';
 
@@ -7,19 +8,20 @@ import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
 import { AlignFirstLine, DisplayAligned, Text } from '../../../typography';
 
+import { CONTENT_MESSAGE_TEMPLATE_PROPS } from './constants';
 import { createContentMessageTemplate } from './createContentMessageTemplate';
 import type { ContentMessageTemplateProps } from './types';
 
 type Props = ContentMessageTemplateProps;
 
 export const ContentMessageTemplate: ParentComponent<Props> = props => {
-    const [locals, templateProps] = splitProps(props, ['children']);
+    const [locals, $others] = splitProps(props, [...CONTENT_MESSAGE_TEMPLATE_PROPS, 'children']);
 
     const {
         $root,
         $title,
         $description,
-        iconProps,
+        _icon,
         alignmentHeight,
         padding,
         gap,
@@ -27,10 +29,12 @@ export const ContentMessageTemplate: ParentComponent<Props> = props => {
         descriptionVariant,
         hasCloseButton,
         closeButtonSize,
-    } = createContentMessageTemplate(templateProps);
+    } = createContentMessageTemplate(locals);
+
+    const $ = combineProps($root, $others);
 
     return (
-        <Surface variant="message" {...$root} aria-labelledby={$title.id}>
+        <Surface variant="message" {...$} aria-labelledby={$title.id}>
             <Flex direction="row" align="start" padding={padding()} gap={gap()} justify="between">
                 <AlignFirstLine
                     height={alignmentHeight()}
@@ -39,7 +43,7 @@ export const ContentMessageTemplate: ParentComponent<Props> = props => {
                     variant={titleVariant()}
                 >
                     <Flex direction="row" align="start" gap={gap()}>
-                        <Icon {...iconProps} aligned />
+                        <Icon {..._icon} aligned />
                         <Flex gap={padding()}>
                             <DisplayAligned {...$title} />
                             <Text tag="div" {...$description} variant={descriptionVariant()}>

@@ -1,40 +1,38 @@
 import { createAriaList } from '@no-comply/solid-accessibility';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps, withDefault } from '@no-comply/solid-primitives';
 
 import { createListContext } from '../../contexts';
 import { createListKeyboardController } from '../ListKeyboard';
 
+import { $LIST } from './constants';
 import type { ListAPI, ListProps } from './types';
 
 export const createList = (props: ListProps): ListAPI => {
-    const contextValue = createListContext(props);
+    const [locals, expose] = createExposable($LIST, props);
+
+    const contextValue = createListContext(locals);
     const [context] = contextValue;
     const { components } = context;
 
     const keyboard = withDefault(
-        () => props.keyboard,
+        () => locals.keyboard,
         () => createListKeyboardController(),
     );
 
-    const { $root: $treeRoot, $label, $description } = createAriaList(props);
+    const { $root: $treeRoot, $label, $description } = createAriaList(locals);
 
-    const $static = {
-        ref: (el: HTMLElement) => keyboard().$root.ref(el),
-        onKeyDown: (ev: KeyboardEvent) => keyboard().$root.onKeyDown(ev),
-    };
-    const $root = computedProps($static, {});
-
-    const itemProps = computedProps({
+    const _listItem = computedProps({
         component: () => components().item,
-        setSize: () => props.items.length,
+        setSize: () => locals.items.length,
     });
 
-    return {
-        $root: combineProps($treeRoot, $root),
+    return exposeAPI(expose, '$root', {
+        $root: combineProps(() => keyboard().$root, $treeRoot),
         $label,
         $description,
-        itemProps,
+        _listItem,
         context,
         contextValue,
-    };
+    });
 };

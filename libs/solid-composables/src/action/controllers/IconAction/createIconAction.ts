@@ -1,21 +1,25 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { computedProps } from '@no-comply/solid-primitives';
 
+import { $ICON_ACTION } from './constants';
 import type { IconActionAPI, IconActionProps } from './types';
 
 export const createIconAction = (props: IconActionProps): IconActionAPI => {
+    const [locals, expose] = createExposable($ICON_ACTION, props);
+
     const $root = computedProps({
-        'aria-label': () => props.label,
+        'aria-label': () => locals.label,
     });
 
     const staticIconProps = {
         'aria-hidden': true,
     };
-    const iconProps = computedProps(staticIconProps, {
-        icon: () => props.icon,
+    const icon = computedProps(staticIconProps, {
+        icon: () => locals.icon,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-        iconProps,
-    };
+        icon,
+    });
 };

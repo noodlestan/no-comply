@@ -6,9 +6,6 @@ export type ExpandButtonProps = Pick<IconButtonProps, 'size' | 'onPress' | 'disa
     ExpandActionProps;
 
 export type ExpandButtonAPI = {
-    iconButtonProps: Pick<
-        IconButtonProps,
-        'variant' | 'size' | 'onPress' | 'disabled' | 'aligned'
-    > &
-        ExpandActionAPI['iconActionProps'];
+    _iconButton: Pick<IconButtonProps, 'variant' | 'size' | 'onPress' | 'disabled' | 'aligned'> &
+        ExpandActionAPI['_icon'];
 };

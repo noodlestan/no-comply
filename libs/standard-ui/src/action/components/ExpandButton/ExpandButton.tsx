@@ -16,8 +16,8 @@ type Props = ClosedTagProps & PopoverTriggerTagProps & ExpandButtonProps;
 export const ExpandButton: Component<Props> = props => {
     const [locals, $others] = splitProps(props, EXPAND_BUTTON_PROPS);
 
-    const { iconButtonProps } = createExpandButton(locals);
-    const $ = combineProps($others, iconButtonProps);
+    const { _iconButton } = createExpandButton(locals);
+    const $ = combineProps($others, _iconButton);
 
     return <IconButton {...$} />;
 };

@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { computedProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../ActionLabel';
@@ -5,33 +6,39 @@ import { createDisplayMixin } from '../Display';
 import { createLabelMixin } from '../Label';
 import { createTextMixin } from '../Text';
 
+import { $COMPOSABLE_TYPE_MIXIN } from './constants';
 import type { ComposableTypeMixinAPI, ComposableTypeMixinProps } from './types';
 
 export const createComposableTypeMixin = (
     props: ComposableTypeMixinProps,
 ): ComposableTypeMixinAPI => {
+    const [locals, expose, compose] = createExposable($COMPOSABLE_TYPE_MIXIN, props);
+
     const createTypeMixin = () => {
-        if (props.type === 'action') {
-            return createActionLabelMixin(props);
+        if (locals.type === 'action') {
+            return createActionLabelMixin(locals);
         }
-        if (props.type === 'display') {
-            return createDisplayMixin(props);
+        if (locals.type === 'display') {
+            return createDisplayMixin(locals);
         }
-        if (props.type === 'text') {
-            return createTextMixin(props);
+        if (locals.type === 'text') {
+            return createTextMixin(locals);
         }
-        return createLabelMixin(props);
+        return createLabelMixin(locals);
     };
 
     const typeMixinClassList = () => {
         const { $root } = createTypeMixin();
         return $root.classList;
     };
-    const $typeRoot = computedProps({
+
+    const $root = computedProps({
         classList: typeMixinClassList,
     });
 
-    return {
-        $root: $typeRoot,
-    };
+    compose(createTypeMixin);
+
+    return exposeAPI(expose, '$root', {
+        $root,
+    });
 };

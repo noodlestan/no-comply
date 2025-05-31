@@ -19,7 +19,7 @@ export const MessageToast: Component<Props> = props => {
     const $ = combineProps($root, $others);
 
     return (
-        <ContentMessageTemplate {...props} $root={$} {...rest}>
+        <ContentMessageTemplate $root={$} {...rest}>
             {locals.children}
         </ContentMessageTemplate>
     );

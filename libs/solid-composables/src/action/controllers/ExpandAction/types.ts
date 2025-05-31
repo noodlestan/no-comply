@@ -21,7 +21,7 @@ export type ExpandActionIcons = {
 };
 
 export type ExpandActionAPI = {
-    iconActionProps: Pick<IconActionProps, 'label' | 'icon'> & {
+    _icon: Pick<IconActionProps, 'label' | 'icon'> & {
         'aria-expanded': AriaAttributes['aria-expanded'];
         'aria-controls': AriaAttributes['aria-controls'];
     };

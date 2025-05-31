@@ -1,6 +1,7 @@
-import { useNavigation } from '@no-comply/solid-contexts';
+import { createExposable, exposeAPI, useNavigation } from '@no-comply/solid-contexts';
 import { computedProps } from '@no-comply/solid-primitives';
 
+import { $NAV_LINK } from './constants';
 import type { NavLinkAPI, NavLinkProps } from './types';
 
 const defaultProps: Required<Pick<NavLinkProps, 'mode'>> = {
@@ -8,13 +9,15 @@ const defaultProps: Required<Pick<NavLinkProps, 'mode'>> = {
 };
 
 export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
+    const [locals, expose] = createExposable($NAV_LINK, props);
+
     const { isCurrent } = useNavigation();
 
     const isCurrentNav = () =>
-        props.current !== undefined ? props.current : isCurrent(props.href, props.exact);
+        locals.current !== undefined ? locals.current : isCurrent(locals.href, locals.exact);
 
     const mode = () => {
-        const m = props.mode ?? defaultProps.mode;
+        const m = locals.mode ?? defaultProps.mode;
         return m === 'section' ? true : m;
     };
 
@@ -23,7 +26,7 @@ export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
         'aria-current': () => (isCurrentNav() ? mode() : undefined),
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 };

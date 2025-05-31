@@ -1,14 +1,17 @@
 import { createAriaRegion } from '@no-comply/solid-accessibility';
-import { createFocusContext } from '@no-comply/solid-contexts';
+import { createExposable, createFocusContext, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
+import { $FOCUSABLE } from './constants';
 import type { FocusableAPI, FocusableProps } from './types';
 
 export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
-    const contextValue = createFocusContext(props);
+    const [locals, expose, compose] = createExposable($FOCUSABLE, props);
+
+    const contextValue = compose(createFocusContext(locals));
     const [context] = contextValue;
 
-    const { $root: $regionRoot, $label, $description } = createAriaRegion(props);
+    const { $root: $regionRoot, $label, $description } = createAriaRegion(locals);
 
     const setFocus = () => context.setFocus();
 
@@ -37,10 +40,10 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
         'data-focusable': '',
     };
 
-    const component = () => props.tag ?? 'div';
+    const component = () => locals.tag ?? 'div';
     const $root = computedProps($static, {
         component,
-        'data-disabled': () => (props.disabled ? '' : undefined),
+        'data-disabled': () => (locals.disabled ? '' : undefined),
         'data-has-focus': () => (context.hasFocus() ? '' : undefined),
         'data-has-focus-within': () => (context.hasFocusWithin() ? '' : undefined),
     });
@@ -54,10 +57,10 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
         'data-focusable-target': '' as const,
     };
     const $target = computedProps($targetStatic, {
-        disabled: () => Boolean(props.disabled),
+        disabled: () => Boolean(locals.disabled),
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($regionRoot, $root),
         $target,
         $label,
@@ -66,5 +69,5 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
         contextValue,
         isFocused: context.hasFocus,
         setFocus,
-    };
+    });
 };

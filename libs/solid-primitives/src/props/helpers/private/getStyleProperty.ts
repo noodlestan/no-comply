@@ -1,11 +1,10 @@
 /* eslint-disable dot-notation */
 import type { Styles } from '../../../styles';
-import type { AccessorOrValue } from '../../types';
+import type { AccessorOrValue, AnyProps } from '../../types';
 
 import { resolveSource } from './resolveSource';
-import type { Props } from './types';
 
-export function getStyleProperty(sources: AccessorOrValue<Props>[]): Styles {
+export function getStyleProperty(sources: AccessorOrValue<AnyProps>[]): Styles {
     const styleFns: (() => Styles)[] = [];
     for (let i = 0; i < sources.length; i++) {
         const resolvedSource = resolveSource(sources[i]);

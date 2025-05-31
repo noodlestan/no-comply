@@ -1,4 +1,4 @@
-import { l } from '@no-comply/solid-contexts';
+import { createExposable, exposeAPI, l } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createExtendedPressable } from '../../../../action';
@@ -6,11 +6,14 @@ import { getTreeSelectionUntil } from '../../helpers';
 import { useTreeList } from '../../providers';
 import type { TreeNode } from '../../types';
 
+import { $TREE_LIST_ITEM_DETAILS } from './constants';
 import type { TreeListItemDetailsAPI, TreeListItemDetailsProps } from './types';
 
 export const createTreeListItemDetails = (
     props: TreeListItemDetailsProps,
 ): TreeListItemDetailsAPI => {
+    const [locals, expose, compose] = createExposable($TREE_LIST_ITEM_DETAILS, props);
+
     const {
         components,
         labels,
@@ -25,11 +28,11 @@ export const createTreeListItemDetails = (
         setSelection,
     } = useTreeList();
 
-    const isItemExpanded = () => Boolean(props.expand || isExpanded(props.node.id));
-    const selected = () => isNodeSelected(props.node.object.id);
-    const level = () => props.level ?? 1;
-    const hasChildren = () => props.node.children.length > 0;
-    const hasToggle = () => Boolean(!props.expand && hasChildren() && props.level);
+    const isItemExpanded = () => Boolean(locals.expand || isExpanded(locals.node.id));
+    const selected = () => isNodeSelected(locals.node.object.id);
+    const level = () => locals.level ?? 1;
+    const hasChildren = () => locals.node.children.length > 0;
+    const hasToggle = () => Boolean(!locals.expand && hasChildren() && locals.level);
     const showSelection = () => getSelection().length > 1;
 
     const selectNode = (node: TreeNode) => {
@@ -40,9 +43,9 @@ export const createTreeListItemDetails = (
         const event = ev as MouseEvent;
         ev.stopImmediatePropagation();
         if (!event.altKey && !event.shiftKey && hasToggle()) {
-            toggleExpanded(props.node.id);
+            toggleExpanded(locals.node.id);
         }
-        selectNode(props.node);
+        selectNode(locals.node);
     };
 
     const selectNodesUntil = (node: TreeNode) => {
@@ -61,69 +64,70 @@ export const createTreeListItemDetails = (
 
     const handleItemShiftPress = (ev: Event) => {
         ev.stopImmediatePropagation();
-        selectNodesUntil(props.node);
+        selectNodesUntil(locals.node);
     };
 
     const handleItemAltPress = (ev: Event) => {
         ev.stopImmediatePropagation();
-        toggleNodeSelected(props.node);
+        toggleNodeSelected(locals.node);
     };
 
-    const extendedPressable = createExtendedPressable({
-        onShiftPress: handleItemShiftPress,
-        onAltPress: handleItemAltPress,
-    });
+    const { $root: $extendedPressableRoot } = compose(
+        createExtendedPressable({
+            onShiftPress: handleItemShiftPress,
+            onAltPress: handleItemAltPress,
+        }),
+    );
 
-    const focusableStaticProps = {
+    const _focusable = {
         onPress: handleItemPress,
         labels: {
             region: l(labels().details),
         },
     };
-    const focusableProps = combineProps(focusableStaticProps, extendedPressable);
 
     const $root = computedProps({
-        'data-tree-item-id': () => props.node.id,
+        'data-tree-item-id': () => locals.node.id,
         'data-tree-item-is-expandable': () => (hasToggle() ? '' : undefined),
         'data-tree-item-is-selected': () => (showSelection() && selected() ? '' : undefined),
         'data-tree-item-is-parent-selected': () =>
-            showSelection() && !!props.parentSelected ? '' : undefined,
+            showSelection() && !!locals.parentSelected ? '' : undefined,
     });
 
     const handleExpandPress = (ev: Event) => {
         ev.stopImmediatePropagation();
-        toggleExpanded(props.node.id);
+        toggleExpanded(locals.node.id);
     };
 
     const expandButtonStaticProps = {
         onPress: handleExpandPress,
     };
-    const expandButtonProps = computedProps(expandButtonStaticProps, {
-        controls: () => `tree-list-node-${props.node.id}`,
+    const _buttonExpand = computedProps(expandButtonStaticProps, {
+        controls: () => `tree-list-node-${locals.node.id}`,
         component: () => components().expandButton,
         expanded: isItemExpanded,
         labels: () => ({
-            expanded: l(labels().expanded, props.node),
-            collapsed: l(labels().collapsed, props.node),
+            expanded: l(labels().expanded, locals.node),
+            collapsed: l(labels().collapsed, locals.node),
         }),
         icons,
     });
 
-    const itemContentsProps = computedProps({
-        component: () => props.node.component ?? components().itemContents,
-        node: () => props.node,
+    const _treeListItemContents = computedProps({
+        component: () => locals.node.component ?? components().itemContents,
+        node: () => locals.node,
         level,
-        parent: () => props.parent,
+        parent: () => locals.parent,
         expanded: isItemExpanded,
-        selected: () => isNodeSelected(props.node.id),
-        parentSelected: () => props.parentSelected,
+        selected: () => isNodeSelected(locals.node.id),
+        parentSelected: () => locals.parentSelected,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-        focusableProps,
-        expandButtonProps,
-        itemContentsProps,
+        _focusable: combineProps(_focusable, $extendedPressableRoot),
+        _buttonExpand,
+        _treeListItemContents,
         hasToggle,
-    };
+    });
 };

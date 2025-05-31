@@ -108,7 +108,7 @@
     }
 
     .variant-secondary:is([data-disabled], [data-inactive]) {
-        @include set-alpha(__bg, invisible);
+        @include set-level(__bg, content-bg-2);
     }
 
     .variant-secondary:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {

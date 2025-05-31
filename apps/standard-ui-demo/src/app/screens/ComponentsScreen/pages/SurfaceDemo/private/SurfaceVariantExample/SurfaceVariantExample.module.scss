@@ -4,7 +4,7 @@
     .SurfaceVariantExample > div {
         padding: var(--space-gap-3);
         border: 1px dotted;
-        @include set-color(__border, graphics-2, border, opaque);
+        @include set-color(__border, graphics-3, border-1, opaque);
 
         @include apply-color(border-color, __border);
     }

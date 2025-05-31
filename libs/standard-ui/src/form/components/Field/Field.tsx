@@ -20,14 +20,14 @@ type Props = ClosedTagProps &
 export const Field: Component<Props> = props => {
     const [locals, $others] = splitProps(props, [...FIELD_PROPS, 'label', 'children']);
     const field = createField(locals);
-    const { $root, fieldLabelProps, contextValue } = field;
+    const { $root, _fieldLabel, contextValue } = field;
 
     const $ = combineProps($others, $root);
 
     return (
         <FieldContextProvider context={contextValue}>
             <Flex direction="column" gap="s" {...$}>
-                <FieldLabel {...fieldLabelProps}>{locals.label}</FieldLabel>
+                <FieldLabel {..._fieldLabel}>{locals.label}</FieldLabel>
                 {locals.children({ field })}
             </Flex>
         </FieldContextProvider>

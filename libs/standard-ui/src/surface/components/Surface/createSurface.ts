@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -9,6 +10,7 @@ import { splitProps } from 'solid-js';
 import { createLayoutMixin } from '../../../layout';
 
 import styles from './Surface.module.scss';
+import { $SURFACE } from './constants';
 import type { SurfaceAPI, SurfaceProps } from './types';
 
 const defaultProps: PickRequired<SurfaceProps, 'variant'> = {
@@ -16,17 +18,20 @@ const defaultProps: PickRequired<SurfaceProps, 'variant'> = {
 };
 
 export const createSurface = (props: SurfaceProps): SurfaceAPI => {
-    const [locals, others] = splitProps(props, ['variant']);
+    const [locals, expose, compose] = createExposable($SURFACE, props);
 
-    const { $root: $layoutMixinRoot } = createLayoutMixin(props);
+    const [ownProps, others] = splitProps(locals, ['variant']);
 
-    const variant = () => locals.variant ?? defaultProps.variant;
+    const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
+
+    const variant = () => ownProps.variant ?? defaultProps.variant;
+
     const staticProps = {
         classList: staticClassList(styles, 'Surface'),
     };
-    const surfaceProps = computedProps(staticProps, { variant });
+    const _surface = computedProps(staticProps, { variant });
 
-    return {
-        surfaceProps: combineProps(others, $layoutMixinRoot, surfaceProps),
-    };
+    return exposeAPI(expose, '_surface', {
+        _surface: combineProps(others, $layoutMixinRoot, _surface),
+    });
 };

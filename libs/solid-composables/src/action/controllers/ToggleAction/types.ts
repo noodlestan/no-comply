@@ -19,5 +19,5 @@ export type ToggleActionIcons = {
 };
 
 export type ToggleActionAPI = {
-    iconActionProps: Pick<IconActionProps, 'label' | 'icon'>;
+    _icon: Pick<IconActionProps, 'label' | 'icon'>;
 };

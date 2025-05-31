@@ -1,9 +1,13 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { computedProps } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
+import { $FOCUS_RING } from './constants';
 import type { FocusRingAPI, FocusRingProps } from './types';
 
 export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
+    const [locals, expose] = createExposable($FOCUS_RING, props);
+
     const [hadFocus, setHadFocus] = createSignal(false);
     const [isActive, setIsActive] = createSignal(false);
 
@@ -16,7 +20,7 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
     };
 
     const onKeyDown = (ev: KeyboardEvent) => {
-        if (props.passive) {
+        if (locals.passive) {
             return;
         }
         if (ev.target !== ev.currentTarget) {
@@ -34,7 +38,9 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
         }
     };
 
-    const $static = { onKeyDown };
+    const $static = {
+        onKeyDown,
+    };
 
     const $root = computedProps($static, {
         'data-had-focus': () => (hadFocus() ? '' : undefined),
@@ -47,8 +53,8 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
         classList: { foo: true },
     };
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
         $focusTarget,
-    };
+    });
 };

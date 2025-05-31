@@ -13,11 +13,11 @@ export type MenuItemGroupAPI = Omit<
     '$root' | '$label' | '$description'
 > & {
     $root: HeadlessMenuItemGroupAPI['$root'] & MenuItemGroupMixinAPI['$root'];
-    labelProps: HeadlessMenuItemGroupAPI['$label'] &
+    _label: HeadlessMenuItemGroupAPI['$label'] &
         MenuItemGroupMixinAPI['$label'] & {
             variant: LabelProps['variant'];
         };
-    descriptionProps: HeadlessMenuItemGroupAPI['$description'] &
+    _textDescription: HeadlessMenuItemGroupAPI['$description'] &
         MenuItemGroupMixinAPI['$description'] & {
             variant: TextProps['variant'];
         };

@@ -1,11 +1,15 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { onCleanup } from 'solid-js';
 
 import { createPressOutside } from '../PressOutside';
 
+import { $DISMISSIBLE } from './constants';
 import type { DismissibleAPI, DismissibleProps } from './types';
 
 export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
+    const [locals, expose, compose] = createExposable($DISMISSIBLE, props);
+
     let rootEl: HTMLElement | undefined;
 
     const setDismissibleRef = (el: HTMLElement) => {
@@ -13,14 +17,14 @@ export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
     };
 
     const pressOutsideProps = computedProps({
-        onPressOutside: () => props.onDismiss,
-        exclude: () => props.exclude,
+        onPressOutside: () => locals.onDismiss,
+        exclude: () => locals.exclude,
     });
-    const { $root: $pressOutsideRoot } = createPressOutside(pressOutsideProps);
+    const { $root: $pressOutsideRoot } = compose(createPressOutside(pressOutsideProps));
 
     const onKeyDown = (ev: KeyboardEvent) => {
         if (ev.key === 'Escape') {
-            props.onDismiss();
+            locals.onDismiss();
         }
     };
 
@@ -32,10 +36,10 @@ export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
         if (active && rootEl.contains(active)) {
             return;
         }
-        if (props.exclude?.().some(el => el && el.contains(document.activeElement))) {
+        if (locals.exclude?.().some(el => el && el.contains(document.activeElement))) {
             return;
         }
-        props.onDismiss();
+        locals.onDismiss();
     };
 
     document.addEventListener('focusin', handleFocusIn);
@@ -48,7 +52,7 @@ export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
         onKeyDown,
     };
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($pressOutsideRoot, $root),
-    };
+    });
 };

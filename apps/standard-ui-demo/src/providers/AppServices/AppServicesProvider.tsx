@@ -1,12 +1,14 @@
 import {
     ActiveContextsProvider,
     ContextVariantsProvider,
+    ExposeProvider,
     FocusTargetsProvider,
     ModalsProvider,
     NavigationProvider,
     SettingsProvider,
     ShortcutsProvider,
     createActiveContextsService,
+    createExposesService,
     createFocusTargetsService,
     createModalsService,
     createNavigationService,
@@ -20,16 +22,17 @@ import { AppServicesContext } from './private';
 import { createAppServices } from './private/createAppServices';
 
 export const AppServicesProvider: ParentComponent = props => {
-    const appServices = createAppServices();
     const location = useLocation();
     const navigation = createNavigationService({
         current: () => location.pathname,
     });
     const settings = createSettingsService();
+    const appServices = createAppServices();
     const focus = createFocusTargetsService();
     const modals = createModalsService();
     const contexts = createActiveContextsService();
     const shortcuts = createShortcutsService(contexts);
+    const exposeService = createExposesService({ expose: true });
 
     onCleanup(() => {
         focus.dispose();
@@ -43,13 +46,15 @@ export const AppServicesProvider: ParentComponent = props => {
                 <AppServicesContext.Provider value={appServices}>
                     <FocusTargetsProvider service={focus}>
                         <ModalsProvider service={modals}>
-                            <ShortcutsProvider service={shortcuts}>
-                                <ActiveContextsProvider service={contexts}>
+                            <ActiveContextsProvider service={contexts}>
+                                <ShortcutsProvider service={shortcuts}>
                                     <ContextVariantsProvider>
-                                        {props.children}
+                                        <ExposeProvider service={exposeService}>
+                                            {props.children}
+                                        </ExposeProvider>
                                     </ContextVariantsProvider>
-                                </ActiveContextsProvider>
-                            </ShortcutsProvider>
+                                </ShortcutsProvider>
+                            </ActiveContextsProvider>
                         </ModalsProvider>
                     </FocusTargetsProvider>
                 </AppServicesContext.Provider>

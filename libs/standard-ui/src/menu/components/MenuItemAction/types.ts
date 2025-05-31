@@ -17,8 +17,8 @@ export type MenuItemActionAPI = Omit<
         $root: HeadlessMenuItemActionAPI['$root'] &
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
-        labelProps: HeadlessMenuItemActionAPI['$label'] & BaseMenuItemAPI['labelProps'];
-        descriptionProps: HeadlessMenuItemActionAPI['$description'] &
-            BaseMenuItemAPI['descriptionProps'];
-        iconProps: HeadlessMenuItemActionAPI['iconProps'] & BaseMenuItemAPI['iconProps'];
+        _label: HeadlessMenuItemActionAPI['$label'] & BaseMenuItemAPI['_label'];
+        _textDescription: HeadlessMenuItemActionAPI['$description'] &
+            BaseMenuItemAPI['_textDescription'];
+        _icon: HeadlessMenuItemActionAPI['_icon'] & BaseMenuItemAPI['_icon'];
     };

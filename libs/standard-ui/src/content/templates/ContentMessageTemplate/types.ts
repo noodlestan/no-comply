@@ -1,4 +1,5 @@
 import type { ContentMessageAPI } from '@no-comply/solid-composables';
+import type { ExposedDataProps } from '@no-comply/solid-contexts';
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
@@ -15,7 +16,9 @@ export type ContentMessageTemplateOwnProps = {
     size?: ContentMessageTemplateSize;
     length?: ContentMessageTemplateLength;
 };
-export type ContentMessageTemplateProps = ContentMessageAPI & ContentMessageTemplateOwnProps;
+export type ContentMessageTemplateProps = ExposedDataProps &
+    ContentMessageAPI &
+    ContentMessageTemplateOwnProps;
 
 export type ContentMessageTemplateAPI = {
     $root: ContentMessageAPI['$root'] & {
@@ -25,7 +28,7 @@ export type ContentMessageTemplateAPI = {
         classList: ClassList;
     };
     $description: ContentMessageAPI['$description'];
-    iconProps: ContentMessageAPI['iconProps'] & {
+    _icon: ContentMessageAPI['_icon'] & {
         size: ContentSize;
         classList: ClassList;
     };

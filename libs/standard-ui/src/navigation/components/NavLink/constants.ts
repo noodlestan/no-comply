@@ -8,6 +8,8 @@ import { NAV_LINK_MIXIN_PROPS } from '../../mixins';
 
 import type { NavLinkProps } from './types';
 
+export const $NAV_LINK = 'component:standard:nav-link';
+
 export const NAV_LINK_PROPS = definePropKeys<NavLinkProps>()([
     ...HEADLESS_LINK_PROPS,
     ...HEADLESS_NAV_LINK_PROPS,

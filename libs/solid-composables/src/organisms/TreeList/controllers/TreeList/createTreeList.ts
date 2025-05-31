@@ -1,4 +1,5 @@
 import { createAriaTree } from '@no-comply/solid-accessibility';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps, withDefault } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
 
@@ -6,47 +7,47 @@ import { createTreeListContext } from '../../contexts';
 import { ICONS, LABELS } from '../../private';
 import { createTreeListKeyboardController } from '../TreeListKeyboard';
 
+import { $TREE_LIST } from './constants';
 import type { TreeListAPI, TreeListProps } from './types';
 
 export const createTreeList = (props: TreeListProps): TreeListAPI => {
-    const [, others] = splitProps(props, ['labels', 'icons']);
+    const [locals, expose, compose] = createExposable($TREE_LIST, props);
 
-    const contextProps = computedProps({
-        labels: () => Object.assign({}, LABELS, props.labels),
-        icons: () => Object.assign({}, ICONS, props.icons),
+    const [, others] = splitProps(locals, ['labels', 'icons']);
+
+    const contextOptions = computedProps({
+        labels: () => Object.assign({}, LABELS, locals.labels),
+        icons: () => Object.assign({}, ICONS, locals.icons),
     });
-    const contextValue = createTreeListContext(combineProps(others, contextProps));
+    const allContextOptions = combineProps(others, contextOptions);
+    const contextValue = compose(createTreeListContext(allContextOptions));
     const [context] = contextValue;
     const { components } = context;
 
     const keyboard = withDefault(
-        () => props.keyboard,
-        () => createTreeListKeyboardController(() => props.root, context),
+        () => locals.keyboard,
+        () => createTreeListKeyboardController(() => locals.root, context),
     );
 
-    const { $root: $treeRoot, $label, $description } = createAriaTree(props);
+    const { $root: $treeRoot, $label, $description } = createAriaTree(locals);
 
-    const expand = () => props.expand;
-    const $static = {
-        ref: (el: HTMLElement) => keyboard().$root.ref(el),
-        onKeyDown: (ev: KeyboardEvent) => keyboard().$root.onKeyDown(ev),
-    };
-    const $root = computedProps($static, {
+    const expand = () => locals.expand;
+    const $root = computedProps({
         expand,
     });
 
-    const itemProps = computedProps({
+    const _treeListItem = computedProps({
         component: () => components().item,
-        node: () => props.root,
-        expand: () => props.expand,
+        node: () => locals.root,
+        expand: () => locals.expand,
     });
 
-    return {
-        $root: combineProps($treeRoot, $root),
+    return exposeAPI(expose, '$root', {
+        $root: combineProps(() => keyboard().$root, $treeRoot, $root),
         $label,
         $description,
-        itemProps,
+        _treeListItem,
         context,
         contextValue,
-    };
+    });
 };

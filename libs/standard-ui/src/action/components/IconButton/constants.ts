@@ -6,6 +6,8 @@ import { BUTTON_PROPS } from '../Button';
 
 import type { IconButtonProps } from './types';
 
+export const $ICON_BUTTON = 'component:standard:icon-button';
+
 export const ICON_BUTTON_PROPS = definePropKeys<IconButtonProps>()([
     ...BUTTON_PROPS,
     ...ICON_ACTION_PROPS,

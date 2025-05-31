@@ -1,25 +1,25 @@
 import type { BaseMenuItemAPI } from './types';
 
 export const createBaseMenuItem = (): BaseMenuItemAPI => {
-    const labelProps = {
+    const _label = {
         variant: 'small',
         tag: 'span',
         aligned: true,
     } as const;
 
-    const descriptionProps = {
+    const _textDescription = {
         variant: 'small',
         tag: 'span',
     } as const;
 
-    const iconProps = {
+    const _icon = {
         aligned: true,
         size: 'small',
     } as const;
 
     return {
-        labelProps,
-        descriptionProps,
-        iconProps,
+        _label,
+        _textDescription,
+        _icon,
     };
 };

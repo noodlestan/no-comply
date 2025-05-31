@@ -19,7 +19,7 @@ export const Callout: Component<Props> = props => {
     const $ = combineProps($root, $others);
 
     return (
-        <ContentMessageTemplate {...props} $root={$} {...rest}>
+        <ContentMessageTemplate $root={$} data-xp-id={$root['data-xp-id']} {...rest}>
             {locals.children}
         </ContentMessageTemplate>
     );

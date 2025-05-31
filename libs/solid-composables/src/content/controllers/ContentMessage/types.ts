@@ -19,7 +19,7 @@ export type ContentMessageAPI = {
         children: string;
     };
     $description: AriaRegionAPI['$description'];
-    iconProps: Pick<AriaAttributes, 'aria-label'> & {
+    _icon: Pick<AriaAttributes, 'aria-label'> & {
         icon: IconComponent;
     };
 };

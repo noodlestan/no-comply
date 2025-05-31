@@ -1,19 +1,22 @@
 import { createAriaForm } from '@no-comply/solid-accessibility';
-import { createFormContext } from '@no-comply/solid-contexts';
+import { createExposable, createFormContext, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
+import { $FORM } from './constants';
 import type { FormAPI, FormProps } from './types';
 
 export const createForm = (props: FormProps = {}): FormAPI => {
+    const [locals, expose, compose] = createExposable($FORM, props);
+
     const state: { api: FormAPI } = { api: {} as FormAPI };
 
-    const contextValue = createFormContext(props);
+    const contextValue = compose(createFormContext(locals));
     const [context] = contextValue;
 
-    const { $root: $formRoot, $label, $description } = createAriaForm(props);
+    const { $root: $formRoot, $label, $description } = createAriaForm(locals);
 
     const $static = {
-        onSubmit: () => props.onSubmit?.(state.api),
+        onSubmit: () => locals.onSubmit?.(state.api),
     };
     const $root = computedProps($static, {
         'data-disabled': () => (context.isDisabled() ? '' : undefined),
@@ -42,5 +45,5 @@ export const createForm = (props: FormProps = {}): FormAPI => {
         contextValue,
     };
 
-    return state.api;
+    return exposeAPI(expose, '$root', state.api);
 };

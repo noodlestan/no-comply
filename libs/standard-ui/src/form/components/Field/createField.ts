@@ -1,4 +1,5 @@
 import { createFieldMixin, createField as createHeadlessField } from '@no-comply/solid-composables';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -7,6 +8,7 @@ import {
 } from '@no-comply/solid-primitives';
 
 import styles from './Field.module.scss';
+import { $FIELD } from './constants';
 import type { FieldAPI, FieldProps } from './types';
 
 const defaultProps: PickRequired<FieldProps, 'size'> = {
@@ -14,36 +16,31 @@ const defaultProps: PickRequired<FieldProps, 'size'> = {
 };
 
 export const createField = (props: FieldProps): FieldAPI => {
+    const [locals, expose, compose] = createExposable($FIELD, props);
+
     const {
         $root: $fieldRoot,
-        $label,
-        $description,
-        $input,
-        $feedback,
-        context,
-        contextValue,
+        $label: $fieldLabel,
         hasFeedback,
-    } = createHeadlessField(props);
-    const { $root: $fieldMixinRoot } = createFieldMixin();
+        ...rest
+    } = compose(createHeadlessField(locals));
+    const { $root: $fieldMixinRoot } = compose(createFieldMixin());
 
-    const size = () => props.size || defaultProps.size;
+    const size = () => locals.size || defaultProps.size;
     const classList = createClassList(styles, () => ['Field', `size-${size()}`]);
+
     const $root = computedProps({
         classList,
     });
 
-    const fieldLabelProps = computedProps({
+    const _fieldLabel = computedProps({
         size,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
+        ...rest,
         $root: combineProps($fieldRoot, $fieldMixinRoot, $root),
-        fieldLabelProps: combineProps($label, fieldLabelProps),
-        $description,
-        $input,
-        $feedback,
-        context,
-        contextValue,
+        _fieldLabel: combineProps($fieldLabel, _fieldLabel),
         hasFeedback,
-    };
+    });
 };

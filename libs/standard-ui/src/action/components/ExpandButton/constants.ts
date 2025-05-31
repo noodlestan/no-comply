@@ -3,6 +3,8 @@ import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { ExpandButtonProps } from './types';
 
+export const $EXPAND_BUTTON = 'component:standard:expand-button';
+
 export const EXPAND_BUTTON_PROPS = definePropKeys<ExpandButtonProps>()([
     'size',
     'onPress',

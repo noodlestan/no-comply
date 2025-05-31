@@ -3,6 +3,8 @@ import { PRESS_EVENT_HANDLERS, definePropKeys } from '@no-comply/solid-primitive
 
 import type { PressableProps } from './types';
 
+export const $PRESSABLE = 'controller:composable:pressable';
+
 export const PRESSABLE_PROPS = definePropKeys<PressableProps>()([
     ...ARIA_PRESSABLE_PROPS,
     ...PRESS_EVENT_HANDLERS,

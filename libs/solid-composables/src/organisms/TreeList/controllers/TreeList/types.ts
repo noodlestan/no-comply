@@ -20,7 +20,7 @@ export type TreeListAPI = {
     $root: AriaTreeAPI['$root'] & TreeListKeyboardControllerAPI['$root'];
     $label: AriaLabelledAPI['$label'];
     $description: AriaLabelledAPI['$description'];
-    itemProps: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;
+    _treeListItem: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;
     context: TreeListContext;
     contextValue: TreeListContextValue;
 };

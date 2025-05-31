@@ -5,8 +5,6 @@ import { Display, Flex, Icon, Layout } from '@no-comply/standard-ui';
 import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
 
-import { ScreenTemplateBase } from '../../templates';
-
 import styles from './ErrorBoundaryScreen.module.scss';
 
 const logError = (error: Error) => {
@@ -52,7 +50,7 @@ export const ErrorScreen: ParentComponent = () => {
     const iconClassList = staticClassList(styles, '-Icon');
 
     return (
-        <ScreenTemplateBase id="error">
+        <Flex direction="column" stretch="full" justify="stretch">
             <Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
                 <Flex padding="xl" gap="l" align="center">
                     <Flex direction="row" gap="s" justify="around">
@@ -69,7 +67,7 @@ export const ErrorScreen: ParentComponent = () => {
                     <Display variant="xl">Ouch</Display>
                 </Flex>
             </Layout>
-        </ScreenTemplateBase>
+        </Flex>
     );
 };
 

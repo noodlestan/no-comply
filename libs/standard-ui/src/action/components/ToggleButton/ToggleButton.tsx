@@ -12,8 +12,8 @@ type Props = ClosedTagProps & ToggleButtonProps;
 export const ToggleButton: Component<Props> = props => {
     const [locals, $others] = splitProps(props, TOGGLE_BUTTON_PROPS);
 
-    const { iconButtonProps } = createToggleButton(locals);
-    const $ = combineProps($others, iconButtonProps);
+    const { _iconButton } = createToggleButton(locals);
+    const $ = combineProps($others, _iconButton);
 
     return <IconButton {...$} />;
 };

@@ -1,13 +1,17 @@
 import { createAriaListItem } from '@no-comply/solid-accessibility';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 import { batch } from 'solid-js';
 
 import { getListSelectionUntil } from '../../helpers';
 import { useList } from '../../providers';
 
+import { $LIST_ITEM } from './constants';
 import type { ListItemAPI, ListItemProps } from './types';
 
 export const createListItem = (props: ListItemProps): ListItemAPI => {
+    const [locals, expose] = createExposable($LIST_ITEM, props);
+
     const {
         components,
         items,
@@ -20,19 +24,19 @@ export const createListItem = (props: ListItemProps): ListItemAPI => {
         setSelection,
     } = useList();
 
-    const isSelected = () => isItemSelected(props.item.id);
+    const isSelected = () => isItemSelected(locals.item.id);
 
     const ariaComputedProps = computedProps({
         selected: isSelected,
     });
-    const ariaProps = combineProps(props, ariaComputedProps);
+    const ariaProps = combineProps(locals, ariaComputedProps);
     const { $root: $listItemRoot, $label, $description } = createAriaListItem(ariaProps);
 
     const selectItem = () => {
         if (isDisabled()) {
             return;
         }
-        setSelection([props.item]);
+        setSelection([locals.item]);
     };
 
     const selectItemsUntil = () => {
@@ -42,7 +46,7 @@ export const createListItem = (props: ListItemProps): ListItemAPI => {
         const firstSelected = getFirstSelected();
         if (firstSelected) {
             batch(() => {
-                const itemsToSelect = getListSelectionUntil(items(), firstSelected, props.item);
+                const itemsToSelect = getListSelectionUntil(items(), firstSelected, locals.item);
                 clearSelection();
                 select(firstSelected);
                 itemsToSelect.forEach(object => select(object));
@@ -56,7 +60,7 @@ export const createListItem = (props: ListItemProps): ListItemAPI => {
         if (isDisabled()) {
             return;
         }
-        toggleSelected(props.item);
+        toggleSelected(locals.item);
     };
 
     const itemContentsStaticProps = {
@@ -67,14 +71,14 @@ export const createListItem = (props: ListItemProps): ListItemAPI => {
 
     const itemContentsProps = computedProps(itemContentsStaticProps, {
         component: () => components().itemContents,
-        item: () => props.item,
+        item: () => locals.item,
         selected: isSelected,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: $listItemRoot,
         $label,
         $description,
         itemContentsProps,
-    };
+    });
 };

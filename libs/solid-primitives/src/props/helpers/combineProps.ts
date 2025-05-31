@@ -5,32 +5,44 @@
  * Modifications: Deep merging of classList, style, ref, and event handlers.
  */
 
-import type { AccessorOrValue } from '../types';
+import type { AccessorOrValue, AnyProps } from '../types';
 
 import { $COMPUTED, getMergedProperty, resolveSource } from './private';
-import type { Props } from './private';
 
-export function combineProps<T extends Props = Props, U extends Props = Props>(
+export function combineProps<T extends AnyProps = AnyProps, U extends AnyProps = AnyProps>(
     source1: AccessorOrValue<T>,
     source2: AccessorOrValue<U>,
 ): T & U;
 export function combineProps<
-    T extends Props = Props,
-    U extends Props = Props,
-    V extends Props = Props,
+    T extends AnyProps = AnyProps,
+    U extends AnyProps = AnyProps,
+    V extends AnyProps = AnyProps,
 >(source1: AccessorOrValue<T>, source2: AccessorOrValue<U>, source3: AccessorOrValue<V>): T & U & V;
 export function combineProps<
-    T extends Props = Props,
-    U extends Props = Props,
-    V extends Props = Props,
-    W extends Props = Props,
+    T extends AnyProps = AnyProps,
+    U extends AnyProps = AnyProps,
+    V extends AnyProps = AnyProps,
+    W extends AnyProps = AnyProps,
 >(
     source1: AccessorOrValue<T>,
     source2: AccessorOrValue<U>,
     source3: AccessorOrValue<V>,
     source4: AccessorOrValue<W>,
 ): T & U & V & W;
-export function combineProps(...sources: AccessorOrValue<Props>[]): Props {
+export function combineProps<
+    T extends AnyProps = AnyProps,
+    U extends AnyProps = AnyProps,
+    V extends AnyProps = AnyProps,
+    W extends AnyProps = AnyProps,
+    X extends AnyProps = AnyProps,
+>(
+    source1: AccessorOrValue<T>,
+    source2: AccessorOrValue<U>,
+    source3: AccessorOrValue<V>,
+    source4: AccessorOrValue<W>,
+    source5: AccessorOrValue<X>,
+): T & U & V & W & X;
+export function combineProps(...sources: AccessorOrValue<AnyProps>[]): AnyProps {
     const traps = {
         get(_: unknown, key: string | symbol) {
             if (key === $COMPUTED) {
@@ -71,7 +83,7 @@ export function combineProps(...sources: AccessorOrValue<Props>[]): Props {
         },
     };
 
-    const proxy = new Proxy({}, traps) as Props;
+    const proxy = new Proxy({}, traps) as AnyProps;
 
     Object.defineProperty(proxy, $COMPUTED, { value: true, configurable: true, enumerable: false });
 

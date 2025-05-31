@@ -15,7 +15,7 @@ export const createContentMessage = (props: ContentMessageProps): ContentMessage
         children: () => props.title,
     });
 
-    const iconProps = computedProps({
+    const _icon = computedProps({
         icon: () => props.icon,
         'aria-label': () => props.variant, // WIP expose labels for i18n
     });
@@ -24,6 +24,6 @@ export const createContentMessage = (props: ContentMessageProps): ContentMessage
         $root: combineProps($regionRoot, $root),
         $title: combineProps($label, $title),
         $description,
-        iconProps,
+        _icon,
     };
 };

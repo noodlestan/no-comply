@@ -16,7 +16,7 @@ export type ListAPI = {
     $root: AriaListAPI['$root'] & ListKeyboardControllerAPI['$root'];
     $label: AriaListAPI['$label'];
     $description: AriaListAPI['$description'];
-    itemProps: PropsWithComponent<ListItemProps, ListItemComputedProps>;
+    _listItem: PropsWithComponent<ListItemProps, ListItemComputedProps>;
     context: ListContext;
     contextValue: ListContextValue;
 };

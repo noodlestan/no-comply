@@ -11,8 +11,8 @@
 
         @include set-color(__fg, primary, fg-disabled, opaque);
         @include set-color(__bg, graphics-1, bg-2, opaque);
-        @include set-color(__border, graphics-1, border, opaque);
-        @include set-color(__tick, graphics-2, graphics, opaque);
+        @include set-color(__border, graphics-1, border-muted, opaque);
+        @include set-color(__tick, graphics-1, border-1, opaque);
 
         @include set-color(__marker-fg, primary, fg-muted, opaque);
         @include set-color(__marker-bg, primary, bg-2, transparent);
@@ -41,7 +41,7 @@
             height: var(--scale-4xs);
             border-inline-start: solid 1px;
 
-            @include apply-color(border-color, __border);
+            @include apply-color(border-color, __tick);
         }
 
         span {

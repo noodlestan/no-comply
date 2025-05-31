@@ -20,7 +20,7 @@
 
         @include set-color(__fg, primary, fg-primary, content-fg);
         @include set-color(__bg, primary, bg-stage, opaque);
-        @include set-color(__border, primary, border, transparent);
+        @include set-color(__border, primary, border-0, transparent);
         @include set-color(__shadow, primary, shadow, shadow);
     }
 

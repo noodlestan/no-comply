@@ -1,7 +1,8 @@
 import {
-    createModalDialog as createHeadnlessModalDialog,
+    createModalDialog as createHeadlessModalDialog,
     createModalDialogMixin,
 } from '@no-comply/solid-composables';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
     type PickRequired,
     combineProps,
@@ -10,6 +11,7 @@ import {
 } from '@no-comply/solid-primitives';
 
 import styles from './ModalDialog.module.scss';
+import { $MODAL_DIALOG } from './constants';
 import type { ModalDialogAPI, ModalDialogProps } from './types';
 
 const defaultProps: PickRequired<ModalDialogProps, 'size'> = {
@@ -17,30 +19,33 @@ const defaultProps: PickRequired<ModalDialogProps, 'size'> = {
 };
 
 export const createModalDialog = (props: ModalDialogProps): ModalDialogAPI => {
+    const [locals, expose, compose] = createExposable($MODAL_DIALOG, props);
+
     const {
         $root: $dialogRoot,
         $description,
         $label,
         context,
         contextValue,
-    } = createHeadnlessModalDialog(props);
-    const { $root: $dialogMixinRoot } = createModalDialogMixin();
+    } = compose(createHeadlessModalDialog(locals));
+    const { $root: $dialogMixinRoot } = compose(createModalDialogMixin());
 
-    const size = () => props.size ?? defaultProps.size;
+    const size = () => locals.size ?? defaultProps.size;
     const classList = createClassList(styles, () => ['ModalDialog', `size-${size()}`]);
+
     const $root = computedProps({
         classList,
     });
 
-    const localSurfaceProps = { variant: 'dialog' } as const;
+    const _surface = {
+        variant: 'dialog' as const,
+    };
 
-    const surfaceProps = combineProps(localSurfaceProps, $root, $dialogRoot, $dialogMixinRoot);
-
-    return {
-        surfaceProps,
+    return exposeAPI(expose, '_surface', {
+        _surface: combineProps(_surface, $dialogRoot, $dialogMixinRoot, $root),
         $description,
         $label,
         context,
         contextValue,
-    };
+    });
 };

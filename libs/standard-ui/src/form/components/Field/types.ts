@@ -11,17 +11,11 @@ export type FieldProps = HeadlessFieldProps & {
     size?: ContentSize;
 };
 
-export type FieldAPI = {
+export type FieldAPI = Omit<HeadlessFieldAPI, '$root' | '$label'> & {
     $root: HeadlessFieldAPI['$root'] & {
         classList: ClassList;
     };
-    fieldLabelProps: HeadlessFieldAPI['$label'] & {
+    _fieldLabel: HeadlessFieldAPI['$label'] & {
         size: FieldLabelProps['size'];
     };
-    $description: HeadlessFieldAPI['$description'];
-    $input: HeadlessFieldAPI['$input'];
-    $feedback: HeadlessFieldAPI['$feedback'];
-    context: HeadlessFieldAPI['context'];
-    contextValue: HeadlessFieldAPI['contextValue'];
-    hasFeedback: HeadlessFieldAPI['hasFeedback'];
 };

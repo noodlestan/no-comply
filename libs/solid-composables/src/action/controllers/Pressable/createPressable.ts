@@ -1,6 +1,8 @@
 import { type PressableRoleName, createAriaPressable } from '@no-comply/solid-accessibility';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps } from '@no-comply/solid-primitives';
 
+import { $PRESSABLE } from './constants';
 import type { GenericPressableAPI, PressableAPI, PressableProps } from './types';
 
 export function createPressable(props: PressableProps): PressableAPI;
@@ -12,25 +14,27 @@ export function createPressable(
     props: PressableProps,
     staticRole?: PressableRoleName | undefined,
 ): GenericPressableAPI {
+    const [locals, expose] = createExposable($PRESSABLE, props);
+
     const { $root: $pressableRoot } = staticRole
-        ? createAriaPressable(props, staticRole)
-        : createAriaPressable(props);
+        ? createAriaPressable(locals, staticRole)
+        : createAriaPressable(locals);
 
     const onClick = (ev: MouseEvent) => {
-        if (props.disabled) {
+        if (locals.disabled) {
             ev.preventDefault();
             return;
         }
-        props.onPress?.(ev);
+        locals.onPress?.(ev);
     };
 
     const onKeyDown = (ev: KeyboardEvent) => {
-        if (props.disabled) {
+        if (locals.disabled) {
             return;
         }
         if (ev.key === 'Enter' || ev.key === ' ') {
             ev.stopImmediatePropagation();
-            props.onPress?.(ev);
+            locals.onPress?.(ev);
         }
     };
 
@@ -39,7 +43,7 @@ export function createPressable(
         onKeyDown,
     };
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($pressableRoot, $root),
-    };
+    });
 }

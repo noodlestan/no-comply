@@ -19,13 +19,11 @@ type Props = ClosedTagProps &
 
 export const ModalDialog: Component<Props> = props => {
     const dialog = createModalDialog(props);
-    const { surfaceProps, contextValue } = dialog;
+    const { _surface, contextValue } = dialog;
 
     return (
         <ModalPortal context={contextValue}>
-            <Surface {...surfaceProps}>
-                {({ surface }) => props.children({ dialog, surface })}
-            </Surface>
+            <Surface {..._surface}>{({ surface }) => props.children({ dialog, surface })}</Surface>
         </ModalPortal>
     );
 };

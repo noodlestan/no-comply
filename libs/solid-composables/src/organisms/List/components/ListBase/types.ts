@@ -10,4 +10,6 @@ export type ListBaseProps = Omit<ListProps, 'components'> & {
     };
 };
 
-export type ListBaseAPI = ListAPI;
+export type ListBaseAPI = Omit<ListAPI, '$root'> & {
+    $root: ListAPI['$root'];
+};

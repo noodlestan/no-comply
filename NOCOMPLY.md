@@ -1,6 +1,26 @@
 # No Comply
 
-## data-\* in all components
+## Instrumentation
+
+```js
+[exposable, api] = _byId('_47e36') || [];
+if (!exposable) {
+  console.error('<not-found>');
+} else {
+  console.log('name:', exposable.name);
+  console.log('_id:', api._id);
+  Object.keys(api).forEach(k => {
+    if (k !== '_id' && k !== '_c') {
+      console.log(`api:${k}:`, { ...api[k] });
+    }
+  });
+  console.log('props:', exposable.props);
+  exposable.composes().forEach(c => {
+    const [x] = _byId(c._id) || [];
+    console.log('composes:', c._id, x ? x.name : '<not-found>');
+  });
+}
+```
 
 ## remove flex defaults
 
@@ -81,10 +101,18 @@ migrate tokens to standard
     - add label and < to submenu?
 - hover and active states should be inverted (not static)
 
-## MenuItemGroup and MenuItem\*
+## Scrollable
 
-- style descriptions
--
+scrollable controller, can be mixed in anywhere
+
+scrolling component renders own <div> wrapper
+
+- style scrollbar to transparent
+- on hover, set scrollbar to hover
+- on hover near the scrollbar track highlight it
+  - changing to thick probably requires a completely fake scrollbar, no go
+- on leave, slow transition back to transparent
+- touch devices?
 
 ## Display, Heading, Text
 
@@ -195,7 +223,11 @@ vs router (or custom) via navigation service
 
 ## Inputs
 
-## MenuItemGroupRadio and MenuItemCheckbox
+## MenuItemGroup and MenuItem\*
+
+- style descriptions
+
+## MenuItemRadio and MenuItemCheckbox
 
 ```ts
 export type MenuItemCheckboxProps = MenuItemBaseProps & {

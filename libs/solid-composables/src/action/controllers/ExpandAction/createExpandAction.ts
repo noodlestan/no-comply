@@ -1,29 +1,33 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createToggleAction } from '../ToggleAction';
 
+import { $EXPAND_ACTION } from './constants';
 import type { ExpandActionAPI, ExpandActionProps } from './types';
 
 export const createExpandAction = (props: ExpandActionProps): ExpandActionAPI => {
+    const [locals, expose, compose] = createExposable($EXPAND_ACTION, props);
+
     const toggleActionProps = computedProps({
-        value: () => props.expanded,
+        value: () => locals.expanded,
         labels: () => ({
-            on: props.labels.expanded,
-            off: props.labels.collapsed,
+            on: locals.labels.expanded,
+            off: locals.labels.collapsed,
         }),
         icons: () => ({
-            on: props.icons.expanded,
-            off: props.icons.collapsed,
+            on: locals.icons.expanded,
+            off: locals.icons.collapsed,
         }),
     });
-    const { iconActionProps: toggleActionIconProps } = createToggleAction(toggleActionProps);
+    const { _icon: _toggleActionIcon } = compose(createToggleAction(toggleActionProps));
 
-    const iconActionLocalProps = computedProps({
-        'aria-expanded': () => props.expanded,
-        'aria-controls': () => props.controls,
+    const _icon = computedProps({
+        'aria-expanded': () => locals.expanded,
+        'aria-controls': () => locals.controls,
     });
 
-    return {
-        iconActionProps: combineProps(toggleActionIconProps, iconActionLocalProps),
-    };
+    return exposeAPI(expose, '_icon', {
+        _icon: combineProps(_toggleActionIcon, _icon),
+    });
 };

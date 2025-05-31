@@ -17,5 +17,5 @@ export type IconButtonAPI = {
         IconButtonMixinAPI['$root'] & {
             classList: ClassList;
         };
-    iconProps: IconActionAPI['iconProps'] & IconButtonMixinAPI['iconProps'];
+    icon: IconActionAPI['icon'] & IconButtonMixinAPI['icon'];
 };

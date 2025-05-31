@@ -17,7 +17,7 @@ export type ModalDialogProps = HeadlessModalDialogProps & {
 };
 
 export type ModalDialogAPI = {
-    surfaceProps: HeadlessModalDialogAPI['$root'] &
+    _surface: HeadlessModalDialogAPI['$root'] &
         ModalDialogMixinAPI['$root'] & {
             variant: 'dialog';
         };

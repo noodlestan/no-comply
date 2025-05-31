@@ -1,28 +1,32 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../../../action';
 import { isExternalURL, linkRelFor } from '../../helpers';
 
+import { $LINK } from './constants';
 import type { LinkAPI, LinkProps } from './types';
 
 export const createLink = (props: LinkProps): LinkAPI => {
-    const { $root: $pressabeRoot } = createPressable(props);
+    const [locals, expose] = createExposable($LINK, props);
 
-    const href = () => (props.disabled ? undefined : props.href);
-    const target = () => props.target;
-    const rel = () => linkRelFor(props.href, props.rel);
-    const tabIndex = () => (props.disabled ? -1 : undefined);
+    const { $root: $pressabeRoot } = createPressable(locals);
+
+    const href = () => (locals.disabled ? undefined : locals.href);
+    const target = () => locals.target;
+    const rel = () => linkRelFor(locals.href, locals.rel);
+    const tabIndex = () => (locals.disabled ? -1 : undefined);
 
     const $root = computedProps({
         href,
         target,
         rel,
         tabIndex,
-        'aria-label': () => props.label,
-        'data-external': () => (isExternalURL(props.href) ? '' : undefined),
+        'aria-label': () => locals.label,
+        'data-external': () => (isExternalURL(locals.href) ? '' : undefined),
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($pressabeRoot, $root),
-    };
+    });
 };

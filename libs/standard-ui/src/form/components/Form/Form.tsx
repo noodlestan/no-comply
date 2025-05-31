@@ -23,7 +23,7 @@ export const Form: Component<Props> = props => {
     const $ = combineProps($others, $root);
 
     return (
-        <FormContextProvider context={contextValue}>
+        <FormContextProvider context={contextValue} data-cp-standard-form>
             <Dynamic {...$}>{locals.children({ form })}</Dynamic>
         </FormContextProvider>
     );

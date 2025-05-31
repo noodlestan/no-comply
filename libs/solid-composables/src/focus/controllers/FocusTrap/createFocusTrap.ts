@@ -1,17 +1,21 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { computedProps, staticClassList } from '@no-comply/solid-primitives';
 
 import { getFocusableElements } from '../../helpers';
 
 import styles from './FocusTrap.module.scss';
+import { $FOCUS_TRAP } from './constants';
 import type { FocusTrapAPI, FocusTrapProps } from './types';
 
 export const createFocusTrap = (props: FocusTrapProps = {}): FocusTrapAPI => {
+    const [locals, expose] = createExposable($FOCUS_TRAP, props);
+
     let containerEl: HTMLElement | null = null;
 
     const getTrapElements = (): HTMLElement[] => {
         if (!containerEl) return [];
         const children = getFocusableElements(containerEl);
-        return props.focusable ? [containerEl, ...children] : children;
+        return locals.focusable ? [containerEl, ...children] : children;
     };
 
     const focusFirst = (els: HTMLElement[]) => {
@@ -73,11 +77,11 @@ export const createFocusTrap = (props: FocusTrapProps = {}): FocusTrapAPI => {
     };
 
     const $root = computedProps($static, {
-        tabIndex: () => (props.focusable ? 0 : undefined),
-        'data-focus-trap-focusable': () => (props.focusable ? '' : undefined),
+        tabIndex: () => (locals.focusable ? 0 : undefined),
+        'data-focus-trap-focusable': () => (locals.focusable ? '' : undefined),
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 };

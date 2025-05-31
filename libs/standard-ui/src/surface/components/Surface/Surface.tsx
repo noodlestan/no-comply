@@ -22,9 +22,8 @@ type Props = ClosedTagProps &
 export const Surface: Component<Props> = props => {
     const [locals, $others] = splitProps(props, [...SURFACE_PROPS]);
 
-    const surface = createSurface(locals);
-    const { surfaceProps } = surface;
-    const $ = combineProps(surfaceProps, $others);
+    const { _surface } = createSurface(locals);
+    const $ = combineProps(_surface, $others);
 
     return <SurfaceBase {...$} />;
 };

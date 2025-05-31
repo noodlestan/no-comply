@@ -3,6 +3,8 @@ import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { ScrollableProps } from './types';
 
+export const $SCROLLABLE = 'component:standard:scrollable';
+
 export const SCROLLABLE_PROPS = definePropKeys<ScrollableProps>()([
     ...SCROLLABLE_MIXIN_PROPS,
     'padding',

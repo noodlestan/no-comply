@@ -9,5 +9,5 @@ export type SurfaceProps = SurfaceBaseProps &
     };
 
 export type SurfaceAPI = {
-    surfaceProps: SurfaceBaseProps & LayoutMixinAPI['$root'];
+    _surface: SurfaceBaseProps & LayoutMixinAPI['$root'];
 };

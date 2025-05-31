@@ -1,8 +1,10 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import type { PressEvent } from '@no-comply/solid-primitives';
 import { combineProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../Pressable';
 
+import { $EXTENDED_PRESSABLE } from './constant';
 import type { ExtendedPressableAPI, ExtendedPressableProps } from './types';
 
 type ExtendedPressableState = {
@@ -16,19 +18,21 @@ const DOUBLE_PRESS_THRESHOLD_DEFAULT = 300;
 const LONG_PRESS_THRESHOLD_DEFAULT = 500;
 
 export const createExtendedPressable = (props: ExtendedPressableProps): ExtendedPressableAPI => {
+    const [locals, expose, compose] = createExposable($EXTENDED_PRESSABLE, props);
+
     const onPress = (ev: PressEvent) => {
-        props.onPress?.(ev);
+        locals.onPress?.(ev);
         if (ev instanceof MouseEvent) {
             if (ev.altKey) {
-                props.onAltPress?.(ev);
+                locals.onAltPress?.(ev);
             }
             if (ev.shiftKey) {
-                props.onShiftPress?.(ev);
+                locals.onShiftPress?.(ev);
             }
         }
     };
-    const pressableProps = combineProps({ onPress }, props);
-    const { $root: $pressableRoot } = createPressable(pressableProps);
+    const pressableProps = combineProps({ onPress }, locals);
+    const { $root: $pressableRoot } = compose(createPressable(pressableProps));
 
     const state: ExtendedPressableState = {
         pressStartTime: 0,
@@ -38,23 +42,23 @@ export const createExtendedPressable = (props: ExtendedPressableProps): Extended
     };
 
     const maybeDoublePress = (ev: PressEvent): void => {
-        const threshold = props.doublePressThreshold ?? DOUBLE_PRESS_THRESHOLD_DEFAULT;
+        const threshold = locals.doublePressThreshold ?? DOUBLE_PRESS_THRESHOLD_DEFAULT;
         const durationMs = performance.now() - state.lastPressTime;
         if (durationMs <= threshold) {
-            props.onDoublePress?.(ev);
+            locals.onDoublePress?.(ev);
         }
     };
 
     const maybeLongPress = (ev: PressEvent): void => {
-        const threshold = props.longPressThreshold ?? LONG_PRESS_THRESHOLD_DEFAULT;
+        const threshold = locals.longPressThreshold ?? LONG_PRESS_THRESHOLD_DEFAULT;
         const durationMs = performance.now() - state.pressStartTime;
         if (durationMs >= threshold) {
-            props.onLongPress?.({ ...ev, durationMs });
+            locals.onLongPress?.({ ...ev, durationMs });
         }
     };
 
     const onKeyDown = (ev: KeyboardEvent) => {
-        if (props.disabled || state.keyActive) {
+        if (locals.disabled || state.keyActive) {
             return;
         }
         if (ev.key === 'Enter' || ev.key === ' ') {
@@ -80,7 +84,7 @@ export const createExtendedPressable = (props: ExtendedPressableProps): Extended
     };
 
     const onPointerDown = (ev: PointerEvent) => {
-        if (props.disabled) {
+        if (locals.disabled) {
             return;
         }
         state.pointerActive = true;
@@ -104,7 +108,7 @@ export const createExtendedPressable = (props: ExtendedPressableProps): Extended
         state.pointerActive = false;
     };
 
-    const $handlers = {
+    const $static = {
         onKeyDown,
         onKeyUp,
         onBlur,
@@ -114,7 +118,7 @@ export const createExtendedPressable = (props: ExtendedPressableProps): Extended
         onPointerLeave,
     };
 
-    return {
-        $root: combineProps($pressableRoot, $handlers),
-    };
+    return exposeAPI(expose, '$root', {
+        $root: combineProps($pressableRoot, $static),
+    });
 };

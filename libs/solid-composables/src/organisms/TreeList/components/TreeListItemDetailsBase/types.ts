@@ -6,13 +6,9 @@ export type TreeListItemDetailsBaseProps = TreeListItemDetailsProps;
 type Controller = TreeListItemDetailsAPI;
 type Mixin = TreeListItemDetailsMixinAPI;
 
-export type TreeListItemDetailsBaseAPI = {
-    $root: Controller['$root'] & Mixin['$root'];
-    focusableProps: Controller['focusableProps'] & Mixin['$focusable'];
-    // WIP $layout: Mixin['$layout'];
-    $toggle: Mixin['$toggle'];
-    expandButtonProps: Controller['expandButtonProps'];
-    $contents: Mixin['$contents'];
-    itemContentsProps: Controller['itemContentsProps'];
-    hasToggle: Controller['hasToggle'];
-};
+export type TreeListItemDetailsBaseAPI = Omit<Controller, '$root' | '_focusable'> &
+    Omit<Mixin, '$root' | '$focusable'> & {
+        $root: Controller['$root'] & Mixin['$root'];
+        _focusable: Controller['_focusable'] & Mixin['$focusable'];
+        hasToggle: Controller['hasToggle'];
+    };

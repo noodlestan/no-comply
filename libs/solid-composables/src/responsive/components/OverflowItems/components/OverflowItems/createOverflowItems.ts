@@ -1,3 +1,4 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { type ObjectWithId, computedProps, staticClassList } from '@no-comply/solid-primitives';
 import { createResizeObserver } from '@solid-primitives/resize-observer';
 import { createEffect, onMount } from 'solid-js';
@@ -5,12 +6,15 @@ import { createEffect, onMount } from 'solid-js';
 import { createOverflowItemsContext } from '../../private';
 
 import styles from './OverflowItems.module.scss';
+import { $OVERFLOW_ITEMS } from './constants';
 import type { OverflowItemsAPI, OverflowItemsProps } from './types';
 
 export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
     props: OverflowItemsProps<T>,
 ): OverflowItemsAPI => {
-    const contextValue = createOverflowItemsContext(props);
+    const [locals, expose, compose] = createExposable($OVERFLOW_ITEMS, props);
+
+    const contextValue = compose(createOverflowItemsContext(locals));
     const [context, ownerAPI] = contextValue;
 
     let timeout: number | null = null;
@@ -48,7 +52,7 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
     };
 
     createEffect(() => {
-        if (!(props.items && props.currentItemId)) {
+        if (!(locals.items && locals.currentItemId)) {
             return;
         }
         startTest();
@@ -78,11 +82,11 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
         'data-responsive-items-container': '',
     };
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
         $measure,
         $render,
         context,
         contextValue,
-    };
+    });
 };

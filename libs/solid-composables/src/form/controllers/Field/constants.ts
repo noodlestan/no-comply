@@ -3,4 +3,6 @@ import { definePropKeys } from '@no-comply/solid-primitives';
 
 import type { FieldProps } from './types';
 
+export const $FIELD = 'controller:composable:field';
+
 export const FIELD_PROPS = definePropKeys<FieldProps>()(FIELD_CONTEXT_OPTIONS);

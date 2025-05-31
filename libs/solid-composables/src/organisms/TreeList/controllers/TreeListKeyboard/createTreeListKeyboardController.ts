@@ -1,14 +1,18 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import type { Accessor } from 'solid-js';
 
 import type { TreeListContext } from '../../contexts';
 import type { TreeNode } from '../../types';
 
+import { $TREE_LIST_KEYBOARD } from './constants';
 import type { TreeListKeyboardControllerAPI } from './types';
 
 export const createTreeListKeyboardController = (
     root: Accessor<TreeNode>,
     context: TreeListContext,
 ): TreeListKeyboardControllerAPI => {
+    const [, expose] = createExposable($TREE_LIST_KEYBOARD);
+
     let containerEl: HTMLElement;
 
     const setContainerRef = (el: HTMLElement) => {
@@ -118,7 +122,7 @@ export const createTreeListKeyboardController = (
         ref: setContainerRef,
     };
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 };

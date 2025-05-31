@@ -6,7 +6,7 @@ export type CloseButtonProps = Pick<
 >;
 
 export type CloseButtonAPI = {
-    iconButtonProps: Pick<
+    _iconButton: Pick<
         IconButtonProps,
         'variant' | 'label' | 'size' | 'icon' | 'onPress' | 'disabled' | 'aligned'
     >;

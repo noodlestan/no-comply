@@ -20,7 +20,7 @@ export type TreeListItemAPI = {
     $root: AriaTreeItemAPI['$root'] & {
         component: 'div';
     };
-    detailsProps: PropsWithComponent<TreeListItemDetailsProps>;
-    childrenProps: PropsWithComponent<TreeListItemChildrenProps>;
+    _treeListItemDetails: PropsWithComponent<TreeListItemDetailsProps>;
+    _treeListItemChildren: PropsWithComponent<TreeListItemChildrenProps>;
     isExpanded: Accessor<boolean>;
 };

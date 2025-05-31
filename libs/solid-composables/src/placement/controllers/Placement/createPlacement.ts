@@ -1,10 +1,15 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+
 import { PLACEMENT_AXIS_BLOCK as BLOCK, PLACEMENT_AXIS_INLINE as INLINE } from '../../constants';
 import { getPlacementAnchors, inViewport, resolveAxis } from '../../private';
 import type { PlacementAnchorsNormalized } from '../../types';
 
+import { $PLACEMENT } from './constants';
 import type { PlacementAPI, PlacementProps } from './types';
 
 export const createPlacement = (props: PlacementProps): PlacementAPI => {
+    const [locals, expose] = createExposable($PLACEMENT, props);
+
     let anchorEl: HTMLElement | null = null;
     let targetEl: HTMLElement | null = null;
 
@@ -20,7 +25,7 @@ export const createPlacement = (props: PlacementProps): PlacementAPI => {
     };
 
     const anchors = (): PlacementAnchorsNormalized => {
-        return getPlacementAnchors(props.placement, props.anchor, props.direction, props.flip);
+        return getPlacementAnchors(locals.placement, locals.anchor, locals.direction, locals.flip);
     };
 
     const update = () => {
@@ -56,10 +61,10 @@ export const createPlacement = (props: PlacementProps): PlacementAPI => {
         targetEl.style.removeProperty('--__left');
     };
 
-    return {
+    return exposeAPI(expose, ['$anchor', '$target'], {
         $anchor,
         $target,
         update,
         reset,
-    };
+    });
 };

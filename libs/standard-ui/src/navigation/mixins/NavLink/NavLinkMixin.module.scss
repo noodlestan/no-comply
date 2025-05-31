@@ -17,7 +17,7 @@
             border-color ease var(--animation-duration-short);
 
         @include set-color(__bg, surface, content-bg-1, invisible);
-        @include set-color(__highlight, primary, border-active, invisible);
+        @include set-color(__highlight, primary, border-1, invisible);
 
         @include apply-color(background-color, __bg);
         @include apply-color(--__highlight, __highlight);

@@ -1,12 +1,16 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { type ParentComponent, createEffect } from 'solid-js';
 
 import { getFocusableElements } from '../../helpers';
 
 import styles from './FocusTrap.module.scss';
+import { $FOCUS_TRAP_OLD } from './constants';
 import type { FocusTrapProps } from './types';
 
 export const FocusTrap: ParentComponent<FocusTrapProps> = props => {
+    const [locals, expose] = createExposable($FOCUS_TRAP_OLD, props);
+
     let containerRef: HTMLDivElement | undefined;
 
     const focusFirst = () =>
@@ -43,13 +47,15 @@ export const FocusTrap: ParentComponent<FocusTrapProps> = props => {
     };
 
     createEffect(() => {
-        if (props.autoFocus) {
+        if (locals.autoFocus) {
             focusFirst();
         }
     });
 
+    const { $: $exposed } = exposeAPI(expose, '$', { $: {} });
+
     return (
-        <div classList={staticClassList(styles, 'FocusTrap')} data-focus-trap>
+        <div {...$exposed} classList={staticClassList(styles, 'FocusTrap')} data-focus-trap>
             <input
                 type="text"
                 data-focus-trap--input
@@ -58,7 +64,7 @@ export const FocusTrap: ParentComponent<FocusTrapProps> = props => {
                 aria-hidden="true"
             />
             <div data-focus-trap--contents ref={containerRef}>
-                {props.children}
+                {locals.children}
             </div>
             <input
                 type="text"

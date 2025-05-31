@@ -13,7 +13,7 @@ import { createMenuItemSubMenu } from './createMenuItemSubMenu';
 import type { MenuItemSubMenuAPI, MenuItemSubMenuProps } from './types';
 
 type ChildrenProps = {
-    subMenu: MenuItemSubMenuAPI['subMenuProps'];
+    subMenu: MenuItemSubMenuAPI['_subMenu'];
 };
 
 type Props = ClosedTagProps &
@@ -31,13 +31,13 @@ export const MenuItemSubMenu: Component<Props> = props => {
         $descriptionSlot,
         $labelSlot,
         $expandSlot,
-        iconProps,
-        labelProps,
-        descriptionProps,
+        _icon,
+        _label,
+        _textDescription,
         hasIcon,
         groupHasIcons,
         $popover,
-        subMenuProps,
+        _subMenu: subMenuProps,
         contextValue,
     } = menuItem;
     const $ = combineProps($others, $root);
@@ -45,17 +45,15 @@ export const MenuItemSubMenu: Component<Props> = props => {
     return (
         <PopoverContextProvider context={contextValue}>
             <Dynamic {...$}>
-                <AlignFirstLine height={'xs'} type="action" variant={labelProps.variant}>
+                <AlignFirstLine height={'xs'} type="action" variant={_label.variant}>
                     <Show when={groupHasIcons()}>
-                        <span {...$iconSlot}>
-                            {hasIcon() ? <Icon {...iconProps} /> : undefined}
-                        </span>
+                        <span {...$iconSlot}>{hasIcon() ? <Icon {..._icon} /> : undefined}</span>
                     </Show>
                     <span {...$labelSlot}>
-                        <Label {...labelProps} />
-                        <Show when={descriptionProps.children}>
+                        <Label {..._label} />
+                        <Show when={_textDescription.children}>
                             <span {...$descriptionSlot}>
-                                <Text {...descriptionProps} />
+                                <Text {..._textDescription} />
                             </span>
                         </Show>
                     </span>

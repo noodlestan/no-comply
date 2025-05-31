@@ -1,7 +1,9 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createLayoutMixin } from '../../mixins';
 
+import { $LAYOUT } from './constants';
 import { type LayoutAPI, type LayoutProps } from './types';
 
 const defaultProps: PickRequired<LayoutProps, 'tag'> = {
@@ -9,14 +11,17 @@ const defaultProps: PickRequired<LayoutProps, 'tag'> = {
 };
 
 export const createLayout = (props: LayoutProps): LayoutAPI => {
-    const { $root: $layoutMixinRoot } = createLayoutMixin(props);
+    const [locals, expose, compose] = createExposable($LAYOUT, props);
 
-    const component = () => props.tag ?? defaultProps.tag;
+    const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
+
+    const component = () => locals.tag ?? defaultProps.tag;
+
     const $root = computedProps({
         component,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root: combineProps($layoutMixinRoot, $root),
-    };
+    });
 };

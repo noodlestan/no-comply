@@ -1,9 +1,11 @@
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps, shortId } from '@no-comply/solid-primitives';
 import { createMemo } from 'solid-js';
 
 import { createPlacement } from '../../../placement';
 import { createPopover } from '../Popover';
 
+import { $ANCHORED_POPOVER } from './constants';
 import type {
     AnchoredPopoverAPI,
     AnchoredPopoverProps,
@@ -14,8 +16,10 @@ import type {
 export const createAnchoredPopoverTrigger = (
     props: AnchoredPopoverTriggerProps,
 ): AnchoredPopoverTriggerAPI => {
+    const [locals, expose] = createExposable($ANCHORED_POPOVER, props);
+
     const randomId = createMemo(shortId);
-    const id = () => props.id ?? randomId();
+    const id = () => locals.id ?? randomId();
 
     const $static = {
         popoverTargetAction: 'toggle',
@@ -24,29 +28,31 @@ export const createAnchoredPopoverTrigger = (
 
     const $root = computedProps($static, {
         id,
-        ref: () => props.ref,
-        popoverTarget: () => props.targetId,
-        'aria-expanded': () => props.expanded,
+        ref: () => locals.ref,
+        popoverTarget: () => locals.targetId,
+        'aria-expanded': () => locals.expanded,
     });
 
-    return {
+    return exposeAPI(expose, '$root', {
         $root,
-    };
+    });
 };
 
 export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): AnchoredPopoverAPI => {
+    const [locals, expose, compose] = createExposable($ANCHORED_POPOVER, props);
+
     const {
-        $anchor,
-        $target,
+        $anchor: $placementAnchor,
+        $target: $placementTarget,
         update: updatePlacement,
         reset: resetPlacement,
-    } = createPlacement(props);
+    } = createPlacement(locals);
 
-    const popoverProps = combineProps(props, {
+    const popoverProps = combineProps(locals, {
         onShow: updatePlacement,
         onHide: resetPlacement,
     });
-    const { $root: $popoverRoot, context, contextValue } = createPopover(popoverProps);
+    const { $root: $popoverRoot, context, contextValue } = compose(createPopover(popoverProps));
 
     const popoverStaticProps = { component: 'div' } as const;
     const $popover = combineProps($popoverRoot, popoverStaticProps);
@@ -59,18 +65,18 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): Anchore
         targetId: context.id,
         expanded: context.isShown,
     });
-    const { $root: $triggerRoot } = createAnchoredPopoverTrigger(triggerProps);
+    const { $root: $triggerRoot } = compose(createAnchoredPopoverTrigger(triggerProps));
 
-    const contentProps = computedProps({
+    const $content = computedProps({
         id: context.id,
         'aria-labelledby': triggerId,
     });
 
-    return {
-        $root: combineProps($popover, $target),
-        $trigger: combineProps($triggerRoot, $anchor),
-        contentProps,
+    return exposeAPI(expose, '$root', {
+        $root: combineProps($popover, $placementTarget),
+        $trigger: combineProps($triggerRoot, $placementAnchor),
+        $content,
         context,
         contextValue,
-    };
+    });
 };

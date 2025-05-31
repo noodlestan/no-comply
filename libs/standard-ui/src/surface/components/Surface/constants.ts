@@ -5,6 +5,8 @@ import { LAYOUT_PROPS } from '../../../layout';
 
 import type { SurfaceProps } from './types';
 
+export const $SURFACE = 'component:standard:surface';
+
 export const SURFACE_PROPS = definePropKeys<SurfaceProps>()([
     ...SURFACE_BASE_PROPS,
     ...LAYOUT_PROPS,
