@@ -47,25 +47,29 @@
 }
 
 @mixin apply-computed-color($prop, $name) {
-    /* abs(0.5 - var(--#{$name}-light)) */
-    --__#{$prop}-c1: calc(var(--#{$name}-light) - var(--__desat-center));
-    --__#{$prop}-c2: max(var(--__#{$prop}-c1), -1 * var(--__#{$prop}-c1));
-    --__#{$prop}-sat: calc(var(--__desat-max) - var(--__#{$prop}-c2) * var(--__desat-factor));
-    /* prettier-ignore */
-    #{$prop}: oklch(
+    & {
+        /* abs(0.5 - var(--#{$name}-light)) */
+        --__#{$prop}-c1: calc(var(--#{$name}-light) - var(--__desat-center));
+        --__#{$prop}-c2: max(var(--__#{$prop}-c1), -1 * var(--__#{$prop}-c1));
+        --__#{$prop}-sat: calc(var(--__desat-max) - var(--__#{$prop}-c2) * var(--__desat-factor));
+        /* prettier-ignore */
+        #{$prop}: oklch(
             from var(--#{$name}-color)
                 var(--#{$name}-light) calc(c * var(--__#{$prop}-sat)) h / var(--#{$name}-alpha, 1)
         );
+    }
 }
 
 @mixin apply-palette-color($prop, $name) {
     @supports (color: --f-color(black, 100)) {
-        /* prettier-ignore */
-        #{$prop}: --f-alpha(
+        & {
+            /* prettier-ignore */
+            #{$prop}: --f-alpha(
                 --f-color(var(--#{$name}-palette),
                 var(--#{$name}-level)),
                 var(--#{$name}-alpha)
             );
+        }
     }
 }
 

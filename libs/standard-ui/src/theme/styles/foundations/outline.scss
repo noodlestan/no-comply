@@ -8,8 +8,8 @@
         --outline-active-inset-offset: calc(var(--border-width-base) * -1.5);
         --outline-width: var(--border-width-base);
         --outline-style: solid;
-
         @include set-color(__outline, focused, focus-ring, opaque);
+
         @include apply-computed-color(--outline-color, __outline);
     }
 }

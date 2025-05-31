@@ -17,8 +17,8 @@
             opacity 300ms ease,
             max-height 300ms ease,
             padding-block 300ms ease;
-
         @include set-color(__bg, primary, content-bg-1, opaque);
+
         @include apply-color(background-color, __bg);
 
         &:focus-within {

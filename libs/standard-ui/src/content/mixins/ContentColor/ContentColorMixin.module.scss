@@ -3,6 +3,7 @@
 @layer lib.standard-ui.content-color {
     .ContentColor {
         @include set-color(__fg, primary, fg-saturated, content-fg);
+
         @include apply-color(color, __fg);
     }
 

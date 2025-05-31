@@ -8,11 +8,13 @@
 
     .-Title {
         @include set-level(surface-fg, fg-muted);
+
         @include apply-color(color, surface-fg);
     }
 
     .-Icon {
         @include set-level(surface-fg, graphics);
+
         @include apply-color(color, surface-fg);
     }
 
