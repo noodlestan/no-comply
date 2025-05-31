@@ -145,11 +145,11 @@
     }
 
     .intent-neutral.variant-primary:not([data-disabled], [data-inactive]) {
-        @include set-level(__fg-rest, invert-fg-primary);
-        @include set-level(__fg-hover, invert-fg-contrast);
-        @include set-level(__fg-active, invert-fg-contrast);
-        @include set-level(__bg-rest, invert-bg-0);
-        @include set-level(__bg-hover, invert-bg-1);
-        @include set-level(__bg-active, invert-bg-contrast);
+        @include set-level(__fg-rest, inverted-fg-primary);
+        @include set-level(__fg-hover, inverted-fg-contrast);
+        @include set-level(__fg-active, inverted-fg-contrast);
+        @include set-level(__bg-rest, inverted-bg-0);
+        @include set-level(__bg-hover, inverted-bg-1);
+        @include set-level(__bg-active, inverted-bg-contrast);
     }
 }

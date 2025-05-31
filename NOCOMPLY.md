@@ -36,6 +36,10 @@ inset-inline-end: 0;
 reading length
 max-width: 600px; // WIP Layout width references
 
+## Micro Layout
+
+inset-inline-end: calc(-1 \* var(--\_\_padding-inline));
+
 ## Separator
 
 aria-separator
@@ -62,6 +66,10 @@ do not render children wrapper if no children present
 ## IconButton / Icon
 
 aspect-ratio
+
+## Divider
+
+migrate tokens to standard
 
 ## Menu
 

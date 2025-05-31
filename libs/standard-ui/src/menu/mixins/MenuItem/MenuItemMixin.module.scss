@@ -10,6 +10,7 @@
         justify-content: start;
         height: auto;
         min-height: auto;
+        border-radius: var(--menu-border-radius);
         --__padding-block: var(--space-pad--2);
         --__padding-inline: var(--space-pad-0);
         --__gap: var(--space-gap--1);
@@ -17,16 +18,16 @@
 
     .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
         @include set-palette(__fg, __intent);
-        @include set-level(__fg, static-fg-primary);
+        @include set-level(__fg, inverted-fg-primary);
         @include set-palette(__bg, __intent);
-        @include set-level(__bg, static-bg-0);
+        @include set-level(__bg, inverted-bg-0);
     }
 
     .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
         @include set-palette(__fg, __intent);
-        @include set-level(__fg, static-fg-contrast);
+        @include set-level(__fg, inverted-fg-contrast);
         @include set-palette(__bg, __intent);
-        @include set-level(__bg, static-bg-contrast);
+        @include set-level(__bg, inverted-bg-contrast);
     }
 
     .-Icon {
@@ -50,5 +51,7 @@
 
     .-Expand {
         width: var(--size-xs);
+        position: relative;
+        inset-inline-end: calc(-1 * var(--__padding-inline));
     }
 }

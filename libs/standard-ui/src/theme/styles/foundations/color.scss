@@ -35,14 +35,14 @@
         @include def-color-level(static-bg-0, 900);
         @include def-color-level(static-bg-contrast, 950);
 
-        @include def-color-level(invert-fg-contrast, 950);
-        @include def-color-level(invert-fg-primary, 1000);
-        @include def-color-level(invert-border, 600);
-        @include def-color-level(invert-bg-3, 500);
-        @include def-color-level(invert-bg-2, 400);
-        @include def-color-level(invert-bg-1, 300);
-        @include def-color-level(invert-bg-0, 200);
-        @include def-color-level(invert-bg-contrast, 100);
+        @include def-color-level(inverted-fg-contrast, 950);
+        @include def-color-level(inverted-fg-primary, 1000);
+        @include def-color-level(inverted-border, 600);
+        @include def-color-level(inverted-bg-3, 500);
+        @include def-color-level(inverted-bg-2, 400);
+        @include def-color-level(inverted-bg-1, 300);
+        @include def-color-level(inverted-bg-0, 200);
+        @include def-color-level(inverted-bg-contrast, 100);
 
         @include def-color-palette(primary, --p-neutral);
         @include def-color-palette(brand, --p-pink);

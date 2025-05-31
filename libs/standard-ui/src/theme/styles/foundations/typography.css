@@ -1,4 +1,4 @@
-@layer theme.standard.base.foundations.typography {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         --typography-base-family: Tahoma, Arial, sans-serif;
         --typography-base-size: var(--typography-step-0);
