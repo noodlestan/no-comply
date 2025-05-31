@@ -1,23 +1,9 @@
+import { MENU_ITEM_GROUP_PROPS as HEADLESS_MENU_ITEM_GROUP_PROPS } from '@no-comply/solid-composables';
 import { definePropKeys } from '@no-comply/solid-primitives';
 
 import { MENU_MIXIN_PROPS } from '../../mixins';
 
-import type {
-    HeadlessMenuItemGroupProps,
-    MenuItemGroupContextOptions,
-    MenuItemGroupProps,
-} from './types';
-
-export const MENU_ITEM_GROUP_CONTEXT_OPTIONS = definePropKeys<MenuItemGroupContextOptions>()([
-    'hasIcons',
-    'hasSubMenus',
-]);
-
-export const HEADLESS_MENU_ITEM_GROUP_PROPS = definePropKeys<HeadlessMenuItemGroupProps>()([
-    ...MENU_ITEM_GROUP_CONTEXT_OPTIONS,
-    'label',
-    'description',
-]);
+import type { MenuItemGroupProps } from './types';
 
 export const MENU_ITEM_GROUP_PROPS = definePropKeys<MenuItemGroupProps>()([
     ...HEADLESS_MENU_ITEM_GROUP_PROPS,

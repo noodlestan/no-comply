@@ -1,6 +1,6 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { AlignedToFirstLineMixinAPI, AlignedToFirstLineMixinProps } from '../../../text';
+import type { AlignedToFirstLineMixinAPI, AlignedToFirstLineMixinProps } from '../../../typography';
 
 export type IconMixinProps = AlignedToFirstLineMixinProps;
 

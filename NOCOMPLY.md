@@ -48,12 +48,12 @@ do not render children wrapper if no children present
 
 ## Button
 
-```
+```tsx
 <Button>
   {iconProps => (
     <>
       some text
-      <Icon icon="" {...iconProps} />)
+      <Icon icon="" {...iconProps} />
     </>
   )}
 </Button>
@@ -141,11 +141,11 @@ and aria-paragraph when not p?
 
 ## sketch out TabContainer /context
 
-```
+```tsx
 <TabContainer>
-    <TabNavigation>
-    <TabTarget>
-        <Content>
+  <TabNavigation>
+  <TabTarget>
+    <Content>
 ```
 
 ## motion helper
@@ -188,6 +188,16 @@ vs router (or custom) via navigation service
 ## Inputs
 
 ## MenuItemGroupRadio and MenuItemCheckbox
+
+```ts
+export type MenuItemCheckboxProps = MenuItemBaseProps & {
+  checked: boolean;
+};
+
+export type MenuItemRadioProps = MenuItemBaseProps & {
+  checked: boolean;
+};
+```
 
 ## Form validation
 
@@ -262,9 +272,9 @@ Because classList is a compile-time pseudo-attribute, it does not work in a prop
 
 - popover
 
-```
+```ts
 function supportsPopover() {
-return HTMLElement.prototype.hasOwnProperty("popover");
+  return HTMLElement.prototype.hasOwnProperty('popover');
 }
 ```
 
@@ -279,12 +289,11 @@ return HTMLElement.prototype.hasOwnProperty("popover");
 Not supported in Firefox yet.
 
 ```css
-    @container WithSidebarLayout (min-width: 600px) {
-        .WithSidebarLayoutWrapper {
-            --WithSidebarLayout-size: large;
-        }
+@container WithSidebarLayout (min-width: 600px) {
+    .WithSidebarLayoutWrapper {
+        --WithSidebarLayout-size: large;
     }
-
+}
 @container WithSidebarLayoutWrapper style(--WithSidebarLayout-size: large) { ... }
 ```
 

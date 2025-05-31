@@ -1,6 +1,6 @@
 import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
-import { createAlignedToFirstLineMixin } from '../../../text';
+import { createAlignedToFirstLineMixin } from '../../../typography';
 
 import styles from './IconMixin.module.scss';
 import type { IconMixinAPI, IconMixinProps } from './types';

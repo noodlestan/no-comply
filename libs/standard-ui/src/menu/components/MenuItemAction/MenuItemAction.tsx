@@ -6,7 +6,7 @@ import { Icon } from '../../../icon';
 import { AlignFirstLine, Label, Text } from '../../../typography';
 
 import { MENU_ITEM_ACTION_PROPS } from './constants';
-import { createMenuItemAction } from './createMenuItem';
+import { createMenuItemAction } from './createMenuItemAction';
 import type { MenuItemActionProps } from './types';
 
 type Props = ClosedTagProps & MenuItemActionProps;

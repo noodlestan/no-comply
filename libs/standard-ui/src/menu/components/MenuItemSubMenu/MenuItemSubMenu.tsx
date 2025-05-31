@@ -9,7 +9,7 @@ import { Popover } from '../../../popover';
 import { AlignFirstLine, Label, Text } from '../../../typography';
 
 import { MENU_ITEM_SUB_MENU_PROPS } from './constants';
-import { createMenuItemSubMenu } from './createMenuItem';
+import { createMenuItemSubMenu } from './createMenuItemSubMenu';
 import type { MenuItemSubMenuAPI, MenuItemSubMenuProps } from './types';
 
 type ChildrenProps = {
