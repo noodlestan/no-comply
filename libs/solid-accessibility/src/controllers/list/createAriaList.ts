@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createAriaLabelled } from '../label';
 
@@ -12,7 +12,7 @@ export const createAriaList = (props: AriaListProps): AriaListAPI => {
         const c = component();
         return c !== 'ul' && c !== 'ol' ? 'list' : undefined;
     };
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         component,
         role,
         'aria-orientation': () => props.orientation ?? 'vertical',
@@ -20,7 +20,7 @@ export const createAriaList = (props: AriaListProps): AriaListAPI => {
     });
 
     return {
-        $root: mergeProps($regionRoot, $localRoot),
+        $root: mergeProps($regionRoot, $root),
         $label,
         $description,
     };

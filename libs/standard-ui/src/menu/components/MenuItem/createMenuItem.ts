@@ -9,7 +9,7 @@ import {
 import type { IconComponent } from '@no-comply/solid-contexts';
 import {
     type PressEvent,
-    createComputedProps,
+    computedProps,
     mergeProps,
     pickProps,
     shortId,
@@ -60,7 +60,7 @@ export const createMenuItemBase = (
     // const setRovingFocus = (value: boolean) => console.log('set focus', value);
     // const menuContext = useMenuItem({ setRovingFocus });
 
-    const ariaMenuItemProps = createComputedProps(
+    const ariaMenuItemProps = computedProps(
         { labelled: true },
         { described: () => Boolean(props.description) },
     );
@@ -72,11 +72,11 @@ export const createMenuItemBase = (
 
     const { $root: $pressableRoot } = createPressable(props, 'menuitem');
 
-    const $localLabel = createComputedProps({
+    const $localLabel = computedProps({
         children: () => props.label,
     });
 
-    const $localDescription = createComputedProps({
+    const $localDescription = computedProps({
         children: () => props.description,
     });
 
@@ -89,7 +89,7 @@ export const createMenuItemBase = (
         size: 'small' as const,
     };
 
-    const iconProps = createComputedProps(iconStaticProps, {
+    const iconProps = computedProps(iconStaticProps, {
         icon: () => {
             if (!props.icon) {
                 console.error('Unavailable. Wrap in `hasIcon()`.');
@@ -98,7 +98,7 @@ export const createMenuItemBase = (
         },
     });
 
-    const $localRoot = {
+    const $root = {
         'data-menu-item': type,
     };
 
@@ -110,7 +110,7 @@ export const createMenuItemBase = (
     const context = useMenuItemGroupChild(menuItemAPI);
 
     return {
-        $root: mergeProps($pressableRoot, $ariaMenuItemRoot, $localRoot),
+        $root: mergeProps($pressableRoot, $ariaMenuItemRoot, $root),
         $label: mergeProps($ariaMenuItemLabel, $localLabel),
         $description: mergeProps($ariaMenuItemDescription, $localDescription),
         iconProps,
@@ -154,7 +154,7 @@ export const createHeadlessMenuItemSubMenu = (
 
     const { $root, $label, ...rest } = createMenuItemBase(props, 'sub-menu');
 
-    const anchoredPopoverProps = createComputedProps({
+    const anchoredPopoverProps = computedProps({
         id,
         targetId: subMenuId,
         direction: () => PLACEMENT_AXIS_INLINE,
@@ -166,7 +166,7 @@ export const createHeadlessMenuItemSubMenu = (
         contextValue,
     } = createAnchoredPopover(anchoredPopoverProps);
 
-    const subMenuProps = createComputedProps({
+    const subMenuProps = computedProps({
         id: subMenuId,
         'aria-labelledby': () => $label.id as string,
     });

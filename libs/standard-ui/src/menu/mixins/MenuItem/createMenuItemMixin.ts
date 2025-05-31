@@ -1,6 +1,6 @@
 import {
     type PickRequired,
-    createComputedProps,
+    computedProps,
     mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
@@ -20,10 +20,10 @@ export const createMenuItemMixin = (props: MenuItemMixinProps): MenuItemMixinAPI
     const [, others] = splitProps(props, ['variant']);
     const variant = () => props.variant ?? defaultProps.variant;
     const size = () => 'normal' as ContentSize;
-    const actionProps = createComputedProps(others, { variant, size, inset: () => true });
+    const actionProps = computedProps(others, { variant, size, inset: () => true });
     const { $root: $actionMixinRoot } = createActionMixin(actionProps);
 
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'MenuItem'),
     };
 
@@ -48,7 +48,7 @@ export const createMenuItemMixin = (props: MenuItemMixinProps): MenuItemMixinAPI
     };
 
     return {
-        $root: mergeProps($actionMixinRoot, $localRoot),
+        $root: mergeProps($actionMixinRoot, $root),
         $iconSlot,
         $expandSlot,
         $labelSlot,

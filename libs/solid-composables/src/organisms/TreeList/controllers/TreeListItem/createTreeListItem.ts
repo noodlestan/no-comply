@@ -1,6 +1,6 @@
 import { createAriaTreeItem } from '@no-comply/solid-accessibility';
 import { l } from '@no-comply/solid-contexts/src/labels';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
@@ -15,7 +15,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
     const setSize = () => props.setSize ?? 1;
     const posInSet = () => props.posInSet ?? 1;
 
-    const ariaTreeItemProps = createComputedProps({
+    const ariaTreeItemProps = computedProps({
         label: () => l(labels().item, props.node),
         selected,
         expanded,
@@ -23,13 +23,13 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
         setSize,
         posInSet,
     });
-    const { $root: $ariaTreeItemRoot } = createAriaTreeItem(ariaTreeItemProps);
+    const { $root: $treeItemRoot } = createAriaTreeItem(ariaTreeItemProps);
 
-    const $localRoot = {
+    const $root = {
         component: 'div' as const,
     };
 
-    const detailsProps = createComputedProps({
+    const detailsProps = computedProps({
         component: () => components().itemDetails,
         node: () => props.node,
         expand: () => props.expand,
@@ -43,7 +43,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
         return typeof exp === 'number' && exp ? exp - 1 : exp;
     };
 
-    const childrenProps = createComputedProps({
+    const childrenProps = computedProps({
         component: () => components().itemChildren,
         node: () => props.node,
         expand: () => childrenExpand(),
@@ -54,7 +54,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
     });
 
     return {
-        $root: mergeProps($ariaTreeItemRoot, $localRoot),
+        $root: mergeProps($treeItemRoot, $root),
         detailsProps,
         childrenProps,
         isExpanded: expanded,

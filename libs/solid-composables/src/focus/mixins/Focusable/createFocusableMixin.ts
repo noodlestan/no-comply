@@ -6,11 +6,11 @@ import type { FocusableMixinAPI } from './types';
 export const createFocusableMixin = (): FocusableMixinAPI => {
     const classList = staticClassList(styles, 'Focusable');
 
-    const $localRoot = {
+    const $root = {
         classList,
     };
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

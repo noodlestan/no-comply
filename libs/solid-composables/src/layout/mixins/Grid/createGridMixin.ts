@@ -1,8 +1,8 @@
 import {
     type AxisShorthandInput,
     type ResponsiveProp,
+    computedProps,
     createClassList,
-    createComputedProps,
     resolveAxisShorthandProps,
 } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
@@ -37,8 +37,11 @@ export function createGridMixin(
         // ...responsiveClassMap(breakpoints, 'rows', rows()),
         [`autoFlow-${props.flow}`]: Boolean(props.flow),
     }));
-    const $localRoot = createComputedProps({ classList });
+    const $root = computedProps({
+        classList,
+    });
+
     return {
-        $root: $localRoot,
+        $root,
     };
 }

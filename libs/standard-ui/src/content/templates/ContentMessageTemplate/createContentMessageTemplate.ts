@@ -1,7 +1,7 @@
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
@@ -20,7 +20,7 @@ export const createContentMessageTemplate = (
     const size = () => props.size ?? defaultProps.size;
     const length = () => props.length ?? defaultProps.length;
     const classList = createClassList(styles, () => ['ContentMessage', `length-${length()}`]);
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
@@ -31,7 +31,7 @@ export const createContentMessageTemplate = (
     const iconStaticProps = {
         classList: staticClassList(styles, '-Icon'),
     };
-    const iconProps = createComputedProps(iconStaticProps, {
+    const iconProps = computedProps(iconStaticProps, {
         size,
     });
 
@@ -45,7 +45,7 @@ export const createContentMessageTemplate = (
     const hasCloseButton = () => Boolean(props.onClose);
 
     return {
-        $root: mergeProps(props.$root, $localRoot),
+        $root: mergeProps(props.$root, $root),
         $title: mergeProps(props.$title, $title),
         $description: props.$description,
         iconProps: mergeProps(props.iconProps, iconProps),

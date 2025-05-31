@@ -10,11 +10,11 @@ export const createLinkMixin = (props: LinkMixinProps = {}): LinkMixinAPI => {
     const { $root: $linkMixinRoot } = createHeadlessLinkMixin();
     const { $root: $focusRing } = createFocusRingMixin(props);
 
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, `Link`),
     };
 
     return {
-        $root: mergeProps($linkMixinRoot, $focusRing, $localRoot),
+        $root: mergeProps($linkMixinRoot, $focusRing, $root),
     };
 };

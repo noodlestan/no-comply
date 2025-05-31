@@ -1,6 +1,6 @@
 import { createAriaMenu } from '@no-comply/solid-accessibility';
 import { usePopoverMaybe } from '@no-comply/solid-composables';
-import { createComputedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
 import { createContext, createMemo, useContext } from 'solid-js';
 
 import { createSurface } from '../../../surface';
@@ -66,22 +66,22 @@ export const createHeadlessMenu = (props: HeadlessMenuProps): HeadlessMenuAPI =>
     const contextValue = createMenuContext(props);
     const [context] = contextValue;
 
-    const { $root: $ariaRoot, $label: $ariaLabel } = createAriaMenu(props);
+    const { $root: $menuRoot, $label: $ariaLabel } = createAriaMenu(props);
 
     const $labelStatic = {
         component: 'p' as const,
     };
-    const $localLabel = createComputedProps($labelStatic, {
+    const $localLabel = computedProps($labelStatic, {
         children: () => props.label,
     });
 
-    const $localRoot = {
+    const $root = {
         role: 'menu',
         'data-menu': '',
     } as const;
 
     return {
-        $root: mergeProps($ariaRoot, $localRoot),
+        $root: mergeProps($menuRoot, $root),
         $label: mergeProps($ariaLabel, $localLabel),
         context,
         contextValue,

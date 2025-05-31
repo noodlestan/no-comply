@@ -1,6 +1,6 @@
 import { createAriaDialog } from '@no-comply/solid-accessibility';
 import { createModalContext } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createFocusTrap } from '../../../focus';
 
@@ -12,7 +12,7 @@ export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI 
     const contextValue = createModalContext(props);
     const [context] = contextValue;
 
-    const { $root: $ariaDialogRoot, $label, $description } = createAriaDialog(props);
+    const { $root: $dialogRoot, $label, $description } = createAriaDialog(props);
 
     const $dialogContextRoot = {
         ref: context.setTargetRef,
@@ -34,12 +34,12 @@ export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI 
         onKeyUp: stopPropagation,
         onKeyPress: stopPropagation,
     };
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         'data-modal-dialog-is-active': () => (context.isActive() ? '' : undefined),
     });
 
     state.api = {
-        $root: mergeProps($ariaDialogRoot, $dialogContextRoot, $focusTrapRoot, $localRoot),
+        $root: mergeProps($dialogRoot, $dialogContextRoot, $focusTrapRoot, $root),
         $label,
         $description,
         context,

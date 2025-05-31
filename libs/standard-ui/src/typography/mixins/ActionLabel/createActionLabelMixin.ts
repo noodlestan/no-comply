@@ -2,7 +2,7 @@ import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-com
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -18,11 +18,11 @@ export const createActionLabelMixin = (props: ActionLabelMixinProps): ActionLabe
 
     const variant = () => props.variant ?? defaultProps.variant;
     const classList = createClassList(styles, () => ['ActionLabel', `variant-${variant()}`]);
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     return {
-        $root: mergeProps($textMixinRoot, $localRoot),
+        $root: mergeProps($textMixinRoot, $root),
     };
 };

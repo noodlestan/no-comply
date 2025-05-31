@@ -4,11 +4,11 @@ import styles from './ListMixin.module.scss';
 import type { ListMixinAPI } from './types';
 
 export const createListixin = (): ListMixinAPI => {
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'List'),
     };
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

@@ -1,5 +1,5 @@
 import { createFieldContext, useFormMaybe } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
 import type { FieldAPI, FieldProps } from './types';
@@ -19,7 +19,7 @@ export const createField = (props: FieldProps): FieldAPI => {
 
     const form = useFormMaybe();
 
-    const fieldContextState = createComputedProps({
+    const fieldContextState = computedProps({
         touched: isTouched,
         modified: isModified,
         invalid: isInvalid,
@@ -29,7 +29,7 @@ export const createField = (props: FieldProps): FieldAPI => {
     const [context] = contextValue;
 
     const hasFeedback = () => context.isInvalid() && (!form || form?.isFeedbackEnabled());
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         'data-disabled': () => (context.isDisabled() ? '' : undefined),
         'data-field-readonly': () => (context.isReadonly() ? '' : undefined),
         'data-field-pending': () => (context.isPending() ? '' : undefined),
@@ -55,7 +55,7 @@ export const createField = (props: FieldProps): FieldAPI => {
     const $feedback = {};
 
     return {
-        $root: $localRoot,
+        $root,
         $label,
         $description,
         $input,

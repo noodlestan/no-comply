@@ -1,8 +1,4 @@
-import {
-    type PickRequired,
-    createComputedProps,
-    staticClassList,
-} from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './DividerMixin.module.scss';
 import type { DividerMixinAPI, DividerMixinProps } from './types';
@@ -18,12 +14,12 @@ export const createDividerMixin = (props: DividerMixinProps): DividerMixinAPI =>
     const classList = staticClassList(styles, 'Divider');
 
     const $static = { classList };
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         component,
         'data-divider': orientation,
     });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

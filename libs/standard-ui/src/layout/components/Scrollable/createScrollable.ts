@@ -7,11 +7,11 @@ import type { ScrollableAPI, ScrollableProps } from './types';
 export const createScrollable = (props: ScrollableProps): ScrollableAPI => {
     const { $root: $scrollableMixinRoot } = createScrollableMixin(props);
 
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'Scrollable'),
     };
 
     return {
-        $root: mergeProps($scrollableMixinRoot, $localRoot),
+        $root: mergeProps($scrollableMixinRoot, $root),
     };
 };

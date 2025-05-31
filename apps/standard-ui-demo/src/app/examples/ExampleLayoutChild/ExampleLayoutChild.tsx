@@ -10,9 +10,11 @@ type Props = ClosedTagProps & {
 export const ExampleLayoutChild: Component<Props> = props => {
     const [locals, $others] = splitProps(props, ['content']);
 
-    const $localRoot = { classList: staticClassList(styles, 'ExampleLayoutChild') };
+    const $root = {
+        classList: staticClassList(styles, 'ExampleLayoutChild'),
+    };
 
-    const $ = mergeProps($others, $localRoot);
+    const $ = mergeProps($others, $root);
 
     return <div {...$}>{locals.content ?? 'Lorem ipsum'}</div>;
 };

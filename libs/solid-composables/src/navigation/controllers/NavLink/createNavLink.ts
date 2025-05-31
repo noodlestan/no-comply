@@ -1,5 +1,5 @@
 import { useNavigation } from '@no-comply/solid-contexts';
-import { createComputedProps } from '@no-comply/solid-primitives';
+import { computedProps } from '@no-comply/solid-primitives';
 
 import type { NavLinkAPI, NavLinkProps } from './types';
 
@@ -18,12 +18,12 @@ export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
         return m === 'section' ? true : m;
     };
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         'data-nav-link-current': () => (isCurrentNav() ? '' : undefined),
         'aria-current': () => (isCurrentNav() ? mode() : undefined),
     });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

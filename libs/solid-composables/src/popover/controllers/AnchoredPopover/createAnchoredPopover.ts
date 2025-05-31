@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps, shortId } from '@no-comply/solid-primitives';
 import { createMemo } from 'solid-js';
 
 import { createPlacement } from '../../../placement';
@@ -22,7 +22,7 @@ export const createAnchoredPopoverTrigger = (
         'aria-haspopup': 'true',
     } as const;
 
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         id,
         ref: () => props.ref,
         popoverTarget: () => props.targetId,
@@ -30,7 +30,7 @@ export const createAnchoredPopoverTrigger = (
     });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };
 
@@ -54,14 +54,14 @@ export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): Anchore
     const randomId = createMemo(shortId);
     const triggerId = () => randomId();
 
-    const triggerProps = createComputedProps({
+    const triggerProps = computedProps({
         id: triggerId,
         targetId: context.id,
         expanded: context.isShown,
     });
     const { $root: $triggerRoot } = createAnchoredPopoverTrigger(triggerProps);
 
-    const contentProps = createComputedProps({
+    const contentProps = computedProps({
         id: context.id,
         'aria-labelledby': triggerId,
     });

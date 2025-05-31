@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 import { onCleanup } from 'solid-js';
 
 import { createPressOutside } from '../PressOutside';
@@ -12,7 +12,7 @@ export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
         rootEl = el;
     };
 
-    const pressOutsideProps = createComputedProps({
+    const pressOutsideProps = computedProps({
         onPressOutside: () => props.onDismiss,
         exclude: () => props.exclude,
     });
@@ -43,12 +43,12 @@ export const createDismissible = (props: DismissibleProps): DismissibleAPI => {
     onCleanup(() => {
         document.removeEventListener('focusin', handleFocusIn);
     });
-    const $localRoot = {
+    const $root = {
         ref: setDismissibleRef,
         onKeyDown,
     };
 
     return {
-        $root: mergeProps($pressOutsideRoot, $localRoot),
+        $root: mergeProps($pressOutsideRoot, $root),
     };
 };

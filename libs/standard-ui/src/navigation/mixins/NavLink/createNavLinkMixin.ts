@@ -1,7 +1,7 @@
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -29,11 +29,11 @@ export const createNavLinkMixin = (props: NavLinkMixinProps): NavLinkMixinAPI =>
         nowrap: Boolean(props.nowrap),
         [`highlight-${highlight()}`]: true,
     }));
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     return {
-        $root: mergeProps($linkMixinRoot, $localRoot),
+        $root: mergeProps($linkMixinRoot, $root),
     };
 };

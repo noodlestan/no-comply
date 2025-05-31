@@ -2,7 +2,7 @@ import { createAlignToFirstLineMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -18,10 +18,12 @@ export const createSizedActionMixin = (props: SizedActionMixinProps): SizedActio
 
     const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => [`SizedAction`, `size-${size()}`]);
-    const $localRoot = createComputedProps({ classList });
+    const $root = computedProps({
+        classList,
+    });
 
     return {
-        $root: mergeProps($alignToFirstLineRoot, $localRoot),
+        $root: mergeProps($alignToFirstLineRoot, $root),
         size,
     };
 };

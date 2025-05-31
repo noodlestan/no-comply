@@ -2,7 +2,7 @@ import { createFieldMixin, createField as createHeadlessField } from '@no-comply
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -28,16 +28,16 @@ export const createField = (props: FieldProps): FieldAPI => {
 
     const size = () => props.size || defaultProps.size;
     const classList = createClassList(styles, () => ['Field', `size-${size()}`]);
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
-    const fieldLabelProps = createComputedProps({
+    const fieldLabelProps = computedProps({
         size,
     });
 
     return {
-        $root: mergeProps($fieldRoot, $fieldMixinRoot, $localRoot),
+        $root: mergeProps($fieldRoot, $fieldMixinRoot, $root),
         fieldLabelProps: mergeProps($label, fieldLabelProps),
         $description,
         $input,

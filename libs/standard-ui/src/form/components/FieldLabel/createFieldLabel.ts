@@ -5,7 +5,7 @@ import {
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -22,11 +22,11 @@ export const createFieldLabel = (props: FieldLabelProps): FieldLabelAPI => {
 
     const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => ['FieldLabel', `size-${size()}`]);
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     return {
-        $root: mergeProps($fieldLabelRoot, $fieldLabelMixinRoot, $localRoot),
+        $root: mergeProps($fieldLabelRoot, $fieldLabelMixinRoot, $root),
     };
 };

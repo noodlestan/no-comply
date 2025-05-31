@@ -1,5 +1,5 @@
 import { createFirstLineAlignMixin as createHeadlessFirstLineAlignMixin } from '@no-comply/solid-composables';
-import { createClassList, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { createClassList, computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import styles from './FirstLineAlignMixin.module.scss';
 import type { FirstLineAlignMixinAPI, FirstLineAlignMixinProps } from './types';
@@ -10,11 +10,11 @@ export const createFirstLineAlignMixin = (
     const { $root: $headlessFirstLineAlignRoot } = createHeadlessFirstLineAlignMixin();
 
     const classList = createClassList(styles, () => [`size-${props.height}`]);
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     return {
-        $root: mergeProps($headlessFirstLineAlignRoot, $localRoot),
+        $root: mergeProps($headlessFirstLineAlignRoot, $root),
     };
 };

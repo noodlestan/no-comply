@@ -5,9 +5,9 @@ import type { FocusRingMixinAPI } from './types';
 
 export const createFocusRingMixin = (): FocusRingMixinAPI => {
     const classList = staticClassList(styles, 'FocusRing');
-    const $localRoot = { classList };
+    const $root = { classList };
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

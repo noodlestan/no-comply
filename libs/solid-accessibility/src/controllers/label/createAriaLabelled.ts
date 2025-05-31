@@ -1,4 +1,4 @@
-import { createComputedProps, shortId } from '@no-comply/solid-primitives';
+import { computedProps, shortId } from '@no-comply/solid-primitives';
 import { createMemo } from 'solid-js';
 
 import type { AriaLabelledAPI, AriaLabelledProps } from './types';
@@ -36,17 +36,17 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
 
     const hasLabel = () => Boolean(label() || labelledby());
 
-    const $root = createComputedProps({
+    const $root = computedProps({
         'aria-label': label,
         'aria-labelledby': labelledby,
         'aria-describedby': describedby,
     });
 
-    const $label = createComputedProps({
+    const $label = computedProps({
         id: labelledby,
     });
 
-    const $description = createComputedProps({
+    const $description = computedProps({
         id: describedby,
     });
 

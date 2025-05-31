@@ -1,8 +1,4 @@
-import {
-    type ObjectWithId,
-    createComputedProps,
-    staticClassList,
-} from '@no-comply/solid-primitives';
+import { type ObjectWithId, computedProps, staticClassList } from '@no-comply/solid-primitives';
 import { createResizeObserver } from '@solid-primitives/resize-observer';
 import { createEffect, onMount } from 'solid-js';
 
@@ -68,7 +64,7 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
         ref: setElementRef,
         classList: staticClassList(styles, 'OverflowItems'),
     };
-    const $root = createComputedProps($static, {
+    const $root = computedProps($static, {
         'data-responsive-items-is-reflowing': () => (context.isReflowing() ? '' : undefined),
     });
 

@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createAriaRegion } from '../region';
 
@@ -7,10 +7,10 @@ import type { AriaDialogAPI, AriaDialogProps } from './types';
 export const createAriaDialog = (props: AriaDialogProps = {}): AriaDialogAPI => {
     const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'dialog');
 
-    const $localRoot = createComputedProps({});
+    const $root = computedProps({});
 
     return {
-        $root: mergeProps($regionRoot, $localRoot),
+        $root: mergeProps($regionRoot, $root),
         $label,
         $description,
     };

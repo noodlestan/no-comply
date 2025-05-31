@@ -5,7 +5,7 @@ import {
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -28,13 +28,13 @@ export const createModalDialog = (props: ModalDialogProps): ModalDialogAPI => {
 
     const size = () => props.size ?? defaultProps.size;
     const classList = createClassList(styles, () => ['ModalDialog', `size-${size()}`]);
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     const localSurfaceProps = { variant: 'dialog' } as const;
 
-    const surfaceProps = mergeProps(localSurfaceProps, $localRoot, $dialogRoot, $dialogMixinRoot);
+    const surfaceProps = mergeProps(localSurfaceProps, $root, $dialogRoot, $dialogMixinRoot);
 
     return {
         surfaceProps,

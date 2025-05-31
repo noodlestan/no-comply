@@ -1,6 +1,6 @@
 import {
     type PickRequired,
-    createComputedProps,
+    computedProps,
     mergeProps,
     pickProps,
 } from '@no-comply/solid-primitives';
@@ -23,7 +23,7 @@ export const createFirstLineAlign = (props: FirstLineAlignProps): FirstLineAlign
     const { $root: $composableTypeRoot } = createComposableTypeMixin(props);
 
     const component = () => props.tag ?? defaultProps.tag;
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         component,
     });
 
@@ -33,7 +33,7 @@ export const createFirstLineAlign = (props: FirstLineAlignProps): FirstLineAlign
     ) as ComposableTypeMixinProps;
 
     return {
-        $root: mergeProps($firstLineAlignRoot, $composableTypeRoot, $localRoot),
+        $root: mergeProps($firstLineAlignRoot, $composableTypeRoot, $root),
         composableTypeProps,
     };
 };

@@ -1,6 +1,6 @@
 import { createAriaGroup } from '@no-comply/solid-accessibility';
 import { l } from '@no-comply/solid-contexts/src/labels';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
@@ -13,19 +13,19 @@ export const createTreeListItemChildren = (
 
     const expanded = () => Boolean(props.expand || isExpanded(props.node.id));
     const setSize = () => props.node.children.length;
-    const ariaTreeGroupProps = createComputedProps({
+    const ariaTreeGroupProps = computedProps({
         label: () => l(labels().group, props.node),
         expanded,
         setSize,
     });
     const { $root: $groupRoot } = createAriaGroup(ariaTreeGroupProps);
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         id: () => `tree-list-node-${props.node.id}`,
         style: () => ({ '--tree-list-indent-level': props.level + 1 }),
     });
 
-    const itemProps = createComputedProps({
+    const itemProps = computedProps({
         component: () => components().item,
         level: () => props.level + 1,
         setSize: () => props.node.children.length,
@@ -35,7 +35,7 @@ export const createTreeListItemChildren = (
     });
 
     return {
-        $root: mergeProps($groupRoot, $localRoot),
+        $root: mergeProps($groupRoot, $root),
         itemProps,
     };
 };

@@ -4,7 +4,7 @@ import {
     createExpandAction,
 } from '@no-comply/solid-composables';
 import { createIconValue } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';
@@ -22,7 +22,7 @@ const ICONS: ExpandActionIcons = {
 };
 
 export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI => {
-    const expandButtonProps = createComputedProps({
+    const expandButtonProps = computedProps({
         controls: () => props.controls,
         expanded: () => props.expanded,
         labels: () => Object.assign({}, LABELS, props.labels),

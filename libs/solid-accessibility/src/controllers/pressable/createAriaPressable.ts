@@ -1,4 +1,4 @@
-import { createComputedProps } from '@no-comply/solid-primitives';
+import { computedProps } from '@no-comply/solid-primitives';
 
 import type { PressableRoleName } from '../../role';
 
@@ -36,7 +36,7 @@ export function createAriaPressable(
     const tabIndex = () => (props.disabled ? undefined : (props.tabIndex ?? 0));
     const disabled = () => (component() === 'button' ? props.disabled : undefined);
 
-    const $root = createComputedProps({
+    const $root = computedProps({
         component,
         role,
         type,

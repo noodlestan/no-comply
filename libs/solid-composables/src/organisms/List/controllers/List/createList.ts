@@ -1,5 +1,5 @@
 import { createAriaList } from '@no-comply/solid-accessibility';
-import { createComputedProps, mergeProps, withDefault } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps, withDefault } from '@no-comply/solid-primitives';
 
 import { createListContext } from '../../contexts';
 import { createListKeyboardController } from '../ListKeyboard';
@@ -16,21 +16,21 @@ export const createList = (props: ListProps): ListAPI => {
         () => createListKeyboardController(),
     );
 
-    const { $root: $ariaTreeRoot, $label, $description } = createAriaList(props);
+    const { $root: $treeRoot, $label, $description } = createAriaList(props);
 
     const $static = {
         ref: (el: HTMLElement) => keyboard().$root.ref(el),
         onKeyDown: (ev: KeyboardEvent) => keyboard().$root.onKeyDown(ev),
     };
-    const $localRoot = createComputedProps($static, {});
+    const $root = computedProps($static, {});
 
-    const itemProps = createComputedProps({
+    const itemProps = computedProps({
         component: () => components().item,
         setSize: () => props.items.length,
     });
 
     return {
-        $root: mergeProps($ariaTreeRoot, $localRoot),
+        $root: mergeProps($treeRoot, $root),
         $label,
         $description,
         itemProps,

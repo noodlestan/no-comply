@@ -1,5 +1,5 @@
 import { createAriaTree } from '@no-comply/solid-accessibility';
-import { createComputedProps, mergeProps, withDefault } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps, withDefault } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
 
 import { createTreeListContext } from '../../contexts';
@@ -11,7 +11,7 @@ import type { TreeListAPI, TreeListProps } from './types';
 export const createTreeList = (props: TreeListProps): TreeListAPI => {
     const [, others] = splitProps(props, ['labels', 'icons']);
 
-    const contextProps = createComputedProps({
+    const contextProps = computedProps({
         labels: () => Object.assign({}, LABELS, props.labels),
         icons: () => Object.assign({}, ICONS, props.icons),
     });
@@ -24,25 +24,25 @@ export const createTreeList = (props: TreeListProps): TreeListAPI => {
         () => createTreeListKeyboardController(() => props.root, context),
     );
 
-    const { $root: $ariaTreeRoot, $label, $description } = createAriaTree(props);
+    const { $root: $treeRoot, $label, $description } = createAriaTree(props);
 
     const expand = () => props.expand;
     const $static = {
         ref: (el: HTMLElement) => keyboard().$root.ref(el),
         onKeyDown: (ev: KeyboardEvent) => keyboard().$root.onKeyDown(ev),
     };
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         expand,
     });
 
-    const itemProps = createComputedProps({
+    const itemProps = computedProps({
         component: () => components().item,
         node: () => props.root,
         expand: () => props.expand,
     });
 
     return {
-        $root: mergeProps($ariaTreeRoot, $localRoot),
+        $root: mergeProps($treeRoot, $root),
         $label,
         $description,
         itemProps,

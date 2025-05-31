@@ -1,5 +1,5 @@
-import { type ClosedTagProps } from '@no-comply/solid-primitives';
-import { type ParentComponent, mergeProps, splitProps } from 'solid-js';
+import { type ClosedTagProps, mergeProps } from '@no-comply/solid-primitives';
+import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import { TEXT_ALIGNED_PROPS } from './constants';

@@ -1,5 +1,5 @@
 import { createAriaGroup } from '@no-comply/solid-accessibility';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 import { createContext, createSignal, useContext } from 'solid-js';
 
 import { createMenuItemGroupMixin } from '../../mixins';
@@ -72,23 +72,25 @@ export const createHeadlessMenuItemGroup = (
     const contextValue = createMenuItemGroupContext(props);
     const [context] = contextValue;
 
-    const ariaGroupProps = createComputedProps({ labelled: () => Boolean(props.label) });
-    const { $root, $label, $description, hasLabel } = createAriaGroup(ariaGroupProps);
+    const ariaGroupProps = computedProps({
+        labelled: () => Boolean(props.label),
+    });
+    const { $root: $groupRoot, $label, $description, hasLabel } = createAriaGroup(ariaGroupProps);
 
-    const $localRoot = {
+    const $root = {
         'data-menu-item-group': '' as const,
     };
 
-    const $localLabel = createComputedProps({
+    const $localLabel = computedProps({
         children: () => props.label,
     });
 
-    const $localDescription = createComputedProps({
+    const $localDescription = computedProps({
         children: () => props.description,
     });
 
     return {
-        $root: mergeProps($root, $localRoot),
+        $root: mergeProps($groupRoot, $root),
         $label: mergeProps($label, $localLabel),
         $description: mergeProps($description, $localDescription),
         hasLabel,

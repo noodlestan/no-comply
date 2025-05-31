@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../../../action';
 import { isExternalURL, linkRelFor } from '../../helpers';
@@ -13,7 +13,7 @@ export const createLink = (props: LinkProps): LinkAPI => {
     const rel = () => linkRelFor(props.href, props.rel);
     const tabIndex = () => (props.disabled ? -1 : undefined);
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         href,
         target,
         rel,
@@ -23,6 +23,6 @@ export const createLink = (props: LinkProps): LinkAPI => {
     });
 
     return {
-        $root: mergeProps($pressabeRoot, $localRoot),
+        $root: mergeProps($pressabeRoot, $root),
     };
 };

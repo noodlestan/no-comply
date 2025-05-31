@@ -1,4 +1,4 @@
-import { createClassList, createComputedProps, staticClassList } from '@no-comply/solid-primitives';
+import { computedProps, createClassList, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './IconButtonMixin.module.scss';
 import { ICON_BUTTOM_MAP_SIZE_TO_ICON_SIZE } from './constants';
@@ -8,7 +8,7 @@ export const createIconButtonMixin = (props: IconButtonMixinProps): IconButtonMi
     const iconStaticProps = {
         classList: staticClassList(styles, '-Icon'),
     };
-    const iconProps = createComputedProps(iconStaticProps, {
+    const iconProps = computedProps(iconStaticProps, {
         size: () => ICON_BUTTOM_MAP_SIZE_TO_ICON_SIZE[props.size],
     });
 
@@ -17,13 +17,12 @@ export const createIconButtonMixin = (props: IconButtonMixinProps): IconButtonMi
         [`is-round`]: Boolean(props.round),
         [`is-small`]: Boolean(props.size === 'small'),
     }));
-
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     return {
-        $root: $localRoot,
+        $root,
         iconProps,
     };
 };

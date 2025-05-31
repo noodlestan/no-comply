@@ -113,12 +113,12 @@ export const createTreeListKeyboardController = (
         }
     };
 
-    const $localRoot = {
+    const $root = {
         onKeyDown,
         ref: setContainerRef,
     };
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

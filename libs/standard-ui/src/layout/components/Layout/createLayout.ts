@@ -1,4 +1,4 @@
-import { type PickRequired, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createLayoutMixin } from '../../mixins';
 
@@ -12,11 +12,11 @@ export const createLayout = (props: LayoutProps): LayoutAPI => {
     const { $root: $layoutMixinRoot } = createLayoutMixin(props);
 
     const component = () => props.tag ?? defaultProps.tag;
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         component,
     });
 
     return {
-        $root: mergeProps($layoutMixinRoot, $localRoot),
+        $root: mergeProps($layoutMixinRoot, $root),
     };
 };

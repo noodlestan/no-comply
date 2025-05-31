@@ -1,6 +1,10 @@
 # No Comply
 
-## Responsive Flex and Grid
+## rename mergeProps to combineProps, avoids importing Solid's by mistake
+
+## rename createComputedProps to computedProps
+
+## data-\* in all components
 
 ## remove flex defaults
 
@@ -8,6 +12,8 @@ go throw existing components and discover the patterns - <Column> => column / ju
 same for the app
 
 compose flex / grid into surface?
+
+## Responsive Flex and Grid
 
 ## user-select and pointer-events
 
@@ -20,8 +26,6 @@ make sure actions and links are still ALWAYS not selectable
 if display/text components expose [data-display] [data-text] it would be possible to have the reset layer exclude them from the "not selectable" rule
 
 think also labels, data values
-
-## data-\* in all components
 
 ## AlignToFirstLineMixin and FirstLineAlignMixin naming!
 
@@ -59,9 +63,14 @@ do not render children wrapper if no children present
 </Button>
 ```
 
-## IconButton
+## IconButton / Icon
 
 aspect-ratio
+
+## MenuItemGroup and MenuItem\*
+
+- style descriptions
+-
 
 ## Display, Heading, Text
 
@@ -72,23 +81,6 @@ and aria-paragraph when not p?
 
 - resize to mobile, open sidebar, resize to desktop
 - navbar shadow not visible over sidebar
-
-## supports test
-
-- popover
-
-```
-function supportsPopover() {
-return HTMLElement.prototype.hasOwnProperty("popover");
-}
-```
-
-- container queries
-- css functions
-- layers
-
-- not supported yet
-  /_ abs(0.5 - var(--#{$name}-light)) _/ https://developer.mozilla.org/en-US/docs/Web/CSS/abs
 
 ## data-disabled data-active data-readonly
 
@@ -189,6 +181,8 @@ vs router (or custom) via navigation service
 
 ## Inputs
 
+## MenuItemGroupRadio and MenuItemCheckbox
+
 ## Form validation
 
 ## FormGroupContext
@@ -241,3 +235,67 @@ createContextsServiceProducer(key, produce: () => contexts)
 const cleanupProducer = createProducer(produce)
 onCleanup(cleanupProducer)
 ```
+
+# SolidJS
+
+## `/*@once*/` and `textContent` Should we?
+
+https://docs.solidjs.com/reference/jsx-attributes/textcontent
+
+https://docs.solidjs.com/reference/jsx-attributes/once
+
+## HUM!? https://docs.solidjs.com/reference/jsx-attributes/classlist
+
+```
+Because classList is a compile-time pseudo-attribute, it does not work in a prop spread like <div {...props} /> or in <Dynamic>.
+```
+
+# BROWSER SUPPORT
+
+## supports test
+
+- popover
+
+```
+function supportsPopover() {
+return HTMLElement.prototype.hasOwnProperty("popover");
+}
+```
+
+- container queries
+- css functions
+- layers
+
+# FUTURE CSS
+
+## style queries
+
+Not supported in Firefox yet.
+
+```css
+    @container WithSidebarLayout (min-width: 600px) {
+        .WithSidebarLayoutWrapper {
+            --WithSidebarLayout-size: large;
+        }
+    }
+
+@container WithSidebarLayoutWrapper style(--WithSidebarLayout-size: large) { ... }
+```
+
+## abs() - not supported in Chrome
+
+/_ abs(0.5 - var(--#{$name}-light)) _/ https://developer.mozilla.org/en-US/docs/Web/CSS/abs
+
+## text-box-trim - not supported in Firefox
+
+Potential to default to this mode and gave better control over vertical rhythm, eventually even grid alignment.
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/text-box-trim
+
+# TO WRITE
+
+- First Line Alignment
+- Palettes vs Algorithmic colors css CSS Functions
+- Color Calibration
+- CSS Layers
+- Proxy props

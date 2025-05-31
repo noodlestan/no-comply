@@ -1,5 +1,5 @@
 import { l } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createExtendedPressable } from '../../../../action';
 import { getTreeSelectionUntil } from '../../helpers';
@@ -82,7 +82,7 @@ export const createTreeListItemDetails = (
     };
     const focusableProps = mergeProps(focusableStaticProps, extendedPressable);
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         'data-tree-item-id': () => props.node.id,
         'data-tree-item-is-expandable': () => (hasToggle() ? '' : undefined),
         'data-tree-item-is-selected': () => (showSelection() && selected() ? '' : undefined),
@@ -98,7 +98,7 @@ export const createTreeListItemDetails = (
     const expandButtonStaticProps = {
         onPress: handleExpandPress,
     };
-    const expandButtonProps = createComputedProps(expandButtonStaticProps, {
+    const expandButtonProps = computedProps(expandButtonStaticProps, {
         controls: () => `tree-list-node-${props.node.id}`,
         component: () => components().expandButton,
         expanded: isItemExpanded,
@@ -109,7 +109,7 @@ export const createTreeListItemDetails = (
         icons,
     });
 
-    const itemContentsProps = createComputedProps({
+    const itemContentsProps = computedProps({
         component: () => props.node.component ?? components().itemContents,
         node: () => props.node,
         level,
@@ -120,7 +120,7 @@ export const createTreeListItemDetails = (
     });
 
     return {
-        $root: $localRoot,
+        $root,
         focusableProps,
         expandButtonProps,
         itemContentsProps,

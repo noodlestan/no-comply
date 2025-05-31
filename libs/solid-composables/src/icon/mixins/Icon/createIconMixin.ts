@@ -8,11 +8,11 @@ import type { IconMixinAPI, IconMixinProps } from './types';
 export const createIconMixin = (props: IconMixinProps): IconMixinAPI => {
     const { $root: $alignToFirstLineRoot } = createAlignToFirstLineMixin(props);
 
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'Icon'),
     };
 
     return {
-        $root: mergeProps($alignToFirstLineRoot, $localRoot),
+        $root: mergeProps($alignToFirstLineRoot, $root),
     };
 };

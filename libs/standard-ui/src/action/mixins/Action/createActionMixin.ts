@@ -2,7 +2,7 @@ import { createActionMixin as createHeadlessActionMixin } from '@no-comply/solid
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -27,9 +27,11 @@ export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
         `variant-${variant()}`,
         `intent-${intent()}`,
     ]);
-    const $localRoot = createComputedProps({ classList });
+    const $root = computedProps({
+        classList,
+    });
 
     return {
-        $root: mergeProps($buttonMixinRoot, $focusRing, $localRoot),
+        $root: mergeProps($buttonMixinRoot, $focusRing, $root),
     };
 };

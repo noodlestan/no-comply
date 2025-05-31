@@ -1,5 +1,5 @@
 import type { HeadingTagName } from '@no-comply/solid-accessibility';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createDisplayMixin } from '../../mixins';
 import type { DisplayLevel } from '../../types';
@@ -18,11 +18,11 @@ export const createDisplay = (props: DisplayProps): DisplayAPI => {
     const { $root: $textMixinRoot, level } = createDisplayMixin(props);
 
     const component = () => props.tag ?? MAP_LEVEL_TO_COMPONENT[level()];
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         component,
     });
 
     return {
-        $root: mergeProps($textMixinRoot, $localRoot),
+        $root: mergeProps($textMixinRoot, $root),
     };
 };

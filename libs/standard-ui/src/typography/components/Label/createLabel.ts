@@ -1,4 +1,4 @@
-import { type PickRequired, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createLabelMixin } from '../../mixins';
 
@@ -12,11 +12,11 @@ export const createLabel = (props: LabelProps): LabelAPI => {
     const { $root: $textMixinRoot } = createLabelMixin(props);
 
     const component = () => props.tag ?? defaultProps.tag;
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         component,
     });
 
     return {
-        $root: mergeProps($textMixinRoot, $localRoot),
+        $root: mergeProps($textMixinRoot, $root),
     };
 };

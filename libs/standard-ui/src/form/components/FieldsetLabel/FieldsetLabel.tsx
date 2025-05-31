@@ -17,11 +17,7 @@ const defaultProps: PickRequired<FieldsetLabelProps, 'size'> = {
 export const FieldsetLabel: ParentComponent<FieldsetLabelProps> = props => {
     const size = () => props.size ?? defaultProps.size;
 
-    const classList = createClassList(
-        styles,
-        () => ['FieldsetLabel', `size-${size()}`],
-        () => props.classList,
-    );
+    const classList = createClassList(styles, () => ['FieldsetLabel', `size-${size()}`]);
 
     return <label classList={classList()}>{props.children}</label>;
 };

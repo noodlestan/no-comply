@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import type { SwitchTagName } from '../../tag';
 import { createAriaRegion } from '../region';
@@ -15,7 +15,7 @@ export const createAriaSwitch = (props: AriaSwitchProps): AriaSwitchAPI => {
         return tag === 'button' ? 'button' : undefined;
     };
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         component: () => props.tag,
         type: () => type(props.tag),
         'aria-checked': () => props.checked,
@@ -24,7 +24,7 @@ export const createAriaSwitch = (props: AriaSwitchProps): AriaSwitchAPI => {
     });
 
     return {
-        $root: mergeProps($regionRoot, $localRoot),
+        $root: mergeProps($regionRoot, $root),
         $label,
         $description,
     };

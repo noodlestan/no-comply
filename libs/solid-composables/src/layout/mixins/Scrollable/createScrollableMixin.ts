@@ -1,8 +1,4 @@
-import {
-    type PickRequired,
-    createClassList,
-    createComputedProps,
-} from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import styles from './ScrollableMixin.module.scss';
 import type { ScrollableMixinAPI, ScrollableMixinProps } from './types';
@@ -18,9 +14,12 @@ export const createScrollableMixin = (props: ScrollableMixinProps): ScrollableMi
         x: Boolean(props.x),
         y: Boolean(props.y),
     }));
-    const $localRoot = createComputedProps({ classList, component });
+    const $root = computedProps({
+        classList,
+        component,
+    });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

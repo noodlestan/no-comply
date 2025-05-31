@@ -1,6 +1,6 @@
 import { createAriaForm } from '@no-comply/solid-accessibility';
 import { createFormContext } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import type { FormAPI, FormProps } from './types';
 
@@ -10,12 +10,12 @@ export const createForm = (props: FormProps = {}): FormAPI => {
     const contextValue = createFormContext(props);
     const [context] = contextValue;
 
-    const { $root: $ariaForm, $label, $description } = createAriaForm(props);
+    const { $root: $formRoot, $label, $description } = createAriaForm(props);
 
     const $static = {
         onSubmit: () => props.onSubmit?.(state.api),
     };
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         'data-disabled': () => (context.isDisabled() ? '' : undefined),
         'data-form-readonly': () => (context.isReadonly() ? '' : undefined),
         'data-form-pending': () => (context.isPending() ? '' : undefined),
@@ -29,12 +29,12 @@ export const createForm = (props: FormProps = {}): FormAPI => {
     const $submitButtonStatic = {
         type: 'submit' as const,
     };
-    const $submitButton = createComputedProps($submitButtonStatic, {
+    const $submitButton = computedProps($submitButtonStatic, {
         disabled: () => context.isDisabled() || context.isPending(),
     });
 
     state.api = {
-        $root: mergeProps($ariaForm, $localRoot),
+        $root: mergeProps($formRoot, $root),
         $label,
         $description,
         $submitButton,

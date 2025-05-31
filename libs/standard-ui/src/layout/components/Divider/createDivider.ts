@@ -2,7 +2,7 @@ import { createDividerMixin } from '@no-comply/solid-composables';
 import {
     type PickRequired,
     createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
 } from '@no-comply/solid-primitives';
 
@@ -32,9 +32,12 @@ export const createDivider = (props: DividerProps): DividerAPI => {
         `variant-${variant()}`,
         { [`length-${length()}`]: typeof length() !== 'number' },
     ]);
-    const $localRoot = createComputedProps({ classList, style });
+    const $root = computedProps({
+        classList,
+        style,
+    });
 
     return {
-        $root: mergeProps($dividerMixinRoot, $localRoot),
+        $root: mergeProps($dividerMixinRoot, $root),
     };
 };

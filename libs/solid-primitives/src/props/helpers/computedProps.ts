@@ -6,16 +6,16 @@ export type ComputedProps<T extends Record<string, () => unknown>> = {
     [K in keyof T]: ReturnType<T[K]>;
 };
 
-export function createComputedProps<T extends Record<string, () => unknown>>(
+export function computedProps<T extends Record<string, () => unknown>>(
     getters: T,
 ): ComputedProps<T>;
 
-export function createComputedProps<
+export function computedProps<
     U extends Record<string, unknown>,
     T extends Record<string, () => unknown>,
 >(baseProps: U, getters: T): U & ComputedProps<T>;
 
-export function createComputedProps<
+export function computedProps<
     U extends Record<string, unknown>,
     T extends Record<string, () => unknown>,
 >(baseOrGetters: U | T, maybeGetters?: T): U & ComputedProps<T> {
@@ -24,7 +24,7 @@ export function createComputedProps<
 
     if (maybeGetters && ($COMPUTED in baseProps || $PROXY in baseProps)) {
         console.error(
-            `createComputedProps(): first argument can not be a proxy, when two arguments provided.`,
+            `computedProps(): first argument can not be a proxy, when two arguments provided.`,
         );
     }
 

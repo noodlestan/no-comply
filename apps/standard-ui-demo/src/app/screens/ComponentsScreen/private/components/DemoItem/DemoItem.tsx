@@ -1,8 +1,8 @@
 import type { FlexMixinAlign } from '@no-comply/solid-composables';
 import {
     type ClosedTagProps,
+    computedProps,
     createClassList,
-    createComputedProps,
     mergeProps,
     shortId,
 } from '@no-comply/solid-primitives';
@@ -47,11 +47,12 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
         'max-height': locals.height ?? 'unset',
     });
 
-    const $root = createComputedProps({
-        classList: createClassList(styles, () => ({
-            DemoItem: true,
-            styled: Boolean(props.styled),
-        })),
+    const classList = createClassList(styles, () => ({
+        DemoItem: true,
+        styled: Boolean(props.styled),
+    }));
+    const $root = computedProps({
+        classList,
     });
 
     const $ = mergeProps($others, $root);

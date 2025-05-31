@@ -35,11 +35,7 @@ export const DataItem: ParentComponent<DataItemProps> = props => {
         }
     };
 
-    const classList = createClassList(
-        styles,
-        () => ['DataItem', `DataItem-size-${size()}`],
-        () => props.classList,
-    );
+    const classList = createClassList(styles, () => ['DataItem', `DataItem-size-${size()}`]);
 
     const elementProps = (): JSX.HTMLAttributes<HTMLDivElement> => {
         if (props.onClick) {

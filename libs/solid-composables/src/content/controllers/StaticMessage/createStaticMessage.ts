@@ -1,4 +1,4 @@
-import { type PickRequired, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
 import { AlertTriangleIcon, InfoIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { type Component, splitProps } from 'solid-js';
 
@@ -22,20 +22,25 @@ export const createStaticMessage = (props: StaticMessageProps): StaticMessageAPI
     const variant = () => props.variant ?? defaultProps.variant;
     const icon = () => VARIANT_ICON_MAP[variant()];
 
-    const contentMessageProps = createComputedProps({ variant, icon });
-    const { $root, ...rest } = createContentMessage(mergeProps(props, contentMessageProps));
+    const contentMessageProps = computedProps({
+        variant,
+        icon,
+    });
+    const { $root: $contentMessageRoot, ...rest } = createContentMessage(
+        mergeProps(props, contentMessageProps),
+    );
 
-    const [, $rootOthers] = splitProps($root, ['data-message', 'role']);
+    const [, $contentMessageRootPicked] = splitProps($contentMessageRoot, ['data-message', 'role']);
 
     const $static = {
         role: 'note' as const,
     };
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         'data-message': variant,
     });
 
     return {
         ...rest,
-        $root: mergeProps($rootOthers, $localRoot),
+        $root: mergeProps($contentMessageRootPicked, $root),
     };
 };

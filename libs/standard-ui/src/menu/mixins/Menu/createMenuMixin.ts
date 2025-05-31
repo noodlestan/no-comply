@@ -9,11 +9,11 @@ export const createMenuMixin = (): MenuMixinAPI => {
     const { $root: $focusRing } = createFocusRingMixin({ inset: true });
 
     const classList = staticClassList(styles, 'Menu');
-    const $localRoot = {
+    const $root = {
         classList,
     };
 
     return {
-        $root: mergeProps($localRoot, $focusRing),
+        $root: mergeProps($root, $focusRing),
     };
 };

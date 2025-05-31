@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createFocusOut } from '../../../focus';
 import { createPopoverContext } from '../../contexts';
@@ -53,7 +53,7 @@ export const createPopover = (props: PopoverProps): PopoverAPI => {
         onToggle,
     };
 
-    const $root = createComputedProps($static, {
+    const $root = computedProps($static, {
         id: context.id,
     });
 

@@ -1,6 +1,6 @@
 import { createAriaRegion } from '@no-comply/solid-accessibility';
 import { createFocusContext } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import type { FocusableAPI, FocusableProps } from './types';
 
@@ -38,7 +38,7 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
     };
 
     const component = () => props.tag ?? 'div';
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         component,
         'data-disabled': () => (props.disabled ? '' : undefined),
         'data-has-focus': () => (context.hasFocus() ? '' : undefined),
@@ -53,12 +53,12 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
         onBlur,
         'data-focusable-target': '' as const,
     };
-    const $target = createComputedProps($targetStatic, {
+    const $target = computedProps($targetStatic, {
         disabled: () => Boolean(props.disabled),
     });
 
     return {
-        $root: mergeProps($regionRoot, $localRoot),
+        $root: mergeProps($regionRoot, $root),
         $target,
         $label,
         $description,

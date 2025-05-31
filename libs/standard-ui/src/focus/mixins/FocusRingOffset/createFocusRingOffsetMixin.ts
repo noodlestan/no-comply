@@ -1,4 +1,4 @@
-import { createClassList, createComputedProps } from '@no-comply/solid-primitives';
+import { computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import styles from './FocusRingOffsetMixin.module.scss';
 import { type FocusRingOffsetMixinAPI, type FocusRingOffsetMixinProps } from './types';
@@ -10,9 +10,11 @@ export const createFocusRingOffsetMixin = (
         FocusRingOffset: true,
         inset: Boolean(props.inset),
     }));
-    const $localRoot = createComputedProps({ classList });
+    const $root = computedProps({
+        classList,
+    });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

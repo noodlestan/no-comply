@@ -1,11 +1,11 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createToggleAction } from '../ToggleAction';
 
 import type { ExpandActionAPI, ExpandActionProps } from './types';
 
 export const createExpandAction = (props: ExpandActionProps): ExpandActionAPI => {
-    const toggleActionProps = createComputedProps({
+    const toggleActionProps = computedProps({
         value: () => props.expanded,
         labels: () => ({
             on: props.labels.expanded,
@@ -18,7 +18,7 @@ export const createExpandAction = (props: ExpandActionProps): ExpandActionAPI =>
     });
     const { iconActionProps: toggleActionIconProps } = createToggleAction(toggleActionProps);
 
-    const iconActionLocalProps = createComputedProps({
+    const iconActionLocalProps = computedProps({
         'aria-expanded': () => props.expanded,
         'aria-controls': () => props.controls,
     });

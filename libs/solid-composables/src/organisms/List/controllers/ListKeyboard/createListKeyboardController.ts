@@ -57,12 +57,12 @@ export const createListKeyboardController = (): ListKeyboardControllerAPI => {
         }
     };
 
-    const $localRoot = {
+    const $root = {
         onKeyDown,
         ref: setContainerRef,
     };
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

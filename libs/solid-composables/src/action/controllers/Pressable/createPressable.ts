@@ -12,7 +12,7 @@ export function createPressable(
     props: PressableProps,
     staticRole?: PressableRoleName | undefined,
 ): GenericPressableAPI {
-    const { $root: $ariaPressableRoot } = staticRole
+    const { $root: $pressableRoot } = staticRole
         ? createAriaPressable(props, staticRole)
         : createAriaPressable(props);
 
@@ -34,12 +34,12 @@ export function createPressable(
         }
     };
 
-    const $localRoot = {
+    const $root = {
         onClick,
         onKeyDown,
     };
 
     return {
-        $root: mergeProps($ariaPressableRoot, $localRoot),
+        $root: mergeProps($pressableRoot, $root),
     };
 }

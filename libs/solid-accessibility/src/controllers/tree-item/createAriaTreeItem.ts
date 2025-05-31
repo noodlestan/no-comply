@@ -1,4 +1,4 @@
-import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps } from '@no-comply/solid-primitives';
 
 import { createAriaRegion } from '../region';
 
@@ -7,7 +7,7 @@ import type { AriaTreeItemAPI, AriaTreeItemProps } from './types';
 export const createAriaTreeItem = (props: AriaTreeItemProps): AriaTreeItemAPI => {
     const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'treeitem');
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         'aria-expanded': () => props.expanded,
         'aria-selected': () => props.selected,
         'aria-level': () => props.level,
@@ -16,7 +16,7 @@ export const createAriaTreeItem = (props: AriaTreeItemProps): AriaTreeItemAPI =>
     });
 
     return {
-        $root: mergeProps($regionRoot, $localRoot),
+        $root: mergeProps($regionRoot, $root),
         $label,
         $description,
     };

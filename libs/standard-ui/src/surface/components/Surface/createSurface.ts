@@ -1,6 +1,6 @@
 import {
     type PickRequired,
-    createComputedProps,
+    computedProps,
     mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
@@ -24,7 +24,7 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const staticProps = {
         classList: staticClassList(styles, 'Surface'),
     };
-    const surfaceProps = createComputedProps(staticProps, { variant });
+    const surfaceProps = computedProps(staticProps, { variant });
 
     return {
         surfaceProps: mergeProps(others, $layoutMixinRoot, surfaceProps),

@@ -4,7 +4,7 @@ import styles from './TreeListItemDetailsMixin.module.scss';
 import type { TreeListItemDetailsMixinAPI } from './types';
 
 export const createTreeListItemDetailsMixin = (): TreeListItemDetailsMixinAPI => {
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'TreeListItemDetails'),
     };
 
@@ -21,7 +21,7 @@ export const createTreeListItemDetailsMixin = (): TreeListItemDetailsMixinAPI =>
     };
 
     return {
-        $root: $localRoot,
+        $root,
         $focusable,
         $toggle,
         $contents,

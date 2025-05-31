@@ -1,8 +1,4 @@
-import {
-    type PickRequired,
-    createClassList,
-    createComputedProps,
-} from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import { responsiveClassMap } from '../../../responsive';
 
@@ -34,9 +30,11 @@ export function createFlexMixin(
         [`flex`]: props.flex !== undefined,
         [`inline`]: Boolean(props.inline),
     }));
-    const $localRoot = createComputedProps({ classList });
+    const $root = computedProps({
+        classList,
+    });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 }

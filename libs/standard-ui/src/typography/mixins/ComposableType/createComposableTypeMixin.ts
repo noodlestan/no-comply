@@ -1,4 +1,4 @@
-import { createComputedProps } from '@no-comply/solid-primitives';
+import { computedProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../ActionLabel';
 import { createDisplayMixin } from '../Display';
@@ -27,7 +27,7 @@ export const createComposableTypeMixin = (
         const { $root } = createTypeMixin();
         return $root.classList;
     };
-    const $typeRoot = createComputedProps({
+    const $typeRoot = computedProps({
         classList: typeMixinClassList,
     });
 

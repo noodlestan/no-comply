@@ -1,4 +1,4 @@
-import { createComputedProps, staticClassList } from '@no-comply/solid-primitives';
+import { computedProps, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './LinkMixin.module.scss';
 import type { LinkMixinAPI } from './types';
@@ -8,9 +8,9 @@ export const createLinkMixin = (): LinkMixinAPI => {
         classList: staticClassList(styles, 'Link'),
     };
 
-    const $localRoot = createComputedProps($static, {});
+    const $root = computedProps($static, {});
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

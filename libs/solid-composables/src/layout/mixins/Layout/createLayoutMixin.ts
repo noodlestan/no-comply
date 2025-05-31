@@ -1,4 +1,4 @@
-import { createClassList, createComputedProps } from '@no-comply/solid-primitives';
+import { computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import { responsiveClassMap } from '../../../responsive';
 
@@ -16,9 +16,11 @@ export function createLayoutMixin(
         [`stretch-${props.stretch}`]: Boolean(props.stretch),
         [`overflow-${props.overflow}`]: Boolean(props.overflow),
     }));
-    const $localRoot = createComputedProps({ classList });
+    const $root = computedProps({
+        classList,
+    });
 
     return {
-        $root: $localRoot,
+        $root,
     };
 }

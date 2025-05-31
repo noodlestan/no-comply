@@ -1,4 +1,4 @@
-import { createClassList, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { computedProps, createClassList, mergeProps } from '@no-comply/solid-primitives';
 
 import { createAlignToFirstLineMixin } from '../AlignToFirstLineMixin';
 
@@ -12,12 +12,11 @@ export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
         Text: true,
         nowrap: Boolean(props.nowrap),
     }));
-
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         classList,
     });
 
     return {
-        $root: mergeProps($firstLineAlign, $localRoot),
+        $root: mergeProps($firstLineAlign, $root),
     };
 };

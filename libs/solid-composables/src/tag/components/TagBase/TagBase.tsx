@@ -1,9 +1,9 @@
 import {
     type OpenTagProps,
     type PickRequired,
-    createClassList,
-    createComputedProps,
+    computedProps,
     mergeProps,
+    staticClassList,
 } from '@no-comply/solid-primitives';
 import { type ParentComponent, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
@@ -22,9 +22,9 @@ export const TagBase: ParentComponent<Props> = props => {
     const [locals, $others] = splitProps(props, TAG_BASE_PROPS);
 
     const component = () => locals.tag ?? defaultProps.tag;
-    const classList = createClassList(styles, 'TagBase');
-    const $root = createComputedProps({
-        classList,
+    const classList = staticClassList(styles, 'TagBase');
+    const $static = { classList };
+    const $root = computedProps($static, {
         component,
     });
     const $ = mergeProps($others, $root);

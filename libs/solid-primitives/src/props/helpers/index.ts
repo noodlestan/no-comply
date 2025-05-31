@@ -1,5 +1,5 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './createComputedProps';
+export * from './computedProps';
 export * from './definePropKeys';
 export * from './mergeProps';
 export * from './omitPropKeys';

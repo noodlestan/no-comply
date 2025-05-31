@@ -55,17 +55,13 @@ export const DataValue: ParentComponent<DataValueProps> = props => {
 
     const tabindex = () => (props.onClick ? 0 : undefined);
 
-    const classList = createClassList(
-        styles,
-        () => ({
-            DataValue: true,
-            [`align-right`]: props.align === 'right',
-            [`is-interactive`]: Boolean(props.onClick),
-            [`size-${size()}`]: true,
-            [`wrap`]: !!props.wrap,
-        }),
-        () => props.classList,
-    );
+    const classList = createClassList(styles, () => ({
+        DataValue: true,
+        [`align-right`]: props.align === 'right',
+        [`is-interactive`]: Boolean(props.onClick),
+        [`size-${size()}`]: true,
+        [`wrap`]: !!props.wrap,
+    }));
 
     const role = () => (props.onClick ? 'button' : undefined);
 

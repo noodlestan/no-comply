@@ -4,11 +4,11 @@ import styles from './FirstLineAlignMixin.module.scss';
 import type { FirstLineAlignMixinAPI } from './types';
 
 export const createFirstLineAlignMixin = (): FirstLineAlignMixinAPI => {
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'FirstLineAlign'),
     };
 
     return {
-        $root: $localRoot,
+        $root,
     };
 };

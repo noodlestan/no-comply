@@ -1,4 +1,4 @@
-import { createComputedProps } from '@no-comply/solid-primitives';
+import { computedProps } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
 import type { FocusRingAPI, FocusRingProps } from './types';
@@ -36,7 +36,7 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
 
     const $static = { onKeyDown };
 
-    const $localRoot = createComputedProps($static, {
+    const $root = computedProps($static, {
         'data-had-focus': () => (hadFocus() ? '' : undefined),
         'data-is-active': () => (isActive() ? '' : undefined),
     });
@@ -48,7 +48,7 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
     };
 
     return {
-        $root: $localRoot,
+        $root,
         $focusTarget,
     };
 };

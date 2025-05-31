@@ -1,4 +1,4 @@
-import { type PickRequired, createComputedProps, mergeProps } from '@no-comply/solid-primitives';
+import { type PickRequired, computedProps, mergeProps } from '@no-comply/solid-primitives';
 import { HourglassIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
 import { type Component, splitProps } from 'solid-js';
 
@@ -21,12 +21,17 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
     const role = () => (variant() === 'busy' ? ('status' as const) : ('alert' as const));
     const icon = () => VARIANT_ICON_MAP[variant()];
 
-    const contentMessageProps = createComputedProps({ variant, icon });
-    const { $root, ...rest } = createContentMessage(mergeProps(props, contentMessageProps));
+    const contentMessageProps = computedProps({
+        variant,
+        icon,
+    });
+    const { $root: $contentMessageRoot, ...rest } = createContentMessage(
+        mergeProps(props, contentMessageProps),
+    );
 
-    const [, $rootOthers] = splitProps($root, ['data-message', 'role']);
+    const [, $contentMessageRootPicked] = splitProps($contentMessageRoot, ['data-message', 'role']);
 
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         role,
         'aria-live': () => (variant() === 'busy' ? 'polite' : 'assertive'),
         'data-message': variant,
@@ -34,6 +39,6 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
 
     return {
         ...rest,
-        $root: mergeProps($rootOthers, $localRoot),
+        $root: mergeProps($contentMessageRootPicked, $root),
     };
 };

@@ -8,11 +8,11 @@ import type { AnchoredPopoverMixinAPI } from './types';
 export const createAnchoredPopoverMixin = (): AnchoredPopoverMixinAPI => {
     const { $root: $popoverMixinRoot } = createPopoverMixin();
 
-    const $localRoot = {
+    const $root = {
         classList: staticClassList(styles, 'AnchoredPopover'),
     };
 
     return {
-        $root: mergeProps($popoverMixinRoot, $localRoot),
+        $root: mergeProps($popoverMixinRoot, $root),
     };
 };

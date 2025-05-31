@@ -1,8 +1,8 @@
 import { createContainerQuery, createDismissible } from '@no-comply/solid-composables';
 import {
     type ClosedTagProps,
+    computedProps,
     createClassList,
-    createComputedProps,
     mergeProps,
     staticClassList,
 } from '@no-comply/solid-primitives';
@@ -44,12 +44,12 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
         contain: contain(),
         'is-expanded': props.sidebarExpanded,
     }));
-    const $localRoot = createComputedProps({
+    const $root = computedProps({
         'data-layout-large': () => (isDesktop() ? '' : undefined),
         classList,
     });
 
-    const $ = mergeProps($others, $queryRoot, $localRoot);
+    const $ = mergeProps($others, $queryRoot, $root);
 
     return (
         <Layout stretch="full" {...$}>

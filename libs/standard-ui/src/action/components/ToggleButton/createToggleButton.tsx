@@ -5,7 +5,7 @@ import {
     createToggleAction,
 } from '@no-comply/solid-composables';
 import { createIconValue } from '@no-comply/solid-contexts';
-import { createComputedProps, mergeProps, pickProps } from '@no-comply/solid-primitives';
+import { computedProps, mergeProps, pickProps } from '@no-comply/solid-primitives';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
 
 import type { ActionVariant } from '../../types';
@@ -23,7 +23,7 @@ const ICONS: ToggleActionIcons = {
 };
 
 export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI => {
-    const toggleButtonProps = createComputedProps({
+    const toggleButtonProps = computedProps({
         value: () => props.value,
         labels: () => Object.assign({}, LABELS, props.labels),
         icons: () => Object.assign({}, ICONS, props.icons),
@@ -31,7 +31,7 @@ export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI =>
     const { iconActionProps: toggleActionIconActionProps } = createToggleAction(toggleButtonProps);
 
     const ariaSwitchStaticProps = { tag: 'button' as const };
-    const ariaSwitchProps = createComputedProps(ariaSwitchStaticProps, {
+    const ariaSwitchProps = computedProps(ariaSwitchStaticProps, {
         label: () => toggleActionIconActionProps.label,
         checked: () => props.value,
         disabled: () => Boolean(props.disabled),

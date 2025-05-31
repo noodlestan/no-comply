@@ -11,9 +11,9 @@ export const createFocusRingMixin = (props: FocusRingMixinProps = {}): FocusRing
     const { $root: $ringOffsetMixin } = createFocusRingOffsetMixin(props);
 
     const classList = staticClassList(styles, 'FocusRing');
-    const $localRoot = { classList };
+    const $root = { classList };
 
     return {
-        $root: mergeProps($headlessRingRoot, $ringOffsetMixin, $localRoot),
+        $root: mergeProps($headlessRingRoot, $ringOffsetMixin, $root),
     };
 };
