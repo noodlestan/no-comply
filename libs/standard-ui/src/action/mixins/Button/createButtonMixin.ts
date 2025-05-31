@@ -11,7 +11,7 @@ export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
     const { $root: $actionMixinRoot } = createActionMixin(props);
     const { $root: $sizedActionMixinRoot, size } = createSizedActionMixin(props);
 
-    const actionLabelProps = createComputedProps({ size, nowrap: () => true });
+    const actionLabelProps = createComputedProps({ nowrap: true }, { variant: size });
     const { $root: $actionLabelMixinRoot } = createActionLabelMixin(actionLabelProps);
 
     const classList = createClassList(styles, () => [`Button`, `size-${size()}`]);

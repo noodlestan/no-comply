@@ -21,7 +21,9 @@ export type MenuContextValue = [MenuContext];
 export type HeadlessMenuProps = MenuContextOptions & AriaMenuProps;
 
 export type HeadlessMenuAPI = {
-    $root: AriaMenuAPI['$root'];
+    $root: AriaMenuAPI['$root'] & {
+        'data-menu': '';
+    };
     $label: AriaMenuAPI['$label'] & {
         component: 'p';
         children: string | undefined;

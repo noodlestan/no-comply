@@ -34,5 +34,6 @@ export function createAriaRegion(
         $root: mergeProps($labelledRoot, $localRoot),
         $label,
         $description,
+        hasLabel,
     };
 }

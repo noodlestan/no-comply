@@ -21,7 +21,7 @@ if display/text components expose [data-display] [data-text] it would be possibl
 
 think also labels, data values
 
-## Menu items
+## data-\* in all components
 
 ## AlignToFirstLineMixin and FirstLineAlignMixin naming!
 
@@ -85,6 +85,10 @@ return HTMLElement.prototype.hasOwnProperty("popover");
 
 - container queries
 - css functions
+- layers
+
+- not supported yet
+  /_ abs(0.5 - var(--#{$name}-light)) _/ https://developer.mozilla.org/en-US/docs/Web/CSS/abs
 
 ## data-disabled data-active data-readonly
 

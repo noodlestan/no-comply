@@ -10,8 +10,9 @@
         justify-content: start;
         height: auto;
         min-height: auto;
-        padding-block: var(--space-pad--2);
-        --__gap: var(--space-gap-0);
+        --__padding-block: var(--space-pad--2);
+        --__padding-inline: var(--space-pad-0);
+        --__gap: var(--space-gap--1);
     }
 
     .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
@@ -29,11 +30,7 @@
     }
 
     .-Icon {
-        display: flex;
-        align-items: center;
         width: var(--size-xs);
-        --__icon-size: 22px;
-        height: 26px;
     }
 
     .-Label {

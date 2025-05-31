@@ -31,8 +31,10 @@ import type {
     MenuItemActionProps,
     MenuItemBaseAPI,
     MenuItemBaseProps,
+    MenuItemCommonAPI,
     MenuItemSubMenuAPI,
     MenuItemSubMenuProps,
+    MenuItemType,
 } from './types';
 
 export const useMenuItemGroupChild = (menuItem: MenuItemAPI): MenuItemGroupContext | undefined => {
@@ -53,7 +55,7 @@ export const useMenuItemGroupChild = (menuItem: MenuItemAPI): MenuItemGroupConte
 
 export const createMenuItemBase = (
     props: MenuItemBaseProps,
-    hasSubMenu: boolean = false,
+    type: MenuItemType,
 ): MenuItemBaseAPI => {
     // const setRovingFocus = (value: boolean) => console.log('set focus', value);
     // const menuContext = useMenuItem({ setRovingFocus });
@@ -79,35 +81,43 @@ export const createMenuItemBase = (
     });
 
     const hasIcon = () => Boolean(props.icon);
+    const isSubMenu = () => type === 'sub-menu';
 
-    const iconProps = () => {
-        if (!props.icon) {
-            console.error('Unavailable. Wrap in `hasIcon()`.');
-        }
-        return {
-            aligned: true,
-            'aria-hidden': true,
-            size: 'small' as const,
-            icon: props.icon as IconComponent,
-        };
+    const iconStaticProps = {
+        aligned: true,
+        'aria-hidden': true,
+        size: 'small' as const,
+    };
+
+    const iconProps = createComputedProps(iconStaticProps, {
+        icon: () => {
+            if (!props.icon) {
+                console.error('Unavailable. Wrap in `hasIcon()`.');
+            }
+            return props.icon as IconComponent;
+        },
+    });
+
+    const $localRoot = {
+        'data-menu-item': type,
     };
 
     const menuItemAPI = {
         hasIcon,
-        hasSubMenu: () => hasSubMenu,
+        isSubMenu,
     };
 
     const context = useMenuItemGroupChild(menuItemAPI);
 
     return {
-        $root: mergeProps($pressableRoot, $ariaMenuItemRoot),
+        $root: mergeProps($pressableRoot, $ariaMenuItemRoot, $localRoot),
         $label: mergeProps($ariaMenuItemLabel, $localLabel),
         $description: mergeProps($ariaMenuItemDescription, $localDescription),
         iconProps,
         hasIcon,
-        hasSubMenu: () => hasSubMenu,
+        isSubMenu,
         groupHasIcons: () => hasIcon() || Boolean(context?.hasIcons()),
-        groupHasSubMenus: () => hasSubMenu || Boolean(context?.hasSubMenus()),
+        groupHasSubMenus: () => isSubMenu() || Boolean(context?.hasSubMenus()),
     };
 };
 
@@ -131,7 +141,7 @@ export const createHeadlessMenuItemAction = (
         },
     });
 
-    return createMenuItemBase(menuItemBaseProps);
+    return createMenuItemBase(menuItemBaseProps, 'action');
 };
 
 export const createHeadlessMenuItemSubMenu = (
@@ -142,7 +152,7 @@ export const createHeadlessMenuItemSubMenu = (
     const id = () => props.id ?? randomId1();
     const subMenuId = () => props.menuId ?? randomId2();
 
-    const { $root, $label, ...rest } = createMenuItemBase(props, true);
+    const { $root, $label, ...rest } = createMenuItemBase(props, 'sub-menu');
 
     const anchoredPopoverProps = createComputedProps({
         id,
@@ -172,25 +182,40 @@ export const createHeadlessMenuItemSubMenu = (
     };
 };
 
+export const createMenuItemCommon = (): MenuItemCommonAPI => {
+    const labelProps = {
+        variant: 'small',
+        tag: 'span',
+        aligned: true,
+    } as const;
+
+    const descriptionProps = {
+        variant: 'small',
+        tag: 'span',
+    } as const;
+
+    const iconProps = {
+        aligned: true,
+    } as const;
+
+    return {
+        labelProps,
+        descriptionProps,
+        iconProps,
+    };
+};
+
 export const createMenuItemAction = (props: MenuItemActionProps): MenuItemActionAPI => {
     const {
         $root: $headlessMenuItem,
         $label: $headlessLabel,
         $description: $headlessDescription,
+        iconProps: headlessIconProps,
         ...rest
     } = createHeadlessMenuItemAction(props);
+    const { labelProps, descriptionProps, iconProps } = createMenuItemCommon();
     const { $root: $focusRingRoot } = createFocusRing();
     const { $root: $menuItemMixinRoot, ...mixinRest } = createMenuItemMixin(props);
-
-    const labelProps = {
-        variant: 'normal',
-        tag: 'span',
-    } as const;
-
-    const descriptionProps = {
-        variant: 'normal',
-        tag: 'span',
-    } as const;
 
     return {
         ...rest,
@@ -198,6 +223,7 @@ export const createMenuItemAction = (props: MenuItemActionProps): MenuItemAction
         ...mixinRest,
         labelProps: mergeProps($headlessLabel, labelProps),
         descriptionProps: mergeProps($headlessDescription, descriptionProps),
+        iconProps: mergeProps(headlessIconProps, iconProps),
     };
 };
 
@@ -207,21 +233,13 @@ export const createMenuItemSubMenu = (props: MenuItemSubMenuProps): MenuItemSubM
         $popover,
         $label: $headlessLabel,
         $description: $headlessDescription,
+        iconProps: headlessIconProps,
         ...rest
     } = createHeadlessMenuItemSubMenu(props);
+    const { labelProps, descriptionProps, iconProps } = createMenuItemCommon();
     const { $root: $focusRingRoot } = createFocusRing();
     const { $root: $menuItemMixinRoot, ...mixinRest } = createMenuItemMixin(props);
     const { $root: $popoverMixin } = createAnchoredPopoverMixin();
-
-    const labelProps = {
-        variant: 'normal',
-        tag: 'span',
-    } as const;
-
-    const descriptionProps = {
-        variant: 'normal',
-        tag: 'span',
-    } as const;
 
     return {
         ...rest,
@@ -230,5 +248,6 @@ export const createMenuItemSubMenu = (props: MenuItemSubMenuProps): MenuItemSubM
         ...mixinRest,
         labelProps: mergeProps($headlessLabel, labelProps),
         descriptionProps: mergeProps($headlessDescription, descriptionProps),
+        iconProps: mergeProps(headlessIconProps, iconProps),
     };
 };

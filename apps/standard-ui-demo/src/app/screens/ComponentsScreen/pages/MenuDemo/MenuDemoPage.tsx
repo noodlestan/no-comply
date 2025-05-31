@@ -38,8 +38,10 @@ export const MenuDemoPage: Component = () => {
                     >
                         {content => (
                             <Menu aria-labelledby={content['aria-labelledby']}>
-                                <MenuItemAction label="Open" />
-                                <MenuItemAction label="Bar" />
+                                <MenuItemGroup>
+                                    <MenuItemAction label="Open" />
+                                    <MenuItemAction label="Bar" />
+                                </MenuItemGroup>
                                 <MenuItemGroup label="Operations">
                                     <MenuItemAction disabled label="Bat" />
                                     <MenuItemAction icon={PencilIcon} label="Rename" />

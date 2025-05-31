@@ -22,13 +22,21 @@ export type MenuItemGroupContext = BaseContext & {
 export type MenuItemGroupContextValue = [MenuItemGroupContext];
 
 export type HeadlessMenuItemGroupProps = MenuItemGroupContextOptions & {
-    label: string;
+    label?: string;
     description?: string;
 };
 
-export type HeadlessMenuItemGroupAPI = Omit<AriaGroupAPI, 'label' | 'description'> & {
-    $label: AriaGroupAPI['$label'] & { children: string };
-    $description: AriaGroupAPI['$description'] & { children: string | undefined };
+export type HeadlessMenuItemGroupAPI = {
+    $root: AriaGroupAPI['$root'] & {
+        'data-menu-item-group': '';
+    };
+    $label: AriaGroupAPI['$label'] & {
+        children: string | undefined;
+    };
+    $description: AriaGroupAPI['$description'] & {
+        children: string | undefined;
+    };
+    hasLabel: Accessor<boolean>;
     context: MenuItemGroupContext;
     contextValue: MenuItemGroupContextValue;
 };
@@ -42,7 +50,7 @@ export type MenuItemGroupAPI = Omit<
     $root: HeadlessMenuItemGroupAPI['$root'] & MenuItemGroupMixinAPI['$root'];
     labelProps: HeadlessMenuItemGroupAPI['$label'] &
         MenuItemGroupMixinAPI['$label'] & {
-            variant: LabelProps['size'];
+            variant: LabelProps['variant'];
         };
     descriptionProps: HeadlessMenuItemGroupAPI['$description'] &
         MenuItemGroupMixinAPI['$description'] & {

@@ -31,11 +31,9 @@ export const MenuItemAction: Component<Props> = props => {
 
     return (
         <Dynamic {...$}>
-            <FirstLineAlign height={'s'} type="action" size="small">
+            <FirstLineAlign height={'xs'} type="action" variant={labelProps.variant}>
                 <Show when={groupHasIcons()}>
-                    <span {...$iconSlot}>
-                        {hasIcon() ? <Icon {...iconProps()} aligned /> : undefined}
-                    </span>
+                    <span {...$iconSlot}>{hasIcon() ? <Icon {...iconProps} /> : undefined}</span>
                 </Show>
                 <span {...$labelSlot}>
                     <Label {...labelProps} />

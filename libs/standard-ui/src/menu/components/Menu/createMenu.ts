@@ -76,8 +76,9 @@ export const createHeadlessMenu = (props: HeadlessMenuProps): HeadlessMenuAPI =>
     });
 
     const $localRoot = {
-        role: 'menu' as const,
-    };
+        role: 'menu',
+        'data-menu': '',
+    } as const;
 
     return {
         $root: mergeProps($ariaRoot, $localRoot),

@@ -1,3 +1,5 @@
+import type { Accessor } from 'solid-js';
+
 import type { AriaRoleName } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
@@ -11,6 +13,7 @@ export type AriaRegionAPI<T extends AriaRoleName = AriaRoleName> = {
     };
     $label: AriaLabelledAPI['$label'];
     $description: AriaLabelledAPI['$description'];
+    hasLabel: Accessor<boolean>;
 };
 
 export type AriaGenericRegionAPI = {
@@ -19,4 +22,5 @@ export type AriaGenericRegionAPI = {
     };
     $label: AriaLabelledAPI['$label'];
     $description: AriaLabelledAPI['$description'];
+    hasLabel: Accessor<boolean>;
 };

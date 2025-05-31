@@ -59,7 +59,7 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
     return (
         <Flex gap="m" aria-labelledby={labelId()} {...$}>
             <Show when={locals.title}>
-                <Label id={labelId()} size="medium">
+                <Label id={labelId()} variant="medium">
                     {locals.title}
                     <Show when={props.defaultValue}>
                         <Label variant="small" tag="span">
@@ -76,7 +76,6 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
                 direction={locals.row ? 'row' : 'column'}
                 padding={locals.padding}
                 align={locals.align}
-                overflow="x-auto"
                 style={contentsStyle()}
                 data-demo-item-contents
             >

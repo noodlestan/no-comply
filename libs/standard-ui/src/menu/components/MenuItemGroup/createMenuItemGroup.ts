@@ -53,7 +53,7 @@ const createMenuItemGroupContext = (
 
     const hasIcons = () => options.hasIcons ?? Boolean(items().find(item => item.hasIcon()));
     const hasSubMenus = () =>
-        options.hasSubMenus ?? Boolean(items().find(item => item.hasSubMenu()));
+        options.hasSubMenus ?? Boolean(items().find(item => item.isSubMenu()));
 
     const context = {
         type: 'menu-item-group' as const,
@@ -72,7 +72,12 @@ export const createHeadlessMenuItemGroup = (
     const contextValue = createMenuItemGroupContext(props);
     const [context] = contextValue;
 
-    const { $root, $label, $description } = createAriaGroup({ labelled: true });
+    const ariaGroupProps = createComputedProps({ labelled: () => Boolean(props.label) });
+    const { $root, $label, $description, hasLabel } = createAriaGroup(ariaGroupProps);
+
+    const $localRoot = {
+        'data-menu-item-group': '' as const,
+    };
 
     const $localLabel = createComputedProps({
         children: () => props.label,
@@ -83,9 +88,10 @@ export const createHeadlessMenuItemGroup = (
     });
 
     return {
-        $root,
+        $root: mergeProps($root, $localRoot),
         $label: mergeProps($label, $localLabel),
         $description: mergeProps($description, $localDescription),
+        hasLabel,
         context,
         contextValue,
     };

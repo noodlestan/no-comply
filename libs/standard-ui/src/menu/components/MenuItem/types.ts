@@ -9,10 +9,11 @@ import type { IconComponent } from '@no-comply/solid-contexts';
 import type { Accessor } from 'solid-js';
 
 import type { IconProps } from '../../../icon';
-import type { LabelProps, TextProps } from '../../../typography';
 import type { MenuItemMixinAPI, MenuItemMixinProps } from '../../mixins';
 
 /* headless */
+
+export type MenuItemType = 'action' | 'sub-menu';
 
 export type MenuItemBaseProps = Omit<PressableProps, 'role'> & {
     label: string;
@@ -22,17 +23,17 @@ export type MenuItemBaseProps = Omit<PressableProps, 'role'> & {
 
 export type MenuItemAPI = {
     hasIcon: Accessor<boolean>;
-    hasSubMenu: Accessor<boolean>;
+    isSubMenu: Accessor<boolean>;
 };
 
 export type MenuItemBaseAPI = MenuItemAPI & {
     $root: AriaLabelledAPI['$root'] &
-        PressableAPI['$root'] & {
-            role: 'menuitem';
+        PressableAPI<'menuitem'>['$root'] & {
+            'data-menu-item': MenuItemType;
         };
     $label: AriaLabelledAPI['$label'] & { children: string };
     $description: AriaLabelledAPI['$description'] & { children: string | undefined };
-    iconProps: () => {
+    iconProps: {
         icon: IconProps['icon'];
         size: NonNullable<IconProps['size']>;
         aligned: boolean;
@@ -71,38 +72,49 @@ export type HeadlessMenuItemSubMenuAPI = Omit<MenuItemBaseAPI, '$root'> &
 
 /* standard */
 
+export type MenuItemCommonAPI = {
+    labelProps: {
+        variant: 'small';
+        tag: 'span';
+        aligned: true;
+    };
+    descriptionProps: {
+        variant: 'small';
+        tag: 'span';
+    };
+    iconProps: {
+        aligned: true;
+    };
+};
+
 export type MenuItemActionProps = HeadlessMenuItemActionProps & MenuItemMixinProps;
 
 export type MenuItemSubMenuProps = HeadlessMenuItemSubMenuProps & MenuItemMixinProps;
 
 export type MenuItemActionAPI = Omit<
     HeadlessMenuItemActionAPI,
-    '$root' | '$label' | '$description'
+    '$root' | '$label' | '$description' | 'iconProps'
 > &
     Omit<MenuItemMixinAPI, '$root'> & {
         $root: HeadlessMenuItemActionAPI['$root'] &
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
-        labelProps: HeadlessMenuItemActionAPI['$label'] & {
-            variant: LabelProps['variant'];
-        };
-        descriptionProps: HeadlessMenuItemActionAPI['$description'] & {
-            variant: TextProps['variant'];
-        };
+        labelProps: HeadlessMenuItemActionAPI['$label'] & MenuItemCommonAPI['labelProps'];
+        descriptionProps: HeadlessMenuItemActionAPI['$description'] &
+            MenuItemCommonAPI['descriptionProps'];
+        iconProps: HeadlessMenuItemActionAPI['iconProps'] & MenuItemCommonAPI['iconProps'];
     };
 
 export type MenuItemSubMenuAPI = Omit<
     HeadlessMenuItemSubMenuAPI,
-    '$root' | '$label' | '$description'
+    '$root' | '$label' | '$description' | 'iconProps'
 > &
     Omit<MenuItemMixinAPI, '$root'> & {
         $root: HeadlessMenuItemSubMenuAPI['$root'] &
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
-        labelProps: HeadlessMenuItemSubMenuAPI['$label'] & {
-            variant: LabelProps['variant'];
-        };
-        descriptionProps: HeadlessMenuItemSubMenuAPI['$description'] & {
-            variant: TextProps['variant'];
-        };
+        labelProps: HeadlessMenuItemSubMenuAPI['$label'] & MenuItemCommonAPI['labelProps'];
+        descriptionProps: HeadlessMenuItemSubMenuAPI['$description'] &
+            MenuItemCommonAPI['descriptionProps'];
+        iconProps: HeadlessMenuItemSubMenuAPI['iconProps'] & MenuItemCommonAPI['iconProps'];
     };

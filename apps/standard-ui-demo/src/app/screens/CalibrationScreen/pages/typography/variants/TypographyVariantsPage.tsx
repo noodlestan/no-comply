@@ -38,10 +38,10 @@ export const TypographyVariantsPage: Component = () => {
             <Display level={3}>Action</Display>
 
             <Flex direction="column" gap="l">
-                <ActionLabel size="large">Lorem ipsum dolor sit amet.</ActionLabel>
-                <ActionLabel size="medium">Lorem ipsum dolor sit amet.</ActionLabel>
-                <ActionLabel size="normal">Lorem ipsum dolor sit amet.</ActionLabel>
-                <ActionLabel size="small">Lorem ipsum dolor sit amet.</ActionLabel>
+                <ActionLabel variant="large">Lorem ipsum dolor sit amet.</ActionLabel>
+                <ActionLabel variant="medium">Lorem ipsum dolor sit amet.</ActionLabel>
+                <ActionLabel variant="normal">Lorem ipsum dolor sit amet.</ActionLabel>
+                <ActionLabel variant="small">Lorem ipsum dolor sit amet.</ActionLabel>
             </Flex>
         </CalibrationPage>
     );

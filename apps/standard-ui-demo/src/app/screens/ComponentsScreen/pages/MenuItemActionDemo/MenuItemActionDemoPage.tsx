@@ -12,7 +12,7 @@ const DemoMenu: ParentComponent<DemoItemProps> = props => {
     const [locals, others] = splitProps(props, ['children']);
 
     return (
-        <DemoItem {...others}>
+        <DemoItem {...others} padding="l">
             <Menu aria-labelledby="foo">{locals.children}</Menu>
         </DemoItem>
     );
@@ -30,7 +30,7 @@ export const MenuItemActionDemoPage: Component = () => {
         >
             <DemoSection title="defaults">
                 <DemoMenu>
-                    <MenuItemAction label="Foobar" />
+                    <MenuItemAction label="Foobar" icon={TrashIcon} />
                 </DemoMenu>
             </DemoSection>
 

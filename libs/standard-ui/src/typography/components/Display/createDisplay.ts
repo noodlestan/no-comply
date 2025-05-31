@@ -1,7 +1,8 @@
 import type { HeadingTagName } from '@no-comply/solid-accessibility';
 import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
-import { type DisplayLevel, createDisplayMixin } from '../../mixins';
+import { createDisplayMixin } from '../../mixins';
+import type { DisplayLevel } from '../../types';
 
 import type { DisplayAPI, DisplayProps } from './types';
 

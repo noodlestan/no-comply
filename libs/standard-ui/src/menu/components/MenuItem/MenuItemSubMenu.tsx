@@ -6,7 +6,7 @@ import { Dynamic } from 'solid-js/web';
 
 import { Icon } from '../../../icon';
 import { Popover } from '../../../popover';
-import { Label, Text } from '../../../typography';
+import { FirstLineAlign, Label, Text } from '../../../typography';
 
 import { MENU_ITEM_SUB_MENU_PROPS } from './constants';
 import { createMenuItemSubMenu } from './createMenuItem';
@@ -45,20 +45,24 @@ export const MenuItemSubMenu: Component<Props> = props => {
     return (
         <PopoverContextProvider context={contextValue}>
             <Dynamic {...$}>
-                <Show when={groupHasIcons()}>
-                    <span {...$iconSlot}>{hasIcon() ? <Icon {...iconProps()} /> : undefined}</span>
-                </Show>
-                <span {...$labelSlot}>
-                    <Label {...labelProps} />
-                    <Show when={descriptionProps.children}>
-                        <span {...$descriptionSlot}>
-                            <Text {...descriptionProps} />
+                <FirstLineAlign height={'xs'} type="action" variant={labelProps.variant}>
+                    <Show when={groupHasIcons()}>
+                        <span {...$iconSlot}>
+                            {hasIcon() ? <Icon {...iconProps} /> : undefined}
                         </span>
                     </Show>
-                </span>
-                <span {...$expandSlot}>
-                    <Icon icon={ChevronRightIcon} />
-                </span>
+                    <span {...$labelSlot}>
+                        <Label {...labelProps} />
+                        <Show when={descriptionProps.children}>
+                            <span {...$descriptionSlot}>
+                                <Text {...descriptionProps} />
+                            </span>
+                        </Show>
+                    </span>
+                    <span {...$expandSlot}>
+                        <Icon icon={ChevronRightIcon} />
+                    </span>
+                </FirstLineAlign>
             </Dynamic>
             <Popover {...$popover}>{locals.children({ subMenu: subMenuProps })}</Popover>
         </PopoverContextProvider>
