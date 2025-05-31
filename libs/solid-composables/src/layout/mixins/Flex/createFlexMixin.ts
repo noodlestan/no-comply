@@ -30,8 +30,12 @@ export function createFlexMixin(
         [`flex`]: props.flex !== undefined,
         [`inline`]: Boolean(props.inline),
     }));
+    const style = () => ({
+        '--__flex-flex': props.flex,
+    });
     const $root = computedProps({
         classList,
+        style,
     });
 
     return {

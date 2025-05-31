@@ -1,25 +1,19 @@
-import { type PickRequired, computedProps, staticClassList } from '@no-comply/solid-primitives';
+import { createAriaSeparator } from '@no-comply/solid-accessibility';
+import { combineProps, staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './DividerMixin.module.scss';
 import type { DividerMixinAPI, DividerMixinProps } from './types';
 
-const defaultProps: PickRequired<DividerMixinProps, 'tag' | 'orientation'> = {
-    tag: 'hr',
-    orientation: 'horizontal',
-};
-
 export const createDividerMixin = (props: DividerMixinProps): DividerMixinAPI => {
-    const component = () => props.tag ?? defaultProps.tag;
-    const orientation = () => props.orientation ?? defaultProps.orientation;
+    const { $root: $separatorRoot } = createAriaSeparator(props);
     const classList = staticClassList(styles, 'Divider');
 
-    const $static = { classList };
-    const $root = computedProps($static, {
-        component,
-        'data-divider': orientation,
-    });
+    const $root = {
+        classList,
+        'data-separator': '' as const,
+    };
 
     return {
-        $root,
+        $root: combineProps($root, $separatorRoot),
     };
 };

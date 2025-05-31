@@ -9,6 +9,7 @@ export * from './menu-item';
 export * from './menu';
 export * from './pressable';
 export * from './region';
+export * from './separator';
 export * from './switch';
 export * from './tree-item';
 export * from './tree';

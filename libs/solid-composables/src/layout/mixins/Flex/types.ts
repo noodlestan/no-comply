@@ -1,4 +1,4 @@
-import { type ClassList, type ResponsiveProp } from '@no-comply/solid-primitives';
+import { type ClassList, type ResponsiveProp, type Styles } from '@no-comply/solid-primitives';
 
 export type FlexMixinProps = {
     direction?: FlexMixinDirection;
@@ -18,5 +18,6 @@ export type FlexMixinJustify = 'start' | 'center' | 'end' | 'between' | 'around'
 export type FlexMixinAPI = {
     $root: {
         classList: ClassList;
+        style: Styles;
     };
 };

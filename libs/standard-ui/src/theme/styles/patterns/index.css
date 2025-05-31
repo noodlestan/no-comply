@@ -2,7 +2,7 @@
 @import './actions.css';
 @import './cards.css';
 @import './data.css';
-@import './dividers.css';
+@import './dividers.scss';
 @import './forms.css';
 @import './layout.css';
 @import './links.css';

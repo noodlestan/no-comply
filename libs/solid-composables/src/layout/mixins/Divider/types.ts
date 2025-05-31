@@ -1,17 +1,9 @@
-import type { DividerTagName } from '@no-comply/solid-accessibility';
-import type { ClassList } from '@no-comply/solid-primitives';
+import type { AriaSeparatorAPI, AriaSeparatorProps } from '@no-comply/solid-accessibility';
 
-export type DividerMixinProps = {
-    tag?: DividerTagName;
-    orientation?: DividerMixinOrientation;
-};
+export type DividerMixinProps = AriaSeparatorProps;
 
-export type DividerMixinOrientation = 'horizontal' | 'vertical';
-
-export type DividerMixinAPI = {
-    $root: {
-        component: DividerTagName;
-        'data-divider': DividerMixinOrientation;
-        classList: ClassList;
+export type DividerMixinAPI = AriaSeparatorAPI & {
+    $root: AriaSeparatorAPI['$root'] & {
+        'data-separator': '';
     };
 };

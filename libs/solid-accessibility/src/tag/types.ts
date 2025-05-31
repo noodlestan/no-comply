@@ -30,8 +30,6 @@ export type ScrollableTagName = BlockTagName | RegionTagName;
 
 export type LayoutTagName = BlockTagName | RegionTagName | 'span';
 
-export type DividerTagName = 'hr' | 'span';
-
 export type FieldsetTagName = 'fieldset' | BlockTagName;
 
 export type SurfaceTagName = BlockTagName | RegionTagName | 'dialog';
@@ -41,6 +39,8 @@ export type HeadingTagName = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export type TextTagName = 'p' | HeadingTagName | 'div' | 'span';
 
 export type LabelTagName = 'label' | 'span';
+
+export type SeparatorTagName = 'hr' | 'div' | 'span';
 
 export type ActionLabelTagName = 'label' | 'span';
 

@@ -27,24 +27,29 @@
         @include set-palette(__bg, primary);
         @include set-palette(__border, primary);
 
+        @include set-level(__fg-rest, fg-primary);
+        @include set-level(__bg-rest, content-bg-2);
+        @include set-level(__border-rest, border-0);
+
+        @include set-level(__fg-hover, fg-contrast);
+        @include set-level(__bg-hover, content-bg-1);
+        @include set-level(__border-hover, border-1);
+
+        @include set-level(__fg-active, fg-contrast);
+        @include set-level(__bg-active, content-bg-0);
+        @include set-level(__border-active, border-2);
+
+        @include set-level(__fg, __fg-rest);
+        @include set-level(__bg, __bg-rest);
+        @include set-level(__border, __border-rest);
+
         @include set-alpha(__fg-rest, content-fg);
         @include set-alpha(__bg-rest, content-bg);
         @include set-alpha(__border-rest, content-bg);
 
-        @include set-level(__fg-rest, fg-primary);
-        @include set-level(__bg-rest, content-bg-2);
-        @include set-level(__border-rest, border);
-
-        @include set-level(__fg-hover, fg-contrast);
-        @include set-level(__bg-hover, content-bg-1);
-        @include set-level(__border-hover, border-hover);
-
-        @include set-level(__fg-active, fg-contrast);
-        @include set-level(__bg-active, content-bg-0);
-        @include set-level(__border-active, border-active);
-        @include set-level(__fg, __fg-rest);
-        @include set-level(__bg, __bg-rest);
-        @include set-level(__border, __border-rest);
+        @include set-alpha(__fg, __fg-rest);
+        @include set-alpha(__bg, __bg-rest);
+        @include set-alpha(__border, __border-rest);
 
         @include apply-color(color, __fg);
         @include apply-color(background-color, __bg);
@@ -67,6 +72,7 @@
         @include set-level(__border, __border-hover);
     }
 
+    .Action[data-is-active]:not([data-disabled], [data-inactive]):is(:focus-visible, :hover),
     .Action:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
         @include set-level(__fg, __fg-active);
         @include set-level(__bg, __bg-active);
@@ -88,7 +94,7 @@
 
         @include set-level(__fg-active, static-fg-contrast);
         @include set-level(__bg-active, static-bg-3);
-        @include set-level(__border-active, static-border);
+        @include set-level(__border-active, static-bg-0);
     }
 
     .variant-secondary {

@@ -1,8 +1,6 @@
-import type {
-    AriaAttributes,
-    PressableRoleName,
-    PressableTagName,
-} from '@no-comply/solid-accessibility';
+import type { PressableRoleName } from '../../role';
+import type { PressableTagName } from '../../tag';
+import type { AriaAttributes } from '../../types';
 
 export type PressableType = 'button' | 'submit' | 'reset';
 

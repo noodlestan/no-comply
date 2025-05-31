@@ -1,0 +1,75 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.divider {
+    .Divider {
+        border-style: var(--__divider-style);
+        border-width: 0;
+
+        &[aria-orientation='horizontal'] {
+            border-block-end-width: var(--__divider-width);
+        }
+
+        &[aria-orientation='vertical'] {
+            border-inline-end-width: var(--__divider-width);
+        }
+
+        @include apply-color(border-color, __border);
+    }
+
+    .length-s {
+        --__divider-length: var(--size-m);
+
+        &[aria-orientation='vertical'] {
+            --__divider-length: var(--size-s);
+        }
+    }
+
+    .length-m {
+        --__divider-length: var(--size-l);
+
+        &[aria-orientation='vertical'] {
+            --__divider-length: var(--size-m);
+        }
+    }
+
+    .length-l {
+        --__divider-length: var(--size-2xl);
+
+        &[aria-orientation='vertical'] {
+            --__divider-length: var(--size-l);
+        }
+    }
+
+    .length-full {
+        --__divider-length: auto;
+
+        &[aria-orientation='vertical'] {
+            align-self: stretch;
+            height: auto;
+        }
+    }
+
+    .variant-base {
+        --__divider-style: var(--divider-base-style);
+        --__divider-width: var(--divider-base-width);
+        @include set-level(__border, divider-base-border);
+    }
+
+    .variant-alt {
+        --__divider-style: var(--divider-alt-style, var(--divider-base-style));
+        --__divider-width: var(--divider-alt-width, var(--divider-base-width));
+        @include set-level(__border, divider-alt-border);
+    }
+
+    .variant-strong {
+        --__divider-style: var(--divider-strong-style, var(--divider-base-style));
+        --__divider-width: var(--divider-strong-width, var(--divider-base-width));
+        @include set-level(__border, divider-strong-border);
+    }
+
+    .variant-muted {
+        --__divider-style: var(--divider-muted-style, var(--divider-base-style));
+        --__divider-width: var(--divider-muted-width, var(--divider-base-width));
+        @include set-level(__border, divider-muted-border);
+    }
+}

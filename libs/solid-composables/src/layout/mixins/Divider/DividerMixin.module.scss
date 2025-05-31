@@ -5,11 +5,11 @@
         width: 0;
         border: none;
 
-        &[data-divider='vertical'] {
+        &[aria-orientation='vertical'] {
             height: var(--__divider-length);
         }
 
-        &[data-divider='horizontal'] {
+        &[aria-orientation='horizontal'] {
             width: var(--__divider-length);
         }
     }
