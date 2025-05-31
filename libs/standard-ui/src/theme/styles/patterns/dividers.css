@@ -1,4 +1,4 @@
-@layer theme.standard.patterns {
+@layer theme.standard.base.patterns {
     [data-theme-standard] {
         --surface-divider-base-width: var(--border-width-base);
         --surface-divider-base-style: solid;

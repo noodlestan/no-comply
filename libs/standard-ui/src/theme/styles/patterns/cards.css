@@ -1,4 +1,4 @@
-@layer theme.standard.patterns {
+@layer theme.standard.base.patterns {
     [data-theme-standard] {
         --card-border-radius: var(--radius-m);
     }

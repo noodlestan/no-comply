@@ -1,6 +1,6 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer theme.standard.foundations {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         @include def-color-level(fg-contrast, 50);
         @include def-color-level(fg-primary, 100);

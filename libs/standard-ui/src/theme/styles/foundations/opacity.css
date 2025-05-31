@@ -1,4 +1,4 @@
-@layer theme.standard.foundations {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         --o-opaque: 1;
         --o-80: 0.8;

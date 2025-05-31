@@ -1,4 +1,4 @@
-@layer theme.standard.foundations {
+@layer theme.standard.base.foundations {
     /* prettier-ignore */
     @function --animation-translate(--distance <percentage>, --direction <number>) returns <percentage> {
                     result: calc(var(--distance) * var(--direction));

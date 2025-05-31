@@ -1,4 +1,4 @@
-@layer theme.standard.foundations.color {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         --border-width-highlight: 4px;
         --border-width-base: 2px;

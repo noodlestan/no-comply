@@ -1,4 +1,4 @@
-@layer theme.standard.foundations {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         --animation-duration-blip: 0.1s;
         --animation-duration-short: 0.3s;

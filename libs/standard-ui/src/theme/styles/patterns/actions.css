@@ -1,4 +1,4 @@
-@layer theme.standard.patterns {
+@layer theme.standard.base.patterns {
     [data-theme-standard] {
         --action-border-radius: var(--radius-m);
         --action-border-width: var(--border-width-thin);

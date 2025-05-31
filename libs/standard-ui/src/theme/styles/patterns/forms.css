@@ -1,4 +1,4 @@
-@layer theme.standard.patterns {
+@layer theme.standard.base.patterns {
     [data-theme-standard] {
         --o-input-fg: var(--o-surface-fg-opaque);
         --o-input-bg: var(--o-surface-bg-translucid);

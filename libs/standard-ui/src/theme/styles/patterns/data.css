@@ -1,4 +1,4 @@
-@layer theme.standard.patterns {
+@layer theme.standard.base.patterns {
     [data-theme-standard] {
         --data-value-fg-color: var(--color-base-fg);
 

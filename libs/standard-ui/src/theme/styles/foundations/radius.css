@@ -1,4 +1,4 @@
-@layer theme.standard.foundations {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         --radius-xs: var(--scale-5xs);
         --radius-s: var(--scale-4xs);

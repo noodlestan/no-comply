@@ -1,4 +1,4 @@
-@layer theme.standard.foundations {
+@layer theme.standard.base.foundations {
     [data-theme-standard] {
         --box-shadow-0: 0px 0px 0px 1px;
         --box-shadow-1: 0px 0px 2px 1px;
