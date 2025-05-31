@@ -84,7 +84,7 @@ export type MenuItemActionAPI = Omit<
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
         labelProps: HeadlessMenuItemActionAPI['$label'] & {
-            variant: LabelProps['size'];
+            variant: LabelProps['variant'];
         };
         descriptionProps: HeadlessMenuItemActionAPI['$description'] & {
             variant: TextProps['variant'];
@@ -100,7 +100,7 @@ export type MenuItemSubMenuAPI = Omit<
             FocusRingAPI['$root'] &
             MenuItemMixinAPI['$root'];
         labelProps: HeadlessMenuItemSubMenuAPI['$label'] & {
-            variant: LabelProps['size'];
+            variant: LabelProps['variant'];
         };
         descriptionProps: HeadlessMenuItemSubMenuAPI['$description'] & {
             variant: TextProps['variant'];

@@ -5,18 +5,16 @@ import type {
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
+import type { DisplayLevel, DisplayVariant } from '../../types';
+
 export type DisplayMixinProps = HeadlessTextMixinProps & {
-    level?: DisplayMixinLevel;
-    variant?: DisplayMixinVariant;
+    level?: DisplayLevel;
+    variant?: DisplayVariant;
 };
-
-export type DisplayMixinLevel = 1 | 2 | 3 | 4 | 5;
-
-export type DisplayMixinVariant = 'hero' | 'xl' | 'l' | 'm' | 's' | 'xs';
 
 export type DisplayMixinAPI = {
     $root: HeadlessTextMixinAPI['$root'] & {
         classList: ClassList;
     };
-    level: Accessor<DisplayMixinLevel>;
+    level: Accessor<DisplayLevel>;
 };

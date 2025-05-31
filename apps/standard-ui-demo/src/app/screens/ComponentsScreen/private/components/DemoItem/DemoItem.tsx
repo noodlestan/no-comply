@@ -62,7 +62,7 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
                 <Label id={labelId()} size="medium">
                     {locals.title}
                     <Show when={props.defaultValue}>
-                        <Label size="small" tag="span">
+                        <Label variant="small" tag="span">
                             (default)
                         </Label>
                     </Show>

@@ -9,15 +9,15 @@ import {
 import styles from './LabelMixin.module.scss';
 import type { LabelMixinAPI, LabelMixinProps } from './types';
 
-const defaultProps: PickRequired<LabelMixinProps, 'size'> = {
-    size: 'normal',
+const defaultProps: PickRequired<LabelMixinProps, 'variant'> = {
+    variant: 'normal',
 };
 
 export const createLabelMixin = (props: LabelMixinProps): LabelMixinAPI => {
     const { $root: $textMixinRoot } = createHeadlessTextMixin(props);
 
-    const size = () => props.size ?? defaultProps.size;
-    const classList = createClassList(styles, () => ['Label', `size-${size()}`]);
+    const variant = () => props.variant ?? defaultProps.variant;
+    const classList = createClassList(styles, () => ['Label', `variant-${variant()}`]);
     const $localRoot = createComputedProps({
         classList,
     });

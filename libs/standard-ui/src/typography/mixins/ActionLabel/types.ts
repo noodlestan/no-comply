@@ -4,10 +4,10 @@ import type {
 } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { ContentSize } from '../../../types';
+import type { ActionLabelVariant } from '../../types';
 
 export type ActionLabelMixinProps = HeadlessTextMixinProps & {
-    size?: ContentSize;
+    variant?: ActionLabelVariant;
 };
 
 export type ActionLabelMixinAPI = {

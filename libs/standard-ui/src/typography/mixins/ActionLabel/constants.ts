@@ -5,5 +5,5 @@ import type { ActionLabelMixinProps } from './types';
 
 export const ACTION_LABEL_MIXIN_PROPS = definePropKeys<ActionLabelMixinProps>()([
     ...HEADLESS_TEXT_MIXIN_PROPS,
-    'size',
+    'variant',
 ]);

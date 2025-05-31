@@ -5,5 +5,5 @@ import type { LabelMixinProps } from './types';
 
 export const LABEL_MIXIN_PROPS = definePropKeys<LabelMixinProps>()([
     ...HEADLESS_TEXT_MIXIN_PROPS,
-    'size',
+    'variant',
 ]);

@@ -6,28 +6,28 @@
         --__text-wrap-style: pretty;
     }
 
-    .size-small {
+    .variant-small {
         --__text-font-size: var(--action-size-small-size);
         --__text-font-weight: var(--action-size-small-weight, var(--action-base-weight));
         --__text-line-height: var(--action-size-small-height, var(--action-base-height));
         --__text-letter-spacing: var(--action-size-small-spacing, var(--action-base-spacing));
     }
 
-    .size-normal {
+    .variant-normal {
         --__text-font-size: var(--action-size-normal-size);
         --__text-font-weight: var(--action-size-normal-weight, var(--action-base-weight));
         --__text-line-height: var(--action-size-normal-height, var(--action-base-height));
         --__text-letter-spacing: var(--action-size-normal-spacing, var(--action-base-spacing));
     }
 
-    .size-medium {
+    .variant-medium {
         --__text-font-size: var(--action-size-medium-size);
         --__text-font-weight: var(--action-size-medium-weight, var(--action-base-weight));
         --__text-line-height: var(--action-size-medium-height, var(--action-base-height));
         --__text-letter-spacing: var(--action-size-medium-spacing, var(--action-base-spacing));
     }
 
-    .size-large {
+    .variant-large {
         --__text-font-size: var(--action-size-large-size);
         --__text-font-weight: var(--action-size-large-weight, var(--action-base-weight));
         --__text-line-height: var(--action-size-large-height, var(--action-base-height));

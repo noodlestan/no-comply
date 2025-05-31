@@ -23,16 +23,16 @@ export const LabelDemoPage: Component = () => {
 
             <DemoSection title="variant">
                 <DemoItem title="large">
-                    <Label size="large">Foobar</Label>
+                    <Label variant="large">Foobar</Label>
                 </DemoItem>
                 <DemoItem title="medium">
-                    <Label size="medium">Foobar</Label>
+                    <Label variant="medium">Foobar</Label>
                 </DemoItem>
                 <DemoItem title="normal">
-                    <Label size="normal">Foobar</Label>
+                    <Label variant="normal">Foobar</Label>
                 </DemoItem>
                 <DemoItem title="small">
-                    <Label size="small">Foobar</Label>
+                    <Label variant="small">Foobar</Label>
                 </DemoItem>
             </DemoSection>
 

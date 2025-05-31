@@ -6,15 +6,12 @@ import {
     mergeProps,
 } from '@no-comply/solid-primitives';
 
-import styles from './DisplayMixin.module.scss';
-import type {
-    DisplayMixinAPI,
-    DisplayMixinLevel,
-    DisplayMixinProps,
-    DisplayMixinVariant,
-} from './types';
+import type { DisplayLevel, DisplayVariant } from '../../types';
 
-const MAP_LEVEL_TO_VARIANT: Record<DisplayMixinLevel, DisplayMixinVariant> = {
+import styles from './DisplayMixin.module.scss';
+import type { DisplayMixinAPI, DisplayMixinProps } from './types';
+
+const MAP_LEVEL_TO_VARIANT: Record<DisplayLevel, DisplayVariant> = {
     1: 'xl',
     2: 'l',
     3: 'm',

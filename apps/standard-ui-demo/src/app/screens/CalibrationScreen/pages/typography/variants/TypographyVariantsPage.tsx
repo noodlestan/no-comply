@@ -29,10 +29,10 @@ export const TypographyVariantsPage: Component = () => {
             <Display level={3}>Label</Display>
 
             <Flex direction="column" gap="l">
-                <Label size="large">Lorem ipsum dolor sit amet.</Label>
-                <Label size="medium">Lorem ipsum dolor sit amet.</Label>
-                <Label size="normal">Lorem ipsum dolor sit amet.</Label>
-                <Label size="small">Lorem ipsum dolor sit amet.</Label>
+                <Label variant="large">Lorem ipsum dolor sit amet.</Label>
+                <Label variant="medium">Lorem ipsum dolor sit amet.</Label>
+                <Label variant="normal">Lorem ipsum dolor sit amet.</Label>
+                <Label variant="small">Lorem ipsum dolor sit amet.</Label>
             </Flex>
 
             <Display level={3}>Action</Display>

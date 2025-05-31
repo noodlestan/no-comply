@@ -1,11 +1,11 @@
 import type { HeadingTagName } from '@no-comply/solid-accessibility';
 import { createComputedProps, mergeProps } from '@no-comply/solid-primitives';
 
-import { type DisplayMixinLevel, createDisplayMixin } from '../../mixins';
+import { type DisplayLevel, createDisplayMixin } from '../../mixins';
 
 import type { DisplayAPI, DisplayProps } from './types';
 
-const MAP_LEVEL_TO_COMPONENT: Record<DisplayMixinLevel, HeadingTagName> = {
+const MAP_LEVEL_TO_COMPONENT: Record<DisplayLevel, HeadingTagName> = {
     1: 'h1',
     2: 'h2',
     3: 'h3',
