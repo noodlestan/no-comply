@@ -1,21 +1,18 @@
 import { Button } from '@no-comply/standard-ui';
 
 import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { itemProps as props } from '../constants';
 
 export default createDemoSection({
     title: 'size',
     items: [
-        createDemoItem({ title: 'large', props: { row: true } }, () => (
-            <Button size="large">Size Large</Button>
-        )),
-        createDemoItem({ title: 'medium', props: { row: true } }, () => (
+        createDemoItem({ title: 'large', props }, () => <Button size="large">Size Large</Button>),
+        createDemoItem({ title: 'medium', props }, () => (
             <Button size="medium">Size Medium</Button>
         )),
-        createDemoItem({ title: 'normal', props: { row: true } }, () => (
+        createDemoItem({ title: 'normal', props: { ...props, defaultValue: true } }, () => (
             <Button size="normal">Size Normal</Button>
         )),
-        createDemoItem({ title: 'small', props: { row: true } }, () => (
-            <Button size="small">Size Small</Button>
-        )),
+        createDemoItem({ title: 'small', props }, () => <Button size="small">Size Small</Button>),
     ],
 });

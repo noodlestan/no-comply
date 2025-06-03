@@ -8,12 +8,8 @@ import { createDemoItem, createDemoSection } from '../../../../../../components'
 export default createDemoSection({
     title: 'disabled',
     items: [
-        createDemoItem(
-            {
-                title: 'true',
-                props: { row: true },
-            },
-            () => <IconButton icon={PlusIcon} label="Add an item" disabled />,
-        ),
+        createDemoItem({ title: 'true', props: { row: true } }, () => (
+            <IconButton icon={PlusIcon} label="Add an item" disabled />
+        )),
     ],
 });
