@@ -4,14 +4,14 @@ import { findComponent } from '../../../../../data';
 import { RenderDemoSections } from '../../../../components';
 import { ComponentDemoPage } from '../../private';
 
-import { iconBuuttonDemoSections } from './_docs';
+import { iconButtonDemoSections } from './_docs';
 
 export const IconButtonDemoPage: Component = () => {
     const COMPONENT = findComponent('IconButton');
 
     return (
         <ComponentDemoPage component={COMPONENT}>
-            <RenderDemoSections sections={iconBuuttonDemoSections} />
+            <RenderDemoSections sections={iconButtonDemoSections} />
         </ComponentDemoPage>
     );
 };
