@@ -11,10 +11,10 @@ export const createSurfaceBase = (props: SurfaceBaseProps): SurfaceBaseAPI => {
     const [locals, expose, compose] = createExposable($SURFACE_BASE, props);
 
     const { $root: $surfaceRoot, ...rest } = compose(createSurface(locals));
-    const { $root: $focusableMixinRoot } = compose(createSurfaceMixin());
+    const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin());
 
     return exposeAPI(expose, '$root', {
         ...rest,
-        $root: combineProps($surfaceRoot, $focusableMixinRoot),
+        $root: combineProps($surfaceRoot, $surfaceMixinRoot),
     });
 };

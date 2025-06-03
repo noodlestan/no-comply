@@ -1,5 +1,12 @@
 @use 'sass:string';
 
+@mixin variant-class($class, $bp: null) {
+    $suffix: if($bp == null or $bp == _, '', '-#{$bp}');
+    .#{$class}#{$suffix} {
+        @content;
+    }
+}
+
 @mixin variant-classes($prefix, $map, $bp: null) {
     @each $key, $value in $map {
         $suffix: if($bp == null or $bp == _, '', '-#{$bp}');

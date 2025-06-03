@@ -1,0 +1,48 @@
+$NC_FLEX_DIRECTION_VARIANTS: (
+    row: row,
+    row-reverse: row-reverse,
+    column: column,
+    column-reverse: column-reverse,
+);
+
+$NC_FLEX_ALIGN_VARIANTS: (
+    start: flex-start,
+    center: center,
+    baseline: baseline,
+    end: flex-end,
+    stretch: stretch,
+);
+
+$NC_FLEX_JUSTIFY_VARIANTS: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+    between: space-between,
+    around: space-around,
+    stretch: stretch,
+);
+
+$NC_GRID_FLOW_VARIANTS: (
+    row: row,
+    column: column,
+    dense: dense,
+    row-dense: row dense,
+    column-dense: column dense,
+);
+
+$NC_GRID_ALIGN_VARIANTS: (
+    start: flex-start,
+    center: center,
+    baseline: baseline,
+    end: flex-end,
+    stretch: stretch,
+);
+
+$NC_GRID_JUSTIFY_VARIANTS: (
+    start: flex-start,
+    center: center,
+    end: flex-end,
+    between: space-between,
+    around: space-around,
+    stretch: stretch,
+);

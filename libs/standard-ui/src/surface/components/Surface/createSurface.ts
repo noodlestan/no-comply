@@ -1,15 +1,10 @@
+import { createSurface as createHeadlessSurface } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import {
-    type PickRequired,
-    combineProps,
-    computedProps,
-    staticClassList,
-} from '@no-comply/solid-primitives';
+import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
 import { splitProps } from 'solid-js';
 
-import { createLayoutMixin } from '../../../layout';
+import { createSurfaceMixin } from '../../mixins';
 
-import styles from './Surface.module.scss';
 import { $SURFACE } from './constants';
 import type { SurfaceAPI, SurfaceProps } from './types';
 
@@ -20,18 +15,15 @@ const defaultProps: PickRequired<SurfaceProps, 'variant'> = {
 export const createSurface = (props: SurfaceProps): SurfaceAPI => {
     const [locals, expose, compose] = createExposable($SURFACE, props);
 
-    const [ownProps, others] = splitProps(locals, ['variant']);
+    const variant = () => locals.variant ?? defaultProps.variant;
 
-    const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
+    const [, others] = splitProps(locals, ['variant']);
+    const variantProps = computedProps(others, { variant });
+    const { $root: $surfaceRoot, ...rest } = compose(createHeadlessSurface(variantProps));
+    const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin(locals));
 
-    const variant = () => ownProps.variant ?? defaultProps.variant;
-
-    const staticProps = {
-        classList: staticClassList(styles, 'Surface'),
-    };
-    const _surface = computedProps(staticProps, { variant });
-
-    return exposeAPI(expose, '_surface', {
-        _surface: combineProps(others, $layoutMixinRoot, _surface),
+    return exposeAPI(expose, '$root', {
+        ...rest,
+        $root: combineProps($surfaceRoot, $surfaceMixinRoot),
     });
 };

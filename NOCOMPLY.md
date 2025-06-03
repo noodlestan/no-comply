@@ -1,5 +1,12 @@
 # No Comply
 
+## Headless to Composable
+
+## remove flex defaults
+
+go throw existing components and discover the patterns - <Column> => column / justify-start / align-start - <Stack> => column / justify-start / align-stretch - <Row> => row / justify-start / align-start - <Bar> => row / justify-between / align-center
+same for the app
+
 ## Instrumentation
 
 ```js
@@ -22,12 +29,7 @@ if (!exposable) {
 }
 ```
 
-## remove flex defaults
-
-go throw existing components and discover the patterns - <Column> => column / justify-start / align-start - <Stack> => column / justify-start / align-stretch - <Row> => row / justify-start / align-start - <Bar> => row / justify-between / align-center
-same for the app
-
-compose flex / grid into surface?
+## compose flex + grid into standard Surface?
 
 ## Responsive Flex and Grid
 
@@ -221,7 +223,15 @@ don't use AriaLabelledAPI directly when we can use AriaRegion (check all composi
 
 vs router (or custom) via navigation service
 
-## Inputs
+## InputText
+
+## InputNumber
+
+## Checkbox
+
+## Select
+
+## Radio
 
 ## MenuItemGroup and MenuItem\*
 
@@ -238,6 +248,31 @@ export type MenuItemRadioProps = MenuItemBaseProps & {
   checked: boolean;
 };
 ```
+
+## Debug
+
+### Expose
+
+- search id
+  - list components (on component hover )
+- click on page
+  - traverse to parent collect ids
+  - list components
+- list component types / counts
+  - list component instances by type
+- click component => inspect
+
+- inspector
+  - id / type
+  - parent (type) "rendered by"
+  - props
+    - key: value
+  - composes (type)
+  - api
+    - key: value
+    - data-key: value
+    - aria-key: value
+    - classList
 
 ## Form validation
 

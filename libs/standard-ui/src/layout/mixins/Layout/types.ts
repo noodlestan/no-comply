@@ -1,12 +1,12 @@
 import {
     type LayoutMixinAPI as HeadlessLayoutMixinAPI,
     type LayoutMixinProps as HeadlessLayoutMixinProps,
+    type LayoutPaddingProps,
 } from '@no-comply/solid-composables';
-import type { ClassList, ResponsiveProp } from '@no-comply/solid-primitives';
+import type { ClassList } from '@no-comply/solid-primitives';
 
-export type LayoutMixinProps = Omit<HeadlessLayoutMixinProps, 'padding'> & {
-    padding?: ResponsiveProp<LayoutPadding>;
-};
+export type LayoutMixinProps = Omit<HeadlessLayoutMixinProps, keyof LayoutPaddingProps> &
+    LayoutPaddingProps<LayoutPadding>;
 
 export type LayoutPadding = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl';
 

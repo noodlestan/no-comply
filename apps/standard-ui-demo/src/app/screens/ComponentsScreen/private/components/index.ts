@@ -2,3 +2,4 @@
 export * from './ComponentDemoPage';
 export * from './DemoItem';
 export * from './DemoSection';
+export * from './ResponsiveDemoItem';

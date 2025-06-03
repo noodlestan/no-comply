@@ -1,7 +1,8 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { computedProps, createClassList } from '@no-comply/solid-primitives';
+import { computedProps, createClassList, splitSideShorthand } from '@no-comply/solid-primitives';
 
-import { responsiveClassMap } from '../../../responsive';
+import { responsiveBooleanClasses, responsiveVariantClasses } from '../../../responsive';
+import { resolvePaddingProps } from '../../helpers';
 
 import styles from './LayoutMixin.module.scss';
 import { $LAYOUT_MIXIN } from './constants';
@@ -13,13 +14,29 @@ export function createLayoutMixin(
 ): LayoutMixinAPI {
     const [locals, expose] = createExposable($LAYOUT_MIXIN, props);
 
-    const classList = createClassList(styles, () => ({
-        Layout: true,
-        ...responsiveClassMap(breakpoints, 'padding', locals.padding),
-        [`uncontained`]: Boolean(locals.uncontained),
-        [`stretch-${locals.stretch}`]: Boolean(locals.stretch),
-        [`overflow-${locals.overflow}`]: Boolean(locals.overflow),
-    }));
+    const [
+        padding,
+        paddingBlock,
+        paddingBlockStart,
+        paddingBlockEnd,
+        paddingInline,
+        paddingInlineStart,
+        paddingInlineEnd,
+    ] = splitSideShorthand(resolvePaddingProps(locals));
+
+    const classList = createClassList(styles, () => [
+        'Layout',
+        ...responsiveVariantClasses(breakpoints, 'padding', padding()),
+        ...responsiveVariantClasses(breakpoints, 'padding-block', paddingBlock()),
+        ...responsiveVariantClasses(breakpoints, 'padding-block-start', paddingBlockStart()),
+        ...responsiveVariantClasses(breakpoints, 'padding-block-end', paddingBlockEnd()),
+        ...responsiveVariantClasses(breakpoints, 'padding-inline', paddingInline()),
+        ...responsiveVariantClasses(breakpoints, 'padding-inline-start', paddingInlineStart()),
+        ...responsiveVariantClasses(breakpoints, 'padding-inline-end', paddingInlineEnd()),
+        ...responsiveVariantClasses(breakpoints, 'stretch', locals.stretch),
+        ...responsiveBooleanClasses(breakpoints, 'uncontained', 'contained', locals.uncontained),
+        ...responsiveVariantClasses(breakpoints, 'overflow', locals.overflow),
+    ]);
 
     const $root = computedProps({
         classList,

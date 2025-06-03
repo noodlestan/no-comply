@@ -1,7 +1,9 @@
-import { MenuContextProvider, SurfaceBase } from '@no-comply/solid-composables';
+import { MenuContextProvider } from '@no-comply/solid-composables';
 import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
+
+import { Surface } from '../../../surface';
 
 import { MENU_PROPS } from './constants';
 import { createMenu } from './createMenu';
@@ -17,12 +19,12 @@ export const Menu: ParentComponent<Props> = props => {
 
     return (
         <MenuContextProvider context={contextValue}>
-            <SurfaceBase {...$}>
+            <Surface {...$}>
                 <Show when={$label.children}>
                     <Dynamic {...$label} />
                 </Show>
                 {locals.children}
-            </SurfaceBase>
+            </Surface>
         </MenuContextProvider>
     );
 };

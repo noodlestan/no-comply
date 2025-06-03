@@ -1,6 +1,6 @@
 import type { ResponsiveProp } from '@no-comply/solid-primitives';
 
-export const responsiveClassList = <const B extends string, T extends string>(
+export const responsiveVariantClasses = <const B extends string, T extends string>(
     breakpoints: readonly (B | '_')[],
     prefix: string,
     value: ResponsiveProp<T> | undefined,
@@ -8,20 +8,19 @@ export const responsiveClassList = <const B extends string, T extends string>(
 ): string[] => {
     const classes: string[] = [];
 
-    if (value === undefined) {
-        if (defaultValue !== undefined) {
-            classes.push(`${prefix}-${defaultValue}`);
-        }
+    const v = value ?? defaultValue;
+
+    if (v === undefined) {
         return classes;
     }
 
-    if (typeof value !== 'object') {
-        classes.push(`${prefix}-${value}`);
+    if (typeof v !== 'object') {
+        classes.push(`${prefix}-${v}`);
         return classes;
     }
 
     // eslint-disable-next-line dot-notation
-    const base = value['_'] ?? defaultValue;
+    const base = v['_'] ?? defaultValue;
     if (base !== undefined) {
         classes.push(`${prefix}-${base}`);
     }
@@ -30,7 +29,7 @@ export const responsiveClassList = <const B extends string, T extends string>(
         if (bp === '_') {
             continue;
         }
-        const bpValue = value[bp];
+        const bpValue = v[bp];
         if (bpValue !== undefined) {
             classes.push(`${prefix}-${bpValue}-${bp}`);
         }

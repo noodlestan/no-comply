@@ -35,7 +35,6 @@ const Main: ParentComponent = props => {
     return (
         <Flex
             direction="column"
-            align="stretch"
             stretch="full"
             classList={classList()}
             aria-busy={!status.isReady()}

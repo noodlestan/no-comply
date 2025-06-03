@@ -1,4 +1,4 @@
-import type { FlexMixinDirection } from '@no-comply/solid-composables';
+import type { FlexDirection } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
@@ -8,7 +8,7 @@ import { FieldsetLabel } from '../FieldsetLabel';
 
 export type FieldsetProps = {
     label: string;
-    direction?: FlexMixinDirection;
+    direction?: FlexDirection;
     wrap?: boolean;
     size?: ContentSize;
     classList?: ClassList;

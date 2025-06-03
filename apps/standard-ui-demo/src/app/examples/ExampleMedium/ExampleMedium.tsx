@@ -12,7 +12,7 @@ import {
 import { LockIcon, UnlockIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
-type Props = { title: string };
+type Props = { title?: string };
 
 export const ExampleMedium: Component<Props> = props => {
     return (
@@ -20,7 +20,7 @@ export const ExampleMedium: Component<Props> = props => {
             <Flex gap="m">
                 <Flex direction="row" align="center" gap="s">
                     <Icon icon={LockIcon} />
-                    <Display level={3}>{props.title}</Display>
+                    <Display level={3}>{props.title ?? 'Lorem Ipsum'}</Display>
                 </Flex>
             </Flex>
             <Flex gap="s">

@@ -1,13 +1,16 @@
-import type { LayoutMixinAPI, SurfaceBaseProps } from '@no-comply/solid-composables';
+import type {
+    SurfaceAPI as HeadlessSurfaceAPI,
+    SurfaceProps as HeadlessSurfaceProps,
+} from '@no-comply/solid-composables';
 
-import type { LayoutMixinProps } from '../../../layout';
+import type { LayoutMixinAPI, LayoutMixinProps } from '../../../layout';
 import type { SurfaceVariant } from '../../../theme';
 
-export type SurfaceProps = SurfaceBaseProps &
+export type SurfaceProps = Omit<HeadlessSurfaceProps, 'variant'> &
     LayoutMixinProps & {
         variant?: SurfaceVariant;
     };
 
-export type SurfaceAPI = {
-    _surface: SurfaceBaseProps & LayoutMixinAPI['$root'];
+export type SurfaceAPI = Omit<HeadlessSurfaceAPI, '$root'> & {
+    $root: HeadlessSurfaceAPI['$root'] & LayoutMixinAPI['$root'];
 };

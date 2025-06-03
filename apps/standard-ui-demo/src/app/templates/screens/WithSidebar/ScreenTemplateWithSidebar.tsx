@@ -47,8 +47,14 @@ export const ScreenTemplateWithSidebar: ParentComponent<Props> = props => {
     }));
 
     return (
-        <Surface variant="stage" stretch="height" classList={classList} data-screen={props.id}>
-            <Flex direction="column" stretch="full" justify="stretch">
+        <Surface
+            variant="stage"
+            stretch="full"
+            overflow="auto"
+            classList={classList}
+            data-screen={props.id}
+        >
+            <Flex direction="column" stretch="full">
                 <MainHeader
                     setMenuButtonRef={setToggleButtonRef}
                     toggleSidebar={handleToggleSidebar}

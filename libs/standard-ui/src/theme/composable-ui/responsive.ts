@@ -1,4 +1,4 @@
-export type GlobalBreakpointName = 'm' | 'l';
+export type BreakpointName = 'm' | 'l';
 
 export const GLOBAL_BP = {
     m: 640,

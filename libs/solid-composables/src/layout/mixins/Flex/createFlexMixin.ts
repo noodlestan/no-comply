@@ -1,7 +1,13 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { type PickRequired, computedProps, createClassList } from '@no-comply/solid-primitives';
+import {
+    type PickRequired,
+    computedProps,
+    createClassList,
+    splitAxisShorthand,
+} from '@no-comply/solid-primitives';
 
-import { responsiveClassMap } from '../../../responsive';
+import { responsiveBooleanClassList, responsiveVariantClassList } from '../../../responsive';
+import { resolveGapProps } from '../../helpers';
 
 import styles from './FlexMixin.module.scss';
 import { $FLEX_MIXIN } from './constants';
@@ -19,23 +25,28 @@ export function createFlexMixin(
 ): FlexMixinAPI {
     const [locals, expose] = createExposable($FLEX_MIXIN, props);
 
+    const [gap, rowGap, columnGap] = splitAxisShorthand(resolveGapProps(locals));
+
     const direction = () => locals.direction ?? _defaults.direction;
     const align = () => locals.align ?? _defaults.align;
     const justify = () => locals.justify ?? _defaults.justify;
     const classList = createClassList(styles, () => ({
         Flex: true,
-        ...responsiveClassMap(breakpoints, 'gap', locals.gap),
-        [`direction-${direction()}`]: true,
-        [`align-${align()}`]: true,
-        [`justify-${justify()}`]: true,
-        [`shrink`]: locals.shrink === true,
-        [`no-shrink`]: locals.shrink === false,
-        [`wrap`]: Boolean(locals.wrap),
+        ...responsiveVariantClassList(breakpoints, 'gap', gap()),
+        ...responsiveVariantClassList(breakpoints, 'row-gap', rowGap()),
+        ...responsiveVariantClassList(breakpoints, 'column-gap', columnGap()),
+        ...responsiveVariantClassList(breakpoints, 'direction', direction()),
+        ...responsiveVariantClassList(breakpoints, 'align', align()),
+        ...responsiveVariantClassList(breakpoints, 'justify', justify()),
+        ...responsiveBooleanClassList(breakpoints, 'shrink', 'no-shrink', locals.shrink),
+        ...responsiveBooleanClassList(breakpoints, 'wrap', 'no-wrap', locals.wrap),
+        ...responsiveBooleanClassList(breakpoints, 'inline', 'not-inline', locals.inline),
+
         [`flex`]: locals.flex !== undefined,
-        [`inline`]: Boolean(locals.inline),
     }));
+
     const style = () => ({
-        '--__flex-flex': props.flex,
+        '--__flex-flex': Number(props.flex),
     });
 
     const $root = computedProps({

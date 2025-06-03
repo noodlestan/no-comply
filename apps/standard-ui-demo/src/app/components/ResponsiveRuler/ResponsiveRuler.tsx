@@ -1,14 +1,14 @@
-import { GLOBAL_BP, type GlobalBreakpointName, Layout } from '@no-comply/standard-ui';
+import { type BreakpointName, GLOBAL_BP, Layout } from '@no-comply/standard-ui';
 import { createResizeObserver } from '@solid-primitives/resize-observer';
 import { type Component, createSignal, onMount } from 'solid-js';
 
 import { Ruler } from '../../../studio';
 
-type Props = {
-    variants?: Partial<Record<'_' | GlobalBreakpointName, string>>;
+export type ResponsiveRulerProps = {
+    breakpoints?: (BreakpointName | '_')[];
 };
 
-export const ResponsiveRuler: Component<Props> = props => {
+export const ResponsiveRuler: Component<ResponsiveRulerProps> = props => {
     let container: HTMLElement;
 
     const [screenWidth, setScreenWidth] = createSignal<number>(0);
@@ -24,10 +24,10 @@ export const ResponsiveRuler: Component<Props> = props => {
     });
 
     const markers = () => {
-        const m = Object.keys(props.variants || [])
+        const m = (props.breakpoints || [])
             .filter(bp => bp !== '_')
             .map(bp => {
-                const value = GLOBAL_BP[bp as GlobalBreakpointName];
+                const value = GLOBAL_BP[bp as BreakpointName];
                 return { at: value, name: `${bp.toUpperCase()}: ${value}px` };
             });
         return m;

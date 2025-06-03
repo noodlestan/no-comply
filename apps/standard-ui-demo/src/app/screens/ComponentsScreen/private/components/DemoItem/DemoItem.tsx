@@ -1,6 +1,7 @@
-import type { FlexMixinAlign } from '@no-comply/solid-composables';
+import type { FlexAlign } from '@no-comply/solid-composables';
 import {
     type ClosedTagProps,
+    type Styles,
     combineProps,
     computedProps,
     createClassList,
@@ -18,10 +19,11 @@ export type DemoItemProps = ClosedTagProps & {
     row?: boolean;
     gap?: FlexGap;
     padding?: LayoutPadding;
-    align?: FlexMixinAlign;
+    align?: FlexAlign;
     width?: string;
     height?: string;
     styled?: boolean;
+    styles?: Styles;
     slot?: () => JSX.Element;
 };
 
@@ -36,6 +38,8 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
         'align',
         'width',
         'height',
+        'styled',
+        'styles',
         'slot',
         'children',
     ]);
@@ -43,13 +47,14 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
     const labelId = () => (locals.title ? shortId() : undefined);
 
     const contentsStyle = () => ({
+        ...locals.styles,
         'max-width': locals.width ?? 'unset',
         'max-height': locals.height ?? 'unset',
     });
 
     const classList = createClassList(styles, () => ({
         DemoItem: true,
-        styled: Boolean(props.styled),
+        styled: Boolean(locals.styled),
     }));
     const $root = computedProps({
         classList,
@@ -62,7 +67,7 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
             <Show when={locals.title}>
                 <Label id={labelId()} variant="medium">
                     {locals.title}
-                    <Show when={props.defaultValue}>
+                    <Show when={locals.defaultValue}>
                         <Label variant="small" tag="span">
                             (default)
                         </Label>

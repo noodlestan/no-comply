@@ -1,14 +1,12 @@
 import { type ClassList, type ResponsiveProp } from '@no-comply/solid-primitives';
 
-export type LayoutMixinProps = {
-    padding?: ResponsiveProp<string>;
-    stretch?: LayoutMixinStretch;
-    uncontained?: boolean;
-    overflow?: LayoutMixinOverflow;
-};
+import type { LayoutPaddingProps, LayoutStretch, Layoutverflow } from '../../types';
 
-export type LayoutMixinStretch = 'width' | 'height' | 'full';
-export type LayoutMixinOverflow = 'auto' | 'x-auto' | 'y-auto' | 'hidden';
+export type LayoutMixinProps = LayoutPaddingProps & {
+    stretch?: ResponsiveProp<LayoutStretch>;
+    uncontained?: ResponsiveProp<boolean>;
+    overflow?: ResponsiveProp<Layoutverflow>;
+};
 
 export type LayoutMixinAPI = {
     $root: {

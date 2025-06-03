@@ -1,3 +1,4 @@
+@use '../../../scss/globals/' as *;
 @use '../../../scss/mixins/display.scss' as *;
 @use '../../../scss/mixins/variants.scss' as *;
 
@@ -8,99 +9,60 @@
 @layer composables.flex {
     .Flex {
         flex-wrap: nowrap;
-        @include display(flex);
+        display: flex;
+    }
 
-        @include responsive-variants($NC_COMP_FLEX_GAP_BREAKPOINTS) using ($bp) {
-            @include variant-classes('gap', $NC_COMP_FLEX_GAP_VARIANTS, $bp) using ($key, $value) {
-                gap: $value;
-            }
+    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+        @include variant-classes('gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
+            gap: $value;
         }
 
-        @include responsive-variants($NC_COMP_LAYOUT_PADDING_BREAKPOINTS) using ($bp) {
-            @include variant-classes('padding', $NC_COMP_LAYOUT_PADDING_VARIANTS, $bp) using
-                ($key, $value) {
-                padding: $value;
-            }
+        @include variant-classes('row-gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
+            row-gap: $value;
         }
-    }
 
-    .direction-row {
-        flex-direction: row;
-    }
+        @include variant-classes('column-gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
+            column-gap: $value;
+        }
 
-    .direction-row-reverse {
-        flex-direction: row-reverse;
-    }
+        @include variant-classes('direction', $NC_FLEX_DIRECTION_VARIANTS, $bp) using ($key, $value) {
+            flex-direction: $value;
+        }
 
-    .direction-column {
-        flex-direction: column;
-    }
+        @include variant-classes('align', $NC_FLEX_ALIGN_VARIANTS, $bp) using ($key, $value) {
+            align-items: $value;
+        }
 
-    .direction-column-reverse {
-        flex-direction: column-reverse;
-    }
+        @include variant-classes('justify', $NC_FLEX_JUSTIFY_VARIANTS, $bp) using ($key, $value) {
+            justify-content: $value;
+        }
 
-    .align-start {
-        align-items: flex-start;
-    }
+        @include variant-class('shrink', $bp) {
+            flex-shrink: 1;
+        }
 
-    .align-center {
-        align-items: center;
-    }
+        @include variant-class('no-shrink', $bp) {
+            flex-shrink: 0;
+        }
 
-    .align-baseline {
-        align-items: baseline;
-    }
+        @include variant-class('wrap', $bp) {
+            flex-wrap: wrap;
+        }
 
-    .align-end {
-        align-items: flex-end;
-    }
+        @include variant-class('no-wrap', $bp) {
+            flex-wrap: nowrap;
+        }
 
-    .align-stretch {
-        align-items: stretch;
-    }
+        @include variant-class('inline', $bp) {
+            display: inline-flex;
+        }
 
-    .justify-start {
-        justify-content: flex-start;
-    }
-
-    .justify-center {
-        justify-content: center;
-    }
-
-    .justify-end {
-        justify-content: flex-end;
-    }
-
-    .justify-between {
-        justify-content: space-between;
-    }
-
-    .justify-around {
-        justify-content: space-around;
-    }
-
-    .justify-stretch {
-        justify-content: stretch;
-    }
-
-    .shrink {
-        flex-shrink: 1;
-    }
-
-    .no-shrink {
-        flex-shrink: 0;
+        @include variant-class('not-inline', $bp) {
+            display: flex;
+        }
     }
 
     .flex {
         flex: var(--__flex-flex);
-    }
-
-    .wrap {
-        flex-wrap: wrap;
-    }
-
-    .inline {
-        @include display(inline-flex);
     }
 }

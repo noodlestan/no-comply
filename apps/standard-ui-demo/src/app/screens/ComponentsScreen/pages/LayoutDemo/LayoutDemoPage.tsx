@@ -3,14 +3,17 @@ import { Layout } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ResponsiveRuler } from '../../../../components';
-import { ExampleLayoutChild } from '../../../../examples';
-import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
+import { ExampleLayoutChild, ExampleMedium } from '../../../../examples';
+import { ComponentDemoPage, DemoItem, DemoSection, ResponsiveDemoItem } from '../../private';
 
 import styles from './LayoutDemoPage.module.scss';
 
-const longLoremIpsum =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quis semper diam, in euismod libero.';
+const RESPONSIVE_PADDING = { _: 'xs', m: 'm', l: 'xl' } as const;
+const RESPONSIVE_STRETCH = { _: 'full', m: 'width', l: 'none' } as const;
+const RESPONSIVE_OVERFLOW = { _: 'x-auto', m: 'hidden', l: 'y-auto' } as const;
+const RESPONSIVE_CONTAINMENT = { _: true, m: false, l: true } as const;
+
+const THREE_BP = Object.keys(RESPONSIVE_PADDING);
 
 export const LayoutDemoPage: Component = () => {
     const COMPONENT = findComponent('Layout');
@@ -52,15 +55,101 @@ export const LayoutDemoPage: Component = () => {
                     </Layout>
                 </DemoItem>
 
-                <DemoItem
-                    title="responsive"
-                    styled
-                    slot={() => <ResponsiveRuler variants={{ _: 's', m: 'm', l: 'xl' }} />}
-                >
-                    <Layout padding={{ _: 's', m: 'm', l: 'xl' }}>
+                <DemoItem title="shorthand" styled>
+                    <Layout padding={['s', 'm']}>
                         <ExampleLayoutChild />
                     </Layout>
                 </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout padding={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="paddingBlock">
+                <DemoItem title="l" styled>
+                    <Layout paddingBlock="l">
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout paddingBlock={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="paddingBlockStart">
+                <DemoItem title="l" styled>
+                    <Layout paddingBlockStart="l">
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout paddingBlockStart={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="paddingBlockEnd">
+                <DemoItem title="l" styled>
+                    <Layout paddingBlockEnd="l">
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout paddingBlockEnd={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="paddingInline">
+                <DemoItem title="l" styled>
+                    <Layout paddingInline="l">
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout paddingInline={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="paddingInlineStart">
+                <DemoItem title="l" styled>
+                    <Layout paddingInlineStart="l">
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout paddingInlineStart={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="paddingInlineEnd">
+                <DemoItem title="l" styled>
+                    <Layout paddingInlineEnd="l">
+                        <ExampleLayoutChild />
+                    </Layout>
+                </DemoItem>
+
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout paddingInlineEnd={RESPONSIVE_PADDING}>
+                        <ExampleLayoutChild />
+                    </Layout>
+                </ResponsiveDemoItem>
             </DemoSection>
 
             <DemoSection title="stretch">
@@ -84,29 +173,67 @@ export const LayoutDemoPage: Component = () => {
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
                 </DemoItem>
+                <ResponsiveDemoItem
+                    title="responsive"
+                    styled
+                    classList={stretchItemClassList}
+                    bps={THREE_BP}
+                >
+                    <Layout padding="l" stretch={RESPONSIVE_STRETCH}>
+                        <ExampleLayoutChild style={{ height: '100%' }} />
+                    </Layout>
+                </ResponsiveDemoItem>
+            </DemoSection>
+
+            <DemoSection title="uncontained">
+                <DemoItem title="contained (default)" styled>
+                    <Layout padding="l">
+                        <ExampleLayoutChild content={<ExampleMedium />} />
+                    </Layout>
+                </DemoItem>
+                <DemoItem title="uncontained" styled>
+                    <Layout padding="l" uncontained>
+                        <ExampleLayoutChild content={<ExampleMedium />} />
+                    </Layout>
+                </DemoItem>
+                <ResponsiveDemoItem title="responsive" styled bps={THREE_BP}>
+                    <Layout padding="l" uncontained={RESPONSIVE_CONTAINMENT}>
+                        <ExampleLayoutChild content={<ExampleMedium />} />
+                    </Layout>
+                </ResponsiveDemoItem>
             </DemoSection>
 
             <DemoSection title="overflow">
-                <DemoItem title="auto" width="var(--scale-4xl)" height="var(--scale-xl)" styled>
-                    <Layout padding="l" overflow="auto">
-                        <ExampleLayoutChild content={longLoremIpsum} style={{ width: '500px' }} />
+                <DemoItem title="auto" styled>
+                    <Layout padding="l" overflow="auto" style={{ height: 'var(--scale-xl)' }}>
+                        <ExampleLayoutChild content={<ExampleMedium />} style={{ width: '120%' }} />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="x-auto" width="var(--scale-4xl)" height="var(--scale-xl)" styled>
-                    <Layout padding="l" overflow="x-auto">
-                        <ExampleLayoutChild content={longLoremIpsum} style={{ width: '500px' }} />
+                <DemoItem title="x-auto" styled>
+                    <Layout padding="l" overflow="x-auto" style={{ height: 'var(--scale-xl)' }}>
+                        <ExampleLayoutChild content={<ExampleMedium />} style={{ width: '120%' }} />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="y-auto" width="var(--scale-4xl)" height="var(--scale-xl)" styled>
-                    <Layout padding="l" overflow="y-auto">
-                        <ExampleLayoutChild content={longLoremIpsum} style={{ width: '500px' }} />
+                <DemoItem title="y-auto" styled>
+                    <Layout padding="l" overflow="y-auto" style={{ height: 'var(--scale-xl)' }}>
+                        <ExampleLayoutChild content={<ExampleMedium />} style={{ width: '120%' }} />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="hidden" width="var(--scale-4xl)" height="var(--scale-xl)" styled>
-                    <Layout padding="l" overflow="hidden">
-                        <ExampleLayoutChild content={longLoremIpsum} style={{ width: '500px' }} />
+                <DemoItem title="hidden" styled>
+                    <Layout padding="l" overflow="hidden" style={{ height: 'var(--scale-xl)' }}>
+                        <ExampleLayoutChild content={<ExampleMedium />} style={{ width: '120%' }} />
                     </Layout>
                 </DemoItem>
+                <ResponsiveDemoItem
+                    title="responsive"
+                    height="var(--scale-xl)"
+                    styled
+                    bps={THREE_BP}
+                >
+                    <Layout padding="l" overflow={RESPONSIVE_OVERFLOW} style={{ height: '100px' }}>
+                        <ExampleLayoutChild content={<ExampleMedium />} style={{ width: '120%' }} />
+                    </Layout>
+                </ResponsiveDemoItem>
             </DemoSection>
 
             <DemoSection title="classList">

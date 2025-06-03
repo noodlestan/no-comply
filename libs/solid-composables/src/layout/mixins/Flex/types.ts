@@ -1,19 +1,18 @@
 import { type ClassList, type ResponsiveProp, type Styles } from '@no-comply/solid-primitives';
 
-export type FlexMixinProps = {
-    direction?: FlexMixinDirection;
-    align?: FlexMixinAlign;
-    justify?: FlexMixinJustify;
-    gap?: ResponsiveProp<string>;
-    shrink?: boolean | number;
-    wrap?: boolean;
-    flex?: number;
-    inline?: boolean;
-};
+import type { FlexAlign, FlexDirection, FlexJustify, LayoutGapProps } from '../../types';
 
-export type FlexMixinDirection = 'row' | 'column' | 'row-reverse' | 'column-reverse';
-export type FlexMixinAlign = 'start' | 'center' | 'baseline' | 'end' | 'stretch';
-export type FlexMixinJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 'stretch';
+export type FlexMixinProps = LayoutGapProps & {
+    direction?: ResponsiveProp<FlexDirection>;
+    align?: ResponsiveProp<FlexAlign>;
+    justify?: ResponsiveProp<FlexJustify>;
+
+    // shrink?: ResponsiveProp<boolean | number>;
+    shrink?: ResponsiveProp<boolean>;
+    wrap?: ResponsiveProp<boolean>;
+    flex?: ResponsiveProp<number>;
+    inline?: ResponsiveProp<boolean>;
+};
 
 export type FlexMixinAPI = {
     $root: {

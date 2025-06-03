@@ -1,25 +1,12 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import {
-    type AxisShorthandInput,
-    type ResponsiveProp,
-    computedProps,
-    createClassList,
-    resolveAxisShorthandProps,
-} from '@no-comply/solid-primitives';
-import type { Accessor } from 'solid-js';
+import { computedProps, createClassList, splitAxisShorthand } from '@no-comply/solid-primitives';
 
-import { responsiveClassMap } from '../../../responsive';
-import type { LayoutGapProps } from '../../types';
+import { responsiveVariantClassList } from '../../../responsive';
+import { resolveGapProps } from '../../helpers';
 
 import styles from './GridMixin.module.scss';
 import { $GRID_MIXIN } from './constants';
 import type { GridMixinAPI, GridMixinProps } from './types';
-
-const createGapShorthandInput = (
-    props: LayoutGapProps,
-): Accessor<AxisShorthandInput<ResponsiveProp<string | undefined>>> => {
-    return () => [props.gap, props.rowGap, props.columnGap];
-};
 
 export function createGridMixin(
     props: GridMixinProps,
@@ -30,15 +17,15 @@ export function createGridMixin(
     // const columns = () => props.columns ?? defaults.columns;
     // const rows = () => props.rows ?? defaults.rows;
 
-    const [gap, rowGap, columnGap] = resolveAxisShorthandProps(createGapShorthandInput(locals));
+    const [gap, rowGap, columnGap] = splitAxisShorthand(resolveGapProps(locals));
 
     const classList = createClassList(styles, () => ({
         Grid: true,
-        ...responsiveClassMap(breakpoints, 'gap', gap()),
-        ...responsiveClassMap(breakpoints, 'row-gap', rowGap()),
-        ...responsiveClassMap(breakpoints, 'column-gap', columnGap()),
-        // ...responsiveClassMap(breakpoints, 'columns', columns()),
-        // ...responsiveClassMap(breakpoints, 'rows', rows()),
+        ...responsiveVariantClassList(breakpoints, 'gap', gap()),
+        ...responsiveVariantClassList(breakpoints, 'row-gap', rowGap()),
+        ...responsiveVariantClassList(breakpoints, 'column-gap', columnGap()),
+        // ...responsiveVariantClassList(breakpoints, 'columns', columns()),
+        // ...responsiveVariantClassList(breakpoints, 'rows', rows()),
         [`autoFlow-${locals.flow}`]: Boolean(locals.flow),
     }));
 

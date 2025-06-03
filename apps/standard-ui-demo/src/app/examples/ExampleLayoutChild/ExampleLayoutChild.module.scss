@@ -14,4 +14,10 @@
         @include apply-color(background-color, __bg);
         @include apply-color(--__shadow-color, __border);
     }
+
+    [data-example-layout-child-content] {
+        display: flex;
+        align-items: start;
+        gap: var(--space-gap-0);
+    }
 }
