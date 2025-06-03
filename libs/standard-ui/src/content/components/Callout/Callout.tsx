@@ -15,11 +15,11 @@ type Props = ClosedTagProps &
 export const Callout: Component<Props> = props => {
     const [locals, $others] = splitProps(props, [...CALLOUT_PROPS, 'children']);
 
-    const { $root, ...rest } = createCallout(locals);
+    const { $root, _template, ...rest } = createCallout(locals);
     const $ = combineProps($root, $others);
 
     return (
-        <ContentMessageTemplate $root={$} data-xp-id={$root['data-xp-id']} {...rest}>
+        <ContentMessageTemplate $root={$} {..._template} {...rest}>
             {locals.children}
         </ContentMessageTemplate>
     );

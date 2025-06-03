@@ -2,6 +2,7 @@
 export * from './DemoItem';
 export * from './DemoSection';
 export * from './helpers';
+export * from './LoremIpsum';
 export * from './RenderDemoItem';
 export * from './RenderDemoSection';
 export * from './RenderDemoSections';

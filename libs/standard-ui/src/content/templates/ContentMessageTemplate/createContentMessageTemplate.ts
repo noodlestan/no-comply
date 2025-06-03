@@ -9,6 +9,7 @@ import {
 
 import styles from './ContentMessageTemplate.module.scss';
 import { $CONTENT_MESSAGE_TEMPLATE } from './constants';
+import { SIZE_MAP } from './private';
 import type { ContentMessageTemplateAPI, ContentMessageTemplateProps } from './types';
 
 const defaultProps: PickRequired<ContentMessageTemplateProps, 'size' | 'length'> = {
@@ -40,12 +41,10 @@ export const createContentMessageTemplate = (
         size,
     });
 
-    const isSmall = () => locals.size === 'small';
-
-    const alignmentHeight = () => (isSmall() ? 'xs' : 's');
-    const padding = () => (isSmall() ? 'xs' : 's');
-    const gap = () => (isSmall() ? 's' : 'm');
-    const titleVariant = () => (isSmall() ? 'xs' : 's');
+    const alignmentHeight = () => SIZE_MAP[size()].alignment;
+    const padding = () => SIZE_MAP[size()].padding;
+    const gap = () => SIZE_MAP[size()].gap;
+    const titleVariant = () => SIZE_MAP[size()].titleVariant;
 
     const hasCloseButton = () => Boolean(locals.onClose);
 

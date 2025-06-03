@@ -5,6 +5,7 @@ import { ButtonVariantsExample } from './ButtonVariantsExample';
 type Props = {
     intent: 'positive' | 'negative' | 'neutral';
 };
+
 export const ButtonIntentsExample = (props: Props): JSX.Element => (
     <>
         <ButtonVariantsExample variant="primary" intent={props.intent} />

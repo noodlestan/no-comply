@@ -1,5 +1,6 @@
 import { createStaticMessage } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+import { splitProps } from 'solid-js';
 
 import { $CALLOUT } from './constants';
 import type { CalloutAPI, CalloutProps } from './types';
@@ -7,10 +8,12 @@ import type { CalloutAPI, CalloutProps } from './types';
 export const createCallout = (props: CalloutProps): CalloutAPI => {
     const [locals, expose, compose] = createExposable($CALLOUT, props);
 
-    const { $root: $staticMessageRoot, ...rest } = compose(createStaticMessage(locals));
+    const message = compose(createStaticMessage(locals));
 
-    return exposeAPI(expose, '$root', {
-        ...rest,
-        $root: $staticMessageRoot,
+    const [_template] = splitProps(props, ['size', 'length']);
+
+    return exposeAPI(expose, '_template', {
+        ...message,
+        _template,
     });
 };

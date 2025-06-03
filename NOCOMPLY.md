@@ -306,6 +306,33 @@ https://css-tricks.com/almanac/rules/s/scope/
 
 @no-comply/solid-contexts/providers/ContextsProvider/types.ts
 
+## LTR ExpandButton
+
+```ts
+const icons = {
+  expanded: createIconValue(ChevronDownIcon),
+  collapsed: createIconValue(ChevronRightIcon, ChevronLeftIcon),
+};
+```
+
+```ts
+
+export type IconComponentValue = { component: IconComponent, rtlComponent: IconComponent };
+
+export type IconValue<A extends unknown[] = []> =
+    | IconComponentValue
+    | ((...args: A) => IconComponent);
+
+
+export const createIconValue = (icon: IconComponent, iconRtl?: ... ): IconValue => {
+  return {
+      component: icon,
+      rtlComponent: iconRtl ?? icon
+  };
+};
+
+```
+
 ## i18n
 
 - ExpandButton - labels

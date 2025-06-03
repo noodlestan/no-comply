@@ -3,7 +3,6 @@
 @layer lib.standard-ui.content-message {
     .ContentMessage {
         width: var(--_content-message-width);
-        padding-inline-start: var(--space-pad-0);
     }
 
     .-Title {

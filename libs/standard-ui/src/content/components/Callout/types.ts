@@ -5,4 +5,6 @@ import type { ContentMessageTemplateOwnProps } from '../../templates';
 export type CalloutProps = Omit<StaticMessageProps, 'aria-describedby'> &
     Omit<ContentMessageTemplateOwnProps, 'onClose'>;
 
-export type CalloutAPI = StaticMessageAPI;
+export type CalloutAPI = StaticMessageAPI & {
+    _template: ContentMessageTemplateOwnProps;
+};

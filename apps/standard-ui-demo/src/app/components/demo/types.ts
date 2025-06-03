@@ -12,7 +12,7 @@ export type DemoSectionData = {
 
 export type DemoItemData = {
     type: 'item';
-    title: string;
+    title?: string;
     props?: DemoItemProps;
     content: () => JSX.Element;
 };
