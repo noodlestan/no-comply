@@ -7,13 +7,22 @@ import {
     createClassList,
     shortId,
 } from '@no-comply/solid-primitives';
-import { Flex, type FlexGap, Label, type LayoutPadding, Text } from '@no-comply/standard-ui';
+import {
+    Display,
+    type DisplayLevel,
+    Flex,
+    type FlexGap,
+    Label,
+    type LayoutPadding,
+    Text,
+} from '@no-comply/standard-ui';
 import { type JSX, type ParentComponent, Show, splitProps } from 'solid-js';
 
 import styles from './DemoItem.module.scss';
 
 export type DemoItemProps = ClosedTagProps & {
     title?: string;
+    level?: DisplayLevel;
     defaultValue?: boolean;
     note?: string;
     row?: boolean;
@@ -65,14 +74,14 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
     return (
         <Flex gap="m" aria-labelledby={labelId()} {...$}>
             <Show when={locals.title}>
-                <Label id={labelId()} variant="medium">
+                <Display level={props.level ?? 4} id={labelId()}>
                     {locals.title}
                     <Show when={locals.defaultValue}>
                         <Label variant="small" tag="span">
                             (default)
                         </Label>
                     </Show>
-                </Label>
+                </Display>
             </Show>
 
             <Show when={locals.slot}>{locals.slot?.()}</Show>

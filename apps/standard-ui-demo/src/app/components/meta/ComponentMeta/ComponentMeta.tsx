@@ -1,8 +1,6 @@
 import { type Component } from 'solid-js';
 
-// import { ComponentMetadata } from '@/data/components';
-
-import type { ComponentMetadata } from '../../../data';
+import type { ComponentMetadata } from '../../../../data';
 import { ImportStatement } from '../ImportStatement';
 
 type Props = {

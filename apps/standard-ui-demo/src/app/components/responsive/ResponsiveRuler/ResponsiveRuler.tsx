@@ -2,7 +2,7 @@ import { type BreakpointName, GLOBAL_BP, Layout } from '@no-comply/standard-ui';
 import { createResizeObserver } from '@solid-primitives/resize-observer';
 import { type Component, createSignal, onMount } from 'solid-js';
 
-import { Ruler } from '../../../studio';
+import { Ruler } from '../../../../studio';
 
 export type ResponsiveRulerProps = {
     breakpoints?: (BreakpointName | '_')[];
