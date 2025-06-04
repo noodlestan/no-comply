@@ -10,7 +10,7 @@ same for the app
 ## Instrumentation
 
 ```js
-[exposable, api] = _byId('_47e36') || [];
+[exposable, api] = _byId('_0b17b') || [];
 if (!exposable) {
   console.error('<not-found>');
 } else {
@@ -115,6 +115,10 @@ scrolling component renders own <div> wrapper
   - changing to thick probably requires a completely fake scrollbar, no go
 - on leave, slow transition back to transparent
 - touch devices?
+
+## NavLink
+
+current and disabled not show as disabled
 
 ## Display, Heading, Text
 

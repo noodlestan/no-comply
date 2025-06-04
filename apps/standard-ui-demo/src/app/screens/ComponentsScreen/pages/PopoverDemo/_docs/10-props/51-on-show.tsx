@@ -5,7 +5,7 @@ import { ExamplePopoverContents } from '../../examples';
 import { itemProps as props } from '../constants';
 
 const onShow = createDemoItem({ title: 'onShow gap', props }, () => {
-    const handleOnShow = () => console.info('Hide');
+    const handleOnShow = () => console.info('Show');
 
     return (
         <>

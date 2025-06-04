@@ -1,61 +1,17 @@
-import { NavLink } from '@no-comply/standard-ui';
-import { type Component } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
+import { RenderDemoSections } from '../../../../content';
+import { ComponentDemoPage } from '../../private';
+
+import { navLinkDemoSections } from './_docs';
 
 export const NavLinkDemoPage: Component = () => {
-    const handlePress = () => console.info('Press');
-
     const COMPONENT = findComponent('NavLink');
 
     return (
         <ComponentDemoPage component={COMPONENT}>
-            <DemoSection title="defaults">
-                <DemoItem row>
-                    <NavLink href="/features/components/NavLink">NavLink</NavLink>
-                    <NavLink href="/features/components/Button">Button</NavLink>
-                    <NavLink href="/features/components/IconButton">IconButton</NavLink>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="current">
-                <DemoItem title="true/false" row>
-                    <NavLink href="#" current={false}>
-                        Noodlestan
-                    </NavLink>
-                    <NavLink href="#" current={false}>
-                        Noodlestan
-                    </NavLink>
-                    <NavLink href="#" current={true}>
-                        Noodlestan
-                    </NavLink>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="disabled">
-                <DemoItem title="true">
-                    <NavLink href="/foobar" disabled>
-                        Foobar
-                    </NavLink>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="current + disabled">
-                <DemoItem title="true">
-                    <NavLink href="#" current disabled>
-                        Foobar
-                    </NavLink>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="onPress">
-                <DemoItem note="See console log">
-                    <NavLink href="#" current={false} onPress={handlePress}>
-                        Foobar
-                    </NavLink>
-                </DemoItem>
-            </DemoSection>
+            <RenderDemoSections sections={navLinkDemoSections} />
         </ComponentDemoPage>
     );
 };
