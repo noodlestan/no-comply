@@ -10,6 +10,8 @@ import length from './31-length';
 import disabled from './40-disabled';
 import invalid from './42-invalid';
 import modified from './43-modified';
+import onChange from './50-on-change';
+import onValueChange from './51-on-value-change';
 
 export default createDemoSectionData({
     title: 'Props',
@@ -24,5 +26,7 @@ export default createDemoSectionData({
         disabled,
         invalid,
         modified,
+        onChange,
+        onValueChange,
     ],
 });

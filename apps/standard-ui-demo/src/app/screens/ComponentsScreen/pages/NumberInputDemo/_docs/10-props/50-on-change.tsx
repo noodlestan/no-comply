@@ -5,8 +5,8 @@ import { itemProps as props } from '../constants';
 import { createNumberInputDemoController } from '../controllers';
 
 const onChange = createDemoItem({ props }, () => {
-    const { value, handleValueChange } = createNumberInputDemoController({ value: '33' });
-    return <NumberInput value={value()} onValueChange={handleValueChange} />;
+    const { value, handleChange } = createNumberInputDemoController({ value: '33' });
+    return <NumberInput value={value()} onChange={handleChange} />;
 });
 
 export default createDemoSectionData({

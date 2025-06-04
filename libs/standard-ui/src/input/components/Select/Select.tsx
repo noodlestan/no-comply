@@ -1,7 +1,7 @@
-import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
+import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show } from 'solid-js';
 
-import './Select.module.scss';
+import styles from './Select.module.scss';
 
 export type SelectSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type SelectLength = 's' | 'm' | 'l' | 'full' | 'auto';
@@ -69,14 +69,14 @@ export const Select: ParentComponent<SelectProps> = props => {
     //     onKeyUp: handleKeyUp,
     // };
 
-    const classList = () => ({
+    const classList = createClassList(styles, () => ({
         ...props.classList,
         Select: true,
-        'is-disabled': props.disabled,
+        'is-disabled': Boolean(props.disabled),
         'is-invalid': Boolean(props.invalid),
         'is-modified': Boolean(props.modified),
         [`size-${size()}`]: true,
-    });
+    }));
 
     const style = () => makeStyle(length());
 

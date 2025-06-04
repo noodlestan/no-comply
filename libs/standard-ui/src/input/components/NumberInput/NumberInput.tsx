@@ -1,6 +1,7 @@
-import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
+import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
+import styles from './NumberInput.module.scss';
 import { VALID_KEYS } from './constants';
 import {
     calcStepMultiplier,
@@ -13,8 +14,6 @@ import {
 } from './functions';
 import type { NumberInputLength, NumberInputSize } from './types';
 
-import './NumberInput.module.scss';
-
 export type NumberInputProps = {
     id?: string;
     value?: string;
@@ -25,13 +24,11 @@ export type NumberInputProps = {
     min?: number;
     max?: number;
     step?: number;
-    autoConfirm?: boolean;
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
+    onChange?: (ev: Event) => void;
     onValueChange?: (value: string) => void;
-    onConfirmValue?: (value: string) => void;
-    onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
     classList?: ClassList;
 };
@@ -47,52 +44,21 @@ export const NumberInput: Component<NumberInputProps> = props => {
     const size = () => props.size ?? defaultProps.size;
     const length = () => props.length ?? defaultProps.length;
 
-    const [wasTouched, setWasTouched] = createSignal<boolean>();
-    const [localValue, setLocalValue] = createSignal<string | undefined>();
+    const [wasTouched, setWasTouched] = createSignal<boolean>(false);
 
-    const currentValue = () => {
-        const local = localValue();
-        return local !== undefined ? local : (props.value ?? '');
+    const onChange = (ev: Event, v: string) => {
+        props.onChange?.(ev);
+        props.onValueChange?.(v);
     };
 
-    const isModified = () => {
-        const local = localValue();
-        return local !== undefined && local !== props.value;
-    };
-
-    const confirm = () => {
-        if (isModified() || props.modified) {
-            props.onConfirmValue?.(currentValue());
-            setLocalValue(undefined);
-        }
-    };
-
-    const cancel = () => {
-        setLocalValue(undefined);
-        props.onCancelValue?.();
-    };
-
-    const updateLocalValue = (value: string) => {
-        setLocalValue(value);
-        props.onValueChange?.(value);
-    };
-
-    const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
-        const target = event.target as HTMLInputElement;
+    const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = ev => {
+        const target = ev.target as HTMLInputElement;
         const v = target?.value ?? '';
-        updateLocalValue(v);
+        onChange(ev, v);
     };
 
     const handleFocus = () => {
         setWasTouched(true);
-    };
-
-    const handleBlur = () => {
-        if (props.autoConfirm) {
-            confirm();
-        } else {
-            cancel();
-        }
     };
 
     const setInputRef = (ref: HTMLInputElement) => {
@@ -114,16 +80,16 @@ export const NumberInput: Component<NumberInputProps> = props => {
         return Math.min(max, Math.max(min, incremented));
     };
 
-    const incrementValue = (value: number, by: number) => {
+    const incrementValue = (ev: Event, value: number, by: number) => {
         const incremented = getValueRounded(value + by);
         const clamped = clampedValue(incremented);
-        updateLocalValue(clamped.toString());
+        onChange(ev, clamped.toString());
     };
 
-    const decrementValue = (value: number, by: number) => {
+    const decrementValue = (ev: Event, value: number, by: number) => {
         const decremented = getValueRounded(value - by);
         const clamped = clampedValue(decremented);
-        updateLocalValue(clamped.toString());
+        onChange(ev, clamped.toString());
     };
 
     const handleInputKey = (ev: KeyboardEvent) => {
@@ -131,7 +97,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
             return;
         }
 
-        const value = currentValue();
+        const value = props.value ?? '';
         const step = props.step ?? 1;
         const multiplier = calcStepMultiplier(ev, step);
 
@@ -151,13 +117,13 @@ export const NumberInput: Component<NumberInputProps> = props => {
         if (ev.key === 'ArrowUp') {
             const val = Number(value);
             if (!isNaN(val)) {
-                incrementValue(val, multiplier);
+                incrementValue(ev, val, multiplier);
             }
         }
         if (ev.key === 'ArrowDown') {
             const val = Number(value);
             if (!isNaN(val)) {
-                decrementValue(val, multiplier);
+                decrementValue(ev, val, multiplier);
             }
         }
     };
@@ -165,11 +131,6 @@ export const NumberInput: Component<NumberInputProps> = props => {
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
         handleInputKey(ev);
-        if (ev.key === 'Enter') {
-            confirm();
-        } else if (ev.key === 'Escape') {
-            cancel();
-        }
     };
 
     const handleKeyUp = (ev: KeyboardEvent) => {
@@ -183,21 +144,20 @@ export const NumberInput: Component<NumberInputProps> = props => {
     const handlers = {
         onInput: handleInput,
         onFocus: handleFocus,
-        onBlur: handleBlur,
         onKeyDown: handleKeyDown,
         onKeyUp: handleKeyUp,
         onKeyPress: handleKeyPress,
     };
 
-    const classList = () => ({
+    const classList = createClassList(styles, () => ({
         ...props.classList,
         NumberInput: true,
         'is-disabled': Boolean(props.disabled),
         'is-invalid': Boolean(props.invalid),
-        'is-modified': isModified() || props.modified,
+        'is-modified': Boolean(props.modified),
         'is-touched': wasTouched(),
         [`size-${size()}`]: true,
-    });
+    }));
 
     const style = () => makeStyle(length(), props.maxLength);
 
@@ -211,7 +171,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
             min={props.min}
             max={props.max}
             step={props.step}
-            value={currentValue()}
+            value={props.value}
             disabled={props.disabled}
             {...handlers}
             // eslint-disable-next-line solid/reactivity

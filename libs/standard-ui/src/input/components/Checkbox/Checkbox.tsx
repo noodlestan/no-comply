@@ -1,10 +1,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
+import {
+    type ClassList,
+    type PickRequired,
+    createClassList,
+    staticClassList,
+} from '@no-comply/solid-primitives';
 import { CheckIcon } from 'lucide-solid';
 import { type Component, createSignal } from 'solid-js';
 
-import './Checkbox.module.scss';
+import styles from './Checkbox.module.scss';
 
 export type CheckboxSize = 's' | 'm' | 'l';
 
@@ -16,6 +21,7 @@ export type CheckboxProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
+    onChange?: (ev: Event) => void;
     onValueChange?: (value: boolean) => void;
     ref?: (el: HTMLInputElement) => void;
     classList?: ClassList;
@@ -36,7 +42,8 @@ export const Checkbox: Component<CheckboxProps> = props => {
         props.ref?.(ref);
     };
 
-    const handleChange = () => {
+    const handleChange = (ev: Event) => {
+        props.onChange?.(ev);
         props.onValueChange?.(!props.checked);
     };
 
@@ -54,13 +61,13 @@ export const Checkbox: Component<CheckboxProps> = props => {
         ev.stopImmediatePropagation();
         if (ev.key === ' ' || ev.key === 'Enter') {
             ev.preventDefault();
-            handleChange();
+            handleChange(ev);
         }
     };
 
     const handleClick = (ev: MouseEvent) => {
         ev.stopImmediatePropagation();
-        handleChange();
+        handleChange(ev);
     };
 
     const handlers = {
@@ -75,19 +82,19 @@ export const Checkbox: Component<CheckboxProps> = props => {
         onKeyDown: handleKeyDown,
     };
 
-    const classList = () => ({
+    const classList = createClassList(styles, () => ({
         Checkbox: true,
         [`size-${size()}`]: true,
         'is-disabled': Boolean(props.disabled),
         'is-invalid': Boolean(props.invalid),
         'is-modified': Boolean(props.modified),
-        'is-checked': !!props.checked,
+        'is-checked': Boolean(props.checked),
         'is-focused': isFocused(),
-    });
+    }));
 
     return (
         <div classList={classList()} {...handlers}>
-            <span classList={{ 'Checkbox--control': true }}>
+            <span classList={staticClassList(styles, '-Control')}>
                 <CheckIcon />
                 <input
                     // eslint-disable-next-line solid/reactivity

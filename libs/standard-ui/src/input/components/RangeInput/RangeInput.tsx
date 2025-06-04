@@ -1,7 +1,7 @@
-import type { ClassList, PickRequired } from '@no-comply/solid-primitives';
+import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
-import './RangeInput.module.scss';
+import styles from './RangeInput.module.scss';
 
 export type RangeInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type RangeInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
@@ -18,9 +18,8 @@ export type RangeInputProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
+    onChange?: (ev: Event) => void;
     onValueChange?: (value: string) => void;
-    onConfirmValue?: (value: string) => void;
-    onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
     classList?: ClassList;
 };
@@ -47,57 +46,25 @@ export const RangeInput: Component<RangeInputProps> = props => {
     const size = () => props.size ?? defaultProps.size;
     const length = () => props.length ?? defaultProps.length;
 
-    const [wasTouched, setWasTouched] = createSignal<boolean>();
-    const [localValue, setLocalValue] = createSignal<string | undefined>();
+    const [wasTouched, setWasTouched] = createSignal<boolean>(false);
 
-    const currentValue = () => {
-        const local = localValue();
-        return local !== undefined ? local : (props.value ?? '');
-    };
-
-    const isModified = () => {
-        const local = localValue();
-        return local !== undefined && local !== props.value;
-    };
-
-    const confirm = () => {
-        if (isModified() || props.modified) {
-            props.onConfirmValue?.(currentValue());
-            setLocalValue(undefined);
-        }
-    };
-
-    const cancel = () => {
-        setLocalValue(undefined);
-        props.onCancelValue?.();
-    };
-
-    const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
-        const target = event.target as HTMLInputElement;
-        const v = target?.value ?? '';
-        setLocalValue(v);
+    const onChange = (ev: Event, v: string) => {
+        props.onChange?.(ev);
         props.onValueChange?.(v);
+    };
+
+    const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = ev => {
+        const target = ev.target as HTMLInputElement;
+        const v = target?.value ?? '';
+        onChange(ev, v);
     };
 
     const handleFocus = () => {
         setWasTouched(true);
     };
 
-    const handleBlur = () => {
-        if (props.autoConfirm) {
-            confirm();
-        } else {
-            cancel();
-        }
-    };
-
     const handleKeyDown = (ev: KeyboardEvent) => {
         ev.stopImmediatePropagation();
-        if (ev.key === 'Enter') {
-            confirm();
-        } else if (ev.key === 'Escape') {
-            cancel();
-        }
     };
 
     const handleKeyUp = (ev: KeyboardEvent) => {
@@ -111,21 +78,20 @@ export const RangeInput: Component<RangeInputProps> = props => {
     const handlers = {
         onInput: handleInput,
         onFocus: handleFocus,
-        onBlur: handleBlur,
         onKeyDown: handleKeyDown,
         onKeyUp: handleKeyUp,
         onKeyPress: handleKeyPress,
     };
 
-    const classList = () => ({
+    const classList = createClassList(styles, () => ({
         ...props.classList,
         RangeInput: true,
         'is-disabled': Boolean(props.disabled),
         'is-invalid': Boolean(props.invalid),
-        'is-modified': isModified() || props.modified,
+        'is-modified': Boolean(props.modified),
         'is-touched': wasTouched(),
         [`size-${size()}`]: true,
-    });
+    }));
 
     const style = () => makeStyle(length());
 
@@ -136,7 +102,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
             min={String(props.min)}
             max={String(props.max)}
             step={props.step}
-            value={currentValue()}
+            value={props.value}
             disabled={props.disabled}
             {...handlers}
             ref={props.ref}

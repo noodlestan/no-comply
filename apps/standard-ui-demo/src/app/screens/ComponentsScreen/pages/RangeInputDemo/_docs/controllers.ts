@@ -7,6 +7,7 @@ type RangeInputDemoControllerOptions = {
 type RangeInputDemoController = {
     value: Accessor<string | undefined>;
     setValue: (value: string) => void;
+    handleChange: (ev: Event) => void;
     handleValueChange: (value: string) => void;
 };
 
@@ -15,10 +16,16 @@ export const createRangeInputDemoController = (
 ): RangeInputDemoController => {
     const [value, setValue] = createSignal(options.value);
 
-    const handleValueChange = (value: string) => {
+    const handleChange = (ev: Event) => {
+        console.info('onChange', ev);
+        const target = ev.target as HTMLInputElement;
+        setValue(target?.value);
+    };
+
+    const handleValueChange = (value: string | undefined) => {
         console.info('onValueChange', value);
         setValue(value);
     };
 
-    return { value, setValue, handleValueChange };
+    return { value, setValue, handleChange, handleValueChange };
 };

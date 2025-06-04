@@ -5,8 +5,8 @@ import { itemProps as props } from '../constants';
 import { createRangeInputDemoController } from '../controllers';
 
 const onChange = createDemoItem({ props }, () => {
-    const { value, handleValueChange } = createRangeInputDemoController({ value: '33' });
-    return <RangeInput value={value()} onValueChange={handleValueChange} />;
+    const { value, handleChange } = createRangeInputDemoController({ value: '33' });
+    return <RangeInput value={value()} onChange={handleChange} />;
 });
 
 export default createDemoSectionData({
