@@ -1,4 +1,4 @@
-import { createDemoSectionData } from '../../../../../../components';
+import { createDemoSectionData } from '../../../../../../content';
 
 import size from './10-size';
 import recoloring from './20-recoloring';

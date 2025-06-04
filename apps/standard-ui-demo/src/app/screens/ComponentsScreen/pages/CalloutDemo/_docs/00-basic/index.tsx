@@ -5,7 +5,7 @@ import {
     createDemoItem,
     createDemoSectionData,
     lipsumWords,
-} from '../../../../../../components';
+} from '../../../../../../content';
 
 export default createDemoSectionData({
     title: 'Basic usage',

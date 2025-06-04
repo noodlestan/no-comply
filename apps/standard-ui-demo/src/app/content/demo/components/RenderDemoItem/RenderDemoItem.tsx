@@ -1,8 +1,8 @@
 import type { DisplayLevel } from '@no-comply/standard-ui';
 import { type Component, children } from 'solid-js';
 
+import type { DemoItemData } from '../../types';
 import { DemoItem } from '../DemoItem';
-import type { DemoItemData } from '../types';
 
 export type RenderDemoItemProps = {
     item: DemoItemData;

@@ -1,4 +1,4 @@
-import { createDemoSectionData } from '../../../../../../components';
+import { createDemoSectionData } from '../../../../../../content';
 
 import children from './05-children';
 import variant from './10-variant';

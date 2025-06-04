@@ -1,7 +1,7 @@
 import { IconButton } from '@no-comply/standard-ui';
 import { PlusIcon } from 'lucide-solid';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { itemProps as props } from '../constants';
 
 const handlePress = () => console.info('Press');

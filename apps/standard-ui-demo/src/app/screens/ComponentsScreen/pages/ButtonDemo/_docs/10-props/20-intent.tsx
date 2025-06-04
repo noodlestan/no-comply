@@ -1,4 +1,4 @@
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { ButtonIntentsExample } from '../../examples';
 import { itemProps as props } from '../constants';
 

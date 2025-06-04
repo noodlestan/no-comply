@@ -1,4 +1,4 @@
-import { createDemoSectionData } from '../../../../../../components';
+import { createDemoSectionData } from '../../../../../../content';
 
 import controls from './05-controls';
 import labels from './10-labels';

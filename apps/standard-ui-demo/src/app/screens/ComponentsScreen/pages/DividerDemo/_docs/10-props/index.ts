@@ -1,4 +1,4 @@
-import { createDemoSectionData } from '../../../../../../components';
+import { createDemoSectionData } from '../../../../../../content';
 
 import variant from './10-variant';
 import orientation from './20-orientation';

@@ -2,11 +2,11 @@ import { shortId } from '@no-comply/solid-primitives';
 import { ExpandButton, Label } from '@no-comply/standard-ui';
 import { createSignal } from 'solid-js';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { itemProps as props } from '../constants';
 
 export default createDemoSectionData({
-    title: 'basic',
+    title: 'Basic usage',
     items: [
         createDemoItem({ title: '', props }, () => {
             const [expanded, setExpanded] = createSignal(false);

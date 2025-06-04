@@ -1,7 +1,7 @@
 import { Display, Divider, IconButton, Text } from '@no-comply/standard-ui';
 import { BikeIcon, CarIcon, CatIcon, DogIcon } from 'lucide-solid';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { itemPropsStyled as props } from '../constants';
 
 export default createDemoSectionData({

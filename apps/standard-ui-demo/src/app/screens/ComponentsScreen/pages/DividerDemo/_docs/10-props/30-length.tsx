@@ -1,6 +1,6 @@
 import { Divider } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { VerticalDividerExample } from '../../examples';
 import { itemProps as props, itemPropsStyled as propsStyled } from '../constants';
 

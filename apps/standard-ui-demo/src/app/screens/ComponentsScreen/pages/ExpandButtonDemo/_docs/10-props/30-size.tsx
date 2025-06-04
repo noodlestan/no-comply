@@ -1,6 +1,6 @@
 import { ExpandButton } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { itemProps as props } from '../constants';
 import { createExpandButtonDemoController } from '../controllers';
 

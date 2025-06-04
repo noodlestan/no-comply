@@ -1,6 +1,6 @@
 import { Callout } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSectionData, lipsumWords } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData, lipsumWords } from '../../../../../../content';
 import { itemProps as props } from '../constants';
 
 const items = [

@@ -1,7 +1,7 @@
 import type { JSX } from 'solid-js';
 
-import type { DemoItemProps } from './DemoItem';
-import type { DemoSectionProps } from './DemoSection';
+import type { DemoItemProps } from './components/DemoItem';
+import type { DemoSectionProps } from './components/DemoSection';
 
 export type DemoSectionData = {
     type: 'section';

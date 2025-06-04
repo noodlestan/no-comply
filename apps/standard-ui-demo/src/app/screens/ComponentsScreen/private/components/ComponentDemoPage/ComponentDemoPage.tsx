@@ -2,7 +2,7 @@ import type { ClassList } from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
 import type { ComponentMetadata } from '../../../../../../data';
-import { ComponentMeta } from '../../../../../components';
+import { ComponentMeta } from '../../../../../content';
 import { BasePage } from '../../../../../templates';
 
 type Props = {

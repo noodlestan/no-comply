@@ -1,9 +1,9 @@
 import type { DisplayLevel } from '@no-comply/standard-ui';
 import { type Component, children } from 'solid-js';
 
+import type { DemoSectionData } from '../../types';
 import { DemoSection } from '../DemoSection';
 import { RenderDemoItem } from '../RenderDemoItem';
-import type { DemoSectionData } from '../types';
 
 export type RenderDemoSectionProps = {
     section: DemoSectionData;

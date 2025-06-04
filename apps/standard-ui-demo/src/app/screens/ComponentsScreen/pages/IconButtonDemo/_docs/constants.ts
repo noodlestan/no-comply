@@ -1,4 +1,4 @@
-import type { DemoItemProps } from '../../../../../components';
+import type { DemoItemProps } from '../../../../../content';
 
 export const itemProps: Partial<DemoItemProps> = {
     row: true,

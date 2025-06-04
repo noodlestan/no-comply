@@ -1,7 +1,7 @@
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { RenderDemoSections } from '../../../../components';
+import { RenderDemoSections } from '../../../../content';
 import { ComponentDemoPage } from '../../private';
 
 import { iconButtonDemoSections } from './_docs';

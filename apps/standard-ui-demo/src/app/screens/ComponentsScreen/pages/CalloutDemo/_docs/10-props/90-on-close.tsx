@@ -5,7 +5,7 @@ import {
     createDemoItem,
     createDemoSectionData,
     lipsumWords,
-} from '../../../../../../components';
+} from '../../../../../../content';
 import { itemProps as props } from '../constants';
 
 const items = [

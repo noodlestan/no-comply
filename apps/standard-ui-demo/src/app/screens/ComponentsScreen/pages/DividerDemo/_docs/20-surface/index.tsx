@@ -1,6 +1,6 @@
 import { Surface } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { AllDividerVariants } from '../../examples';
 import { itemProps as props } from '../constants';
 

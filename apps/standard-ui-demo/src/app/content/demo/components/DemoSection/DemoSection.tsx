@@ -1,6 +1,6 @@
 import { type Component, splitProps } from 'solid-js';
 
-import { BaseSection, type BaseSectionProps } from '../../../templates';
+import { BaseSection, type BaseSectionProps } from '../../../../templates';
 
 export type DemoSectionProps = BaseSectionProps;
 

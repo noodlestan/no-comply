@@ -1,6 +1,6 @@
 import { Display, Divider, Text } from '@no-comply/standard-ui';
 
-import { LoremIpsum, createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { LoremIpsum, createDemoItem, createDemoSectionData } from '../../../../../../content';
 import { itemProps as props } from '../constants';
 
 export default createDemoSectionData({

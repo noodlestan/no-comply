@@ -3,7 +3,7 @@
 import { IconButton } from '@no-comply/standard-ui';
 import { PlusIcon } from 'lucide-solid';
 
-import { createDemoItem, createDemoSectionData } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../content';
 
 export default createDemoSectionData({
     title: 'disabled',

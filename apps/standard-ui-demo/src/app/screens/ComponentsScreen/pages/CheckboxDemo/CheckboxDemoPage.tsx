@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { Checkbox } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './CheckboxDemoPage.module.scss';
 
 export const CheckboxDemoPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal();
@@ -19,10 +16,7 @@ export const CheckboxDemoPage: Component = () => {
     const COMPONENT = findComponent('Checkbox');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'CheckboxDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem>
                     <Checkbox checked={Boolean(emptyValue())} onChangeValue={setEmptyValue} />
@@ -65,11 +59,6 @@ export const CheckboxDemoPage: Component = () => {
             <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <Checkbox checked={value()} onChangeValue={handleValueChange} />
-                </DemoItem>
-            </DemoSection>
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <Checkbox checked={true} classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>
