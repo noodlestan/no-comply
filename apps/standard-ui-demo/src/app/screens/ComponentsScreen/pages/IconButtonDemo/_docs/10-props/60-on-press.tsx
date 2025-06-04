@@ -1,12 +1,12 @@
 import { IconButton } from '@no-comply/standard-ui';
 import { PlusIcon } from 'lucide-solid';
 
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { itemProps as props } from '../constants';
 
 const handlePress = () => console.info('Press');
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'onPress',
     items: [
         createDemoItem({ title: 'onPress', props: { ...props, note: 'see console log' } }, () => (

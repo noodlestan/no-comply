@@ -1,4 +1,4 @@
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { IconButtonVariantsExample } from '../../examples';
 import { itemProps as props } from '../constants';
 
@@ -12,7 +12,7 @@ const items = [
     createDemoItem({ title: 'plain', props }, () => <IconButtonVariantsExample variant="plain" />),
 ];
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'variant',
     items,
 });

@@ -3,9 +3,9 @@
 import { IconButton } from '@no-comply/standard-ui';
 import { PlusIcon } from 'lucide-solid';
 
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'disabled',
     items: [
         createDemoItem({ title: 'true', props: { row: true } }, () => (

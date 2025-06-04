@@ -1,10 +1,10 @@
 import type { PressEvent } from '@no-comply/solid-primitives';
 import { Button } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { itemProps as props } from '../constants';
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'onPress',
     items: [
         createDemoItem(

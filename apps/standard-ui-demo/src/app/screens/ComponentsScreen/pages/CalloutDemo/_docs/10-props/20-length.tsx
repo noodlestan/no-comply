@@ -3,7 +3,7 @@ import { Callout } from '@no-comply/standard-ui';
 import {
     LoremIpsum,
     createDemoItem,
-    createDemoSection,
+    createDemoSectionData,
     lipsumWords,
 } from '../../../../../../components';
 import { itemProps as props } from '../constants';
@@ -19,7 +19,7 @@ const items = [
     )),
 ];
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'length',
     items,
 });

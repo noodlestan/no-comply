@@ -1,4 +1,4 @@
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { ButtonIntentsExample } from '../../examples';
 import { itemProps as props } from '../constants';
 
@@ -10,7 +10,7 @@ const items = [
     createDemoItem({ title: 'neutral', props }, () => <ButtonIntentsExample intent="neutral" />),
 ];
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'intent',
     items,
 });

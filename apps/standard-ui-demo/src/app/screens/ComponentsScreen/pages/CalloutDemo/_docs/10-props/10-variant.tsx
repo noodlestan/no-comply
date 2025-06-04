@@ -1,6 +1,6 @@
 import { Callout } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSection, lipsumWords } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData, lipsumWords } from '../../../../../../components';
 import { itemProps as props } from '../constants';
 
 const items = [
@@ -21,7 +21,7 @@ const items = [
     )),
 ];
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'variant',
     items,
 });

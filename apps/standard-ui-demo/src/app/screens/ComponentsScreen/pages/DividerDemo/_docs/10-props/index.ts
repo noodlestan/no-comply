@@ -1,11 +1,11 @@
 import { createDemoSectionData } from '../../../../../../components';
 
-import children from './05-children';
 import variant from './10-variant';
-import length from './20-length';
-import size from './30-size';
+import orientation from './20-orientation';
+import length from './30-length';
+import tag from './40-tag';
 
 export default createDemoSectionData({
     title: 'Props',
-    items: [children, variant, length, size],
+    items: [variant, orientation, length, tag],
 });

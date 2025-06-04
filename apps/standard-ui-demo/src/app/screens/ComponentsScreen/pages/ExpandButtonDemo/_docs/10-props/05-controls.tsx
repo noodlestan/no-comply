@@ -1,6 +1,6 @@
 import { ExpandButton, Label } from '@no-comply/standard-ui';
 
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { itemProps as props } from '../constants';
 import { createExpandButtonDemoController } from '../controllers';
 
@@ -20,7 +20,7 @@ const controls = createDemoItem({ title: '', props }, () => {
     );
 });
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'controls',
     items: [controls],
 });

@@ -1,4 +1,4 @@
-import { createDemoSection } from '../../../../../../components';
+import { createDemoSectionData } from '../../../../../../components';
 
 import variant from './10-variant';
 import intent from './20-intent';
@@ -6,7 +6,7 @@ import size from './30-size';
 import disabled from './40-disabled';
 import onPress from './50-on-press';
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'Props',
     items: [variant, intent, size, disabled, onPress],
 });

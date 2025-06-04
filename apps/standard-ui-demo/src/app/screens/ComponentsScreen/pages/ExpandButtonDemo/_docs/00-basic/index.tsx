@@ -2,10 +2,10 @@ import { shortId } from '@no-comply/solid-primitives';
 import { ExpandButton, Label } from '@no-comply/standard-ui';
 import { createSignal } from 'solid-js';
 
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { itemProps as props } from '../constants';
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'basic',
     items: [
         createDemoItem({ title: '', props }, () => {

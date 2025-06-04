@@ -3,12 +3,12 @@ import { Button, Callout, Flex, Text } from '@no-comply/standard-ui';
 import {
     LoremIpsum,
     createDemoItem,
-    createDemoSection,
+    createDemoSectionData,
     lipsumWords,
 } from '../../../../../../components';
 import { itemProps as props } from '../constants';
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'children',
     items: [
         createDemoItem({ props }, () => (

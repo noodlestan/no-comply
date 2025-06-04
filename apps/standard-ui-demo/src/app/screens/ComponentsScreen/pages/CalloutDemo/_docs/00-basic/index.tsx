@@ -3,11 +3,11 @@ import { Callout } from '@no-comply/standard-ui';
 import {
     LoremIpsum,
     createDemoItem,
-    createDemoSection,
+    createDemoSectionData,
     lipsumWords,
 } from '../../../../../../components';
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'Basic usage',
     items: [
         createDemoItem({}, () => (

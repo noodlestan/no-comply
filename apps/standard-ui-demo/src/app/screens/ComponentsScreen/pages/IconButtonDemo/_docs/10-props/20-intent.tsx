@@ -1,4 +1,4 @@
-import { createDemoItem, createDemoSection } from '../../../../../../components';
+import { createDemoItem, createDemoSectionData } from '../../../../../../components';
 import { IconButtonIntentsExample } from '../../examples';
 import { itemProps as props } from '../constants';
 
@@ -14,7 +14,7 @@ const items = [
     )),
 ];
 
-export default createDemoSection({
+export default createDemoSectionData({
     title: 'intent',
     items,
 });
