@@ -1,12 +1,9 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { Layout } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ExampleLayoutChild, ExampleMedium } from '../../../../examples';
 import { ComponentDemoPage, DemoItem, DemoSection, ResponsiveDemoItem } from '../../private';
-
-import styles from './LayoutDemoPage.module.scss';
 
 const RESPONSIVE_PADDING = { _: 'xs', m: 'm', l: 'xl' } as const;
 const RESPONSIVE_STRETCH = { _: 'full', m: 'width', l: 'none' } as const;
@@ -18,13 +15,10 @@ const THREE_BP = Object.keys(RESPONSIVE_PADDING);
 export const LayoutDemoPage: Component = () => {
     const COMPONENT = findComponent('Layout');
 
-    const stretchItemClassList = staticClassList(styles, 'LayoutDemoPage--StretchItem');
+    const style = { display: 'flex', alignItems: 'start', height: '300px' };
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'LayoutDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem styled>
                     <Layout>
@@ -153,32 +147,27 @@ export const LayoutDemoPage: Component = () => {
             </DemoSection>
 
             <DemoSection title="stretch">
-                <DemoItem title="no stretch" styled classList={stretchItemClassList}>
+                <DemoItem title="no stretch" styled style={style}>
                     <Layout padding="l">
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="width" styled classList={stretchItemClassList}>
+                <DemoItem title="width" styled style={style}>
                     <Layout padding="l" stretch="width">
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="height" styled classList={stretchItemClassList}>
+                <DemoItem title="height" styled style={style}>
                     <Layout padding="l" stretch="height">
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
                 </DemoItem>
-                <DemoItem title="full" styled classList={stretchItemClassList}>
+                <DemoItem title="full" styled style={style}>
                     <Layout padding="l" stretch="full">
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
                 </DemoItem>
-                <ResponsiveDemoItem
-                    title="responsive"
-                    styled
-                    classList={stretchItemClassList}
-                    bps={THREE_BP}
-                >
+                <ResponsiveDemoItem title="responsive" styled style={style} bps={THREE_BP}>
                     <Layout padding="l" stretch={RESPONSIVE_STRETCH}>
                         <ExampleLayoutChild style={{ height: '100%' }} />
                     </Layout>
@@ -234,14 +223,6 @@ export const LayoutDemoPage: Component = () => {
                         <ExampleLayoutChild content={<ExampleMedium />} style={{ width: '120%' }} />
                     </Layout>
                 </ResponsiveDemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override border" styled>
-                    <Layout padding="l" classList={staticClassList(styles, 'override')}>
-                        <ExampleLayoutChild />
-                    </Layout>
-                </DemoItem>
             </DemoSection>
         </ComponentDemoPage>
     );

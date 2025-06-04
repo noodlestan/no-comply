@@ -1,20 +1,14 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { Display } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
-import styles from './DisplayDemoPage.module.scss';
-
 export const DisplayDemoPage: Component = () => {
     const COMPONENT = findComponent('Display');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'DisplayDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem>
                     <Display>Vitae elementum ipsum</Display>
@@ -82,12 +76,6 @@ export const DisplayDemoPage: Component = () => {
                     <Display level={3} tag="h1">
                         Duis fermentum faucibus est non semper nisl
                     </Display>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <Display classList={staticClassList(styles, 'override')}>Lorem ipsum</Display>
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>

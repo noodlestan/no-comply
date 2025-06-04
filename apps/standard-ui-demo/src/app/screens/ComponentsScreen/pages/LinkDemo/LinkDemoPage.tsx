@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { Link, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './LinkDemoPage.module.scss';
 
 export const LinkDemoPage: Component = () => {
     const handlePress = () => console.info('Press');
@@ -13,10 +10,7 @@ export const LinkDemoPage: Component = () => {
     const COMPONENT = findComponent('Link');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'LinkDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem>
                     <Text>
@@ -49,14 +43,6 @@ export const LinkDemoPage: Component = () => {
             <DemoSection title="onPress">
                 <DemoItem note="See console log">
                     <Link href="#" onPress={handlePress}>
-                        Foobar
-                    </Link>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <Link href="#" classList={staticClassList(styles, 'override')}>
                         Foobar
                     </Link>
                 </DemoItem>

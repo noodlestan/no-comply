@@ -5,5 +5,5 @@ import { itemProps as props } from '../constants';
 
 export default createDemoSectionData({
     title: 'Basic usage',
-    items: [createDemoItem({ title: '', props }, () => <CloseButton label="Close" />)],
+    items: [createDemoItem({ props }, () => <CloseButton label="Close" />)],
 });

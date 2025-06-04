@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { DataItem, Select } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './SelectDemoPage.module.scss';
 
 const Options: Component = () => {
     return (
@@ -29,10 +26,7 @@ export const SelectDemoPage: Component = () => {
     const COMPONENT = findComponent('Select');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'SelectDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DataItem label="value">{emptyValue() || 'undefined'}</DataItem>
                 <DemoItem>
@@ -152,14 +146,6 @@ export const SelectDemoPage: Component = () => {
             <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <Select value={value()} onChangeValue={handleValueChange}>
-                        <Options />
-                    </Select>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <Select value={value()} classList={staticClassList(styles, 'override')}>
                         <Options />
                     </Select>
                 </DemoItem>

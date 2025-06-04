@@ -6,9 +6,5 @@ import { itemProps as props } from '../constants';
 
 export default createDemoSectionData({
     title: 'Basic usage',
-    items: [
-        createDemoItem({ title: '', props }, () => (
-            <IconButton icon={PlusIcon} label="And an item" />
-        )),
-    ],
+    items: [createDemoItem({ props }, () => <IconButton icon={PlusIcon} label="And an item" />)],
 });

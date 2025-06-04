@@ -1,12 +1,9 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { Menu, MenuItemAction } from '@no-comply/standard-ui';
 import { TrashIcon } from 'lucide-solid';
 import { type Component, type ParentComponent, splitProps } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, type DemoItemProps, DemoSection } from '../../private';
-
-import styles from './MenuItemActionDemoPage.module.scss';
 
 const DemoMenu: ParentComponent<DemoItemProps> = props => {
     const [locals, others] = splitProps(props, ['children']);
@@ -24,10 +21,7 @@ export const MenuItemActionDemoPage: Component = () => {
     const COMPONENT = findComponent('MenuItemAction');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'MenuItemActionDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoMenu>
                     <MenuItemAction label="Foobar" icon={TrashIcon} />
@@ -86,15 +80,6 @@ export const MenuItemActionDemoPage: Component = () => {
             <DemoSection title="onPress">
                 <DemoMenu note="see console log">
                     <MenuItemAction onPress={handlePress} label="Foobar" />
-                </DemoMenu>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoMenu note="Should override background color">
-                    <MenuItemAction
-                        classList={staticClassList(styles, 'override')}
-                        label="Foobar"
-                    />
                 </DemoMenu>
             </DemoSection>
         </ComponentDemoPage>

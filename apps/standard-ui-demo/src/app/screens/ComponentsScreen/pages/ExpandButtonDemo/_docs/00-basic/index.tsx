@@ -8,7 +8,7 @@ import { itemProps as props } from '../constants';
 export default createDemoSectionData({
     title: 'Basic usage',
     items: [
-        createDemoItem({ title: '', props }, () => {
+        createDemoItem({ props }, () => {
             const [expanded, setExpanded] = createSignal(false);
             const toggleExpanded = () => setExpanded(v => !v);
             const id = shortId();

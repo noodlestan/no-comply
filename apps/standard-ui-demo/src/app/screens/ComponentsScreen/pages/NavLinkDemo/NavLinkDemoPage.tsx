@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { NavLink } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './NavLinkDemoPage.module.scss';
 
 export const NavLinkDemoPage: Component = () => {
     const handlePress = () => console.info('Press');
@@ -13,10 +10,7 @@ export const NavLinkDemoPage: Component = () => {
     const COMPONENT = findComponent('NavLink');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'NavLinkDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem row>
                     <NavLink href="/features/components/NavLink">NavLink</NavLink>
@@ -58,18 +52,6 @@ export const NavLinkDemoPage: Component = () => {
             <DemoSection title="onPress">
                 <DemoItem note="See console log">
                     <NavLink href="#" current={false} onPress={handlePress}>
-                        Foobar
-                    </NavLink>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <NavLink
-                        href="#"
-                        current={false}
-                        classList={staticClassList(styles, 'override')}
-                    >
                         Foobar
                     </NavLink>
                 </DemoItem>

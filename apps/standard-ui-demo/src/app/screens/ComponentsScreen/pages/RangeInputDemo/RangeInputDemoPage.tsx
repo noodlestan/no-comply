@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { DataItem, RangeInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './RangeInputDemoPage.module.scss';
 
 export const RangeInputDemoPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal('');
@@ -29,10 +26,7 @@ export const RangeInputDemoPage: Component = () => {
     const COMPONENT = findComponent('RangeInput');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'RangeInputDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DataItem label="value">{emptyValue()}</DataItem>
                 <DemoItem>
@@ -126,12 +120,6 @@ export const RangeInputDemoPage: Component = () => {
             <DemoSection title="onCancelValue">
                 <DemoItem note="see console log">
                     <RangeInput value={value()} onCancelValue={handleCancelValue} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <RangeInput value="Foobar" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>

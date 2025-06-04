@@ -1,13 +1,11 @@
 import type { FlexAlign, FlexDirection, FlexJustify } from '@no-comply/solid-composables';
-import { type ResponsiveValue, staticClassList } from '@no-comply/solid-primitives';
+import { type ResponsiveValue } from '@no-comply/solid-primitives';
 import { type BreakpointName, Flex, type LayoutPadding } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ExampleLayoutChild, ExampleTiny } from '../../../../examples';
 import { ComponentDemoPage, DemoItem, DemoSection, ResponsiveDemoItem } from '../../private';
-
-import styles from './FlexDemoPage.module.scss';
 
 const RESPONSIVE_PADDING_1: ResponsiveValue<LayoutPadding, BreakpointName> = {
     _: 'xs',
@@ -51,10 +49,7 @@ export const FlexDemoPage: Component = () => {
     const COMPONENT = findComponent('Flex');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'FlexDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem styled>
                     <Flex>
@@ -412,14 +407,6 @@ export const FlexDemoPage: Component = () => {
                         <ExampleLayoutChild size="small" />
                     </Flex>
                 </ResponsiveDemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override border" styled>
-                    <Flex padding="l" classList={staticClassList(styles, 'override')}>
-                        <ExampleLayoutChild />
-                    </Flex>
-                </DemoItem>
             </DemoSection>
         </ComponentDemoPage>
     );

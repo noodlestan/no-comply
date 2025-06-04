@@ -1,22 +1,17 @@
-import { staticClassList } from '@no-comply/solid-primitives';
-import { Flex, Label, Surface, Text } from '@no-comply/standard-ui';
+import { Flex, Label, Surface } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ExampleLarge, ExampleMedium, ExampleSmall, ExampleTiny } from '../../../../examples';
 import { ComponentDemoPage, DemoSection } from '../../private';
 
-import styles from './SurfaceDemoPage.module.scss';
 import { SurfaceVariantExample } from './private';
 
 export const SurfaceDemoPage: Component = () => {
     const COMPONENT = findComponent('Surface');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'SurfaceDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <Flex gap="s">
                     <Label>stage</Label>
@@ -67,13 +62,6 @@ export const SurfaceDemoPage: Component = () => {
                 <Surface variant="card" disabled>
                     <ExampleSmall title="Foobar" />
                 </Surface>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <Surface variant="card" classList={staticClassList(styles, 'override')}>
-                    <ExampleSmall title="Foobar" />
-                </Surface>
-                <Text variant="small">Should override text color</Text>
             </DemoSection>
         </ComponentDemoPage>
     );

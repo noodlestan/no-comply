@@ -4,7 +4,7 @@ import { createDemoItem, createDemoSectionData } from '../../../../../../content
 import { itemProps as props } from '../constants';
 import { createExpandButtonDemoController } from '../controllers';
 
-const disabled = createDemoItem({ title: '', props }, () => {
+const disabled = createDemoItem({ props }, () => {
     const { expanded, expandedText, id, toggleExpanded } = createExpandButtonDemoController();
 
     const labels = {

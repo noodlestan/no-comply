@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { Callout, DataItem, NumberInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './NumberInputDemoPage.module.scss';
 
 export const NumberInputDemoPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal('');
@@ -28,10 +25,7 @@ export const NumberInputDemoPage: Component = () => {
     const COMPONENT = findComponent('NumberInput');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'NumberInputDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <Callout title="values">
                 <DataItem label="Raw value">{value()}</DataItem>
                 <DataItem label="Number value">{Number(value())}</DataItem>
@@ -168,12 +162,6 @@ export const NumberInputDemoPage: Component = () => {
             <DemoSection title="onCancelValue">
                 <DemoItem note="see console log">
                     <NumberInput value={value()} onCancelValue={handleCancelValue} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <NumberInput value="123" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>

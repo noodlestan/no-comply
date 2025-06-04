@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { DataItem } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './DataItemDemoPage.module.scss';
 
 const DATA_VALUE = 'The quick brown box jumped over the lazy old dog';
 
@@ -15,10 +12,7 @@ export const DataItemDemoPage: Component = () => {
     const COMPONENT = findComponent('DataItem');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'DataItemDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem>
                     <DataItem>{DATA_VALUE}</DataItem>
@@ -70,16 +64,6 @@ export const DataItemDemoPage: Component = () => {
             <DemoSection title="onClick">
                 <DemoItem note="see console log">
                     <DataItem label="Lorem ipsum" onClick={handleClick} value={DATA_VALUE} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <DataItem
-                        label="Lorem ipsum"
-                        classList={staticClassList(styles, 'override')}
-                        value={DATA_VALUE}
-                    />
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>

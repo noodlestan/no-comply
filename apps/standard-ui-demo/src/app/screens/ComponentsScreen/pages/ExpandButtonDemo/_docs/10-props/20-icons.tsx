@@ -6,7 +6,7 @@ import { createDemoItem, createDemoSectionData } from '../../../../../../content
 import { itemProps as props } from '../constants';
 import { createExpandButtonDemoController } from '../controllers';
 
-const icons = createDemoItem({ title: '', props }, () => {
+const icons = createDemoItem({ props }, () => {
     const { expanded, expandedText, labels, id, toggleExpanded } =
         createExpandButtonDemoController();
 

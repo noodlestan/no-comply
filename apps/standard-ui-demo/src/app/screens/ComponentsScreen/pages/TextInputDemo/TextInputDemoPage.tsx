@@ -1,11 +1,8 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import { TextInput } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
-
-import styles from './TextInputDemoPage.module.scss';
 
 export const TextInputDemoPage: Component = () => {
     const [emptyValue, setEmptyValue] = createSignal('');
@@ -22,10 +19,7 @@ export const TextInputDemoPage: Component = () => {
     const COMPONENT = findComponent('TextInput');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'TextInputDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem>
                     <TextInput value={emptyValue()} onChangeValue={setEmptyValue} />
@@ -151,12 +145,6 @@ export const TextInputDemoPage: Component = () => {
             <DemoSection title="onChangeValue">
                 <DemoItem note="see console log">
                     <TextInput value={value()} onChangeValue={handleValueChange} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="classList">
-                <DemoItem note="Should override text color">
-                    <TextInput value="Foobar" classList={staticClassList(styles, 'override')} />
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>

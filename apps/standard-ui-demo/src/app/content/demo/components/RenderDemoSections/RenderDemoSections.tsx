@@ -9,11 +9,8 @@ export type RenderDemoSectionsProps = {
 
 export const RenderDemoSections: Component<RenderDemoSectionsProps> = props => {
     return (
-        <>
-            !!
-            <For each={props.sections}>
-                {section => <RenderDemoSection section={section} level={3} />}
-            </For>
-        </>
+        <For each={props.sections}>
+            {section => <RenderDemoSection section={section} level={3} />}
+        </For>
     );
 };

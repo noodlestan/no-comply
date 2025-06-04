@@ -1,4 +1,3 @@
-import { staticClassList } from '@no-comply/solid-primitives';
 import {
     AnchoredPopover,
     IconButton,
@@ -13,16 +12,11 @@ import { type Component } from 'solid-js';
 import { findComponent } from '../../../../../data';
 import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
 
-import styles from './MenuDemoPage.module.scss';
-
 export const MenuDemoPage: Component = () => {
     const COMPONENT = findComponent('Menu');
 
     return (
-        <ComponentDemoPage
-            component={COMPONENT}
-            classList={staticClassList(styles, 'MenuDemoPage')}
-        >
+        <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="Demo">
                 <DemoItem>
                     <AnchoredPopover

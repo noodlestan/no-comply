@@ -5,5 +5,5 @@ import { itemProps as props } from '../constants';
 
 export default createDemoSectionData({
     title: 'disabled',
-    items: [createDemoItem({ title: 'true', props }, () => <Button disabled>Disabled</Button>)],
+    items: [createDemoItem({ props }, () => <Button disabled>Disabled</Button>)],
 });

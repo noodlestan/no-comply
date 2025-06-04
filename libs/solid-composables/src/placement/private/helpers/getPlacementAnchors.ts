@@ -1,9 +1,4 @@
-import {
-    PLACEMENT_AXIS_BLOCK as BLOCK,
-    PLACEMENT_SIDE_END as END,
-    PLACEMENT_AXIS_INLINE as INLINE,
-    PLACEMENT_SIDE_START as START,
-} from '../../constants';
+import { PLACEMENT_AXIS_BLOCK as BLOCK, PLACEMENT_AXIS_INLINE as INLINE } from '../../constants';
 import type {
     PlacementAnchor,
     PlacementAnchorPairs,
@@ -12,6 +7,12 @@ import type {
     PlacementAnchorsNormalized,
     PlacementAxis,
 } from '../../types';
+import {
+    DEFAULT_BLOCK_ANCHOR,
+    DEFAULT_DIRECTION,
+    DEFAULT_FLIP,
+    DEFAULT_INLINE_ANCHOR,
+} from '../constants';
 
 import { createTargetFromAnchor } from './createTargetFromAnchor';
 import { deduplicatePairs } from './deduplicatePairs';
@@ -19,11 +20,6 @@ import { flipAnchor } from './flipAnchor';
 import { flipAxis } from './flipDirection';
 import { normalizeAnchor } from './normalizeAnchor';
 import { normalizePlacementPairs } from './normalizePlacementPairs';
-
-const DEFAULT_DIRECTION: PlacementAxis = BLOCK;
-const DEFAULT_BLOCK_ANCHOR: PlacementAnchor = `${END}-${START}`;
-const DEFAULT_INLINE_ANCHOR: PlacementAnchor = `${START}-${END}`;
-const DEFAULT_FLIP: PlacementAxis = BLOCK;
 
 type TuplePairs = PlacementAnchorTuplePairs;
 

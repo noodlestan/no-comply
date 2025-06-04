@@ -8,7 +8,7 @@ import { createDemoItem, createDemoSectionData } from '../../../../../../content
 export default createDemoSectionData({
     title: 'disabled',
     items: [
-        createDemoItem({ title: 'true', props: { row: true } }, () => (
+        createDemoItem({ props: { row: true } }, () => (
             <IconButton icon={PlusIcon} label="Add an item" disabled />
         )),
     ],
