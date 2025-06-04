@@ -1,8 +1,7 @@
 import { useFocusTarget, useNavigation } from '@no-comply/solid-contexts';
 import { createClassList, staticClassList } from '@no-comply/solid-primitives';
 import { Flex, Surface } from '@no-comply/standard-ui';
-import { type ParentComponent, createEffect, createSignal } from 'solid-js';
-import type { JSX } from 'solid-js/jsx-runtime';
+import { type JSX, type ParentComponent, createEffect, createSignal } from 'solid-js';
 
 import { MainHeader, SIDEBAR_NAV_TARGET } from '../../../navigation';
 import { WithSidebarLayout } from '../../layouts';

@@ -4,7 +4,7 @@ import { createDemoItem, createDemoSectionData } from '../../../../../../content
 import { ExamplePopoverContents } from '../../examples';
 import { itemProps as props } from '../constants';
 
-const onHide = createDemoItem({ title: 'onHide gap', props }, () => {
+const onHide = createDemoItem({ title: 'onHide', props }, () => {
     const handleOnHide = () => console.info('Hide');
 
     return (

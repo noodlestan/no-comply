@@ -38,7 +38,7 @@ export const createAnchoredPopoverTrigger = (
     });
 };
 
-export const createAnchoredPopover = (props: AnchoredPopoverProps = {}): AnchoredPopoverAPI => {
+export const createAnchoredPopover = (props: AnchoredPopoverProps): AnchoredPopoverAPI => {
     const [locals, expose, compose] = createExposable($ANCHORED_POPOVER, props);
 
     const {

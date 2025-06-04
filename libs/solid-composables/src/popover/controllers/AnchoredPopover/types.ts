@@ -2,6 +2,9 @@ import type { PlacementProps } from '../../../placement';
 import type { PopoverContext, PopoverContextOptions, PopoverContextValue } from '../../contexts';
 import type { PopoverAPI } from '../Popover';
 
+export type AnchoredPopoverBaseTriggerProps = AnchoredPopoverAPI['$trigger'];
+export type AnchoredPopoverBaseChildrenProps = AnchoredPopoverAPI['$content'];
+
 export type AnchoredPopoverTriggerProps = {
     id?: string;
     targetId: string;

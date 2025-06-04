@@ -89,19 +89,23 @@ do not render children wrapper if no children present
 
 aspect-ratio
 
-## Divider
+## Popover
 
-migrate tokens to standard
+- fix: events not triggered
+- docs: demo `[data-popover-focus-target]`
 
-## Menu
+## Menu - dismiss on scroll
 
-- max/min width
-- fallback popover placement
-  - add [data-popover-overflow], center it and style backdrop
-  - when overflown, what to do with submenu?
-    - show "in place", animate?
-    - add label and < to submenu?
-- hover and active states should be inverted (not static)
+## Menu - max/min width
+
+## Menu - fallback popover placement
+
+- add [data-popover-overflow], center it and style backdrop
+- when overflown, what to do with submenu?
+  - show "in place", animate?
+  - add label and < to submenu?
+
+## Placement - missing gap implementation
 
 ## Scrollable
 
