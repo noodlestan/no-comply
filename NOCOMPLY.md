@@ -122,9 +122,13 @@ scrolling component renders own <div> wrapper
 
 ## MenuItem must not use action variant primary
 
+## Divider
+
+fix: tag span (vertical) demo not showing
+
 ## NavLink
 
-current and disabled not show as disabled
+fix: current and disabled not show as disabled
 
 ## Display, Heading, Text
 

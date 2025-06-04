@@ -1,54 +1,17 @@
-import { Text } from '@no-comply/standard-ui';
-import { type Component } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
+import { RenderDemoSections } from '../../../../content';
+import { ComponentDemoPage } from '../../private';
+
+import { textDemoSections } from './_docs';
 
 export const TextDemoPage: Component = () => {
     const COMPONENT = findComponent('Text');
 
     return (
         <ComponentDemoPage component={COMPONENT}>
-            <DemoSection title="defaults">
-                <DemoItem>
-                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="variant">
-                <DemoItem title="large">
-                    <Text variant="large">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Text>
-                </DemoItem>
-                <DemoItem title="medium">
-                    <Text variant="medium">
-                        Sed tristique lectus dui, vitae viverra sapien semper a. In ut consectetur
-                        nibh, eget posuere mauris. Suspendisse hendrerit quam tortor.
-                    </Text>
-                </DemoItem>
-                <DemoItem title="normal">
-                    <Text variant="normal">
-                        In sit amet tempor turpis. Pellentesque libero enim, semper id sem a,
-                        gravida semper nisl. Duis fermentum faucibus est non porta. Nam scelerisque,
-                        lectus sed pulvinar aliquet, nulla erat rutrum metus, a interdum arcu quam
-                        vitae tellus. Proin aliquam orci at nunc egestas tempor. Donec vel ipsum
-                        augue.
-                    </Text>
-                </DemoItem>
-                <DemoItem title="small">
-                    <Text variant="small">
-                        Vestibulum ultricies molestie tellus, vitae elementum ipsum tempor quis.
-                        Pellentesque faucibus, ipsum eu euismod accumsan, ipsum sapien.
-                    </Text>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="tag">
-                <DemoItem note="Should render a <h1>">
-                    <Text tag="h1">Foobar</Text>
-                </DemoItem>
-            </DemoSection>
+            <RenderDemoSections sections={textDemoSections} />
         </ComponentDemoPage>
     );
 };
