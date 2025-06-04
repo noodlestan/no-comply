@@ -1,65 +1,17 @@
-import { DataValue } from '@no-comply/standard-ui';
-import { type Component } from 'solid-js';
+import type { Component } from 'solid-js';
 
 import { findComponent } from '../../../../../data';
-import { ComponentDemoPage, DemoItem, DemoSection } from '../../private';
+import { RenderDemoSections } from '../../../../content';
+import { ComponentDemoPage } from '../../private';
 
-const DATA_VALUE = 'The quick brown box jumped over the lazy old dog';
+import { dataValueDemoSections } from './_docs';
 
 export const DataValueDemoPage: Component = () => {
-    const handleClick = () => console.info('Click');
-
     const COMPONENT = findComponent('DataValue');
 
     return (
         <ComponentDemoPage component={COMPONENT}>
-            <DemoSection title="defaults">
-                <DemoItem>
-                    <DataValue>{DATA_VALUE}</DataValue>
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="value">
-                <DemoItem note="value is an alias for children">
-                    <DataValue value={DATA_VALUE} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="size">
-                <DemoItem title="l">
-                    <DataValue size="large" value={DATA_VALUE} />
-                </DemoItem>
-                <DemoItem title="m">
-                    <DataValue size="medium" value={DATA_VALUE} />
-                </DemoItem>
-                <DemoItem title="s">
-                    <DataValue size="small" value={DATA_VALUE} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="length">
-                <DemoItem title="full">
-                    <DataValue length="full" value={DATA_VALUE} />
-                </DemoItem>
-                <DemoItem title="l">
-                    <DataValue length="l" value={DATA_VALUE} />
-                </DemoItem>
-                <DemoItem title="m">
-                    <DataValue length="m" value={DATA_VALUE} />
-                </DemoItem>
-                <DemoItem title="s">
-                    <DataValue length="s" value={DATA_VALUE} />
-                </DemoItem>
-                <DemoItem title="auto">
-                    <DataValue length="auto" value={DATA_VALUE} />
-                </DemoItem>
-            </DemoSection>
-
-            <DemoSection title="onClick">
-                <DemoItem note="See console log">
-                    <DataValue onClick={handleClick} value={DATA_VALUE} />
-                </DemoItem>
-            </DemoSection>
+            <RenderDemoSections sections={dataValueDemoSections} />
         </ComponentDemoPage>
     );
 };

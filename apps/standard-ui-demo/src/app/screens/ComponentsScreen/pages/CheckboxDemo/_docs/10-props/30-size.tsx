@@ -11,17 +11,13 @@ export default createDemoSectionData({
             const { value, handleValueChange } = createCheckboxDemoController();
             return <Checkbox checked={value()} onValueChange={handleValueChange} size="l" />;
         }),
-        createDemoItem({ title: 'l', props }, () => {
+        createDemoItem({ title: 'm', props }, () => {
             const { value, handleValueChange } = createCheckboxDemoController();
             return <Checkbox checked={value()} onValueChange={handleValueChange} size="m" />;
         }),
-        createDemoItem({ title: 'l', props }, () => {
+        createDemoItem({ title: 's', props: { ...props, defaultValue: true } }, () => {
             const { value, handleValueChange } = createCheckboxDemoController();
-            return <Checkbox checked={value()} onValueChange={handleValueChange} size="m" />;
-        }),
-        createDemoItem({ title: 'l', props }, () => {
-            const { value, handleValueChange } = createCheckboxDemoController();
-            return <Checkbox checked={value()} onValueChange={handleValueChange} size="m" />;
+            return <Checkbox checked={value()} onValueChange={handleValueChange} size="s" />;
         }),
     ],
 });
