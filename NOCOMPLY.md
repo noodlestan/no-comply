@@ -116,6 +116,8 @@ scrolling component renders own <div> wrapper
 - on leave, slow transition back to transparent
 - touch devices?
 
+## MenuItem must not use action variant primary
+
 ## NavLink
 
 current and disabled not show as disabled

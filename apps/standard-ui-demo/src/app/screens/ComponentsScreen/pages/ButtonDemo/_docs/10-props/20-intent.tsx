@@ -1,13 +1,13 @@
 import { createDemoItem, createDemoSectionData } from '../../../../../../content';
-import { ButtonIntentsExample } from '../../examples';
+import { AllButtonVariants } from '../../examples';
 import { itemProps as props } from '../constants';
 
 const items = [
-    createDemoItem({ title: 'positive', props }, () => <ButtonIntentsExample intent="positive" />),
+    createDemoItem({ title: 'positive', props }, () => <AllButtonVariants intent="positive" />),
     createDemoItem({ title: 'negative', props: { ...props, defaultValue: true } }, () => (
-        <ButtonIntentsExample intent="negative" />
+        <AllButtonVariants intent="negative" />
     )),
-    createDemoItem({ title: 'neutral', props }, () => <ButtonIntentsExample intent="neutral" />),
+    createDemoItem({ title: 'neutral', props }, () => <AllButtonVariants intent="neutral" />),
 ];
 
 export default createDemoSectionData({
