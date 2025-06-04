@@ -47,15 +47,15 @@ export const SignupForm: Component<SignupFormProps> = props => {
                     <Flex direction="column" gap="m">
                         <CreateUsernameField
                             value={signupData().email}
-                            onChangeValue={handleUsernameChange}
+                            onValueChange={handleUsernameChange}
                         />
                         <CreatePasswordField
                             value={signupData().password}
-                            onChangeValue={handlePasswordChange}
+                            onValueChange={handlePasswordChange}
                         />
                         <ConfirmPasswordField
                             value={confirmPassword()}
-                            onChangeValue={setConfirmPassword}
+                            onValueChange={setConfirmPassword}
                         />
                     </Flex>
                     <Flex direction="column" gap="m">

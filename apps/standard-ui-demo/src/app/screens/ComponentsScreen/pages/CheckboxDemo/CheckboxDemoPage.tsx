@@ -9,7 +9,7 @@ export const CheckboxDemoPage: Component = () => {
     const [value, setValue] = createSignal(true);
 
     const handleValueChange = (value: boolean) => {
-        console.info('onChangeValue', value);
+        console.info('onValueChange', value);
         setValue(value);
     };
 
@@ -19,23 +19,23 @@ export const CheckboxDemoPage: Component = () => {
         <ComponentDemoPage component={COMPONENT}>
             <DemoSection title="defaults">
                 <DemoItem>
-                    <Checkbox checked={Boolean(emptyValue())} onChangeValue={setEmptyValue} />
+                    <Checkbox checked={Boolean(emptyValue())} onValueChange={setEmptyValue} />
                 </DemoItem>
             </DemoSection>
             <DemoSection title="value">
-                <DemoItem title="updated via onChangeValue()">
-                    <Checkbox checked={value()} onChangeValue={setValue} />
+                <DemoItem title="updated via onValueChange()">
+                    <Checkbox checked={value()} onValueChange={setValue} />
                 </DemoItem>
             </DemoSection>
             <DemoSection title="size">
                 <DemoItem title="l">
-                    <Checkbox checked={value()} onChangeValue={setValue} size="l" />
+                    <Checkbox checked={value()} onValueChange={setValue} size="l" />
                 </DemoItem>
                 <DemoItem title="m">
-                    <Checkbox checked={value()} onChangeValue={setValue} size="m" />
+                    <Checkbox checked={value()} onValueChange={setValue} size="m" />
                 </DemoItem>
                 <DemoItem title="s">
-                    <Checkbox checked={value()} onChangeValue={setValue} size="s" />
+                    <Checkbox checked={value()} onValueChange={setValue} size="s" />
                 </DemoItem>
             </DemoSection>
             <DemoSection title="modified">
@@ -56,9 +56,9 @@ export const CheckboxDemoPage: Component = () => {
                     <Checkbox invalid />
                 </DemoItem>
             </DemoSection>
-            <DemoSection title="onChangeValue">
+            <DemoSection title="onValueChange">
                 <DemoItem note="see console log">
-                    <Checkbox checked={value()} onChangeValue={handleValueChange} />
+                    <Checkbox checked={value()} onValueChange={handleValueChange} />
                 </DemoItem>
             </DemoSection>
         </ComponentDemoPage>

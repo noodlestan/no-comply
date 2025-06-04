@@ -15,7 +15,8 @@ export type SelectProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
-    onChangeValue?: (id: string) => void;
+    onChange?: (ev: Event) => void;
+    onValueChange?: (id: string) => void;
     ref?: (el: HTMLSelectElement) => void;
     classList?: ClassList;
 };
@@ -47,7 +48,8 @@ export const Select: ParentComponent<SelectProps> = props => {
 
     const handleChange = (ev: Event) => {
         const target = ev.target as HTMLSelectElement;
-        props.onChangeValue?.(target?.value ?? '');
+        props.onChange?.(ev);
+        props.onValueChange?.(target?.value ?? '');
     };
 
     const handleKeyDown = (ev: KeyboardEvent) => {

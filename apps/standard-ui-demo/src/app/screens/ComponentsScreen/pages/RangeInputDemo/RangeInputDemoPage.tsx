@@ -10,7 +10,7 @@ export const RangeInputDemoPage: Component = () => {
     const [numValue, setNumValue] = createSignal('5');
 
     const handleValueChange = (value: string) => {
-        console.info('onChangeValue', value);
+        console.info('onValueChange', value);
         setValue(value);
     };
 
@@ -30,14 +30,14 @@ export const RangeInputDemoPage: Component = () => {
             <DemoSection title="defaults">
                 <DataItem label="value">{emptyValue()}</DataItem>
                 <DemoItem>
-                    <RangeInput value={emptyValue()} onChangeValue={setEmptyValue} />
+                    <RangeInput value={emptyValue()} onValueChange={setEmptyValue} />
                 </DemoItem>
             </DemoSection>
 
             <DemoSection title="value">
                 <DataItem label="value">{value()}</DataItem>
-                <DemoItem title="updated via onChangeValue()">
-                    <RangeInput value={value()} onChangeValue={setValue} />
+                <DemoItem title="updated via onValueChange()">
+                    <RangeInput value={value()} onValueChange={setValue} />
                 </DemoItem>
                 <DemoItem title="updated via onConfirmValue()" note="press ENTER or ESC">
                     <RangeInput value={value()} onConfirmValue={handleConfirmValue} />
@@ -46,44 +46,44 @@ export const RangeInputDemoPage: Component = () => {
 
             <DemoSection title="size">
                 <DemoItem title="xl">
-                    <RangeInput value={value()} onChangeValue={setValue} size="xl" />
+                    <RangeInput value={value()} onValueChange={setValue} size="xl" />
                 </DemoItem>
                 <DemoItem title="l">
-                    <RangeInput value={value()} onChangeValue={setValue} size="l" />
+                    <RangeInput value={value()} onValueChange={setValue} size="l" />
                 </DemoItem>
                 <DemoItem title="m">
-                    <RangeInput value={value()} onChangeValue={setValue} size="m" />
+                    <RangeInput value={value()} onValueChange={setValue} size="m" />
                 </DemoItem>
                 <DemoItem title="s">
-                    <RangeInput value={value()} onChangeValue={setValue} size="s" />
+                    <RangeInput value={value()} onValueChange={setValue} size="s" />
                 </DemoItem>
                 <DemoItem title="xs">
-                    <RangeInput value={value()} onChangeValue={setValue} size="xs" />
+                    <RangeInput value={value()} onValueChange={setValue} size="xs" />
                 </DemoItem>
             </DemoSection>
 
             <DemoSection title="length">
                 <DemoItem title="full">
-                    <RangeInput value={value()} onChangeValue={setValue} length="full" />
+                    <RangeInput value={value()} onValueChange={setValue} length="full" />
                 </DemoItem>
                 <DemoItem title="l">
-                    <RangeInput value={value()} onChangeValue={setValue} length="l" />
+                    <RangeInput value={value()} onValueChange={setValue} length="l" />
                 </DemoItem>
                 <DemoItem title="m">
-                    <RangeInput value={value()} onChangeValue={setValue} length="m" />
+                    <RangeInput value={value()} onValueChange={setValue} length="m" />
                 </DemoItem>
                 <DemoItem title="s">
-                    <RangeInput value={value()} onChangeValue={setValue} length="s" />
+                    <RangeInput value={value()} onValueChange={setValue} length="s" />
                 </DemoItem>
                 <DemoItem title="3">
-                    <RangeInput value={value()} onChangeValue={setValue} length={3} />
+                    <RangeInput value={value()} onValueChange={setValue} length={3} />
                 </DemoItem>
             </DemoSection>
 
             <DemoSection title="min/max">
                 <DataItem label="value">{numValue()}</DataItem>
                 <DemoItem title="1/10">
-                    <RangeInput value={numValue()} onChangeValue={setNumValue} min={1} max={10} />
+                    <RangeInput value={numValue()} onValueChange={setNumValue} min={1} max={10} />
                 </DemoItem>
             </DemoSection>
 
@@ -105,9 +105,9 @@ export const RangeInputDemoPage: Component = () => {
                 </DemoItem>
             </DemoSection>
 
-            <DemoSection title="onChangeValue">
+            <DemoSection title="onValueChange">
                 <DemoItem note="see console log">
-                    <RangeInput value={value()} onChangeValue={handleValueChange} />
+                    <RangeInput value={value()} onValueChange={handleValueChange} />
                 </DemoItem>
             </DemoSection>
 

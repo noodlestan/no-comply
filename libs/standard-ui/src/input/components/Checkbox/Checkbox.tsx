@@ -16,7 +16,7 @@ export type CheckboxProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
-    onChangeValue?: (value: boolean) => void;
+    onValueChange?: (value: boolean) => void;
     ref?: (el: HTMLInputElement) => void;
     classList?: ClassList;
 };
@@ -37,7 +37,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
     };
 
     const handleChange = () => {
-        props.onChangeValue?.(!props.checked);
+        props.onValueChange?.(!props.checked);
     };
 
     const handleFocus = () => setIsFocused(true);

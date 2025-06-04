@@ -9,7 +9,7 @@ export const ThemeSelect: Component = () => {
 
     // const handleThemeChange = (value: string) => setTheme(value);
     return (
-        // <Select size="s" onChangeValue={handleThemeChange} length="auto" value={theme().name} classList={staticClassList(styles, 'ThemeSelect')}>
+        // <Select size="s" onValueChange={handleThemeChange} length="auto" value={theme().name} classList={staticClassList(styles, 'ThemeSelect')}>
         //     {/* <For each={THEMES}>{theme => <option value={theme.name}>{theme.name}</option>}</For> */}
         // </Select>
         <>TODO</>

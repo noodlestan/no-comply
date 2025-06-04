@@ -67,7 +67,7 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
                             id="username"
                             size="m"
                             value={username()}
-                            onChangeValue={setUsername}
+                            onValueChange={setUsername}
                         />
                     </Flex>
                     <Flex gap="m">
@@ -76,7 +76,7 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
                             id="password"
                             size="m"
                             value={password()}
-                            onChangeValue={setPassword}
+                            onValueChange={setPassword}
                         />
                     </Flex>
                 </Fieldset>

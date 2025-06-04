@@ -30,7 +30,7 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
     ]);
 
     const { $root: $queryRoot, isMatch: isDesktop } = createContainerQuery({
-        query: { minWidth: 600 },
+        query: { minWidth: 735 },
     });
 
     const { $root: $dismissible } = createDismissible({

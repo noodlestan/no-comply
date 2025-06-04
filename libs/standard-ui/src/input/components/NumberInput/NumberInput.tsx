@@ -29,7 +29,7 @@ export type NumberInputProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
-    onChangeValue?: (value: string) => void;
+    onValueChange?: (value: string) => void;
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
@@ -74,7 +74,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
 
     const updateLocalValue = (value: string) => {
         setLocalValue(value);
-        props.onChangeValue?.(value);
+        props.onValueChange?.(value);
     };
 
     const handleInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {

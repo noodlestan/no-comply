@@ -19,7 +19,7 @@ export const CreatePasswordField: Component<Props> = props => {
                         type="password"
                         size="m"
                         value={props.value}
-                        onChangeValue={props.onChangeValue}
+                        onValueChange={props.onValueChange}
                         {...field.$input}
                     />
                 </>

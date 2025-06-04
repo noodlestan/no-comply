@@ -8,7 +8,7 @@ export type TextInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
 
 export type InputControllerProps<T> = {
     value?: T;
-    onChangeValue?: (value: T) => void;
+    onValueChange?: (value: T) => void;
 };
 
 export type TextInputProps = InputControllerProps<string> & {
@@ -82,7 +82,7 @@ export const TextInput: Component<TextInputProps> = props => {
         const target = event.target as HTMLInputElement;
         const v = target?.value ?? '';
         setLocalValue(v);
-        props.onChangeValue?.(v);
+        props.onValueChange?.(v);
     };
 
     const handleFocus = () => {

@@ -15,7 +15,7 @@ export const CreateUsernameField: Component<Props> = props => {
                     <TextInput
                         size="m"
                         value={props.value}
-                        onChangeValue={props.onChangeValue}
+                        onValueChange={props.onValueChange}
                         {...field.$input}
                     />
                 </>

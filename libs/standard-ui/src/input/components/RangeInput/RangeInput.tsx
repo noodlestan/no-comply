@@ -18,7 +18,7 @@ export type RangeInputProps = {
     modified?: boolean;
     disabled?: boolean;
     invalid?: boolean;
-    onChangeValue?: (value: string) => void;
+    onValueChange?: (value: string) => void;
     onConfirmValue?: (value: string) => void;
     onCancelValue?: () => void;
     ref?: (el: HTMLInputElement) => void;
@@ -76,7 +76,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
         const target = event.target as HTMLInputElement;
         const v = target?.value ?? '';
         setLocalValue(v);
-        props.onChangeValue?.(v);
+        props.onValueChange?.(v);
     };
 
     const handleFocus = () => {
