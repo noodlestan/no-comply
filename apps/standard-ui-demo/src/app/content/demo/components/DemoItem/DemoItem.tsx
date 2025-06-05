@@ -31,6 +31,8 @@ export type DemoItemProps = ClosedTagProps & {
     align?: FlexAlign;
     width?: string;
     height?: string;
+    maxHeight?: string;
+    minHeight?: string;
     styled?: boolean;
     styles?: Styles;
     slot?: () => JSX.Element;
@@ -47,6 +49,8 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
         'align',
         'width',
         'height',
+        'maxHeight',
+        'minHeight',
         'styled',
         'styles',
         'slot',
@@ -58,7 +62,9 @@ export const DemoItem: ParentComponent<DemoItemProps> = props => {
     const contentsStyle = () => ({
         ...locals.styles,
         'max-width': locals.width ?? 'unset',
-        'max-height': locals.height ?? 'unset',
+        height: locals.height ?? 'unset',
+        'max-height': locals.maxHeight ?? 'unset',
+        'min-height': locals.minHeight ?? 'unset',
     });
 
     const classList = createClassList(styles, () => ({
