@@ -5,17 +5,17 @@ import type { BaseContext } from '../types';
 import { mergeContextData, updateElementData } from './private';
 
 export const createContextDataEffect = (
-    contexts: Accessor<BaseContext[]>,
-    contextElement?: HTMLElement,
+	contexts: Accessor<BaseContext[]>,
+	contextElement?: HTMLElement,
 ): void => {
-    let previous: ReturnType<typeof updateElementData> = [];
+	let previous: ReturnType<typeof updateElementData> = [];
 
-    createEffect(() => {
-        const data = mergeContextData(contexts());
-        previous = updateElementData(contextElement, data, previous);
-    });
+	createEffect(() => {
+		const data = mergeContextData(contexts());
+		previous = updateElementData(contextElement, data, previous);
+	});
 
-    onCleanup(() => {
-        updateElementData(contextElement, {}, previous);
-    });
+	onCleanup(() => {
+		updateElementData(contextElement, {}, previous);
+	});
 };

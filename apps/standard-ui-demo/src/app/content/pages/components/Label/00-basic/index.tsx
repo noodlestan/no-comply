@@ -5,12 +5,12 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-    title: 'Basic usage',
-    items: [
-        createDocsItemData({ props }, () => (
-            <Label>
-                <LoremIpsum words={3} />
-            </Label>
-        )),
-    ],
+	title: 'Basic usage',
+	items: [
+		createDocsItemData({ props }, () => (
+			<Label>
+				<LoremIpsum words={3} />
+			</Label>
+		)),
+	],
 });

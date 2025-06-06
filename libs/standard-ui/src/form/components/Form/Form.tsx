@@ -8,23 +8,23 @@ import { Dynamic } from 'solid-js/web';
 import type { FormProps } from './types';
 
 type ChildrenProps = {
-    form: FormAPI;
+	form: FormAPI;
 };
 
 type Props = FormProps & {
-    children: RenderProp<ChildrenProps>;
+	children: RenderProp<ChildrenProps>;
 };
 
 export const Form: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, [...FORM_PROPS, 'children']);
+	const [locals, $others] = splitProps(props, [...FORM_PROPS, 'children']);
 
-    const form = createForm(locals);
-    const { $root, contextValue } = form;
-    const $ = combineProps($others, $root);
+	const form = createForm(locals);
+	const { $root, contextValue } = form;
+	const $ = combineProps($others, $root);
 
-    return (
-        <FormContextProvider context={contextValue} data-cp-standard-form>
-            <Dynamic {...$}>{locals.children({ form })}</Dynamic>
-        </FormContextProvider>
-    );
+	return (
+		<FormContextProvider context={contextValue} data-cp-standard-form>
+			<Dynamic {...$}>{locals.children({ form })}</Dynamic>
+		</FormContextProvider>
+	);
 };

@@ -8,13 +8,13 @@ import { $POPOVER_BASE } from './constants';
 import type { PopoverBaseAPI, PopoverBaseProps } from './types';
 
 export const createPopoverBase = (props: PopoverBaseProps): PopoverBaseAPI => {
-    const [locals, expose, compose] = createExposable($POPOVER_BASE, props);
+	const [locals, expose, compose] = createExposable($POPOVER_BASE, props);
 
-    const { $root: $popoverRoot, ...rest } = compose(createPopover(locals));
-    const { $root: $mixinRoot } = compose(createPopoverMixin());
+	const { $root: $popoverRoot, ...rest } = compose(createPopover(locals));
+	const { $root: $mixinRoot } = compose(createPopoverMixin());
 
-    return exposeAPI(expose, '$root', {
-        ...rest,
-        $root: combineProps($popoverRoot, $mixinRoot),
-    });
+	return exposeAPI(expose, '$root', {
+		...rest,
+		$root: combineProps($popoverRoot, $mixinRoot),
+	});
 };

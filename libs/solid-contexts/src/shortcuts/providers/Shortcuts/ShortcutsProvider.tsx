@@ -6,9 +6,9 @@ import type { ShortcutsServiceAPI } from '../../services';
 import { ShortcutsCTX } from './private';
 
 type SettingsProviderProps = {
-    service: ShortcutsServiceAPI;
+	service: ShortcutsServiceAPI;
 };
 
 export const ShortcutsProvider: ParentComponent<SettingsProviderProps> = props => {
-    return <ShortcutsCTX.Provider value={props.service}>{props.children}</ShortcutsCTX.Provider>;
+	return <ShortcutsCTX.Provider value={props.service}>{props.children}</ShortcutsCTX.Provider>;
 };

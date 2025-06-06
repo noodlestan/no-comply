@@ -2,5 +2,5 @@ import type { UIShortcut } from '../../controller';
 import type { KeyboardShortcut } from '../types';
 
 export const isKeyboardShortcut = (shortcut: UIShortcut): shortcut is KeyboardShortcut => {
-    return 'keyBinding' in shortcut;
+	return 'keyBinding' in shortcut;
 };

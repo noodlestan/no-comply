@@ -9,10 +9,10 @@ import { type FlexBaseProps } from './types';
 type Props = ClosedTagProps & FlexBaseProps;
 
 export const FlexBase: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, FLEX_BASE_PROPS);
+	const [locals, $others] = splitProps(props, FLEX_BASE_PROPS);
 
-    const { $root } = createFlexBase(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createFlexBase(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

@@ -9,14 +9,14 @@ import type { ListItemBaseProps } from './types';
 type Props = ClosedTagProps & ListItemBaseProps;
 
 export const ListItemBase: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, LIST_ITEM_BASE_PROPS);
+	const [locals, $others] = splitProps(props, LIST_ITEM_BASE_PROPS);
 
-    const { $root, itemContentsProps } = createListItemBase(locals);
-    const $ = combineProps($others, $root);
+	const { $root, itemContentsProps } = createListItemBase(locals);
+	const $ = combineProps($others, $root);
 
-    return (
-        <div {...$}>
-            <Dynamic {...itemContentsProps} />
-        </div>
-    );
+	return (
+		<div {...$}>
+			<Dynamic {...itemContentsProps} />
+		</div>
+	);
 };

@@ -8,7 +8,7 @@ import type { FlexProps } from './types';
 export const $FLEX = 'component:standard:flex';
 
 export const FLEX_PROPS = definePropKeys<FlexProps>()([
-    ...LAYOUT_PROPS,
-    ...FLEX_MIXIN_PROPS,
-    'gap',
+	...LAYOUT_PROPS,
+	...FLEX_MIXIN_PROPS,
+	'gap',
 ]);

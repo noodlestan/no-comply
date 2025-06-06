@@ -4,13 +4,13 @@ import type { ComponentMetadata } from '../../../../data';
 import { ImportStatement } from '../ImportStatement';
 
 type Props = {
-    component: ComponentMetadata;
+	component: ComponentMetadata;
 };
 
 export const ComponentMeta: Component<Props> = props => {
-    return (
-        <div>
-            <ImportStatement name={props.component.name} package={props.component.package} />
-        </div>
-    );
+	return (
+		<div>
+			<ImportStatement name={props.component.name} package={props.component.package} />
+		</div>
+	);
 };

@@ -7,20 +7,20 @@ import type { ContentMessageTemplateOwnProps, ContentMessageTemplateProps } from
 export const $CONTENT_MESSAGE_TEMPLATE = 'template:content:message';
 
 export const CONTENT_MESSAGE_API_PROPS = definePropKeys<ContentMessageAPI>()([
-    '$root',
-    '$title',
-    '$description',
-    '_icon',
+	'$root',
+	'$title',
+	'$description',
+	'_icon',
 ]);
 
 export const CONTENT_MESSAGE_TEMPLATE_OWN_PROPS = definePropKeys<ContentMessageTemplateOwnProps>()([
-    'onClose',
-    'size',
-    'length',
+	'onClose',
+	'size',
+	'length',
 ]);
 
 export const CONTENT_MESSAGE_TEMPLATE_PROPS = definePropKeys<ContentMessageTemplateProps>()([
-    ...EXPOSED_DATA_PROPS,
-    ...CONTENT_MESSAGE_API_PROPS,
-    ...CONTENT_MESSAGE_TEMPLATE_OWN_PROPS,
+	...EXPOSED_DATA_PROPS,
+	...CONTENT_MESSAGE_API_PROPS,
+	...CONTENT_MESSAGE_TEMPLATE_OWN_PROPS,
 ]);

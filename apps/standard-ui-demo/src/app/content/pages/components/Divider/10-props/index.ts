@@ -6,6 +6,6 @@ import length from './30-length';
 import tag from './40-tag';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [variant, orientation, length, tag],
+	title: 'Props',
+	items: [variant, orientation, length, tag],
 });

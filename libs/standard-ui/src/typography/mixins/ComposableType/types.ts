@@ -6,36 +6,36 @@ import type { LabelMixinProps } from '../Label';
 import type { TextMixinProps } from '../Text';
 
 export type ComposableActionLabelProps = ActionLabelMixinProps & {
-    type: 'action';
+	type: 'action';
 };
 
 export type ComposableDisplayProps = DisplayMixinProps & {
-    type: 'display';
+	type: 'display';
 };
 
 export type ComposableLabelProps = LabelMixinProps & {
-    type: 'label';
+	type: 'label';
 };
 
 export type ComposableTextProps = TextMixinProps & {
-    type: 'text';
+	type: 'text';
 };
 
 export type ComposableTypeMixinProps =
-    | ComposableActionLabelProps
-    | ComposableDisplayProps
-    | ComposableLabelProps
-    | ComposableTextProps;
+	| ComposableActionLabelProps
+	| ComposableDisplayProps
+	| ComposableLabelProps
+	| ComposableTextProps;
 
 export type ComposableTypeMixinAllProps = ActionLabelMixinProps &
-    DisplayMixinProps &
-    LabelMixinProps &
-    TextMixinProps & {
-        type: 'action' | 'display' | 'label' | 'text';
-    };
+	DisplayMixinProps &
+	LabelMixinProps &
+	TextMixinProps & {
+		type: 'action' | 'display' | 'label' | 'text';
+	};
 
 export type ComposableTypeMixinAPI = {
-    $root: {
-        classList: ClassList;
-    };
+	$root: {
+		classList: ClassList;
+	};
 };

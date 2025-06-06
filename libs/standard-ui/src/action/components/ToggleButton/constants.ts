@@ -6,8 +6,8 @@ import type { ToggleButtonProps } from './types';
 export const $TOGGLE_BUTTON = 'component:standard:toggle-button';
 
 export const TOGGLE_BUTTON_PROPS = definePropKeys<ToggleButtonProps>()([
-    'size',
-    'onPress',
-    'disabled',
-    ...TOGGLE_ACTION_PROPS,
+	'size',
+	'onPress',
+	'disabled',
+	...TOGGLE_ACTION_PROPS,
 ]);

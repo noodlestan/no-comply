@@ -1,106 +1,106 @@
 @layer theme.standard.base.foundations {
-    [data-theme-standard] {
-        --typography-base-family: Tahoma, Arial, sans-serif;
-        --typography-base-size: var(--typography-step-0);
-        --typography-base-weight: 300;
-        --typography-base-height: 1.6;
-        --typography-base-spacing: unset;
+  [data-theme-standard] {
+    --typography-base-family: Tahoma, Arial, sans-serif;
+    --typography-base-size: var(--typography-step-0);
+    --typography-base-weight: 300;
+    --typography-base-height: 1.6;
+    --typography-base-spacing: unset;
 
-        /* text */
+    /* text */
 
-        --text-base-family: Arial, sans-serif;
-        --text-base-weight: 300;
-        --text-base-height: 1.6;
-        --text-base-spacing: 1.6;
+    --text-base-family: Arial, sans-serif;
+    --text-base-weight: 300;
+    --text-base-height: 1.6;
+    --text-base-spacing: 1.6;
 
-        --text-variant-small-size: var(--typography-step--1);
-        --text-variant-normal-size: var(--typography-step-0);
-        --text-variant-medium-size: var(--typography-step-1);
-        --text-variant-medium-height: 1.4;
-        --text-variant-large-size: var(--typography-step-2);
-        --text-variant-large-height: 1.2;
+    --text-variant-small-size: var(--typography-step--1);
+    --text-variant-normal-size: var(--typography-step-0);
+    --text-variant-medium-size: var(--typography-step-1);
+    --text-variant-medium-height: 1.4;
+    --text-variant-large-size: var(--typography-step-2);
+    --text-variant-large-height: 1.2;
 
-        /* display */
+    /* display */
 
-        --display-base-family: Arial, sans-serif;
-        --display-base-weight: 300;
-        --display-base-height: 1.2;
-        --display-base-spacing: 1;
+    --display-base-family: Arial, sans-serif;
+    --display-base-weight: 300;
+    --display-base-height: 1.2;
+    --display-base-spacing: 1;
 
-        --display-variant-hero-size: var(--typography-step-8);
-        --display-variant-xl-size: var(--typography-step-7);
-        --display-variant-l-size: var(--typography-step-6);
-        --display-variant-m-size: var(--typography-step-4);
-        --display-variant-s-size: var(--typography-step-3);
-        --display-variant-xs-size: var(--typography-step-2);
+    --display-variant-hero-size: var(--typography-step-8);
+    --display-variant-xl-size: var(--typography-step-7);
+    --display-variant-l-size: var(--typography-step-6);
+    --display-variant-m-size: var(--typography-step-4);
+    --display-variant-s-size: var(--typography-step-3);
+    --display-variant-xs-size: var(--typography-step-2);
 
-        /* action */
+    /* action */
 
-        --action-base-family: Tahoma, Arial, sans-serif;
-        --action-base-weight: 300;
-        --action-base-height: 1.2;
-        --action-base-spacing: 1;
+    --action-base-family: Tahoma, Arial, sans-serif;
+    --action-base-weight: 300;
+    --action-base-height: 1.2;
+    --action-base-spacing: 1;
 
-        --action-size-small-size: var(--typography-step--2);
-        --action-size-normal-size: var(--typography-step--1);
-        --action-size-medium-size: var(--typography-step-0);
-        --action-size-large-size: var(--typography-step-2);
+    --action-size-small-size: var(--typography-step--2);
+    --action-size-normal-size: var(--typography-step--1);
+    --action-size-medium-size: var(--typography-step-0);
+    --action-size-large-size: var(--typography-step-2);
 
-        /* label */
+    /* label */
 
-        --label-base-family: Arial, sans-serif;
-        --label-base-weight: 300;
-        --label-base-height: 1.4;
-        --label-base-spacing: 1;
+    --label-base-family: Arial, sans-serif;
+    --label-base-weight: 300;
+    --label-base-height: 1.4;
+    --label-base-spacing: 1;
 
-        --label-size-small-size: var(--typography-step--2);
-        --label-size-normal-size: var(--typography-step--1);
-        --label-size-normal-weight: 300;
-        --label-size-medium-size: var(--typography-step-0);
-        --label-size-medium-weight: 600;
-        --label-size-large-size: var(--typography-step-2);
-        --label-size-large-weight: 600;
+    --label-size-small-size: var(--typography-step--2);
+    --label-size-normal-size: var(--typography-step--1);
+    --label-size-normal-weight: 300;
+    --label-size-medium-size: var(--typography-step-0);
+    --label-size-medium-weight: 600;
+    --label-size-large-size: var(--typography-step-2);
+    --label-size-large-weight: 600;
 
-        /* data */
+    /* data */
 
-        --data-base-family: 'Consolas', 'Andale Mono', monospace;
-        --data-base-weight: 300;
-        --data-base-height: 1;
-        --data-base-spacing: 1;
+    --data-base-family: 'Consolas', 'Andale Mono', monospace;
+    --data-base-weight: 300;
+    --data-base-height: 1;
+    --data-base-spacing: 1;
 
-        --data-size-small-size: var(--typography-step--2);
-        --data-size-normal-size: var(--typography-step--1);
-        --data-size-normal-weight: 300;
-        --data-size-medium-size: var(--typography-step-0);
-        --data-size-medium-weight: 400;
-        --data-size-large-size: var(--typography-step-2);
-        --data-size-large-weight: 500;
+    --data-size-small-size: var(--typography-step--2);
+    --data-size-normal-size: var(--typography-step--1);
+    --data-size-normal-weight: 300;
+    --data-size-medium-size: var(--typography-step-0);
+    --data-size-medium-weight: 400;
+    --data-size-large-size: var(--typography-step-2);
+    --data-size-large-weight: 500;
 
-        /* @link https://utopia.fyi/space/calculator/?c=375,20,1.25,1200,24,1.333,7,2,&s=0.85%7C0.7748%7C0.68%7C0.6%7C0.55%7C0.5,1.25%7C1.5625%7C2%7C2.5%7C3.15,s-l&g=s,l,xl,12 */
+    /* @link https://utopia.fyi/space/calculator/?c=375,20,1.25,1200,24,1.333,7,2,&s=0.85%7C0.7748%7C0.68%7C0.6%7C0.55%7C0.5,1.25%7C1.5625%7C2%7C2.5%7C3.15,s-l&g=s,l,xl,12 */
 
-        /* Step -3: 10px  →  12px */
-        --typography-step--3: clamp(0.625rem, 0.5682rem + 0.2424vw, 0.75rem);
-        /* Step -2: 11px  →  13px */
-        --typography-step--2: clamp(0.6875rem, 0.6307rem + 0.2424vw, 0.8125rem);
-        /* Step -1: 12px  →  14px */
-        --typography-step--1: clamp(0.75rem, 0.6932rem + 0.2424vw, 0.875rem);
-        /* Step 0: 14px  →  16px */
-        --typography-step-0: clamp(0.875rem, 0.8182rem + 0.2424vw, 1rem);
-        /* Step 1: 16px  →  18px WIP ADJUST */
-        --typography-step-1: clamp(0.1rem, 0.8523rem + 0.3636vw, 1.125rem);
-        /* Step 2: 18px  →  20px WIP ADJUST */
-        --typography-step-2: clamp(1.125rem, 0.9773rem + 0.3636vw, 1.25rem);
-        /* Step 3: 20px  →  24px */
-        --typography-step-3: clamp(1.25rem, 1.1364rem + 0.4848vw, 1.5rem);
-        /* Step 4: 25px  →  30px */
-        --typography-step-4: clamp(1.5625rem, 1.4205rem + 0.6061vw, 1.875rem);
-        /* Step 5: 31px  →  38px */
-        --typography-step-5: clamp(1.9375rem, 1.7386rem + 0.8485vw, 2.375rem);
-        /* Step 6: 40px  →  48px */
-        --typography-step-6: clamp(2.5rem, 2.2727rem + 0.9697vw, 3rem);
-        /* Step 7: 50px  →  60px */
-        --typography-step-7: clamp(3.125rem, 2.8409rem + 1.2121vw, 3.75rem);
-        /* Step 7: 63px  →  75px */
-        --typography-step-8: clamp(3.9375rem, 3.5682rem + 1.5758vw, 4.75rem);
-    }
+    /* Step -3: 10px  →  12px */
+    --typography-step--3: clamp(0.625rem, 0.5682rem + 0.2424vw, 0.75rem);
+    /* Step -2: 11px  →  13px */
+    --typography-step--2: clamp(0.6875rem, 0.6307rem + 0.2424vw, 0.8125rem);
+    /* Step -1: 12px  →  14px */
+    --typography-step--1: clamp(0.75rem, 0.6932rem + 0.2424vw, 0.875rem);
+    /* Step 0: 14px  →  16px */
+    --typography-step-0: clamp(0.875rem, 0.8182rem + 0.2424vw, 1rem);
+    /* Step 1: 16px  →  18px WIP ADJUST */
+    --typography-step-1: clamp(0.1rem, 0.8523rem + 0.3636vw, 1.125rem);
+    /* Step 2: 18px  →  20px WIP ADJUST */
+    --typography-step-2: clamp(1.125rem, 0.9773rem + 0.3636vw, 1.25rem);
+    /* Step 3: 20px  →  24px */
+    --typography-step-3: clamp(1.25rem, 1.1364rem + 0.4848vw, 1.5rem);
+    /* Step 4: 25px  →  30px */
+    --typography-step-4: clamp(1.5625rem, 1.4205rem + 0.6061vw, 1.875rem);
+    /* Step 5: 31px  →  38px */
+    --typography-step-5: clamp(1.9375rem, 1.7386rem + 0.8485vw, 2.375rem);
+    /* Step 6: 40px  →  48px */
+    --typography-step-6: clamp(2.5rem, 2.2727rem + 0.9697vw, 3rem);
+    /* Step 7: 50px  →  60px */
+    --typography-step-7: clamp(3.125rem, 2.8409rem + 1.2121vw, 3.75rem);
+    /* Step 7: 63px  →  75px */
+    --typography-step-8: clamp(3.9375rem, 3.5682rem + 1.5758vw, 4.75rem);
+  }
 }

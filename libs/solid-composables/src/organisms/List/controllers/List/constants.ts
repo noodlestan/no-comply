@@ -8,7 +8,7 @@ import type { ListProps } from './types';
 export const $LIST = 'controller:composable:list';
 
 export const LIST_PROPS = definePropKeys<ListProps>()([
-    ...LIST_CONTEXT_OPTIONS,
-    ...ARIA_LIST_PROPS,
-    'keyboard',
+	...LIST_CONTEXT_OPTIONS,
+	...ARIA_LIST_PROPS,
+	'keyboard',
 ]);

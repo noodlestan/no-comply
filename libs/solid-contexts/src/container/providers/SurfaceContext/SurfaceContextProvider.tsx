@@ -7,15 +7,15 @@ import type { SurfaceContextValue } from '../../contexts';
 import { SurfaceContextCTX } from './private';
 
 type SurfaceContextProviderProps = {
-    context: SurfaceContextValue;
+	context: SurfaceContextValue;
 };
 
 export const SurfaceContextProvider: ParentComponent<SurfaceContextProviderProps> = props => {
-    const node = () => createContextNode(props.context[0]);
+	const node = () => createContextNode(props.context[0]);
 
-    return (
-        <SurfaceContextCTX.Provider value={props.context}>
-            <ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
-        </SurfaceContextCTX.Provider>
-    );
+	return (
+		<SurfaceContextCTX.Provider value={props.context}>
+			<ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
+		</SurfaceContextCTX.Provider>
+	);
 };

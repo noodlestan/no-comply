@@ -1,21 +1,21 @@
 $NC_GLOBAL_BREAKPOINTS: (
-    m: 'screen and (min-width: 640px)',
+  m: 'screen and (min-width: 640px)',
 );
 
 $NC_LAYOUT_BREAKPOINTS: $NC_GLOBAL_BREAKPOINTS;
 
 $NC_LAYOUT_PADDING_VARIANTS: (
-    none: 0px,
+  none: 0px,
 );
 
 $NC_LAYOUT_GAP_VARIANTS: (
-    none: 0px,
+  none: 0px,
 );
 
 $NC_GRID_COLUMNS_VARIANTS: (
-    none: 0px,
+  none: 0px,
 );
 
 $NC_GRID_ROWS_VARIANTS: (
-    none: 0px,
+  none: 0px,
 );

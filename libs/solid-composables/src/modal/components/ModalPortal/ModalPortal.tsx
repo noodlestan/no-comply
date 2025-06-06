@@ -6,9 +6,9 @@ import { Portal } from 'solid-js/web';
 import type { ModalPortalProps } from './types';
 
 export const ModalPortal: ParentComponent<ModalPortalProps> = props => {
-    return (
-        <Portal>
-            <ModalContextProvider context={props.context}>{props.children}</ModalContextProvider>
-        </Portal>
-    );
+	return (
+		<Portal>
+			<ModalContextProvider context={props.context}>{props.children}</ModalContextProvider>
+		</Portal>
+	);
 };

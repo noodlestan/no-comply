@@ -11,33 +11,33 @@ import { NavLinkItemGroup } from './parts';
 import type { SidebarItemGroup } from './types';
 
 type Props = {
-    items: SidebarItemGroup[];
+	items: SidebarItemGroup[];
 };
 
 export const SidebarNav: Component<Props> = props => {
-    const [setNavRef] = createFocusTargetRef(SIDEBAR_NAV_TARGET, { transient: true });
+	const [setNavRef] = createFocusTargetRef(SIDEBAR_NAV_TARGET, { transient: true });
 
-    const { $root: $focusRing } = createFocusRing({ passive: true });
-    const { $root: $focusRingMixin } = createFocusRingMixin({ inset: true });
+	const { $root: $focusRing } = createFocusRing({ passive: true });
+	const { $root: $focusRingMixin } = createFocusRingMixin({ inset: true });
 
-    const $ = combineProps($focusRing, $focusRingMixin);
+	const $ = combineProps($focusRing, $focusRingMixin);
 
-    return (
-        <Surface
-            tag="nav"
-            variant="panel"
-            stretch="height"
-            overflow="y-auto"
-            id={$ID_SIDEBAR_NAV}
-            aria-label="Main menu"
-            ref={setNavRef}
-            {...$}
-        >
-            <Flex direction="column" padding="m" gap="m">
-                <For each={props.items}>
-                    {item => <NavLinkItemGroup title={item.title} items={item.items} />}
-                </For>
-            </Flex>
-        </Surface>
-    );
+	return (
+		<Surface
+			tag="nav"
+			variant="panel"
+			stretch="height"
+			overflow="y-auto"
+			id={$ID_SIDEBAR_NAV}
+			aria-label="Main menu"
+			ref={setNavRef}
+			{...$}
+		>
+			<Flex direction="column" padding="m" gap="m">
+				<For each={props.items}>
+					{item => <NavLinkItemGroup title={item.title} items={item.items} />}
+				</For>
+			</Flex>
+		</Surface>
+	);
 };

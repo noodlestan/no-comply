@@ -1,18 +1,18 @@
 import type { NavigationServiceAPI, NavigationServiceOptions } from './types';
 
 export const createNavigationService = (
-    options: NavigationServiceOptions,
+	options: NavigationServiceOptions,
 ): NavigationServiceAPI => {
-    const isCurrent = (href: string, exact?: boolean) => {
-        const path = href.split('#')[0];
-        const current = options.current();
-        return exact ? current === path : current === path || current.startsWith(path + '/');
-    };
+	const isCurrent = (href: string, exact?: boolean) => {
+		const path = href.split('#')[0];
+		const current = options.current();
+		return exact ? current === path : current === path || current.startsWith(path + '/');
+	};
 
-    const api: NavigationServiceAPI = {
-        current: () => options.current(),
-        isCurrent,
-    };
+	const api: NavigationServiceAPI = {
+		current: () => options.current(),
+		isCurrent,
+	};
 
-    return api;
+	return api;
 };

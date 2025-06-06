@@ -5,13 +5,13 @@ import type { ContextNodeValue } from '../../private';
 import { ContextNodeCTX, ContextRootCTX } from '../../private';
 
 type ContextTreeProviderProps = {
-    root: ContextNodeValue;
+	root: ContextNodeValue;
 };
 
 export const ContextRootProvider: ParentComponent<ContextTreeProviderProps> = props => {
-    return (
-        <ContextRootCTX.Provider value={props.root}>
-            <ContextNodeCTX.Provider value={props.root}>{props.children}</ContextNodeCTX.Provider>
-        </ContextRootCTX.Provider>
-    );
+	return (
+		<ContextRootCTX.Provider value={props.root}>
+			<ContextNodeCTX.Provider value={props.root}>{props.children}</ContextNodeCTX.Provider>
+		</ContextRootCTX.Provider>
+	);
 };

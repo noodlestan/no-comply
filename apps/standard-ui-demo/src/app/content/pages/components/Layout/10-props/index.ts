@@ -9,6 +9,6 @@ import uncontained from './40-uncontained';
 import tag from './90-tag';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [padding, paddingShorthand, paddingLonghands, stretch, overflow, uncontained, tag],
+	title: 'Props',
+	items: [padding, paddingShorthand, paddingLonghands, stretch, overflow, uncontained, tag],
 });

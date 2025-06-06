@@ -6,26 +6,26 @@ import { createAriaRegion } from '../region';
 import type { AriaSwitchAPI, AriaSwitchProps } from './types';
 
 export const createAriaSwitch = (props: AriaSwitchProps): AriaSwitchAPI => {
-    const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'switch');
+	const { $root: $regionRoot, $label, $description } = createAriaRegion(props, 'switch');
 
-    const type = (tag: SwitchTagName = 'button'): 'button' | 'checkbox' | undefined => {
-        if (tag === 'input') {
-            return 'checkbox';
-        }
-        return tag === 'button' ? 'button' : undefined;
-    };
+	const type = (tag: SwitchTagName = 'button'): 'button' | 'checkbox' | undefined => {
+		if (tag === 'input') {
+			return 'checkbox';
+		}
+		return tag === 'button' ? 'button' : undefined;
+	};
 
-    const $root = computedProps({
-        component: () => props.tag,
-        type: () => type(props.tag),
-        'aria-checked': () => props.checked,
-        'aria-disabled': () => props.disabled,
-        'data-disabled': () => (props.disabled ? '' : undefined),
-    });
+	const $root = computedProps({
+		component: () => props.tag,
+		type: () => type(props.tag),
+		'aria-checked': () => props.checked,
+		'aria-disabled': () => props.disabled,
+		'data-disabled': () => (props.disabled ? '' : undefined),
+	});
 
-    return {
-        $root: combineProps($regionRoot, $root),
-        $label,
-        $description,
-    };
+	return {
+		$root: combineProps($regionRoot, $root),
+		$label,
+		$description,
+	};
 };

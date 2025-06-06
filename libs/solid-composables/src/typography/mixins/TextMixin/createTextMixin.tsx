@@ -8,20 +8,20 @@ import { $TEXT_MIXIN } from './constants';
 import type { TextMixinAPI, TextMixinProps } from './types';
 
 export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
-    const [locals, expose, compose] = createExposable($TEXT_MIXIN, props);
+	const [locals, expose, compose] = createExposable($TEXT_MIXIN, props);
 
-    const { $root: $alignedToFirstLine } = compose(createAlignedToFirstLineMixin(locals));
+	const { $root: $alignedToFirstLine } = compose(createAlignedToFirstLineMixin(locals));
 
-    const classList = createClassList(styles, () => ({
-        Text: true,
-        nowrap: Boolean(locals.nowrap),
-    }));
+	const classList = createClassList(styles, () => ({
+		Text: true,
+		nowrap: Boolean(locals.nowrap),
+	}));
 
-    const $root = computedProps({
-        classList,
-    });
+	const $root = computedProps({
+		classList,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($alignedToFirstLine, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($alignedToFirstLine, $root),
+	});
 };

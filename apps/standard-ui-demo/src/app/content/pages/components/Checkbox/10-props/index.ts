@@ -9,6 +9,6 @@ import onChange from './50-on-change';
 import onValueChange from './51-on-value-change';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [value, size, disabled, invalid, modified, onChange, onValueChange],
+	title: 'Props',
+	items: [value, size, disabled, invalid, modified, onChange, onValueChange],
 });

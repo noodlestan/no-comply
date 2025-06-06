@@ -4,13 +4,13 @@ import type { FocusableAPI, FocusableProps } from '../../controllers';
 import type { FocusableMixinAPI } from '../../mixins';
 
 type FocusableLabels = {
-    region: LabelValue;
+	region: LabelValue;
 };
 
 export type FocusableBaseProps = FocusableProps & {
-    labels?: Partial<FocusableLabels>;
+	labels?: Partial<FocusableLabels>;
 };
 
 export type FocusableBaseAPI = Omit<FocusableAPI, '$root'> & {
-    $root: FocusableAPI['$root'] & FocusableMixinAPI['$root'];
+	$root: FocusableAPI['$root'] & FocusableMixinAPI['$root'];
 };

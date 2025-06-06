@@ -1,78 +1,78 @@
 import {
-    type ContextId,
-    ContextRootProvider,
-    ModeContextProvider,
-    SurfaceContextProvider,
-    ThemeContextProvider,
-    createContextDataEffect,
-    createContextRoot,
-    createContextVarsEffect,
-    createModeContext,
-    createSurfaceContext,
-    createThemeContext,
-    useMode,
-    useSettings,
-    useSurface,
-    useSystemContext,
-    useTheme,
+	type ContextId,
+	ContextRootProvider,
+	ModeContextProvider,
+	SurfaceContextProvider,
+	ThemeContextProvider,
+	createContextDataEffect,
+	createContextRoot,
+	createContextVarsEffect,
+	createModeContext,
+	createSurfaceContext,
+	createThemeContext,
+	useMode,
+	useSettings,
+	useSurface,
+	useSystemContext,
+	useTheme,
 } from '@no-comply/solid-contexts';
 import { DebugStyles } from '@no-comply/solid-dev-tools';
 import {
-    STANDARD_UI_SETTINGS,
-    STANDARD_UI_SETTINGS_GROUPS,
-    ThemeStandard,
+	STANDARD_UI_SETTINGS,
+	STANDARD_UI_SETTINGS_GROUPS,
+	ThemeStandard,
 } from '@no-comply/standard-ui';
 import { type Component, type ParentComponent } from 'solid-js';
 
 type UIRootProviderProps = {
-    defaultCtxId: ContextId;
+	defaultCtxId: ContextId;
 };
 
 const ContextEffects: Component = () => {
-    const theme = useTheme();
-    const mode = useMode();
-    const surface = useSurface();
+	const theme = useTheme();
+	const mode = useMode();
+	const surface = useSurface();
 
-    createContextDataEffect(() => [theme, mode], document.documentElement);
-    createContextVarsEffect(() => [theme, mode], document.documentElement);
+	createContextDataEffect(() => [theme, mode], document.documentElement);
+	createContextVarsEffect(() => [theme, mode], document.documentElement);
 
-    createContextDataEffect(() => [surface], document.body);
-    createContextVarsEffect(() => [surface], document.body);
+	createContextDataEffect(() => [surface], document.body);
+	createContextVarsEffect(() => [surface], document.body);
 
-    return <></>;
+	return <></>;
 };
 
 export const UIRootProvider: ParentComponent<UIRootProviderProps> = props => {
-    const { colorScheme } = useSystemContext();
+	const { colorScheme } = useSystemContext();
 
-    const { addSettings, addGroups } = useSettings();
+	const { addSettings, addGroups } = useSettings();
 
-    // const theme = getSettingSafely()
-    const theme = () => 'standard';
+	// const theme = getSettingSafely()
+	const theme = () => 'standard';
 
-    const modeContext = createModeContext(colorScheme);
-    const themeContext = createThemeContext(theme);
-    const surfaceContext = createSurfaceContext(() => 'stage');
+	const modeContext = createModeContext(colorScheme);
+	const themeContext = createThemeContext(theme);
+	const surfaceContext = createSurfaceContext(() => 'stage');
 
-    const root = createContextRoot();
+	const root = createContextRoot();
 
-    addSettings(STANDARD_UI_SETTINGS);
-    addGroups(STANDARD_UI_SETTINGS_GROUPS);
+	addSettings(STANDARD_UI_SETTINGS);
+	addGroups(STANDARD_UI_SETTINGS_GROUPS);
 
-    return (
-        <>
-            <ThemeStandard />
-            <DebugStyles />
-            <ContextRootProvider root={root}>
-                <ModeContextProvider context={modeContext}>
-                    <ThemeContextProvider context={themeContext}>
-                        <SurfaceContextProvider context={surfaceContext}>
-                            <ContextEffects />
-                            {props.children}
-                        </SurfaceContextProvider>
-                    </ThemeContextProvider>
-                </ModeContextProvider>
-            </ContextRootProvider>
-        </>
-    );
+	return (
+		<>
+			<ThemeStandard />
+			<DebugStyles />
+			<ContextRootProvider root={root}>
+				<ModeContextProvider context={modeContext}>
+					<ThemeContextProvider context={themeContext}>
+						<SurfaceContextProvider context={surfaceContext}>
+							<ContextEffects />
+							{props.children}
+						</SurfaceContextProvider>
+					</ThemeContextProvider>
+				</ModeContextProvider>
+			</ContextRootProvider>
+		</>
+	);
 };

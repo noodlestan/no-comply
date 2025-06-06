@@ -6,7 +6,7 @@ import type { AnchoredPopoverProps } from './types';
 export const $ANCHORED_POPOVER = 'component:standard:anchored-popover';
 
 export const ANCHORED_POPOVER_PROPS = definePropKeys<AnchoredPopoverProps>()([
-    ...HEADLESS_ANCHORED_POPOVER_PROPS,
-    'trigger',
-    'children',
+	...HEADLESS_ANCHORED_POPOVER_PROPS,
+	'trigger',
+	'children',
 ]);

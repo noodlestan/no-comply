@@ -1,6 +1,6 @@
 @layer theme.standard {
-    /* prettier-ignore */
-    @function --f-palette-0(--l) {
+  /* prettier-ignore */
+  @function --f-palette-0(--l) {
             result: if(
                 style(--l: 50): var(--palette-0-50);
                 style(--l: 100): var(--palette-0-100);
@@ -19,8 +19,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-1(--l) {
+  /* prettier-ignore */
+  @function --f-palette-1(--l) {
             result: if(
                 style(--l: 100): var(--palette-1-100);
                 style(--l: 200): var(--palette-1-200);
@@ -34,8 +34,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-2(--l) {
+  /* prettier-ignore */
+  @function --f-palette-2(--l) {
             result: if(
                 style(--l: 100): var(--palette-2-100);
                 style(--l: 200): var(--palette-2-200);
@@ -49,8 +49,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-3(--l) {
+  /* prettier-ignore */
+  @function --f-palette-3(--l) {
             result: if(
                 style(--l: 100): var(--palette-3-100);
                 style(--l: 200): var(--palette-3-200);
@@ -64,8 +64,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-4(--l) {
+  /* prettier-ignore */
+  @function --f-palette-4(--l) {
             result: if(
                 style(--l: 100): var(--palette-4-100);
                 style(--l: 200): var(--palette-4-200);
@@ -79,8 +79,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-5(--l) {
+  /* prettier-ignore */
+  @function --f-palette-5(--l) {
             result: if(
                 style(--l: 100): var(--palette-5-100);
                 style(--l: 200): var(--palette-5-200);
@@ -94,8 +94,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-6(--l) {
+  /* prettier-ignore */
+  @function --f-palette-6(--l) {
             result: if(
                 style(--l: 100): var(--palette-6-100);
                 style(--l: 200): var(--palette-6-200);
@@ -109,8 +109,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-7(--l) {
+  /* prettier-ignore */
+  @function --f-palette-7(--l) {
             result: if(
                 style(--l: 100): var(--palette-7-100);
                 style(--l: 200): var(--palette-7-200);
@@ -124,8 +124,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-8(--l) {
+  /* prettier-ignore */
+  @function --f-palette-8(--l) {
             result: if(
                 style(--l: 100): var(--palette-8-100);
                 style(--l: 200): var(--palette-8-200);
@@ -139,8 +139,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-palette-9(--l) {
+  /* prettier-ignore */
+  @function --f-palette-9(--l) {
             result: if(
                 style(--l: 100): var(--palette-9-100);
                 style(--l: 200): var(--palette-9-200);
@@ -154,8 +154,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-clamp-l(--l) {
+  /* prettier-ignore */
+  @function --f-clamp-l(--l) {
             result: if(
                 style(--l: 50): 100;
                 style(--l: 150): 200;
@@ -166,8 +166,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-color-by-palette(--p, --l) {
+  /* prettier-ignore */
+  @function --f-color-by-palette(--p, --l) {
             --clamped-l: var(--l);
             --clamped-l: --f-clamp-l(var(--l));
             result: if(
@@ -184,8 +184,8 @@
             );
         }
 
-    /* prettier-ignore */
-    @function --f-color(--p, --l: 500) {
+  /* prettier-ignore */
+  @function --f-color(--p, --l: 500) {
             result: if(
                 style(--p: palette-0): --f-palette-0(var(--l));
                 else: --f-color-by-palette(var(--p), var(--l));

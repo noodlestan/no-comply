@@ -8,11 +8,11 @@ import type { LinkProps } from './types';
 type Props = ClosedTagProps & LinkProps;
 
 export const Link: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, LINK_PROPS);
+	const [locals, $others] = splitProps(props, LINK_PROPS);
 
-    const { $root } = createLink(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createLink(locals);
+	const $ = combineProps($others, $root);
 
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    return <a {...$} />;
+	// eslint-disable-next-line jsx-a11y/anchor-has-content
+	return <a {...$} />;
 };

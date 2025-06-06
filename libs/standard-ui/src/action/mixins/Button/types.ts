@@ -9,10 +9,10 @@ import type { SizedActionMixinAPI, SizedActionMixinProps } from '../SizedAction'
 export type ButtonMixinProps = ActionMixinProps & Pick<SizedActionMixinProps, 'size' | 'aligned'>;
 
 export type ButtonMixinAPI = {
-    $root: ActionMixinAPI['$root'] &
-        SizedActionMixinAPI['$root'] &
-        ActionLabelMixinAPI['$root'] & {
-            classList: ClassList;
-        };
-    size: Accessor<ContentSize>;
+	$root: ActionMixinAPI['$root'] &
+		SizedActionMixinAPI['$root'] &
+		ActionLabelMixinAPI['$root'] & {
+			classList: ClassList;
+		};
+	size: Accessor<ContentSize>;
 };

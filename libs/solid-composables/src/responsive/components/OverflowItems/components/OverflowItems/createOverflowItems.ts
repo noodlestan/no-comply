@@ -10,83 +10,83 @@ import { $OVERFLOW_ITEMS } from './constants';
 import type { OverflowItemsAPI, OverflowItemsProps } from './types';
 
 export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
-    props: OverflowItemsProps<T>,
+	props: OverflowItemsProps<T>,
 ): OverflowItemsAPI => {
-    const [locals, expose, compose] = createExposable($OVERFLOW_ITEMS, props);
+	const [locals, expose, compose] = createExposable($OVERFLOW_ITEMS, props);
 
-    const contextValue = compose(createOverflowItemsContext(locals));
-    const [context, ownerAPI] = contextValue;
+	const contextValue = compose(createOverflowItemsContext(locals));
+	const [context, ownerAPI] = contextValue;
 
-    let timeout: number | null = null;
-    let rootEl: HTMLElement;
-    let measureEl: HTMLElement;
+	let timeout: number | null = null;
+	let rootEl: HTMLElement;
+	let measureEl: HTMLElement;
 
-    const setElementRef = (el: HTMLElement) => {
-        rootEl = el;
-    };
+	const setElementRef = (el: HTMLElement) => {
+		rootEl = el;
+	};
 
-    const setMeasureRef = (el: HTMLElement) => {
-        measureEl = el;
-    };
+	const setMeasureRef = (el: HTMLElement) => {
+		measureEl = el;
+	};
 
-    const runTest = () => {
-        const { scrollWidth, clientWidth, scrollHeight, clientHeight } = measureEl;
-        const isOverflowing = scrollWidth > clientWidth || scrollHeight > clientHeight;
+	const runTest = () => {
+		const { scrollWidth, clientWidth, scrollHeight, clientHeight } = measureEl;
+		const isOverflowing = scrollWidth > clientWidth || scrollHeight > clientHeight;
 
-        if (!isOverflowing) {
-            ownerAPI.finishTest();
-            return;
-        }
+		if (!isOverflowing) {
+			ownerAPI.finishTest();
+			return;
+		}
 
-        if (ownerAPI.nextTest()) {
-            timeout = setTimeout(runTest, 100);
-        }
-    };
+		if (ownerAPI.nextTest()) {
+			timeout = setTimeout(runTest, 100);
+		}
+	};
 
-    const startTest = () => {
-        if (timeout != null) {
-            clearTimeout(timeout);
-        }
-        ownerAPI.startTest();
-        timeout = setTimeout(runTest, 200);
-    };
+	const startTest = () => {
+		if (timeout != null) {
+			clearTimeout(timeout);
+		}
+		ownerAPI.startTest();
+		timeout = setTimeout(runTest, 200);
+	};
 
-    createEffect(() => {
-        if (!(locals.items && locals.currentItemId)) {
-            return;
-        }
-        startTest();
-    });
+	createEffect(() => {
+		if (!(locals.items && locals.currentItemId)) {
+			return;
+		}
+		startTest();
+	});
 
-    onMount(() => {
-        createResizeObserver(rootEl, () => {
-            startTest();
-        });
-    });
+	onMount(() => {
+		createResizeObserver(rootEl, () => {
+			startTest();
+		});
+	});
 
-    const $static = {
-        ref: setElementRef,
-        classList: staticClassList(styles, 'OverflowItems'),
-    };
-    const $root = computedProps($static, {
-        'data-responsive-items-is-reflowing': () => (context.isReflowing() ? '' : undefined),
-    });
+	const $static = {
+		ref: setElementRef,
+		classList: staticClassList(styles, 'OverflowItems'),
+	};
+	const $root = computedProps($static, {
+		'data-responsive-items-is-reflowing': () => (context.isReflowing() ? '' : undefined),
+	});
 
-    const $measure = {
-        ref: setMeasureRef,
-        inert: true,
-        classList: staticClassList(styles, 'measure'),
-    };
+	const $measure = {
+		ref: setMeasureRef,
+		inert: true,
+		classList: staticClassList(styles, 'measure'),
+	};
 
-    const $render = {
-        'data-responsive-items-container': '',
-    };
+	const $render = {
+		'data-responsive-items-container': '',
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-        $measure,
-        $render,
-        context,
-        contextValue,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+		$measure,
+		$render,
+		context,
+		contextValue,
+	});
 };

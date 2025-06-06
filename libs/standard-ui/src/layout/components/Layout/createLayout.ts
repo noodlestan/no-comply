@@ -7,21 +7,21 @@ import { $LAYOUT } from './constants';
 import { type LayoutAPI, type LayoutProps } from './types';
 
 const defaultProps: PickRequired<LayoutProps, 'tag'> = {
-    tag: 'div',
+	tag: 'div',
 };
 
 export const createLayout = (props: LayoutProps): LayoutAPI => {
-    const [locals, expose, compose] = createExposable($LAYOUT, props);
+	const [locals, expose, compose] = createExposable($LAYOUT, props);
 
-    const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
+	const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
 
-    const component = () => locals.tag ?? defaultProps.tag;
+	const component = () => locals.tag ?? defaultProps.tag;
 
-    const $root = computedProps({
-        component,
-    });
+	const $root = computedProps({
+		component,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($layoutMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($layoutMixinRoot, $root),
+	});
 };

@@ -1,9 +1,9 @@
 @layer reset, composables, theme, lib, app, dev-tools;
 
 @layer theme {
-    @layer standard;
+  @layer standard;
 }
 
 @layer lib {
-    @layer standard-ui;
+  @layer standard-ui;
 }

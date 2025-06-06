@@ -5,21 +5,21 @@ import { $ICON_ACTION } from './constants';
 import type { IconActionAPI, IconActionProps } from './types';
 
 export const createIconAction = (props: IconActionProps): IconActionAPI => {
-    const [locals, expose] = createExposable($ICON_ACTION, props);
+	const [locals, expose] = createExposable($ICON_ACTION, props);
 
-    const $root = computedProps({
-        'aria-label': () => locals.label,
-    });
+	const $root = computedProps({
+		'aria-label': () => locals.label,
+	});
 
-    const staticIconProps = {
-        'aria-hidden': true,
-    };
-    const icon = computedProps(staticIconProps, {
-        icon: () => locals.icon,
-    });
+	const staticIconProps = {
+		'aria-hidden': true,
+	};
+	const icon = computedProps(staticIconProps, {
+		icon: () => locals.icon,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-        icon,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+		icon,
+	});
 };

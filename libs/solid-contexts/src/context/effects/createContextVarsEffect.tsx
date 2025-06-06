@@ -5,17 +5,17 @@ import type { BaseContext } from '../../context';
 import { mergeContextVars, updateElementStyles } from './private';
 
 export const createContextVarsEffect = (
-    contexts: Accessor<BaseContext[]>,
-    contextElement: HTMLElement,
+	contexts: Accessor<BaseContext[]>,
+	contextElement: HTMLElement,
 ): void => {
-    let previous: ReturnType<typeof updateElementStyles> = {};
+	let previous: ReturnType<typeof updateElementStyles> = {};
 
-    createEffect(() => {
-        const vars = mergeContextVars(contexts());
-        previous = updateElementStyles(contextElement, vars, previous);
-    });
+	createEffect(() => {
+		const vars = mergeContextVars(contexts());
+		previous = updateElementStyles(contextElement, vars, previous);
+	});
 
-    onCleanup(() => {
-        updateElementStyles(contextElement, {}, previous);
-    });
+	onCleanup(() => {
+		updateElementStyles(contextElement, {}, previous);
+	});
 };

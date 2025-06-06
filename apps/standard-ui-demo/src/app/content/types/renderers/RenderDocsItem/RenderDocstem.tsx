@@ -5,19 +5,19 @@ import { DocsItem } from '../../components';
 import type { DocsItemData } from '../../types';
 
 export type RenderDocsItemProps = {
-    item: DocsItemData;
-    level: DisplayLevel;
+	item: DocsItemData;
+	level: DisplayLevel;
 };
 
 export const RenderDocsItem: Component<RenderDocsItemProps> = props => {
-    const sectionProps = () => ({
-        ...props.item.props,
-        title: props.item.title,
-    });
+	const sectionProps = () => ({
+		...props.item.props,
+		title: props.item.title,
+	});
 
-    const c = children(() => {
-        return props.item.content();
-    });
+	const c = children(() => {
+		return props.item.content();
+	});
 
-    return <DocsItem {...sectionProps()}>{c()}</DocsItem>;
+	return <DocsItem {...sectionProps()}>{c()}</DocsItem>;
 };

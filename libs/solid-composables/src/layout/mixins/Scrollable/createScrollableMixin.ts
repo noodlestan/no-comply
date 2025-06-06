@@ -6,25 +6,25 @@ import { $SCROLLABLE_MIXIN } from './constants';
 import type { ScrollableMixinAPI, ScrollableMixinProps } from './types';
 
 const defaultProps: PickRequired<ScrollableMixinProps, 'tag'> = {
-    tag: 'div',
+	tag: 'div',
 };
 
 export const createScrollableMixin = (props: ScrollableMixinProps): ScrollableMixinAPI => {
-    const [locals, expose] = createExposable($SCROLLABLE_MIXIN, props);
+	const [locals, expose] = createExposable($SCROLLABLE_MIXIN, props);
 
-    const component = () => locals.tag ?? defaultProps.tag;
-    const classList = createClassList(styles, () => ({
-        Scrollable: true,
-        x: Boolean(locals.x),
-        y: Boolean(locals.y),
-    }));
+	const component = () => locals.tag ?? defaultProps.tag;
+	const classList = createClassList(styles, () => ({
+		Scrollable: true,
+		x: Boolean(locals.x),
+		y: Boolean(locals.y),
+	}));
 
-    const $root = computedProps({
-        classList,
-        component,
-    });
+	const $root = computedProps({
+		classList,
+		component,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

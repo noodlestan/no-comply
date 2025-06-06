@@ -6,6 +6,6 @@ import type { FlexMixinProps } from './types';
 export const $FLEX_MIXIN = 'mixin:standard:flex';
 
 export const FLEX_MIXIN_PROPS = definePropKeys<FlexMixinProps>()([
-    ...HEADLESS_FLEX_MIXIN_PROPS,
-    'gap',
+	...HEADLESS_FLEX_MIXIN_PROPS,
+	'gap',
 ]);

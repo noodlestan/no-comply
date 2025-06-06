@@ -5,6 +5,6 @@ import type { PopoverContext } from '../../contexts';
 import { PopoverContextCTX } from './private';
 
 export const usePopoverMaybe = (): PopoverContext | undefined => {
-    const [context] = useContext(PopoverContextCTX) || [];
-    return context;
+	const [context] = useContext(PopoverContextCTX) || [];
+	return context;
 };

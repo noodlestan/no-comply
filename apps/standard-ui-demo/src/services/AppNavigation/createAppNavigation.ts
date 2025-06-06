@@ -5,15 +5,15 @@ import { routeFor } from '../../app';
 import type { AppNavigationAPI } from './types';
 
 export const createAppNavigation = (): AppNavigationAPI => {
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
-    const home = () => {
-        const route = routeFor.home();
-        navigate(route);
-    };
+	const home = () => {
+		const route = routeFor.home();
+		navigate(route);
+	};
 
-    const api: AppNavigationAPI = {
-        home,
-    };
-    return api;
+	const api: AppNavigationAPI = {
+		home,
+	};
+	return api;
 };

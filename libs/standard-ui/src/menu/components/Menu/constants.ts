@@ -8,6 +8,6 @@ import type { MenuProps } from './types';
 export const $MENU = 'component:standard:menu';
 
 export const MENU_PROPS = definePropKeys<MenuProps>()([
-    ...HEADLESS_MENU_PROPS,
-    ...MENU_MIXIN_PROPS,
+	...HEADLESS_MENU_PROPS,
+	...MENU_MIXIN_PROPS,
 ]);

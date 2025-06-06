@@ -8,20 +8,20 @@ import { $SKIP_LINK_MIXIN } from './constants';
 import type { SkipLinkMixinAPI, SkipLinkMixinProps } from './types';
 
 export const createSkipLinkMixin = (props: SkipLinkMixinProps = {}): SkipLinkMixinAPI => {
-    const [locals, expose, compose] = createExposable($SKIP_LINK_MIXIN, props);
+	const [locals, expose, compose] = createExposable($SKIP_LINK_MIXIN, props);
 
-    const { $root: $linkMixinRoot } = compose(createLinkMixin({ inset: true }));
+	const { $root: $linkMixinRoot } = compose(createLinkMixin({ inset: true }));
 
-    const classList = createClassList(styles, () => ({
-        SkipLink: true,
-        floating: Boolean(locals.floating),
-    }));
+	const classList = createClassList(styles, () => ({
+		SkipLink: true,
+		floating: Boolean(locals.floating),
+	}));
 
-    const $root = computedProps({
-        classList,
-    });
+	const $root = computedProps({
+		classList,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($linkMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($linkMixinRoot, $root),
+	});
 };

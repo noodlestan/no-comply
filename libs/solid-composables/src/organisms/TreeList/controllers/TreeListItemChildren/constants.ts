@@ -8,6 +8,6 @@ import type { TreeListItemChildrenProps } from './types';
 export const $TREE_LIST_ITEM_CHILDREN = 'controller:composable:tree-list-item-children';
 
 export const TREE_LIST_ITEM_CHILDREN_PROPS = definePropKeys<TreeListItemChildrenProps>()([
-    ...ARIA_LABELLED_PROPS,
-    ...TREE_LIST_ITEM_COMMON_PROPS,
+	...ARIA_LABELLED_PROPS,
+	...TREE_LIST_ITEM_COMMON_PROPS,
 ]);

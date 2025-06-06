@@ -1,19 +1,19 @@
 @layer lib.standard-ui {
-    @layer focus-ring, focus-ring-offset;
+  @layer focus-ring, focus-ring-offset;
 }
 
 @layer lib.standard-ui.focus-ring-offset {
-    .FocusRingOffset[data-is-active],
-    .FocusRingOffset:active {
-        outline-offset: var(--outline-active-offset);
-    }
+  .FocusRingOffset[data-is-active],
+  .FocusRingOffset:active {
+    outline-offset: var(--outline-active-offset);
+  }
 
-    .inset {
-        outline-offset: var(--outline-inset-offset);
-    }
+  .inset {
+    outline-offset: var(--outline-inset-offset);
+  }
 
-    .inset[data-is-active],
-    .inset:active {
-        outline-offset: var(--outline-active-inset-offset);
-    }
+  .inset[data-is-active],
+  .inset:active {
+    outline-offset: var(--outline-active-inset-offset);
+  }
 }

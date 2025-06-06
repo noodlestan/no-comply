@@ -1,5 +1,5 @@
 @layer theme.standard.base.foundations {
-    [data-theme-standard] {
-        --elevation-max: 1000;
-    }
+  [data-theme-standard] {
+    --elevation-max: 1000;
+  }
 }

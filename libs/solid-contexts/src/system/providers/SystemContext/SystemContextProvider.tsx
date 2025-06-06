@@ -6,10 +6,10 @@ import { type SystemContextServiceAPI, createSystemContextService } from '../../
 import { SystemContext } from './private';
 
 type SystemContextProviderProps = {
-    systemContextService?: SystemContextServiceAPI;
+	systemContextService?: SystemContextServiceAPI;
 };
 
 export const SystemContextProvider: ParentComponent<SystemContextProviderProps> = props => {
-    const service = props.systemContextService ?? createSystemContextService();
-    return <SystemContext.Provider value={service}>{props.children}</SystemContext.Provider>;
+	const service = props.systemContextService ?? createSystemContextService();
+	return <SystemContext.Provider value={service}>{props.children}</SystemContext.Provider>;
 };

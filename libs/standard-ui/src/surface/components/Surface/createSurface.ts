@@ -9,21 +9,21 @@ import { $SURFACE } from './constants';
 import type { SurfaceAPI, SurfaceProps } from './types';
 
 const defaultProps: PickRequired<SurfaceProps, 'variant'> = {
-    variant: 'stage',
+	variant: 'stage',
 };
 
 export const createSurface = (props: SurfaceProps): SurfaceAPI => {
-    const [locals, expose, compose] = createExposable($SURFACE, props);
+	const [locals, expose, compose] = createExposable($SURFACE, props);
 
-    const variant = () => locals.variant ?? defaultProps.variant;
+	const variant = () => locals.variant ?? defaultProps.variant;
 
-    const [, others] = splitProps(locals, ['variant']);
-    const variantProps = computedProps(others, { variant });
-    const { $root: $surfaceRoot, ...rest } = compose(createHeadlessSurface(variantProps));
-    const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin(locals));
+	const [, others] = splitProps(locals, ['variant']);
+	const variantProps = computedProps(others, { variant });
+	const { $root: $surfaceRoot, ...rest } = compose(createHeadlessSurface(variantProps));
+	const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin(locals));
 
-    return exposeAPI(expose, '$root', {
-        ...rest,
-        $root: combineProps($surfaceRoot, $surfaceMixinRoot),
-    });
+	return exposeAPI(expose, '$root', {
+		...rest,
+		$root: combineProps($surfaceRoot, $surfaceMixinRoot),
+	});
 };

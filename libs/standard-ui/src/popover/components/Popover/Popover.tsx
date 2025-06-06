@@ -9,17 +9,17 @@ import { createPopover } from './createPopover';
 type Props = ClosedTagProps & PopoverBaseProps;
 
 export const Popover: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, [...POPOVER_PROPS, 'children']);
+	const [locals, $others] = splitProps(props, [...POPOVER_PROPS, 'children']);
 
-    const { $root, contextValue } = createPopover(locals);
+	const { $root, contextValue } = createPopover(locals);
 
-    const $ = combineProps($others, $root);
+	const $ = combineProps($others, $root);
 
-    return (
-        <PopoverContextProvider context={contextValue}>
-            <Dynamic component="div" {...$}>
-                {locals.children}
-            </Dynamic>
-        </PopoverContextProvider>
-    );
+	return (
+		<PopoverContextProvider context={contextValue}>
+			<Dynamic component="div" {...$}>
+				{locals.children}
+			</Dynamic>
+		</PopoverContextProvider>
+	);
 };

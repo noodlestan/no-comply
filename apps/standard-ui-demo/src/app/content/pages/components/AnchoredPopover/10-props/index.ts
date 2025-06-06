@@ -7,6 +7,6 @@ import placement from './20-placement';
 import gap from './21-gap';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [anchor, direction, flip, placement, gap],
+	title: 'Props',
+	items: [anchor, direction, flip, placement, gap],
 });

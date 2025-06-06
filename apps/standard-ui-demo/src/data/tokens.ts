@@ -1,15 +1,15 @@
 type TokenGroupMetadata = {
-    name: string;
+	name: string;
 };
 
 export const TOKEN_GROUPS: TokenGroupMetadata[] = [
-    {
-        name: 'Space',
-    },
-    {
-        name: 'Color',
-    },
-    {
-        name: 'Type',
-    },
+	{
+		name: 'Space',
+	},
+	{
+		name: 'Color',
+	},
+	{
+		name: 'Type',
+	},
 ];

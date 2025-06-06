@@ -5,29 +5,29 @@ import type { ComponentMetadata } from '../../../data';
 import type { DocsItemProps, DocsResponsiveItemProps, DocsSectionProps } from './components';
 
 export type DocsPageData = {
-    type: 'page';
-    title: string;
-    items: DocsSectionData[];
+	type: 'page';
+	title: string;
+	items: DocsSectionData[];
 };
 
 export type DocsComponentPageData = DocsPageData & {
-    component: ComponentMetadata;
+	component: ComponentMetadata;
 };
 
 export type DocsSectionData = {
-    type: 'section';
-    title: string;
-    props?: DocsSectionProps;
-    items: (DocsSectionData | DocsItemData)[];
+	type: 'section';
+	title: string;
+	props?: DocsSectionProps;
+	items: (DocsSectionData | DocsItemData)[];
 };
 
 export type DocsItemData = {
-    type: 'item';
-    title?: string;
-    props?: DocsItemProps;
-    content: () => JSX.Element;
+	type: 'item';
+	title?: string;
+	props?: DocsItemProps;
+	content: () => JSX.Element;
 };
 
 export type DocsResponsiveItemData = Omit<DocsItemData, 'props'> & {
-    props: Omit<DocsResponsiveItemProps, 'bps'>;
+	props: Omit<DocsResponsiveItemProps, 'bps'>;
 };

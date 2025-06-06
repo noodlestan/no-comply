@@ -6,13 +6,13 @@ import { $LINK_MIXIN } from './constants';
 import type { LinkMixinAPI } from './types';
 
 export const createLinkMixin = (): LinkMixinAPI => {
-    const [, expose] = createExposable($LINK_MIXIN);
+	const [, expose] = createExposable($LINK_MIXIN);
 
-    const $root = {
-        classList: staticClassList(styles, 'Link'),
-    };
+	const $root = {
+		classList: staticClassList(styles, 'Link'),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

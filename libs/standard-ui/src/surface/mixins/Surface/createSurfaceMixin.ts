@@ -9,16 +9,16 @@ import { $SURFACE_MIXIN } from './constants';
 import type { SurfaceMixinAPI, SurfaceMixinProps } from './types';
 
 export const createSurfaceMixin = (props: SurfaceMixinProps): SurfaceMixinAPI => {
-    const [locals, expose, compose] = createExposable($SURFACE_MIXIN, props);
+	const [locals, expose, compose] = createExposable($SURFACE_MIXIN, props);
 
-    const { $root: $surfaceMixinRoot } = compose(createHeadlessSurfaceMixin());
-    const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
+	const { $root: $surfaceMixinRoot } = compose(createHeadlessSurfaceMixin());
+	const { $root: $layoutMixinRoot } = compose(createLayoutMixin(locals));
 
-    const $root = {
-        classList: staticClassList(styles, 'Surface'),
-    };
+	const $root = {
+		classList: staticClassList(styles, 'Surface'),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($surfaceMixinRoot, $layoutMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($surfaceMixinRoot, $layoutMixinRoot, $root),
+	});
 };

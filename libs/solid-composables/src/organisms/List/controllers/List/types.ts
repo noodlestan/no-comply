@@ -6,17 +6,17 @@ import type { ListItemProps } from '../ListItem';
 import type { ListKeyboardControllerAPI } from '../ListKeyboard';
 
 export type ListProps = ListContextOptions &
-    AriaListProps & {
-        keyboard?: ListKeyboardControllerAPI;
-    };
+	AriaListProps & {
+		keyboard?: ListKeyboardControllerAPI;
+	};
 
 type ListItemComputedProps = Pick<ListItemProps, 'setSize'>;
 
 export type ListAPI = {
-    $root: AriaListAPI['$root'] & ListKeyboardControllerAPI['$root'];
-    $label: AriaListAPI['$label'];
-    $description: AriaListAPI['$description'];
-    _listItem: PropsWithComponent<ListItemProps, ListItemComputedProps>;
-    context: ListContext;
-    contextValue: ListContextValue;
+	$root: AriaListAPI['$root'] & ListKeyboardControllerAPI['$root'];
+	$label: AriaListAPI['$label'];
+	$description: AriaListAPI['$description'];
+	_listItem: PropsWithComponent<ListItemProps, ListItemComputedProps>;
+	context: ListContext;
+	contextValue: ListContextValue;
 };

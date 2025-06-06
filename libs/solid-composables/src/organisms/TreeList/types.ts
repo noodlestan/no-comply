@@ -5,48 +5,48 @@ import { type Component } from 'solid-js';
 import type { ExpandActionProps } from '../../action';
 
 import type {
-    TreeListItemChildrenProps,
-    TreeListItemDetailsProps,
-    TreeListItemProps,
+	TreeListItemChildrenProps,
+	TreeListItemDetailsProps,
+	TreeListItemProps,
 } from './controllers';
 
 export type TreeItem = ObjectWithId;
 
 export type TreeNode = {
-    id: string;
-    object: TreeItem;
-    children: TreeNode[];
-    component?: Component<TreeListItemContentsProps>;
+	id: string;
+	object: TreeItem;
+	children: TreeNode[];
+	component?: Component<TreeListItemContentsProps>;
 };
 
 export type TreeListItemContentsProps = {
-    node: TreeNode;
-    level: number;
-    parent?: TreeNode;
-    parentSelected: boolean;
-    expanded: boolean;
-    selected: boolean;
-    onClick?: () => void;
+	node: TreeNode;
+	level: number;
+	parent?: TreeNode;
+	parentSelected: boolean;
+	expanded: boolean;
+	selected: boolean;
+	onClick?: () => void;
 };
 
 export type TreeListComponents = {
-    item: Component<TreeListItemProps>;
-    itemDetails: Component<TreeListItemDetailsProps>;
-    itemChildren: Component<TreeListItemChildrenProps>;
-    itemContents: Component<TreeListItemContentsProps>;
-    expandButton: Component<ExpandActionProps>;
+	item: Component<TreeListItemProps>;
+	itemDetails: Component<TreeListItemDetailsProps>;
+	itemChildren: Component<TreeListItemChildrenProps>;
+	itemContents: Component<TreeListItemContentsProps>;
+	expandButton: Component<ExpandActionProps>;
 };
 
 export type TreeListLabels = {
-    item: LabelValue<[TreeNode]>;
-    group: LabelValue<[TreeNode]>;
-    expanded: LabelValue<[TreeNode]>;
-    collapsed: LabelValue<[TreeNode]>;
-    select: LabelValue<[TreeNode]>;
-    details: LabelValue;
+	item: LabelValue<[TreeNode]>;
+	group: LabelValue<[TreeNode]>;
+	expanded: LabelValue<[TreeNode]>;
+	collapsed: LabelValue<[TreeNode]>;
+	select: LabelValue<[TreeNode]>;
+	details: LabelValue;
 };
 
 export type TreeListIcons = {
-    expanded: IconValue;
-    collapsed: IconValue;
+	expanded: IconValue;
+	collapsed: IconValue;
 };

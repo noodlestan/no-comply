@@ -1,24 +1,24 @@
 import { type Accessor, createSignal } from 'solid-js';
 
 type TextInputExampleControllerOptions = {
-    value?: string;
+	value?: string;
 };
 
 type TextInputExampleController = {
-    value: Accessor<string | undefined>;
-    setValue: (value: string) => void;
-    handleValueChange: (value: string) => void;
+	value: Accessor<string | undefined>;
+	setValue: (value: string) => void;
+	handleValueChange: (value: string) => void;
 };
 
 export const createTextInputExampleController = (
-    options: TextInputExampleControllerOptions = {},
+	options: TextInputExampleControllerOptions = {},
 ): TextInputExampleController => {
-    const [value, setValue] = createSignal(options.value);
+	const [value, setValue] = createSignal(options.value);
 
-    const handleValueChange = (value: string) => {
-        console.info('onValueChange', value);
-        setValue(value);
-    };
+	const handleValueChange = (value: string) => {
+		console.info('onValueChange', value);
+		setValue(value);
+	};
 
-    return { value, setValue, handleValueChange };
+	return { value, setValue, handleValueChange };
 };

@@ -1,3 +1,3 @@
 export const isDecimalSymbol = (key: string): boolean => {
-    return key === '.' || key === ',';
+	return key === '.' || key === ',';
 };

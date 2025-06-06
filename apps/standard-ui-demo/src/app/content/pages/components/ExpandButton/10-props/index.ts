@@ -7,6 +7,6 @@ import size from './30-size';
 import disabled from './40-disabled';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [controls, labels, icons, size, disabled],
+	title: 'Props',
+	items: [controls, labels, icons, size, disabled],
 });

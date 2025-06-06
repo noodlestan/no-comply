@@ -1,10 +1,10 @@
 import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
-    type PickRequired,
-    combineProps,
-    computedProps,
-    createClassList,
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
 } from '@no-comply/solid-primitives';
 
 import type { DisplayLevel, DisplayVariant } from '../../types';
@@ -14,32 +14,32 @@ import { $DISPLAY_MIXIN } from './constants';
 import type { DisplayMixinAPI, DisplayMixinProps } from './types';
 
 const MAP_LEVEL_TO_VARIANT: Record<DisplayLevel, DisplayVariant> = {
-    1: 'xl',
-    2: 'l',
-    3: 'm',
-    4: 's',
-    5: 'xs',
+	1: 'xl',
+	2: 'l',
+	3: 'm',
+	4: 's',
+	5: 'xs',
 };
 
 const defaultProps: PickRequired<DisplayMixinProps, 'level' | 'variant'> = {
-    level: 3,
-    variant: 'm',
+	level: 3,
+	variant: 'm',
 };
 
 export const createDisplayMixin = (props: DisplayMixinProps): DisplayMixinAPI => {
-    const [locals, expose, compose] = createExposable($DISPLAY_MIXIN, props);
+	const [locals, expose, compose] = createExposable($DISPLAY_MIXIN, props);
 
-    const { $root: $textMixinRoot } = compose(createHeadlessTextMixin(locals));
+	const { $root: $textMixinRoot } = compose(createHeadlessTextMixin(locals));
 
-    const level = () => locals.level ?? defaultProps.level;
-    const variant = () => locals.variant ?? MAP_LEVEL_TO_VARIANT[level()];
-    const classList = createClassList(styles, () => ['Display', `variant-${variant()}`]);
-    const $root = computedProps({
-        classList,
-    });
+	const level = () => locals.level ?? defaultProps.level;
+	const variant = () => locals.variant ?? MAP_LEVEL_TO_VARIANT[level()];
+	const classList = createClassList(styles, () => ['Display', `variant-${variant()}`]);
+	const $root = computedProps({
+		classList,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($textMixinRoot, $root),
-        level,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($textMixinRoot, $root),
+		level,
+	});
 };

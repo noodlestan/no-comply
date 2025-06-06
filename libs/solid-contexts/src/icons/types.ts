@@ -5,7 +5,7 @@ export type IconComponent = (props: object) => JSX.Element;
 export type IconComponentValue = { component: IconComponent };
 
 export type IconValue<A extends unknown[] = []> =
-    | IconComponentValue
-    | ((...args: A) => IconComponent);
+	| IconComponentValue
+	| ((...args: A) => IconComponent);
 
 export type IconMap = Record<string, IconValue>;

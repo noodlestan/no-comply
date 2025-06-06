@@ -8,7 +8,7 @@ import type { SkipLinkProps } from './types';
 export const $SKIP_LINK = 'component:standard:skip-link';
 
 export const SKIP_LINK_PROPS = definePropKeys<SkipLinkProps>()([
-    ...HEADLESS_LINK_PROPS,
-    ...SKIP_LINK_MIXIN_PROPS,
-    'size',
+	...HEADLESS_LINK_PROPS,
+	...SKIP_LINK_MIXIN_PROPS,
+	'size',
 ]);

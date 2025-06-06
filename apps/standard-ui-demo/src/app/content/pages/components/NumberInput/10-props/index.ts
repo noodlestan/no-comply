@@ -14,19 +14,19 @@ import onChange from './50-on-change';
 import onValueChange from './51-on-value-change';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [
-        value,
-        maxLength,
-        minAndMax,
-        step,
-        placeholder,
-        size,
-        length,
-        disabled,
-        invalid,
-        modified,
-        onChange,
-        onValueChange,
-    ],
+	title: 'Props',
+	items: [
+		value,
+		maxLength,
+		minAndMax,
+		step,
+		placeholder,
+		size,
+		length,
+		disabled,
+		invalid,
+		modified,
+		onChange,
+		onValueChange,
+	],
 });

@@ -7,94 +7,94 @@ export type SelectSize = 'xs' | 's' | 'm' | 'l' | 'xl';
 export type SelectLength = 's' | 'm' | 'l' | 'full' | 'auto';
 
 export type SelectProps = {
-    id?: string;
-    value?: string;
-    placeholder?: string;
-    size?: SelectSize;
-    length?: number | SelectLength;
-    modified?: boolean;
-    disabled?: boolean;
-    invalid?: boolean;
-    onChange?: (ev: Event) => void;
-    onValueChange?: (id: string) => void;
-    ref?: (el: HTMLSelectElement) => void;
-    classList?: ClassList;
+	id?: string;
+	value?: string;
+	placeholder?: string;
+	size?: SelectSize;
+	length?: number | SelectLength;
+	modified?: boolean;
+	disabled?: boolean;
+	invalid?: boolean;
+	onChange?: (ev: Event) => void;
+	onValueChange?: (id: string) => void;
+	ref?: (el: HTMLSelectElement) => void;
+	classList?: ClassList;
 };
 
 const defaultProps: PickRequired<SelectProps, 'size' | 'length'> = {
-    size: 's',
-    length: 'full',
+	size: 's',
+	length: 'full',
 };
 
 const makeLength = (length: number | SelectLength): string => {
-    if (typeof length === 'number') {
-        return `${length}em`;
-    }
-    if (length === 'full') {
-        return '100%';
-    }
-    if (length === 'auto') {
-        return 'min-content';
-    }
-    return `var(--select-length-${length})`;
+	if (typeof length === 'number') {
+		return `${length}em`;
+	}
+	if (length === 'full') {
+		return '100%';
+	}
+	if (length === 'auto') {
+		return 'min-content';
+	}
+	return `var(--select-length-${length})`;
 };
 
 const makeStyle = (length?: number | SelectLength) =>
-    length ? { '--select-length': makeLength(length) } : {};
+	length ? { '--select-length': makeLength(length) } : {};
 
 export const Select: ParentComponent<SelectProps> = props => {
-    const size = () => props.size ?? defaultProps.size;
-    const length = () => props.length ?? defaultProps.length;
+	const size = () => props.size ?? defaultProps.size;
+	const length = () => props.length ?? defaultProps.length;
 
-    const handleChange = (ev: Event) => {
-        const target = ev.target as HTMLSelectElement;
-        props.onChange?.(ev);
-        props.onValueChange?.(target?.value ?? '');
-    };
+	const handleChange = (ev: Event) => {
+		const target = ev.target as HTMLSelectElement;
+		props.onChange?.(ev);
+		props.onValueChange?.(target?.value ?? '');
+	};
 
-    const handleKeyDown = (ev: KeyboardEvent) => {
-        ev.stopImmediatePropagation();
-    };
+	const handleKeyDown = (ev: KeyboardEvent) => {
+		ev.stopImmediatePropagation();
+	};
 
-    const handleKeyUp = (ev: KeyboardEvent) => {
-        ev.stopImmediatePropagation();
-    };
+	const handleKeyUp = (ev: KeyboardEvent) => {
+		ev.stopImmediatePropagation();
+	};
 
-    // NOTE: using spread operator in `<select>` causes expected selected option to not be selected
-    // because attributes/children are committed to the DOM in a different order
-    // See: https://github.com/solidjs/solid/issues/1754
-    // const handlers = {
-    //     onChange: handleChange,
-    //     onKeyDown: handleKeyDown,
-    //     onKeyUp: handleKeyUp,
-    // };
+	// NOTE: using spread operator in `<select>` causes expected selected option to not be selected
+	// because attributes/children are committed to the DOM in a different order
+	// See: https://github.com/solidjs/solid/issues/1754
+	// const handlers = {
+	//     onChange: handleChange,
+	//     onKeyDown: handleKeyDown,
+	//     onKeyUp: handleKeyUp,
+	// };
 
-    const classList = createClassList(styles, () => ({
-        ...props.classList,
-        Select: true,
-        'is-disabled': Boolean(props.disabled),
-        'is-invalid': Boolean(props.invalid),
-        'is-modified': Boolean(props.modified),
-        [`size-${size()}`]: true,
-    }));
+	const classList = createClassList(styles, () => ({
+		...props.classList,
+		Select: true,
+		'is-disabled': Boolean(props.disabled),
+		'is-invalid': Boolean(props.invalid),
+		'is-modified': Boolean(props.modified),
+		[`size-${size()}`]: true,
+	}));
 
-    const style = () => makeStyle(length());
+	const style = () => makeStyle(length());
 
-    return (
-        <select
-            id={props.id}
-            disabled={props.disabled}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            onKeyUp={handleKeyUp}
-            classList={classList()}
-            style={style()}
-            value={props.value ?? ''}
-        >
-            <Show when={!!props.placeholder}>
-                <option value="">{props.placeholder}</option>
-            </Show>
-            {props.children}
-        </select>
-    );
+	return (
+		<select
+			id={props.id}
+			disabled={props.disabled}
+			onChange={handleChange}
+			onKeyDown={handleKeyDown}
+			onKeyUp={handleKeyUp}
+			classList={classList()}
+			style={style()}
+			value={props.value ?? ''}
+		>
+			<Show when={!!props.placeholder}>
+				<option value="">{props.placeholder}</option>
+			</Show>
+			{props.children}
+		</select>
+	);
 };

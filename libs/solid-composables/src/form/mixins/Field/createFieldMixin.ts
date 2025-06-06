@@ -6,14 +6,14 @@ import { $FIED_MIXIN } from './constants';
 import type { FieldMixinApi } from './types';
 
 export const createFieldMixin = (): FieldMixinApi => {
-    const [, expose] = createExposable($FIED_MIXIN);
+	const [, expose] = createExposable($FIED_MIXIN);
 
-    const $static = {
-        classList: staticClassList(styles, 'Field'),
-    };
-    const $root = computedProps($static, {});
+	const $static = {
+		classList: staticClassList(styles, 'Field'),
+	};
+	const $root = computedProps($static, {});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

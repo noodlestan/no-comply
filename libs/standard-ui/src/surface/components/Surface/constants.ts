@@ -8,6 +8,6 @@ import type { SurfaceProps } from './types';
 export const $SURFACE = 'component:standard:surface';
 
 export const SURFACE_PROPS = definePropKeys<SurfaceProps>()([
-    ...HEADLESS_SURFACE_PROPS,
-    ...SURFACE_MIXIN_PROPS,
+	...HEADLESS_SURFACE_PROPS,
+	...SURFACE_MIXIN_PROPS,
 ]);

@@ -8,6 +8,6 @@ import type { ButtonProps } from './types';
 export const $BUTTON = 'component:standard:button';
 
 export const BUTTON_PROPS = definePropKeys<ButtonProps>()([
-    ...PRESSABLE_PROPS,
-    ...BUTTON_MIXIN_PROPS,
+	...PRESSABLE_PROPS,
+	...BUTTON_MIXIN_PROPS,
 ]);

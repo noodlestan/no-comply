@@ -7,8 +7,8 @@
 import type { InterpolationOptions } from 'i18next';
 
 export const hasInterpolation = (
-    value: string,
-    { prefix, suffix }: InterpolationOptions,
+	value: string,
+	{ prefix, suffix }: InterpolationOptions,
 ): boolean => {
-    return value.includes(prefix as string) && value.includes(suffix as string);
+	return value.includes(prefix as string) && value.includes(suffix as string);
 };

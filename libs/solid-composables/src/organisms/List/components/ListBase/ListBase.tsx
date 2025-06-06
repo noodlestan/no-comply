@@ -11,19 +11,19 @@ import type { ListBaseProps } from './types';
 type Props = ClosedTagProps & ListBaseProps;
 
 export const ListBase: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, LIST_BASE_PROPS);
+	const [locals, $others] = splitProps(props, LIST_BASE_PROPS);
 
-    const tree = createListBase(locals);
-    const { $root, _listItem: itemProps, contextValue } = tree;
-    const $ = combineProps($others, $root);
+	const tree = createListBase(locals);
+	const { $root, _listItem: itemProps, contextValue } = tree;
+	const $ = combineProps($others, $root);
 
-    return (
-        <ListContextProvider context={contextValue}>
-            <div {...$}>
-                <For each={props.items}>
-                    {(item, index) => <Dynamic {...itemProps} item={item} posInSet={index() + 1} />}
-                </For>
-            </div>
-        </ListContextProvider>
-    );
+	return (
+		<ListContextProvider context={contextValue}>
+			<div {...$}>
+				<For each={props.items}>
+					{(item, index) => <Dynamic {...itemProps} item={item} posInSet={index() + 1} />}
+				</For>
+			</div>
+		</ListContextProvider>
+	);
 };

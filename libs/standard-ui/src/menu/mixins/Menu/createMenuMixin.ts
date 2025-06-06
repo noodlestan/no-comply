@@ -8,17 +8,17 @@ import { $MENU_MIXIN } from './constants';
 import type { MenuMixinAPI } from './types';
 
 export const createMenuMixin = (): MenuMixinAPI => {
-    const [, expose, compose] = createExposable($MENU_MIXIN);
+	const [, expose, compose] = createExposable($MENU_MIXIN);
 
-    const { $root: $focusRing } = compose(createFocusRingMixin({ inset: true }));
+	const { $root: $focusRing } = compose(createFocusRingMixin({ inset: true }));
 
-    const classList = staticClassList(styles, 'Menu');
+	const classList = staticClassList(styles, 'Menu');
 
-    const $root = {
-        classList,
-    };
+	const $root = {
+		classList,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($root, $focusRing),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($root, $focusRing),
+	});
 };

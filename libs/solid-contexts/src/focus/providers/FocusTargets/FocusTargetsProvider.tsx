@@ -6,11 +6,11 @@ import { type FocusTargetsServiceAPI } from '../../services';
 import { FocusTargetsCTX } from './private';
 
 type FocusTargetsProviderProps = {
-    service: FocusTargetsServiceAPI;
+	service: FocusTargetsServiceAPI;
 };
 
 export const FocusTargetsProvider: ParentComponent<FocusTargetsProviderProps> = props => {
-    return (
-        <FocusTargetsCTX.Provider value={props.service}>{props.children}</FocusTargetsCTX.Provider>
-    );
+	return (
+		<FocusTargetsCTX.Provider value={props.service}>{props.children}</FocusTargetsCTX.Provider>
+	);
 };

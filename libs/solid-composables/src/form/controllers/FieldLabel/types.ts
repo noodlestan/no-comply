@@ -1,9 +1,9 @@
 export type FieldLabelProps = {
-    for: string;
+	for: string;
 };
 
 export type FieldLabelAPI = {
-    $root: {
-        for: string;
-    };
+	$root: {
+		for: string;
+	};
 };

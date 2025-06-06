@@ -6,6 +6,6 @@ import type { TextMixinProps } from './types';
 export const $TEXT_MIXIN = 'mixin:standard:text';
 
 export const TEXT_MIXIN_PROPS = definePropKeys<TextMixinProps>()([
-    ...HEADLESS_TEXT_MIXIN_PROPS,
-    'variant',
+	...HEADLESS_TEXT_MIXIN_PROPS,
+	'variant',
 ]);

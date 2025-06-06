@@ -7,15 +7,15 @@ import { $DIVIDER } from './constants';
 import type { DividerAPI, DividerProps } from './types';
 
 export const createDivider = (props: DividerProps): DividerAPI => {
-    const [locals, expose, compose] = createExposable($DIVIDER, props);
+	const [locals, expose, compose] = createExposable($DIVIDER, props);
 
-    const { $root: $dividerMixinRoot } = compose(createDividerMixin(locals));
+	const { $root: $dividerMixinRoot } = compose(createDividerMixin(locals));
 
-    const $root = {
-        'data-component': 'divider' as const,
-    };
+	const $root = {
+		'data-component': 'divider' as const,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($dividerMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($dividerMixinRoot, $root),
+	});
 };

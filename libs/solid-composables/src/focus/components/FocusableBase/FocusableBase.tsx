@@ -10,27 +10,27 @@ import { createFocusableBase } from './createFocusableBase';
 import type { FocusableBaseProps } from './types';
 
 type ChildrenProps = {
-    focusable: FocusableAPI;
+	focusable: FocusableAPI;
 };
 
 type Props = ClosedTagProps &
-    FocusableBaseProps & {
-        children: RenderProp<ChildrenProps>;
-    };
+	FocusableBaseProps & {
+		children: RenderProp<ChildrenProps>;
+	};
 
 export const FocusableBase: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, [...FOCUSABLE_BASE_PROPS, 'children']);
+	const [locals, $others] = splitProps(props, [...FOCUSABLE_BASE_PROPS, 'children']);
 
-    const focusable = createFocusableBase(locals);
-    const { $root, contextValue } = focusable;
-    const $ = combineProps($others, $root);
+	const focusable = createFocusableBase(locals);
+	const { $root, contextValue } = focusable;
+	const $ = combineProps($others, $root);
 
-    return (
-        <FocusContextProvider context={contextValue}>
-            <Dynamic {...$}>
-                <button {...focusable.$target} />
-                {locals.children({ focusable })}
-            </Dynamic>
-        </FocusContextProvider>
-    );
+	return (
+		<FocusContextProvider context={contextValue}>
+			<Dynamic {...$}>
+				<button {...focusable.$target} />
+				{locals.children({ focusable })}
+			</Dynamic>
+		</FocusContextProvider>
+	);
 };

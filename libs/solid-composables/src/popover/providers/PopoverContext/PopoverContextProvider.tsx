@@ -6,16 +6,16 @@ import type { PopoverContextValue } from '../../contexts';
 import { PopoverContextCTX } from './private';
 
 type PopoverContextProviderProps = {
-    context: PopoverContextValue;
+	context: PopoverContextValue;
 };
 
 export const PopoverContextProvider: ParentComponent<PopoverContextProviderProps> = props => {
-    const node = () => createContextNode(props.context[0]);
+	const node = () => createContextNode(props.context[0]);
 
-    return (
-        // eslint-disable-next-line solid/reactivity
-        <PopoverContextCTX.Provider value={props.context}>
-            <ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
-        </PopoverContextCTX.Provider>
-    );
+	return (
+		// eslint-disable-next-line solid/reactivity
+		<PopoverContextCTX.Provider value={props.context}>
+			<ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
+		</PopoverContextCTX.Provider>
+	);
 };

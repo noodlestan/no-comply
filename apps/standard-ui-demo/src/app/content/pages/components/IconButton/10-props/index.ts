@@ -8,6 +8,6 @@ import disabled from './50-disabled';
 import onPpress from './60-on-press';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [variant, intent, size, round, disabled, onPpress],
+	title: 'Props',
+	items: [variant, intent, size, round, disabled, onPpress],
 });

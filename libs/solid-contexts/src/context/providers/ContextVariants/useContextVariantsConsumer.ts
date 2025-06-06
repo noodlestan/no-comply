@@ -5,15 +5,13 @@ import type { ContextVariant } from '../../private';
 import { ContextVariantsCTX } from './private';
 
 export const useContextVariantsConsumer = <T extends ContextVariant>(
-    type: string,
-    name: Accessor<string>,
+	type: string,
+	name: Accessor<string>,
 ): Accessor<T[]> => {
-    const context = useContext(ContextVariantsCTX);
-    if (!context) {
-        throw new Error(
-            'useContextVariantsConsumer() must be wrapped in <ContextVariantsProvider/>',
-        );
-    }
+	const context = useContext(ContextVariantsCTX);
+	if (!context) {
+		throw new Error('useContextVariantsConsumer() must be wrapped in <ContextVariantsProvider/>');
+	}
 
-    return () => context.resolveVariant(type, name());
+	return () => context.resolveVariant(type, name());
 };

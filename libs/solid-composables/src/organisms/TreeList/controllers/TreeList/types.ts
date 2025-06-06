@@ -7,20 +7,20 @@ import type { TreeListItemProps } from '../TreeListItem';
 import type { TreeListKeyboardControllerAPI } from '../TreeListKeyboard';
 
 export type TreeListProps = Omit<TreeListContextOptions, 'labels' | 'icons'> &
-    AriaTreeProps & {
-        keyboard?: TreeListKeyboardControllerAPI;
-        expand?: boolean | number;
-        labels?: Partial<TreeListLabels>;
-        icons?: Partial<TreeListIcons>;
-    };
+	AriaTreeProps & {
+		keyboard?: TreeListKeyboardControllerAPI;
+		expand?: boolean | number;
+		labels?: Partial<TreeListLabels>;
+		icons?: Partial<TreeListIcons>;
+	};
 
 type TreeListItemComputedProps = Pick<TreeListItemProps, 'node' | 'expand'>;
 
 export type TreeListAPI = {
-    $root: AriaTreeAPI['$root'] & TreeListKeyboardControllerAPI['$root'];
-    $label: AriaLabelledAPI['$label'];
-    $description: AriaLabelledAPI['$description'];
-    _treeListItem: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;
-    context: TreeListContext;
-    contextValue: TreeListContextValue;
+	$root: AriaTreeAPI['$root'] & TreeListKeyboardControllerAPI['$root'];
+	$label: AriaLabelledAPI['$label'];
+	$description: AriaLabelledAPI['$description'];
+	_treeListItem: PropsWithComponent<TreeListItemProps, TreeListItemComputedProps>;
+	context: TreeListContext;
+	contextValue: TreeListContextValue;
 };

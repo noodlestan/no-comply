@@ -1,28 +1,28 @@
 @layer lib.standard-ui.field {
-    .Field {
-        color: hsla(var(--fieldset-fg-color), var(--o-input-label));
-        font-family: var(--fieldset-type-family);
-        cursor: unset;
-    }
+  .Field {
+    color: hsla(var(--fieldset-fg-color), var(--o-input-label));
+    font-family: var(--fieldset-type-family);
+    cursor: unset;
+  }
 
-    .small {
-        font-weight: 900;
-        font-size: var(--fieldset-type-size-s);
-        font-weight: var(--fieldset-type-weight-l);
-    }
+  .small {
+    font-weight: 900;
+    font-size: var(--fieldset-type-size-s);
+    font-weight: var(--fieldset-type-weight-l);
+  }
 
-    .normal {
-        font-size: var(--fieldset-type-size-m);
-        font-weight: var(--fieldset-type-weight-s);
-    }
+  .normal {
+    font-size: var(--fieldset-type-size-m);
+    font-weight: var(--fieldset-type-weight-s);
+  }
 
-    .medium {
-        font-size: var(--fieldset-type-size-l);
-        font-weight: var(--fieldset-type-weight-m);
-    }
+  .medium {
+    font-size: var(--fieldset-type-size-l);
+    font-weight: var(--fieldset-type-weight-m);
+  }
 
-    .large {
-        font-size: var(--fieldset-type-size-xl);
-        font-weight: var(--fieldset-type-weight-l);
-    }
+  .large {
+    font-size: var(--fieldset-type-size-xl);
+    font-weight: var(--fieldset-type-weight-l);
+  }
 }

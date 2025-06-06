@@ -9,10 +9,10 @@ import type { DividerProps } from './types';
 type Props = ClosedTagProps & DividerProps;
 
 export const Divider: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, DIVIDER_PROPS);
+	const [locals, $others] = splitProps(props, DIVIDER_PROPS);
 
-    const { $root } = createDivider(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createDivider(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

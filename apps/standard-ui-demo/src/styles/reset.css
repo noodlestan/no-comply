@@ -1,27 +1,27 @@
 @layer reset {
-    html {
-        -webkit-font-smoothing: subpixel-antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-text-size-adjust: 100%;
-        text-rendering: optimizeLegibility;
-        font-smooth: always;
-    }
+  html {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+  }
 
-    html,
-    body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 
-    #root {
-        display: contents;
-    }
+  #root {
+    display: contents;
+  }
 
-    ul,
-    li {
-        margin: 0;
-        padding: 0;
-    }
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
 }

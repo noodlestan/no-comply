@@ -7,12 +7,12 @@ import type { FlexMixinProps } from './types';
 export const $FLEX_MIXIN = 'mixin:composable:flex';
 
 export const FLEX_MIXIN_PROPS = definePropKeys<FlexMixinProps>()([
-    ...LAYOUT_GAP_PROPS,
-    'direction',
-    'align',
-    'justify',
-    'shrink',
-    'wrap',
-    'flex',
-    'inline',
+	...LAYOUT_GAP_PROPS,
+	'direction',
+	'align',
+	'justify',
+	'shrink',
+	'wrap',
+	'flex',
+	'inline',
 ]);

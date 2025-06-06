@@ -1,9 +1,9 @@
 export type SignupData = {
-    email: string;
-    password: string;
+	email: string;
+	password: string;
 };
 
 export type SignupFormProps = {
-    onCancel: () => void;
-    onComplete: () => void;
+	onCancel: () => void;
+	onComplete: () => void;
 };

@@ -1,29 +1,29 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer theme.standard {
-    @layer base, light;
+  @layer base, light;
 }
 
 @layer theme.standard.light.tokens {
-    [data-theme-standard][data-mode-light] {
-        @include def-color-level(shadow, 400);
+  [data-theme-standard][data-mode-light] {
+    @include def-color-level(shadow, 400);
 
-        @include def-color-level(static-fg-contrast, 1000);
-        @include def-color-level(static-fg-primary, 900);
-        @include def-color-level(static-border, 600);
-        @include def-color-level(static-bg-3, 500);
-        @include def-color-level(static-bg-2, 400);
-        @include def-color-level(static-bg-1, 300);
-        @include def-color-level(static-bg-0, 200);
-        @include def-color-level(static-bg-contrast, 100);
+    @include def-color-level(static-fg-contrast, 1000);
+    @include def-color-level(static-fg-primary, 900);
+    @include def-color-level(static-border, 600);
+    @include def-color-level(static-bg-3, 500);
+    @include def-color-level(static-bg-2, 400);
+    @include def-color-level(static-bg-1, 300);
+    @include def-color-level(static-bg-0, 200);
+    @include def-color-level(static-bg-contrast, 100);
 
-        @include def-color-level(inverted-fg-contrast, 1000);
-        @include def-color-level(inverted-fg-primary, 900);
-        @include def-color-level(inverted-border, 600);
-        @include def-color-level(inverted-bg-3, 500);
-        @include def-color-level(inverted-bg-2, 400);
-        @include def-color-level(inverted-bg-1, 300);
-        @include def-color-level(inverted-bg-0, 200);
-        @include def-color-level(inverted-bg-contrast, 100);
-    }
+    @include def-color-level(inverted-fg-contrast, 1000);
+    @include def-color-level(inverted-fg-primary, 900);
+    @include def-color-level(inverted-border, 600);
+    @include def-color-level(inverted-bg-3, 500);
+    @include def-color-level(inverted-bg-2, 400);
+    @include def-color-level(inverted-bg-1, 300);
+    @include def-color-level(inverted-bg-0, 200);
+    @include def-color-level(inverted-bg-contrast, 100);
+  }
 }

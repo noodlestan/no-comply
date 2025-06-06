@@ -5,7 +5,7 @@ import type { AlignedToFirstLineMixinAPI, AlignedToFirstLineMixinProps } from '.
 export type IconMixinProps = AlignedToFirstLineMixinProps;
 
 export type IconMixinAPI = {
-    $root: AlignedToFirstLineMixinAPI['$root'] & {
-        classList: ClassList;
-    };
+	$root: AlignedToFirstLineMixinAPI['$root'] & {
+		classList: ClassList;
+	};
 };

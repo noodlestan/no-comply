@@ -9,6 +9,6 @@ export const $DISPLAY = 'component:standard:display';
 export const DISPLAY_OWN_PROPS = definePropKeys<DisplayOwnProps>()(['tag']);
 
 export const DISPLAY_PROPS = definePropKeys<DisplayProps>()([
-    ...DISPLAY_MIXIN_PROPS,
-    ...DISPLAY_OWN_PROPS,
+	...DISPLAY_MIXIN_PROPS,
+	...DISPLAY_OWN_PROPS,
 ]);

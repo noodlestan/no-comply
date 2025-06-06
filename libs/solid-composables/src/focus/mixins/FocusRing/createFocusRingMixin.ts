@@ -6,14 +6,14 @@ import { $FOCUS_RING_MIXIN } from './constants';
 import type { FocusRingMixinAPI } from './types';
 
 export const createFocusRingMixin = (): FocusRingMixinAPI => {
-    const [, expose] = createExposable($FOCUS_RING_MIXIN);
+	const [, expose] = createExposable($FOCUS_RING_MIXIN);
 
-    const classList = staticClassList(styles, 'FocusRing');
-    const $root = {
-        classList,
-    };
+	const classList = staticClassList(styles, 'FocusRing');
+	const $root = {
+		classList,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

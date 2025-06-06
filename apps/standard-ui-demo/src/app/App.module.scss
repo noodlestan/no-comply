@@ -1,19 +1,19 @@
 @layer app {
-    .AppMain {
-        /* opacity: 0.5; */
-        opacity: 1;
-        transition: opacity 0.5s;
-    }
+  .AppMain {
+    /* opacity: 0.5; */
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
 
-    .has-focus {
-        opacity: 1;
-    }
+  .has-focus {
+    opacity: 1;
+  }
 
-    .AppMain-variant-fabulous {
-        background-color: yellow;
-    }
+  .AppMain-variant-fabulous {
+    background-color: yellow;
+  }
 
-    .AppMain-variant-normal {
-        background-color: red;
-    }
+  .AppMain-variant-normal {
+    background-color: red;
+  }
 }

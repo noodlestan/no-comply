@@ -12,31 +12,31 @@ export type ContentMessageTemplateSize = 'small' | 'normal' | 'medium';
 export type ContentMessageTemplateLength = 'compact' | 'full';
 
 export type ContentMessageTemplateOwnProps = {
-    onClose?: () => void;
-    size?: ContentMessageTemplateSize;
-    length?: ContentMessageTemplateLength;
+	onClose?: () => void;
+	size?: ContentMessageTemplateSize;
+	length?: ContentMessageTemplateLength;
 };
 export type ContentMessageTemplateProps = ExposedDataProps &
-    ContentMessageAPI &
-    ContentMessageTemplateOwnProps;
+	ContentMessageAPI &
+	ContentMessageTemplateOwnProps;
 
 export type ContentMessageTemplateAPI = {
-    $root: ContentMessageAPI['$root'] & {
-        classList: ClassList;
-    };
-    $title: ContentMessageAPI['$title'] & {
-        classList: ClassList;
-    };
-    $description: ContentMessageAPI['$description'];
-    _icon: ContentMessageAPI['_icon'] & {
-        size: ContentSize;
-        classList: ClassList;
-    };
-    alignmentHeight: Accessor<SizeScale>;
-    padding: Accessor<LayoutPaddingShorthand>;
-    gap: Accessor<FlexGap>;
-    titleVariant: Accessor<DisplayVariant>;
-    descriptionVariant: Accessor<TextVariant>;
-    hasCloseButton: Accessor<boolean>;
-    closeButtonSize: Accessor<CloseButtonProps['size']>;
+	$root: ContentMessageAPI['$root'] & {
+		classList: ClassList;
+	};
+	$title: ContentMessageAPI['$title'] & {
+		classList: ClassList;
+	};
+	$description: ContentMessageAPI['$description'];
+	_icon: ContentMessageAPI['_icon'] & {
+		size: ContentSize;
+		classList: ClassList;
+	};
+	alignmentHeight: Accessor<SizeScale>;
+	padding: Accessor<LayoutPaddingShorthand>;
+	gap: Accessor<FlexGap>;
+	titleVariant: Accessor<DisplayVariant>;
+	descriptionVariant: Accessor<TextVariant>;
+	hasCloseButton: Accessor<boolean>;
+	closeButtonSize: Accessor<CloseButtonProps['size']>;
 };

@@ -4,22 +4,22 @@ import { type Component, Show } from 'solid-js';
 type Props = InputControllerProps<string>;
 
 export const CreateUsernameField: Component<Props> = props => {
-    return (
-        <Field size="medium" label="Username" required>
-            {({ field }) => (
-                <>
-                    <div {...field.$description}>Will be visible by other users.</div>
-                    <Show when={field.hasFeedback()}>
-                        <div {...field.$feedback}>error message</div>
-                    </Show>
-                    <TextInput
-                        size="m"
-                        value={props.value}
-                        onValueChange={props.onValueChange}
-                        {...field.$input}
-                    />
-                </>
-            )}
-        </Field>
-    );
+	return (
+		<Field size="medium" label="Username" required>
+			{({ field }) => (
+				<>
+					<div {...field.$description}>Will be visible by other users.</div>
+					<Show when={field.hasFeedback()}>
+						<div {...field.$feedback}>error message</div>
+					</Show>
+					<TextInput
+						size="m"
+						value={props.value}
+						onValueChange={props.onValueChange}
+						{...field.$input}
+					/>
+				</>
+			)}
+		</Field>
+	);
 };

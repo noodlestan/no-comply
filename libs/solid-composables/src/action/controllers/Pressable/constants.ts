@@ -6,6 +6,6 @@ import type { PressableProps } from './types';
 export const $PRESSABLE = 'controller:composable:pressable';
 
 export const PRESSABLE_PROPS = definePropKeys<PressableProps>()([
-    ...ARIA_PRESSABLE_PROPS,
-    ...PRESS_EVENT_HANDLERS,
+	...ARIA_PRESSABLE_PROPS,
+	...PRESS_EVENT_HANDLERS,
 ]);

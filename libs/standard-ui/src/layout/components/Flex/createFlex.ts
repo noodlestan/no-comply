@@ -8,12 +8,12 @@ import { $FLEX } from './constants';
 import { type FlexAPI, type FlexProps } from './types';
 
 export const createFlex = (props: FlexProps): FlexAPI => {
-    const [locals, expose, compose] = createExposable($FLEX, props);
+	const [locals, expose, compose] = createExposable($FLEX, props);
 
-    const { $root: $layoutRoot } = compose(createLayout(locals));
-    const { $root: $flexMixinRoot } = compose(createFlexMixin(locals));
+	const { $root: $layoutRoot } = compose(createLayout(locals));
+	const { $root: $flexMixinRoot } = compose(createFlexMixin(locals));
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($layoutRoot, $flexMixinRoot),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($layoutRoot, $flexMixinRoot),
+	});
 };

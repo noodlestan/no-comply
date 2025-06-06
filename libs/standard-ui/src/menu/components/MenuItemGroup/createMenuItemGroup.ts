@@ -8,37 +8,33 @@ import { $MENU_ITEM_GROUP } from './constants';
 import type { MenuItemGroupAPI, MenuItemGroupProps } from './types';
 
 export const createMenuItemGroup = (props: MenuItemGroupProps): MenuItemGroupAPI => {
-    const [locals, expose, compose] = createExposable($MENU_ITEM_GROUP, props);
+	const [locals, expose, compose] = createExposable($MENU_ITEM_GROUP, props);
 
-    const {
-        $root: $headlessRoot,
-        $label: $headlessLabel,
-        $description: $headlessDescription,
-        ...rest
-    } = compose(createHeadlessMenuItemGroup(locals));
+	const {
+		$root: $headlessRoot,
+		$label: $headlessLabel,
+		$description: $headlessDescription,
+		...rest
+	} = compose(createHeadlessMenuItemGroup(locals));
 
-    const {
-        $root: $groupMixinRoot,
-        $label: $groupMixinLabel,
-        $description: $groupMixinDescription,
-    } = compose(createMenuItemGroupMixin());
+	const {
+		$root: $groupMixinRoot,
+		$label: $groupMixinLabel,
+		$description: $groupMixinDescription,
+	} = compose(createMenuItemGroupMixin());
 
-    const _label = {
-        variant: 'normal',
-    } as const;
+	const _label = {
+		variant: 'normal',
+	} as const;
 
-    const _textDescription = {
-        variant: 'small',
-    } as const;
+	const _textDescription = {
+		variant: 'small',
+	} as const;
 
-    return exposeAPI(expose, '$root', {
-        ...rest,
-        $root: combineProps($headlessRoot, $groupMixinRoot),
-        _label: combineProps($headlessLabel, $groupMixinLabel, _label),
-        _textDescription: combineProps(
-            $headlessDescription,
-            $groupMixinDescription,
-            _textDescription,
-        ),
-    });
+	return exposeAPI(expose, '$root', {
+		...rest,
+		$root: combineProps($headlessRoot, $groupMixinRoot),
+		_label: combineProps($headlessLabel, $groupMixinLabel, _label),
+		_textDescription: combineProps($headlessDescription, $groupMixinDescription, _textDescription),
+	});
 };

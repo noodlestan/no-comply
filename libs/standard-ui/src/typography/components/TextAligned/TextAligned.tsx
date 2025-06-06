@@ -9,10 +9,10 @@ import type { TextAlignedProps } from './types';
 type Props = ClosedTagProps & TextAlignedProps;
 
 export const TextAligned: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, TEXT_ALIGNED_PROPS);
+	const [locals, $others] = splitProps(props, TEXT_ALIGNED_PROPS);
 
-    const { $root } = createTextAligned(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createTextAligned(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

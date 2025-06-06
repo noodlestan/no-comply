@@ -7,6 +7,6 @@ import nowrap from './50-nowrap';
 import aligned from './60-aligned';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [level, variant, tag, nowrap, aligned],
+	title: 'Props',
+	items: [level, variant, tag, nowrap, aligned],
 });

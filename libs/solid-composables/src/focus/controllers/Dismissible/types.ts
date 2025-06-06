@@ -1,12 +1,12 @@
 import type { PressOutsideAPI, PressOutsideProps } from '../PressOutside';
 
 export type DismissibleProps = Pick<PressOutsideProps, 'exclude'> & {
-    onDismiss: () => void;
+	onDismiss: () => void;
 };
 
 export type DismissibleAPI = {
-    $root: PressOutsideAPI['$root'] & {
-        ref: (el: HTMLElement) => void;
-        onKeyDown: (ev: KeyboardEvent) => void;
-    };
+	$root: PressOutsideAPI['$root'] & {
+		ref: (el: HTMLElement) => void;
+		onKeyDown: (ev: KeyboardEvent) => void;
+	};
 };

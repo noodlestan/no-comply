@@ -8,19 +8,19 @@ import { createCallout } from './createCallout';
 import type { CalloutProps } from './types';
 
 type Props = ClosedTagProps &
-    CalloutProps & {
-        children?: JSX.Element;
-    };
+	CalloutProps & {
+		children?: JSX.Element;
+	};
 
 export const Callout: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, [...CALLOUT_PROPS, 'children']);
+	const [locals, $others] = splitProps(props, [...CALLOUT_PROPS, 'children']);
 
-    const { $root, _template, ...rest } = createCallout(locals);
-    const $ = combineProps($root, $others);
+	const { $root, _template, ...rest } = createCallout(locals);
+	const $ = combineProps($root, $others);
 
-    return (
-        <ContentMessageTemplate $root={$} {..._template} {...rest}>
-            {locals.children}
-        </ContentMessageTemplate>
-    );
+	return (
+		<ContentMessageTemplate $root={$} {..._template} {...rest}>
+			{locals.children}
+		</ContentMessageTemplate>
+	);
 };

@@ -3,8 +3,8 @@ import type { StaticMessageAPI, StaticMessageProps } from '@no-comply/solid-comp
 import type { ContentMessageTemplateOwnProps } from '../../templates';
 
 export type CalloutProps = Omit<StaticMessageProps, 'aria-describedby'> &
-    Omit<ContentMessageTemplateOwnProps, 'onClose'>;
+	Omit<ContentMessageTemplateOwnProps, 'onClose'>;
 
 export type CalloutAPI = StaticMessageAPI & {
-    _template: ContentMessageTemplateOwnProps;
+	_template: ContentMessageTemplateOwnProps;
 };

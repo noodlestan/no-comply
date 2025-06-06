@@ -6,14 +6,14 @@ import { $CALLOUT } from './constants';
 import type { CalloutAPI, CalloutProps } from './types';
 
 export const createCallout = (props: CalloutProps): CalloutAPI => {
-    const [locals, expose, compose] = createExposable($CALLOUT, props);
+	const [locals, expose, compose] = createExposable($CALLOUT, props);
 
-    const message = compose(createStaticMessage(locals));
+	const message = compose(createStaticMessage(locals));
 
-    const [_template] = splitProps(props, ['size', 'length']);
+	const [_template] = splitProps(props, ['size', 'length']);
 
-    return exposeAPI(expose, '_template', {
-        ...message,
-        _template,
-    });
+	return exposeAPI(expose, '_template', {
+		...message,
+		_template,
+	});
 };

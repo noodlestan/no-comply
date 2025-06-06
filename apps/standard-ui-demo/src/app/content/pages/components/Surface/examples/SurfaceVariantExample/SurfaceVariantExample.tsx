@@ -5,15 +5,15 @@ import { type ParentComponent } from 'solid-js';
 import styles from './SurfaceVariantExample.module.scss';
 
 type Props = {
-    onVariant: SurfaceVariant;
+	onVariant: SurfaceVariant;
 };
 
 export const SurfaceVariantExample: ParentComponent<Props> = props => {
-    return (
-        <Flex gap="s" classList={staticClassList(styles, 'SurfaceVariantExample')}>
-            <Surface variant={props.onVariant}>
-                <Flex padding="l">{props.children}</Flex>
-            </Surface>
-        </Flex>
-    );
+	return (
+		<Flex gap="s" classList={staticClassList(styles, 'SurfaceVariantExample')}>
+			<Surface variant={props.onVariant}>
+				<Flex padding="l">{props.children}</Flex>
+			</Surface>
+		</Flex>
+	);
 };

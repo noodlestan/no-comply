@@ -5,16 +5,16 @@ import { $ICON } from './constants';
 import type { IconAPI, IconProps } from './types';
 
 export const createIcon = (props: IconProps): IconAPI => {
-    const [locals, expose] = createExposable($ICON, props);
+	const [locals, expose] = createExposable($ICON, props);
 
-    const $static = {
-        component: 'span' as const,
-    };
-    const $root = computedProps($static, {
-        children: () => locals.icon({}),
-    });
+	const $static = {
+		component: 'span' as const,
+	};
+	const $root = computedProps($static, {
+		children: () => locals.icon({}),
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

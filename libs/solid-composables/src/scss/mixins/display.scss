@@ -1,10 +1,10 @@
 @mixin display($value) {
-    &:not([popover]):not(:is(dialog)) {
-        display: $value;
-    }
+  &:not([popover]):not(:is(dialog)) {
+    display: $value;
+  }
 
-    &[popover]:popover-open,
-    &[open]:is(dialog) {
-        display: $value;
-    }
+  &[popover]:popover-open,
+  &[open]:is(dialog) {
+    display: $value;
+  }
 }

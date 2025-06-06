@@ -1,97 +1,97 @@
 @layer lib.standard-ui.checkbox {
-    .Checkbox {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        pointer-events: all;
-        padding: 3px;
+  .Checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    padding: 3px;
 
-        input {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-            outline: none;
-        }
-        svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* for DevX sake */
-            stroke-width: var(--input-checkbox-stroke);
-            color: transparent;
-            transition: color ease var(--animation-duration-short);
-        }
+    input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      outline: none;
     }
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* for DevX sake */
+      stroke-width: var(--input-checkbox-stroke);
+      color: transparent;
+      transition: color ease var(--animation-duration-short);
+    }
+  }
 
-    .-Control {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        background-color: hsla(var(--input-bg), var(--o-input-fg));
-        border: var(--input-checkbox-border);
-        border-color: hsla(var(--input-checkbox-border-color), var(--o-input-border));
-        border-radius: var(--input-border-radius);
-        cursor: pointer;
-        transition: background-color ease var(--animation-duration-short);
-    }
+  .-Control {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(var(--input-bg), var(--o-input-fg));
+    border: var(--input-checkbox-border);
+    border-color: hsla(var(--input-checkbox-border-color), var(--o-input-border));
+    border-radius: var(--input-border-radius);
+    cursor: pointer;
+    transition: background-color ease var(--animation-duration-short);
+  }
 
-    .size-s {
-        height: var(--size-xs);
-        width: var(--size-xs);
-    }
+  .size-s {
+    height: var(--size-xs);
+    width: var(--size-xs);
+  }
 
-    .size-m {
-        height: var(--size-s);
-        width: var(--size-s);
-    }
+  .size-m {
+    height: var(--size-s);
+    width: var(--size-s);
+  }
 
-    .size-l {
-        height: var(--size-l);
-        width: var(--size-l);
-    }
+  .size-l {
+    height: var(--size-l);
+    width: var(--size-l);
+  }
 
-    .is-checked .-Control {
-        background-color: hsla(var(--color-selected), var(--o-input-fg));
-    }
+  .is-checked .-Control {
+    background-color: hsla(var(--color-selected), var(--o-input-fg));
+  }
 
-    .is-checked svg,
-    :hover.is-checked svg {
-        color: hsla(var(--input-bg), var(--o-input-fg));
-    }
+  .is-checked svg,
+  :hover.is-checked svg {
+    color: hsla(var(--input-bg), var(--o-input-fg));
+  }
 
-    :focus-within .-Control {
-        outline-offset: var(--outline-offset);
-        outline-style: var(--outline-style);
-        outline-width: var(--outline-width);
-        outline-color: --f-color(var(--outline-palette));
-    }
+  :focus-within .-Control {
+    outline-offset: var(--outline-offset);
+    outline-style: var(--outline-style);
+    outline-width: var(--outline-width);
+    outline-color: --f-color(var(--outline-palette));
+  }
 
-    .is-modified .-Control {
-        border-color: hsla(var(--data-modified-border-color), var(--o-surface-outline));
-    }
+  .is-modified .-Control {
+    border-color: hsla(var(--data-modified-border-color), var(--o-surface-outline));
+  }
 
-    .is-modified.is-checked:not(.is-disabled) .-Control {
-        background-color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
-    }
+  .is-modified.is-checked:not(.is-disabled) .-Control {
+    background-color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
+  }
 
-    .is-invalid .-Control {
-        border-color: hsla(var(--data-error-border-color), var(--o-surface-outline));
-    }
+  .is-invalid .-Control {
+    border-color: hsla(var(--data-error-border-color), var(--o-surface-outline));
+  }
 
-    .is-invalid.is-checked:not(.is-disabled) .-Control {
-        background-color: hsla(var(--data-error-fg-color), var(--o-input-fg));
-    }
+  .is-invalid.is-checked:not(.is-disabled) .-Control {
+    background-color: hsla(var(--data-error-fg-color), var(--o-input-fg));
+  }
 
-    .is-disabled .-Control {
-        color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
-        background-color: hsla(var(--action-disabled-bg-color), var(--o-action-bg));
-        cursor: default;
-    }
+  .is-disabled .-Control {
+    color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
+    background-color: hsla(var(--action-disabled-bg-color), var(--o-action-bg));
+    cursor: default;
+  }
 }

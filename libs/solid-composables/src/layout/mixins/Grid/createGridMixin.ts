@@ -9,31 +9,31 @@ import { $GRID_MIXIN } from './constants';
 import type { GridMixinAPI, GridMixinProps } from './types';
 
 export function createGridMixin(
-    props: GridMixinProps,
-    breakpoints: readonly string[] = [],
+	props: GridMixinProps,
+	breakpoints: readonly string[] = [],
 ): GridMixinAPI {
-    const [locals, expose] = createExposable($GRID_MIXIN, props);
+	const [locals, expose] = createExposable($GRID_MIXIN, props);
 
-    // const columns = () => props.columns ?? defaults.columns;
-    // const rows = () => props.rows ?? defaults.rows;
+	// const columns = () => props.columns ?? defaults.columns;
+	// const rows = () => props.rows ?? defaults.rows;
 
-    const [gap, rowGap, columnGap] = splitAxisShorthand(resolveGapProps(locals));
+	const [gap, rowGap, columnGap] = splitAxisShorthand(resolveGapProps(locals));
 
-    const classList = createClassList(styles, () => ({
-        Grid: true,
-        ...responsiveVariantClassList(breakpoints, 'gap', gap()),
-        ...responsiveVariantClassList(breakpoints, 'row-gap', rowGap()),
-        ...responsiveVariantClassList(breakpoints, 'column-gap', columnGap()),
-        // ...responsiveVariantClassList(breakpoints, 'columns', columns()),
-        // ...responsiveVariantClassList(breakpoints, 'rows', rows()),
-        [`autoFlow-${locals.flow}`]: Boolean(locals.flow),
-    }));
+	const classList = createClassList(styles, () => ({
+		Grid: true,
+		...responsiveVariantClassList(breakpoints, 'gap', gap()),
+		...responsiveVariantClassList(breakpoints, 'row-gap', rowGap()),
+		...responsiveVariantClassList(breakpoints, 'column-gap', columnGap()),
+		// ...responsiveVariantClassList(breakpoints, 'columns', columns()),
+		// ...responsiveVariantClassList(breakpoints, 'rows', rows()),
+		[`autoFlow-${locals.flow}`]: Boolean(locals.flow),
+	}));
 
-    const $root = computedProps({
-        classList,
-    });
+	const $root = computedProps({
+		classList,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 }

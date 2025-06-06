@@ -9,14 +9,14 @@ import { $ACTION_LABEL_ALIGNED } from './constants';
 import type { ActionLabelAlignedAPI, ActionLabelAlignedProps } from './types';
 
 export const createActionLabelAligned = (props: ActionLabelAlignedProps): ActionLabelAlignedAPI => {
-    const [locals, expose, compose] = createExposable($ACTION_LABEL_ALIGNED, props);
+	const [locals, expose, compose] = createExposable($ACTION_LABEL_ALIGNED, props);
 
-    const alignedProps = useAlignFirstLine<ComposableActionLabelProps>('action');
-    const merged = combineProps(locals, alignedProps, { aligned: true });
+	const alignedProps = useAlignFirstLine<ComposableActionLabelProps>('action');
+	const merged = combineProps(locals, alignedProps, { aligned: true });
 
-    const { $root: $actionLabelRoot } = compose(createActionLabel(merged));
+	const { $root: $actionLabelRoot } = compose(createActionLabel(merged));
 
-    return exposeAPI(expose, '$root', {
-        $root: $actionLabelRoot,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: $actionLabelRoot,
+	});
 };

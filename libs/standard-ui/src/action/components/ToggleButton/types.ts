@@ -4,10 +4,10 @@ import type { ToggleActionAPI, ToggleActionProps } from '@no-comply/solid-compos
 import type { IconButtonProps } from '../IconButton';
 
 export type ToggleButtonProps = Pick<IconButtonProps, 'size' | 'onPress' | 'disabled'> &
-    ToggleActionProps;
+	ToggleActionProps;
 
 export type ToggleButtonAPI = {
-    _iconButton: Pick<IconButtonProps, 'variant' | 'size' | 'onPress' | 'disabled'> &
-        Omit<AriaSwitchAPI['$root'], 'type'> &
-        ToggleActionAPI['_icon'];
+	_iconButton: Pick<IconButtonProps, 'variant' | 'size' | 'onPress' | 'disabled'> &
+		Omit<AriaSwitchAPI['$root'], 'type'> &
+		ToggleActionAPI['_icon'];
 };

@@ -1,19 +1,19 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer lib.standard-ui.link {
-    .Link {
-        text-decoration: underline;
-        border-radius: var(--link-border-radius);
-        @include set-color(__fg, interactive, fg-saturated, content-fg);
+  .Link {
+    text-decoration: underline;
+    border-radius: var(--link-border-radius);
+    @include set-color(__fg, interactive, fg-saturated, content-fg);
 
-        @include apply-color(color, __fg);
-    }
+    @include apply-color(color, __fg);
+  }
 
-    .Link:not([data-disabled]):hover {
-        @include set-level(__fg, fg-primary);
-    }
+  .Link:not([data-disabled]):hover {
+    @include set-level(__fg, fg-primary);
+  }
 
-    .Link[data-disabled] {
-        @include set-color(__fg, disabled, fg-disabled, content-fg);
-    }
+  .Link[data-disabled] {
+    @include set-color(__fg, disabled, fg-disabled, content-fg);
+  }
 }

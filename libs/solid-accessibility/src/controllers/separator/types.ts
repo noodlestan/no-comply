@@ -4,14 +4,14 @@ import type { AriaAttributes } from '../../types';
 export type SeparatorOrientation = 'button' | 'submit' | 'reset';
 
 export type AriaSeparatorProps = {
-    tag?: SeparatorTagName;
-    orientation?: AriaAttributes['aria-orientation'];
+	tag?: SeparatorTagName;
+	orientation?: AriaAttributes['aria-orientation'];
 };
 
 export type AriaSeparatorAPI = {
-    $root: {
-        component: SeparatorTagName;
-        role: 'separator' | undefined;
-        'aria-orientation': AriaAttributes['aria-orientation'];
-    };
+	$root: {
+		component: SeparatorTagName;
+		role: 'separator' | undefined;
+		'aria-orientation': AriaAttributes['aria-orientation'];
+	};
 };

@@ -9,10 +9,10 @@ import type { DisplayProps } from './types';
 type Props = ClosedTagProps & DisplayProps;
 
 export const Display: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, DISPLAY_PROPS);
+	const [locals, $others] = splitProps(props, DISPLAY_PROPS);
 
-    const { $root } = createDisplay(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createDisplay(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

@@ -6,34 +6,34 @@ export type AnchoredPopoverBaseTriggerProps = AnchoredPopoverAPI['$trigger'];
 export type AnchoredPopoverBaseChildrenProps = AnchoredPopoverAPI['$content'];
 
 export type AnchoredPopoverTriggerProps = {
-    id?: string;
-    targetId: string;
-    expanded: boolean;
-    ref?: (el: HTMLElement) => void;
+	id?: string;
+	targetId: string;
+	expanded: boolean;
+	ref?: (el: HTMLElement) => void;
 };
 
 export type AnchoredPopoverTriggerAPI = {
-    $root: {
-        id: string;
-        popoverTarget: string;
-        popoverTargetAction: 'toggle';
-        'aria-haspopup': 'true';
-        'aria-expanded': boolean;
-        ref?: (el: HTMLElement) => void;
-    };
+	$root: {
+		id: string;
+		popoverTarget: string;
+		popoverTargetAction: 'toggle';
+		'aria-haspopup': 'true';
+		'aria-expanded': boolean;
+		ref?: (el: HTMLElement) => void;
+	};
 };
 
 export type AnchoredPopoverProps = PopoverContextOptions & PlacementProps;
 
 export type AnchoredPopoverAPI = {
-    $root: PopoverAPI['$root'] & {
-        component: 'div';
-    };
-    $trigger: AnchoredPopoverTriggerAPI['$root'];
-    $content: {
-        id: string;
-        ['aria-labelledby']: string;
-    };
-    context: PopoverContext;
-    contextValue: PopoverContextValue;
+	$root: PopoverAPI['$root'] & {
+		component: 'div';
+	};
+	$trigger: AnchoredPopoverTriggerAPI['$root'];
+	$content: {
+		id: string;
+		['aria-labelledby']: string;
+	};
+	context: PopoverContext;
+	contextValue: PopoverContextValue;
 };

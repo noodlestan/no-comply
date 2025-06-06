@@ -5,13 +5,13 @@ import { itemProps as props } from '../constants';
 import { createCheckboxExampleController } from '../controllers';
 
 export default createDocsSectionData({
-    title: 'modified',
-    items: [
-        createDocsItemData({ props }, () => {
-            const { value, handleValueChange } = createCheckboxExampleController({
-                value: true,
-            });
-            return <Checkbox checked={value()} onValueChange={handleValueChange} modified />;
-        }),
-    ],
+	title: 'modified',
+	items: [
+		createDocsItemData({ props }, () => {
+			const { value, handleValueChange } = createCheckboxExampleController({
+				value: true,
+			});
+			return <Checkbox checked={value()} onValueChange={handleValueChange} modified />;
+		}),
+	],
 });

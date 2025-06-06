@@ -9,16 +9,16 @@ import { $LINK_MIXIN } from './constants';
 import type { LinkMixinAPI, LinkMixinProps } from './types';
 
 export const createLinkMixin = (props: LinkMixinProps = {}): LinkMixinAPI => {
-    const [locals, expose, compose] = createExposable($LINK_MIXIN, props);
+	const [locals, expose, compose] = createExposable($LINK_MIXIN, props);
 
-    const { $root: $linkMixinRoot } = compose(createHeadlessLinkMixin());
-    const { $root: $focusRing } = compose(createFocusRingMixin(locals));
+	const { $root: $linkMixinRoot } = compose(createHeadlessLinkMixin());
+	const { $root: $focusRing } = compose(createFocusRingMixin(locals));
 
-    const $root = {
-        classList: staticClassList(styles, `Link`),
-    };
+	const $root = {
+		classList: staticClassList(styles, `Link`),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($linkMixinRoot, $focusRing, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($linkMixinRoot, $focusRing, $root),
+	});
 };

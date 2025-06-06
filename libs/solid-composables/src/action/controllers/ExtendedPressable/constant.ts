@@ -7,8 +7,8 @@ import type { ExtendedPressableProps } from './types';
 export const $EXTENDED_PRESSABLE = 'controller:composable:extended-pressable';
 
 export const EXTENDED_PRESSABLE_PROPS = definePropKeys<ExtendedPressableProps>()([
-    ...PRESSABLE_PROPS,
-    ...EXTENDED_PRESS_EVENT_HANDLERS,
-    'doublePressThreshold',
-    'longPressThreshold',
+	...PRESSABLE_PROPS,
+	...EXTENDED_PRESS_EVENT_HANDLERS,
+	'doublePressThreshold',
+	'longPressThreshold',
 ]);

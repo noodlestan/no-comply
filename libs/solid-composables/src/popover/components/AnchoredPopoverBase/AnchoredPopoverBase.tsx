@@ -11,20 +11,20 @@ import type { AnchoredPopoverBaseProps } from './types';
 type Props = ClosedTagProps & AnchoredPopoverBaseProps;
 
 export const AnchoredPopoverBase: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, [
-        ...ANCHORED_POPOVER_BASE_PROPS,
-        'trigger',
-        'children',
-    ]);
+	const [locals, $others] = splitProps(props, [
+		...ANCHORED_POPOVER_BASE_PROPS,
+		'trigger',
+		'children',
+	]);
 
-    const { $root, $trigger, $content, contextValue } = createAnchoredPopoverBase(locals);
+	const { $root, $trigger, $content, contextValue } = createAnchoredPopoverBase(locals);
 
-    const $ = combineProps($others, $root);
+	const $ = combineProps($others, $root);
 
-    return (
-        <PopoverContextProvider context={contextValue}>
-            {locals.trigger($trigger)}
-            <Dynamic {...$}>{locals.children($content)}</Dynamic>
-        </PopoverContextProvider>
-    );
+	return (
+		<PopoverContextProvider context={contextValue}>
+			{locals.trigger($trigger)}
+			<Dynamic {...$}>{locals.children($content)}</Dynamic>
+		</PopoverContextProvider>
+	);
 };

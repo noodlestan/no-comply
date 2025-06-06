@@ -9,6 +9,6 @@ export const $ACTION_LABEL = 'component:standard:action-label';
 export const ACTION_LABEL_OWN_PROPS = definePropKeys<ActionLabelOwnProps>()(['tag']);
 
 export const ACTION_LABEL_PROPS = definePropKeys<ActionLabelProps>()([
-    ...ACTION_LABEL_MIXIN_PROPS,
-    ...ACTION_LABEL_OWN_PROPS,
+	...ACTION_LABEL_MIXIN_PROPS,
+	...ACTION_LABEL_OWN_PROPS,
 ]);

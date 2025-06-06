@@ -8,6 +8,6 @@ import type { TreeListItemDetailsProps } from './types';
 export const $TREE_LIST_ITEM_DETAILS = 'controller:composable:tree-list-item-details';
 
 export const TREE_LIST_ITEM_DETAILS_PROPS = definePropKeys<TreeListItemDetailsProps>()([
-    ...ARIA_LABELLED_PROPS,
-    ...TREE_LIST_ITEM_COMMON_PROPS,
+	...ARIA_LABELLED_PROPS,
+	...TREE_LIST_ITEM_COMMON_PROPS,
 ]);

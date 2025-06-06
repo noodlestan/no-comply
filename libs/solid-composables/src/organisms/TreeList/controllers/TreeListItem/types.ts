@@ -7,20 +7,20 @@ import type { TreeListItemChildrenProps } from '../TreeListItemChildren';
 import type { TreeListItemDetailsProps } from '../TreeListItemDetails';
 
 export type TreeListItemProps = AriaLabelledProps & {
-    node: TreeNode;
-    expand: boolean | number | undefined;
-    level?: number;
-    parent?: TreeNode;
-    parentSelected?: boolean;
-    setSize?: number;
-    posInSet?: number;
+	node: TreeNode;
+	expand: boolean | number | undefined;
+	level?: number;
+	parent?: TreeNode;
+	parentSelected?: boolean;
+	setSize?: number;
+	posInSet?: number;
 };
 
 export type TreeListItemAPI = {
-    $root: AriaTreeItemAPI['$root'] & {
-        component: 'div';
-    };
-    _treeListItemDetails: PropsWithComponent<TreeListItemDetailsProps>;
-    _treeListItemChildren: PropsWithComponent<TreeListItemChildrenProps>;
-    isExpanded: Accessor<boolean>;
+	$root: AriaTreeItemAPI['$root'] & {
+		component: 'div';
+	};
+	_treeListItemDetails: PropsWithComponent<TreeListItemDetailsProps>;
+	_treeListItemChildren: PropsWithComponent<TreeListItemChildrenProps>;
+	isExpanded: Accessor<boolean>;
 };

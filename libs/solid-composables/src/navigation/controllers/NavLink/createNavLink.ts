@@ -5,28 +5,28 @@ import { $NAV_LINK } from './constants';
 import type { NavLinkAPI, NavLinkProps } from './types';
 
 const defaultProps: Required<Pick<NavLinkProps, 'mode'>> = {
-    mode: 'page',
+	mode: 'page',
 };
 
 export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
-    const [locals, expose] = createExposable($NAV_LINK, props);
+	const [locals, expose] = createExposable($NAV_LINK, props);
 
-    const { isCurrent } = useNavigation();
+	const { isCurrent } = useNavigation();
 
-    const isCurrentNav = () =>
-        locals.current !== undefined ? locals.current : isCurrent(locals.href, locals.exact);
+	const isCurrentNav = () =>
+		locals.current !== undefined ? locals.current : isCurrent(locals.href, locals.exact);
 
-    const mode = () => {
-        const m = locals.mode ?? defaultProps.mode;
-        return m === 'section' ? true : m;
-    };
+	const mode = () => {
+		const m = locals.mode ?? defaultProps.mode;
+		return m === 'section' ? true : m;
+	};
 
-    const $root = computedProps({
-        'data-nav-link-current': () => (isCurrentNav() ? '' : undefined),
-        'aria-current': () => (isCurrentNav() ? mode() : undefined),
-    });
+	const $root = computedProps({
+		'data-nav-link-current': () => (isCurrentNav() ? '' : undefined),
+		'aria-current': () => (isCurrentNav() ? mode() : undefined),
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

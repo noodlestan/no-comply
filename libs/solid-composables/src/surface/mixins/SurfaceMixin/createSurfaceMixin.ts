@@ -6,13 +6,13 @@ import { $SURFACE_MIXIN } from './constants';
 import type { SurfaceMixinAPI } from './types';
 
 export const createSurfaceMixin = (): SurfaceMixinAPI => {
-    const [, expose] = createExposable($SURFACE_MIXIN);
+	const [, expose] = createExposable($SURFACE_MIXIN);
 
-    const $root = {
-        classList: staticClassList(styles, 'Surface'),
-    };
+	const $root = {
+		classList: staticClassList(styles, 'Surface'),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

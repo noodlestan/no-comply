@@ -3,48 +3,48 @@
 @use '../../../scss/mixins/variants.scss' as *;
 
 @layer composables {
-    @layer layout, grid;
+  @layer layout, grid;
 }
 
 @layer composables.grid {
-    .Grid {
-        display: grid;
-        grid-auto-flow: row;
-    }
+  .Grid {
+    display: grid;
+    grid-auto-flow: row;
+  }
 
-    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
-        @include variant-classes('gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
-            gap: $value;
-        }
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
+      gap: $value;
     }
+  }
 
-    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
-        @include variant-classes('row-gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
-            row-gap: $value;
-        }
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('row-gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
+      row-gap: $value;
     }
+  }
 
-    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
-        @include variant-classes('column-gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
-            column-gap: $value;
-        }
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('column-gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
+      column-gap: $value;
     }
+  }
 
-    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
-        @include variant-classes('columns', $NC_GRID_COLUMNS_VARIANTS, $bp) using ($key, $value) {
-            grid-template-columns: repeat($value, 1fr);
-        }
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('columns', $NC_GRID_COLUMNS_VARIANTS, $bp) using ($key, $value) {
+      grid-template-columns: repeat($value, 1fr);
     }
+  }
 
-    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
-        @include variant-classes('rows', $NC_GRID_ROWS_VARIANTS, $bp) using ($key, $value) {
-            grid-template-rows: repeat($value, 1fr);
-        }
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('rows', $NC_GRID_ROWS_VARIANTS, $bp) using ($key, $value) {
+      grid-template-rows: repeat($value, 1fr);
     }
+  }
 
-    @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
-        @include variant-classes('rows', $NC_GRID_FLOW_VARIANTS, $bp) using ($key, $value) {
-            grid-auto-flow: $value;
-        }
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('rows', $NC_GRID_FLOW_VARIANTS, $bp) using ($key, $value) {
+      grid-auto-flow: $value;
     }
+  }
 }

@@ -7,7 +7,7 @@ import type { PopoverProps } from './types';
 export const $POPOVER = 'controller:composable:popover';
 
 export const POPOVER_PROPS = definePropKeys<PopoverProps>()([
-    ...POPOVER_CONTEXT_OPTIONS,
-    'onShow',
-    'onHide',
+	...POPOVER_CONTEXT_OPTIONS,
+	'onShow',
+	'onHide',
 ]);

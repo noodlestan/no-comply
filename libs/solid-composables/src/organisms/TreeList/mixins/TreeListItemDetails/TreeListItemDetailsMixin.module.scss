@@ -1,34 +1,34 @@
 @layer composables {
-    .TreeListItemDetails {
-        --tree-list-item-indent: calc(
-            var(--tree-list-indent-level, 0) * var(--tree-list-item-indent-space)
-        );
-        padding-inline-start: var(--tree-list-item-indent);
-        padding-block: var(--tree-list-item-padding-block);
-        position: relative;
-    }
+  .TreeListItemDetails {
+    --tree-list-item-indent: calc(
+      var(--tree-list-indent-level, 0) * var(--tree-list-item-indent-space)
+    );
+    padding-inline-start: var(--tree-list-item-indent);
+    padding-block: var(--tree-list-item-padding-block);
+    position: relative;
+  }
 
-    .-Focusable {
-        position: relative;
-        z-index: 0;
-        width: 100%;
-        padding: var(--space-gap--1);
-        border-radius: var(--radius-xs);
-    }
+  .-Focusable {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    padding: var(--space-gap--1);
+    border-radius: var(--radius-xs);
+  }
 
-    .-Toggle {
-        position: relative;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-    }
+  .-Toggle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
 
-    .-Toggle > button {
-        position: absolute;
-        right: var(--space-gap--1);
-    }
+  .-Toggle > button {
+    position: absolute;
+    right: var(--space-gap--1);
+  }
 
-    .-Contents {
-        z-index: 0;
-    }
+  .-Contents {
+    z-index: 0;
+  }
 }

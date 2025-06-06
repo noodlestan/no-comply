@@ -3,16 +3,16 @@ export const LOREM_IPSUM = `Lorem ipsum dolor sit amet, consectetur adipiscing e
 export const WORDS = LOREM_IPSUM.split(/\s+/);
 
 export const WORDS_BY_LENGTH: string[] = [
-    'a',
-    'ut',
-    'non',
-    'lore',
-    'dolor',
-    'aliqua',
-    'tincidu',
-    'accumsan',
-    'vestibulu',
-    'adipiscing',
-    'consectetur',
-    'pellentesque',
+	'a',
+	'ut',
+	'non',
+	'lore',
+	'dolor',
+	'aliqua',
+	'tincidu',
+	'accumsan',
+	'vestibulu',
+	'adipiscing',
+	'consectetur',
+	'pellentesque',
 ];

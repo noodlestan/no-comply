@@ -4,7 +4,7 @@ import type { AriaRegionAPI } from '../region';
 export type AriaDialogProps = AriaLabelledProps;
 
 export interface AriaDialogAPI {
-    $root: AriaRegionAPI<'dialog'>['$root'];
-    $label: AriaLabelledAPI['$label'];
-    $description: AriaLabelledAPI['$description'];
+	$root: AriaRegionAPI<'dialog'>['$root'];
+	$label: AriaLabelledAPI['$label'];
+	$description: AriaLabelledAPI['$description'];
 }

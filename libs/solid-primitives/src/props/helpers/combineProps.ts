@@ -10,82 +10,82 @@ import type { AccessorOrValue, AnyProps } from '../types';
 import { $COMPUTED, getMergedProperty, resolveSource } from './private';
 
 export function combineProps<T extends AnyProps = AnyProps, U extends AnyProps = AnyProps>(
-    source1: AccessorOrValue<T>,
-    source2: AccessorOrValue<U>,
+	source1: AccessorOrValue<T>,
+	source2: AccessorOrValue<U>,
 ): T & U;
 export function combineProps<
-    T extends AnyProps = AnyProps,
-    U extends AnyProps = AnyProps,
-    V extends AnyProps = AnyProps,
+	T extends AnyProps = AnyProps,
+	U extends AnyProps = AnyProps,
+	V extends AnyProps = AnyProps,
 >(source1: AccessorOrValue<T>, source2: AccessorOrValue<U>, source3: AccessorOrValue<V>): T & U & V;
 export function combineProps<
-    T extends AnyProps = AnyProps,
-    U extends AnyProps = AnyProps,
-    V extends AnyProps = AnyProps,
-    W extends AnyProps = AnyProps,
+	T extends AnyProps = AnyProps,
+	U extends AnyProps = AnyProps,
+	V extends AnyProps = AnyProps,
+	W extends AnyProps = AnyProps,
 >(
-    source1: AccessorOrValue<T>,
-    source2: AccessorOrValue<U>,
-    source3: AccessorOrValue<V>,
-    source4: AccessorOrValue<W>,
+	source1: AccessorOrValue<T>,
+	source2: AccessorOrValue<U>,
+	source3: AccessorOrValue<V>,
+	source4: AccessorOrValue<W>,
 ): T & U & V & W;
 export function combineProps<
-    T extends AnyProps = AnyProps,
-    U extends AnyProps = AnyProps,
-    V extends AnyProps = AnyProps,
-    W extends AnyProps = AnyProps,
-    X extends AnyProps = AnyProps,
+	T extends AnyProps = AnyProps,
+	U extends AnyProps = AnyProps,
+	V extends AnyProps = AnyProps,
+	W extends AnyProps = AnyProps,
+	X extends AnyProps = AnyProps,
 >(
-    source1: AccessorOrValue<T>,
-    source2: AccessorOrValue<U>,
-    source3: AccessorOrValue<V>,
-    source4: AccessorOrValue<W>,
-    source5: AccessorOrValue<X>,
+	source1: AccessorOrValue<T>,
+	source2: AccessorOrValue<U>,
+	source3: AccessorOrValue<V>,
+	source4: AccessorOrValue<W>,
+	source5: AccessorOrValue<X>,
 ): T & U & V & W & X;
 export function combineProps(...sources: AccessorOrValue<AnyProps>[]): AnyProps {
-    const traps = {
-        get(_: unknown, key: string | symbol) {
-            if (key === $COMPUTED) {
-                return _;
-            }
-            return getMergedProperty(sources, key as string);
-        },
-        has(_: unknown, key: string | symbol) {
-            if (key === $COMPUTED) {
-                return true;
-            }
-            for (let i = sources.length - 1; i >= 0; i--) {
-                const resolved = resolveSource(sources[i]);
-                if (key in resolved) {
-                    return true;
-                }
-            }
-            return false;
-        },
-        ownKeys() {
-            const keys: (string | symbol)[] = [];
-            for (let i = 0; i < sources.length; i++) {
-                const resolved = resolveSource(sources[i]);
-                if (resolved) {
-                    keys.push(...Reflect.ownKeys(resolved));
-                }
-            }
-            return Array.from(new Set(keys));
-        },
-        getOwnPropertyDescriptor(_: unknown, key: string) {
-            return {
-                configurable: true,
-                enumerable: true,
-                get() {
-                    return getMergedProperty(sources, key as string);
-                },
-            };
-        },
-    };
+	const traps = {
+		get(_: unknown, key: string | symbol) {
+			if (key === $COMPUTED) {
+				return _;
+			}
+			return getMergedProperty(sources, key as string);
+		},
+		has(_: unknown, key: string | symbol) {
+			if (key === $COMPUTED) {
+				return true;
+			}
+			for (let i = sources.length - 1; i >= 0; i--) {
+				const resolved = resolveSource(sources[i]);
+				if (key in resolved) {
+					return true;
+				}
+			}
+			return false;
+		},
+		ownKeys() {
+			const keys: (string | symbol)[] = [];
+			for (let i = 0; i < sources.length; i++) {
+				const resolved = resolveSource(sources[i]);
+				if (resolved) {
+					keys.push(...Reflect.ownKeys(resolved));
+				}
+			}
+			return Array.from(new Set(keys));
+		},
+		getOwnPropertyDescriptor(_: unknown, key: string) {
+			return {
+				configurable: true,
+				enumerable: true,
+				get() {
+					return getMergedProperty(sources, key as string);
+				},
+			};
+		},
+	};
 
-    const proxy = new Proxy({}, traps) as AnyProps;
+	const proxy = new Proxy({}, traps) as AnyProps;
 
-    Object.defineProperty(proxy, $COMPUTED, { value: true, configurable: true, enumerable: false });
+	Object.defineProperty(proxy, $COMPUTED, { value: true, configurable: true, enumerable: false });
 
-    return proxy;
+	return proxy;
 }

@@ -1,27 +1,27 @@
 import type { Styles } from '@no-comply/solid-primitives';
 
 export const updateElementStyles = (
-    targetElement?: HTMLElement,
-    styles: Styles = {},
-    previousStyles?: Styles,
+	targetElement?: HTMLElement,
+	styles: Styles = {},
+	previousStyles?: Styles,
 ): Styles => {
-    console.info('updateElementStyles()');
+	console.info('updateElementStyles()');
 
-    if (!targetElement) {
-        return {};
-    }
+	if (!targetElement) {
+		return {};
+	}
 
-    if (previousStyles) {
-        Object.entries(previousStyles).forEach(([key]) => {
-            if (!(key in styles)) {
-                targetElement.style.removeProperty(key);
-            }
-        });
-    }
+	if (previousStyles) {
+		Object.entries(previousStyles).forEach(([key]) => {
+			if (!(key in styles)) {
+				targetElement.style.removeProperty(key);
+			}
+		});
+	}
 
-    Object.entries(styles).forEach(([key, value]) => {
-        targetElement.style.setProperty(key, value ? String(value) : null);
-    });
+	Object.entries(styles).forEach(([key, value]) => {
+		targetElement.style.setProperty(key, value ? String(value) : null);
+	});
 
-    return styles;
+	return styles;
 };

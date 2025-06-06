@@ -8,15 +8,15 @@ import { $ANCHORED_POPOVER_MIXIN } from './constants';
 import type { AnchoredPopoverMixinAPI } from './types';
 
 export const createAnchoredPopoverMixin = (): AnchoredPopoverMixinAPI => {
-    const [, expose, compose] = createExposable($ANCHORED_POPOVER_MIXIN);
+	const [, expose, compose] = createExposable($ANCHORED_POPOVER_MIXIN);
 
-    const { $root: $popoverMixinRoot } = compose(createPopoverMixin());
+	const { $root: $popoverMixinRoot } = compose(createPopoverMixin());
 
-    const $root = {
-        classList: staticClassList(styles, 'AnchoredPopover'),
-    };
+	const $root = {
+		classList: staticClassList(styles, 'AnchoredPopover'),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($popoverMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($popoverMixinRoot, $root),
+	});
 };

@@ -6,9 +6,9 @@ import { $LIST_ITEM_BASE } from './constants';
 import type { ListItemBaseAPI, ListItemBaseProps } from './types';
 
 export const createListItemBase = (props: ListItemBaseProps): ListItemBaseAPI => {
-    const [locals, expose] = createExposable($LIST_ITEM_BASE, props);
+	const [locals, expose] = createExposable($LIST_ITEM_BASE, props);
 
-    const listItem = createListItem(locals);
+	const listItem = createListItem(locals);
 
-    return exposeAPI(expose, '$root', listItem);
+	return exposeAPI(expose, '$root', listItem);
 };

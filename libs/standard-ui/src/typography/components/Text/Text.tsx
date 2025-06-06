@@ -9,10 +9,10 @@ import type { TextProps } from './types';
 type Props = ClosedTagProps & TextProps;
 
 export const Text: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, TEXT_PROPS);
+	const [locals, $others] = splitProps(props, TEXT_PROPS);
 
-    const { $root } = createText(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createText(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

@@ -6,15 +6,15 @@ import type { FormContextValue } from '../../contexts';
 import { FormContextCTX } from '../../private';
 
 type FormContextProviderProps = {
-    context: FormContextValue;
+	context: FormContextValue;
 };
 
 export const FormContextProvider: ParentComponent<FormContextProviderProps> = props => {
-    const node = () => createContextNode(props.context[0]);
+	const node = () => createContextNode(props.context[0]);
 
-    return (
-        <FormContextCTX.Provider value={props.context}>
-            <ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
-        </FormContextCTX.Provider>
-    );
+	return (
+		<FormContextCTX.Provider value={props.context}>
+			<ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
+		</FormContextCTX.Provider>
+	);
 };

@@ -7,33 +7,31 @@ import type { AriaGenericRegionAPI, AriaRegionAPI, AriaRegionProps } from './typ
 
 export function createAriaRegion(props?: AriaRegionProps): AriaGenericRegionAPI;
 export function createAriaRegion<T extends AriaRoleName = AriaRoleName>(
-    props: AriaRegionProps,
-    staticRole: T,
+	props: AriaRegionProps,
+	staticRole: T,
 ): AriaRegionAPI<T>;
 export function createAriaRegion(
-    props?: AriaRegionProps,
-    staticRole?: AriaRoleName,
+	props?: AriaRegionProps,
+	staticRole?: AriaRoleName,
 ): AriaGenericRegionAPI {
-    const { $root: $labelledRoot, $label, $description, hasLabel } = createAriaLabelled(props);
+	const { $root: $labelledRoot, $label, $description, hasLabel } = createAriaLabelled(props);
 
-    const role = () => {
-        if (!hasLabel()) {
-            if (staticRole || props?.role) {
-                console.error(
-                    'AriaRegionAPI: when role is set, label or aria-labelledby are required.',
-                );
-            }
-        }
-        return staticRole ?? props?.role;
-    };
-    const $root = computedProps({
-        role,
-    });
+	const role = () => {
+		if (!hasLabel()) {
+			if (staticRole || props?.role) {
+				console.error('AriaRegionAPI: when role is set, label or aria-labelledby are required.');
+			}
+		}
+		return staticRole ?? props?.role;
+	};
+	const $root = computedProps({
+		role,
+	});
 
-    return {
-        $root: combineProps($labelledRoot, $root),
-        $label,
-        $description,
-        hasLabel,
-    };
+	return {
+		$root: combineProps($labelledRoot, $root),
+		$label,
+		$description,
+		hasLabel,
+	};
 }

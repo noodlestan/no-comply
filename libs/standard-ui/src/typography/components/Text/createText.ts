@@ -7,20 +7,20 @@ import { $TEXT } from './constants';
 import type { TextAPI, TextProps } from './types';
 
 const defaultProps: PickRequired<TextProps, 'tag'> = {
-    tag: 'p',
+	tag: 'p',
 };
 
 export const createText = (props: TextProps): TextAPI => {
-    const [locals, expose, compose] = createExposable($TEXT, props);
+	const [locals, expose, compose] = createExposable($TEXT, props);
 
-    const { $root: $textMixinRoot } = compose(createTextMixin(locals));
+	const { $root: $textMixinRoot } = compose(createTextMixin(locals));
 
-    const component = () => locals.tag ?? defaultProps.tag;
-    const $root = computedProps({
-        component,
-    });
+	const component = () => locals.tag ?? defaultProps.tag;
+	const $root = computedProps({
+		component,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($textMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($textMixinRoot, $root),
+	});
 };

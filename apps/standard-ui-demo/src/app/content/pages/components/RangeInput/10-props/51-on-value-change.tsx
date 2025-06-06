@@ -5,11 +5,11 @@ import { itemProps as props } from '../constants';
 import { createRangeInputExampleController } from '../controllers';
 
 const onValueChange = createDocsItemData({ props }, () => {
-    const { value, handleValueChange } = createRangeInputExampleController({ value: '33' });
-    return <RangeInput value={value()} onValueChange={handleValueChange} />;
+	const { value, handleValueChange } = createRangeInputExampleController({ value: '33' });
+	return <RangeInput value={value()} onValueChange={handleValueChange} />;
 });
 
 export default createDocsSectionData({
-    title: 'onValueChange',
-    items: [onValueChange],
+	title: 'onValueChange',
+	items: [onValueChange],
 });

@@ -8,42 +8,42 @@ import { $MODAL_DIALOG } from './constants';
 import type { ModalDialogAPI, ModalDialogProps } from './types';
 
 export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI => {
-    const [locals, expose] = createExposable($MODAL_DIALOG, props);
+	const [locals, expose] = createExposable($MODAL_DIALOG, props);
 
-    const contextValue = createModalContext(locals);
-    const [context] = contextValue;
+	const contextValue = createModalContext(locals);
+	const [context] = contextValue;
 
-    const { $root: $dialogRoot, $label, $description } = createAriaDialog(locals);
+	const { $root: $dialogRoot, $label, $description } = createAriaDialog(locals);
 
-    const $dialogContextRoot = {
-        ref: context.setTargetRef,
-    };
+	const $dialogContextRoot = {
+		ref: context.setTargetRef,
+	};
 
-    const { $root: $focusTrapRoot } = createFocusTrap(locals);
+	const { $root: $focusTrapRoot } = createFocusTrap(locals);
 
-    const stopPropagation = (ev: Event) => ev.stopImmediatePropagation();
+	const stopPropagation = (ev: Event) => ev.stopImmediatePropagation();
 
-    const handleKeyDown = async (ev: KeyboardEvent) => {
-        if (ev.key === 'Escape') {
-            locals.onDiscard?.(context);
-        }
-    };
+	const handleKeyDown = async (ev: KeyboardEvent) => {
+		if (ev.key === 'Escape') {
+			locals.onDiscard?.(context);
+		}
+	};
 
-    const $static = {
-        component: 'dialog' as const,
-        onKeyDown: handleKeyDown,
-        onKeyUp: stopPropagation,
-        onKeyPress: stopPropagation,
-    };
-    const $root = computedProps($static, {
-        'data-modal-dialog-is-active': () => (context.isActive() ? '' : undefined),
-    });
+	const $static = {
+		component: 'dialog' as const,
+		onKeyDown: handleKeyDown,
+		onKeyUp: stopPropagation,
+		onKeyPress: stopPropagation,
+	};
+	const $root = computedProps($static, {
+		'data-modal-dialog-is-active': () => (context.isActive() ? '' : undefined),
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($dialogRoot, $dialogContextRoot, $focusTrapRoot, $root),
-        $label,
-        $description,
-        context,
-        contextValue,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($dialogRoot, $dialogContextRoot, $focusTrapRoot, $root),
+		$label,
+		$description,
+		context,
+		contextValue,
+	});
 };

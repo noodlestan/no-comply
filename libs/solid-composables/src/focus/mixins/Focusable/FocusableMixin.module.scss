@@ -2,20 +2,20 @@
 @use '../../../scss/mixins/focus.scss' as *;
 
 @layer composables {
-    .Focusable {
-        position: relative;
-        cursor: pointer;
-        pointer-events: all;
-        user-select: none;
+  .Focusable {
+    position: relative;
+    cursor: pointer;
+    pointer-events: all;
+    user-select: none;
 
-        &[data-disabled] {
-            cursor: default;
-        }
-
-        @include focus-ring;
+    &[data-disabled] {
+      cursor: default;
     }
 
-    .-Button {
-        @include visually-hidden;
-    }
+    @include focus-ring;
+  }
+
+  .-Button {
+    @include visually-hidden;
+  }
 }

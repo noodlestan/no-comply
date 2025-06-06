@@ -9,10 +9,10 @@ import type { ScrollableProps } from './types';
 type Props = ClosedTagProps & ScrollableProps;
 
 export const Scrollable: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, SCROLLABLE_PROPS);
+	const [locals, $others] = splitProps(props, SCROLLABLE_PROPS);
 
-    const { $root } = createScrollable(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createScrollable(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

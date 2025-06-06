@@ -6,9 +6,9 @@ import type { LocaleServiceAPI } from '../../services';
 import { LocaleCTX } from './private';
 
 type LocaleProviderProps = {
-    service: LocaleServiceAPI;
+	service: LocaleServiceAPI;
 };
 
 export const LocaleProvider: ParentComponent<LocaleProviderProps> = props => {
-    return <LocaleCTX.Provider value={props.service}>{props.children}</LocaleCTX.Provider>;
+	return <LocaleCTX.Provider value={props.service}>{props.children}</LocaleCTX.Provider>;
 };

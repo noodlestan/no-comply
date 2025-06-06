@@ -5,10 +5,10 @@ import type { PopoverContext } from '../../contexts';
 import { PopoverContextCTX } from './private';
 
 export const usePopover = (): PopoverContext => {
-    const [context] = useContext(PopoverContextCTX) || [];
-    if (!context) {
-        throw new Error('usePopover() must be wrapped in <PopoverContextProvider/>');
-    }
+	const [context] = useContext(PopoverContextCTX) || [];
+	if (!context) {
+		throw new Error('usePopover() must be wrapped in <PopoverContextProvider/>');
+	}
 
-    return context;
+	return context;
 };

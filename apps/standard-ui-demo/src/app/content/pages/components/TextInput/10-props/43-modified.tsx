@@ -6,13 +6,13 @@ import { itemProps as props } from '../constants';
 import { createTextInputExampleController } from '../controllers';
 
 export default createDocsSectionData({
-    title: 'modified',
-    items: [
-        createDocsItemData({ props }, () => {
-            const { value, handleValueChange } = createTextInputExampleController({
-                value: lipsumWords(3),
-            });
-            return <TextInput value={value()} onValueChange={handleValueChange} modified />;
-        }),
-    ],
+	title: 'modified',
+	items: [
+		createDocsItemData({ props }, () => {
+			const { value, handleValueChange } = createTextInputExampleController({
+				value: lipsumWords(3),
+			});
+			return <TextInput value={value()} onValueChange={handleValueChange} modified />;
+		}),
+	],
 });

@@ -7,15 +7,15 @@ import { type ModeContextValue } from '../../contexts';
 import { ModeContextCTX } from './private';
 
 type ModeContextProviderProps = {
-    context: ModeContextValue;
+	context: ModeContextValue;
 };
 
 export const ModeContextProvider: ParentComponent<ModeContextProviderProps> = props => {
-    const node = () => createContextNode(props.context[0]);
+	const node = () => createContextNode(props.context[0]);
 
-    return (
-        <ModeContextCTX.Provider value={props.context}>
-            <ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
-        </ModeContextCTX.Provider>
-    );
+	return (
+		<ModeContextCTX.Provider value={props.context}>
+			<ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
+		</ModeContextCTX.Provider>
+	);
 };

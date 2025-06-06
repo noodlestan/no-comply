@@ -6,15 +6,15 @@ import { $FIED_LABEL_MIXIN } from './constants';
 import type { FieldLabelMixinAPI } from './types';
 
 export const createFieldLabelMixin = (): FieldLabelMixinAPI => {
-    const [, expose] = createExposable($FIED_LABEL_MIXIN);
+	const [, expose] = createExposable($FIED_LABEL_MIXIN);
 
-    const classList = staticClassList(styles, 'FieldLabel');
+	const classList = staticClassList(styles, 'FieldLabel');
 
-    const $root = {
-        classList,
-    };
+	const $root = {
+		classList,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

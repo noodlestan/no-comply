@@ -7,11 +7,11 @@ import { $FLEX_MIXIN } from './constants';
 import { type FlexMixinAPI, type FlexMixinProps } from './types';
 
 export const createFlexMixin = (props: FlexMixinProps): FlexMixinAPI => {
-    const [locals, expose, compose] = createExposable($FLEX_MIXIN, props);
+	const [locals, expose, compose] = createExposable($FLEX_MIXIN, props);
 
-    const { $root } = compose(createHeadlessFlexMixin(locals, GLOBAL_BP_NAMES));
+	const { $root } = compose(createHeadlessFlexMixin(locals, GLOBAL_BP_NAMES));
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

@@ -12,6 +12,6 @@ import inline from './42-inline';
 import tag from './90-tag';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [gap, gapShorthands, gapLonghands, direction, align, justify, shrink, wrap, inline, tag],
+	title: 'Props',
+	items: [gap, gapShorthands, gapLonghands, direction, align, justify, shrink, wrap, inline, tag],
 });

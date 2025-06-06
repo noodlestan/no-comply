@@ -9,74 +9,74 @@ export type DataValueLength = 's' | 'm' | 'l' | 'full' | 'auto';
 export type DataValueAlign = 'left' | 'right';
 
 export type DataValueProps = {
-    id?: string;
-    size?: ContentSize;
-    length?: number | DataValueLength;
-    align?: DataValueAlign;
-    wrap?: boolean;
-    onClick?: () => void;
-    classList?: ClassList;
-    value?: JSX.Element;
+	id?: string;
+	size?: ContentSize;
+	length?: number | DataValueLength;
+	align?: DataValueAlign;
+	wrap?: boolean;
+	onClick?: () => void;
+	classList?: ClassList;
+	value?: JSX.Element;
 };
 
 const defaultProps: PickRequired<DataValueProps, 'size' | 'length' | 'align'> = {
-    size: 'normal',
-    length: 'auto',
-    align: 'left',
+	size: 'normal',
+	length: 'auto',
+	align: 'left',
 };
 
 const makeLength = (length: number | DataValueLength): string => {
-    if (typeof length === 'number') {
-        return `${length * 0.63 + 0.5}em`;
-    }
-    if (length === 'auto') {
-        return `min-content`;
-    }
-    if (length === 'full') {
-        return '100%';
-    }
-    return `var(--data-value-length-${length})`;
+	if (typeof length === 'number') {
+		return `${length * 0.63 + 0.5}em`;
+	}
+	if (length === 'auto') {
+		return `min-content`;
+	}
+	if (length === 'full') {
+		return '100%';
+	}
+	return `var(--data-value-length-${length})`;
 };
 
 const makeStyle = (length?: DataValueLength | number) =>
-    length ? { '--data-value-length': makeLength(length) } : {};
+	length ? { '--data-value-length': makeLength(length) } : {};
 
 export const DataValue: ParentComponent<DataValueProps> = props => {
-    const size = () => props.size ?? defaultProps.size;
-    const length = () => props.length ?? defaultProps.length;
+	const size = () => props.size ?? defaultProps.size;
+	const length = () => props.length ?? defaultProps.length;
 
-    const handleClick = () => props.onClick?.();
+	const handleClick = () => props.onClick?.();
 
-    const handleKeyDown = (ev: KeyboardEvent) => {
-        if (ev.key === 'Enter') {
-            props.onClick?.();
-        }
-    };
+	const handleKeyDown = (ev: KeyboardEvent) => {
+		if (ev.key === 'Enter') {
+			props.onClick?.();
+		}
+	};
 
-    const tabindex = () => (props.onClick ? 0 : undefined);
+	const tabindex = () => (props.onClick ? 0 : undefined);
 
-    const classList = createClassList(styles, () => ({
-        DataValue: true,
-        [`align-right`]: props.align === 'right',
-        [`is-interactive`]: Boolean(props.onClick),
-        [`size-${size()}`]: true,
-        [`wrap`]: !!props.wrap,
-    }));
+	const classList = createClassList(styles, () => ({
+		DataValue: true,
+		[`align-right`]: props.align === 'right',
+		[`is-interactive`]: Boolean(props.onClick),
+		[`size-${size()}`]: true,
+		[`wrap`]: !!props.wrap,
+	}));
 
-    const role = () => (props.onClick ? 'button' : undefined);
+	const role = () => (props.onClick ? 'button' : undefined);
 
-    const style = () => makeStyle(length());
+	const style = () => makeStyle(length());
 
-    return (
-        <div
-            role={role()}
-            onClick={handleClick}
-            onKeyDown={handleKeyDown}
-            tabIndex={tabindex()}
-            classList={classList()}
-            style={style()}
-        >
-            {props.value ?? props.children}
-        </div>
-    );
+	return (
+		<div
+			role={role()}
+			onClick={handleClick}
+			onKeyDown={handleKeyDown}
+			tabIndex={tabindex()}
+			classList={classList()}
+			style={style()}
+		>
+			{props.value ?? props.children}
+		</div>
+	);
 };

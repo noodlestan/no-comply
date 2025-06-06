@@ -5,6 +5,6 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-    title: 'value',
-    items: [createDocsItemData({ props }, () => <DataItem value={lipsumWords(3)} />)],
+	title: 'value',
+	items: [createDocsItemData({ props }, () => <DataItem value={lipsumWords(3)} />)],
 });

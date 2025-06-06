@@ -9,15 +9,15 @@ import { $DISPLAY_ALIGNED } from './constants';
 import type { DisplayAlignedAPI, DisplayAlignedProps } from './types';
 
 export const createDisplayAligned = (props: DisplayAlignedProps): DisplayAlignedAPI => {
-    const [locals, expose, compose] = createExposable($DISPLAY_ALIGNED, props);
+	const [locals, expose, compose] = createExposable($DISPLAY_ALIGNED, props);
 
-    const alignedProps = useAlignFirstLine<ComposableDisplayProps>('display');
+	const alignedProps = useAlignFirstLine<ComposableDisplayProps>('display');
 
-    const merged = combineProps(locals, alignedProps, { aligned: true });
+	const merged = combineProps(locals, alignedProps, { aligned: true });
 
-    const { $root: $displayRoot } = compose(createDisplay(merged));
+	const { $root: $displayRoot } = compose(createDisplay(merged));
 
-    return exposeAPI(expose, '$root', {
-        $root: $displayRoot,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: $displayRoot,
+	});
 };

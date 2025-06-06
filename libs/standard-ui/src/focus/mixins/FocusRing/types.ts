@@ -6,8 +6,8 @@ import type { FocusRingOffsetMixinAPI, FocusRingOffsetMixinProps } from '../Focu
 export type FocusRingMixinProps = FocusRingOffsetMixinProps;
 
 export type FocusRingMixinAPI = {
-    $root: HeadlessFocusRingMixinAPI['$root'] &
-        FocusRingOffsetMixinAPI['$root'] & {
-            classList: ClassList;
-        };
+	$root: HeadlessFocusRingMixinAPI['$root'] &
+		FocusRingOffsetMixinAPI['$root'] & {
+			classList: ClassList;
+		};
 };

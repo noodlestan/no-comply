@@ -7,46 +7,44 @@ import { ShowSpace } from '../../../components';
 import { CalibrationPage } from '../../../private';
 
 export const SpaceScalePage: Component = () => {
-    let container: HTMLElement;
+	let container: HTMLElement;
 
-    const [screenWidth, setScreenWidth] = createSignal<number>(0);
-    const [containerWidth, setContainerWidth] = createSignal<number>(0);
+	const [screenWidth, setScreenWidth] = createSignal<number>(0);
+	const [containerWidth, setContainerWidth] = createSignal<number>(0);
 
-    const setContainerRef = (el: HTMLElement) => (container = el);
+	const setContainerRef = (el: HTMLElement) => (container = el);
 
-    onMount(() => {
-        createResizeObserver(window.document.documentElement, () =>
-            setScreenWidth(window.innerWidth),
-        );
-        createResizeObserver(container, () => setContainerWidth(container.clientWidth));
-    });
+	onMount(() => {
+		createResizeObserver(window.document.documentElement, () => setScreenWidth(window.innerWidth));
+		createResizeObserver(container, () => setContainerWidth(container.clientWidth));
+	});
 
-    return (
-        <CalibrationPage title="Space Scales">
-            <Layout uncontained ref={setContainerRef}>
-                <Layout padding="l">
-                    <Surface variant="panel" padding="s">
-                        <Flex direction="row">
-                            <DataItem units="px" label="Container Width" value={containerWidth()} />
-                        </Flex>
-                        <Flex direction="row">
-                            <DataItem units="px" label="Screen Width" value={screenWidth()} />
-                        </Flex>
-                    </Surface>
-                </Layout>
-                <Ruler offset={screenWidth() - containerWidth()} />
-            </Layout>
+	return (
+		<CalibrationPage title="Space Scales">
+			<Layout uncontained ref={setContainerRef}>
+				<Layout padding="l">
+					<Surface variant="panel" padding="s">
+						<Flex direction="row">
+							<DataItem units="px" label="Container Width" value={containerWidth()} />
+						</Flex>
+						<Flex direction="row">
+							<DataItem units="px" label="Screen Width" value={screenWidth()} />
+						</Flex>
+					</Surface>
+				</Layout>
+				<Ruler offset={screenWidth() - containerWidth()} />
+			</Layout>
 
-            <Display level={3}>Size</Display>
+			<Display level={3}>Size</Display>
 
-            <Flex direction="column" gap="l" justify="start">
-                <ShowSpace size="2xs" />
-                <ShowSpace size="xs" />
-                <ShowSpace size="s" />
-                <ShowSpace size="m" />
-                <ShowSpace size="l" />
-                <ShowSpace size="xl" />
-            </Flex>
-        </CalibrationPage>
-    );
+			<Flex direction="column" gap="l" justify="start">
+				<ShowSpace size="2xs" />
+				<ShowSpace size="xs" />
+				<ShowSpace size="s" />
+				<ShowSpace size="m" />
+				<ShowSpace size="l" />
+				<ShowSpace size="xl" />
+			</Flex>
+		</CalibrationPage>
+	);
 };

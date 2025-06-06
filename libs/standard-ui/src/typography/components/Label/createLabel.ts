@@ -7,20 +7,20 @@ import { $LABEL } from './constants';
 import type { LabelAPI, LabelProps } from './types';
 
 const defaultProps: PickRequired<LabelProps, 'tag'> = {
-    tag: 'label',
+	tag: 'label',
 };
 
 export const createLabel = (props: LabelProps): LabelAPI => {
-    const [locals, expose, compose] = createExposable($LABEL, props);
+	const [locals, expose, compose] = createExposable($LABEL, props);
 
-    const { $root: $labelMixinRoot } = compose(createLabelMixin(locals));
+	const { $root: $labelMixinRoot } = compose(createLabelMixin(locals));
 
-    const component = () => locals.tag ?? defaultProps.tag;
-    const $root = computedProps({
-        component,
-    });
+	const component = () => locals.tag ?? defaultProps.tag;
+	const $root = computedProps({
+		component,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($labelMixinRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($labelMixinRoot, $root),
+	});
 };

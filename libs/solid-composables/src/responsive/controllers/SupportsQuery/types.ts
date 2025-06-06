@@ -1,7 +1,7 @@
 export type SupportsQueryProps = {
-    query: string;
+	query: string;
 };
 
 export type SupportsQueryAPI = {
-    isSupported: () => boolean;
+	isSupported: () => boolean;
 };

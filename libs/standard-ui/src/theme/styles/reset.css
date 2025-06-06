@@ -1,40 +1,40 @@
 @layer reset {
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-    :root {
-        view-transition-name: none;
-    }
+  :root {
+    view-transition-name: none;
+  }
 
-    /* WIP not tested
+  /* WIP not tested
     https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size
     html {
         interpolate-size: allow-keywords;
     }
     */
 
-    ::view-transition {
-        pointer-events: none;
-    }
+  ::view-transition {
+    pointer-events: none;
+  }
 
-    [data-theme-standard] body {
-        font-family: var(--typography-base-family);
-        font-size: var(--typography-base-size);
-        font-weight: var(--typography-base-weight);
-        line-height: var(--typography-base-height);
-        letter-spacing: var(--typography-base-spacing);
-    }
+  [data-theme-standard] body {
+    font-family: var(--typography-base-family);
+    font-size: var(--typography-base-size);
+    font-weight: var(--typography-base-weight);
+    line-height: var(--typography-base-height);
+    letter-spacing: var(--typography-base-spacing);
+  }
 
-    [data-theme-standard] * {
-        scrollbar-width: thin;
-        scrollbar-color: var(--scrollbar-handle-rest-color) var(--scrollbar-track-rest-color);
-    }
+  [data-theme-standard] * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-handle-rest-color) var(--scrollbar-track-rest-color);
+  }
 
-    [data-theme-standard] *:hover {
-        scrollbar-width: thin;
-        scrollbar-color: var(--scrollbar-handle-hover-color) var(--scrollbar-track-hover-color);
-    }
+  [data-theme-standard] *:hover {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-handle-hover-color) var(--scrollbar-track-hover-color);
+  }
 }

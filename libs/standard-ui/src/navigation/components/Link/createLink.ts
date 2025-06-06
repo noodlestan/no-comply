@@ -8,13 +8,13 @@ import { $LINK } from './constants';
 import type { LinkAPI, LinkProps } from './types';
 
 export const createLink = (props: LinkProps): LinkAPI => {
-    const [locals, expose, compose] = createExposable($LINK, props);
+	const [locals, expose, compose] = createExposable($LINK, props);
 
-    const { $root: $linkRoot } = compose(createHeadlessLink(locals));
-    const { $root: $focusRingRoot } = compose(createFocusRing());
-    const { $root: $linkMixinRoot } = compose(createLinkMixin());
+	const { $root: $linkRoot } = compose(createHeadlessLink(locals));
+	const { $root: $focusRingRoot } = compose(createFocusRing());
+	const { $root: $linkMixinRoot } = compose(createLinkMixin());
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($linkRoot, $focusRingRoot, $linkMixinRoot),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($linkRoot, $focusRingRoot, $linkMixinRoot),
+	});
 };

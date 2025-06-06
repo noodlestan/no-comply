@@ -6,7 +6,7 @@ import { STANDARD_UI_CONTEXTS } from '../private';
 import '../styles/index.css';
 
 export const ThemeStandard: Component = () => {
-    useContextVariantsProducer(() => STANDARD_UI_CONTEXTS);
+	useContextVariantsProducer(() => STANDARD_UI_CONTEXTS);
 
-    return <></>;
+	return <></>;
 };

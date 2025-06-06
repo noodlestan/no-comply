@@ -6,11 +6,11 @@ import type { SettingsServiceAPI } from '../../services';
 import { SettingsContext } from './private';
 
 type SettingsProviderProps = {
-    service: SettingsServiceAPI;
+	service: SettingsServiceAPI;
 };
 
 export const SettingsProvider: ParentComponent<SettingsProviderProps> = props => {
-    return (
-        <SettingsContext.Provider value={props.service}>{props.children}</SettingsContext.Provider>
-    );
+	return (
+		<SettingsContext.Provider value={props.service}>{props.children}</SettingsContext.Provider>
+	);
 };

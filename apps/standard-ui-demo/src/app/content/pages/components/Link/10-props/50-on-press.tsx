@@ -5,19 +5,19 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-    title: 'onPress',
-    items: [
-        createDocsItemData({ props }, () => {
-            const handleOnPress = (ev: PressEvent) => {
-                ev.preventDefault();
-                console.info('Press');
-            };
+	title: 'onPress',
+	items: [
+		createDocsItemData({ props }, () => {
+			const handleOnPress = (ev: PressEvent) => {
+				ev.preventDefault();
+				console.info('Press');
+			};
 
-            return (
-                <Link href="https://noodlestan.org" onPress={handleOnPress}>
-                    Noodlestan Collective
-                </Link>
-            );
-        }),
-    ],
+			return (
+				<Link href="https://noodlestan.org" onPress={handleOnPress}>
+					Noodlestan Collective
+				</Link>
+			);
+		}),
+	],
 });

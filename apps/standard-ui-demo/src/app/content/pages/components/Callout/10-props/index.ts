@@ -6,6 +6,6 @@ import length from './20-length';
 import size from './30-size';
 
 export default createDocsSectionData({
-    title: 'Props',
-    items: [children, variant, length, size],
+	title: 'Props',
+	items: [children, variant, length, size],
 });

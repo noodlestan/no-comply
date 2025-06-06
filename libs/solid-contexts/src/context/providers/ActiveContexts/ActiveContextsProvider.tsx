@@ -6,13 +6,11 @@ import type { ActiveContextsServiceAPI } from '../../services';
 import { ActiveContextsCTX } from './private';
 
 type ActiveContextsProviderProps = {
-    service: ActiveContextsServiceAPI;
+	service: ActiveContextsServiceAPI;
 };
 
 export const ActiveContextsProvider: ParentComponent<ActiveContextsProviderProps> = props => {
-    return (
-        <ActiveContextsCTX.Provider value={props.service}>
-            {props.children}
-        </ActiveContextsCTX.Provider>
-    );
+	return (
+		<ActiveContextsCTX.Provider value={props.service}>{props.children}</ActiveContextsCTX.Provider>
+	);
 };

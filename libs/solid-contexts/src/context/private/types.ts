@@ -1,17 +1,17 @@
 import type { RawDataAttributes, Styles } from '@no-comply/solid-primitives';
 
 export type ContextId = {
-    ctxId: string;
+	ctxId: string;
 };
 
 export type BaseContext = {
-    type: string;
+	type: string;
 };
 
 export type ContextVarsAPI = {
-    contextVars: () => Styles;
+	contextVars: () => Styles;
 };
 
 export type ContextDataAPI<T extends string = string> = {
-    contextData: () => RawDataAttributes<T>;
+	contextData: () => RawDataAttributes<T>;
 };

@@ -1,7 +1,7 @@
 @layer theme.standard.base.patterns {
-    [data-theme-standard] {
-        --action-border-radius: var(--radius-m);
-        --action-border-width: var(--border-width-thin);
-        --link-border-radius: var(--radius-s);
-    }
+  [data-theme-standard] {
+    --action-border-radius: var(--radius-m);
+    --action-border-width: var(--border-width-thin);
+    --link-border-radius: var(--radius-s);
+  }
 }

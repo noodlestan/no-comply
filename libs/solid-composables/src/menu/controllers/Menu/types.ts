@@ -5,13 +5,13 @@ import type { MenuContext, MenuContextOptions, MenuContextValue } from '../../pr
 export type MenuProps = MenuContextOptions & AriaMenuProps;
 
 export type MenuAPI = {
-    $root: AriaMenuAPI['$root'] & {
-        'data-menu': '';
-    };
-    $label: AriaMenuAPI['$label'] & {
-        component: 'p';
-        children: string | undefined;
-    };
-    context: MenuContext;
-    contextValue: MenuContextValue;
+	$root: AriaMenuAPI['$root'] & {
+		'data-menu': '';
+	};
+	$label: AriaMenuAPI['$label'] & {
+		component: 'p';
+		children: string | undefined;
+	};
+	context: MenuContext;
+	contextValue: MenuContextValue;
 };

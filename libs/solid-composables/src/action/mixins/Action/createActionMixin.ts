@@ -6,14 +6,14 @@ import { $ACTION_MIXIN } from './constants';
 import type { ActionMixinAPI } from './types';
 
 export const createActionMixin = (): ActionMixinAPI => {
-    const [, expose] = createExposable($ACTION_MIXIN);
+	const [, expose] = createExposable($ACTION_MIXIN);
 
-    const $static = {
-        classList: staticClassList(styles, 'Action'),
-    };
-    const $root = computedProps($static, {});
+	const $static = {
+		classList: staticClassList(styles, 'Action'),
+	};
+	const $root = computedProps($static, {});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

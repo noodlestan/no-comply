@@ -6,11 +6,11 @@ import type { IconMap } from '../../types';
 import { LocalIconsCTX } from './private';
 
 type LocalIconsProviderProps = {
-    icons?: IconMap;
+	icons?: IconMap;
 };
 
 export const LocalIconsProvider: ParentComponent<LocalIconsProviderProps> = props => {
-    return (
-        <LocalIconsCTX.Provider value={props.icons ?? {}}>{props.children}</LocalIconsCTX.Provider>
-    );
+	return (
+		<LocalIconsCTX.Provider value={props.icons ?? {}}>{props.children}</LocalIconsCTX.Provider>
+	);
 };

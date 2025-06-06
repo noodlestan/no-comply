@@ -9,70 +9,70 @@ import { $FOCUS_TRAP_OLD } from './constants';
 import type { FocusTrapProps } from './types';
 
 export const FocusTrap: ParentComponent<FocusTrapProps> = props => {
-    const [locals, expose] = createExposable($FOCUS_TRAP_OLD, props);
+	const [locals, expose] = createExposable($FOCUS_TRAP_OLD, props);
 
-    let containerRef: HTMLDivElement | undefined;
+	let containerRef: HTMLDivElement | undefined;
 
-    const focusFirst = () =>
-        setTimeout(() => {
-            const focusableChildren = getFocusableElements(containerRef);
-            focusableChildren[0]?.focus();
-        });
+	const focusFirst = () =>
+		setTimeout(() => {
+			const focusableChildren = getFocusableElements(containerRef);
+			focusableChildren[0]?.focus();
+		});
 
-    const focusLast = () =>
-        setTimeout(() => {
-            const focusableChildren = getFocusableElements(containerRef);
-            focusableChildren[focusableChildren.length - 1]?.focus();
-        });
+	const focusLast = () =>
+		setTimeout(() => {
+			const focusableChildren = getFocusableElements(containerRef);
+			focusableChildren[focusableChildren.length - 1]?.focus();
+		});
 
-    const handleBeforeFocus = (ev: FocusEvent) => {
-        ev.preventDefault();
-        focusLast();
-    };
+	const handleBeforeFocus = (ev: FocusEvent) => {
+		ev.preventDefault();
+		focusLast();
+	};
 
-    const handleAfterFocus = (ev: FocusEvent) => {
-        ev.preventDefault();
-        focusFirst();
-    };
+	const handleAfterFocus = (ev: FocusEvent) => {
+		ev.preventDefault();
+		focusFirst();
+	};
 
-    const handleKeyDown = (ev: KeyboardEvent) => {
-        if (ev.key === 'Tab') {
-            ev.preventDefault();
-            if (ev.shiftKey) {
-                focusLast();
-            } else {
-                focusFirst();
-            }
-        }
-    };
+	const handleKeyDown = (ev: KeyboardEvent) => {
+		if (ev.key === 'Tab') {
+			ev.preventDefault();
+			if (ev.shiftKey) {
+				focusLast();
+			} else {
+				focusFirst();
+			}
+		}
+	};
 
-    createEffect(() => {
-        if (locals.autoFocus) {
-            focusFirst();
-        }
-    });
+	createEffect(() => {
+		if (locals.autoFocus) {
+			focusFirst();
+		}
+	});
 
-    const { $: $exposed } = exposeAPI(expose, '$', { $: {} });
+	const { $: $exposed } = exposeAPI(expose, '$', { $: {} });
 
-    return (
-        <div {...$exposed} classList={staticClassList(styles, 'FocusTrap')} data-focus-trap>
-            <input
-                type="text"
-                data-focus-trap--input
-                onFocus={handleBeforeFocus}
-                onKeyDown={handleKeyDown}
-                aria-hidden="true"
-            />
-            <div data-focus-trap--contents ref={containerRef}>
-                {locals.children}
-            </div>
-            <input
-                type="text"
-                data-focus-trap--input
-                onFocus={handleAfterFocus}
-                onKeyDown={handleKeyDown}
-                aria-hidden="true"
-            />
-        </div>
-    );
+	return (
+		<div {...$exposed} classList={staticClassList(styles, 'FocusTrap')} data-focus-trap>
+			<input
+				type="text"
+				data-focus-trap--input
+				onFocus={handleBeforeFocus}
+				onKeyDown={handleKeyDown}
+				aria-hidden="true"
+			/>
+			<div data-focus-trap--contents ref={containerRef}>
+				{locals.children}
+			</div>
+			<input
+				type="text"
+				data-focus-trap--input
+				onFocus={handleAfterFocus}
+				onKeyDown={handleKeyDown}
+				aria-hidden="true"
+			/>
+		</div>
+	);
 };

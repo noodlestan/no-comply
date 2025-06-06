@@ -15,33 +15,28 @@ import { translateWithInterpolation } from './translateWithInterpolation';
 export let parseHTML: typeof parse;
 
 (async () => {
-    try {
-        const module = await import('html-parse-string');
-        parseHTML = module.parse;
-    } catch {}
+	try {
+		const module = await import('html-parse-string');
+		parseHTML = module.parse;
+	} catch {}
 })();
 
 export const translateJSX = (
-    {
-        i18n: { options },
-        t,
-        props,
-    }: { t: TFunction; props: ParentProps<TranslateProps>; i18n: i18n },
-    children: Node[],
+	{ i18n: { options }, t, props }: { t: TFunction; props: ParentProps<TranslateProps>; i18n: i18n },
+	children: Node[],
 ): string | unknown[] | undefined => {
-    const translation = t(props.key, props.options);
+	const translation = t(props.key, props.options);
 
-    if (!props.children) {
-        return translation;
-    }
+	if (!props.children) {
+		return translation;
+	}
 
-    if (translation === props.key)
-        return children.map(translateWithInterpolation(t, options, props));
+	if (translation === props.key) return children.map(translateWithInterpolation(t, options, props));
 
-    try {
-        const [ast] = parseHTML(`<0>${translation}</0>`);
-        return children.map(replaceElements(ast as IDom, options));
-    } catch {
-        console.error('In order to use JSX nesting, install html-parse-string');
-    }
+	try {
+		const [ast] = parseHTML(`<0>${translation}</0>`);
+		return children.map(replaceElements(ast as IDom, options));
+	} catch {
+		console.error('In order to use JSX nesting, install html-parse-string');
+	}
 };

@@ -9,11 +9,11 @@ export type PlacementAnchor = `${PlacementAnchorSide}-${PlacementAnchorSide}`;
 export type PlacementAnchorPairs = [PlacementAnchor, PlacementAnchor][];
 
 export type PlacementGap =
-    | string
-    | {
-          block?: string;
-          inline?: string;
-      };
+	| string
+	| {
+			block?: string;
+			inline?: string;
+	  };
 
 export type PlacementAnchorTuple = [PlacementAnchorSide, PlacementAnchorSide];
 export type PlacementAnchorTuplePairs = [PlacementAnchorTuple, PlacementAnchorTuple];

@@ -5,11 +5,11 @@ import { $ID_SCREEN_TITLE } from '../../../../templates';
 import { PageContentsLayout } from '../../../../templates/layouts';
 
 export const WelcomePage: Component = () => {
-    return (
-        <PageContentsLayout>
-            <Display level={1} id={$ID_SCREEN_TITLE}>
-                Welcome!
-            </Display>
-        </PageContentsLayout>
-    );
+	return (
+		<PageContentsLayout>
+			<Display level={1} id={$ID_SCREEN_TITLE}>
+				Welcome!
+			</Display>
+		</PageContentsLayout>
+	);
 };

@@ -1,5 +1,5 @@
 @layer theme.standard {
-    @layer base, light;
+  @layer base, light;
 }
 
 @layer theme.standard.light.surfaces {

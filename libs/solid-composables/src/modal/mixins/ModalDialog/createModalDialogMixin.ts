@@ -6,13 +6,13 @@ import { $MODAL_DIALOG_MIXIN } from './constants';
 import type { ModalDialogMixinAPI } from './types';
 
 export function createModalDialogMixin(): ModalDialogMixinAPI {
-    const [, expose] = createExposable($MODAL_DIALOG_MIXIN);
+	const [, expose] = createExposable($MODAL_DIALOG_MIXIN);
 
-    const $root = {
-        classList: staticClassList(styles, 'ModalDialog'),
-    };
+	const $root = {
+		classList: staticClassList(styles, 'ModalDialog'),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 }

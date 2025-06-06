@@ -1,15 +1,15 @@
 @layer composables {
-    .Scrollable {
-        overflow: hidden;
-    }
+  .Scrollable {
+    overflow: hidden;
+  }
 
-    .x {
-        width: 100%;
-        overflow-x: auto;
-    }
+  .x {
+    width: 100%;
+    overflow-x: auto;
+  }
 
-    .y {
-        height: 100%;
-        overflow-y: auto;
-    }
+  .y {
+    height: 100%;
+    overflow-y: auto;
+  }
 }

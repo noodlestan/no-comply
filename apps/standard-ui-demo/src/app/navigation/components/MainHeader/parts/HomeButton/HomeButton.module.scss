@@ -1,10 +1,10 @@
 @layer app {
-    .HomeButton {
-        margin: 0;
-        line-height: 0;
+  .HomeButton {
+    margin: 0;
+    line-height: 0;
 
-        > a {
-            padding: var(--space-pad-0) var(--space-pad-1);
-        }
+    > a {
+      padding: var(--space-pad-0) var(--space-pad-1);
     }
+  }
 }

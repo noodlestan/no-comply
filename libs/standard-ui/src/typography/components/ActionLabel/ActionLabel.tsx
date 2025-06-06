@@ -9,10 +9,10 @@ import type { ActionLabelProps } from './types';
 type Props = ClosedTagProps & ActionLabelProps;
 
 export const ActionLabel: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, ACTION_LABEL_PROPS);
+	const [locals, $others] = splitProps(props, ACTION_LABEL_PROPS);
 
-    const { $root } = createActionLabel(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createActionLabel(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

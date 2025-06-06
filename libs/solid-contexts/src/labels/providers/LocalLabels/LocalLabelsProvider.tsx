@@ -6,13 +6,11 @@ import type { LabelMap } from '../../types';
 import { LocalLabelsCTX } from './private';
 
 type LocalLabelsProviderProps = {
-    labels?: LabelMap;
+	labels?: LabelMap;
 };
 
 export const LocalLabelsProvider: ParentComponent<LocalLabelsProviderProps> = props => {
-    return (
-        <LocalLabelsCTX.Provider value={props.labels ?? {}}>
-            {props.children}
-        </LocalLabelsCTX.Provider>
-    );
+	return (
+		<LocalLabelsCTX.Provider value={props.labels ?? {}}>{props.children}</LocalLabelsCTX.Provider>
+	);
 };

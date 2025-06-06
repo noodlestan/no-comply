@@ -9,22 +9,22 @@ import { $LIST_BASE } from './constants';
 import type { ListBaseAPI, ListBaseProps } from './types';
 
 export const createListBase = (props: ListBaseProps): ListBaseAPI => {
-    const [locals, expose, compose] = createExposable($LIST_BASE, props);
+	const [locals, expose, compose] = createExposable($LIST_BASE, props);
 
-    const [, others] = splitProps(locals, ['components']);
-    const components = () => ({
-        item: locals.components.item ?? ListItemBase,
-        itemContents: locals.components.itemContents,
-    });
-    const treeListProps = computedProps({
-        components,
-    });
-    const { $root: $treeListRoot, ...rest } = compose(
-        createList(combineProps(others, treeListProps)),
-    );
+	const [, others] = splitProps(locals, ['components']);
+	const components = () => ({
+		item: locals.components.item ?? ListItemBase,
+		itemContents: locals.components.itemContents,
+	});
+	const treeListProps = computedProps({
+		components,
+	});
+	const { $root: $treeListRoot, ...rest } = compose(
+		createList(combineProps(others, treeListProps)),
+	);
 
-    return exposeAPI(expose, '$root', {
-        ...rest,
-        $root: $treeListRoot,
-    });
+	return exposeAPI(expose, '$root', {
+		...rest,
+		$root: $treeListRoot,
+	});
 };

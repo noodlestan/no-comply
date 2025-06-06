@@ -6,7 +6,7 @@ import type { DividerMixinProps } from './types';
 export const $DIVIDER_MIXIN = 'mixin:standard:divider';
 
 export const DIVIDER_MIXIN_PROPS = definePropKeys<DividerMixinProps>()([
-    ...HEADLESS_DIVIDER_MIXIN_PROPS,
-    'variant',
-    'length',
+	...HEADLESS_DIVIDER_MIXIN_PROPS,
+	'variant',
+	'length',
 ]);

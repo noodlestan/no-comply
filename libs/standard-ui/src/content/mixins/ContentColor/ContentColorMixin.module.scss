@@ -1,47 +1,47 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer lib.standard-ui.content-color {
-    .ContentColor {
-        @include set-color(__fg, primary, fg-saturated, content-fg);
+  .ContentColor {
+    @include set-color(__fg, primary, fg-saturated, content-fg);
 
-        @include apply-color(color, __fg);
-    }
+    @include apply-color(color, __fg);
+  }
 
-    .color-brand {
-        @include set-palette(__fg, brand);
-    }
+  .color-brand {
+    @include set-palette(__fg, brand);
+  }
 
-    .color-normal {
-        @include set-palette(__fg, primary);
-        @include set-level(__fg, fg-primary);
-    }
+  .color-normal {
+    @include set-palette(__fg, primary);
+    @include set-level(__fg, fg-primary);
+  }
 
-    .color-muted {
-        @include set-palette(__fg, primary);
-        @include set-level(__fg, fg-muted);
-    }
+  .color-muted {
+    @include set-palette(__fg, primary);
+    @include set-level(__fg, fg-muted);
+  }
 
-    .color-neutral {
-        @include set-palette(__fg, neutral);
-    }
+  .color-neutral {
+    @include set-palette(__fg, neutral);
+  }
 
-    .color-good {
-        @include set-palette(__fg, good);
-    }
+  .color-good {
+    @include set-palette(__fg, good);
+  }
 
-    .color-meh {
-        @include set-palette(__fg, meh);
-    }
+  .color-meh {
+    @include set-palette(__fg, meh);
+  }
 
-    .color-bad {
-        @include set-palette(__fg, bad);
-    }
+  .color-bad {
+    @include set-palette(__fg, bad);
+  }
 
-    .color-modified {
-        @include set-palette(__fg, modified);
-    }
+  .color-modified {
+    @include set-palette(__fg, modified);
+  }
 
-    .color-selected {
-        @include set-palette(__fg, selected);
-    }
+  .color-selected {
+    @include set-palette(__fg, selected);
+  }
 }

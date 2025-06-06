@@ -8,10 +8,10 @@ import type { ButtonMixinAPI, ButtonMixinProps } from '../../mixins';
 export type ButtonProps = PressableProps & ButtonMixinProps;
 
 export type ButtonAPI = {
-    $root: PressableAPI['$root'] &
-        FocusRingAPI['$root'] &
-        ButtonMixinAPI['$root'] & {
-            classList: ClassList;
-        };
-    size: Accessor<ContentSize>;
+	$root: PressableAPI['$root'] &
+		FocusRingAPI['$root'] &
+		ButtonMixinAPI['$root'] & {
+			classList: ClassList;
+		};
+	size: Accessor<ContentSize>;
 };

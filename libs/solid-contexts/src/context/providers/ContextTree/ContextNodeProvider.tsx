@@ -5,9 +5,9 @@ import type { ContextNodeValue } from '../../private';
 import { ContextNodeCTX } from '../../private';
 
 type ContextNodeProviderProps = {
-    node: ContextNodeValue;
+	node: ContextNodeValue;
 };
 
 export const ContextNodeProvider: ParentComponent<ContextNodeProviderProps> = props => {
-    return <ContextNodeCTX.Provider value={props.node}>{props.children}</ContextNodeCTX.Provider>;
+	return <ContextNodeCTX.Provider value={props.node}>{props.children}</ContextNodeCTX.Provider>;
 };

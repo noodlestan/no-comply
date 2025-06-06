@@ -6,10 +6,10 @@ import { PlusIcon } from 'lucide-solid';
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 
 export default createDocsSectionData({
-    title: 'disabled',
-    items: [
-        createDocsItemData({ props: { row: true } }, () => (
-            <IconButton icon={PlusIcon} label="Add an item" disabled />
-        )),
-    ],
+	title: 'disabled',
+	items: [
+		createDocsItemData({ props: { row: true } }, () => (
+			<IconButton icon={PlusIcon} label="Add an item" disabled />
+		)),
+	],
 });

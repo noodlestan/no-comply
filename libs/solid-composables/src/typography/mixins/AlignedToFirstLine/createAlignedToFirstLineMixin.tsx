@@ -6,18 +6,18 @@ import { $ALIGNED_TO_FIRST_LINE_MIXIN } from './constants';
 import type { AlignedToFirstLineMixinAPI, AlignedToFirstLineMixinProps } from './types';
 
 export const createAlignedToFirstLineMixin = (
-    props: AlignedToFirstLineMixinProps,
+	props: AlignedToFirstLineMixinProps,
 ): AlignedToFirstLineMixinAPI => {
-    const [locals, expose] = createExposable($ALIGNED_TO_FIRST_LINE_MIXIN, props);
+	const [locals, expose] = createExposable($ALIGNED_TO_FIRST_LINE_MIXIN, props);
 
-    const classList = createClassList(styles, () => ({
-        [`AlignedToFirstLine`]: Boolean(locals.aligned),
-    }));
-    const $root = computedProps({
-        classList,
-    });
+	const classList = createClassList(styles, () => ({
+		[`AlignedToFirstLine`]: Boolean(locals.aligned),
+	}));
+	const $root = computedProps({
+		classList,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

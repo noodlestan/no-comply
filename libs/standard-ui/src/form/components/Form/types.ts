@@ -4,6 +4,6 @@ import type { ClassList } from '@no-comply/solid-primitives';
 import type { ContentSize } from '../../../types';
 
 export type FormProps = HeadlessFormProps & {
-    size?: ContentSize;
-    classList?: ClassList;
+	size?: ContentSize;
+	classList?: ClassList;
 };

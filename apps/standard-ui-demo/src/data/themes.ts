@@ -1,9 +1,9 @@
 type ThemeMetadata = {
-    name: string;
+	name: string;
 };
 
 export const THEMES: ThemeMetadata[] = [
-    {
-        name: 'base',
-    },
+	{
+		name: 'base',
+	},
 ];

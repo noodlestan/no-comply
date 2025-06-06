@@ -3,10 +3,10 @@ import type { PlacementAnchorPairs, PlacementAnchorsNormalized } from '../../typ
 import { normalizeAnchor } from './normalizeAnchor';
 
 export const normalizePlacementPairs = (
-    pairs: PlacementAnchorPairs,
+	pairs: PlacementAnchorPairs,
 ): PlacementAnchorsNormalized => {
-    return pairs.map(([a, b]) => [
-        normalizeAnchor(a),
-        normalizeAnchor(b),
-    ]) as PlacementAnchorsNormalized;
+	return pairs.map(([a, b]) => [
+		normalizeAnchor(a),
+		normalizeAnchor(b),
+	]) as PlacementAnchorsNormalized;
 };

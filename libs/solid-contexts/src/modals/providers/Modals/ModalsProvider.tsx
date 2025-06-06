@@ -6,9 +6,9 @@ import type { ModalsServiceAPI } from '../../services';
 import { ModalsCTX } from './private';
 
 type ModalsProviderProps = {
-    service: ModalsServiceAPI;
+	service: ModalsServiceAPI;
 };
 
 export const ModalsProvider: ParentComponent<ModalsProviderProps> = props => {
-    return <ModalsCTX.Provider value={props.service}>{props.children}</ModalsCTX.Provider>;
+	return <ModalsCTX.Provider value={props.service}>{props.children}</ModalsCTX.Provider>;
 };

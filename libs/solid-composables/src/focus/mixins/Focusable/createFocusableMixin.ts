@@ -6,15 +6,15 @@ import { $FOCUSABLE_MIXIN } from './constants';
 import type { FocusableMixinAPI } from './types';
 
 export const createFocusableMixin = (): FocusableMixinAPI => {
-    const [, expose] = createExposable($FOCUSABLE_MIXIN);
+	const [, expose] = createExposable($FOCUSABLE_MIXIN);
 
-    const classList = staticClassList(styles, 'Focusable');
+	const classList = staticClassList(styles, 'Focusable');
 
-    const $root = {
-        classList,
-    };
+	const $root = {
+		classList,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

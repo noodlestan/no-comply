@@ -1,31 +1,31 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer theme.standard.base.patterns {
-    [data-theme-standard] {
-        @include set-palette(divider-border, primary);
-        @include set-level(divider-border, border);
+  [data-theme-standard] {
+    @include set-palette(divider-border, primary);
+    @include set-level(divider-border, border);
 
-        --divider-base-width: var(--border-width-thin);
-        --divider-base-style: solid;
+    --divider-base-width: var(--border-width-thin);
+    --divider-base-style: solid;
 
-        --divider-alt-width: var(--border-width-thin);
-        --divider-alt-style: dashed;
+    --divider-alt-width: var(--border-width-thin);
+    --divider-alt-style: dashed;
 
-        --divider-strong-width: var(--border-width-base);
-        --divider-strong-style: solid;
+    --divider-strong-width: var(--border-width-base);
+    --divider-strong-style: solid;
 
-        --divider-muted-width: var(--border-width-thin);
-        --divider-muted-style: solid;
-    }
+    --divider-muted-width: var(--border-width-thin);
+    --divider-muted-style: solid;
+  }
 
-    [data-theme-standard] [data-surface] {
-        @include set-level(divider-base-border, border-0);
-        @include set-level(divider-alt-border, border-1);
-        @include set-level(divider-strong-border, border-2);
-        @include set-level(divider-muted-border, border-muted);
-    }
+  [data-theme-standard] [data-surface] {
+    @include set-level(divider-base-border, border-0);
+    @include set-level(divider-alt-border, border-1);
+    @include set-level(divider-strong-border, border-2);
+    @include set-level(divider-muted-border, border-muted);
+  }
 
-    [data-theme-standard] [data-surface-message] {
-        @include set-palette(divider-border, __message-variant);
-    }
+  [data-theme-standard] [data-surface-message] {
+    @include set-palette(divider-border, __message-variant);
+  }
 }

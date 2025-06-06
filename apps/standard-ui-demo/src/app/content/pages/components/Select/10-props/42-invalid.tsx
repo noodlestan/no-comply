@@ -5,23 +5,23 @@ import { itemProps as props } from '../constants';
 import { createSelectExampleController } from '../controllers';
 
 export default createDocsSectionData({
-    title: 'invalid',
-    items: [
-        createDocsItemData({ props }, () => {
-            const { value, handleValueChange } = createSelectExampleController();
-            return (
-                <Select
-                    length="full"
-                    value={value()}
-                    onValueChange={handleValueChange}
-                    placeholder="-"
-                    invalid
-                >
-                    <option value="apple">Apples</option>
-                    <option value="orange">Oranges</option>
-                    <option value="banana">Bananas</option>
-                </Select>
-            );
-        }),
-    ],
+	title: 'invalid',
+	items: [
+		createDocsItemData({ props }, () => {
+			const { value, handleValueChange } = createSelectExampleController();
+			return (
+				<Select
+					length="full"
+					value={value()}
+					onValueChange={handleValueChange}
+					placeholder="-"
+					invalid
+				>
+					<option value="apple">Apples</option>
+					<option value="orange">Oranges</option>
+					<option value="banana">Bananas</option>
+				</Select>
+			);
+		}),
+	],
 });

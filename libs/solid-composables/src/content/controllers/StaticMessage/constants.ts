@@ -7,5 +7,5 @@ import type { StaticMessageProps } from './types';
 export const $STATIC_MESSAGE = 'controller:composable:static-message';
 
 export const STATIC_MESSAGE_PROPS = definePropKeys<StaticMessageProps>()([
-    ...omitPropKeys(CONTENT_MESSAGE_PROPS, ['icon'] as const),
+	...omitPropKeys(CONTENT_MESSAGE_PROPS, ['icon'] as const),
 ]);

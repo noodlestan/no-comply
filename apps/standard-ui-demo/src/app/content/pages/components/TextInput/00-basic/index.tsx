@@ -6,18 +6,18 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-    title: 'Basic usage',
-    items: [
-        createDocsItemData({ props }, () => {
-            const [value, setValue] = createSignal(lipsumWords(3));
+	title: 'Basic usage',
+	items: [
+		createDocsItemData({ props }, () => {
+			const [value, setValue] = createSignal(lipsumWords(3));
 
-            return (
-                <>
-                    <TextInput value={value()} onValueChange={setValue} />
-                    <Divider />
-                    <Label>Current value: {value()}</Label>
-                </>
-            );
-        }),
-    ],
+			return (
+				<>
+					<TextInput value={value()} onValueChange={setValue} />
+					<Divider />
+					<Label>Current value: {value()}</Label>
+				</>
+			);
+		}),
+	],
 });

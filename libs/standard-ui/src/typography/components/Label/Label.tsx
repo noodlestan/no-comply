@@ -9,10 +9,10 @@ import type { LabelProps } from './types';
 type Props = ClosedTagProps & LabelProps;
 
 export const Label: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, LABEL_PROPS);
+	const [locals, $others] = splitProps(props, LABEL_PROPS);
 
-    const { $root } = createLabel(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createLabel(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

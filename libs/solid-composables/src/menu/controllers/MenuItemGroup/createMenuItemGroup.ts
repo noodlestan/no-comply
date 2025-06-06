@@ -8,34 +8,34 @@ import { $MENU_ITEM_GROUP } from './constants';
 import type { MenuItemGroupAPI, MenuItemGroupProps } from './types';
 
 export const createMenuItemGroup = (props: MenuItemGroupProps): MenuItemGroupAPI => {
-    const [locals, expose, compose] = createExposable($MENU_ITEM_GROUP, props);
+	const [locals, expose, compose] = createExposable($MENU_ITEM_GROUP, props);
 
-    const contextValue = compose(createMenuItemGroupContext(locals));
-    const [context] = contextValue;
+	const contextValue = compose(createMenuItemGroupContext(locals));
+	const [context] = contextValue;
 
-    const ariaGroupProps = computedProps({
-        labelled: () => Boolean(locals.label),
-    });
-    const { $root: $groupRoot, $label, $description, hasLabel } = createAriaGroup(ariaGroupProps);
+	const ariaGroupProps = computedProps({
+		labelled: () => Boolean(locals.label),
+	});
+	const { $root: $groupRoot, $label, $description, hasLabel } = createAriaGroup(ariaGroupProps);
 
-    const $root = {
-        'data-menu-item-group': '' as const,
-    };
+	const $root = {
+		'data-menu-item-group': '' as const,
+	};
 
-    const $localLabel = computedProps({
-        children: () => locals.label,
-    });
+	const $localLabel = computedProps({
+		children: () => locals.label,
+	});
 
-    const $localDescription = computedProps({
-        children: () => locals.description,
-    });
+	const $localDescription = computedProps({
+		children: () => locals.description,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($groupRoot, $root),
-        $label: combineProps($label, $localLabel),
-        $description: combineProps($description, $localDescription),
-        hasLabel,
-        context,
-        contextValue,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($groupRoot, $root),
+		$label: combineProps($label, $localLabel),
+		$description: combineProps($description, $localDescription),
+		hasLabel,
+		context,
+		contextValue,
+	});
 };

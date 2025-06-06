@@ -10,24 +10,24 @@ import { $BUTTON_MIXIN } from './constants';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';
 
 export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
-    const [locals, expose, compose] = createExposable($BUTTON_MIXIN, props);
+	const [locals, expose, compose] = createExposable($BUTTON_MIXIN, props);
 
-    const { $root: $actionMixinRoot } = compose(createActionMixin(locals));
-    const { $root: $sizedActionMixinRoot, size } = compose(createSizedActionMixin(locals));
+	const { $root: $actionMixinRoot } = compose(createActionMixin(locals));
+	const { $root: $sizedActionMixinRoot, size } = compose(createSizedActionMixin(locals));
 
-    const actionLabelStaticProps = { nowrap: true };
-    const actionLabelProps = computedProps(actionLabelStaticProps, {
-        variant: size,
-    });
-    const { $root: $actionLabelMixinRoot } = compose(createActionLabelMixin(actionLabelProps));
+	const actionLabelStaticProps = { nowrap: true };
+	const actionLabelProps = computedProps(actionLabelStaticProps, {
+		variant: size,
+	});
+	const { $root: $actionLabelMixinRoot } = compose(createActionLabelMixin(actionLabelProps));
 
-    const classList = createClassList(styles, () => [`Button`, `size-${size()}`]);
-    const $root = {
-        classList,
-    };
+	const classList = createClassList(styles, () => [`Button`, `size-${size()}`]);
+	const $root = {
+		classList,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($actionMixinRoot, $sizedActionMixinRoot, $actionLabelMixinRoot, $root),
-        size,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($actionMixinRoot, $sizedActionMixinRoot, $actionLabelMixinRoot, $root),
+		size,
+	});
 };

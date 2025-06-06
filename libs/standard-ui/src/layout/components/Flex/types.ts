@@ -4,5 +4,5 @@ import { type LayoutAPI, type LayoutProps } from '../Layout';
 export type FlexProps = LayoutProps & FlexMixinProps;
 
 export type FlexAPI = {
-    $root: FlexMixinAPI['$root'] & LayoutAPI['$root'];
+	$root: FlexMixinAPI['$root'] & LayoutAPI['$root'];
 };

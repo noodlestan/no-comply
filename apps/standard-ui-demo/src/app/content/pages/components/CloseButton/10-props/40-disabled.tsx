@@ -6,6 +6,6 @@ import { itemProps as props } from '../constants';
 const disabled = createDocsItemData({ props }, () => <CloseButton label="Close" disabled />);
 
 export default createDocsSectionData({
-    title: 'disabled',
-    items: [disabled],
+	title: 'disabled',
+	items: [disabled],
 });

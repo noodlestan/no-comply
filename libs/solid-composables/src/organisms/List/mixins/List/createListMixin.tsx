@@ -6,13 +6,13 @@ import { $LIST_MIXIN } from './constants';
 import type { ListMixinAPI } from './types';
 
 export const createListixin = (): ListMixinAPI => {
-    const [, expose] = createExposable($LIST_MIXIN);
+	const [, expose] = createExposable($LIST_MIXIN);
 
-    const $root = {
-        classList: staticClassList(styles, 'List'),
-    };
+	const $root = {
+		classList: staticClassList(styles, 'List'),
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root,
-    });
+	return exposeAPI(expose, '$root', {
+		$root,
+	});
 };

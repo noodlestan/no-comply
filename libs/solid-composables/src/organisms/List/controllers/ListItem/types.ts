@@ -4,12 +4,12 @@ import type { ObjectWithId, PropsWithComponent } from '@no-comply/solid-primitiv
 import type { ListItemContentsProps } from '../../types';
 
 export type ListItemProps = Omit<AriaListItemProps, 'component' | 'selected'> & {
-    item: ObjectWithId;
+	item: ObjectWithId;
 };
 
 export type ListItemAPI = {
-    $root: AriaListItemAPI['$root'];
-    $label: AriaListItemAPI['$label'];
-    $description: AriaListItemAPI['$description'];
-    itemContentsProps: PropsWithComponent<ListItemContentsProps>;
+	$root: AriaListItemAPI['$root'];
+	$label: AriaListItemAPI['$label'];
+	$description: AriaListItemAPI['$description'];
+	itemContentsProps: PropsWithComponent<ListItemContentsProps>;
 };

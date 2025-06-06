@@ -6,12 +6,12 @@ import { ScreenTemplateWithSidebar } from '../../templates';
 import { COMPONENTS_SIDEBAR_ITEMS } from './constants';
 
 export const ComponentsScreen: ParentComponent = props => {
-    return (
-        <ScreenTemplateWithSidebar
-            id="components"
-            sidebar={<SidebarNav items={COMPONENTS_SIDEBAR_ITEMS} />}
-        >
-            {props.children}
-        </ScreenTemplateWithSidebar>
-    );
+	return (
+		<ScreenTemplateWithSidebar
+			id="components"
+			sidebar={<SidebarNav items={COMPONENTS_SIDEBAR_ITEMS} />}
+		>
+			{props.children}
+		</ScreenTemplateWithSidebar>
+	);
 };

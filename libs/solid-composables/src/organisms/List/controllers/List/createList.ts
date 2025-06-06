@@ -9,30 +9,30 @@ import { $LIST } from './constants';
 import type { ListAPI, ListProps } from './types';
 
 export const createList = (props: ListProps): ListAPI => {
-    const [locals, expose] = createExposable($LIST, props);
+	const [locals, expose] = createExposable($LIST, props);
 
-    const contextValue = createListContext(locals);
-    const [context] = contextValue;
-    const { components } = context;
+	const contextValue = createListContext(locals);
+	const [context] = contextValue;
+	const { components } = context;
 
-    const keyboard = withDefault(
-        () => locals.keyboard,
-        () => createListKeyboardController(),
-    );
+	const keyboard = withDefault(
+		() => locals.keyboard,
+		() => createListKeyboardController(),
+	);
 
-    const { $root: $treeRoot, $label, $description } = createAriaList(locals);
+	const { $root: $treeRoot, $label, $description } = createAriaList(locals);
 
-    const _listItem = computedProps({
-        component: () => components().item,
-        setSize: () => locals.items.length,
-    });
+	const _listItem = computedProps({
+		component: () => components().item,
+		setSize: () => locals.items.length,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps(() => keyboard().$root, $treeRoot),
-        $label,
-        $description,
-        _listItem,
-        context,
-        contextValue,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps(() => keyboard().$root, $treeRoot),
+		$label,
+		$description,
+		_listItem,
+		context,
+		contextValue,
+	});
 };

@@ -5,13 +5,13 @@ import { itemProps as props } from '../constants';
 import { createNumberInputExampleController } from '../controllers';
 
 export default createDocsSectionData({
-    title: 'maxLength',
-    items: [
-        createDocsItemData({ title: 'number (3)', props }, () => {
-            const { value, handleValueChange } = createNumberInputExampleController({
-                value: '123',
-            });
-            return <NumberInput value={value()} onValueChange={handleValueChange} maxLength={3} />;
-        }),
-    ],
+	title: 'maxLength',
+	items: [
+		createDocsItemData({ title: 'number (3)', props }, () => {
+			const { value, handleValueChange } = createNumberInputExampleController({
+				value: '123',
+			});
+			return <NumberInput value={value()} onValueChange={handleValueChange} maxLength={3} />;
+		}),
+	],
 });

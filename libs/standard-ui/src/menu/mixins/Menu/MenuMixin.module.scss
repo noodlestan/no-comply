@@ -1,27 +1,27 @@
 @layer lib.standard-ui.menu {
-    .Menu {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: start;
-        gap: var(--space-gap-0);
-        min-width: 200px;
-        max-width: 280px;
-        user-select: none;
+  .Menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    gap: var(--space-gap-0);
+    min-width: 200px;
+    max-width: 280px;
+    user-select: none;
 
-        [data-menu-item-group] {
-            display: flex;
-            flex-direction: column;
+    [data-menu-item-group] {
+      display: flex;
+      flex-direction: column;
 
-            &:last-child [data-menu-separator] {
-                display: none;
-            }
-        }
-
-        [data-menu-separator] {
-            height: 1px;
-            background: #ccc;
-            margin: 0.5rem 0;
-        }
+      &:last-child [data-menu-separator] {
+        display: none;
+      }
     }
+
+    [data-menu-separator] {
+      height: 1px;
+      background: #ccc;
+      margin: 0.5rem 0;
+    }
+  }
 }

@@ -3,7 +3,7 @@ import type { AriaSeparatorAPI, AriaSeparatorProps } from '@no-comply/solid-acce
 export type DividerMixinProps = AriaSeparatorProps;
 
 export type DividerMixinAPI = AriaSeparatorAPI & {
-    $root: AriaSeparatorAPI['$root'] & {
-        'data-separator': '';
-    };
+	$root: AriaSeparatorAPI['$root'] & {
+		'data-separator': '';
+	};
 };

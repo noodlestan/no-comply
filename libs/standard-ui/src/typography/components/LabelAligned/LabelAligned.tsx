@@ -9,10 +9,10 @@ import type { LabelAlignedProps } from './types';
 type Props = ClosedTagProps & LabelAlignedProps;
 
 export const LabelAligned: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, LABEL_ALIGNED_PROPS);
+	const [locals, $others] = splitProps(props, LABEL_ALIGNED_PROPS);
 
-    const { $root } = createLabelAligned(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createLabelAligned(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

@@ -4,11 +4,11 @@ import { lipsumChars } from './lipsumChars';
 import { lipsumWords } from './lipsumWords';
 
 type Props = {
-    words?: number;
-    chars?: number;
+	words?: number;
+	chars?: number;
 };
 
 export const LoremIpsum: Component<Props> = props => {
-    const text = () => (props.chars ? lipsumChars(props.chars) : lipsumWords(props.words));
-    return <>{text()}</>;
+	const text = () => (props.chars ? lipsumChars(props.chars) : lipsumWords(props.words));
+	return <>{text()}</>;
 };

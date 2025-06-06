@@ -15,14 +15,14 @@ export type ListTagName = 'ol' | 'ul' | 'div';
 export type ListItemTagName = 'li' | 'div';
 
 export type RegionTagName =
-    | 'div'
-    | 'main'
-    | 'header'
-    | 'footer'
-    | 'nav'
-    | 'section'
-    | 'article'
-    | 'aside';
+	| 'div'
+	| 'main'
+	| 'header'
+	| 'footer'
+	| 'nav'
+	| 'section'
+	| 'article'
+	| 'aside';
 
 export type FocusableTagName = BlockTagName | RegionTagName;
 

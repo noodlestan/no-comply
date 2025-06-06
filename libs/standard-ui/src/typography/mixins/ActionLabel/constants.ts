@@ -6,6 +6,6 @@ import type { ActionLabelMixinProps } from './types';
 export const $ACTION_LABEL_MIXIN = 'mixin:standard:action-label';
 
 export const ACTION_LABEL_MIXIN_PROPS = definePropKeys<ActionLabelMixinProps>()([
-    ...HEADLESS_TEXT_MIXIN_PROPS,
-    'variant',
+	...HEADLESS_TEXT_MIXIN_PROPS,
+	'variant',
 ]);

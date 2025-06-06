@@ -8,11 +8,11 @@ import type { NavLinkProps } from './types';
 type Props = ClosedTagProps & NavLinkProps;
 
 export const NavLink: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, NAV_LINK_PROPS);
+	const [locals, $others] = splitProps(props, NAV_LINK_PROPS);
 
-    const { $root } = createNavLink(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createNavLink(locals);
+	const $ = combineProps($others, $root);
 
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    return <a {...$} />;
+	// eslint-disable-next-line jsx-a11y/anchor-has-content
+	return <a {...$} />;
 };

@@ -7,50 +7,50 @@ import { ColorPopover } from '../ColorPopover';
 import styles from './ShowColor.module.scss';
 
 type Props = {
-    p: string;
-    l: number;
-    enablePalettes?: boolean;
+	p: string;
+	l: number;
+	enablePalettes?: boolean;
 };
 
 export const ShowColor: Component<Props> = props => {
-    let element: HTMLElement;
+	let element: HTMLElement;
 
-    const [color, setColor] = createSignal('');
+	const [color, setColor] = createSignal('');
 
-    const setElementRef = (el: HTMLElement) => {
-        element = el;
-    };
+	const setElementRef = (el: HTMLElement) => {
+		element = el;
+	};
 
-    onMount(() => {
-        if (props.p !== 'labels') {
-            setColor(getComputedStyle(element).backgroundColor);
-        } else {
-            setColor(String(props.l));
-        }
-    });
+	onMount(() => {
+		if (props.p !== 'labels') {
+			setColor(getComputedStyle(element).backgroundColor);
+		} else {
+			setColor(String(props.l));
+		}
+	});
 
-    const classList = createClassList(styles, () => ({
-        ShowColor: true,
-        'palettes-enabled': Boolean(props.enablePalettes),
-    }));
+	const classList = createClassList(styles, () => ({
+		ShowColor: true,
+		'palettes-enabled': Boolean(props.enablePalettes),
+	}));
 
-    const style = () => ({
-        '--__show-color-palette': `var(--p-${props.p})`,
-        '--__show-color-color': `var(--p-${props.p}-center)`,
-        '--__show-color-level': props.l,
-        '--__show-color-light': `var(--l-${props.l})`,
-    });
+	const style = () => ({
+		'--__show-color-palette': `var(--p-${props.p})`,
+		'--__show-color-color': `var(--p-${props.p}-center)`,
+		'--__show-color-level': props.l,
+		'--__show-color-light': `var(--l-${props.l})`,
+	});
 
-    return (
-        <Flex classList={classList()} style={style()} ref={setElementRef}>
-            <AnchoredPopover
-                anchor="start-center"
-                direction="block"
-                flip="inline"
-                trigger={trigger => <button aria-label="Show color details" {...trigger} />}
-            >
-                {popover => <ColorPopover id={popover.id} color={color()} />}
-            </AnchoredPopover>
-        </Flex>
-    );
+	return (
+		<Flex classList={classList()} style={style()} ref={setElementRef}>
+			<AnchoredPopover
+				anchor="start-center"
+				direction="block"
+				flip="inline"
+				trigger={trigger => <button aria-label="Show color details" {...trigger} />}
+			>
+				{popover => <ColorPopover id={popover.id} color={color()} />}
+			</AnchoredPopover>
+		</Flex>
+	);
 };

@@ -11,15 +11,15 @@ import type { SkipLinkProps } from './types';
 type Props = ClosedTagProps & SkipLinkProps;
 
 export const SkipLink: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, [...SKIP_LINK_PROPS, 'children']);
+	const [locals, $others] = splitProps(props, [...SKIP_LINK_PROPS, 'children']);
 
-    const { $root } = createSkipLink(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createSkipLink(locals);
+	const $ = combineProps($others, $root);
 
-    return (
-        <a {...$}>
-            <Icon size={locals.size} icon={ArrowDownIcon} aria-hidden={true} />
-            {locals.children}
-        </a>
-    );
+	return (
+		<a {...$}>
+			<Icon size={locals.size} icon={ArrowDownIcon} aria-hidden={true} />
+			{locals.children}
+		</a>
+	);
 };

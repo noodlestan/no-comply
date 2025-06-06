@@ -1,6 +1,6 @@
 @layer theme.standard.base.patterns {
-    [data-theme-standard] {
-        --layout-reading-max-width: 560px;
-        --layout-column-max-width: 960px;
-    }
+  [data-theme-standard] {
+    --layout-reading-max-width: 560px;
+    --layout-column-max-width: 960px;
+  }
 }

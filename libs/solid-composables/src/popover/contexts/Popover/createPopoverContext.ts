@@ -6,39 +6,39 @@ import { usePopoverMaybe } from '../../providers';
 import type { PopoverContext, PopoverContextOptions, PopoverContextValue } from './types';
 
 export const createPopoverContext = (props: PopoverContextOptions): PopoverContextValue => {
-    let popoverEl: HTMLElement;
+	let popoverEl: HTMLElement;
 
-    const randomId = createMemo(shortId);
-    const id = () => props.id ?? randomId();
+	const randomId = createMemo(shortId);
+	const id = () => props.id ?? randomId();
 
-    const parentPopover = usePopoverMaybe();
+	const parentPopover = usePopoverMaybe();
 
-    const setPopoverRef = (el: HTMLElement) => {
-        popoverEl = el;
-    };
+	const setPopoverRef = (el: HTMLElement) => {
+		popoverEl = el;
+	};
 
-    const isShown = () => {
-        return popoverEl?.matches(':popover-open');
-    };
+	const isShown = () => {
+		return popoverEl?.matches(':popover-open');
+	};
 
-    const dismiss = () => {
-        popoverEl?.hidePopover();
-    };
+	const dismiss = () => {
+		popoverEl?.hidePopover();
+	};
 
-    const dismissStack = () => {
-        dismiss();
-        parentPopover?.dismissStack();
-    };
+	const dismissStack = () => {
+		dismiss();
+		parentPopover?.dismissStack();
+	};
 
-    const context: PopoverContext = {
-        type: 'popover',
-        id,
-        isShown,
-        setPopoverRef,
-        dismiss,
-        dismissStack,
-        popoverEl: () => popoverEl,
-    };
+	const context: PopoverContext = {
+		type: 'popover',
+		id,
+		isShown,
+		setPopoverRef,
+		dismiss,
+		dismissStack,
+		popoverEl: () => popoverEl,
+	};
 
-    return [context];
+	return [context];
 };

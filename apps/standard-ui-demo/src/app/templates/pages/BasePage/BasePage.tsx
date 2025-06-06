@@ -7,23 +7,23 @@ import { PageContentsLayout } from '../../layouts';
 import { EmptyPage } from '../EmptyPage';
 
 export type BasePageProps = {
-    title: JSX.Element;
-    classList?: ClassList;
-    undertitle?: JSX.Element;
+	title: JSX.Element;
+	classList?: ClassList;
+	undertitle?: JSX.Element;
 };
 
 export const BasePage: ParentComponent<BasePageProps> = props => {
-    return (
-        <EmptyPage aria-labelledby={$ID_SCREEN_TITLE}>
-            <PageContentsLayout classList={props.classList} gap="l">
-                <Flex gap="s">
-                    <Display id={$ID_SCREEN_TITLE} level={2}>
-                        {props.title}
-                    </Display>
-                    {props.undertitle}
-                </Flex>
-                <Flex gap="xl">{props.children}</Flex>
-            </PageContentsLayout>
-        </EmptyPage>
-    );
+	return (
+		<EmptyPage aria-labelledby={$ID_SCREEN_TITLE}>
+			<PageContentsLayout classList={props.classList} gap="l">
+				<Flex gap="s">
+					<Display id={$ID_SCREEN_TITLE} level={2}>
+						{props.title}
+					</Display>
+					{props.undertitle}
+				</Flex>
+				<Flex gap="xl">{props.children}</Flex>
+			</PageContentsLayout>
+		</EmptyPage>
+	);
 };

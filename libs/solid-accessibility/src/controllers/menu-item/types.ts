@@ -1,15 +1,15 @@
 import type {
-    AriaLabelledAPI,
-    AriaLabelledProps,
-    MenuItemRoleName,
+	AriaLabelledAPI,
+	AriaLabelledProps,
+	MenuItemRoleName,
 } from '@no-comply/solid-accessibility';
 
 export type AriaMenuItemProps = AriaLabelledProps & {
-    role?: MenuItemRoleName;
+	role?: MenuItemRoleName;
 };
 
 export type AriaMenuItemAPI = AriaLabelledAPI & {
-    $root: AriaLabelledAPI['$root'] & {
-        role: MenuItemRoleName;
-    };
+	$root: AriaLabelledAPI['$root'] & {
+		role: MenuItemRoleName;
+	};
 };

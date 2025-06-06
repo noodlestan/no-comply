@@ -7,17 +7,17 @@ import { $DIVIDER_MIXIN } from './constants';
 import type { DividerMixinAPI, DividerMixinProps } from './types';
 
 export const createDividerMixin = (props: DividerMixinProps): DividerMixinAPI => {
-    const [locals, expose] = createExposable($DIVIDER_MIXIN, props);
+	const [locals, expose] = createExposable($DIVIDER_MIXIN, props);
 
-    const { $root: $separatorRoot } = createAriaSeparator(locals);
-    const classList = staticClassList(styles, 'Divider');
+	const { $root: $separatorRoot } = createAriaSeparator(locals);
+	const classList = staticClassList(styles, 'Divider');
 
-    const $root = {
-        classList,
-        'data-separator': '' as const,
-    };
+	const $root = {
+		classList,
+		'data-separator': '' as const,
+	};
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($root, $separatorRoot),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($root, $separatorRoot),
+	});
 };

@@ -7,7 +7,7 @@ import type { AlignFirstLineAllProps } from './types';
 export const $ALIGN_FIRST_LINE = 'component:standard:align-first-line';
 
 export const ALIGN_FIRST_LINE_PROPS = definePropKeys<AlignFirstLineAllProps>()([
-    ...FIRST_LINE_ALIGN_MIXIN_PROPS,
-    ...COMPOSABLE_TYPE_MIXIN_PROPS,
-    'tag',
+	...FIRST_LINE_ALIGN_MIXIN_PROPS,
+	...COMPOSABLE_TYPE_MIXIN_PROPS,
+	'tag',
 ]);

@@ -9,10 +9,10 @@ import type { DisplayAlignedProps } from './types';
 type Props = ClosedTagProps & DisplayAlignedProps;
 
 export const DisplayAligned: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, DISPLAY_ALIGNED_PROPS);
+	const [locals, $others] = splitProps(props, DISPLAY_ALIGNED_PROPS);
 
-    const { $root } = createDisplayAligned(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createDisplayAligned(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

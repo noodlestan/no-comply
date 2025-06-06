@@ -1,57 +1,57 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer lib.standard-ui.menu-item {
-    .MenuItem {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        align-items: start;
-        justify-content: start;
-        height: auto;
-        min-height: auto;
-        border-radius: var(--menu-border-radius);
-        --__padding-block: var(--space-pad--2);
-        --__padding-inline: var(--space-pad-0);
-        --__gap: var(--space-gap--1);
-    }
+  .MenuItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    align-items: start;
+    justify-content: start;
+    height: auto;
+    min-height: auto;
+    border-radius: var(--menu-border-radius);
+    --__padding-block: var(--space-pad--2);
+    --__padding-inline: var(--space-pad-0);
+    --__gap: var(--space-gap--1);
+  }
 
-    .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
-        @include set-palette(__fg, __intent);
-        @include set-level(__fg, inverted-fg-primary);
-        @include set-palette(__bg, __intent);
-        @include set-level(__bg, inverted-bg-0);
-    }
+  .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
+    @include set-palette(__fg, __intent);
+    @include set-level(__fg, inverted-fg-primary);
+    @include set-palette(__bg, __intent);
+    @include set-level(__bg, inverted-bg-0);
+  }
 
-    .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-        @include set-palette(__fg, __intent);
-        @include set-level(__fg, inverted-fg-contrast);
-        @include set-palette(__bg, __intent);
-        @include set-level(__bg, inverted-bg-contrast);
-    }
+  .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover):active {
+    @include set-palette(__fg, __intent);
+    @include set-level(__fg, inverted-fg-contrast);
+    @include set-palette(__bg, __intent);
+    @include set-level(__bg, inverted-bg-contrast);
+  }
 
-    .-Icon {
-        width: var(--size-xs);
-    }
+  .-Icon {
+    width: var(--size-xs);
+  }
 
-    .-Label {
-        flex: 1;
-        cursor: inherit;
-        white-space: break-spaces;
-        word-break: break-word;
-    }
+  .-Label {
+    flex: 1;
+    cursor: inherit;
+    white-space: break-spaces;
+    word-break: break-word;
+  }
 
-    .-LabelSub {
-        /* */
-    }
+  .-LabelSub {
+    /* */
+  }
 
-    .-Description * {
-        cursor: inherit;
-    }
+  .-Description * {
+    cursor: inherit;
+  }
 
-    .-Expand {
-        width: var(--size-xs);
-        position: relative;
-        inset-inline-end: calc(-1 * var(--__padding-inline));
-    }
+  .-Expand {
+    width: var(--size-xs);
+    position: relative;
+    inset-inline-end: calc(-1 * var(--__padding-inline));
+  }
 }

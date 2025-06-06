@@ -13,5 +13,5 @@ export const FOCUS_ELEMENTS_QUERY = `
 `;
 
 export const getFocusableElements = (element?: HTMLElement): HTMLElement[] => {
-    return element ? Array.from(element.querySelectorAll(FOCUS_ELEMENTS_QUERY)) : [];
+	return element ? Array.from(element.querySelectorAll(FOCUS_ELEMENTS_QUERY)) : [];
 };

@@ -7,15 +7,15 @@ import { type ThemeContextValue } from '../../contexts';
 import { ThemeContextCTX } from './private';
 
 type ThemeContextProviderProps = {
-    context: ThemeContextValue;
+	context: ThemeContextValue;
 };
 
 export const ThemeContextProvider: ParentComponent<ThemeContextProviderProps> = props => {
-    const node = () => createContextNode(props.context[0]);
+	const node = () => createContextNode(props.context[0]);
 
-    return (
-        <ThemeContextCTX.Provider value={props.context}>
-            <ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
-        </ThemeContextCTX.Provider>
-    );
+	return (
+		<ThemeContextCTX.Provider value={props.context}>
+			<ContextNodeProvider node={node()}>{props.children}</ContextNodeProvider>
+		</ThemeContextCTX.Provider>
+	);
 };

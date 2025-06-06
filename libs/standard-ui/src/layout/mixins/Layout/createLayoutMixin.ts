@@ -7,11 +7,11 @@ import { $LAYOUT_MIXIN } from './constants';
 import { type LayoutMixinAPI, type LayoutMixinProps } from './types';
 
 export const createLayoutMixin = (props: LayoutMixinProps): LayoutMixinAPI => {
-    const [locals, expose, compose] = createExposable($LAYOUT_MIXIN, props);
+	const [locals, expose, compose] = createExposable($LAYOUT_MIXIN, props);
 
-    const { $root: $layoutMixinRoot } = compose(createHeadlessLayoutMixin(locals, GLOBAL_BP_NAMES));
+	const { $root: $layoutMixinRoot } = compose(createHeadlessLayoutMixin(locals, GLOBAL_BP_NAMES));
 
-    return exposeAPI(expose, '$root', {
-        $root: $layoutMixinRoot,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: $layoutMixinRoot,
+	});
 };

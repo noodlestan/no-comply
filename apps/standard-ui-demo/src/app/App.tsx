@@ -14,62 +14,57 @@ import { ErrorBoundaryScreen } from './screens';
 import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from './templates';
 
 const Main: ParentComponent = props => {
-    const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
+	const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
 
-    const handleSkipLink = () => {
-        setTimeout(() => {
-            setMainFocus();
-        });
-    };
+	const handleSkipLink = () => {
+		setTimeout(() => {
+			setMainFocus();
+		});
+	};
 
-    const { status } = useAppServices();
-    const { hasFocus } = useSystemContext();
+	const { status } = useAppServices();
+	const { hasFocus } = useSystemContext();
 
-    const classList = createClassList(styles, () => {
-        return {
-            AppMain: true,
-            'has-focus': hasFocus(),
-        };
-    });
+	const classList = createClassList(styles, () => {
+		return {
+			AppMain: true,
+			'has-focus': hasFocus(),
+		};
+	});
 
-    return (
-        <Flex
-            direction="column"
-            stretch="full"
-            classList={classList()}
-            aria-busy={!status.isReady()}
-        >
-            <Show when={!status.isReady()}>
-                <AppSplash />
-            </Show>
-            <Show when={status.isReady()}>
-                <SkipLink floating href={`#${$ID_SCREEN_MAIN}`} onPress={handleSkipLink}>
-                    Skip to main content
-                </SkipLink>
-                {props.children}
-            </Show>
-        </Flex>
-    );
+	return (
+		<Flex direction="column" stretch="full" classList={classList()} aria-busy={!status.isReady()}>
+			<Show when={!status.isReady()}>
+				<AppSplash />
+			</Show>
+			<Show when={status.isReady()}>
+				<SkipLink floating href={`#${$ID_SCREEN_MAIN}`} onPress={handleSkipLink}>
+					Skip to main content
+				</SkipLink>
+				{props.children}
+			</Show>
+		</Flex>
+	);
 };
 
 const Root: ParentComponent = props => {
-    return (
-        <ErrorBoundaryScreen>
-            <AppServicesProvider>
-                <UIRootProvider defaultCtxId={APP.id}>
-                    {/* <Surface variant="menu">HELLO!</Surface> */}
-                    <Main>{props.children}</Main>
-                    {/* <DebugDrawer /> */}
-                </UIRootProvider>
-            </AppServicesProvider>
-        </ErrorBoundaryScreen>
-    );
+	return (
+		<ErrorBoundaryScreen>
+			<AppServicesProvider>
+				<UIRootProvider defaultCtxId={APP.id}>
+					{/* <Surface variant="menu">HELLO!</Surface> */}
+					<Main>{props.children}</Main>
+					{/* <DebugDrawer /> */}
+				</UIRootProvider>
+			</AppServicesProvider>
+		</ErrorBoundaryScreen>
+	);
 };
 
 export const App: Component = () => {
-    return (
-        <Router root={Root}>
-            <Routes />
-        </Router>
-    );
+	return (
+		<Router root={Root}>
+			<Routes />
+		</Router>
+	);
 };

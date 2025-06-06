@@ -6,8 +6,8 @@ import { createContextVariantsService } from '../../private';
 import { ContextVariantsCTX } from './private/ContextVariantsCTX';
 
 export const ContextVariantsProvider: ParentComponent = props => {
-    const service = createContextVariantsService();
-    return (
-        <ContextVariantsCTX.Provider value={service}>{props.children}</ContextVariantsCTX.Provider>
-    );
+	const service = createContextVariantsService();
+	return (
+		<ContextVariantsCTX.Provider value={service}>{props.children}</ContextVariantsCTX.Provider>
+	);
 };

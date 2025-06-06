@@ -9,22 +9,22 @@ import { APP_SIDEBAR_ITEMS } from './constants';
 import { SignupPage } from './pages';
 
 export const AppHomeScreen: ParentComponent = () => {
-    const [showQuitAppModalDialog, setShowQuitAppModalDialog] = createSignal(false);
+	const [showQuitAppModalDialog, setShowQuitAppModalDialog] = createSignal(false);
 
-    const handleQuitAppConfirm = () => {
-        console.info('quit');
-    };
+	const handleQuitAppConfirm = () => {
+		console.info('quit');
+	};
 
-    return (
-        <ScreenTemplateWithSidebar id="app" sidebar={<SidebarNav items={APP_SIDEBAR_ITEMS} />}>
-            <SignupPage />
-            <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 1</Button>
-            <Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 2</Button>
-            <QuitAppModalDialog
-                show={showQuitAppModalDialog()}
-                onCancel={() => setShowQuitAppModalDialog(false)}
-                onConfirm={handleQuitAppConfirm}
-            />
-        </ScreenTemplateWithSidebar>
-    );
+	return (
+		<ScreenTemplateWithSidebar id="app" sidebar={<SidebarNav items={APP_SIDEBAR_ITEMS} />}>
+			<SignupPage />
+			<Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 1</Button>
+			<Button onPress={() => setShowQuitAppModalDialog(true)}>QUIT 2</Button>
+			<QuitAppModalDialog
+				show={showQuitAppModalDialog()}
+				onCancel={() => setShowQuitAppModalDialog(false)}
+				onConfirm={handleQuitAppConfirm}
+			/>
+		</ScreenTemplateWithSidebar>
+	);
 };

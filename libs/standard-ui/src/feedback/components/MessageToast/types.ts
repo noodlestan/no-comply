@@ -3,6 +3,6 @@ import type { FeedbackMessageAPI, FeedbackMessageProps } from '@no-comply/solid-
 import type { ContentMessageTemplateOwnProps } from '../../../content';
 
 export type MessageToastProps = Omit<FeedbackMessageProps, 'aria-describedby'> &
-    ContentMessageTemplateOwnProps;
+	ContentMessageTemplateOwnProps;
 
 export type MessageToastAPI = FeedbackMessageAPI;

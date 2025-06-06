@@ -5,10 +5,10 @@ import type { ActiveContextsServiceAPI } from '../../services';
 import { ActiveContextsCTX } from './private';
 
 export const useActiveContexts = (): ActiveContextsServiceAPI => {
-    const context = useContext(ActiveContextsCTX);
-    if (!context) {
-        throw new Error('useActiveContexts() must be wrapped in <ActiveContextsProvider/>');
-    }
+	const context = useContext(ActiveContextsCTX);
+	if (!context) {
+		throw new Error('useActiveContexts() must be wrapped in <ActiveContextsProvider/>');
+	}
 
-    return context;
+	return context;
 };

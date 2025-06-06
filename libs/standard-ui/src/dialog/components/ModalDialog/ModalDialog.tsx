@@ -8,22 +8,22 @@ import { createModalDialog } from './createModalDialog';
 import type { ModalDialogAPI, ModalDialogProps } from './types';
 
 type ChildrenProps = {
-    dialog: ModalDialogAPI;
-    surface: SurfaceAPI;
+	dialog: ModalDialogAPI;
+	surface: SurfaceAPI;
 };
 
 type Props = ClosedTagProps &
-    ModalDialogProps & {
-        children: RenderProp<ChildrenProps>;
-    };
+	ModalDialogProps & {
+		children: RenderProp<ChildrenProps>;
+	};
 
 export const ModalDialog: Component<Props> = props => {
-    const dialog = createModalDialog(props);
-    const { _surface, contextValue } = dialog;
+	const dialog = createModalDialog(props);
+	const { _surface, contextValue } = dialog;
 
-    return (
-        <ModalPortal context={contextValue}>
-            <Surface {..._surface}>{({ surface }) => props.children({ dialog, surface })}</Surface>
-        </ModalPortal>
-    );
+	return (
+		<ModalPortal context={contextValue}>
+			<Surface {..._surface}>{({ surface }) => props.children({ dialog, surface })}</Surface>
+		</ModalPortal>
+	);
 };

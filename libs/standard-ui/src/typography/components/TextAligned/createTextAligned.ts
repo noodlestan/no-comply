@@ -9,15 +9,15 @@ import { $TEXT_ALIGNED } from './constants';
 import type { TextAlignedAPI, TextAlignedProps } from './types';
 
 export const createTextAligned = (props: TextAlignedProps): TextAlignedAPI => {
-    const [locals, expose, compose] = createExposable($TEXT_ALIGNED, props);
+	const [locals, expose, compose] = createExposable($TEXT_ALIGNED, props);
 
-    const alignedProps = useAlignFirstLine<ComposableTextProps>('text');
+	const alignedProps = useAlignFirstLine<ComposableTextProps>('text');
 
-    const merged = combineProps(locals, alignedProps, { aligned: true });
+	const merged = combineProps(locals, alignedProps, { aligned: true });
 
-    const { $root: $actionLabelRoot } = compose(createText(merged));
+	const { $root: $actionLabelRoot } = compose(createText(merged));
 
-    return exposeAPI(expose, '$root', {
-        $root: $actionLabelRoot,
-    });
+	return exposeAPI(expose, '$root', {
+		$root: $actionLabelRoot,
+	});
 };

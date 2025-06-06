@@ -9,42 +9,42 @@ import topLevelAwait from 'vite-plugin-top-level-await';
 const NAME = JSON.parse(readFileSync('package.json', 'utf8')).name;
 
 export default defineConfig({
-    plugins: [solidPlugin(), SolidSVG(), topLevelAwait()],
-    resolve: {
-        alias: [
-            { find: '~build', replacement: resolve(__dirname, 'build') },
-            { find: '@', replacement: resolve(__dirname, 'src') },
-        ],
-    },
-    server: {
-        port: 3000,
-    },
-    build: {
-        outDir: 'dist/esm/',
-        emptyOutDir: true,
-        target: 'esnext',
-        lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
-            name: NAME,
-            fileName: 'index',
-            formats: ['es'],
-        },
-        rollupOptions: {
-            external: [
-                '@no-comply/solid-contexts',
-                '@no-comply/solid-accessibility',
-                '@no-comply/solid-primitives',
-                '@solid-primitives/set',
-                'lucide-solid',
-                'solid-js',
-            ],
-        },
-    },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `@use "~build/globals.scss" as *;`,
-            },
-        },
-    },
+	plugins: [solidPlugin(), SolidSVG(), topLevelAwait()],
+	resolve: {
+		alias: [
+			{ find: '~build', replacement: resolve(__dirname, 'build') },
+			{ find: '@', replacement: resolve(__dirname, 'src') },
+		],
+	},
+	server: {
+		port: 3000,
+	},
+	build: {
+		outDir: 'dist/esm/',
+		emptyOutDir: true,
+		target: 'esnext',
+		lib: {
+			entry: resolve(__dirname, 'src/index.ts'),
+			name: NAME,
+			fileName: 'index',
+			formats: ['es'],
+		},
+		rollupOptions: {
+			external: [
+				'@no-comply/solid-contexts',
+				'@no-comply/solid-accessibility',
+				'@no-comply/solid-primitives',
+				'@solid-primitives/set',
+				'lucide-solid',
+				'solid-js',
+			],
+		},
+	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@use "~build/globals.scss" as *;`,
+			},
+		},
+	},
 });

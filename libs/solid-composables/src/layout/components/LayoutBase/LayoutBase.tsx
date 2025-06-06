@@ -9,10 +9,10 @@ import { type LayoutBaseProps } from './types';
 type Props = ClosedTagProps & LayoutBaseProps;
 
 export const LayoutBase: ParentComponent<Props> = props => {
-    const [locals, $others] = splitProps(props, LAYOUT_BASE_PROPS);
+	const [locals, $others] = splitProps(props, LAYOUT_BASE_PROPS);
 
-    const { $root } = createLayoutBase(locals);
-    const $ = combineProps($others, $root);
+	const { $root } = createLayoutBase(locals);
+	const $ = combineProps($others, $root);
 
-    return <Dynamic {...$} />;
+	return <Dynamic {...$} />;
 };

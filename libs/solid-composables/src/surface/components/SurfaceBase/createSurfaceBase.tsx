@@ -8,13 +8,13 @@ import { $SURFACE_BASE } from './constants';
 import type { SurfaceBaseAPI, SurfaceBaseProps } from './types';
 
 export const createSurfaceBase = (props: SurfaceBaseProps): SurfaceBaseAPI => {
-    const [locals, expose, compose] = createExposable($SURFACE_BASE, props);
+	const [locals, expose, compose] = createExposable($SURFACE_BASE, props);
 
-    const { $root: $surfaceRoot, ...rest } = compose(createSurface(locals));
-    const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin());
+	const { $root: $surfaceRoot, ...rest } = compose(createSurface(locals));
+	const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin());
 
-    return exposeAPI(expose, '$root', {
-        ...rest,
-        $root: combineProps($surfaceRoot, $surfaceMixinRoot),
-    });
+	return exposeAPI(expose, '$root', {
+		...rest,
+		$root: combineProps($surfaceRoot, $surfaceMixinRoot),
+	});
 };

@@ -6,18 +6,18 @@ import type { ContentSize } from '../../../types';
 import styles from './FieldsetLabel.module.scss';
 
 export type FieldsetLabelProps = {
-    size?: ContentSize;
-    classList?: ClassList;
+	size?: ContentSize;
+	classList?: ClassList;
 };
 
 const defaultProps: PickRequired<FieldsetLabelProps, 'size'> = {
-    size: 'normal',
+	size: 'normal',
 };
 
 export const FieldsetLabel: ParentComponent<FieldsetLabelProps> = props => {
-    const size = () => props.size ?? defaultProps.size;
+	const size = () => props.size ?? defaultProps.size;
 
-    const classList = createClassList(styles, () => ['FieldsetLabel', `size-${size()}`]);
+	const classList = createClassList(styles, () => ['FieldsetLabel', `size-${size()}`]);
 
-    return <label classList={classList()}>{props.children}</label>;
+	return <label classList={classList()}>{props.children}</label>;
 };

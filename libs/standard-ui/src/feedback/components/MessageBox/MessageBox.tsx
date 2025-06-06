@@ -8,19 +8,19 @@ import { createMessageBox } from './createMessageBox';
 import type { MessageBoxProps } from './types';
 
 type Props = ClosedTagProps &
-    MessageBoxProps & {
-        children?: JSX.Element;
-    };
+	MessageBoxProps & {
+		children?: JSX.Element;
+	};
 
 export const MessageBox: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, [...MESSAGE_BOX_PROPS, 'children']);
+	const [locals, $others] = splitProps(props, [...MESSAGE_BOX_PROPS, 'children']);
 
-    const { $root, ...rest } = createMessageBox(locals);
-    const $ = combineProps($root, $others);
+	const { $root, ...rest } = createMessageBox(locals);
+	const $ = combineProps($root, $others);
 
-    return (
-        <ContentMessageTemplate $root={$} {...rest}>
-            {locals.children}
-        </ContentMessageTemplate>
-    );
+	return (
+		<ContentMessageTemplate $root={$} {...rest}>
+			{locals.children}
+		</ContentMessageTemplate>
+	);
 };

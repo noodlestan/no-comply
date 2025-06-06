@@ -9,8 +9,8 @@ import type { ModalDialogProps } from './types';
 export const $MODAL_DIALOG = 'controller:composable:modal-dialog';
 
 export const MODAL_DIALOG_PROPS = definePropKeys<ModalDialogProps>()([
-    ...ARIA_DIALOG_PROPS,
-    ...FOCUS_TRAP_PROPS,
-    ...MODAL_CONTEXT_OPTIONS,
-    'onDiscard',
+	...ARIA_DIALOG_PROPS,
+	...FOCUS_TRAP_PROPS,
+	...MODAL_CONTEXT_OPTIONS,
+	'onDiscard',
 ]);

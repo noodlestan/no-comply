@@ -7,18 +7,18 @@ import { $FIRST_LINE_ALIGN_MIXIN } from './constants';
 import type { AlignFirstLineMixinAPI, AlignFirstLineMixinProps } from './types';
 
 export const createAlignFirstLineMixin = (
-    props: AlignFirstLineMixinProps,
+	props: AlignFirstLineMixinProps,
 ): AlignFirstLineMixinAPI => {
-    const [locals, expose, compose] = createExposable($FIRST_LINE_ALIGN_MIXIN, props);
+	const [locals, expose, compose] = createExposable($FIRST_LINE_ALIGN_MIXIN, props);
 
-    const { $root: $headlessAlignFirstLinenRoot } = compose(createHeadlessAlignFirstLineMixin());
+	const { $root: $headlessAlignFirstLinenRoot } = compose(createHeadlessAlignFirstLineMixin());
 
-    const classList = createClassList(styles, () => [`size-${locals.height}`]);
-    const $root = computedProps({
-        classList,
-    });
+	const classList = createClassList(styles, () => [`size-${locals.height}`]);
+	const $root = computedProps({
+		classList,
+	});
 
-    return exposeAPI(expose, '$root', {
-        $root: combineProps($headlessAlignFirstLinenRoot, $root),
-    });
+	return exposeAPI(expose, '$root', {
+		$root: combineProps($headlessAlignFirstLinenRoot, $root),
+	});
 };

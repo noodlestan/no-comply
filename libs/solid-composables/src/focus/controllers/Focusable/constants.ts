@@ -7,8 +7,8 @@ import type { FocusableProps } from './types';
 export const $FOCUSABLE = 'controller:composable:focusable';
 
 export const FOCUSABLE_PROPS = definePropKeys<FocusableProps>()([
-    ...ARIA_REGION_PROPS,
-    ...FOCUS_CONTEXT_OPTIONS,
-    'tag',
-    'tabIndex',
+	...ARIA_REGION_PROPS,
+	...FOCUS_CONTEXT_OPTIONS,
+	'tag',
+	'tabIndex',
 ]);

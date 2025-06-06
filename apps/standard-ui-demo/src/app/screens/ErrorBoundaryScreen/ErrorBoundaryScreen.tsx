@@ -8,73 +8,73 @@ import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
 import styles from './ErrorBoundaryScreen.module.scss';
 
 const logError = (error: Error) => {
-    console.error(error);
+	console.error(error);
 };
 
 const COLOR_NAMES = [
-    'pink',
-    'red',
-    'yellow',
-    'olive',
-    'green',
-    'ocean',
-    'blue',
-    'indigo',
-    'violet',
+	'pink',
+	'red',
+	'yellow',
+	'olive',
+	'green',
+	'ocean',
+	'blue',
+	'indigo',
+	'violet',
 ];
 const ICONS = [ServerCrashIcon, BugIcon, SkullIcon, CloudRain, XOctagon];
 const SPEED = 15;
 
 export const ErrorScreen: ParentComponent = () => {
-    const colorCount = COLOR_NAMES.length;
-    let timeout: number = 0;
-    let speed = SPEED;
+	const colorCount = COLOR_NAMES.length;
+	let timeout: number = 0;
+	let speed = SPEED;
 
-    const [colorIndexes, setColorIndexes] = createSignal<[number, number, number]>([0, 0, 0]);
-    const [icons, setIcons] = createSignal<[number, number, number]>([0, 0, 0]);
+	const [colorIndexes, setColorIndexes] = createSignal<[number, number, number]>([0, 0, 0]);
+	const [icons, setIcons] = createSignal<[number, number, number]>([0, 0, 0]);
 
-    const random = (length: number) => Math.floor(Math.random() * length);
-    const blip = () => {
-        speed += random(SPEED / 4);
-        setColorIndexes([random(colorCount), random(colorCount), random(colorCount)]);
-        setIcons([random(ICONS.length), random(ICONS.length), random(ICONS.length)]);
-        timeout = setTimeout(blip, speed) as unknown as number;
-    };
-    blip();
+	const random = (length: number) => Math.floor(Math.random() * length);
+	const blip = () => {
+		speed += random(SPEED / 4);
+		setColorIndexes([random(colorCount), random(colorCount), random(colorCount)]);
+		setIcons([random(ICONS.length), random(ICONS.length), random(ICONS.length)]);
+		timeout = setTimeout(blip, speed) as unknown as number;
+	};
+	blip();
 
-    onCleanup(() => clearTimeout(timeout));
+	onCleanup(() => clearTimeout(timeout));
 
-    const icon = (index: 0 | 1 | 2) => ICONS[icons()[index]] as IconComponent;
-    const color = (index: 0 | 1 | 2) => COLOR_NAMES[colorIndexes()[index]];
+	const icon = (index: 0 | 1 | 2) => ICONS[icons()[index]] as IconComponent;
+	const color = (index: 0 | 1 | 2) => COLOR_NAMES[colorIndexes()[index]];
 
-    const iconClassList = staticClassList(styles, '-Icon');
+	const iconClassList = staticClassList(styles, '-Icon');
 
-    return (
-        <Flex direction="column" stretch="full" justify="stretch">
-            <Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
-                <Flex padding="xl" gap="l" align="center">
-                    <Flex direction="row" gap="s" justify="around">
-                        <div style={{ '--error-icon-color-name': color(0) }}>
-                            <Icon icon={icon(0)} classList={iconClassList} />
-                        </div>
-                        <div style={{ '--error-icon-color-name': color(1) }}>
-                            <Icon icon={icon(1)} classList={iconClassList} />
-                        </div>
-                        <div style={{ '--error-icon-color-name': color(2) }}>
-                            <Icon icon={icon(2)} classList={iconClassList} />
-                        </div>
-                    </Flex>
-                    <Display variant="xl">Ouch</Display>
-                </Flex>
-            </Layout>
-        </Flex>
-    );
+	return (
+		<Flex direction="column" stretch="full" justify="stretch">
+			<Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
+				<Flex padding="xl" gap="l" align="center">
+					<Flex direction="row" gap="s" justify="around">
+						<div style={{ '--error-icon-color-name': color(0) }}>
+							<Icon icon={icon(0)} classList={iconClassList} />
+						</div>
+						<div style={{ '--error-icon-color-name': color(1) }}>
+							<Icon icon={icon(1)} classList={iconClassList} />
+						</div>
+						<div style={{ '--error-icon-color-name': color(2) }}>
+							<Icon icon={icon(2)} classList={iconClassList} />
+						</div>
+					</Flex>
+					<Display variant="xl">Ouch</Display>
+				</Flex>
+			</Layout>
+		</Flex>
+	);
 };
 
 export const ErrorBoundaryScreen: ParentComponent = props => {
-    return (
-        <HeadlessErrorBoundary fallback={ErrorScreen} onError={logError}>
-            {props.children}
-        </HeadlessErrorBoundary>
-    );
+	return (
+		<HeadlessErrorBoundary fallback={ErrorScreen} onError={logError}>
+			{props.children}
+		</HeadlessErrorBoundary>
+	);
 };

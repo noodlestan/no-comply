@@ -7,29 +7,29 @@ import { itemProps as props } from '../constants';
 import { createExpandButtonExampleController } from '../controllers';
 
 const icons = createDocsItemData({ props }, () => {
-    const { expanded, expandedText, labels, id, toggleExpanded } =
-        createExpandButtonExampleController();
+	const { expanded, expandedText, labels, id, toggleExpanded } =
+		createExpandButtonExampleController();
 
-    const icons = {
-        expanded: createIconValue(FolderOpen),
-        collapsed: createIconValue(FolderClosed),
-    };
+	const icons = {
+		expanded: createIconValue(FolderOpen),
+		collapsed: createIconValue(FolderClosed),
+	};
 
-    return (
-        <>
-            <ExpandButton
-                expanded={expanded()}
-                labels={labels}
-                icons={icons}
-                controls={id}
-                onPress={toggleExpanded}
-            />
-            <Label id={id}>{expandedText()}</Label>
-        </>
-    );
+	return (
+		<>
+			<ExpandButton
+				expanded={expanded()}
+				labels={labels}
+				icons={icons}
+				controls={id}
+				onPress={toggleExpanded}
+			/>
+			<Label id={id}>{expandedText()}</Label>
+		</>
+	);
 });
 
 export default createDocsSectionData({
-    title: 'icons',
-    items: [icons],
+	title: 'icons',
+	items: [icons],
 });

@@ -6,7 +6,7 @@ import type { DisplayMixinProps } from './types';
 export const $DISPLAY_MIXIN = 'mixin:standard:display';
 
 export const DISPLAY_MIXIN_PROPS = definePropKeys<DisplayMixinProps>()([
-    ...HEADLESS_TEXT_MIXIN_PROPS,
-    'level',
-    'variant',
+	...HEADLESS_TEXT_MIXIN_PROPS,
+	'level',
+	'variant',
 ]);

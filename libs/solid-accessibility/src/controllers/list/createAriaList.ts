@@ -5,23 +5,23 @@ import { createAriaLabelled } from '../label';
 import type { AriaListAPI, AriaListProps } from './types';
 
 export const createAriaList = (props: AriaListProps): AriaListAPI => {
-    const { $root: $regionRoot, $label, $description } = createAriaLabelled(props);
+	const { $root: $regionRoot, $label, $description } = createAriaLabelled(props);
 
-    const component = () => props.tag || 'ul';
-    const role = () => {
-        const c = component();
-        return c !== 'ul' && c !== 'ol' ? 'list' : undefined;
-    };
-    const $root = computedProps({
-        component,
-        role,
-        'aria-orientation': () => props.orientation ?? 'vertical',
-        'aria-multiselectable': () => props.multiselectable ?? false,
-    });
+	const component = () => props.tag || 'ul';
+	const role = () => {
+		const c = component();
+		return c !== 'ul' && c !== 'ol' ? 'list' : undefined;
+	};
+	const $root = computedProps({
+		component,
+		role,
+		'aria-orientation': () => props.orientation ?? 'vertical',
+		'aria-multiselectable': () => props.multiselectable ?? false,
+	});
 
-    return {
-        $root: combineProps($regionRoot, $root),
-        $label,
-        $description,
-    };
+	return {
+		$root: combineProps($regionRoot, $root),
+		$label,
+		$description,
+	};
 };

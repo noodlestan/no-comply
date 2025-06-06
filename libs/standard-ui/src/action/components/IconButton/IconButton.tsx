@@ -1,7 +1,7 @@
 import {
-    type ClosedTagProps,
-    type PopoverTriggerTagProps,
-    combineProps,
+	type ClosedTagProps,
+	type PopoverTriggerTagProps,
+	combineProps,
 } from '@no-comply/solid-primitives';
 import { type Component, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
@@ -15,14 +15,14 @@ import type { IconButtonProps } from './types';
 type Props = ClosedTagProps & PopoverTriggerTagProps & IconButtonProps;
 
 export const IconButton: Component<Props> = props => {
-    const [locals, $others] = splitProps(props, ICON_BUTTON_PROPS);
+	const [locals, $others] = splitProps(props, ICON_BUTTON_PROPS);
 
-    const { $root, icon } = createIconButton(locals);
-    const $ = combineProps($others, $root);
+	const { $root, icon } = createIconButton(locals);
+	const $ = combineProps($others, $root);
 
-    return (
-        <Dynamic {...$}>
-            <Icon {...icon} />
-        </Dynamic>
-    );
+	return (
+		<Dynamic {...$}>
+			<Icon {...icon} />
+		</Dynamic>
+	);
 };

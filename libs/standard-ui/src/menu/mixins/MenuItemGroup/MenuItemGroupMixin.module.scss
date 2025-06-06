@@ -1,24 +1,24 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer lib.standard-ui.menu-item-group {
-    .MenuItemGroup {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: start;
-        gap: var(--space-gap--1);
-        padding-block: var(--space-gap--1);
+  .MenuItemGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    gap: var(--space-gap--1);
+    padding-block: var(--space-gap--1);
 
-        [data-menu-separator] {
-            margin-inline: var(--space-pad-0);
-        }
+    [data-menu-separator] {
+      margin-inline: var(--space-pad-0);
     }
+  }
 
-    .-Label {
-        padding-inline: var(--space-pad-0);
-    }
+  .-Label {
+    padding-inline: var(--space-pad-0);
+  }
 
-    .-Description {
-        padding-inline: var(--space-pad-0);
-    }
+  .-Description {
+    padding-inline: var(--space-pad-0);
+  }
 }
