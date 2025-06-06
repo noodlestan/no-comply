@@ -1,7 +1,9 @@
 import { shortId } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
-import type { BaseContext, ContextNode, ContextNodeOptions, ContextNodeValue } from '../..';
+import type { BaseContext } from '../../types';
+
+import type { ContextNode, ContextNodeOptions, ContextNodeValue } from './types';
 
 export const createContextNodePrivate = (
     context?: BaseContext,

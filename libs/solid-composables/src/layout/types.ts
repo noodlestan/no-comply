@@ -1,7 +1,11 @@
-import type { AxisShorthandProp, ResponsiveProp } from '@no-comply/solid-primitives';
+import type {
+    AxisShorthandProp,
+    ResponsiveProp,
+    SideShorthandProp,
+} from '@no-comply/solid-primitives';
 
 export type LayoutStretch = 'none' | 'width' | 'height' | 'full';
-export type Layoutverflow = 'auto' | 'x-auto' | 'y-auto' | 'hidden';
+export type LayoutOverflow = 'auto' | 'x-auto' | 'y-auto' | 'hidden' | 'visible';
 
 export type LayoutGapProps<T extends string = string> = {
     gap?: AxisShorthandProp<ResponsiveProp<T>>;
@@ -10,7 +14,7 @@ export type LayoutGapProps<T extends string = string> = {
 };
 
 export type LayoutPaddingProps<T extends string = string> = {
-    padding?: AxisShorthandProp<ResponsiveProp<T>>;
+    padding?: SideShorthandProp<ResponsiveProp<T>>;
     paddingBlock?: ResponsiveProp<T>;
     paddingBlockStart?: ResponsiveProp<T>;
     paddingBlockEnd?: ResponsiveProp<T>;

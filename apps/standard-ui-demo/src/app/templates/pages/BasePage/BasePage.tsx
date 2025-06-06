@@ -4,7 +4,7 @@ import type { JSX, ParentComponent } from 'solid-js';
 
 import { $ID_SCREEN_TITLE } from '../../constants';
 import { PageContentsLayout } from '../../layouts';
-import { EmptyPage } from '../private';
+import { EmptyPage } from '../EmptyPage';
 
 export type BasePageProps = {
     title: JSX.Element;

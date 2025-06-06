@@ -7,10 +7,10 @@ import { type Component, type ParentComponent, Show } from 'solid-js';
 import { AppServicesProvider, UIRootProvider, useAppServices } from '../providers';
 
 import styles from './App.module.scss';
+import { AppSplash } from './components';
 import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
-import { AppSplash } from './splash';
 import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from './templates';
 
 const Main: ParentComponent = props => {

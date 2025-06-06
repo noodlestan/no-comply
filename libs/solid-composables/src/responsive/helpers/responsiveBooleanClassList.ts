@@ -1,6 +1,6 @@
 import type { ResponsiveProp } from '@no-comply/solid-primitives';
 
-import { responsiveBooleanClasses } from './private';
+import { responsiveBooleanClasses } from './responsiveBooleanClasses';
 
 export const responsiveBooleanClassList = <const B extends string>(
     breakpoints: readonly (B | '_')[],

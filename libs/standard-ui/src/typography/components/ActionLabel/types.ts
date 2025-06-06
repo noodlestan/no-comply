@@ -1,6 +1,6 @@
 import type { ActionLabelTagName } from '@no-comply/solid-accessibility';
 
-import type { ActionLabelMixinAPI, ActionLabelMixinProps } from '../..';
+import type { ActionLabelMixinAPI, ActionLabelMixinProps } from '../../mixins';
 
 export type ActionLabelOwnProps = {
     tag?: ActionLabelTagName;

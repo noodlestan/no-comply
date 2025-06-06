@@ -1,4 +1,4 @@
-import type { ActionLabelMixinProps } from '../..';
+import type { ActionLabelMixinProps } from '../../mixins';
 import type { ActionLabelAPI, ActionLabelProps } from '../ActionLabel';
 
 export type ActionLabelAlignedProps = Omit<ActionLabelProps, keyof ActionLabelMixinProps>;
