@@ -13,6 +13,7 @@ export const RenderDocsItem: Component<RenderDocsItemProps> = props => {
 	const sectionProps = () => ({
 		...props.item.props,
 		title: props.item.title,
+		level: props.level,
 	});
 
 	const c = children(() => {

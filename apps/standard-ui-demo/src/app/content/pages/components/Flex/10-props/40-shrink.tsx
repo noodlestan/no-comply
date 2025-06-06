@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_SHRINK) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'shrink',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'no shrink', props }, () => (
 			<Flex gap="s" shrink={false}>

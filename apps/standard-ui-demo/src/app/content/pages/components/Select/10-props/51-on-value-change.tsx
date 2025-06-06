@@ -4,18 +4,18 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 import { createSelectExampleController } from '../controllers';
 
-const onValueChange = createDocsItemData({ props }, () => {
-	const { value, handleValueChange } = createSelectExampleController({ value: 'apple' });
-	return (
-		<Select value={value()} onValueChange={handleValueChange} placeholder="-">
-			<option value="apple">Apples</option>
-			<option value="orange">Oranges</option>
-			<option value="banana">Bananas</option>
-		</Select>
-	);
-});
-
 export default createDocsSectionData({
 	title: 'onValueChange',
-	items: [onValueChange],
+	items: [
+		createDocsItemData({ props }, () => {
+			const { value, handleValueChange } = createSelectExampleController({ value: 'apple' });
+			return (
+				<Select value={value()} onValueChange={handleValueChange} placeholder="-">
+					<option value="apple">Apples</option>
+					<option value="orange">Oranges</option>
+					<option value="banana">Bananas</option>
+				</Select>
+			);
+		}),
+	],
 });

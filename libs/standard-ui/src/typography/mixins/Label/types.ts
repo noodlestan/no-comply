@@ -7,11 +7,13 @@ import type { ClassList } from '@no-comply/solid-primitives';
 import type { LabelVariant } from '../../types';
 
 export type LabelMixinProps = HeadlessTextMixinProps & {
+	for?: string;
 	variant?: LabelVariant;
 };
 
 export type LabelMixinAPI = {
 	$root: HeadlessTextMixinAPI['$root'] & {
 		classList: ClassList;
+		for: string | undefined;
 	};
 };

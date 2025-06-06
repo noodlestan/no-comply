@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_PADDING) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'padding (longhands)',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'paddingBlock', props }, () => (
 			<Layout paddingBlock="s">

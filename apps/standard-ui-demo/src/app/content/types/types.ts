@@ -16,6 +16,7 @@ export type DocsComponentPageData = DocsPageData & {
 
 export type DocsSectionData = {
 	type: 'section';
+	collapse?: boolean;
 	title: string;
 	props?: DocsSectionProps;
 	items: (DocsSectionData | DocsItemData)[];

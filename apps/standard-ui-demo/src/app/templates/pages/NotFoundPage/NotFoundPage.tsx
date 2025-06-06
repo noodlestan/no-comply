@@ -6,23 +6,22 @@ import { $ID_SCREEN_TITLE } from '../../constants';
 import { PageContentsLayout } from '../../layouts';
 import { EmptyPage } from '../EmptyPage';
 
-export type BasePageProps = {
-	title: JSX.Element;
+export type NotFoundPageProps = {
+	title?: JSX.Element;
 	classList?: ClassList;
 	undertitle?: JSX.Element;
 };
-
-export const BasePage: ParentComponent<BasePageProps> = props => {
+export const NotFoundPage: ParentComponent<NotFoundPageProps> = props => {
 	return (
 		<EmptyPage aria-labelledby={$ID_SCREEN_TITLE}>
-			<PageContentsLayout classList={props.classList} gap="2xl">
+			<PageContentsLayout classList={props.classList} gap="l">
 				<Flex gap="s">
 					<Display id={$ID_SCREEN_TITLE} level={2}>
-						{props.title}
+						{props.title ?? 'Not Found'}
 					</Display>
 					{props.undertitle}
 				</Flex>
-				<Flex gap="2xl">{props.children}</Flex>
+				<Flex gap="xl">{props.children}</Flex>
 			</PageContentsLayout>
 		</EmptyPage>
 	);

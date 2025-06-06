@@ -5,7 +5,7 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-	title: 'tag ',
+	title: 'tag',
 	items: [
 		createDocsItemData({ title: 'div', props }, () => (
 			<Text tag="div">

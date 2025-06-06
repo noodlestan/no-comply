@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_CONTAINMENT) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'uncontained',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'uncontained', props }, () => (
 			<Layout uncontained>

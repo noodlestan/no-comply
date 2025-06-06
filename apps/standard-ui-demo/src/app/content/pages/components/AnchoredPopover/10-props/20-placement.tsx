@@ -4,19 +4,19 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 import { ExamplePopoverContents } from '../examples';
 
-const placement = createDocsItemData({ title: 'corners', props }, () => (
-	<AnchoredPopover
-		placement={[
-			['end-end', 'start-start'],
-			['start-start', 'end-end'],
-		]}
-		trigger={trigger => <Button {...trigger}>Open popover</Button>}
-	>
-		{popover => <ExamplePopoverContents id={popover.id} />}
-	</AnchoredPopover>
-));
-
 export default createDocsSectionData({
 	title: 'placement',
-	items: [placement],
+	items: [
+		createDocsItemData({ title: 'corners', props }, () => (
+			<AnchoredPopover
+				placement={[
+					['end-end', 'start-start'],
+					['start-start', 'end-end'],
+				]}
+				trigger={trigger => <Button {...trigger}>Open popover</Button>}
+			>
+				{popover => <ExamplePopoverContents id={popover.id} />}
+			</AnchoredPopover>
+		)),
+	],
 });

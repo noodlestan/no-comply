@@ -6,6 +6,7 @@ import { AllDividerVariants } from '../examples';
 
 export default createDocsSectionData({
 	title: 'Usage in surfaces',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'on stage', props }, () => (
 			<Surface variant="stage" padding="l">

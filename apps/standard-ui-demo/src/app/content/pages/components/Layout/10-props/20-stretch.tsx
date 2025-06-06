@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_STRETCH) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'stretch',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'width', props }, () => (
 			<Layout stretch="width">

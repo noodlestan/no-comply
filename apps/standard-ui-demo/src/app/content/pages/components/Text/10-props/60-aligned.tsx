@@ -6,7 +6,7 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-	title: 'aligned ',
+	title: 'aligned',
 	items: [
 		createDocsItemData({ title: 'medium variant with medium icon', props }, () => (
 			<Flex direction="row" gap="l">

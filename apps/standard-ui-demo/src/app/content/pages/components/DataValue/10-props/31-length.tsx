@@ -6,6 +6,7 @@ import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
 	title: 'length',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'full', props }, () => (
 			<DataValue length="full">

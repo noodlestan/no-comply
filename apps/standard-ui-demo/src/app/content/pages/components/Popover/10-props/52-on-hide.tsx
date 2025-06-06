@@ -4,22 +4,22 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 import { ExamplePopoverContents } from '../examples';
 
-const onHide = createDocsItemData({ title: 'onHide', props }, () => {
-	const handleOnHide = () => console.info('Hide');
-
-	return (
-		<>
-			<Button id="trigger-id" popoverTarget="popover-id" popoverTargetAction="show">
-				Open popover
-			</Button>
-			<Popover id="popover-id" onHide={handleOnHide}>
-				<ExamplePopoverContents id="popover-id" />
-			</Popover>
-		</>
-	);
-});
-
 export default createDocsSectionData({
 	title: 'onHide',
-	items: [onHide],
+	items: [
+		createDocsItemData({ title: 'onHide', props }, () => {
+			const handleOnHide = () => console.info('Hide');
+
+			return (
+				<>
+					<Button id="trigger-id" popoverTarget="popover-id" popoverTargetAction="show">
+						Open popover
+					</Button>
+					<Popover id="popover-id" onHide={handleOnHide}>
+						<ExamplePopoverContents id="popover-id" />
+					</Popover>
+				</>
+			);
+		}),
+	],
 });

@@ -6,6 +6,7 @@ import { itemProps as props, itemPropsStyled as propsStyled } from '../constants
 
 export default createDocsSectionData({
 	title: 'tag',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'hr', props: { ...props, defaultValue: true } }, () => (
 			<Divider tag="hr" />

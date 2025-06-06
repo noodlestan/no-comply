@@ -9,7 +9,6 @@ export default createDocsSectionData({
 	items: [
 		createDocsItemData({ props }, () => {
 			const [value, setValue] = createSignal(false);
-
 			return (
 				<>
 					<Checkbox checked={value()} onValueChange={setValue} />

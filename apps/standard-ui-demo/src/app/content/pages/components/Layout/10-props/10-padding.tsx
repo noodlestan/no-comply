@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_GAP) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'padding',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'xl', props }, () => (
 			<Layout padding="xl">

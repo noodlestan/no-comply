@@ -5,6 +5,7 @@ import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
 	title: 'variant',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'base', props }, () => <Divider variant="base" />),
 		createDocsItemData({ title: 'alt', props }, () => <Divider variant="alt" />),

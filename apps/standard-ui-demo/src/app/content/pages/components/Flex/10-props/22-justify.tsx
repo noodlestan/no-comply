@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_JUSTIFY) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'justify',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'center', props }, () => (
 			<Flex direction="row" gap="s" justify="center">

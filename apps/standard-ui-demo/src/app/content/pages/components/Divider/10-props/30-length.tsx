@@ -6,6 +6,7 @@ import { VerticalDividerExample } from '../examples';
 
 export default createDocsSectionData({
 	title: 'length',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'full (horizontal)', props }, () => <Divider length="full" />),
 		createDocsItemData({ title: 'l (horizontal)', props }, () => <Divider length="l" />),

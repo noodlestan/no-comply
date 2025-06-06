@@ -24,6 +24,7 @@ export const createLabelMixin = (props: LabelMixinProps): LabelMixinAPI => {
 	const classList = createClassList(styles, () => ['Label', `variant-${variant()}`]);
 	const $root = computedProps({
 		classList,
+		for: () => props.for,
 	});
 
 	return exposeAPI(expose, '$root', {

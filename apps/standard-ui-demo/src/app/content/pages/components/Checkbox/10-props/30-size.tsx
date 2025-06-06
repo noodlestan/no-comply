@@ -6,6 +6,7 @@ import { createCheckboxExampleController } from '../controllers';
 
 export default createDocsSectionData({
 	title: 'size',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'l', props }, () => {
 			const { value, handleValueChange } = createCheckboxExampleController();

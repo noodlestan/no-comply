@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_GAP) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'gap (shorthand)',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: '[block, inline]', props }, () => (
 			<Flex direction="row" wrap gap={['s', 'l']}>

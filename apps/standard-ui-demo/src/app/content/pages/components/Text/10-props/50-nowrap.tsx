@@ -5,7 +5,7 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemPropsWrap as props } from '../constants';
 
 export default createDocsSectionData({
-	title: 'nowrap ',
+	title: 'nowrap',
 	items: [
 		createDocsItemData({ title: 'true', props }, () => (
 			<Text variant="normal" nowrap>

@@ -5,7 +5,8 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemPropsWrap as props } from '../constants';
 
 export default createDocsSectionData({
-	title: 'nowrap ',
+	title: 'nowrap',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'true', props }, () => (
 			<Display variant="s" nowrap>

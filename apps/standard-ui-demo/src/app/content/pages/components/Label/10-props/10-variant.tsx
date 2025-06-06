@@ -5,7 +5,7 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-	title: 'variant ',
+	title: 'variant',
 	items: [
 		createDocsItemData({ title: 'large', props }, () => (
 			<Label variant="large">

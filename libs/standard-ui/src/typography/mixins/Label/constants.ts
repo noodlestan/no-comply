@@ -7,5 +7,6 @@ export const $LABEL_MIXIN = 'mixin:standard:label';
 
 export const LABEL_MIXIN_PROPS = definePropKeys<LabelMixinProps>()([
 	...HEADLESS_TEXT_MIXIN_PROPS,
+	'for',
 	'variant',
 ]);

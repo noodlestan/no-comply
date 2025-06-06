@@ -5,7 +5,7 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
-	title: 'href ',
+	title: 'href',
 	items: [
 		createDocsItemData({ title: 'internal', props }, () => (
 			<NavLink href="/features/components/NavNavLink">

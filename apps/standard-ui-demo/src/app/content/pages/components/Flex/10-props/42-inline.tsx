@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_INLINE) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'inline',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'inline', props }, () => (
 			<>

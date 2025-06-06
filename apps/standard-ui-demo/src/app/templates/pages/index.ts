@@ -1,2 +1,4 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
 export * from './BasePage';
+export * from './EmptyPage';
+export * from './NotFoundPage';

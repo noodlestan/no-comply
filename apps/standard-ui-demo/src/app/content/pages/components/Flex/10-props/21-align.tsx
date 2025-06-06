@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_ALIGN) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'align',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'stretch', props }, () => (
 			<Flex direction="row" gap="s" align="stretch">

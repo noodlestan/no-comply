@@ -6,6 +6,7 @@ import { itemPropsStyled as props } from '../constants';
 
 export default createDocsSectionData({
 	title: 'orientation',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'horizontal', props }, () => (
 			<>

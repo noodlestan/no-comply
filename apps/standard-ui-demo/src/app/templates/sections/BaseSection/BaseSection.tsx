@@ -16,7 +16,7 @@ export const BaseSection: ParentComponent<BaseSectionProps> = props => {
 	const labelId = shortId();
 
 	return (
-		<Flex tag="section" gap="xl" classList={props.classList} aria-labelledby={labelId}>
+		<Flex tag="section" gap="l" classList={props.classList} aria-labelledby={labelId}>
 			<Flex gap="s">
 				<Display level={props.level ?? 3} id={labelId}>
 					{props.title}
@@ -24,7 +24,7 @@ export const BaseSection: ParentComponent<BaseSectionProps> = props => {
 				{props.undertitle}
 			</Flex>
 			{props.before}
-			<Flex gap="xl">{props.children}</Flex>
+			<Flex gap="2xl">{props.children}</Flex>
 			{props.before}
 		</Flex>
 	);

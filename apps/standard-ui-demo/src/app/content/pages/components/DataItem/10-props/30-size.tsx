@@ -6,6 +6,7 @@ import { itemProps as props } from '../constants';
 
 export default createDocsSectionData({
 	title: 'size',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'large', props }, () => (
 			<DataItem size="large">

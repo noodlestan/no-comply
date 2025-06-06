@@ -4,16 +4,16 @@ import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
 import { createRangeInputExampleController } from '../controllers';
 
-const value = createDocsItemData({ props }, () => {
-	const { value, handleValueChange } = createRangeInputExampleController({ value: '3.43' });
-	return (
-		<>
-			<RangeInput value={value()} onValueChange={handleValueChange} />
-		</>
-	);
-});
-
 export default createDocsSectionData({
 	title: 'value',
-	items: [value],
+	items: [
+		createDocsItemData({ props }, () => {
+			const { value, handleValueChange } = createRangeInputExampleController({ value: '3.43' });
+			return (
+				<>
+					<RangeInput value={value()} onValueChange={handleValueChange} />
+				</>
+			);
+		}),
+	],
 });

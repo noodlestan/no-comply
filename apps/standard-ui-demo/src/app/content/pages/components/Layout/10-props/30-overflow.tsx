@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_OVERFLOW) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'overflow',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'hidden', props }, () => (
 			<Layout overflow="hidden">

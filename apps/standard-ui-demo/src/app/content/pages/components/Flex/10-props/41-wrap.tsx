@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_WRAP) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'wrap',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'wrap', props }, () => (
 			<Flex direction="row" gap="s" wrap={true}>

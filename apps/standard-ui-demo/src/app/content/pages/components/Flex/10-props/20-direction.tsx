@@ -18,6 +18,7 @@ const BPS = Object.keys(RESPONSIVE_DIRECTION) as BreakpointName[];
 
 export default createDocsSectionData({
 	title: 'direction',
+	collapse: true,
 	items: [
 		createDocsItemData({ title: 'column', props }, () => (
 			<Flex gap="s" direction="column">
