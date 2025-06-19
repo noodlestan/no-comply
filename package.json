@@ -8,7 +8,9 @@
   "packageManager": "npm@10.2.3",
   "workspaces": [
     "apps/*",
-    "libs/*"
+    "cli/*",
+    "libs/*",
+    "tools/*"
   ],
   "engines": {
     "node": "20.10.0"

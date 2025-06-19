@@ -30,6 +30,6 @@
     "skipLibCheck": true, // problems in vitest, @vitest/utils, svgo
     "noEmit": true
   },
-  "include": ["libs/", "apps/"],
+  "include": ["apps/", "cli/", "libs/", "tools/"],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }

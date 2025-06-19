@@ -11,7 +11,7 @@
       "outputs": ["dist/**"]
     },
     "ci": {
-      "dependsOn": ["build:clean", "build"]
+      "dependsOn": ["^ci"]
     },
     "lint": {
       "dependsOn": ["^lint"]
