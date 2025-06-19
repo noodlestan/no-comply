@@ -1,17 +1,24 @@
 import path from 'path';
 
 import { type EntityExtractMeta, type EntityExtractResult } from '@purrception/primitives';
-import { createProgramContext, hasJsDocIgnore, normalizeFunction } from '@purrception/profile-ts';
+import {
+	createProgramContext,
+	extractFunctionData,
+	extractTypeDeclarationData,
+	hasJsDocIgnore,
+} from '@purrception/profile-ts';
 import {
 	type ModuleExtractHeuristic,
 	type ModuleProcessor,
 	createEntityExtractContext,
 } from '@purrception/source-package';
 
+import type { ControllerData } from '../types';
+
 export const controllerHeuristic: ModuleExtractHeuristic = async ctx => {
 	const b = path.basename(ctx.moduleMeta.path);
 
-	if (ctx.moduleMeta.relative.startsWith('controllers/pressable') && ctx.hasFile('types.ts')) {
+	if (ctx.moduleMeta.relative.startsWith('controllers') && ctx.hasFile('types.ts')) {
 		const name = path.basename(b);
 		const entityMeta: EntityExtractMeta = { type: 'composable', name };
 
@@ -24,15 +31,10 @@ export const controllerHeuristic: ModuleExtractHeuristic = async ctx => {
 				path: ctx.moduleMeta.path,
 				readFile: ctx.readFile,
 			};
-
 			const readProgram = async (filename: string) => createProgramContext(options, filename);
 
 			const typesTs = await readProgram('types.ts');
-			const types = typesTs.types().map(node => {
-				return {
-					name: node.name?.escapedText,
-				};
-			});
+			const types = typesTs.types().map(node => extractTypeDeclarationData(typesTs, node));
 
 			const implementationTs = await readProgram(controllerFile as string);
 			const exportMap = implementationTs.getExportMap();
@@ -40,9 +42,9 @@ export const controllerHeuristic: ModuleExtractHeuristic = async ctx => {
 				return exportMap.has(node) && !hasJsDocIgnore(node);
 			});
 
-			const factories = filtered.map(node => normalizeFunction(node, exportMap));
+			const factories = filtered.map(node => extractFunctionData(implementationTs, node));
 
-			const result: EntityExtractResult = {
+			const result: EntityExtractResult<ControllerData> = {
 				warnings: [],
 				context: entityContext,
 				entity: {

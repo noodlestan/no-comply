@@ -1,6 +1,6 @@
 import path from 'path';
 
-import * as ts from 'typescript';
+import ts from 'typescript';
 
 import { getProgramFunctions } from './getProgramFunctions';
 import { getProgramTypes } from './getProgramTypes';

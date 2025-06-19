@@ -15,8 +15,8 @@ export type EntityData = {
 	[key: string]: unknown;
 };
 
-export type EntityExtractResult = {
+export type EntityExtractResult<T extends EntityData = EntityData> = {
 	context: EntityExtractContext;
-	entity: EntityData;
+	entity: T;
 	warnings?: string[];
 };

@@ -1,7 +1,7 @@
-import type { EntityExtractMeta } from '@purrception/primitives';
-import type { FunctionMeta, TypeMeta } from '@purrception/profile-ts';
+import type { EntityData } from '@purrception/primitives';
+import type { FunctionData, TypeDeclarationData } from '@purrception/profile-ts';
 
-export type ControllerMeta = EntityExtractMeta & {
-	types: TypeMeta[];
-	factories: FunctionMeta[];
+export type ControllerData = EntityData & {
+	types: TypeDeclarationData[];
+	factories: FunctionData[];
 };

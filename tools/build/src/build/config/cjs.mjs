@@ -5,6 +5,7 @@ export const cjsConfig = {
   tsconfig: 'tsconfig.cjs.json',
   bundle: true,
   format: 'cjs',
+  sourcemap: true,
   platform: 'node',
   outdir: 'dist/cjs',
   plugins: [],

@@ -5,6 +5,8 @@
     "target": "ESNext",
     "moduleResolution": "Node",
     "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "emitDeclarationOnly": true
   }
 }
