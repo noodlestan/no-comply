@@ -3,7 +3,7 @@ import fs from 'fs/promises';
 import path from 'path';
 
 import { createModuleExtractContext } from './createModuleExtractContext';
-import type { ModuleExtractMeta, ModuleProcessor, PackageExtractContext } from './types';
+import type { ModuleEntityProcessor, ModuleExtractMeta, PackageExtractContext } from './types';
 
 async function listDirEntries(dir: string): Promise<Dirent[]> {
 	return await fs.readdir(dir, { withFileTypes: true });
@@ -11,8 +11,8 @@ async function listDirEntries(dir: string): Promise<Dirent[]> {
 export async function processPackageDir(
 	ctx: PackageExtractContext,
 	dir: string,
-): Promise<ModuleProcessor[]> {
-	const processors: ModuleProcessor[] = [];
+): Promise<ModuleEntityProcessor[]> {
+	const processors: ModuleEntityProcessor[] = [];
 
 	const entries = await listDirEntries(dir);
 	const moduleMeta: ModuleExtractMeta = {
@@ -25,10 +25,10 @@ export async function processPackageDir(
 
 	let skipChildren = false;
 
-	for (const heuristic of ctx.heuristics) {
-		const result = await heuristic(moduleContext);
+	for (const extractor of ctx.extractors) {
+		const result = await extractor(moduleContext);
 		if (result) {
-			const [processor, , skip] = result;
+			const [processor, skip] = result;
 			processors.push(processor);
 			skipChildren = skipChildren || skip;
 		}

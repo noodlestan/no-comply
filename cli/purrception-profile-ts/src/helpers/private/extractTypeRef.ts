@@ -2,6 +2,8 @@ import ts from 'typescript';
 
 import type { TypeRef, TypeRefObject } from '../../types';
 
+import { extractTypeExpression } from './extractTypeExpression';
+
 function normalizeTypeRef(type: TypeRef): TypeRefObject {
 	if (typeof type === 'string') {
 		return { type };
@@ -12,15 +14,18 @@ function normalizeTypeRef(type: TypeRef): TypeRefObject {
 export function extractTypeRef(node: ts.TypeNode): TypeRef {
 	if (ts.isTypeReferenceNode(node)) {
 		const baseName = node.typeName.getText();
-		const typeArgs = node.typeArguments?.[0]?.getText();
 
-		if (!typeArgs) {
-			return baseName;
+		let params: TypeRefObject['params'] | undefined;
+
+		if (node.typeArguments?.length) {
+			params = node.typeArguments.map(arg => extractTypeExpression(arg));
 		}
+
+		if (!params) return baseName;
 
 		return {
 			type: baseName,
-			generic: typeArgs,
+			params,
 		};
 	}
 

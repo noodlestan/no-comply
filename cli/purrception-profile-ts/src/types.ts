@@ -1,19 +1,21 @@
 export type TypeRefObject = {
 	type: string;
 	member?: string;
-	generic?: string;
+	params?: (TypeRef | TypeExpressionData)[];
 };
 
 export type TypeRef = string | TypeRefObject;
 
 export type TypeExpressionKind =
 	| 'object'
+	| 'array'
 	| 'intersection'
 	| 'union'
 	| 'function'
 	| 'pick'
 	| 'omit'
 	| 'literal'
+	| 'operator'
 	| 'alias';
 
 export interface TypeExpressionBase {
@@ -37,6 +39,11 @@ export interface ObjectLiteralTypeNode extends TypeExpressionBase {
 	members: Record<string, ObjectLiteralTypeMember>;
 }
 
+export interface ArrayTypeNode extends TypeExpressionBase {
+	kind: 'array';
+	elements: TypeExpressionData | TypeRef;
+}
+
 export interface IntersectionTypeNode extends TypeExpressionBase {
 	kind: 'intersection';
 	entries: (TypeExpressionData | TypeRef)[];
@@ -56,18 +63,24 @@ export interface FunctionTypeNode extends TypeExpressionBase {
 export interface PickTypeNode extends TypeExpressionBase {
 	kind: 'pick';
 	source: TypeExpressionData | TypeRef;
-	members: string[];
+	members: TypeExpressionData | TypeRef;
 }
 
 export interface OmitTypeNode extends TypeExpressionBase {
 	kind: 'omit';
 	source: TypeExpressionData | TypeRef;
-	members: string[];
+	members: TypeExpressionData | TypeRef;
 }
 
 export interface LiteralTypeNode extends TypeExpressionBase {
 	kind: 'literal';
 	value: string | number | boolean;
+}
+
+export interface OperatorTypeNode extends TypeExpressionBase {
+	kind: 'operator';
+	operator: 'readonly' | 'keyof' | string; // string to be extensible
+	operand: TypeExpressionData | TypeRef;
 }
 
 export interface AliasTypeNode extends TypeExpressionBase {
@@ -91,12 +104,14 @@ export type FunctionReturnsData =
 
 export type TypeExpressionData =
 	| ObjectLiteralTypeNode
+	| ArrayTypeNode
 	| IntersectionTypeNode
 	| UnionTypeNode
+	| FunctionTypeNode
 	| PickTypeNode
 	| OmitTypeNode
 	| LiteralTypeNode
-	| FunctionTypeNode;
+	| OperatorTypeNode;
 
 export interface TypeDeclarationData extends TypeExpressionBase {
 	name: string;

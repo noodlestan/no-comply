@@ -1,10 +1,10 @@
 import { processPackageDir } from './processPackageDir';
-import type { ModuleProcessor, PackageExtractContext } from './types';
+import type { ModuleEntityProcessor, PackageExtractContext } from './types';
 
 export async function processPackagePaths(
 	ctx: PackageExtractContext,
 	paths: string[],
-): Promise<ModuleProcessor[]> {
+): Promise<ModuleEntityProcessor[]> {
 	const processorGroups = await Promise.all(paths.map(dir => processPackageDir(ctx, dir)));
 	return processorGroups.flat();
 }

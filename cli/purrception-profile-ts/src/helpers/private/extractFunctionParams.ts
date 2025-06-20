@@ -3,7 +3,7 @@ import ts from 'typescript';
 import type { FunctionJsDoc } from '../../jsdoc';
 import type { ParamData } from '../../types';
 
-import { extractTypeRefOrExpression } from './extractTypeRefOrExpression';
+import { extractTypeExpression } from './extractTypeExpression';
 
 export function extractFunctionParams(
 	node: ts.FunctionDeclaration | ts.ArrowFunction,
@@ -14,7 +14,7 @@ export function extractFunctionParams(
 
 		return {
 			name,
-			type: param.type ? extractTypeRefOrExpression(param.type) : 'any',
+			type: param.type ? extractTypeExpression(param.type) : 'any',
 			description: jsDoc.paramTags.get(name),
 			optional: Boolean(param.questionToken),
 		};

@@ -14,8 +14,11 @@ export function extractObjectLiteralTypeNode(
 
 	for (const member of node.members) {
 		const extracted = extractObjectLiteralTypeMember(member);
-		if (member.name && extracted && ts.isIdentifier(member.name)) {
-			members[member.name.text] = extracted;
+		if (extracted) {
+			const name = ts.getNameOfDeclaration(member)?.getText();
+			if (name) {
+				members[name] = extracted;
+			}
 		}
 	}
 

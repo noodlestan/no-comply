@@ -3,7 +3,7 @@ import ts from 'typescript';
 import type { FunctionJsDoc } from '../../jsdoc';
 import type { FunctionReturnsData } from '../../types';
 
-import { extractTypeRefOrExpression } from './extractTypeRefOrExpression';
+import { extractTypeExpression } from './extractTypeExpression';
 
 export function extractFunctionReturns(
 	node: ts.FunctionDeclaration | ts.ArrowFunction,
@@ -11,7 +11,7 @@ export function extractFunctionReturns(
 ): FunctionReturnsData {
 	if (!node.type) return 'void';
 
-	const typeRef = extractTypeRefOrExpression(node.type);
+	const typeRef = extractTypeExpression(node.type);
 
 	return {
 		type: typeRef,

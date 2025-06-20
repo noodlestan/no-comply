@@ -1,8 +1,8 @@
-import type { EntityExtractMeta, EntityExtractResult } from '@purrception/primitives';
+import type { EntityExtractResult } from '@purrception/primitives';
 
 export type PackageExtractContext = {
 	rootDir: string;
-	heuristics: ModuleExtractHeuristic[];
+	extractors: ModuleEntityExtractor[];
 	defaults?: Record<string, unknown>;
 	log?: (msg: string) => void;
 };
@@ -20,9 +20,9 @@ export type ModuleExtractContext = {
 	readFile: (filename: string) => Promise<string>;
 };
 
-export type ModuleExtractHeuristic = (
+export type ModuleEntityExtractor = (
 	input: ModuleExtractContext,
-) => Promise<[ModuleProcessor, EntityExtractMeta, boolean] | undefined>;
+) => Promise<[ModuleEntityProcessor, boolean] | undefined>;
 
 export type ExtractedEntity = {
 	type: string;
@@ -30,4 +30,4 @@ export type ExtractedEntity = {
 	[key: string]: unknown;
 };
 
-export type ModuleProcessor = () => Promise<EntityExtractResult[]>;
+export type ModuleEntityProcessor = () => Promise<EntityExtractResult[]>;

@@ -1,14 +1,14 @@
-import type { ModuleExtractHeuristic, PackageExtractContext } from './types';
+import type { ModuleEntityExtractor, PackageExtractContext } from './types';
 
 export function createPackageExtractContext(input: {
 	rootDir: string;
-	heuristics: ModuleExtractHeuristic[];
+	extractors: ModuleEntityExtractor[];
 	defaults?: Record<string, unknown>;
 	log?: (msg: string) => void;
 }): PackageExtractContext {
 	return {
 		rootDir: input.rootDir,
-		heuristics: input.heuristics,
+		extractors: input.extractors,
 		defaults: input.defaults ?? {},
 		log: input.log ?? (() => {}),
 	};

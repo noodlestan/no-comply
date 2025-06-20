@@ -20,9 +20,10 @@ function normalizeTypeRef(type: TypeExpressionData | TypeRef): TypeExpressionDat
 export function extractObjectLiteralTypeMember(
 	member: ts.TypeElement,
 ): ObjectLiteralTypeMember | undefined {
-	if (!ts.isPropertySignature(member) || !member.name || !ts.isIdentifier(member.name)) {
-		return undefined;
-	}
+	if (!ts.isPropertySignature(member) || !member.name) return;
+
+	const nameNode = ts.getNameOfDeclaration(member);
+	if (!nameNode) return;
 
 	const rawType: TypeExpressionData | TypeRef = member.type
 		? extractTypeExpression(member.type)
