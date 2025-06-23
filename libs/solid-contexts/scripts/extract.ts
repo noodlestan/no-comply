@@ -3,7 +3,7 @@ import {
 	createModuleEntityExtractor,
 	createProviderEntityExtractor,
 	createServiceEntityExtractor,
-} from '@no-comply/purrception-profiles';
+} from '@no-comply/purrception-entities';
 import { extractEntitiesFromFileSystem } from '@purrception/source-fs';
 
 const moduleExtractor = createModuleEntityExtractor();

@@ -38,7 +38,7 @@
     "solid-js": "^1.9.5"
   },
   "devDependencies": {
-    "@no-comply/purrception-profiles": "0.0.11",
+    "@no-comply/purrception-entities": "0.0.11",
     "@purrception/source-fs": "0.0.11",
     "tsx": "^4.20.3",
     "vite": "^6.2.2",

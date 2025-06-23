@@ -3,7 +3,7 @@ import path from 'path';
 import {
 	createControllerEntityExtractor,
 	createModuleEntityExtractor,
-} from '@no-comply/purrception-profiles';
+} from '@no-comply/purrception-entities';
 import {
 	type DirectoryExtractContext,
 	extractEntitiesFromFileSystem,

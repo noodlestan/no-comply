@@ -1,4 +1,4 @@
-import { createModuleEntityExtractor } from '@no-comply/purrception-profiles';
+import { createModuleEntityExtractor } from '@no-comply/purrception-entities';
 import { extractEntitiesFromFileSystem } from '@purrception/source-fs';
 
 const moduleExtractor = createModuleEntityExtractor();
