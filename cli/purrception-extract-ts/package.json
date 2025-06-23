@@ -1,5 +1,5 @@
 {
-  "name": "@purrception/profile-ts",
+  "name": "@purrception/extract-ts",
   "version": "0.0.11",
   "description": "Collect metadata from source code.",
   "author": "Noodlestan Collective",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/noodlestan/no-comply.git",
-    "directory": "cli/purrception-profile-ts"
+    "directory": "cli/purrception-extract-ts"
   },
   "type": "module",
   "module": "dist/esm/index.mjs",

@@ -3,7 +3,7 @@ import type { EntityDataBase, EntityExtractResult } from '@purrception/primitive
 import type { DirectoryExtractContext } from './contexts';
 
 export type DirectoryEntityExtractor<T extends EntityDataBase = EntityDataBase> = (
-	input: DirectoryExtractContext,
+	ctx: DirectoryExtractContext,
 ) => Promise<[DirectoryEntityProcessor<T>, boolean] | undefined>;
 
 export type DirectoryEntityProcessor<T extends EntityDataBase = EntityDataBase> = () => Promise<

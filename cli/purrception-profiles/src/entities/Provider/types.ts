@@ -1,5 +1,10 @@
+import type { ComponentData, FunctionData, TypeDeclarationData } from '@purrception/extract-ts';
 import type { EntityDataBase } from '@purrception/primitives';
-import type { ComponentData, FunctionData, TypeDeclarationData } from '@purrception/profile-ts';
+
+export type ProviderEntityFiles = {
+	implementation: string;
+	hooks: string[];
+};
 
 export type ProviderEntityPartial = EntityDataBase & {
 	type: 'provider';

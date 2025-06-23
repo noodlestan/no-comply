@@ -1,7 +1,6 @@
 import path from 'path';
 
 import {
-	type ControllerEntityPartial,
 	createControllerEntityExtractor,
 	createModuleEntityExtractor,
 } from '@no-comply/purrception-profiles';
@@ -15,21 +14,11 @@ import {
 
 const moduleExtractor = createModuleEntityExtractor();
 const controllerExtractor = createControllerEntityExtractor({
-	matcher: (ctx: DirectoryExtractContext) => {
-		if (ctx.dirMeta.relative.startsWith('controllers/')) {
+	matcher: async (ctx: DirectoryExtractContext) => {
+		const match = ctx.dirMeta.relative.startsWith('controllers/');
+		if (match) {
 			const name = path.basename(ctx.dirMeta.path);
-			const partial: ControllerEntityPartial = { type: 'controller', name };
-
-			const implementation = ctx.dirMeta.files.find(f => f.startsWith('create'));
-			if (!implementation) {
-				throw new Error(`No implementation file found in "${ctx.dirMeta.relative}"`);
-			}
-
-			const files = {
-				implementation,
-				types: 'types.ts',
-			};
-			return { partial, files };
+			return { type: 'controller', name };
 		}
 	},
 });
@@ -41,7 +30,7 @@ async function main() {
 	});
 
 	// eslint-disable-next-line dot-notation
-	console.info(entities.map(({ entity: e }) => `${e['category']}/${e.type}:${e.name}`));
+	console.info(entities.map(({ entity: e }) => `${e['module']}/${e.type}:${e.name}`));
 	console.info(JSON.stringify(entities.map(({ entity: e }) => e)));
 
 	// createDebouncedWatcher({

@@ -1,5 +1,10 @@
+import type { FunctionData, TypeDeclarationData } from '@purrception/extract-ts';
 import type { EntityDataBase } from '@purrception/primitives';
-import type { FunctionData, TypeDeclarationData } from '@purrception/profile-ts';
+
+export type ContextEntityFiles = {
+	implementation: string;
+	types?: string;
+};
 
 export type ContextEntityPartial = EntityDataBase & {
 	type: 'context';

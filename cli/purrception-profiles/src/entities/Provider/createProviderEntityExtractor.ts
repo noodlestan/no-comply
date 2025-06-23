@@ -1,75 +1,44 @@
-import path from 'path';
-
 import {
 	createProgramFilesContext,
 	extractComponentsFromFile,
 	extractFunctionsFromFile,
 	extractTypesFromFile,
-} from '@purrception/profile-ts';
+} from '@purrception/extract-ts';
 import {
 	type DirectoryEntityExtractor,
 	type DirectoryEntityProcessor,
-	type DirectoryExtractContext,
 	createEntityExtractContext,
 } from '@purrception/source-fs';
 
-import { findHookFiles, findProviderFile } from '../../private';
+import {
+	type EntityExtractorOptions,
+	resolveEntityFiles,
+	resolveEntityPartial,
+} from '../../heuristics';
 
-import type { ProviderEntityData, ProviderEntityPartial } from './types';
-
-type Match = {
-	partial: ProviderEntityPartial;
-	files: {
-		implementation: string;
-		hooks: string[];
-	};
-};
-
-type Options = {
-	matcher?: (ctx: DirectoryExtractContext) => Match | undefined;
-};
-
-const DEFAULT_MATCHER = (ctx: DirectoryExtractContext): Match | undefined => {
-	const match = ctx.dirMeta.relative.match(/^([^/]+)\/providers\//);
-	if (!match) {
-		return;
-	}
-
-	const category = match[1];
-	const name = path.basename(ctx.dirMeta.path);
-	const partial: ProviderEntityPartial = {
-		type: 'provider',
-		name,
-		category,
-	};
-
-	const implementation = findProviderFile(ctx);
-	const hooks = findHookFiles(ctx);
-
-	if (!implementation) {
-		return;
-	}
-
-	return { partial, files: { implementation, hooks } };
-};
+import { MATCHER as matcher, RESOLVER as resolver } from './private';
+import type { ProviderEntityData, ProviderEntityFiles, ProviderEntityPartial } from './types';
 
 export function createProviderEntityExtractor(
-	options: Options = {},
+	options: EntityExtractorOptions<ProviderEntityPartial, ProviderEntityFiles> = {},
 ): DirectoryEntityExtractor<ProviderEntityData> {
 	return async ctx => {
-		const match = (options.matcher || DEFAULT_MATCHER)(ctx);
-		if (!match) {
+		const partial = await resolveEntityPartial(ctx, options?.matcher ?? matcher);
+		const files =
+			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? resolver));
+
+		if (!partial || !files) {
 			return;
 		}
 
 		const processor: DirectoryEntityProcessor<ProviderEntityData> = async () => {
-			const { partial, files } = match;
 			const { hooks, implementation } = files;
 
 			const entityContext = createEntityExtractContext(ctx, partial);
 			const programContext = createProgramFilesContext(ctx.dirMeta.path, ctx.readFile);
 
 			const components = await extractComponentsFromFile(programContext, implementation);
+			const implementationTypes = await extractTypesFromFile(programContext, implementation);
 			const types = await extractTypesFromFile(programContext, implementation);
 			const nestedHooks = await Promise.all(
 				hooks.map(file => extractFunctionsFromFile(programContext, file)),
@@ -82,7 +51,7 @@ export function createProviderEntityExtractor(
 						...partial,
 						components,
 						hooks: nestedHooks.flat(),
-						types,
+						types: [...types, ...implementationTypes],
 					},
 				},
 			];
