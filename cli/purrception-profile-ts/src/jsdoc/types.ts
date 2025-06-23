@@ -1,11 +1,12 @@
-export type FunctionJsDoc = {
-	description?: string;
-	paramTags: Map<string, string>;
-	returnsTag?: string;
-	tags: Map<string, string>;
-};
+export type JSDocTags = Record<string, string | string[]>;
 
-export type DeclarationJsDoc = {
+export interface DeclarationJsDocData {
 	description?: string;
-	tags: Map<string, string>;
-};
+	templateTags?: Record<string, string>;
+	tags?: JSDocTags;
+}
+
+export interface FunctionJsDocData extends DeclarationJsDocData {
+	paramTags?: Record<string, string>;
+	returnsTag?: string;
+}

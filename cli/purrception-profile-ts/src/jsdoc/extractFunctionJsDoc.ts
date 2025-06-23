@@ -1,34 +1,21 @@
 import ts from 'typescript';
 
-import type { FunctionJsDoc } from './types';
-
+import { extractParamTags, extractReturnsTag, extractTags, extractTemplateTags } from './private';
+import type { FunctionJsDocData } from './types';
 export function extractFunctionJsDoc(
-	node: ts.FunctionDeclaration | ts.ArrowFunction,
-): FunctionJsDoc {
+	node: ts.FunctionTypeNode | ts.FunctionDeclaration | ts.ArrowFunction,
+): FunctionJsDocData {
 	const jsDoc = ts.getJSDocCommentsAndTags(node).find(ts.isJSDoc) as ts.JSDoc | undefined;
 
-	const paramTags = new Map<string, string>();
-	let returnsTag: string | undefined;
-	const tags = new Map<string, string>();
 	const description = jsDoc?.comment?.toString();
-
-	if (jsDoc?.tags) {
-		for (const tag of jsDoc.tags) {
-			const name = tag.tagName.getText();
-			const comment = typeof tag.comment === 'string' ? tag.comment : '';
-
-			if (ts.isJSDocParameterTag(tag)) {
-				paramTags.set(tag.name.getText(), comment);
-			} else if (ts.isJSDocReturnTag(tag)) {
-				returnsTag = comment;
-			} else {
-				tags.set(name, comment);
-			}
-		}
-	}
+	const templateTags = extractTemplateTags(jsDoc);
+	const paramTags = extractParamTags(jsDoc);
+	const returnsTag = extractReturnsTag(jsDoc);
+	const tags = extractTags(jsDoc);
 
 	return {
 		description,
+		templateTags,
 		paramTags,
 		returnsTag,
 		tags,
