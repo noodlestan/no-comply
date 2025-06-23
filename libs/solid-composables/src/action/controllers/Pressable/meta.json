@@ -1,0 +1,148 @@
+{
+  "name": "Pressable",
+  "kind": "controller",
+  "category": "action",
+  "package": "@no-comply/solid-composables",
+  "module": "./lib/solid-composables/src/action/controllers/Pressable",
+  "factories": [
+    {
+      "name": "createPressable",
+      "params": [{ "name": "props", "type": "PressableProps" }],
+      "returns": "GenericPressableAPI",
+      "description": "Creates a pressable controller with a dynamic role."
+    },
+    {
+      "name": "createPressable",
+      "generic": {
+        "name": "T",
+        "constraint": "PressableRoleName",
+        "default": "PressableRoleName"
+      },
+      "params": [
+        { "name": "props", "type": "PressableProps" },
+        { "name": "staticRole", "type": "T" }
+      ],
+      "description": "Creates a pressable controller with a static ARIA role.",
+      "returns": {
+        "type": "PressableAPI",
+        "generic": "T"
+      }
+    }
+  ],
+  "types": {
+    "PressableProps": {
+      "kind": "intersection",
+      "entries": ["AriaPressableProps", "PressEventHandlers"]
+    },
+    "PressableRoot": {
+      "type": "object",
+      "keys": {
+        "onClick": { "type": "(ev: MouseEvent) => void" },
+        "onKeyDown": { "type": "(ev: KeyboardEvent) => void" }
+      }
+    },
+    "PressableAPI": {
+      "kind": "object",
+      "generic": {
+        "name": "T",
+        "constraint": "PressableRoleName",
+        "default": "PressableRoleName"
+      },
+      "keys": {
+        "$root": {
+          "kind": "intersection",
+          "entries": [
+            {
+              "type": "AriaPressableAPI",
+              "generic": "T",
+              "member": "$root"
+            },
+            "PressableRoot"
+          ]
+        }
+      }
+    },
+    "GenericPressableAPI": {
+      "kind": "object",
+      "keys": {
+        "$root": {
+          "kind": "intersection",
+          "entries": [
+            {
+              "type": "AriaGenericPressableAPI",
+              "member": "$root"
+            },
+            "PressableRoot"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [
+    {
+      "name": "AriaGenericPressableAPI",
+      "type": "type",
+      "source": "@no-comply/solid-accessibility"
+    },
+    {
+      "name": "AriaPressableAPI",
+      "type": "type",
+      "source": "@no-comply/solid-accessibility"
+    },
+    {
+      "name": "AriaPressableProps",
+      "type": "type",
+      "source": "@no-comply/solid-accessibility"
+    },
+    {
+      "name": "PressEventHandlers",
+      "type": "type",
+      "source": "@no-comply/solid-primitives"
+    },
+    {
+      "name": "PressableRoleName",
+      "type": "type",
+      "source": "@no-comply/solid-accessibility"
+    },
+    {
+      "name": "createAriaPressable",
+      "type": "value",
+      "source": "@no-comply/solid-accessibility"
+    },
+    {
+      "name": "combineProps",
+      "type": "value",
+      "source": "@no-comply/solid-primitives"
+    }
+  ],
+  "composes": [
+    {
+      "name": "createAriaPressable",
+      "logic": [
+        "calls createAriaPressable with locals and staticRole if provided",
+        "merges $pressableRoot with local $root handlers"
+      ],
+      "merges": [
+        {
+          "source": "$root",
+          "target": "$root"
+        }
+      ]
+    }
+  ],
+  "computed": [
+    {
+      "prop": "onClick",
+      "logic": ["if locals.disabled → prevents default and returns", "otherwise emits onPress"],
+      "target": "$root"
+    },
+    {
+      "prop": "onKeyDown",
+      "logic": [
+        "if locals.disabled → returns",
+        "if key is Enter or Space → stops immediate propagation and emits onPress"
+      ],
+      "target": "$root"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import { useContext } from 'solid-js';
 
-import { type ContextNode, ContextNodeCTX } from '../../private';
+import { ContextNodeCTX } from '../../private';
+import type { ContextNode } from '../../types';
+
 export const useContextTreeNode = (): ContextNode => {
 	const [current] = useContext(ContextNodeCTX) || [];
 	if (!current) {

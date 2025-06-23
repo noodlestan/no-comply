@@ -1,4 +1,4 @@
-import type { ContextId } from '../private';
+import type { ContextId } from '../types';
 
 export const createContextId = (name: string, parent?: ContextId): ContextId => {
 	if (parent) {

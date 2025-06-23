@@ -30,10 +30,14 @@ export const createListKeyboardController = (): ListKeyboardControllerAPI => {
 
 	const onKeyDown = (ev: KeyboardEvent) => {
 		const focusedNode = getFocusedNode();
-		if (!focusedNode) return;
+		if (!focusedNode) {
+			return;
+		}
 
 		const currentId = focusedNode.getAttribute('data-item-id');
-		if (!currentId) return;
+		if (!currentId) {
+			return;
+		}
 
 		const focusableNodes = getFocusableNodes();
 		const currentIndex = focusableNodes.indexOf(focusedNode);

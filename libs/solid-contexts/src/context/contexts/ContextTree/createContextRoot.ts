@@ -1,11 +1,9 @@
 import { useContext } from 'solid-js';
 
-import {
-	type ContextNodeOptions,
-	type ContextNodeValue,
-	ContextRootCTX,
-	createContextNodePrivate,
-} from '../../private';
+import { ContextRootCTX } from '../../private';
+
+import { createContextNodePrivate } from './private';
+import type { ContextNodeOptions, ContextNodeValue } from './types';
 
 export const createContextRoot = (options: ContextNodeOptions = {}): ContextNodeValue => {
 	const maybeRooot = useContext(ContextRootCTX);

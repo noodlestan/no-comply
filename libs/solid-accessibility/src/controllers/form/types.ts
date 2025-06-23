@@ -3,16 +3,18 @@ import type { FormTagName } from '../../tag';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export type AriaFormProps = AriaLabelledProps & {
+export interface AriaFormProps extends AriaLabelledProps {
 	tag?: FormTagName;
 	role?: FormRoleName;
-};
+}
+
+export interface AriaFormAPIRoot extends Omit<AriaRegionAPI['$root'], 'role'> {
+	component: FormTagName;
+	role?: FormRoleName;
+}
 
 export interface AriaFormAPI {
-	$root: Omit<AriaRegionAPI['$root'], 'role'> & {
-		component: FormTagName;
-		role?: FormRoleName;
-	};
+	$root: AriaFormAPIRoot;
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];
 }

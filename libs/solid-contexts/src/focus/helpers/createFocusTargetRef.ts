@@ -1,8 +1,7 @@
-import { useContext } from 'solid-js';
+import { useFocusTargetContext } from '../providers';
+import type { FocusTargetName } from '../types';
 
-import { type FocusTargetName } from '../../services';
-
-import { FocusTargetsCTX, createFocusTargetAPI } from './private';
+import { createFocusTargetAPI } from './private';
 
 type FocusTargetRefAPI = [setRef: (el: HTMLElement) => void, setFocus: () => void];
 
@@ -14,10 +13,7 @@ export const createFocusTargetRef = (
 	target: FocusTargetName,
 	options: FocusTargetRefOptions = {},
 ): FocusTargetRefAPI => {
-	const context = useContext(FocusTargetsCTX);
-	if (!context) {
-		throw new Error('createFocusTarget() must be wrapped in <FocusServiceProvider/>');
-	}
+	const context = useFocusTargetContext();
 
 	const [setTarget, setFocus] = createFocusTargetAPI(context, target);
 

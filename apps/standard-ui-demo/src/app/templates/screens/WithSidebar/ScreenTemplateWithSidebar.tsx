@@ -1,4 +1,4 @@
-import { useFocusTarget, useNavigation } from '@no-comply/solid-contexts';
+import { useFocusTargetConsumer, useNavigation } from '@no-comply/solid-contexts';
 import { createClassList, staticClassList } from '@no-comply/solid-primitives';
 import { Flex, Surface } from '@no-comply/standard-ui';
 import { type JSX, type ParentComponent, createEffect, createSignal } from 'solid-js';
@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const ScreenTemplateWithSidebar: ParentComponent<Props> = props => {
-	const [setSidebarFocus] = useFocusTarget(SIDEBAR_NAV_TARGET);
+	const [setSidebarFocus] = useFocusTargetConsumer(SIDEBAR_NAV_TARGET);
 	let toggleButtonEl: HTMLElement | undefined;
 
 	const setToggleButtonRef = (el: HTMLElement) => {

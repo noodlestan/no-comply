@@ -1,8 +1,8 @@
 import type { AnyProps } from '@no-comply/solid-primitives';
 
-import { type ExposableAPI, createExposableAPI } from '../../private';
-
-import { useExposeServiceMaybe } from './useExposeServiceMaybe';
+import { createExposableAPI } from '../private';
+import { useExposeServiceMaybe } from '../providers';
+import type { ExposableAPI } from '../types';
 
 const shim = <T>(t: T): T => t;
 

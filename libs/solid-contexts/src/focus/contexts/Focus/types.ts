@@ -1,1 +1,1 @@
-export type { FocusContextOptions, FocusContext, FocusContextValue } from '../../private/';
+export type { FocusContextOptions, FocusContext, FocusContextValue } from '../../private';

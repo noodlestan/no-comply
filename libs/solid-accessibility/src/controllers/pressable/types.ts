@@ -4,15 +4,15 @@ import type { AriaAttributes } from '../../types';
 
 export type PressableType = 'button' | 'submit' | 'reset';
 
-export type AriaPressableProps = {
+export interface AriaPressableProps {
 	tag?: PressableTagName;
 	role?: PressableRoleName;
 	type?: PressableType;
 	tabIndex?: number | null;
 	disabled?: boolean;
-};
+}
 
-type AriaPressableRoot = {
+interface AriaPressableRoot {
 	component: PressableTagName;
 	role?: PressableRoleName;
 	type: PressableType | undefined;
@@ -20,16 +20,16 @@ type AriaPressableRoot = {
 	disabled: boolean | undefined;
 	'aria-disabled': AriaAttributes['aria-disabled'];
 	'data-disabled': '' | undefined;
-};
+}
 
-export type AriaPressableAPI<T extends PressableRoleName = PressableRoleName> = {
+export interface AriaPressableAPI<T extends PressableRoleName = PressableRoleName> {
 	$root: AriaPressableRoot & {
 		role: T;
 	};
-};
+}
 
-export type AriaGenericPressableAPI = {
+export interface AriaGenericPressableAPI {
 	$root: AriaPressableRoot & {
 		role: PressableRoleName | undefined;
 	};
-};
+}

@@ -1,5 +1,5 @@
-import type { ContextId } from '../../context/private';
-import { type FocusTargetName } from '../services';
+import type { ContextId } from '../../context';
+import { type FocusTargetName } from '../types';
 
 export const createFocusTargetName = (
 	name: string,

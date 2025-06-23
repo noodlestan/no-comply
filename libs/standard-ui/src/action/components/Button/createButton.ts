@@ -12,10 +12,10 @@ export const createButton = (props: ButtonProps): ButtonAPI => {
 
 	const { $root: $pressableRoot } = compose(createPressable(locals));
 	const { $root: $focusRingRoot } = compose(createFocusRing());
-	const { $root: $buttonMixinRoot, size } = compose(createButtonMixin(locals));
+	const { $root: $buttonMixinRoot, ...rest } = compose(createButtonMixin(locals));
 
 	return exposeAPI(expose, '$root', {
+		...rest,
 		$root: combineProps($pressableRoot, $focusRingRoot, $buttonMixinRoot),
-		size,
 	});
 };

@@ -5,11 +5,21 @@ import { createAriaLabelled } from '../label';
 
 import type { AriaGenericRegionAPI, AriaRegionAPI, AriaRegionProps } from './types';
 
+/**
+ * Creates an ARIA region controller with a dynamic role.
+ */
 export function createAriaRegion(props?: AriaRegionProps): AriaGenericRegionAPI;
+/**
+ * Creates an ARIA region controller with a static ARIA role.
+ * @param staticRole If provided, `props.role` is ignored
+ */
 export function createAriaRegion<T extends AriaRoleName = AriaRoleName>(
 	props: AriaRegionProps,
 	staticRole: T,
 ): AriaRegionAPI<T>;
+/**
+ * @ignore
+ */
 export function createAriaRegion(
 	props?: AriaRegionProps,
 	staticRole?: AriaRoleName,

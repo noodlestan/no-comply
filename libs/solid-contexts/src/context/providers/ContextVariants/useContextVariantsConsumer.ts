@@ -1,6 +1,6 @@
 import { type Accessor, useContext } from 'solid-js';
 
-import type { ContextVariant } from '../../private';
+import type { ContextVariant } from '../../types';
 
 import { ContextVariantsCTX } from './private';
 

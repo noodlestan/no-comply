@@ -1,6 +1,4 @@
-export type FocusTargetName = {
-	targetName: string;
-};
+import type { FocusTargetName } from '../../types';
 
 export type FocusTargetsServiceAPI = {
 	setTarget: (target: FocusTargetName, handler: () => void) => void;
@@ -8,10 +6,3 @@ export type FocusTargetsServiceAPI = {
 	unsetTarget: (target: FocusTargetName) => void;
 	dispose: () => void;
 };
-
-export type FocusTargetConsumerAPI = [setFocus: () => void];
-
-export type FocusTargetProducerAPI = [
-	setTarget: (handler: () => void) => void,
-	unsetTarget: () => void,
-];

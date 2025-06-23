@@ -1,4 +1,6 @@
-import type { ContextVariant, ContextVariantsServiceAPI } from './types';
+import type { ContextVariant } from '../../../types';
+
+import type { ContextVariantsServiceAPI } from './types';
 
 export const createContextVariantsService = (): ContextVariantsServiceAPI => {
 	const store = new Map<string, ContextVariant[]>(); // key: `type:name`, value: stacked array

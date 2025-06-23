@@ -31,7 +31,9 @@ export const translateJSX = (
 		return translation;
 	}
 
-	if (translation === props.key) return children.map(translateWithInterpolation(t, options, props));
+	if (translation === props.key) {
+		return children.map(translateWithInterpolation(t, options, props));
+	}
 
 	try {
 		const [ast] = parseHTML(`<0>${translation}</0>`);

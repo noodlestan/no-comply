@@ -1,8 +1,6 @@
 import { type AnyProps, shortId } from '@no-comply/solid-primitives';
 
-import type { ExposedDataProps } from '../types';
-
-import type { ExposableAPI } from './types';
+import type { ExposableAPI, ExposedDataProps } from '../types';
 
 export const createExposableAPI = (
 	name: string,

@@ -1,0 +1,93 @@
+{
+  "name": "Button",
+  "kind": "component",
+  "category": "action",
+  "package": "@no-comply/standard-ui",
+  "module": "./lib/standard-ui/src/action/components/Button",
+  "factories": [
+    {
+      "name": "createButton",
+      "params": [{ "name": "props", "type": "ButtonProps" }],
+      "returns": "ButtonAPI",
+      "description": "Creates a standard Button controller."
+    }
+  ],
+  "types": {
+    "ButtonProps": {
+      "type": "intersection",
+      "entries": [{ "type": "PressableProps" }, { "type": "ButtonMixinProps" }]
+    },
+    "ButtonAPI": {
+      "type": "intersection",
+      "entries": [
+        {
+          "type": "ButtonMixinAPI",
+          "omit": ["$root"]
+        },
+        {
+          "type": "object",
+          "keys": {
+            "$root": {
+              "type": "intersection",
+              "entries": [
+                {
+                  "type": "PressableAPI",
+                  "member": "$root"
+                },
+                {
+                  "type": "FocusRingAPI",
+                  "member": "$root"
+                },
+                {
+                  "type": "ButtonMixinAPI",
+                  "member": "$root"
+                },
+                {
+                  "type": "object",
+                  "keys": { "classList": "ClassList" }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "dependencies": [
+    {
+      "name": "PressableAPI",
+      "type": "type",
+      "source": "@no-comply/solid-composables"
+    },
+    {
+      "name": "FocusRingAPI",
+      "type": "type",
+      "source": "@no-comply/solid-composables"
+    },
+    {
+      "name": "PressableProps",
+      "type": "type",
+      "source": "@no-comply/solid-composables"
+    },
+    {
+      "name": "ButtonMixinProps",
+      "type": "type"
+    },
+    {
+      "name": "ButtonMixinAPI",
+      "type": "type"
+    }
+  ],
+  "composes": [
+    {
+      "name": "createPressable"
+    },
+    {
+      "name": "createFocusRing"
+    },
+    {
+      "name": "createButtonMixin"
+    }
+  ],
+  "computed": []
+}

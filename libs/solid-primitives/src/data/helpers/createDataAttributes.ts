@@ -1,7 +1,8 @@
 import type { Accessor } from 'solid-js';
 
+import type { DataAttributes, RawDataAttributes } from '../types';
+
 import { dataAttributeName } from './dataAttributeName';
-import type { DataAttributes, RawDataAttributes } from './types';
 
 export const createDataAttributes = <T extends string>(
 	dataAttributes: Accessor<RawDataAttributes<T>>,

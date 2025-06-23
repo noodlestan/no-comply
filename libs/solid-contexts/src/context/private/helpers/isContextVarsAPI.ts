@@ -1,4 +1,4 @@
-import type { ContextVarsAPI } from '../types';
+import type { ContextVarsAPI } from '../../types';
 
 export const isContextVarsAPI = (value: unknown): value is ContextVarsAPI => {
 	return (

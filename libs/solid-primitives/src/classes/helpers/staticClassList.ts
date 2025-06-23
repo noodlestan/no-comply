@@ -1,5 +1,6 @@
+import type { ClassList } from '../types';
+
 import { mapClassName } from './mapClassName';
-import type { ClassList } from './types';
 
 export const staticClassList = (
 	styles: Record<string, string>,

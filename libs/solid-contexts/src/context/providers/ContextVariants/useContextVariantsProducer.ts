@@ -2,7 +2,7 @@ import { type Accessor, onCleanup, useContext } from 'solid-js';
 
 import type { ContextVariant } from '../../types';
 
-import { ContextVariantsCTX } from './private/ContextVariantsCTX';
+import { ContextVariantsCTX } from './private';
 
 export const useContextVariantsProducer = (variants: Accessor<ContextVariant[]>): void => {
 	const context = useContext(ContextVariantsCTX);

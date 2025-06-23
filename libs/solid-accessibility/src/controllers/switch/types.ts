@@ -3,11 +3,11 @@ import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export type AriaSwitchProps = AriaLabelledProps & {
+export interface AriaSwitchProps extends AriaLabelledProps {
 	tag: SwitchTagName;
 	checked: boolean;
 	disabled: boolean;
-};
+}
 
 export interface AriaSwitchAPI {
 	$root: AriaRegionAPI<'switch'>['$root'] & {

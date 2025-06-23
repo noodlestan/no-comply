@@ -3,7 +3,7 @@ import {
 	OverflowItemsContent,
 	OverflowItemsToggle,
 } from '@no-comply/solid-composables';
-import { useFocusTarget, useNavigation } from '@no-comply/solid-contexts';
+import { useFocusTargetConsumer, useNavigation } from '@no-comply/solid-contexts';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Flex, NavLink } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
@@ -14,7 +14,7 @@ import { routeFor } from '../../../../navigateTo';
 import styles from './MainNav.module.scss';
 
 export const MainNav: Component = () => {
-	const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
+	const [setMainFocus] = useFocusTargetConsumer(SCREEN_MAIN_TARGET);
 	const { isCurrent } = useNavigation();
 
 	const items = [

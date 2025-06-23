@@ -1,14 +1,14 @@
 import type { Accessor } from 'solid-js';
 
-export type AriaLabelledProps = {
+export interface AriaLabelledProps {
 	label?: string;
 	labelled?: boolean;
 	'aria-labelledby'?: string;
 	described?: boolean;
 	'aria-describedby'?: string;
-};
+}
 
-export type AriaLabelledAPI = {
+export interface AriaLabelledAPI {
 	$root: {
 		'aria-label'?: string;
 		'aria-labelledby'?: string;
@@ -21,4 +21,4 @@ export type AriaLabelledAPI = {
 		id?: string;
 	};
 	hasLabel: Accessor<boolean>;
-};
+}

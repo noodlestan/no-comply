@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noodlestan/no-comply"
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "libs/solid-accessibility"
   },
   "type": "module",
   "sideEffects": false,
@@ -26,15 +27,20 @@
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "build:clean": "rm -rf dist",
     "build": "vite build",
+    "extract": "tsx scripts/extract.ts",
     "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {
+    "@microsoft/api-extractor": "^7.52.8",
     "@no-comply/solid-primitives": "0.0.11"
   },
   "peerDependencies": {
     "solid-js": "^1.9.5"
   },
   "devDependencies": {
+    "@no-comply/purrception-profiles": "0.0.11",
+    "@purrception/source-fs": "0.0.11",
+    "tsx": "^4.20.3",
     "vite": "^6.2.2",
     "vite-plugin-solid": "^2.11.6",
     "vite-plugin-solid-svg": "^0.8.1",

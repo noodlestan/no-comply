@@ -1,7 +1,6 @@
 import type { Accessor } from 'solid-js';
 
-import type { ExposableAPI } from '../../private';
-import type { ExposedAPI } from '../../types';
+import type { ExposableAPI, ExposedAPI } from '../../types';
 
 export type ExposeServiceOptions = { expose: boolean };
 

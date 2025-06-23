@@ -1,4 +1,4 @@
-import { useFocusTarget } from '@no-comply/solid-contexts';
+import { useFocusTargetConsumer } from '@no-comply/solid-contexts';
 import { Display, Flex, NavLink } from '@no-comply/standard-ui';
 import { type Component, For } from 'solid-js';
 
@@ -6,7 +6,7 @@ import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from '../../../../templates';
 import type { SidebarItemGroup } from '../types';
 
 export const NavLinkItemGroup: Component<SidebarItemGroup> = props => {
-	const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
+	const [setMainFocus] = useFocusTargetConsumer(SCREEN_MAIN_TARGET);
 
 	const handleNavLink = () => {
 		setTimeout(() => {

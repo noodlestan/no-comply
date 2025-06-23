@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noodlestan/no-comply"
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "libs/solid-dev-tools"
   },
   "type": "module",
   "sideEffects": false,

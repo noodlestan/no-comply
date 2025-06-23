@@ -4,10 +4,10 @@ import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export type AriaGroupProps = AriaLabelledProps & {
+export interface AriaGroupProps extends AriaLabelledProps {
 	expanded?: boolean;
 	setSize?: number;
-};
+}
 
 export interface AriaGroupAPI {
 	$root: Omit<AriaRegionAPI['$root'], 'role'> & {

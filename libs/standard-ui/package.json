@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noodlestan/no-comply"
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "libs/standard-ui"
   },
   "type": "module",
   "sideEffects": false,
@@ -26,6 +27,7 @@
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "build:clean": "rm -rf dist",
     "build": "vite build",
+    "extract": "tsx scripts/extract.ts",
     "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {
@@ -39,6 +41,8 @@
     "solid-js": "^1.9.5"
   },
   "devDependencies": {
+    "@no-comply/purrception-profiles": "0.0.11",
+    "@purrception/source-fs": "0.0.11",
     "sass": "^1.88.0",
     "vite": "^6.2.2",
     "vite-plugin-solid": "^2.11.6",

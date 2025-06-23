@@ -1,12 +1,10 @@
 import { onCleanup, useContext } from 'solid-js';
 
-import {
-	type BaseContext,
-	ContextNodeCTX,
-	type ContextNodeOptions,
-	type ContextNodeValue,
-	createContextNodePrivate,
-} from '../../private';
+import { ContextNodeCTX } from '../../private';
+import type { BaseContext } from '../../types';
+
+import { createContextNodePrivate } from './private';
+import type { ContextNodeOptions, ContextNodeValue } from './types';
 
 export const createContextNode = (
 	context: BaseContext,

@@ -19,7 +19,7 @@ export function getMergedProperty(
 	const k = key as string;
 
 	for (let i = sources.length - 1; i >= 0; i--) {
-		const resolved = resolveSource(sources[i]);
+		const resolved = resolveSource(sources[i]) as Record<string, unknown>;
 		if (k in resolved) {
 			if (k === 'classList') {
 				return getClassListProperty(sources);

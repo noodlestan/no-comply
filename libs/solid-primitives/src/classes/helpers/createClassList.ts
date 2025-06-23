@@ -1,9 +1,9 @@
 import type { Accessor } from 'solid-js';
 
-import type { AccessorOrValue } from '../props';
+import type { AccessorOrValue } from '../../props';
+import type { ClassList, ClassListInput } from '../types';
 
 import { mapClassName } from './mapClassName';
-import type { ClassList, ClassListInput } from './types';
 
 const mapAndMergeClassList = (
 	styles: Record<string, string>,

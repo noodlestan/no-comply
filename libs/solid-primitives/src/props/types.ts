@@ -1,6 +1,6 @@
 import type { Accessor, Component, JSX } from 'solid-js';
 
-export type AnyProps = Record<string, unknown>;
+export type AnyProps = object | Record<string, unknown>;
 
 export type RenderProp<T> = (props: T) => JSX.Element;
 
@@ -10,7 +10,7 @@ export type AccessorOrValue<T> = Accessor<T> | T;
 
 export type MaybeAccessorOrValue<T> = Accessor<T | undefined> | T | undefined;
 
-export type PropsWithComponent<P extends Record<string, unknown>, Q extends Partial<P> = P> = Q & {
+export type PropsWithComponent<P extends AnyProps, Q extends Partial<P> = P> = Q & {
 	component: Component<P>;
 };
 

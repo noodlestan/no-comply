@@ -4,11 +4,21 @@ import type { PressableRoleName } from '../../role';
 
 import type { AriaGenericPressableAPI, AriaPressableAPI, AriaPressableProps } from './types';
 
+/**
+ * Creates an ARIA pressable controller with a dynamic role.
+ */
 export function createAriaPressable(props: AriaPressableProps): AriaPressableAPI;
+/**
+ * Creates an ARIA pressable controller with a static ARIA role.
+ * @param staticRole If provided, `props.role` is ignored
+ */
 export function createAriaPressable<T extends PressableRoleName = PressableRoleName>(
 	props: AriaPressableProps,
 	staticRole: T,
 ): AriaPressableAPI<T>;
+/**
+ * @ignore
+ */
 export function createAriaPressable(
 	props: AriaPressableProps,
 	staticRole?: PressableRoleName | undefined,

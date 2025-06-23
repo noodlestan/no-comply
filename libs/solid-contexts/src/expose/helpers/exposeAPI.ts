@@ -1,10 +1,8 @@
 import { type AnyProps, combineProps } from '@no-comply/solid-primitives';
 import { onCleanup } from 'solid-js';
 
-import type { ExposableAPI } from '../../private';
-import type { ExposedAPI } from '../../types';
-
-import { useExposeService } from './useExposeService';
+import { useExposeService } from '../providers';
+import type { ExposableAPI, ExposedAPI } from '../types';
 
 export const exposeAPI = <T extends Record<string, unknown>>(
 	exposable: ExposableAPI | undefined,

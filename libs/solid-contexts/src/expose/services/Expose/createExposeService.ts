@@ -1,7 +1,6 @@
 import { ReactiveMap } from '@solid-primitives/map';
 
-import type { ExposableAPI } from '../../private';
-import type { ExposedAPI } from '../../types';
+import type { ExposableAPI, ExposedAPI } from '../../types';
 
 import type { ExposeServiceAPI, ExposeServiceOptions, ExposedItem } from './types';
 

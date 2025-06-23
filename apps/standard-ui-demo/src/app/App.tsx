@@ -1,4 +1,4 @@
-import { useFocusTarget, useSystemContext } from '@no-comply/solid-contexts';
+import { useFocusTargetConsumer, useSystemContext } from '@no-comply/solid-contexts';
 import { createClassList } from '@no-comply/solid-primitives';
 import { Flex, SkipLink } from '@no-comply/standard-ui';
 import { Router } from '@solidjs/router';
@@ -14,7 +14,7 @@ import { ErrorBoundaryScreen } from './screens';
 import { $ID_SCREEN_MAIN, SCREEN_MAIN_TARGET } from './templates';
 
 const Main: ParentComponent = props => {
-	const [setMainFocus] = useFocusTarget(SCREEN_MAIN_TARGET);
+	const [setMainFocus] = useFocusTargetConsumer(SCREEN_MAIN_TARGET);
 
 	const handleSkipLink = () => {
 		setTimeout(() => {

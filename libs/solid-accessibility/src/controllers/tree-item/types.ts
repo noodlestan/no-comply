@@ -2,13 +2,19 @@ import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export type AriaTreeItemProps = AriaLabelledProps & {
+/**
+ * This and that
+ */
+export interface AriaTreeItemProps extends AriaLabelledProps {
+	/**
+	 * Foo
+	 */
 	selected: boolean;
 	expanded: boolean;
 	level: number;
 	setSize: number;
 	posInSet: number;
-};
+}
 
 export interface AriaTreeItemAPI {
 	$root: AriaRegionAPI<'treeitem'>['$root'] & {

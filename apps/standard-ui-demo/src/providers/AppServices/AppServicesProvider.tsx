@@ -18,8 +18,7 @@ import {
 import { useLocation } from '@solidjs/router';
 import { type ParentComponent, onCleanup } from 'solid-js';
 
-import { AppServicesContext } from './private';
-import { createAppServices } from './private/createAppServices';
+import { AppServicesContext, createAppServices } from './private';
 
 export const AppServicesProvider: ParentComponent = props => {
 	const location = useLocation();

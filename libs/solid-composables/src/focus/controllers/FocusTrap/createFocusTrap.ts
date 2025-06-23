@@ -13,7 +13,9 @@ export const createFocusTrap = (props: FocusTrapProps = {}): FocusTrapAPI => {
 	let containerEl: HTMLElement | null = null;
 
 	const getTrapElements = (): HTMLElement[] => {
-		if (!containerEl) return [];
+		if (!containerEl) {
+			return [];
+		}
 		const children = getFocusableElements(containerEl);
 		return locals.focusable ? [containerEl, ...children] : children;
 	};

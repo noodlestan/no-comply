@@ -10,7 +10,7 @@ export function getHandlerProperty(
 	const handlers: HandlerProp[] = [];
 
 	for (let i = 0; i < sources.length; i++) {
-		const resolvedSource = resolveSource(sources[i]);
+		const resolvedSource = resolveSource(sources[i]) as Record<string, unknown>;
 		const handler = resolvedSource[key];
 		if (typeof handler === 'function') {
 			handlers.push(handler as HandlerProp);

@@ -2,14 +2,14 @@ import type { ListItemTagName } from '../../tag';
 import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
-export type AriaListItemProps = AriaLabelledProps & {
+export interface AriaListItemProps extends AriaLabelledProps {
 	tag?: ListItemTagName;
 	selected: boolean;
 	setSize: number;
 	posInSet: number;
-};
+}
 
-export type AriaListItemAPI = {
+export interface AriaListItemAPI {
 	$root: AriaLabelledAPI['$root'] & {
 		component: ListItemTagName;
 		role: 'listitem' | undefined;
@@ -19,4 +19,4 @@ export type AriaListItemAPI = {
 	};
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];
-};
+}

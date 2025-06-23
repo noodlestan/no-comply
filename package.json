@@ -16,12 +16,13 @@
     "node": "20.10.0"
   },
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --ui tui",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
     "build": "turbo run build",
-    "ci": "turbo run ci --ui stream"
+    "extract": "turbo run extract",
+    "ci": "turbo run ci "
   },
   "devDependencies": {
     "@noodlestan/eslint-config": "0.0.4",

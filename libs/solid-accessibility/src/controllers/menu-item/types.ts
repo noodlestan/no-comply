@@ -1,15 +1,12 @@
-import type {
-	AriaLabelledAPI,
-	AriaLabelledProps,
-	MenuItemRoleName,
-} from '@no-comply/solid-accessibility';
+import type { MenuItemRoleName } from '../../role';
+import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
-export type AriaMenuItemProps = AriaLabelledProps & {
+export interface AriaMenuItemProps extends AriaLabelledProps {
 	role?: MenuItemRoleName;
-};
+}
 
-export type AriaMenuItemAPI = AriaLabelledAPI & {
+export interface AriaMenuItemAPI extends Omit<AriaLabelledAPI, '$root'> {
 	$root: AriaLabelledAPI['$root'] & {
 		role: MenuItemRoleName;
 	};
-};
+}

@@ -1,16 +1,16 @@
 export type PressEvent = KeyboardEvent | MouseEvent;
 
-export type PressEventHandlers = {
+export interface PressEventHandlers {
 	onPress?: (ev: KeyboardEvent | MouseEvent) => void;
-};
+}
 
-export type ExtendedPressEventHandlers = {
+export interface ExtendedPressEventHandlers {
 	onAltPress?: (ev: PressEvent) => void;
 	onShiftPress?: (ev: PressEvent) => void;
 	onLongPress?: (ev: PressEvent & { durationMs: number }) => void;
 	onDoublePress?: (ev: PressEvent) => void;
-};
+}
 
-export type ContextMenuEventHandlers = {
+export interface ContextMenuEventHandlers {
 	onContextMenu?: (ev: PointerEvent) => void;
-};
+}
