@@ -1,6 +1,5 @@
+import type { OperatorTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { OperatorTypeNode } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 

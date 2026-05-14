@@ -6,13 +6,14 @@ It is deeply type-aware, and highly customizable.
 
 ## Layer Overview
 
-| Layer              | Package                   | Responsibility                              |
-| ------------------ | ------------------------- | ------------------------------------------- |
-| **Core Contracts** | `@purrception/primitives` | Minimal shared types                        |
-| **FS Discovery**   | `@purrception/source-fs`  | Filesystem walking, batching, context       |
-| **TS AST Parsing** | `@purrception/extract-ts` | Type/function/component metadata extraction |
+| Package                   | Responsibility                                                                      |
+| ------------------------- | ----------------------------------------------------------------------------------- |
+| `@purrception/primitives` | Minimal shared types                                                                |
+| `@purrception/source-fs`  | Traversing, watching, and batching tools for extracting entities from file systems. |
+| `@purrception/types-ts`   | Lightweight Typescript AST                                                          |
+| `@purrception/extract-ts` | Extract lightweight Typescript AST from source code                                 |
 
-**Note:** Purrception is entity agnostic. An example implementation for SolidJS-aware extractors and codebase rules can be found in `@no-comply/purrception-entities`
+**Note:** Purrception is entity agnostic. An example implementation for SolidJS-aware extractors and codebase rules can be found in `@no-comply/meta-entities`
 
 ## 💠 `@purrception/primitives`
 
@@ -46,9 +47,11 @@ Knows how to walk the filesystem — not what to extract.
 
 TypeScript-level AST parsing and type modeling.
 
+Generates lightweight and portable trees.
+
 ### Contracts
 
-- `TypeExpressionData`
+- `TypeExpressionNode`
 - `FunctionData`
 - `ComponentData`
 - `TypeDeclarationData`
@@ -69,7 +72,7 @@ TypeScript-level AST parsing and type modeling.
 - Inference utilities like `isComponentType`, `isJSXReturnType`, etc.
 - Deep AST analysis tools (`extractMappedTypeNode`, `extractFunctionReturns`, etc.)
 
-## 🧩 `@no-comply/purrception-entities`
+## 🧩 `@no-comply/meta-entities`
 
 Userland package for defining SolidJS-aware entity models and extractors based on project conventions.
 

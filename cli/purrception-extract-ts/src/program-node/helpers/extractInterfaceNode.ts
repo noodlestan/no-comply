@@ -1,28 +1,22 @@
+import type { InterfaceTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { IntersectionTypeNode, ObjectLiteralTypeNode } from '../../types';
 
 import { extractNodeGenerics } from './extractNodeGenerics';
 import { extractObjectLiteralTypeNode } from './extractObjectLiteralTypeNode';
-import { extractTypeRef } from './extractTypeRef';
+import { extractTypeExpression } from './extractTypeExpression';
 
-export function extractInterfaceNode(
-	node: ts.InterfaceDeclaration,
-): ObjectLiteralTypeNode | IntersectionTypeNode {
+export function extractInterfaceNode(node: ts.InterfaceDeclaration): InterfaceTypeNode {
 	const generic = extractNodeGenerics(node);
 	const object = extractObjectLiteralTypeNode(node);
 
-	if (!node.heritageClauses || node.heritageClauses.length === 0) {
-		return object;
-	}
-
-	const extended = node.heritageClauses
+	const extended = (node.heritageClauses || [])
 		.flatMap(clause => clause.types)
-		.map(type => extractTypeRef(type));
+		.map(type => extractTypeExpression(type));
 
 	return {
-		kind: 'intersection',
+		kind: 'interface',
 		generic,
-		entries: [...extended, object],
+		heritage: extended,
+		members: object.members,
 	};
 }

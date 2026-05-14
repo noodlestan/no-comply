@@ -1,9 +1,10 @@
+import { writeFile } from 'fs/promises';
 import path from 'path';
 
 import {
 	createControllerEntityExtractor,
 	createModuleEntityExtractor,
-} from '@no-comply/purrception-entities';
+} from '@no-comply/meta-entities';
 import {
 	type DirectoryExtractContext,
 	extractEntitiesFromFileSystem,
@@ -18,20 +19,28 @@ const controllerExtractor = createControllerEntityExtractor({
 		const match = ctx.dirMeta.relative.startsWith('controllers/');
 		if (match) {
 			const name = path.basename(ctx.dirMeta.path);
-			return { type: 'controller', name };
+			return {
+				type: 'controller',
+				...ctx.fsContext.meta,
+				name,
+				module: 'controllers',
+			};
 		}
 	},
 });
 
 async function main() {
-	const entities = await extractEntitiesFromFileSystem({
+	const extracted = await extractEntitiesFromFileSystem({
 		rootDir: 'src/',
 		extractors: [moduleExtractor, controllerExtractor],
+		meta: { package: '@no-comply/solid-accessibility' },
 	});
 
+	const entities = extracted.map(({ entity: e }) => e);
+
 	// eslint-disable-next-line dot-notation
-	console.info(entities.map(({ entity: e }) => `${e['module']}/${e.type}:${e.name}`));
-	console.info(JSON.stringify(entities.map(({ entity: e }) => e)));
+	console.info(entities.map(e => `${e['module']}/${e.type}:${e.name}`));
+	await writeFile('./dist/meta.json', JSON.stringify(entities, null, 2));
 
 	// createDebouncedWatcher({
 	// 	rootDir: packageContext.rootDir,

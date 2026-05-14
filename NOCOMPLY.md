@@ -4,7 +4,7 @@
 
 ## remove flex defaults
 
-go throw existing components and discover the patterns - <Column> => column / justify-start / align-start - <Stack> => column / justify-start / align-stretch - <Row> => row / justify-start / align-start - <Bar> => row / justify-between / align-center
+go through existing components and discover the patterns - <Column> => column / justify-start / align-start - <Stack> => column / justify-start / align-stretch - <Row> => row / justify-start / align-start - <Bar> => row / justify-between / align-center
 same for the app
 
 ## Instrumentation

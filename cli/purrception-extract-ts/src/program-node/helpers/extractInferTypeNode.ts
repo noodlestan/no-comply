@@ -1,6 +1,5 @@
+import type { InferTypeNode } from '@purrception/types-ts';
 import type ts from 'typescript';
-
-import type { InferTypeNode } from '../../types';
 
 export function extractInferTypeNode(node: ts.InferTypeNode): InferTypeNode {
 	return {

@@ -1,7 +1,7 @@
+import type { FunctionJsDocData } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractParamTags, extractReturnsTag, extractTags, extractTemplateTags } from './private';
-import type { FunctionJsDocData } from './types';
 export function extractFunctionJsDoc(
 	node: ts.FunctionTypeNode | ts.FunctionDeclaration | ts.ArrowFunction,
 ): FunctionJsDocData {

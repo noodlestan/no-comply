@@ -1,6 +1,5 @@
+import type { ConditionalTypeNode } from '@purrception/types-ts';
 import type ts from 'typescript';
-
-import type { ConditionalTypeNode } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 

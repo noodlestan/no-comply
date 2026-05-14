@@ -1,6 +1,5 @@
+import type { TypeRef } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { TypeRef } from '../../types';
 
 import { extractTypeRef } from './extractTypeRef';
 

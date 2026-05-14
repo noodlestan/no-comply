@@ -1,31 +1,23 @@
+import type { ObjectLiteralTypeMember, TypeExpressionNode, TypeRef } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractDeclarationJsDoc } from '../../jsdoc';
-import type { ObjectLiteralTypeMember, TypeExpressionData, TypeRef } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
-import { isTypeRef } from './isTypeRef';
-import { normalizeTypeRefObject } from './normalizeTypeRefObject';
 
 export function extractObjectLiteralTypeMember(
-	member: ts.TypeElement,
+	element: ts.TypeElement,
 ): ObjectLiteralTypeMember | undefined {
-	if (!ts.isPropertySignature(member) || !member.name) {
-		return;
-	}
+	if (!ts.isPropertySignature(element) || !element.name) return;
 
-	const nameNode = ts.getNameOfDeclaration(member);
-	if (!nameNode) {
-		return;
-	}
+	const nameNode = ts.getNameOfDeclaration(element);
+	if (!nameNode) return;
 
-	const rawType: TypeExpressionData | TypeRef = member.type
-		? extractTypeExpression(member.type)
-		: 'unknown';
+	const typeNode = element.type;
+	const type: TypeExpressionNode | TypeRef = typeNode ? extractTypeExpression(typeNode) : 'unknown';
 
-	const type = isTypeRef(rawType) ? normalizeTypeRefObject(rawType) : rawType;
-	const { description, tags } = extractDeclarationJsDoc(member);
-	const optional = Boolean(member.questionToken);
+	const { description, tags } = extractDeclarationJsDoc(element);
+	const optional = Boolean(element.questionToken);
 
-	return { ...type, optional, description, tags };
+	return { type, optional, description, tags };
 }

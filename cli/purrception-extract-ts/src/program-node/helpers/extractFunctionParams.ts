@@ -1,14 +1,14 @@
+import type { FunctionJsDocData, FunctionTypeParam } from '@purrception/types-ts';
 import type ts from 'typescript';
 
-import { type FunctionJsDocData, extractDeclarationJsDoc } from '../../jsdoc';
-import type { ParamData } from '../../types';
+import { extractDeclarationJsDoc } from '../../jsdoc';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
 export function extractFunctionParams(
 	params: readonly ts.ParameterDeclaration[],
 	functionJsDoc?: FunctionJsDocData,
-): ParamData[] {
+): FunctionTypeParam[] {
 	return params.map(param => {
 		const name = param.name.getText();
 		const { description, tags } = extractDeclarationJsDoc(param);

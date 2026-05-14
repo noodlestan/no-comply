@@ -1,11 +1,11 @@
-import type { TypeExpressionData, TypeRef, TypeRefObject } from '../../types';
+import type { TypeExpressionNode, TypeRef, TypeRefObject } from '@purrception/types-ts';
 
 import { isParentComponentType } from './isParentComponentType';
 
 export function addChildrenToComponentProps(
 	componentType: TypeRefObject | undefined,
-	props: TypeExpressionData | TypeRef | undefined,
-): TypeExpressionData | TypeRef | undefined {
+	props: TypeExpressionNode | TypeRef | undefined,
+): TypeExpressionNode | TypeRef | undefined {
 	if (!props) {
 		return undefined;
 	}

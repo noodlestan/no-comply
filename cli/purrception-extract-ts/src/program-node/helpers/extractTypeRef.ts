@@ -1,6 +1,5 @@
+import type { TypeRef, TypeRefObject } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { TypeRef, TypeRefObject } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
@@ -35,18 +34,18 @@ export function extractTypeRef(node: ts.TypeNode): TypeRef {
 		const objectTypeRaw = extractTypeRef(node.objectType);
 		const objectType = normalizeTypeRef(objectTypeRaw);
 
-		const index =
+		const key =
 			ts.isLiteralTypeNode(node.indexType) && ts.isStringLiteral(node.indexType.literal)
 				? node.indexType.literal.text
 				: undefined;
 
-		if (!index) {
+		if (!key) {
 			return objectType;
 		}
 
 		return {
 			...objectType,
-			member: index,
+			member: key,
 		};
 	}
 

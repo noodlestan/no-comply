@@ -1,11 +1,12 @@
+import type { TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
+
 import { type ProgramFilesContext, createProgram } from '../program';
 import { extractTypeFromProgramNode } from '../program-node';
-import type { TypeDeclarationData } from '../types';
 
 export async function extractTypesFromFile(
 	ctx: ProgramFilesContext,
 	filename: string,
-): Promise<TypeDeclarationData[]> {
+): Promise<(TypeDeclarationData | TypeAliasData)[]> {
 	const typesTs = await createProgram(ctx, filename);
 	const types = typesTs.types().map(n => extractTypeFromProgramNode(typesTs, n));
 

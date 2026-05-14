@@ -1,6 +1,5 @@
+import type { ObjectLiteralTypeMember, ObjectLiteralTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { ObjectLiteralTypeMember, ObjectLiteralTypeNode } from '../../types';
 
 import { extractNodeGenerics } from './extractNodeGenerics';
 import { extractObjectLiteralTypeMember } from './extractObjectLiteralTypeMember';

@@ -4,7 +4,7 @@ import { Flex, SkipLink } from '@no-comply/standard-ui';
 import { Router } from '@solidjs/router';
 import { type Component, type ParentComponent, Show } from 'solid-js';
 
-import { AppServicesProvider, UIRootProvider, useAppServices } from '../providers';
+import { AppServicesProvider, MetaProvider, UIRootProvider, useAppServices } from '../providers';
 
 import styles from './App.module.scss';
 import { AppSplash } from './components';
@@ -51,11 +51,13 @@ const Root: ParentComponent = props => {
 	return (
 		<ErrorBoundaryScreen>
 			<AppServicesProvider>
-				<UIRootProvider defaultCtxId={APP.id}>
-					{/* <Surface variant="menu">HELLO!</Surface> */}
-					<Main>{props.children}</Main>
-					{/* <DebugDrawer /> */}
-				</UIRootProvider>
+				<MetaProvider>
+					<UIRootProvider defaultCtxId={APP.id}>
+						{/* <Surface variant="menu">HELLO!</Surface> */}
+						<Main>{props.children}</Main>
+						{/* <DebugDrawer /> */}
+					</UIRootProvider>
+				</MetaProvider>
 			</AppServicesProvider>
 		</ErrorBoundaryScreen>
 	);

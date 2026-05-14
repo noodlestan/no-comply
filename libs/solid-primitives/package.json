@@ -27,14 +27,15 @@
     "build:clean": "rm -rf dist",
     "build": "vite build",
     "extract": "tsx scripts/extract.ts",
-    "ci": "npm run build:clean && tsc --noEmit && npm run build"
+    "ci": "npm run build:clean && tsc --noEmit && npm run build && npm run extract"
   },
   "peerDependencies": {
     "solid-js": "^1.9.5"
   },
   "devDependencies": {
-    "@no-comply/purrception-entities": "0.0.11",
+    "@no-comply/meta-entities": "0.0.11",
     "@purrception/source-fs": "0.0.11",
+    "tsx": "^4.20.3",
     "vite": "^6.2.2",
     "vite-plugin-solid": "^2.11.6",
     "vite-plugin-solid-svg": "^0.8.1",

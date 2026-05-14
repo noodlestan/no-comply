@@ -3,4 +3,3 @@ export * from './extractors';
 export * from './jsdoc';
 export * from './program-node';
 export * from './program';
-export * from './types';

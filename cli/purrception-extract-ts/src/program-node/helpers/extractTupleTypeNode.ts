@@ -1,6 +1,5 @@
+import type { NamedTupleTypeElement, TupleTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { NamedTupleTypeElement, TupleTypeNode } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 

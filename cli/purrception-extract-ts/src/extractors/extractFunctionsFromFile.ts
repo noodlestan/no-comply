@@ -1,7 +1,8 @@
+import type { FunctionData } from '@purrception/types-ts';
+
 import { hasJsDocIgnore } from '../jsdoc';
 import { type ProgramFilesContext, createProgram } from '../program';
 import { extractFunctionFromProgramNode } from '../program-node';
-import type { FunctionData } from '../types';
 
 export async function extractFunctionsFromFile(
 	ctx: ProgramFilesContext,

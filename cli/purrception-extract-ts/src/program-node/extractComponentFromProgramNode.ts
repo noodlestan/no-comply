@@ -1,8 +1,8 @@
+import type { ComponentData } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
 import type { ProgramContext } from '../program';
-import type { ComponentData } from '../types';
 
 import {
 	extractArrowFunctionType,

@@ -7,6 +7,7 @@ import type { DirectoryEntityExtractor } from '../types';
 interface ExtractEntitiesFromFileSystemOptions {
 	rootDir: string;
 	extractors: DirectoryEntityExtractor[];
+	meta?: Record<string, unknown>;
 }
 
 export async function extractEntitiesFromFileSystem(
@@ -18,6 +19,7 @@ export async function extractEntitiesFromFileSystem(
 		rootDir,
 		extractors,
 		log: msg => console.info(msg),
+		meta: opts.meta,
 	});
 
 	const processors = await processRootDir(ctx);

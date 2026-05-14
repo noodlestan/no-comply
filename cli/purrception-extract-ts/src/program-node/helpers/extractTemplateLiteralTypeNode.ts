@@ -1,6 +1,5 @@
+import type { TemplateLiteralTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { TemplateLiteralTypeNode } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 

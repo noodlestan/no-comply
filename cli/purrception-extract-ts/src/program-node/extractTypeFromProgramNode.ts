@@ -1,14 +1,14 @@
+import type { TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractDeclarationJsDoc } from '../jsdoc';
 import type { ProgramContext } from '../program';
-import type { TypeAliasData, TypeDeclarationData } from '../types';
 
 import {
 	extractExportedName,
 	extractNodeGenerics,
 	extractTypeExpression,
-	isTypeExpressionData,
+	isTypeExpressionNode,
 	normalizeTypeRefObject,
 } from './helpers';
 
@@ -25,7 +25,7 @@ export function extractTypeFromProgramNode(
 	const generic = extractNodeGenerics(node);
 	const base = extractTypeExpression(node);
 
-	if (isTypeExpressionData(base)) {
+	if (isTypeExpressionNode(base)) {
 		return { name, generic, ...base, description, templateTags, tags };
 	}
 

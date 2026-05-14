@@ -1,6 +1,5 @@
+import type { MappedTypeNode } from '@purrception/types-ts';
 import type ts from 'typescript';
-
-import type { MappedTypeNode } from '../../types';
 
 export function extractMappedTypeNode(node: ts.MappedTypeNode): MappedTypeNode {
 	const param = node.typeParameter.name.getText();
@@ -12,7 +11,7 @@ export function extractMappedTypeNode(node: ts.MappedTypeNode): MappedTypeNode {
 		param,
 		constraint,
 		valueType,
-		optional: node.questionToken != null,
-		readonly: node.readonlyToken != null,
+		optional: Boolean(node.questionToken),
+		readonly: Boolean(node.readonlyToken),
 	};
 }

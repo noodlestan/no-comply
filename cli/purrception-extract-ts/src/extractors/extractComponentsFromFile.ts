@@ -1,7 +1,8 @@
+import type { ComponentData } from '@purrception/types-ts';
+
 import { hasJsDocIgnore } from '../jsdoc';
 import { type ProgramFilesContext, createProgram } from '../program';
 import { extractComponentFromProgramNode } from '../program-node';
-import type { ComponentData } from '../types';
 
 export async function extractComponentsFromFile(
 	ctx: ProgramFilesContext,

@@ -1,6 +1,5 @@
+import type { TypeExpressionNode, TypeRef } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { TypeExpressionData, TypeRef } from '../../types';
 
 import { extractArrayTypeNode } from './extractArrayTypeNode';
 import { extractConditionalTypeNode } from './extractConditionalTypeNode';
@@ -8,6 +7,7 @@ import { extractFunctionTypeNode } from './extractFunctionTypeNode';
 import { extractInferTypeNode } from './extractInferTypeNode';
 import { extractInterfaceNode } from './extractInterfaceNode';
 import { extractIntersectionTypeNode } from './extractIntersectionTypeNode';
+import { extractLiteralTypeNode } from './extractLiteralTypeNode';
 import { extractMappedTypeNode } from './extractMappedTypeNode';
 import { extractObjectLiteralTypeNode } from './extractObjectLiteralTypeNode';
 import { extractOmitTypeNode } from './extractOmitTypeNode';
@@ -39,8 +39,12 @@ const primitiveKinds = new Set([
  * Accepts any type-related node (top-level declarations or inline type nodes).
  */
 export function extractTypeExpression(
-	node: ts.TypeNode | ts.TypeAliasDeclaration | ts.InterfaceDeclaration,
-): TypeExpressionData | TypeRef {
+	node:
+		| ts.TypeNode
+		| ts.TypeAliasDeclaration
+		| ts.InterfaceDeclaration
+		| ts.ExpressionWithTypeArguments,
+): TypeExpressionNode | TypeRef {
 	// readonly/keyof Foo
 	if (ts.isTypeOperatorNode(node)) {
 		return extractOperatorTypeExpression(node);
@@ -53,6 +57,19 @@ export function extractTypeExpression(
 	// type Foo = ...
 	if (ts.isTypeAliasDeclaration(node)) {
 		return extractTypeExpression(node.type);
+	}
+
+	// extends ExpressionWithTypeArguments, ExpressionWithTypeArguments
+	if (ts.isExpressionWithTypeArguments(node)) {
+		const { expression } = node;
+		const name = expression.getText();
+		if (name === 'Omit') {
+			return extractOmitTypeNode(node);
+		}
+		if (name === 'Pick') {
+			return extractPickTypeNode(node);
+		}
+		return extractTypeRef(node);
 	}
 
 	if (
@@ -107,8 +124,11 @@ export function extractTypeExpression(
 	if (ts.isParenthesizedTypeNode(node)) {
 		return extractTypeExpression(node.type);
 	}
+	if (ts.isLiteralTypeNode(node)) {
+		return extractLiteralTypeNode(node);
+	}
 
-	if (primitiveKinds.has(node.kind) || ts.isLiteralTypeNode(node)) {
+	if (primitiveKinds.has(node.kind)) {
 		return node.getText();
 	}
 

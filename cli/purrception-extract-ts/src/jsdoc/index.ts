@@ -2,4 +2,3 @@
 export * from './extractDeclarationJsDoc';
 export * from './extractFunctionJsDoc';
 export * from './hasJsDocIgnore';
-export * from './types';

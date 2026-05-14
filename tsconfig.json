@@ -10,7 +10,6 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "types": [],
-    "baseUrl": ".",
     // module
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

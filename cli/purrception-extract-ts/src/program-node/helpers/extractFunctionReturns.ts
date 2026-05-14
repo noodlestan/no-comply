@@ -1,16 +1,14 @@
+import type { FunctionJsDocData, FunctionTypeReturns } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { FunctionJsDocData } from '../../jsdoc';
-import type { FunctionReturnsData } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
 export function extractFunctionReturns(
 	returnType: ts.TypeNode | undefined,
 	jsDoc: FunctionJsDocData,
-): FunctionReturnsData {
+): FunctionTypeReturns {
 	if (!returnType) {
-		return 'void';
+		return { type: 'void' };
 	}
 
 	if (ts.isTypePredicateNode(returnType)) {

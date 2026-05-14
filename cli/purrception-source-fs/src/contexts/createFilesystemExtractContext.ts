@@ -2,16 +2,22 @@ import type { DirectoryEntityExtractor } from '../types';
 
 import type { FilesystemExtractContext } from './types';
 
-export function createFilesystemExtractContext(input: {
+interface CreateFilesystemExtractContextOptions {
 	rootDir: string;
 	extractors: DirectoryEntityExtractor[];
 	defaults?: Record<string, unknown>;
 	log?: (msg: string) => void;
-}): FilesystemExtractContext {
+	meta?: Record<string, unknown>;
+}
+
+export function createFilesystemExtractContext(
+	options: CreateFilesystemExtractContextOptions,
+): FilesystemExtractContext {
 	return {
-		rootDir: input.rootDir,
-		extractors: input.extractors,
-		defaults: input.defaults ?? {},
-		log: input.log ?? (() => {}),
+		rootDir: options.rootDir,
+		extractors: options.extractors,
+		defaults: options.defaults ?? {},
+		meta: options.meta || {},
+		log: options.log ?? (() => {}),
 	};
 }

@@ -39,7 +39,7 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
 		}
 
 		if (ownerAPI.nextTest()) {
-			timeout = setTimeout(runTest, 100);
+			timeout = window.setTimeout(runTest, 100);
 		}
 	};
 
@@ -48,7 +48,7 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
 			clearTimeout(timeout);
 		}
 		ownerAPI.startTest();
-		timeout = setTimeout(runTest, 200);
+		timeout = window.setTimeout(runTest, 200);
 	};
 
 	createEffect(() => {

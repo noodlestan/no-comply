@@ -1,7 +1,7 @@
+import type { FunctionTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../../jsdoc';
-import type { FunctionTypeNode } from '../../types';
 
 import { extractFunctionParams } from './extractFunctionParams';
 import { extractFunctionReturns } from './extractFunctionReturns';

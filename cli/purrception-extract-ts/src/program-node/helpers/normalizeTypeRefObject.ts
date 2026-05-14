@@ -1,4 +1,4 @@
-import type { TypeRef, TypeRefObject } from '../../types';
+import type { TypeRef, TypeRefObject } from '@purrception/types-ts';
 
 export function normalizeTypeRefObject(type: TypeRef): TypeRefObject {
 	if (typeof type === 'string') {

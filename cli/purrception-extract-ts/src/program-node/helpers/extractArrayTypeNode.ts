@@ -1,6 +1,5 @@
+import type { ArrayTypeNode } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { ArrayTypeNode } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 

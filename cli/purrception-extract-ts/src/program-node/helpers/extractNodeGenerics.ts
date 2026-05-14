@@ -1,6 +1,5 @@
+import type { TypeExpressionGeneric } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { TypeExpressionGeneric } from '../../types';
 
 import { extractTypeRef } from './extractTypeRef';
 

@@ -4,6 +4,7 @@ export type FilesystemExtractContext = {
 	rootDir: string;
 	extractors: DirectoryEntityExtractor[];
 	defaults?: Record<string, unknown>;
+	meta: Record<string, unknown>;
 	log?: (msg: string) => void;
 };
 

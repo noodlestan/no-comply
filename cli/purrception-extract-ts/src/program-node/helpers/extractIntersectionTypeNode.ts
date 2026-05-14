@@ -1,11 +1,10 @@
+import type { IntersectionTypeNode, TypeExpressionNode, TypeRef } from '@purrception/types-ts';
 import ts from 'typescript';
-
-import type { IntersectionTypeNode, TypeExpressionData, TypeRef } from '../../types';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
 export function extractIntersectionTypeNode(node: ts.IntersectionTypeNode): IntersectionTypeNode {
-	const entries: (TypeExpressionData | TypeRef)[] = node.types.map(typeNode =>
+	const entries: (TypeExpressionNode | TypeRef)[] = node.types.map(typeNode =>
 		extractTypeExpression(typeNode),
 	);
 

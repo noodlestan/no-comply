@@ -1,8 +1,8 @@
+import type { FunctionData } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
 import type { ProgramContext } from '../program';
-import type { FunctionData } from '../types';
 
 import {
 	extractArrowFunctionType,
@@ -23,9 +23,9 @@ export function extractFunctionFromProgramNode(
 	const { description, templateTags, tags } = jsDoc;
 
 	const type = extractArrowFunctionType(node);
-	const generic = extractNodeGenerics(node);
-	const params = extractFunctionParams(node.parameters, jsDoc);
-	const returns = extractFunctionReturns(node.type, jsDoc);
+	const generic = !type ? extractNodeGenerics(node) : undefined;
+	const params = !type ? extractFunctionParams(node.parameters, jsDoc) : undefined;
+	const returns = !type ? extractFunctionReturns(node.type, jsDoc) : undefined;
 
 	return {
 		kind: 'function',

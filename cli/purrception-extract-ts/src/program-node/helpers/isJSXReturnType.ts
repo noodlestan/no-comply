@@ -1,7 +1,7 @@
-import type { FunctionReturnsData } from '../../types';
+import type { FunctionTypeReturns } from '@purrception/types-ts';
 
-export function isJSXReturnType(returns: FunctionReturnsData | undefined): boolean {
-	if (!returns || returns === 'void') {
+export function isJSXReturnType(returns: FunctionTypeReturns | undefined): boolean {
+	if (!returns || returns.type === 'void') {
 		return false;
 	}
 
