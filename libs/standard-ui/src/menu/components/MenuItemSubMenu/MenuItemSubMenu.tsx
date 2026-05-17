@@ -1,6 +1,6 @@
 import { PopoverContextProvider } from '@no-comply/solid-composables';
 import { type ClosedTagProps, type RenderProp, combineProps } from '@no-comply/solid-primitives';
-import { ChevronRightIcon } from 'lucide-solid';
+import ChevronRightIcon from 'lucide-solid/icons/chevron-right';
 import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 

@@ -1,7 +1,8 @@
 import { type ExpandActionIcons, createExpandAction } from '@no-comply/solid-composables';
 import { createExposable, createIconValue, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-solid';
+import ChevronDownIcon from 'lucide-solid/icons/chevron-down';
+import ChevronUpIcon from 'lucide-solid/icons/chevron-up';
 
 import type { ActionVariant } from '../../types';
 

@@ -1,5 +1,5 @@
 import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
-import { ArrowDownIcon } from 'lucide-solid';
+import ArrowDownIcon from 'lucide-solid/icons/arrow-down';
 import { type ParentComponent, splitProps } from 'solid-js';
 
 import { Icon } from '../../../icon';

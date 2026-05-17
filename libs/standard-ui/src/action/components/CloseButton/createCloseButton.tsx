@@ -1,6 +1,6 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps } from '@no-comply/solid-primitives';
-import { XIcon } from 'lucide-solid';
+import XIcon from 'lucide-solid/icons/x';
 
 import type { ActionVariant } from '../../types';
 

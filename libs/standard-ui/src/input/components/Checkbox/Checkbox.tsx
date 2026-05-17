@@ -6,7 +6,7 @@ import {
 	createClassList,
 	staticClassList,
 } from '@no-comply/solid-primitives';
-import { CheckIcon } from 'lucide-solid';
+import CheckIcon from 'lucide-solid/icons/check';
 import { type Component, createSignal } from 'solid-js';
 
 import styles from './Checkbox.module.scss';
