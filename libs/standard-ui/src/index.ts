@@ -11,7 +11,7 @@ export * from './layout';
 export * from './menu';
 export * from './navigation';
 export * from './popover';
+export * from './size';
 export * from './surface';
 export * from './theme';
-export * from './types';
 export * from './typography';

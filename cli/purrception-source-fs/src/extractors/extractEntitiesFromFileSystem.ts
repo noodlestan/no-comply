@@ -24,7 +24,7 @@ export async function extractEntitiesFromFileSystem(
 
 	const processors = await processRootDir(ctx);
 	const results = await Promise.all(processors.flatMap(fn => fn()));
-	const entities = results.flat();
+	const entities = results.flat().map(entity => ({ ...entity, ...opts.meta }));
 
 	return entities;
 }

@@ -3,7 +3,7 @@ import type { ClassList } from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
 import { Flex } from '../../../layout';
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 import { FieldsetLabel } from '../FieldsetLabel';
 
 export type FieldsetProps = {

@@ -28,8 +28,11 @@
     --display-base-spacing: 1;
 
     --display-variant-hero-size: var(--typography-step-8);
+    --display-variant-hero-height: 1;
     --display-variant-xl-size: var(--typography-step-7);
+    --display-variant-xl-height: 1;
     --display-variant-l-size: var(--typography-step-6);
+    --display-variant-l-height: 1;
     --display-variant-m-size: var(--typography-step-4);
     --display-variant-s-size: var(--typography-step-3);
     --display-variant-xs-size: var(--typography-step-2);

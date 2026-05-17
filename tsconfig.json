@@ -2,8 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "moduleResolution": "bundler",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "rootDir": ".",
     "allowJs": true,

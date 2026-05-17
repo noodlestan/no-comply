@@ -34,4 +34,7 @@ async function main() {
 	await writeFile('./dist/meta.json', JSON.stringify(entities, null, 2));
 }
 
-main().catch(error => console.error('Failed to extract entities from package:', error));
+main().catch(error => {
+	console.error('Failed to extract entities from package:', error);
+	process.exit(1);
+});

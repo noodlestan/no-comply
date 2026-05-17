@@ -1,20 +1,12 @@
-import {
-	createProgramFilesContext,
-	extractComponentsFromFile,
-	extractFunctionsFromFile,
-	extractTypesFromFile,
-} from '@purrception/extract-ts';
+import { createProgram, createProgramFilesContext } from '@purrception/extract-ts';
 import {
 	type DirectoryEntityExtractor,
 	type DirectoryEntityProcessor,
+	type EntityExtractorOptions,
 	createEntityExtractContext,
 } from '@purrception/source-fs';
 
-import {
-	type EntityExtractorOptions,
-	resolveEntityFiles,
-	resolveEntityPartial,
-} from '../../heuristics';
+import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
 import { MATCHER as matcher, RESOLVER as resolver } from './private';
 import type { ProviderEntityData, ProviderEntityFiles, ProviderEntityPartial } from './types';
@@ -32,17 +24,14 @@ export function createProviderEntityExtractor(
 		}
 
 		const processor: DirectoryEntityProcessor<ProviderEntityData> = async () => {
-			const { hooks, implementation } = files;
-
 			const entityContext = createEntityExtractContext(ctx, partial);
 			const programContext = createProgramFilesContext(ctx.dirMeta.path, ctx.readFile);
+			const program = await createProgram(programContext, files);
 
-			const components = await extractComponentsFromFile(programContext, implementation);
-			const implementationTypes = await extractTypesFromFile(programContext, implementation);
-			const types = await extractTypesFromFile(programContext, implementation);
-			const nestedHooks = await Promise.all(
-				hooks.map(file => extractFunctionsFromFile(programContext, file)),
-			);
+			const components = program.extractComponents(files.implementation);
+			const types = program.extractTypes(files.implementation);
+			const hooks = program.extractFunctions(files.hooks);
+			const dependencies = program.extractImports();
 
 			return [
 				{
@@ -50,8 +39,9 @@ export function createProviderEntityExtractor(
 					entity: {
 						...partial,
 						components,
-						hooks: nestedHooks.flat(),
-						types: [...types, ...implementationTypes],
+						hooks,
+						types,
+						dependencies,
 					},
 				},
 			];

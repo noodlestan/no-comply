@@ -6,3 +6,4 @@ export * from './Mixin';
 export * from './Module';
 export * from './Provider';
 export * from './Service';
+export * from './types';

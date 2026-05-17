@@ -4,9 +4,8 @@ export function generateTypes(target, exitOnError = true) {
   console.info(`Emitting TypeScript declarations for ${target} target...`);
 
   const result = spawnSync('npm', ['run', `build:types:${target}`], {
-    stdio: 'inherit', // Inherit stdio for proper logging
-    env: process.env, // Pass full environment
-    shell: true, // Use shell for compatibility
+    stdio: 'inherit',
+    env: process.env,
   });
 
   if (result.error) {

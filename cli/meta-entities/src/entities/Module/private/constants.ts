@@ -1,4 +1,5 @@
-import type { EntityFileResolver, EntityMetaMatcher } from '../../../heuristics';
+import type { EntityFileResolver, EntityMetaMatcher } from '@purrception/source-fs';
+
 import { findHelperFiles, findTypesFile } from '../../../utils';
 import type { ModuleEntityFiles, ModuleEntityPartial } from '../types';
 
@@ -12,8 +13,10 @@ export const MATCHER: EntityMetaMatcher<ModuleEntityPartial> = async ctx => {
 
 	return {
 		type: 'module',
-		...ctx.fsContext.meta,
 		name,
+		module: '',
+		// eslint-disable-next-line dot-notation
+		package: ctx.fsContext.meta['package'] as string,
 	};
 };
 

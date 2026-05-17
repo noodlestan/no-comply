@@ -8,7 +8,7 @@ import {
 import { splitProps } from 'solid-js';
 
 import { createActionMixin } from '../../../action';
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 
 import styles from './MenuItemMixin.module.scss';
 import { $MENU_ITEM_MIXIN } from './constants';

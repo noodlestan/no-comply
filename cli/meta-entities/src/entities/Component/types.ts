@@ -1,4 +1,4 @@
-import type { EntityDataBase } from '@purrception/primitives';
+import type { ImportedSymbol } from '@purrception/extract-ts';
 import type {
 	ComponentData,
 	FunctionData,
@@ -6,13 +6,15 @@ import type {
 	TypeDeclarationData,
 } from '@purrception/types-ts';
 
+import type { NoComplyEntityData } from '../types';
+
 export type ComponentEntityFiles = {
 	implementation: string;
 	factory: string;
 	types: string;
 };
 
-export type ComponentEntityPartial = EntityDataBase & {
+export type ComponentEntityPartial = NoComplyEntityData & {
 	type: 'component';
 };
 
@@ -20,4 +22,5 @@ export type ComponentEntityData = ComponentEntityPartial & {
 	component: ComponentData;
 	factory: FunctionData;
 	types: (TypeDeclarationData | TypeAliasData)[];
+	dependencies: Record<string, ImportedSymbol>;
 };

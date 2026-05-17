@@ -27,7 +27,7 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
-			external: ['@no-comply/solid-primitives', 'solid-js'],
+			external: ['@purrception/types-ts', '@purrtrait/code-layout'],
 		},
 	},
 });

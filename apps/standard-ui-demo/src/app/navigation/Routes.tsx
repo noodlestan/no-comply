@@ -2,9 +2,10 @@ import { Route } from '@solidjs/router';
 import { type Component } from 'solid-js';
 
 import {
+	ApiRoutes,
 	AppHomeScreen,
-	CalibrationRoutes,
 	FeaturesRoutes,
+	ResourcesRoutes,
 	WelcomePage,
 	WelcomeScreen,
 } from '../screens';
@@ -17,7 +18,8 @@ export const Routes: Component = () => {
 			</Route>
 			<FeaturesRoutes />
 			<Route path="/app" component={AppHomeScreen} />
-			<CalibrationRoutes />
+			<ResourcesRoutes />
+			<ApiRoutes />
 		</>
 	);
 };

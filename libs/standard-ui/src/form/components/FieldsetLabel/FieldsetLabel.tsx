@@ -1,7 +1,7 @@
 import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 
 import styles from './FieldsetLabel.module.scss';
 

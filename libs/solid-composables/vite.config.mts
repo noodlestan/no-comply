@@ -35,6 +35,7 @@ export default defineConfig({
 				'@no-comply/solid-accessibility',
 				'@no-comply/solid-primitives',
 				'@solid-primitives/set',
+				// '@solid-primitives/resize-observer',
 				'lucide-solid',
 				'solid-js',
 			],

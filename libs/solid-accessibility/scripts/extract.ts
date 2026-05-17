@@ -21,9 +21,10 @@ const controllerExtractor = createControllerEntityExtractor({
 			const name = path.basename(ctx.dirMeta.path);
 			return {
 				type: 'controller',
-				...ctx.fsContext.meta,
 				name,
 				module: 'controllers',
+				// eslint-disable-next-line dot-notation
+				package: ctx.fsContext.meta['package'] as string,
 			};
 		}
 	},
@@ -55,4 +56,7 @@ async function main() {
 	// });
 }
 
-main().catch(error => console.error('Failed to extract entities from package:', error));
+main().catch(error => {
+	console.error('Failed to extract entities from package:', error);
+	process.exit(1);
+});

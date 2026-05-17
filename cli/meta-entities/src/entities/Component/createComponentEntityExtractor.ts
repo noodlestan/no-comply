@@ -1,20 +1,12 @@
-import {
-	createProgramFilesContext,
-	extractComponentsFromFile,
-	extractFunctionsFromFile,
-	extractTypesFromFile,
-} from '@purrception/extract-ts';
+import { createProgram, createProgramFilesContext } from '@purrception/extract-ts';
 import {
 	type DirectoryEntityExtractor,
 	type DirectoryEntityProcessor,
+	type EntityExtractorOptions,
 	createEntityExtractContext,
 } from '@purrception/source-fs';
 
-import {
-	type EntityExtractorOptions,
-	resolveEntityFiles,
-	resolveEntityPartial,
-} from '../../heuristics';
+import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
 import { MATCHER as matcher, RESOLVER as resolver } from './private';
 import type { ComponentEntityData, ComponentEntityFiles, ComponentEntityPartial } from './types';
@@ -30,19 +22,21 @@ export function createComponentEntityExtractor(
 		}
 
 		const processor: DirectoryEntityProcessor<ComponentEntityData> = async () => {
-			const { factory, implementation, types: typesFile } = files;
-
 			const entityContext = createEntityExtractContext(ctx, partial);
 			const programContext = createProgramFilesContext(ctx.dirMeta.path, ctx.readFile);
+			const program = await createProgram(programContext, files);
 
-			const components = await extractComponentsFromFile(programContext, implementation);
-			const implementationTypes = await extractTypesFromFile(programContext, implementation);
-			const functions = await extractFunctionsFromFile(programContext, factory);
-			const types = await extractTypesFromFile(programContext, typesFile);
+			const components = program.extractComponents(files.implementation);
 
 			if (!components.length) {
 				return [];
 			}
+
+			const implementationTypes = program.extractTypes(files.implementation);
+			const functions = program.extractFunctions(files.factory);
+			const types = program.extractTypes(files.types);
+
+			const dependencies = program.extractImports();
 
 			return [
 				{
@@ -52,6 +46,7 @@ export function createComponentEntityExtractor(
 						component: components[0],
 						factory: functions[0],
 						types: [...types, ...implementationTypes],
+						dependencies,
 					},
 				},
 			];

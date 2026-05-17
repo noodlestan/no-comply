@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@no-comply/meta": "0.0.11",
+    "@no-comply/solid-accessibility": "0.0.11",
     "@no-comply/solid-contexts": "0.0.11",
     "@no-comply/solid-primitives": "0.0.11",
     "@no-comply/solid-dev-tools": "0.0.11",

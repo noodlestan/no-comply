@@ -4,6 +4,7 @@ import type { JSX, ParentComponent } from 'solid-js';
 
 export type BaseSectionProps = {
 	title: JSX.Element;
+	label?: string;
 	level?: DisplayLevel;
 	classList?: ClassList;
 	undertitle?: JSX.Element;
@@ -13,12 +14,13 @@ export type BaseSectionProps = {
 };
 
 export const BaseSection: ParentComponent<BaseSectionProps> = props => {
-	const labelId = shortId();
+	const labelId = () =>
+		props.label ? props.label : typeof props.title === 'string' ? props.title : shortId();
 
 	return (
 		<Flex tag="section" gap="l" classList={props.classList} aria-labelledby={labelId}>
 			<Flex gap="s">
-				<Display level={props.level ?? 3} id={labelId}>
+				<Display level={props.level ?? 3} id={labelId()}>
 					{props.title}
 				</Display>
 				{props.undertitle}

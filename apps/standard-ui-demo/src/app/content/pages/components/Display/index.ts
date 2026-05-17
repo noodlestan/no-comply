@@ -1,9 +1,10 @@
-import { findComponent } from '../../../../../data';
-import { createDocsComponentPageData } from '../../../types';
+import type { ComponentEntityData } from '@no-comply/meta-entities';
+
+import { type DocsComponentPageData, createDocsComponentPageData } from '../../../types';
 
 import basic from './00-basic';
 import props from './10-props';
 
-const component = findComponent('Display');
-
-export default createDocsComponentPageData(component, { items: [basic, props] });
+export default function (component: ComponentEntityData): DocsComponentPageData {
+	return createDocsComponentPageData(component, { items: [basic, props] });
+}

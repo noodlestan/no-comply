@@ -3,7 +3,7 @@ import { Icon, NavLink, Text } from '@no-comply/standard-ui';
 import { SquareMousePointerIcon } from 'lucide-solid';
 import { type Component } from 'solid-js';
 
-import { routeFor } from '../../../../navigateTo';
+import { routeFor } from '../../../../routeFor';
 import { $ID_APP_TITLE } from '../../private';
 
 import styles from './HomeButton.module.scss';

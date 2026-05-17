@@ -1,5 +1,9 @@
 # No Comply
 
+## OverflowItems
+
+not rendering trigger and content
+
 ## Headless to Composable
 
 ## remove flex defaults
@@ -91,6 +95,7 @@ aspect-ratio
 
 ## Popover
 
+- fix: not displaying when there is no space to the right
 - fix: events not triggered
 - docs: demo `[data-popover-focus-target]`
 

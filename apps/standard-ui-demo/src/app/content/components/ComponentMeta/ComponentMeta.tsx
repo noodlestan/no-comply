@@ -1,10 +1,10 @@
+import type { ComponentEntityData } from '@no-comply/meta-entities';
 import { type Component } from 'solid-js';
 
-import type { ComponentMetadata } from '../../../../data';
 import { ImportStatement } from '../ImportStatement';
 
 type Props = {
-	component: ComponentMetadata;
+	component: ComponentEntityData;
 };
 
 export const ComponentMeta: Component<Props> = props => {

@@ -44,15 +44,6 @@
       padding-inline-end: $value;
     }
 
-    @include variant-class('uncontained', $bp) {
-      margin-inline-start: calc(-1 * var(--__container-inline-start));
-      margin-inline-end: calc(-1 * var(--__container-inline-end));
-    }
-
-    @include variant-class('contained', $bp) {
-      margin-inline: 0;
-    }
-
     @include variant-class('stretch-full', $bp) {
       width: 100%;
       height: 100%;
@@ -79,6 +70,17 @@
       height: auto;
       min-width: auto;
       min-height: auto;
+    }
+
+    @include variant-class('uncontained', $bp) {
+      width: calc(100% + var(--__container-inline-start) + var(--__container-inline-end));
+      margin-inline-start: calc(-1 * var(--__container-inline-start));
+      margin-inline-end: calc(-1 * var(--__container-inline-end));
+    }
+
+    @include variant-class('contained', $bp) {
+      width: 100%;
+      margin-inline: 0;
     }
 
     @include variant-class('overflow-x-auto', $bp) {

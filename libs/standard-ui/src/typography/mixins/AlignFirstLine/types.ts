@@ -1,7 +1,7 @@
 import type { AlignFirstLineMixinAPI as HeadlessAlignFirstLineMixinAPI } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { SizeScale } from '../../../types';
+import type { SizeScale } from '../../../size';
 
 export type AlignFirstLineMixinProps = {
 	height: SizeScale;

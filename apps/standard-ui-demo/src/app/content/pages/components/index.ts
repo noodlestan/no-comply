@@ -1,4 +1,6 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `import ${f.path.replace(/\/index$/, '').replace(/\.\//, '')}Page from '${f.path.replace(/\/index$/, '')}';`)
+import type { ComponentEntityData } from '@no-comply/meta-entities';
+
 import type { ComponentName } from '../../../../data';
 import type { DocsComponentPageData } from '../../types';
 
@@ -30,7 +32,9 @@ import TextPage from './Text';
 import TextInputPage from './TextInput';
 // @endindex
 
-export const components: Partial<Record<ComponentName, DocsComponentPageData>> = {
+export const components: Partial<
+	Record<ComponentName, (c: ComponentEntityData) => DocsComponentPageData>
+> = {
 	// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `${f.path.replace(/\/index$/, '').replace(/\.\//, '')}: ${f.path.replace(/\/index$/, '').replace(/\.\//, '')}Page,`)
 	AnchoredPopover: AnchoredPopoverPage,
 	Button: ButtonPage,

@@ -5,7 +5,7 @@ import type {
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 
 export type SizedActionMixinProps = AlignedToFirstLineMixinProps & {
 	size?: ContentSize;

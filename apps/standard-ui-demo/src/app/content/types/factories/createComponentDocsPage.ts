@@ -1,9 +1,10 @@
-import type { ComponentMetadata } from '../../../../data';
+import type { ComponentEntityData } from '@no-comply/meta-entities';
+
 import type { DocsComponentPageData, DocsPageData } from '../types';
 
 export const createDocsComponentPageData = (
-	component: ComponentMetadata,
-	data: Omit<DocsPageData, 'type' | 'content' | 'title'>,
+	component: ComponentEntityData,
+	data: Omit<DocsPageData, 'type' | 'title'>,
 ): DocsComponentPageData => {
 	return {
 		...data,

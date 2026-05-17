@@ -9,6 +9,7 @@ import { EmptyPage } from '../EmptyPage';
 export type BasePageProps = {
 	title: JSX.Element;
 	classList?: ClassList;
+	overtitle?: JSX.Element;
 	undertitle?: JSX.Element;
 };
 
@@ -16,7 +17,8 @@ export const BasePage: ParentComponent<BasePageProps> = props => {
 	return (
 		<EmptyPage aria-labelledby={$ID_SCREEN_TITLE}>
 			<PageContentsLayout classList={props.classList} gap="2xl">
-				<Flex gap="s">
+				<Flex gap="m">
+					{props.overtitle}
 					<Display id={$ID_SCREEN_TITLE} level={2}>
 						{props.title}
 					</Display>

@@ -1,6 +1,6 @@
-import type { CodeDataNode, CodeLayoutLanguage } from '../../types';
+import type { CodeLayoutLanguage } from '../../types';
 
-export type CodeNodeLinker = (node: CodeDataNode) => string | undefined;
+export type CodeNodeLinker = (value: string) => string | undefined;
 
 export type CodeLayoutContextOptions = {
 	langs?: CodeLayoutLanguage[];

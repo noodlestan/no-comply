@@ -1,6 +1,6 @@
 import { definePropKeys } from '@no-comply/solid-primitives';
 
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 
 import type { IconButtonMixinProps } from './types';
 

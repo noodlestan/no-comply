@@ -4,7 +4,7 @@ import { type ClassList, type PickRequired, createClassList } from '@no-comply/s
 import { type JSX, type ParentComponent, Show } from 'solid-js';
 
 import { Icon } from '../../../icon';
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 import { Label } from '../../../typography';
 import { DataValue, type DataValueLength } from '../DataValue';
 

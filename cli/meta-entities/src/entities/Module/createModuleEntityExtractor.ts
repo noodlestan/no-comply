@@ -1,16 +1,12 @@
-import {
-	createProgramFilesContext,
-	extractFunctionsFromFile,
-	extractTypesFromFile,
-} from '@purrception/extract-ts';
+import { createProgram, createProgramFilesContext } from '@purrception/extract-ts';
 import {
 	type DirectoryEntityExtractor,
 	type DirectoryEntityProcessor,
+	type EntityExtractorOptions,
 	createEntityExtractContext,
 } from '@purrception/source-fs';
 
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
-import type { EntityExtractorOptions } from '../../heuristics/types';
 
 import { MATCHER as matcher, RESOLVER as resolver } from './private';
 import type { ModuleEntityData, ModuleEntityFiles, ModuleEntityPartial } from './types';
@@ -28,15 +24,13 @@ export function createModuleEntityExtractor(
 		}
 
 		const processor: DirectoryEntityProcessor<ModuleEntityData> = async () => {
-			const { helpers, types: typesFile } = files;
-
 			const entityContext = createEntityExtractContext(ctx, partial);
 			const programContext = createProgramFilesContext(ctx.dirMeta.path, ctx.readFile);
+			const program = await createProgram(programContext, files);
 
-			const types = typesFile ? await extractTypesFromFile(programContext, typesFile) : [];
-			const nestedHelpers = await Promise.all(
-				helpers.map(file => extractFunctionsFromFile(programContext, file)),
-			);
+			const helpers = program.extractFunctions(files.helpers);
+			const types = program.extractTypes(files.types);
+			const dependencies = program.extractImports();
 
 			return [
 				{
@@ -44,7 +38,8 @@ export function createModuleEntityExtractor(
 					entity: {
 						...partial,
 						types,
-						helpers: nestedHelpers.flat(),
+						helpers,
+						dependencies,
 					},
 				},
 			];

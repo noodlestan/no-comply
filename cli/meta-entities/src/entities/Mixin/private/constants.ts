@@ -1,6 +1,7 @@
 import path from 'path';
 
-import type { EntityFileResolver, EntityMetaMatcher } from '../../../heuristics';
+import type { EntityFileResolver, EntityMetaMatcher } from '@purrception/source-fs';
+
 import { findFactoryFile, findTypesFile } from '../../../utils';
 import type { MixinEntityFiles, MixinEntityPartial } from '../types';
 
@@ -15,9 +16,10 @@ export const MATCHER: EntityMetaMatcher<MixinEntityPartial> = async ctx => {
 
 	return {
 		type: 'mixin',
-		...ctx.fsContext.meta,
 		name,
 		module,
+		// eslint-disable-next-line dot-notation
+		package: ctx.fsContext.meta['package'] as string,
 	};
 };
 

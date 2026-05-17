@@ -5,7 +5,7 @@ import type { Accessor } from 'solid-js';
 
 import type { CloseButtonProps } from '../../../action';
 import type { FlexGap, LayoutPaddingShorthand } from '../../../layout';
-import type { ContentSize, SizeScale } from '../../../types';
+import type { ContentSize, SizeScale } from '../../../size';
 import type { DisplayVariant, TextVariant } from '../../../typography';
 
 export type ContentMessageTemplateSize = 'small' | 'normal' | 'medium';

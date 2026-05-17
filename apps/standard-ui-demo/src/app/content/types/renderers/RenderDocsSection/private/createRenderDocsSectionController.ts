@@ -14,6 +14,7 @@ type RenderDocsSectionAPI = {
 	currentIndex: Accessor<string>;
 	setCurrentIndex: Setter<string>;
 	visisibleItems: Accessor<DocsItemData[]>;
+	hasCode: Accessor<boolean>;
 	sections: Accessor<DocsSectionData[]>;
 };
 
@@ -29,7 +30,6 @@ export const createRenderDocsSection = (props: RenderDocsSectionProps): RenderDo
 			(item, index) => !props.section.collapse || itemsExpanded() || current === String(index),
 		);
 	};
-	const sections = () => props.section.items.filter(item => item.type === 'section');
 
 	const _section = () => ({
 		...props.section.props,
@@ -45,15 +45,20 @@ export const createRenderDocsSection = (props: RenderDocsSectionProps): RenderDo
 		onValueChange: setCurrentIndex,
 	});
 
+	const hasCode = () => Boolean(props.section.codeBlock);
+
+	const sections = () => props.section.items.filter(item => item.type === 'section');
+
 	return {
 		_section,
 		_actionBar,
+		isActionBarVisisble: () => Boolean(props.section.collapse),
 		itemsExpanded,
 		setItemsExpanded,
 		currentIndex,
 		setCurrentIndex,
 		visisibleItems,
+		hasCode,
 		sections,
-		isActionBarVisisble: () => Boolean(props.section.collapse),
 	};
 };

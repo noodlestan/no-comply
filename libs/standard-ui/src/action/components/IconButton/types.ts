@@ -1,7 +1,7 @@
 import type { IconActionAPI, IconActionProps } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 import type { IconButtonMixinAPI, IconButtonMixinProps } from '../../mixins';
 import type { ButtonAPI, ButtonProps } from '../Button';
 

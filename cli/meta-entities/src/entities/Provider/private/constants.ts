@@ -1,6 +1,7 @@
 import path from 'path';
 
-import type { EntityFileResolver, EntityMetaMatcher } from '../../../heuristics';
+import type { EntityFileResolver, EntityMetaMatcher } from '@purrception/source-fs';
+
 import { findFactoryFile, findHookFiles, findTypesFile } from '../../../utils';
 import type { ProviderEntityFiles, ProviderEntityPartial } from '../types';
 
@@ -13,9 +14,10 @@ export const MATCHER: EntityMetaMatcher<ProviderEntityPartial> = async ctx => {
 	const name = path.basename(ctx.dirMeta.path);
 	return {
 		type: 'provider',
-		...ctx.fsContext.meta,
 		name,
 		module,
+		// eslint-disable-next-line dot-notation
+		package: ctx.fsContext.meta['package'] as string,
 	};
 };
 

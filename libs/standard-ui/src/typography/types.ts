@@ -1,4 +1,4 @@
-import type { ContentSize } from '../types';
+import type { ContentSize } from '../size';
 
 export type ActionLabelVariant = ContentSize;
 

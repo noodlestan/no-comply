@@ -1,16 +1,16 @@
 import { esbuildPluginFilePathExtensions } from 'esbuild-plugin-file-path-extensions';
+
+import { commonConfig } from './common.mjs';
 import { copyStaticFilesPlugin } from '../plugins/copyStaticFiles.mjs';
 
 export const esmConfig = {
+  ...commonConfig,
   entryPoints: ['src/**/*.ts'],
   format: 'esm',
-  outdir: 'dist/esm',
-  outExtension: { '.js': '.mjs' },
-  bundle: true,
-  sourcemap: true,
   platform: 'node',
   target: 'esnext',
-  logLevel: 'info',
+  outdir: 'dist/esm',
+  outExtension: { '.js': '.mjs' },
   plugins: [esbuildPluginFilePathExtensions(), copyStaticFilesPlugin('dist/esm')],
   // write: false,
 };

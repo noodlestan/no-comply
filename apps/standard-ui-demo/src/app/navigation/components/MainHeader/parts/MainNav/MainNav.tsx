@@ -9,7 +9,7 @@ import { Flex, NavLink } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { SCREEN_MAIN_TARGET } from '../../../../../templates';
-import { routeFor } from '../../../../navigateTo';
+import { routeFor } from '../../../../routeFor';
 
 import styles from './MainNav.module.scss';
 
@@ -20,7 +20,8 @@ export const MainNav: Component = () => {
 	const items = [
 		{ id: '1', href: routeFor.showcase(), label: 'Showcase' },
 		{ id: '2', href: routeFor.feature('components'), label: 'Features' },
-		{ id: '3', href: routeFor.calibration(), label: 'Calibration' },
+		{ id: '3', href: routeFor.resources(), label: 'Resources' },
+		{ id: '4', href: routeFor.api(), label: 'Api' },
 	];
 
 	const selectedItemId = () => items.find(item => isCurrent(item.href))?.id;

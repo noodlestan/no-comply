@@ -21,7 +21,8 @@ import { type JSX, type ParentComponent, Show, splitProps } from 'solid-js';
 import styles from './DocsItem.module.scss';
 
 export type DocsItemProps = ClosedTagProps & {
-	title?: string;
+	title?: JSX.Element;
+	label?: string;
 	level?: DisplayLevel;
 	defaultValue?: boolean;
 	note?: string;
@@ -41,6 +42,7 @@ export type DocsItemProps = ClosedTagProps & {
 export const DocsItem: ParentComponent<DocsItemProps> = props => {
 	const [locals, $others] = splitProps(props, [
 		'title',
+		'label',
 		'defaultValue',
 		'note',
 		'row',
@@ -57,7 +59,7 @@ export const DocsItem: ParentComponent<DocsItemProps> = props => {
 		'children',
 	]);
 
-	const labelId = () => (locals.title ? shortId() : undefined);
+	const labelId = () => (locals.label ? locals.label : shortId());
 
 	const contentsStyle = () => ({
 		...locals.styles,

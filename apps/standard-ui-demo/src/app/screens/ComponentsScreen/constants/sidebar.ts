@@ -1,6 +1,6 @@
 import { COMPONENTS } from '../../../../data';
 import type { SidebarItemGroup } from '../../../navigation/components';
-import { routeFor } from '../../../navigation/navigateTo';
+import { routeFor } from '../../../navigation/routeFor';
 
 const group = (name: string) => ({
 	title: name,

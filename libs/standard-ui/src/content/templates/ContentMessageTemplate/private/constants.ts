@@ -1,5 +1,5 @@
 import type { FlexGap, LayoutPaddingShorthand } from '../../../../layout';
-import type { SizeScale } from '../../../../types';
+import type { SizeScale } from '../../../../size';
 import type { DisplayVariant } from '../../../../typography';
 import type { ContentMessageTemplateSize } from '../types';
 

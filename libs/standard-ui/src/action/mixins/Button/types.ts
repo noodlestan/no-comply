@@ -1,7 +1,7 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
-import type { ContentSize } from '../../../types';
+import type { ContentSize } from '../../../size';
 import type { ActionLabelMixinAPI } from '../../../typography';
 import type { ActionMixinAPI, ActionMixinProps } from '../Action';
 import type { SizedActionMixinAPI, SizedActionMixinProps } from '../SizedAction';

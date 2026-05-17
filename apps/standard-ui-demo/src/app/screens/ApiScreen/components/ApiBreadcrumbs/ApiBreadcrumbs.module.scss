@@ -1,0 +1,10 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .ApiBreadcrumbs {
+    border-bottom-style: solid;
+    border-bottom-width: var(--border-width-thin);
+    @include set-color(__border, primary, border-0, opaque);
+    @include apply-color(border-color, __border);
+  }
+}

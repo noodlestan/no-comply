@@ -17,7 +17,9 @@ It is deeply type-aware, and highly customizable.
 
 ## 💠 `@purrception/primitives`
 
-Defines shared, minimal types for all extractors.
+Defines shared, minimal types for extractors.
+
+### Models
 
 No logic or assumptions — purely structural.
 
@@ -35,6 +37,10 @@ Knows how to walk the filesystem — not what to extract.
 
 - `DirectoryEntityExtractor<T>`
 - `DirectoryEntityProcessor<T>`
+- `EntityExtractorFiles`
+- `EntityMetaMatcher<P extends EntityDataBase>`
+- `EntityFileResolver<F extends EntityExtractorFiles, P extends EntityDataBase>`
+- `EntityExtractorOptions<P extends EntityDataBase, F extends EntityExtractorFiles>`
 
 ### Implements
 
@@ -75,13 +81,6 @@ Generates lightweight and portable trees.
 ## 🧩 `@no-comply/meta-entities`
 
 Userland package for defining SolidJS-aware entity models and extractors based on project conventions.
-
-### Contracts
-
-- `EntityExtractorFiles`
-- `EntityMetaMatcher<P extends EntityDataBase>`
-- `EntityFileResolver<F extends EntityExtractorFiles, P extends EntityDataBase>`
-- `EntityExtractorOptions<P extends EntityDataBase, F extends EntityExtractorFiles>`
 
 ### Entities
 

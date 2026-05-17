@@ -3,10 +3,10 @@ import { commonConfig } from './common.mjs';
 export const cjsConfig = {
   ...commonConfig,
   tsconfig: 'tsconfig.cjs.json',
-  bundle: true,
+  entryPoints: ['src/index.ts'],
   format: 'cjs',
-  sourcemap: true,
   platform: 'node',
+  target: 'node24',
   outdir: 'dist/cjs',
   plugins: [],
 };

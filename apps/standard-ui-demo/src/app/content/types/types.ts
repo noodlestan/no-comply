@@ -1,6 +1,6 @@
+import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
 import type { JSX } from 'solid-js';
-
-import type { ComponentMetadata } from '../../../data';
 
 import type { DocsItemProps, DocsResponsiveItemProps, DocsSectionProps } from './components';
 
@@ -11,13 +11,14 @@ export type DocsPageData = {
 };
 
 export type DocsComponentPageData = DocsPageData & {
-	component: ComponentMetadata;
+	component: ComponentEntityData;
 };
 
 export type DocsSectionData = {
 	type: 'section';
 	collapse?: boolean;
 	title: string;
+	codeBlock?: TypeAliasData | TypeDeclarationData;
 	props?: DocsSectionProps;
 	items: (DocsSectionData | DocsItemData)[];
 };

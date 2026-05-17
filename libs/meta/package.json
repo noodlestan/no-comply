@@ -30,12 +30,7 @@
     "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {
-    "@no-comply/meta-entities": "0.0.11",
-    "@no-comply/solid-accessibility": "0.0.11",
-    "@no-comply/solid-composables": "0.0.11",
-    "@no-comply/solid-contexts": "0.0.11",
-    "@no-comply/solid-primitives": "0.0.11",
-    "@no-comply/standard-ui": "0.0.11"
+    "@no-comply/meta-entities": "0.0.11"
   },
   "peerDependencies": {
     "solid-js": "^1.9.5"

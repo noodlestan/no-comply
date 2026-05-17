@@ -1,16 +1,12 @@
-import {
-	createProgramFilesContext,
-	extractFunctionsFromFile,
-	extractTypesFromFile,
-} from '@purrception/extract-ts';
+import { createProgram, createProgramFilesContext } from '@purrception/extract-ts';
 import {
 	type DirectoryEntityExtractor,
 	type DirectoryEntityProcessor,
+	type EntityExtractorOptions,
 	createEntityExtractContext,
 } from '@purrception/source-fs';
 
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
-import type { EntityExtractorOptions } from '../../heuristics/types';
 
 import { MATCHER as matcher, RESOLVER as resolver } from './private';
 import type { ControllerEntityData, ControllerEntityFiles, ControllerEntityPartial } from './types';
@@ -27,13 +23,13 @@ export function createControllerEntityExtractor(
 		}
 
 		const processor: DirectoryEntityProcessor<ControllerEntityData> = async () => {
-			const { implementation, types: typesFile } = files;
-
 			const entityContext = createEntityExtractContext(ctx, partial);
 			const programContext = createProgramFilesContext(ctx.dirMeta.path, ctx.readFile);
+			const program = await createProgram(programContext, files);
 
-			const types = await extractTypesFromFile(programContext, typesFile);
-			const functions = await extractFunctionsFromFile(programContext, implementation);
+			const functions = program.extractFunctions(files.implementation);
+			const types = program.extractTypes();
+			const dependencies = program.extractImports();
 
 			return [
 				{
@@ -42,6 +38,7 @@ export function createControllerEntityExtractor(
 						...partial,
 						factories: functions,
 						types,
+						dependencies,
 					},
 				},
 			];
