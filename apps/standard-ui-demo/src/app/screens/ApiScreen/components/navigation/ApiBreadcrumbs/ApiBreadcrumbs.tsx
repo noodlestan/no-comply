@@ -2,7 +2,7 @@ import { staticClassList } from '@no-comply/solid-primitives';
 import { Flex, Link, Text } from '@no-comply/standard-ui';
 import { type Component, Show } from 'solid-js';
 
-import { routeFor } from '../../../../navigation';
+import { routeFor } from '../../../../../navigation';
 
 import styles from './ApiBreadcrumbs.module.scss';
 

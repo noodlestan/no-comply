@@ -1,13 +1,13 @@
 /* eslint-disable dot-notation */
+import type { ComponentEntityData } from '@no-comply/meta-entities';
 import { Link, Text } from '@no-comply/standard-ui';
 import { useParams } from '@solidjs/router';
-import { type Component, Show } from 'solid-js';
+import { type Component, Match, Show, Switch } from 'solid-js';
 
 import { useMeta } from '../../../../../providers';
-import { DocsSection } from '../../../../content';
 import { routeFor } from '../../../../navigation';
 import { BasePage, NotFoundPage } from '../../../../templates';
-import { ApiBreadcrumbs } from '../../components';
+import { APIEntityComponent, ApiBreadcrumbs } from '../../components';
 
 export const ApiEntityPage: Component = () => {
 	const params = useParams();
@@ -36,7 +36,17 @@ export const ApiEntityPage: Component = () => {
 					overtitle={<ApiBreadcrumbs pkg={pkg()} mod={mod()} type={type()} ent={name()} />}
 					data-api-entity-page
 				>
-					<DocsSection title="Factory">x</DocsSection>
+					<Switch fallback={<>TYPE: {type()}</>}>
+						<Match when={type() === 'component'}>
+							<APIEntityComponent ent={data() as ComponentEntityData} />
+						</Match>
+						<Match when={type() === 'mixin'}>
+							<p>Mixin</p>
+						</Match>
+						<Match when={type() === 'controller'}>
+							<p>Controller</p>
+						</Match>
+					</Switch>
 				</BasePage>
 			</Show>
 		</>

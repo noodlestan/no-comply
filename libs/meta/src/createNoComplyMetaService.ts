@@ -12,13 +12,14 @@ export function createNoComplyMetaService(entities: NoComplyEntityData[]): NoCom
 
 	const getEntityMaybe = <T extends NoComplyEntityData>(
 		pkg: string,
+		type: string,
 		name: string,
 	): T | undefined => {
-		return index[pkg]?.[name] as T | undefined;
+		return index[pkg]?.[type]?.[name] as T | undefined;
 	};
 
 	const getEntity = <T extends NoComplyEntityData>(pkg: string, type: string, name: string): T => {
-		const entity = getEntityMaybe(pkg, name);
+		const entity = getEntityMaybe(pkg, type, name);
 		if (!entity) {
 			throw new Error(`Unknown entity ${pkg}/${name} of type ${type}.`);
 		}
