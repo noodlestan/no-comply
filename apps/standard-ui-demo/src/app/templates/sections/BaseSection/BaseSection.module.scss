@@ -1,0 +1,17 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+@use '@no-comply/solid-composables/src/scss/mixins/focus.scss' as *;
+
+@layer app {
+  .BaseSection {
+    @include focus-ring;
+    transition-property: background-color;
+    transition-duration: var(--animation-duration-trailing);
+
+    &[data-is-active] {
+      transition-duration: var(--animation-duration-short);
+
+      @include set-color(__bg, surface, content-bg-1, opaque);
+      @include apply-color(background-color, __bg);
+    }
+  }
+}
