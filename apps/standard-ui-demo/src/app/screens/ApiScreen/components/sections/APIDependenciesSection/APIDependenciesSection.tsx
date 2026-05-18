@@ -24,7 +24,7 @@ type Props = {
 };
 
 export const APIDependenciesSection: Component<Props> = props => {
-	const show = () => Object.keys(props.ent.symbols.imported).length > 0;
+	const show = () => false && Object.keys(props.ent.symbols.imported).length > 0;
 
 	return (
 		<Show when={show()}>
