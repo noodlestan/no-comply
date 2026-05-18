@@ -1,6 +1,9 @@
-import type { EntityDataBase } from '@purrception/primitives';
+import type { EntityDataBase, EntityDataBasePartial } from '@purrception/primitives';
 
-export type NoComplyEntityData = EntityDataBase & {
+export type NoComplyEntityPartial = EntityDataBasePartial & {
 	module: string | undefined;
 	package: string;
+	path: string;
 };
+
+export type NoComplyEntityData = EntityDataBase & NoComplyEntityPartial;

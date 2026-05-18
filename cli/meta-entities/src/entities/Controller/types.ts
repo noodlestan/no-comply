@@ -1,19 +1,18 @@
-import type { ImportedSymbol } from '@purrception/extract-ts';
-import type { FunctionData, TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
+import type { DeclarationTypeNode, FunctionDeclarationNode } from '@purrception/types-ts';
 
-import type { NoComplyEntityData } from '../types';
+import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ControllerEntityFiles = {
 	implementation: string;
 	types: string;
 };
 
-export type ControllerEntityPartial = NoComplyEntityData & {
+export type ControllerEntityPartial = NoComplyEntityPartial & {
 	type: 'controller';
 };
 
-export type ControllerEntityData = ControllerEntityPartial & {
-	factories: FunctionData[];
-	types: (TypeDeclarationData | TypeAliasData)[];
-	dependencies: Record<string, ImportedSymbol>;
-};
+export type ControllerEntityData = ControllerEntityPartial &
+	NoComplyEntityData & {
+		factories: FunctionDeclarationNode[];
+		types: Record<string, DeclarationTypeNode>;
+	};

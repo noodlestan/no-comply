@@ -9,7 +9,7 @@ export * from './extractFunctionParams';
 export * from './extractFunctionReturns';
 export * from './extractFunctionTypeNode';
 export * from './extractInferTypeNode';
-export * from './extractInterfaceNode';
+export * from './extractInterfaceDeclaration';
 export * from './extractIntersectionTypeNode';
 export * from './extractLiteralTypeNode';
 export * from './extractMappedTypeNode';

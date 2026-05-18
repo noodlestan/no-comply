@@ -1,5 +1,9 @@
 import { Flex, IconButton, type IconButtonProps } from '@no-comply/standard-ui';
-import { BikeIcon, CarIcon, CatIcon, DogIcon, HomeIcon } from 'lucide-solid';
+import BikeIcon from 'lucide-solid/icons/bike';
+import CarIcon from 'lucide-solid/icons/car';
+import CatIcon from 'lucide-solid/icons/cat';
+import DogIcon from 'lucide-solid/icons/dog';
+import HomeIcon from 'lucide-solid/icons/home';
 import { Show } from 'solid-js';
 import type { JSX, ParentComponent } from 'solid-js';
 

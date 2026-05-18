@@ -58,9 +58,9 @@ Generates lightweight and portable trees.
 ### Contracts
 
 - `TypeExpressionNode`
-- `FunctionData`
-- `ComponentData`
-- `TypeDeclarationData`
+- `FunctionDeclarationNode`
+- `ComponentDeclarationNode`
+- `TypeDeclarationNode`
 
 ### Extractors
 

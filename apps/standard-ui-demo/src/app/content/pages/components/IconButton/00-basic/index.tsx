@@ -1,5 +1,5 @@
 import { IconButton } from '@no-comply/standard-ui';
-import { PlusIcon } from 'lucide-solid';
+import PlusIcon from 'lucide-solid/icons/plus';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';

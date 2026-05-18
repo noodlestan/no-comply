@@ -1,10 +1,10 @@
-import type { EntityDataBase, EntityExtractContext } from '@purrception/primitives';
+import type { EntityDataBasePartial, EntityExtractContext } from '@purrception/primitives';
 
 import type { DirectoryExtractContext } from './types';
 
 export function createEntityExtractContext(
 	context: DirectoryExtractContext,
-	entity: EntityDataBase,
+	partial: EntityDataBasePartial,
 ): EntityExtractContext<DirectoryExtractContext> {
-	return { context, entity };
+	return { context, partial };
 }

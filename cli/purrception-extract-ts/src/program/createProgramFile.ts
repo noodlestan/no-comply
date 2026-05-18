@@ -3,12 +3,12 @@ import path from 'path';
 import ts from 'typescript';
 
 import { getExportMap, getImportMap, getProgramFunctions, getProgramTypes } from './helpers';
-import type { ProgramContext, ProgramFilesContext } from './types';
+import type { ProgramFileAPI, ProgramFilesContext } from './types';
 
 export async function createProgramFile(
 	ctx: ProgramFilesContext,
 	filename: string,
-): Promise<ProgramContext> {
+): Promise<ProgramFileAPI> {
 	const fullPath = path.resolve(ctx.path, filename);
 	const sourceText = await ctx.readFile(filename);
 
@@ -30,6 +30,9 @@ export async function createProgramFile(
 	}
 
 	return {
+		path: ctx.path,
+		filename,
+		filepath: path.join(ctx.path, filename),
 		sourceFile,
 		checker,
 		types: () => getProgramTypes(sourceFile),

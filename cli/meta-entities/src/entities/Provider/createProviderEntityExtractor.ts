@@ -8,16 +8,16 @@ import {
 
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
-import { MATCHER as matcher, RESOLVER as resolver } from './private';
+import { entityMatcher, fileResolver } from './private';
 import type { ProviderEntityData, ProviderEntityFiles, ProviderEntityPartial } from './types';
 
 export function createProviderEntityExtractor(
 	options: EntityExtractorOptions<ProviderEntityPartial, ProviderEntityFiles> = {},
 ): DirectoryEntityExtractor<ProviderEntityData> {
 	return async ctx => {
-		const partial = await resolveEntityPartial(ctx, options?.matcher ?? matcher);
+		const partial = await resolveEntityPartial(ctx, options?.matcher ?? entityMatcher);
 		const files =
-			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? resolver));
+			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? fileResolver));
 
 		if (!partial || !files) {
 			return;
@@ -29,9 +29,10 @@ export function createProviderEntityExtractor(
 			const program = await createProgram(programContext, files);
 
 			const components = program.extractComponents(files.implementation);
-			const types = program.extractTypes(files.implementation);
 			const hooks = program.extractFunctions(files.hooks);
-			const dependencies = program.extractImports();
+			const types = program.extractTypes(files.implementation);
+			const imported = program.extractExternalImports();
+			const exported = program.formatExports(components, hooks, Object.values(types));
 
 			return [
 				{
@@ -41,7 +42,10 @@ export function createProviderEntityExtractor(
 						components,
 						hooks,
 						types,
-						dependencies,
+						symbols: {
+							imported,
+							exported,
+						},
 					},
 				},
 			];

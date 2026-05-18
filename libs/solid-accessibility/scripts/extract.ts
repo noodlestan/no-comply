@@ -25,6 +25,7 @@ const controllerExtractor = createControllerEntityExtractor({
 				module: 'controllers',
 				// eslint-disable-next-line dot-notation
 				package: ctx.fsContext.meta['package'] as string,
+				path: ctx.dirMeta.path,
 			};
 		}
 	},

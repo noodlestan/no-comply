@@ -7,7 +7,7 @@ import {
 	Icon,
 	type SizeScale,
 } from '@no-comply/standard-ui';
-import { HomeIcon } from 'lucide-solid';
+import HomeIcon from 'lucide-solid/icons/home';
 import { type Component, type JSX, splitProps } from 'solid-js';
 
 import styles from './ExampleLayoutChild.module.scss';

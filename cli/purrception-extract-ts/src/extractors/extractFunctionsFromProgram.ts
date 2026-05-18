@@ -1,10 +1,10 @@
-import type { FunctionData } from '@purrception/types-ts';
+import type { FunctionDeclarationNode } from '@purrception/types-ts';
 
 import { hasJsDocIgnore } from '../jsdoc';
-import { type ProgramContext } from '../program';
+import { type ProgramFileAPI } from '../program';
 import { extractFunctionFromProgramNode } from '../program-node';
 
-export function extractFunctionsFromProgram(program: ProgramContext): FunctionData[] {
+export function extractFunctionsFromProgram(program: ProgramFileAPI): FunctionDeclarationNode[] {
 	const exportMap = program.exportsMap();
 	const functions = program
 		.functions()

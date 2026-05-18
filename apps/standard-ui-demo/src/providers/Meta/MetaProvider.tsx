@@ -1,5 +1,6 @@
 // Static imports for build-time JSON inclusion
 import { createNoComplyMetaService } from '@no-comply/meta';
+import type { NoComplyEntityData } from '@no-comply/meta-entities';
 import metaSolidAccessibility from '@no-comply/solid-accessibility/dist/meta.json';
 import metaSolidComposables from '@no-comply/solid-composables/dist/meta.json';
 import metaSolidContexts from '@no-comply/solid-contexts/dist/meta.json';
@@ -17,7 +18,7 @@ const extracted = [
 ];
 
 export const MetaProvider: ParentComponent = props => {
-	const meta = createNoComplyMetaService(extracted);
+	const meta = createNoComplyMetaService(extracted as unknown as NoComplyEntityData[]);
 
 	return <MetaContext.Provider value={meta}>{props.children}</MetaContext.Provider>;
 };

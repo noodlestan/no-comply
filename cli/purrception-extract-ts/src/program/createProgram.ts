@@ -1,9 +1,5 @@
-import type {
-	ComponentData,
-	FunctionData,
-	TypeAliasData,
-	TypeDeclarationData,
-} from '@purrception/types-ts';
+import type { ExportedSymbol, ImportedSymbol } from '@purrception/primitives';
+import type { DeclarationNode, DeclarationTypeNode } from '@purrception/types-ts';
 
 import {
 	extractComponentsFromProgram,
@@ -13,19 +9,13 @@ import {
 } from '../extractors';
 
 import { createProgramFile } from './createProgramFile';
-import type { ImportedSymbol, ProgramContext, ProgramFilesContext } from './types';
+import type { ProgramAPI, ProgramFileAPI, ProgramFilesContext } from './types';
 
 export async function createProgram(
 	ctx: ProgramFilesContext,
 	files: Record<string, string | string[]>,
-): Promise<{
-	files: Record<string, ProgramContext>;
-	extractComponents: (files?: string | string[]) => ComponentData[];
-	extractFunctions: (files?: string | string[]) => FunctionData[];
-	extractTypes: (files?: string | string[]) => (TypeDeclarationData | TypeAliasData)[];
-	extractImports: (files?: string | string[]) => Record<string, ImportedSymbol>;
-}> {
-	const programs: Record<string, ProgramContext> = {};
+): Promise<ProgramAPI> {
+	const programs: Record<string, ProgramFileAPI> = {};
 
 	for (const key in files) {
 		const file = files[key];
@@ -64,19 +54,25 @@ export async function createProgram(
 	const extractTypes = (files?: string | string[]) => {
 		const programs = getPrograms(files);
 		const nested = programs.map(p => extractTypesFromProgram(p));
-		return nested.flat();
+		const flat = nested.flat();
+
+		const types: Record<string, DeclarationTypeNode> = {};
+		for (const t of flat) {
+			types[t.name] = t;
+		}
+		return types;
 	};
 
-	const extractImports = (files?: string | string[]) => {
+	const extractImportMap = (files?: string | string[]) => {
 		const programs = getPrograms(files);
 		const maps = programs.map(p => extractImportsFromProgram(p));
 
-		const mergedMap = new Map();
+		const mergedMap = new Map<string, ImportedSymbol>();
 		for (const map of maps) {
 			for (const [key, value] of map.entries()) {
 				const existing = mergedMap.get(key);
 				if (existing) {
-					if (existing.source === value.source && existing.name === value.name) {
+					if (existing.from === value.from && existing.name === value.name) {
 						continue;
 					}
 					console.error('Existing entry:', existing);
@@ -87,8 +83,38 @@ export async function createProgram(
 			}
 		}
 
-		return Object.fromEntries(mergedMap);
+		return mergedMap;
 	};
 
-	return { files: programs, extractComponents, extractFunctions, extractTypes, extractImports };
+	const extractImports = (files?: string | string[]) => {
+		const map = extractImportMap(files);
+		return Object.fromEntries(map);
+	};
+
+	const isLocalImport = (dep: ImportedSymbol) => {
+		return dep.from.includes(ctx.path);
+	};
+
+	const extractExternalImports = (files?: string | string[]) => {
+		const map = extractImportMap(files);
+		const entries = Array.from(map.entries()).filter(([, value]) => !isLocalImport(value));
+		return Object.fromEntries(entries);
+	};
+
+	const formatExports = (...args: DeclarationNode[][]) => {
+		const entries = args
+			.map(arg => arg.map(({ at, name }) => [name, { at, name } as ExportedSymbol]))
+			.flat();
+		return Object.fromEntries(entries);
+	};
+
+	return {
+		files: programs,
+		extractComponents,
+		extractFunctions,
+		extractTypes,
+		extractImports,
+		extractExternalImports,
+		formatExports,
+	};
 }

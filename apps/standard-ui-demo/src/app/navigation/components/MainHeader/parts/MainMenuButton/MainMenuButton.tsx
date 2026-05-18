@@ -2,7 +2,8 @@ import type { ExpandActionIcons, ExpandActionLabels } from '@no-comply/solid-com
 import { createIconValue } from '@no-comply/solid-contexts';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { ExpandButton } from '@no-comply/standard-ui';
-import { MenuIcon, XIcon } from 'lucide-solid';
+import MenuIcon from 'lucide-solid/icons/menu';
+import XIcon from 'lucide-solid/icons/x';
 import { type Component } from 'solid-js';
 
 import { $ID_SIDEBAR_NAV } from '../../../private';

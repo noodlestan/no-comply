@@ -1,6 +1,7 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
 export * from './expArray';
 export * from './expConditional';
+export * from './expFunction';
 export * from './expInfer';
 export * from './expIntersection';
 export * from './expLiteral';

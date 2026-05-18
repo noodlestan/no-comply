@@ -1,8 +1,8 @@
-import type { ComponentData } from '@purrception/types-ts';
+import type { ComponentDeclarationNode } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
-import type { ProgramContext } from '../program';
+import type { ProgramFileAPI } from '../program';
 
 import {
 	extractArrowFunctionType,
@@ -15,11 +15,12 @@ import {
 	isParentComponentType,
 	normalizeTypeRefObject,
 } from './helpers';
+
 export function extractComponentFromProgramNode(
-	ctx: ProgramContext,
+	programFile: ProgramFileAPI,
 	node: ts.FunctionDeclaration | ts.ArrowFunction,
-): ComponentData | undefined {
-	const exportMap = ctx.exportsMap();
+): ComponentDeclarationNode | undefined {
+	const exportMap = programFile.exportsMap();
 
 	const name = extractExportedName(node, exportMap);
 	if (name === 'anonymous') {
@@ -46,8 +47,9 @@ export function extractComponentFromProgramNode(
 	const props = extractComponentProps(node, type || undefined);
 
 	return {
-		kind: 'component',
+		at: programFile.filepath,
 		name,
+		kind: 'component',
 		generic,
 		props,
 		description,

@@ -1,5 +1,12 @@
 /* eslint-disable dot-notation */
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type {
+	ComponentEntityData,
+	ContextEntityData,
+	ControllerEntityData,
+	MixinEntityData,
+	ProviderEntityData,
+	ServiceEntityData,
+} from '@no-comply/meta-entities';
 import { Link, Text } from '@no-comply/standard-ui';
 import { useParams } from '@solidjs/router';
 import { type Component, Match, Show, Switch } from 'solid-js';
@@ -7,7 +14,15 @@ import { type Component, Match, Show, Switch } from 'solid-js';
 import { useMeta } from '../../../../../providers';
 import { routeFor } from '../../../../navigation';
 import { BasePage, NotFoundPage } from '../../../../templates';
-import { APIEntityComponent, ApiBreadcrumbs } from '../../components';
+import {
+	APIEntityComponent,
+	APIEntityContext,
+	APIEntityController,
+	APIEntityMixin,
+	APIEntityProvider,
+	APIEntityService,
+	ApiBreadcrumbs,
+} from '../../components';
 
 export const ApiEntityPage: Component = () => {
 	const params = useParams();
@@ -40,11 +55,20 @@ export const ApiEntityPage: Component = () => {
 						<Match when={type() === 'component'}>
 							<APIEntityComponent ent={data() as ComponentEntityData} />
 						</Match>
-						<Match when={type() === 'mixin'}>
-							<p>Mixin</p>
+						<Match when={type() === 'context'}>
+							<APIEntityContext ent={data() as ContextEntityData} />
 						</Match>
 						<Match when={type() === 'controller'}>
-							<p>Controller</p>
+							<APIEntityController ent={data() as ControllerEntityData} />
+						</Match>
+						<Match when={type() === 'mixin'}>
+							<APIEntityMixin ent={data() as MixinEntityData} />
+						</Match>
+						<Match when={type() === 'provider'}>
+							<APIEntityProvider ent={data() as ProviderEntityData} />
+						</Match>
+						<Match when={type() === 'service'}>
+							<APIEntityService ent={data() as ServiceEntityData} />
 						</Match>
 					</Switch>
 				</BasePage>

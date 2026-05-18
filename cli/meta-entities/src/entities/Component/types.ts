@@ -1,12 +1,10 @@
-import type { ImportedSymbol } from '@purrception/extract-ts';
 import type {
-	ComponentData,
-	FunctionData,
-	TypeAliasData,
-	TypeDeclarationData,
+	ComponentDeclarationNode,
+	DeclarationTypeNode,
+	FunctionDeclarationNode,
 } from '@purrception/types-ts';
 
-import type { NoComplyEntityData } from '../types';
+import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ComponentEntityFiles = {
 	implementation: string;
@@ -14,13 +12,13 @@ export type ComponentEntityFiles = {
 	types: string;
 };
 
-export type ComponentEntityPartial = NoComplyEntityData & {
+export type ComponentEntityPartial = NoComplyEntityPartial & {
 	type: 'component';
 };
 
-export type ComponentEntityData = ComponentEntityPartial & {
-	component: ComponentData;
-	factory: FunctionData;
-	types: (TypeDeclarationData | TypeAliasData)[];
-	dependencies: Record<string, ImportedSymbol>;
-};
+export type ComponentEntityData = ComponentEntityPartial &
+	NoComplyEntityData & {
+		component: ComponentDeclarationNode;
+		factory: FunctionDeclarationNode;
+		types: Record<string, DeclarationTypeNode>;
+	};

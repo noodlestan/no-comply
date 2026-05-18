@@ -5,7 +5,6 @@ import { extractArrayTypeNode } from './extractArrayTypeNode';
 import { extractConditionalTypeNode } from './extractConditionalTypeNode';
 import { extractFunctionTypeNode } from './extractFunctionTypeNode';
 import { extractInferTypeNode } from './extractInferTypeNode';
-import { extractInterfaceNode } from './extractInterfaceNode';
 import { extractIntersectionTypeNode } from './extractIntersectionTypeNode';
 import { extractLiteralTypeNode } from './extractLiteralTypeNode';
 import { extractMappedTypeNode } from './extractMappedTypeNode';
@@ -48,10 +47,6 @@ export function extractTypeExpression(
 	// readonly/keyof Foo
 	if (ts.isTypeOperatorNode(node)) {
 		return extractOperatorTypeExpression(node);
-	}
-	// interface Foo { ... }
-	if (ts.isInterfaceDeclaration(node)) {
-		return extractInterfaceNode(node);
 	}
 
 	// type Foo = ...

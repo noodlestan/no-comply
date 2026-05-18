@@ -1,11 +1,14 @@
-import type { EntityDataBase } from '@purrception/primitives';
+import type { EntityDataBasePartial } from '@purrception/primitives';
 import type {
 	DirectoryExtractContext,
 	EntityExtractorFiles,
 	EntityFileResolver,
 } from '@purrception/source-fs';
 
-export async function resolveEntityFiles<P extends EntityDataBase, F extends EntityExtractorFiles>(
+export async function resolveEntityFiles<
+	P extends EntityDataBasePartial,
+	F extends EntityExtractorFiles,
+>(
 	ctx: DirectoryExtractContext,
 	partial: P,
 	resolver?: EntityFileResolver<F, P>,

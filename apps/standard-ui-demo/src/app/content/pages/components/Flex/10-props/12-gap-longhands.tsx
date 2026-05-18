@@ -1,5 +1,5 @@
 import { type BreakpointName, Flex, type FlexProps, Icon } from '@no-comply/standard-ui';
-import { HomeIcon } from 'lucide-solid';
+import HomeIcon from 'lucide-solid/icons/home';
 
 import { ExampleLayoutChild } from '../../../../examples';
 import {

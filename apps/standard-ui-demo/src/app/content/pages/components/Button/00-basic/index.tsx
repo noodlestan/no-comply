@@ -1,5 +1,5 @@
 import { Button, Icon } from '@no-comply/standard-ui';
-import { UnlockIcon } from 'lucide-solid';
+import UnlockIcon from 'lucide-solid/icons/unlock';
 
 import { type DocsSectionData, createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';

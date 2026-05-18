@@ -1,6 +1,7 @@
 import { shortId } from '@no-comply/solid-primitives';
 import { Button, Flex, Icon, Label, Select } from '@no-comply/standard-ui';
-import { ListCollapse, ListCollapseIcon } from 'lucide-solid';
+import ExpandIcon from 'lucide-solid/icons/expand';
+import CollapseIcon from 'lucide-solid/icons/list-collapse';
 import { type Component, For, Show } from 'solid-js';
 
 import type { DocsItemData } from '../../../types';
@@ -17,7 +18,7 @@ export type DocsSectionAtionBarProps = {
 export const DocsSectionActionBar: Component<DocsSectionAtionBarProps> = props => {
 	const id = shortId();
 
-	const icon = () => (props.isExpanded ? ListCollapseIcon : ListCollapse);
+	const icon = () => (props.isExpanded ? CollapseIcon : ExpandIcon);
 	const label = () => (props.isExpanded ? 'Collapse' : 'Expand all');
 
 	return (

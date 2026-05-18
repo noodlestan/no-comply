@@ -45,7 +45,7 @@ export const createRenderDocsSection = (props: RenderDocsSectionProps): RenderDo
 		onValueChange: setCurrentIndex,
 	});
 
-	const hasCode = () => Boolean(props.section.codeBlock);
+	const hasCode = () => Boolean(props.section.codeNode);
 
 	const sections = () => props.section.items.filter(item => item.type === 'section');
 

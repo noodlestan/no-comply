@@ -5,7 +5,8 @@ import {
 } from '@no-comply/solid-composables';
 import { createIconValue, l } from '@no-comply/solid-contexts';
 import { Callout, Flex, Link, ToggleButton } from '@no-comply/standard-ui';
-import { EyeIcon, EyeOffIcon } from 'lucide-solid';
+import EyeIcon from 'lucide-solid/icons/eye';
+import EyeOffIcon from 'lucide-solid/icons/eye-off';
 import { type Component, For, Show, createSignal } from 'solid-js';
 
 import { ShowPalette } from '../../../components';

@@ -1,5 +1,6 @@
 import { Divider, IconButton } from '@no-comply/standard-ui';
-import { BikeIcon, DogIcon } from 'lucide-solid';
+import BikeIcon from 'lucide-solid/icons/bike';
+import DogIcon from 'lucide-solid/icons/dog';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props, itemPropsStyled as propsStyled } from '../constants';

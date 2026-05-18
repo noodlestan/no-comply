@@ -1,5 +1,5 @@
 import { type ActionIntent, type ActionVariant, Flex, IconButton } from '@no-comply/standard-ui';
-import { PlusIcon } from 'lucide-solid';
+import PlusIcon from 'lucide-solid/icons/plus';
 import type { JSX } from 'solid-js';
 
 type Props = {

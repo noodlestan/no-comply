@@ -9,7 +9,7 @@ import {
 	Surface,
 	Text,
 } from '@no-comply/standard-ui';
-import { PiIcon } from 'lucide-solid';
+import SquareStackIcon from 'lucide-solid/icons/square-stack';
 import { type Component } from 'solid-js';
 
 import { LoremIpsum } from '../../../../../content';
@@ -42,7 +42,7 @@ export const LargeCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="medium" icon={PiIcon} label="large" aligned />
+						<IconButton size="medium" icon={SquareStackIcon} label="large" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -52,7 +52,7 @@ export const LargeCompositionsPage: Component = () => {
 			<Surface variant="stage" padding="l">
 				<Flex direction="row" gap="m" align="start" justify="between">
 					<AlignFirstLine height="m" type="display" variant="xl">
-						<Icon size="large" icon={PiIcon} aligned />
+						<Icon size="large" icon={SquareStackIcon} aligned />
 						<Flex gap="2xl">
 							<Flex gap="xl">
 								<DisplayAligned>Display XL (Level 1)</DisplayAligned>
@@ -72,7 +72,7 @@ export const LargeCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="medium" icon={PiIcon} label="large" aligned />
+						<IconButton size="medium" icon={SquareStackIcon} label="large" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -82,7 +82,7 @@ export const LargeCompositionsPage: Component = () => {
 			<Surface variant="card" padding="l">
 				<Flex direction="row" gap="m" align="start" justify="between">
 					<AlignFirstLine height="m" type="display" variant="l">
-						<Icon size="large" icon={PiIcon} aligned />
+						<Icon size="large" icon={SquareStackIcon} aligned />
 						<Flex gap="2xl">
 							<Flex gap="l">
 								<DisplayAligned>Display L (Level 2)</DisplayAligned>
@@ -102,7 +102,7 @@ export const LargeCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="medium" icon={PiIcon} label="medium" aligned />
+						<IconButton size="medium" icon={SquareStackIcon} label="medium" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>

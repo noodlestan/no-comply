@@ -1,5 +1,5 @@
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import { TypeBlock } from '@purrtrait/solid-code';
+import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component } from 'solid-js';
 
 import { DocsSection } from '../../../../../content';
@@ -11,7 +11,7 @@ type Props = {
 export const APIComponentSection: Component<Props> = props => {
 	return (
 		<DocsSection title="<Component>">
-			<TypeBlock lang="ts" node={props.ent.component} />
+			<CodeBlock lang="ts" nodes={[props.ent.component]} context={props.ent} />
 		</DocsSection>
 	);
 };

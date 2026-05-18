@@ -1,6 +1,8 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
-import { HourglassIcon, ThumbsUpIcon, XCircleIcon } from 'lucide-solid';
+import HourglassIcon from 'lucide-solid/icons/hourglass';
+import ThumbsUpIcon from 'lucide-solid/icons/thumbs-up';
+import XCircleIcon from 'lucide-solid/icons/x-circle';
 import { type Component, splitProps } from 'solid-js';
 
 import { createContentMessage } from '../../../content';

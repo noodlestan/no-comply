@@ -1,5 +1,5 @@
 import { Button, Display, Flex, Icon, Link, Text } from '@no-comply/standard-ui';
-import { ClockIcon } from 'lucide-solid';
+import ClockIcon from 'lucide-solid/icons/clock';
 import { type Component } from 'solid-js';
 
 import { lipsumWords } from '../../components';

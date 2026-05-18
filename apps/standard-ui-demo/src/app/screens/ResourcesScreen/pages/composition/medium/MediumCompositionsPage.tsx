@@ -9,7 +9,7 @@ import {
 	Surface,
 	Text,
 } from '@no-comply/standard-ui';
-import { PiIcon } from 'lucide-solid';
+import SquareStackIcon from 'lucide-solid/icons/square-stack';
 import { type Component } from 'solid-js';
 
 import { LoremIpsum } from '../../../../../content';
@@ -23,7 +23,7 @@ export const MediumCompositionsPage: Component = () => {
 			<Surface variant="card" padding="l">
 				<Flex direction="row" gap="m" align="start" justify="between">
 					<AlignFirstLine height="s" type="display" variant="m">
-						<Icon size="normal" icon={PiIcon} aligned />
+						<Icon size="normal" icon={SquareStackIcon} aligned />
 						<Flex gap="l">
 							<Flex gap="m">
 								<DisplayAligned>Display M (Level 3)</DisplayAligned>
@@ -43,7 +43,7 @@ export const MediumCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="normal" icon={PiIcon} label="normal" aligned />
+						<IconButton size="normal" icon={SquareStackIcon} label="normal" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -72,7 +72,7 @@ export const MediumCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="normal" icon={PiIcon} label="normal" aligned />
+						<IconButton size="normal" icon={SquareStackIcon} label="normal" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>

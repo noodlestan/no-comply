@@ -1,10 +1,10 @@
 import type { CodeLayoutContextValue } from '../../contexts';
-import type { CodeDataNode, CodeLayoutNode } from '../../types';
+import type { CodeLayoutNode } from '../../types';
 
 export function computeLayout(
 	ctx: CodeLayoutContextValue,
 	lang: string,
-	node: CodeDataNode,
+	node: object,
 ): CodeLayoutNode[] {
 	const langHandler = ctx.langs.find(l => l.lang === lang);
 	if (!langHandler) {

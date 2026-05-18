@@ -10,7 +10,7 @@ import {
 	Text,
 	TextAligned,
 } from '@no-comply/standard-ui';
-import { PiIcon } from 'lucide-solid';
+import SquareStackIcon from 'lucide-solid/icons/square-stack';
 import { type Component } from 'solid-js';
 
 import { LoremIpsum } from '../../../../../content';
@@ -24,7 +24,7 @@ export const SmallCompositionsPage: Component = () => {
 			<Surface variant="card" padding="m">
 				<Flex direction="row" gap="m" align="start" justify="between">
 					<AlignFirstLine height="2xs" type="display" variant="xs">
-						<Icon size="small" icon={PiIcon} aligned />
+						<Icon size="small" icon={SquareStackIcon} aligned />
 						<Flex gap="l">
 							<Flex gap="m">
 								<DisplayAligned>Display XS (Level 5)</DisplayAligned>
@@ -44,7 +44,7 @@ export const SmallCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="small" icon={PiIcon} label="small" aligned />
+						<IconButton size="small" icon={SquareStackIcon} label="small" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -54,7 +54,7 @@ export const SmallCompositionsPage: Component = () => {
 			<Surface variant="panel" padding="s">
 				<Flex direction="row" gap="s" align="start" justify="between">
 					<AlignFirstLine height="s" type="text" variant="large">
-						<Icon size="small" icon={PiIcon} aligned />
+						<Icon size="small" icon={SquareStackIcon} aligned />
 						<Flex gap="m">
 							<Flex gap="s">
 								<TextAligned>Text Large</TextAligned>
@@ -74,7 +74,7 @@ export const SmallCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="small" icon={PiIcon} label="medium" aligned />
+						<IconButton size="small" icon={SquareStackIcon} label="medium" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -85,7 +85,7 @@ export const SmallCompositionsPage: Component = () => {
 				<Flex direction="row" align="start" justify="between">
 					<AlignFirstLine height="xs" type="text" variant="normal">
 						<Flex direction="row" gap="s" align="start">
-							<Icon size="small" icon={PiIcon} aligned />
+							<Icon size="small" icon={SquareStackIcon} aligned />
 							<Flex gap="m">
 								<Flex gap="s">
 									<TextAligned>Text Normal</TextAligned>
@@ -103,7 +103,7 @@ export const SmallCompositionsPage: Component = () => {
 								</Flex>
 							</Flex>
 						</Flex>
-						<IconButton size="small" icon={PiIcon} label="small" aligned />
+						<IconButton size="small" icon={SquareStackIcon} label="small" aligned />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>

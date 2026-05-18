@@ -8,15 +8,16 @@ import {
 
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
-import { MATCHER as matcher, RESOLVER as resolver } from './private';
+import { entityMatcher, fileResolver } from './private';
 import type { ContextEntityData, ContextEntityFiles, ContextEntityPartial } from './types';
 
 export function createContextEntityExtractor(
 	options: EntityExtractorOptions<ContextEntityPartial, ContextEntityFiles> = {},
 ): DirectoryEntityExtractor<ContextEntityData> {
 	return async ctx => {
-		const partial = await resolveEntityPartial(ctx, options?.matcher ?? matcher);
-		const files = partial && (await resolveEntityFiles(ctx, partial, options.resolver ?? resolver));
+		const partial = await resolveEntityPartial(ctx, options?.matcher ?? entityMatcher);
+		const files =
+			partial && (await resolveEntityFiles(ctx, partial, options.resolver ?? fileResolver));
 		if (!partial || !files) return;
 
 		const processor: DirectoryEntityProcessor<ContextEntityData> = async () => {
@@ -26,7 +27,8 @@ export function createContextEntityExtractor(
 
 			const functions = program.extractFunctions(files.implementation);
 			const types = program.extractTypes(files.types);
-			const dependencies = program.extractImports();
+			const imported = program.extractExternalImports();
+			const exported = program.formatExports(functions, Object.values(types));
 
 			return [
 				{
@@ -35,7 +37,10 @@ export function createContextEntityExtractor(
 						...partial,
 						factories: functions,
 						types,
-						dependencies,
+						symbols: {
+							imported,
+							exported,
+						},
 					},
 				},
 			];

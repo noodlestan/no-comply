@@ -8,16 +8,16 @@ import {
 
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
-import { MATCHER as matcher, RESOLVER as resolver } from './private';
+import { entityMatcher, fileResolver } from './private';
 import type { ControllerEntityData, ControllerEntityFiles, ControllerEntityPartial } from './types';
 
 export function createControllerEntityExtractor(
 	options: EntityExtractorOptions<ControllerEntityPartial, ControllerEntityFiles> = {},
 ): DirectoryEntityExtractor<ControllerEntityData> {
 	return async ctx => {
-		const partial = await resolveEntityPartial(ctx, options?.matcher ?? matcher);
+		const partial = await resolveEntityPartial(ctx, options?.matcher ?? entityMatcher);
 		const files =
-			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? resolver));
+			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? fileResolver));
 		if (!partial || !files) {
 			return;
 		}
@@ -29,7 +29,8 @@ export function createControllerEntityExtractor(
 
 			const functions = program.extractFunctions(files.implementation);
 			const types = program.extractTypes();
-			const dependencies = program.extractImports();
+			const imported = program.extractExternalImports();
+			const exported = program.formatExports(functions, Object.values(types));
 
 			return [
 				{
@@ -38,7 +39,10 @@ export function createControllerEntityExtractor(
 						...partial,
 						factories: functions,
 						types,
-						dependencies,
+						symbols: {
+							imported,
+							exported,
+						},
 					},
 				},
 			];

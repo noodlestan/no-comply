@@ -1,6 +1,6 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Icon, NavLink, Text } from '@no-comply/standard-ui';
-import { SquareMousePointerIcon } from 'lucide-solid';
+import SquareMousePointerIcon from 'lucide-solid/icons/square-mouse-pointer';
 import { type Component } from 'solid-js';
 
 import { routeFor } from '../../../../routeFor';

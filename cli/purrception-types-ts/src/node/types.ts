@@ -9,7 +9,6 @@ export type TypeRefObject = {
 export type TypeRef = string | TypeRefObject;
 
 export type TypeExpressionKind =
-	| 'interface'
 	| 'object'
 	| 'array'
 	| 'tuple'
@@ -24,8 +23,7 @@ export type TypeExpressionKind =
 	| 'operator'
 	| 'mapped'
 	| 'conditional'
-	| 'infer'
-	| 'alias';
+	| 'infer';
 
 export interface TypeExpressionBase<K extends TypeExpressionKind> extends DeclarationJsDocData {
 	kind: K;
@@ -41,12 +39,6 @@ export interface TypeExpressionGeneric {
 export interface ObjectLiteralTypeMember extends DeclarationJsDocData {
 	type: TypeExpressionNode | TypeRef;
 	optional?: boolean;
-}
-
-export interface InterfaceTypeNode extends TypeExpressionBase<'interface'> {
-	kind: 'interface';
-	heritage?: (TypeExpressionNode | TypeRef)[];
-	members: Record<string, ObjectLiteralTypeMember>;
 }
 
 export interface ObjectLiteralTypeNode extends TypeExpressionBase<'object'> {
@@ -164,13 +156,7 @@ export interface InferTypeNode extends TypeExpressionBase<'infer'> {
 	name: string;
 }
 
-export interface AliasTypeNode extends TypeExpressionBase<'alias'> {
-	kind: 'alias';
-	target: TypeRef;
-}
-
 export type TypeExpressionNode =
-	| InterfaceTypeNode
 	| ObjectLiteralTypeNode
 	| ArrayTypeNode
 	| TupleTypeNode

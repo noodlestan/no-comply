@@ -1,5 +1,6 @@
 import { Display, Icon } from '@no-comply/standard-ui';
-import { ClockIcon, SettingsIcon } from 'lucide-solid';
+import ClockIcon from 'lucide-solid/icons/clock';
+import SettingsIcon from 'lucide-solid/icons/settings';
 import { type Component, Show } from 'solid-js';
 
 type Props = { title?: string };

@@ -1,9 +1,12 @@
 import type { TypeExpressionNode, TypeRef } from '@purrception/types-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
+import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
+
 import {
 	expArray,
 	expConditional,
+	expFunction,
 	expInfer,
 	expIntersection,
 	expLiteral,
@@ -20,7 +23,7 @@ import { expTypeRef } from './expressions/expTypeRef';
 import { typeRefToken } from './layout';
 
 export function layoutExpression(
-	ctx: CodeLayoutContextValue,
+	ctx: CodeLayoutContextValue | CodeLayoutWithGenericParamsContextValue,
 	exp: TypeRef | TypeExpressionNode,
 ): CodeLayoutNode[] {
 	if (typeof exp === 'string') {
@@ -58,7 +61,12 @@ export function layoutExpression(
 			return expConditional(ctx, exp);
 		case 'infer':
 			return expInfer(ctx, exp);
+		case 'function':
+			return expFunction(ctx, exp);
+		default:
+			throw new Error(`Unknown kind ${(exp as TypeExpressionNode).kind} in expression`);
 	}
 
-	return [{ type: 'token', kind: 'identifier', value: 'OUCH!' }];
+	// console.warn(`Unknown kind ${exp.kind} in expression`, exp);
+	// return [{ type: 'token', kind: 'identifier', value: 'OUCH!' }];
 }

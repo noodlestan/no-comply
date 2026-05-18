@@ -8,16 +8,16 @@ import {
 
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
-import { MATCHER as matcher, RESOLVER as resolver } from './private';
+import { entityMatcher, fileResolver } from './private';
 import type { ServiceEntityData, ServiceEntityFiles, ServiceEntityPartial } from './types';
 
 export function createServiceEntityExtractor(
 	options: EntityExtractorOptions<ServiceEntityPartial, ServiceEntityFiles> = {},
 ): DirectoryEntityExtractor<ServiceEntityData> {
 	return async ctx => {
-		const partial = await resolveEntityPartial(ctx, options?.matcher ?? matcher);
+		const partial = await resolveEntityPartial(ctx, options?.matcher ?? entityMatcher);
 		const files =
-			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? resolver));
+			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? fileResolver));
 
 		if (!partial || !files) {
 			return;
@@ -30,7 +30,8 @@ export function createServiceEntityExtractor(
 
 			const functions = program.extractFunctions(files.implementation);
 			const types = program.extractTypes();
-			const dependencies = program.extractImports();
+			const imported = program.extractExternalImports();
+			const exported = program.formatExports(functions, Object.values(types));
 
 			return [
 				{
@@ -39,7 +40,10 @@ export function createServiceEntityExtractor(
 						...partial,
 						factories: functions,
 						types,
-						dependencies,
+						symbols: {
+							imported,
+							exported,
+						},
 					},
 				},
 			];

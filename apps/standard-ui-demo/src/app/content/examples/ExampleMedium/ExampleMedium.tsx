@@ -9,7 +9,8 @@ import {
 	Text,
 	TextInput,
 } from '@no-comply/standard-ui';
-import { LockIcon, UnlockIcon } from 'lucide-solid';
+import LockIcon from 'lucide-solid/icons/lock';
+import UnlockIcon from 'lucide-solid/icons/unlock';
 import { type Component } from 'solid-js';
 
 type Props = { title?: string };

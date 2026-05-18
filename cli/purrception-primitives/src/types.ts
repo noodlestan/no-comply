@@ -1,12 +1,31 @@
-export type EntityDataBase = {
+export interface ImportedSymbol {
+	at: string;
+	name: string;
+	alias: string;
+	from: string;
+}
+
+export interface ExportedSymbol {
+	at: string;
+	name: string;
+}
+
+export type EntityDataBasePartial = {
 	type: string;
 	name: string;
+};
+
+export type EntityDataBase = EntityDataBasePartial & {
+	symbols: {
+		imported: Record<string, ImportedSymbol>;
+		exported: Record<string, ExportedSymbol>;
+	};
 	[key: string]: unknown;
 };
 
 export type EntityExtractContext<T extends object> = {
 	context: T;
-	entity: EntityDataBase;
+	partial: EntityDataBasePartial;
 };
 
 export type EntityExtractResult<

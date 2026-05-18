@@ -2,7 +2,11 @@ import { ErrorBoundary as HeadlessErrorBoundary } from '@no-comply/solid-composa
 import { type IconComponent } from '@no-comply/solid-contexts';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Flex, Icon, Layout } from '@no-comply/standard-ui';
-import { BugIcon, CloudRain, ServerCrashIcon, SkullIcon, XOctagon } from 'lucide-solid';
+import BugIcon from 'lucide-solid/icons/bug';
+import CloudRainIcon from 'lucide-solid/icons/cloud-rain';
+import ServerCrashIcon from 'lucide-solid/icons/server-crash';
+import SkullIcon from 'lucide-solid/icons/skull';
+import XOctagon from 'lucide-solid/icons/x-octagon';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
 
 import styles from './ErrorBoundaryScreen.module.scss';
@@ -22,7 +26,7 @@ const COLOR_NAMES = [
 	'indigo',
 	'violet',
 ];
-const ICONS = [ServerCrashIcon, BugIcon, SkullIcon, CloudRain, XOctagon];
+const ICONS = [ServerCrashIcon, BugIcon, SkullIcon, CloudRainIcon, XOctagon];
 const SPEED = 15;
 
 export const ErrorScreen: ParentComponent = () => {

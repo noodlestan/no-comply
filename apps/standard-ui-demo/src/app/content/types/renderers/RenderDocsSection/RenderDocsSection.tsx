@@ -1,6 +1,6 @@
 import { type DisplayLevel } from '@no-comply/standard-ui';
-import type { TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
-import { TypeBlock } from '@purrtrait/solid-code';
+import type { DeclarationNode } from '@purrception/types-ts';
+import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
 
 import type { DocsSectionData } from '../../../types';
@@ -25,10 +25,7 @@ export const RenderDocsSection: Component<RenderDocsSectionProps> = props => {
 				<DocsSectionActionBar {..._actionBar()} />
 			</Show>
 			<Show when={hasCode()}>
-				<TypeBlock
-					lang="ts"
-					node={props.section.codeBlock as TypeAliasData | TypeDeclarationData}
-				/>
+				<CodeBlock lang="ts" nodes={[props.section.codeNode as DeclarationNode]} />
 			</Show>
 			<For each={visisibleItems()}>
 				{item => <RenderDocsItem item={item} level={(props.level + 1) as DisplayLevel} />}

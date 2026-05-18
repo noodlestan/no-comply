@@ -1,5 +1,6 @@
 import { createIconValue } from '@no-comply/solid-contexts';
-import { ChevronDownIcon, ChevronRightIcon } from 'lucide-solid';
+import ChevronDownIcon from 'lucide-solid/icons/chevron-down';
+import ChevronRightIcon from 'lucide-solid/icons/chevron-right';
 
 import type { TreeListIcons, TreeListLabels, TreeNode } from '../types';
 

@@ -1,8 +1,8 @@
-import type { FunctionData } from '@purrception/types-ts';
+import type { FunctionDeclarationNode } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
-import type { ProgramContext } from '../program';
+import type { ProgramFileAPI } from '../program';
 
 import {
 	extractArrowFunctionType,
@@ -13,10 +13,10 @@ import {
 } from './helpers';
 
 export function extractFunctionFromProgramNode(
-	ctx: ProgramContext,
+	programFile: ProgramFileAPI,
 	node: ts.FunctionDeclaration | ts.ArrowFunction,
-): FunctionData {
-	const map = ctx.exportsMap();
+): FunctionDeclarationNode {
+	const map = programFile.exportsMap();
 
 	const name = extractExportedName(node, map);
 	const jsDoc = extractFunctionJsDoc(node);
@@ -28,12 +28,13 @@ export function extractFunctionFromProgramNode(
 	const returns = !type ? extractFunctionReturns(node.type, jsDoc) : undefined;
 
 	return {
-		kind: 'function',
+		at: programFile.filepath,
 		name,
-		type,
+		kind: 'function',
 		generic,
 		params,
 		returns,
+		type,
 		description,
 		templateTags,
 		tags,

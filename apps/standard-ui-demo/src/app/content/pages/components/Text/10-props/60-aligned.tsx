@@ -1,5 +1,5 @@
 import { AlignFirstLine, Flex, Icon, Text } from '@no-comply/standard-ui';
-import { HomeIcon } from 'lucide-solid';
+import HomeIcon from 'lucide-solid/icons/home';
 
 import { LoremIpsum } from '../../../../components';
 import { createDocsItemData, createDocsSectionData } from '../../../../types';

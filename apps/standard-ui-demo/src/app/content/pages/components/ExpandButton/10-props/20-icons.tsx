@@ -1,6 +1,7 @@
 import { createIconValue } from '@no-comply/solid-contexts';
 import { ExpandButton, Label } from '@no-comply/standard-ui';
-import { FolderClosed, FolderOpen } from 'lucide-solid';
+import FolderClosedIcon from 'lucide-solid/icons/folder-closed';
+import FolderOpenIcon from 'lucide-solid/icons/folder-open';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
@@ -14,8 +15,8 @@ export default createDocsSectionData({
 				createExpandButtonExampleController();
 
 			const icons = {
-				expanded: createIconValue(FolderOpen),
-				collapsed: createIconValue(FolderClosed),
+				expanded: createIconValue(FolderOpenIcon),
+				collapsed: createIconValue(FolderClosedIcon),
 			};
 
 			return (

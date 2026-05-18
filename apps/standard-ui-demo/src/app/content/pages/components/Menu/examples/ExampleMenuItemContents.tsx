@@ -1,5 +1,6 @@
-import { MenuItemAction, MenuItemGroup, MenuItemSubMenu } from '@no-comply/standard-ui';
-import { Menu, PencilIcon, TrashIcon } from 'lucide-solid';
+import { Menu, MenuItemAction, MenuItemGroup, MenuItemSubMenu } from '@no-comply/standard-ui';
+import PencilIcon from 'lucide-solid/icons/pencil';
+import TrashIcon from 'lucide-solid/icons/trash';
 import { type Component, Show } from 'solid-js';
 
 type ExamplePopoverContentsProps = {

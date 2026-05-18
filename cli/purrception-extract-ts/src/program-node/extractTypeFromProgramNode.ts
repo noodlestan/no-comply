@@ -1,43 +1,59 @@
-import type { TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
+import type {
+	AliasDeclarationNode,
+	DeclarationTypeNode,
+	TypeDeclarationNode,
+} from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractDeclarationJsDoc } from '../jsdoc';
-import type { ProgramContext } from '../program';
+import type { ProgramFileAPI } from '../program';
 
 import {
 	extractExportedName,
-	extractNodeGenerics,
+	extractInterfaceDeclaration,
 	extractTypeExpression,
 	isTypeExpressionNode,
 	normalizeTypeRefObject,
 } from './helpers';
 
 export function extractTypeFromProgramNode(
-	ctx: ProgramContext,
+	programFile: ProgramFileAPI,
 	node: ts.TypeAliasDeclaration | ts.InterfaceDeclaration,
-): TypeDeclarationData | TypeAliasData {
-	const map = ctx.exportsMap();
+): DeclarationTypeNode {
+	const map = programFile.exportsMap();
 
 	const name = extractExportedName(node, map);
 	const jsDoc = extractDeclarationJsDoc(node);
 	const { description, templateTags, tags } = jsDoc;
 
-	const generic = extractNodeGenerics(node);
-	const base = extractTypeExpression(node);
+	if (ts.isInterfaceDeclaration(node)) {
+		return extractInterfaceDeclaration(programFile.filepath, name, node);
+	}
 
+	const base = extractTypeExpression(node);
 	if (isTypeExpressionNode(base)) {
-		return { name, generic, ...base, description, templateTags, tags };
+		const type: TypeDeclarationNode = {
+			at: programFile.filepath,
+			name,
+			kind: 'type',
+			node: base,
+			description,
+			templateTags,
+			tags,
+		};
+		return type;
 	}
 
 	const target = normalizeTypeRefObject(base);
 
-	return {
-		kind: 'alias',
+	const alias: AliasDeclarationNode = {
+		at: programFile.filepath,
 		name,
-		generic,
+		kind: 'alias',
 		target,
 		description,
 		templateTags,
 		tags,
 	};
+	return alias;
 }

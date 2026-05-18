@@ -17,7 +17,7 @@ export default function (): DocsSectionData {
 	return createDocsSectionData({
 		title: 'Props',
 		// TODO e.props (store it when extracting)
-		codeBlock: e.types[2],
+		codeNode: e.types[2],
 		items: [variant(), intent(), size(), disabled(), onPress()],
 	});
 }

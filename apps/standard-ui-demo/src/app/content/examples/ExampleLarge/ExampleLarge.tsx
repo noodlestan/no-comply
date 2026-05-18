@@ -13,7 +13,8 @@ import {
 	Text,
 	TextInput,
 } from '@no-comply/standard-ui';
-import { ClockIcon, LockIcon } from 'lucide-solid';
+import ClockIcon from 'lucide-solid/icons/clock';
+import LockIcon from 'lucide-solid/icons/lock';
 import { type Component, createSignal } from 'solid-js';
 
 import styles from './ExampleLarge.module.scss';

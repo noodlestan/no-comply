@@ -1,5 +1,5 @@
 import { Icon } from '@no-comply/standard-ui';
-import { ClockIcon } from 'lucide-solid';
+import ClockIcon from 'lucide-solid/icons/clock';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';

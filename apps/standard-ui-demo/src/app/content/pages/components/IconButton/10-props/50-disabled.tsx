@@ -1,7 +1,5 @@
-// _docs/10-props/50-disabled.tsx
-
 import { IconButton } from '@no-comply/standard-ui';
-import { PlusIcon } from 'lucide-solid';
+import PlusIcon from 'lucide-solid/icons/plus';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 

@@ -1,5 +1,7 @@
 import { Button, Display, Flex, Icon, Link, Text } from '@no-comply/standard-ui';
-import { ClockIcon, KeyIcon, LockIcon } from 'lucide-solid';
+import ClockIcon from 'lucide-solid/icons/clock';
+import KeyIcon from 'lucide-solid/icons/key';
+import LockIcon from 'lucide-solid/icons/lock';
 import { type Component } from 'solid-js';
 
 type Props = { title?: string };

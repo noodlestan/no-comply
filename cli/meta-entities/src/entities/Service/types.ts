@@ -1,19 +1,18 @@
-import type { ImportedSymbol } from '@purrception/extract-ts';
-import type { FunctionData, TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
+import type { DeclarationTypeNode, FunctionDeclarationNode } from '@purrception/types-ts';
 
-import type { NoComplyEntityData } from '../types';
+import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ServiceEntityFiles = {
 	implementation: string;
 	types: string;
 };
 
-export type ServiceEntityPartial = NoComplyEntityData & {
+export type ServiceEntityPartial = NoComplyEntityPartial & {
 	type: 'service';
 };
 
-export type ServiceEntityData = ServiceEntityPartial & {
-	factories: FunctionData[];
-	types: (TypeDeclarationData | TypeAliasData)[];
-	dependencies: Record<string, ImportedSymbol>;
-};
+export type ServiceEntityData = ServiceEntityPartial &
+	NoComplyEntityData & {
+		factories: FunctionDeclarationNode[];
+		types: Record<string, DeclarationTypeNode>;
+	};

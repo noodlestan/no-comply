@@ -1,5 +1,5 @@
 import { createClassList } from '@no-comply/solid-primitives';
-import { CircleDashedIcon } from 'lucide-solid';
+import CircleDashedIcon from 'lucide-solid/icons/circle-dashed';
 import { type Component, Show } from 'solid-js';
 
 import styles from './Spinner.module.scss';

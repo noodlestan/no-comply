@@ -1,8 +1,10 @@
-// import type { InterfaceTypeNode, TypeDeclarationData } from '@purrception/types-ts';
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import { createCodeLayoutContext } from '@purrtrait/code-layout';
 import { tsCodeLayout } from '@purrtrait/code-ts';
-import { CodeLayoutProvider, TypeBlock } from '@purrtrait/solid-code';
+import {
+	CodeBlock,
+	SolidCodeLayoutProvider,
+	createSolidCodeLayoutContext,
+} from '@purrtrait/solid-code';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
@@ -26,7 +28,7 @@ export const ComponentPage: Component = () => {
 		getEntityMaybe('@no-comply/standard-ui', 'component', name()) as ComponentEntityData;
 	const page = () => components[name()]?.(data());
 
-	const linker = (token: string) => {
+	const linker = (ctx: unknown, token: string) => {
 		if (token === 'Props') {
 			return '#Props';
 		}
@@ -34,7 +36,7 @@ export const ComponentPage: Component = () => {
 		return 'https://works.example';
 	};
 
-	const codeLayoutContext = createCodeLayoutContext({ langs: [tsCodeLayout], linker });
+	const codeLayoutContext = createSolidCodeLayoutContext({ langs: [tsCodeLayout], linker });
 
 	return (
 		<>
@@ -49,10 +51,10 @@ export const ComponentPage: Component = () => {
 					undertitle={<ComponentMeta component={data()} />}
 					data-component-page
 				>
-					<CodeLayoutProvider context={codeLayoutContext}>
-						<TypeBlock lang="ts" node={data().component} />
+					<SolidCodeLayoutProvider context={codeLayoutContext}>
+						<CodeBlock lang="ts" nodes={[data().component]} context={data()} />
 						<RenderDocsSections sections={page()?.items as DocsSectionData[]} />
-					</CodeLayoutProvider>
+					</SolidCodeLayoutProvider>
 				</BasePage>
 			</Show>
 		</>

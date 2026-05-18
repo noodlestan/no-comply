@@ -1,17 +1,23 @@
+import type { ModuleEntityData } from '@no-comply/meta-entities';
 import { Link, Text } from '@no-comply/standard-ui';
 import { useParams } from '@solidjs/router';
-import { type Component, For, Show } from 'solid-js';
+import { type Component, Show } from 'solid-js';
 
 import { useMeta } from '../../../../../providers';
-import { DocsSection } from '../../../../content';
 import { routeFor } from '../../../../navigation';
 import { BasePage, NotFoundPage } from '../../../../templates';
-import { ApiBreadcrumbs } from '../../components';
+import {
+	APIDependenciesSection,
+	APIEntitiesSection,
+	APIHelpersSection,
+	APITypesSection,
+	ApiBreadcrumbs,
+} from '../../components';
 
 export const ApiModulePage: Component = () => {
 	const params = useParams();
 
-	const { getModuleMaybe, getModuleEntities } = useMeta();
+	const { getModuleMaybe } = useMeta();
 
 	// eslint-disable-next-line dot-notation
 	const pkg = () => params['ns'] + '/' + params['pkg'];
@@ -34,21 +40,10 @@ export const ApiModulePage: Component = () => {
 					overtitle={<ApiBreadcrumbs pkg={pkg()} mod={name()} />}
 					data-api-module-page
 				>
-					<DocsSection title="Entities">
-						<ul>
-							<For each={getModuleEntities(pkg(), name())}>
-								{ent => (
-									<li>
-										<Text>
-											<Link href={routeFor.entity(pkg(), name(), ent.type, ent.name)}>
-												{ent.type}: {ent.name}
-											</Link>
-										</Text>
-									</li>
-								)}
-							</For>
-						</ul>
-					</DocsSection>
+					<APIEntitiesSection ent={data() as ModuleEntityData} />
+					<APIHelpersSection ent={data() as ModuleEntityData} />
+					<APITypesSection ent={data() as ModuleEntityData} />
+					<APIDependenciesSection ent={data() as ModuleEntityData} />
 				</BasePage>
 			</Show>
 		</>

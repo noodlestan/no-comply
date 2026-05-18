@@ -4,10 +4,16 @@ import { Flex, SkipLink } from '@no-comply/standard-ui';
 import { Router } from '@solidjs/router';
 import { type Component, type ParentComponent, Show } from 'solid-js';
 
-import { AppServicesProvider, MetaProvider, UIRootProvider, useAppServices } from '../providers';
+import {
+	AppServicesProvider,
+	CodeBlockProvider,
+	MetaProvider,
+	UIRootProvider,
+	useAppServices,
+} from '../providers';
 
 import styles from './App.module.scss';
-import { AppSplash } from './components';
+import { AppSplash, CodeBlockLink } from './components';
 import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
@@ -52,11 +58,12 @@ const Root: ParentComponent = props => {
 		<ErrorBoundaryScreen>
 			<AppServicesProvider>
 				<MetaProvider>
-					<UIRootProvider defaultCtxId={APP.id}>
-						{/* <Surface variant="menu">HELLO!</Surface> */}
-						<Main>{props.children}</Main>
-						{/* <DebugDrawer /> */}
-					</UIRootProvider>
+					<CodeBlockProvider link={CodeBlockLink}>
+						<UIRootProvider defaultCtxId={APP.id}>
+							<Main>{props.children}</Main>
+							{/* <DebugDrawer /> */}
+						</UIRootProvider>
+					</CodeBlockProvider>
 				</MetaProvider>
 			</AppServicesProvider>
 		</ErrorBoundaryScreen>

@@ -1,31 +1,15 @@
-import type {
-	CodeLayoutContextValue,
-	CodeLayoutLine,
-	CodeLayoutToken,
-} from '@purrtrait/code-layout';
+import type { CodeLayoutLine, CodeLayoutToken } from '@purrtrait/code-layout';
 import { For, type JSX } from 'solid-js';
 
-function renderToken(ctx: CodeLayoutContextValue, token: CodeLayoutToken): JSX.Element {
-	if (token.kind === 'type-ref') {
-		const target = ctx.linker(token.value);
+import type { SolidCodeLayoutContextValue } from '../contexts';
 
-		if (target) {
-			return (
-				<a href={target} class={`token ${token.kind}`}>
-					{token.link ? <a href={token.link}>{token.value}</a> : token.value}
-				</a>
-			);
-		}
-	}
-
+function renderToken(ctx: SolidCodeLayoutContextValue, token: CodeLayoutToken): JSX.Element {
 	return (
-		<span class={`token ${token.kind}`}>
-			{token.link ? <a href={token.link}>{token.value}</a> : token.value}
-		</span>
+		<span class={`token ${token.kind}`}>{token.link ? ctx.link({ token }) : token.value}</span>
 	);
 }
 
-export function renderLine(ctx: CodeLayoutContextValue, line: CodeLayoutLine): JSX.Element {
+export function renderLine(ctx: SolidCodeLayoutContextValue, line: CodeLayoutLine): JSX.Element {
 	return (
 		<div class="code-line">
 			<span class="indent">{' '.repeat(line.indent * 2)}</span>

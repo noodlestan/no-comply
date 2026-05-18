@@ -1,5 +1,5 @@
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import type { TypeAliasData, TypeDeclarationData } from '@purrception/types-ts';
+import type { DeclarationNode } from '@purrception/types-ts';
 import type { JSX } from 'solid-js';
 
 import type { DocsItemProps, DocsResponsiveItemProps, DocsSectionProps } from './components';
@@ -18,7 +18,7 @@ export type DocsSectionData = {
 	type: 'section';
 	collapse?: boolean;
 	title: string;
-	codeBlock?: TypeAliasData | TypeDeclarationData;
+	codeNode?: DeclarationNode;
 	props?: DocsSectionProps;
 	items: (DocsSectionData | DocsItemData)[];
 };

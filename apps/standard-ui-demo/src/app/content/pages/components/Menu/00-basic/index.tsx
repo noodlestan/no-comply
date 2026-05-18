@@ -1,5 +1,5 @@
 import { AnchoredPopover, IconButton, Menu } from '@no-comply/standard-ui';
-import { MoreHorizontalIcon } from 'lucide-solid';
+import MoreHorizontalIcon from 'lucide-solid/icons/more-horizontal';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
