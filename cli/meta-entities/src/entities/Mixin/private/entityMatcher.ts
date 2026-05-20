@@ -16,9 +16,9 @@ export const entityMatcher: EntityMetaMatcher<MixinEntityPartial> = async ctx =>
 	return {
 		type: 'mixin',
 		name,
-		module,
 		// eslint-disable-next-line dot-notation
 		package: ctx.fsContext.meta['package'] as string,
+		module,
 		path: ctx.dirMeta.path,
 	};
 };

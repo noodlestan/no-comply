@@ -22,9 +22,9 @@ const controllerExtractor = createControllerEntityExtractor({
 			return {
 				type: 'controller',
 				name,
-				module: 'controllers',
 				// eslint-disable-next-line dot-notation
 				package: ctx.fsContext.meta['package'] as string,
+				module: 'controllers',
 				path: ctx.dirMeta.path,
 			};
 		}

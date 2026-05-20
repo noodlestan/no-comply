@@ -1,4 +1,4 @@
-import type { ComponentDeclarationNode } from '@purrception/types-ts';
+import { type ComponentDeclaration, normalizeTypeRefObject } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
@@ -13,13 +13,12 @@ import {
 	isComponentType,
 	isJSXReturnType,
 	isParentComponentType,
-	normalizeTypeRefObject,
 } from './helpers';
 
 export function extractComponentFromProgramNode(
 	programFile: ProgramFileAPI,
 	node: ts.FunctionDeclaration | ts.ArrowFunction,
-): ComponentDeclarationNode | undefined {
+): ComponentDeclaration | undefined {
 	const exportMap = programFile.exportsMap();
 
 	const name = extractExportedName(node, exportMap);

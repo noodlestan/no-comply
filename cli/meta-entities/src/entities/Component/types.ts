@@ -1,7 +1,7 @@
 import type {
-	ComponentDeclarationNode,
-	DeclarationTypeNode,
-	FunctionDeclarationNode,
+	ComponentDeclaration,
+	FunctionDeclaration,
+	TypeDeclaration,
 } from '@purrception/types-ts';
 
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
@@ -18,7 +18,7 @@ export type ComponentEntityPartial = NoComplyEntityPartial & {
 
 export type ComponentEntityData = ComponentEntityPartial &
 	NoComplyEntityData & {
-		component: ComponentDeclarationNode;
-		factory: FunctionDeclarationNode;
-		types: Record<string, DeclarationTypeNode>;
+		component: ComponentDeclaration;
+		factory: FunctionDeclaration;
+		types: Record<string, TypeDeclaration>;
 	};

@@ -27,7 +27,4 @@ export * from './extractUnionTypeNode';
 export * from './isComponentType';
 export * from './isJSXReturnType';
 export * from './isParentComponentType';
-export * from './isTypeExpressionNode';
-export * from './isTypeRef';
-export * from './normalizeTypeRefObject';
 export * from './throwUnsupportedNodeError';

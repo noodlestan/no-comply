@@ -18,39 +18,39 @@ export interface DeclarationBase<K extends DeclarationKind>
 	kind: K;
 }
 
-export type TypeDeclarationNode<K extends TypeExpressionNode = TypeExpressionNode> =
+export type TypeExpressionDeclaration<K extends TypeExpressionNode = TypeExpressionNode> =
 	DeclarationBase<'type'> & {
 		node: K;
 	};
 
-export type InterfaceDeclarationNode = DeclarationBase<'interface'> & {
+export type InterfaceDeclaration = DeclarationBase<'interface'> & {
 	generic?: TypeExpressionGeneric[];
 	heritage?: (TypeExpressionNode | TypeRef)[];
 	members: Record<string, ObjectLiteralTypeMember>;
 };
 
-export type AliasDeclarationNode = DeclarationBase<'alias'> & {
+export type AliasDeclaration = DeclarationBase<'alias'> & {
 	target: TypeRef;
 };
 
-export type FunctionDeclarationNode = DeclarationBase<'function'> &
+export type FunctionDeclaration = DeclarationBase<'function'> &
 	FunctionTypeNode & {
 		type?: TypeExpressionNode | TypeRef;
 	};
 
-export type ComponentDeclarationNode = DeclarationBase<'component'> &
+export type ComponentDeclaration = DeclarationBase<'component'> &
 	ComponentNode & {
 		generic?: TypeExpressionGeneric[];
 	};
 
-export type DeclarationNode =
-	| TypeDeclarationNode<TypeExpressionNode>
-	| InterfaceDeclarationNode
-	| AliasDeclarationNode
-	| FunctionDeclarationNode
-	| ComponentDeclarationNode;
+export type Declaration =
+	| TypeExpressionDeclaration<TypeExpressionNode>
+	| InterfaceDeclaration
+	| AliasDeclaration
+	| FunctionDeclaration
+	| ComponentDeclaration;
 
-export type DeclarationTypeNode =
-	| TypeDeclarationNode<TypeExpressionNode>
-	| InterfaceDeclarationNode
-	| AliasDeclarationNode;
+export type TypeDeclaration =
+	| TypeExpressionDeclaration<TypeExpressionNode>
+	| InterfaceDeclaration
+	| AliasDeclaration;

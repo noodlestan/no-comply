@@ -1,5 +1,5 @@
 import type { ExportedSymbol, ImportedSymbol } from '@purrception/primitives';
-import type { DeclarationNode, DeclarationTypeNode } from '@purrception/types-ts';
+import type { Declaration, TypeDeclaration } from '@purrception/types-ts';
 
 import {
 	extractComponentsFromProgram,
@@ -56,7 +56,7 @@ export async function createProgram(
 		const nested = programs.map(p => extractTypesFromProgram(p));
 		const flat = nested.flat();
 
-		const types: Record<string, DeclarationTypeNode> = {};
+		const types: Record<string, TypeDeclaration> = {};
 		for (const t of flat) {
 			types[t.name] = t;
 		}
@@ -101,7 +101,7 @@ export async function createProgram(
 		return Object.fromEntries(entries);
 	};
 
-	const formatExports = (...args: DeclarationNode[][]) => {
+	const formatExports = (...args: Declaration[][]) => {
 		const entries = args
 			.map(arg => arg.map(({ at, name }) => [name, { at, name } as ExportedSymbol]))
 			.flat();

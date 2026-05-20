@@ -1,10 +1,10 @@
-import type { ComponentDeclarationNode } from '@purrception/types-ts';
+import type { ComponentDeclaration } from '@purrception/types-ts';
 
 import { hasJsDocIgnore } from '../jsdoc';
 import { type ProgramFileAPI } from '../program';
 import { extractComponentFromProgramNode } from '../program-node';
 
-export function extractComponentsFromProgram(program: ProgramFileAPI): ComponentDeclarationNode[] {
+export function extractComponentsFromProgram(program: ProgramFileAPI): ComponentDeclaration[] {
 	const exportMap = program.exportsMap();
 	const functions = program
 		.functions()
@@ -12,5 +12,5 @@ export function extractComponentsFromProgram(program: ProgramFileAPI): Component
 		.map(node => extractComponentFromProgramNode(program, node))
 		.filter(Boolean);
 
-	return functions as ComponentDeclarationNode[];
+	return functions as ComponentDeclaration[];
 }

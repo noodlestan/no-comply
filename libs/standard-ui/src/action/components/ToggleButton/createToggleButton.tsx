@@ -48,6 +48,8 @@ export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI =>
 	const _iconButtonAllowedProps = pickProps(locals, ['size', 'onPress', 'disabled']);
 
 	return exposeAPI(expose, '_iconButton', {
+		_button: combineProps($switchRoot, _iconButton, _iconButtonAllowedProps),
+		_icon,
 		_iconButton: combineProps($switchRoot, _iconButton, _icon, _iconButtonAllowedProps),
 	});
 };

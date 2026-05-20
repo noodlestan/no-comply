@@ -11,6 +11,10 @@ export const STANDARD_UI_SURFACE_PAGE = createSurfaceVariant({
 export const STANDARD_UI_SURFACE_CARD = createSurfaceVariant({
 	name: 'card',
 });
+export const STANDARD_UI_SURFACE_CARD_ROUNDED = createSurfaceVariant({
+	name: 'card-rounded',
+	extend: ['card'],
+});
 
 export const STANDARD_UI_SURFACE_PANEL = createSurfaceVariant({
 	name: 'panel',
@@ -43,6 +47,7 @@ export const STANDARD_UI_SURFACES = [
 	STANDARD_UI_SURFACE_STAGE,
 	STANDARD_UI_SURFACE_PAGE,
 	STANDARD_UI_SURFACE_CARD,
+	STANDARD_UI_SURFACE_CARD_ROUNDED,
 	STANDARD_UI_SURFACE_PANEL,
 	STANDARD_UI_SURFACE_INVERSE,
 	STANDARD_UI_SURFACE_MESSAGE,

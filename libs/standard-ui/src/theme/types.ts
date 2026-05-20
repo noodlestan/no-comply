@@ -2,6 +2,7 @@ export type SurfaceVariant =
 	| 'stage'
 	| 'page'
 	| 'card'
+	| 'card-rounded'
 	| 'panel'
 	| 'inverse'
 	| 'message'

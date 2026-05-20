@@ -1,9 +1,9 @@
 import type {
-	AliasDeclarationNode,
-	ComponentDeclarationNode,
-	FunctionDeclarationNode,
-	InterfaceDeclarationNode,
-	TypeDeclarationNode,
+	AliasDeclaration,
+	ComponentDeclaration,
+	FunctionDeclaration,
+	InterfaceDeclaration,
+	TypeExpressionDeclaration,
 } from '@purrception/types-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
@@ -18,17 +18,16 @@ import { layoutFunctionDeclaration } from './declarations/layoutFunctionDeclarat
 export function layoutDeclaration(ctx: CodeLayoutContextValue, node: object): CodeLayoutNode[] {
 	if ('kind' in node) {
 		switch (node.kind) {
+			case 'type':
+				return layoutTypeDeclaration(ctx, node as TypeExpressionDeclaration);
 			case 'alias':
-				return layoutAliasDeclaration(ctx, node as AliasDeclarationNode);
+				return layoutAliasDeclaration(ctx, node as AliasDeclaration);
 			case 'function':
-				return layoutFunctionDeclaration(ctx, node as FunctionDeclarationNode);
+				return layoutFunctionDeclaration(ctx, node as FunctionDeclaration);
 			case 'component':
-				return layoutComponentDeclaration(ctx, node as ComponentDeclarationNode);
+				return layoutComponentDeclaration(ctx, node as ComponentDeclaration);
 			case 'interface':
-				return layoutInterfaceDeclaration(ctx, node as InterfaceDeclarationNode);
-		}
-		if ('name' in node) {
-			return layoutTypeDeclaration(ctx, node as TypeDeclarationNode);
+				return layoutInterfaceDeclaration(ctx, node as InterfaceDeclaration);
 		}
 	}
 	console.error(`Invalid node:`, node);

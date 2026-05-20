@@ -7,9 +7,9 @@ import type {
 	ProviderEntityData,
 	ServiceEntityData,
 } from '@no-comply/meta-entities';
-import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
 
+import { DeclarationCodeBlock } from '../../../../../components';
 import { DocsSection } from '../../../../../content';
 
 type Props = {
@@ -33,7 +33,7 @@ export const APITypesSection: Component<Props> = props => {
 				<For each={types()}>
 					{type => (
 						<DocsSection title={type.name} level={4}>
-							<CodeBlock lang="ts" nodes={[type]} context={props.ent} />
+							<DeclarationCodeBlock type={type} entity={props.ent} resolve="show" />
 						</DocsSection>
 					)}
 				</For>

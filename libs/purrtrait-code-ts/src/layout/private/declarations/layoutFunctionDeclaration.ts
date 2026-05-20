@@ -1,4 +1,4 @@
-import type { FunctionDeclarationNode } from '@purrception/types-ts';
+import type { FunctionDeclaration } from '@purrception/types-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import { createCodeLayoutWithGenericParamsContext } from '../../../contexts';
@@ -9,7 +9,7 @@ import { eachExpression } from '../utils';
 
 export function layoutFunctionDeclaration(
 	ctx: CodeLayoutContextValue,
-	node: FunctionDeclarationNode,
+	node: FunctionDeclaration,
 ): CodeLayoutNode[] {
 	if (node.type) {
 		return [

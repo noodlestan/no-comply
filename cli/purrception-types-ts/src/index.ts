@@ -2,3 +2,4 @@
 export * from './declaration';
 export * from './jsdoc';
 export * from './node';
+export * from './resolve';

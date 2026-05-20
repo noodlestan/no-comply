@@ -1,4 +1,4 @@
-import type { TypeExpressionNode, TypeRef } from '@purrception/types-ts';
+import type { TypeExpressionNode, TypeRef } from '../types';
 
 export function isTypeExpressionNode(
 	data: TypeExpressionNode | TypeRef,

@@ -1,25 +1,21 @@
-import type {
-	AliasDeclarationNode,
-	DeclarationTypeNode,
-	TypeDeclarationNode,
+import {
+	type AliasDeclaration,
+	type TypeDeclaration,
+	type TypeExpressionDeclaration,
+	isTypeExpressionNode,
+	normalizeTypeRefObject,
 } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractDeclarationJsDoc } from '../jsdoc';
 import type { ProgramFileAPI } from '../program';
 
-import {
-	extractExportedName,
-	extractInterfaceDeclaration,
-	extractTypeExpression,
-	isTypeExpressionNode,
-	normalizeTypeRefObject,
-} from './helpers';
+import { extractExportedName, extractInterfaceDeclaration, extractTypeExpression } from './helpers';
 
 export function extractTypeFromProgramNode(
 	programFile: ProgramFileAPI,
 	node: ts.TypeAliasDeclaration | ts.InterfaceDeclaration,
-): DeclarationTypeNode {
+): TypeDeclaration {
 	const map = programFile.exportsMap();
 
 	const name = extractExportedName(node, map);
@@ -32,7 +28,7 @@ export function extractTypeFromProgramNode(
 
 	const base = extractTypeExpression(node);
 	if (isTypeExpressionNode(base)) {
-		const type: TypeDeclarationNode = {
+		const type: TypeExpressionDeclaration = {
 			at: programFile.filepath,
 			name,
 			kind: 'type',
@@ -46,7 +42,7 @@ export function extractTypeFromProgramNode(
 
 	const target = normalizeTypeRefObject(base);
 
-	const alias: AliasDeclarationNode = {
+	const alias: AliasDeclaration = {
 		at: programFile.filepath,
 		name,
 		kind: 'alias',

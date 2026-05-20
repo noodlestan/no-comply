@@ -1,4 +1,4 @@
-import type { AliasDeclarationNode } from '@purrception/types-ts';
+import type { AliasDeclaration } from '@purrception/types-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import {
@@ -12,7 +12,7 @@ import {
 
 export function layoutAliasDeclaration(
 	ctx: CodeLayoutContextValue,
-	node: AliasDeclarationNode,
+	node: AliasDeclaration,
 ): CodeLayoutNode[] {
 	const target = typeof node.target === 'string' ? node.target : node.target.type;
 	return [

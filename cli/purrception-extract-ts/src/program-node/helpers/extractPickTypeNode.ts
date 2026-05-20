@@ -1,4 +1,4 @@
-import type { PickTypeNode } from '@purrception/types-ts';
+import type { PickTypeNode, TypeRef, UnionTypeNode } from '@purrception/types-ts';
 import type ts from 'typescript';
 
 import { extractTypeExpression } from './extractTypeExpression';
@@ -9,7 +9,7 @@ export function extractPickTypeNode(
 	const [sourceNode, membersNode] = node.typeArguments ?? [];
 
 	const source = extractTypeExpression(sourceNode);
-	const members = extractTypeExpression(membersNode);
+	const members = extractTypeExpression(membersNode) as TypeRef | UnionTypeNode;
 
 	return {
 		kind: 'pick',

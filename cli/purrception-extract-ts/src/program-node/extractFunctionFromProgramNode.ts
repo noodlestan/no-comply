@@ -1,4 +1,4 @@
-import type { FunctionDeclarationNode } from '@purrception/types-ts';
+import type { FunctionDeclaration } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
@@ -15,7 +15,7 @@ import {
 export function extractFunctionFromProgramNode(
 	programFile: ProgramFileAPI,
 	node: ts.FunctionDeclaration | ts.ArrowFunction,
-): FunctionDeclarationNode {
+): FunctionDeclaration {
 	const map = programFile.exportsMap();
 
 	const name = extractExportedName(node, map);

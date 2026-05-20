@@ -1,4 +1,4 @@
-import type { ComponentDeclarationNode } from '@purrception/types-ts';
+import type { ComponentDeclaration } from '@purrception/types-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import { identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
@@ -6,7 +6,7 @@ import { layoutExpression } from '../layoutExpression';
 
 export function layoutComponentDeclaration(
 	ctx: CodeLayoutContextValue,
-	node: ComponentDeclarationNode,
+	node: ComponentDeclaration,
 ): CodeLayoutNode[] {
 	return [
 		keywordToken('function'),

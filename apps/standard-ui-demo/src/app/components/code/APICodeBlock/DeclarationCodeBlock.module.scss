@@ -1,0 +1,9 @@
+@layer app {
+  .DeclarationCodeBlock {
+    pre {
+      margin: 0;
+      padding: var(--space-pad-1);
+      overflow: auto;
+    }
+  }
+}

@@ -7,7 +7,7 @@ import {
 } from '@purrtrait/solid-code';
 import { type ParentComponent } from 'solid-js';
 
-import { getTokenLinkMaybe } from './private';
+import { getTokenLinkMaybe } from './helpers';
 
 type Props = {
 	link: CodeLinkComponent;

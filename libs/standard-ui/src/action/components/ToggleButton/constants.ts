@@ -9,5 +9,6 @@ export const TOGGLE_BUTTON_PROPS = definePropKeys<ToggleButtonProps>()([
 	'size',
 	'onPress',
 	'disabled',
+	'iconOnly',
 	...TOGGLE_ACTION_PROPS,
 ]);

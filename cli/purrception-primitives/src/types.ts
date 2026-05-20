@@ -13,6 +13,7 @@ export interface ExportedSymbol {
 export type EntityDataBasePartial = {
 	type: string;
 	name: string;
+	package: string;
 };
 
 export type EntityDataBase = EntityDataBasePartial & {

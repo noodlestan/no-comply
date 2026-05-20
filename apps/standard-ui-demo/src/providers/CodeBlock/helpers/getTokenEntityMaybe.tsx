@@ -1,19 +1,15 @@
-import type { NoComplyEntityData } from '@no-comply/meta-entities';
-import type { CodeLayoutContextValue } from '@purrtrait/code-layout';
+import type { EntityDataBase } from '@purrception/primitives';
 
-import { routeFor } from '../../../app';
 import { useMeta } from '../../Meta';
 
-export const getTokenLinkMaybe = (
-	ctx: CodeLayoutContextValue,
+export const getTokenEntityMaybe = (
+	entity: EntityDataBase,
 	token: string,
-): string | undefined => {
-	const entity = ctx.context as NoComplyEntityData;
-
+): EntityDataBase | undefined => {
 	const localType = token in entity.symbols.exported;
 
 	if (localType) {
-		return `#${token}`;
+		return entity;
 	}
 
 	const importedSymbol = entity.symbols.imported[token];
@@ -43,5 +39,5 @@ export const getTokenLinkMaybe = (
 		return undefined;
 	}
 
-	return routeFor.entityToken(targetEntity, token);
+	return targetEntity;
 };

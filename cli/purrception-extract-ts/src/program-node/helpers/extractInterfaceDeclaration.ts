@@ -1,4 +1,4 @@
-import type { InterfaceDeclarationNode } from '@purrception/types-ts';
+import type { InterfaceDeclaration } from '@purrception/types-ts';
 import ts from 'typescript';
 
 import { extractNodeGenerics } from './extractNodeGenerics';
@@ -9,7 +9,7 @@ export function extractInterfaceDeclaration(
 	at: string,
 	name: string,
 	node: ts.InterfaceDeclaration,
-): InterfaceDeclarationNode {
+): InterfaceDeclaration {
 	const generic = extractNodeGenerics(node);
 	const object = extractObjectLiteralTypeNode(node);
 

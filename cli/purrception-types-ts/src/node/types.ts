@@ -105,13 +105,13 @@ export interface ComponentNode extends TypeExpressionBase<'component'> {
 export interface PickTypeNode extends TypeExpressionBase<'pick'> {
 	kind: 'pick';
 	source: TypeExpressionNode | TypeRef;
-	members: TypeExpressionNode | TypeRef;
+	members: UnionTypeNode | TypeRef;
 }
 
 export interface OmitTypeNode extends TypeExpressionBase<'omit'> {
 	kind: 'omit';
 	source: TypeExpressionNode | TypeRef;
-	members: TypeExpressionNode | TypeRef;
+	members: UnionTypeNode | TypeRef;
 }
 
 export interface LiteralTypeNode extends TypeExpressionBase<'literal'> {

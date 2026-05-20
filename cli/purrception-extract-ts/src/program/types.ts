@@ -1,9 +1,9 @@
 import { type ExportedSymbol, type ImportedSymbol } from '@purrception/primitives';
 import type {
-	ComponentDeclarationNode,
-	DeclarationNode,
-	DeclarationTypeNode,
-	FunctionDeclarationNode,
+	ComponentDeclaration,
+	Declaration,
+	FunctionDeclaration,
+	TypeDeclaration,
 } from '@purrception/types-ts';
 import ts from 'typescript';
 
@@ -26,10 +26,10 @@ export type ProgramFileAPI = {
 
 export type ProgramAPI = {
 	files: Record<string, ProgramFileAPI>;
-	extractComponents: (files?: string | string[]) => ComponentDeclarationNode[];
-	extractFunctions: (files?: string | string[]) => FunctionDeclarationNode[];
-	extractTypes: (files?: string | string[]) => Record<string, DeclarationTypeNode>;
+	extractComponents: (files?: string | string[]) => ComponentDeclaration[];
+	extractFunctions: (files?: string | string[]) => FunctionDeclaration[];
+	extractTypes: (files?: string | string[]) => Record<string, TypeDeclaration>;
 	extractImports: (files?: string | string[]) => Record<string, ImportedSymbol>;
 	extractExternalImports: (files?: string | string[]) => Record<string, ImportedSymbol>;
-	formatExports: (...args: DeclarationNode[][]) => Record<string, ExportedSymbol>;
+	formatExports: (...args: Declaration[][]) => Record<string, ExportedSymbol>;
 };

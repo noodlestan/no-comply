@@ -1,5 +1,5 @@
 import { type DisplayLevel } from '@no-comply/standard-ui';
-import type { DeclarationNode } from '@purrception/types-ts';
+import type { Declaration } from '@purrception/types-ts';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
 
@@ -25,7 +25,7 @@ export const RenderDocsSection: Component<RenderDocsSectionProps> = props => {
 				<DocsSectionActionBar {..._actionBar()} />
 			</Show>
 			<Show when={hasCode()}>
-				<CodeBlock lang="ts" nodes={[props.section.codeNode as DeclarationNode]} />
+				<CodeBlock lang="ts" nodes={[props.section.codeNode as Declaration]} />
 			</Show>
 			<For each={visisibleItems()}>
 				{item => <RenderDocsItem item={item} level={(props.level + 1) as DisplayLevel} />}

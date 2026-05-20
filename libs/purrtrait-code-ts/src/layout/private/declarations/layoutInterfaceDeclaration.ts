@@ -1,4 +1,4 @@
-import type { InterfaceDeclarationNode } from '@purrception/types-ts';
+import type { InterfaceDeclaration } from '@purrception/types-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import { block, group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
@@ -7,7 +7,7 @@ import { appendSemicolon, eachExpression } from '../utils';
 
 export function layoutInterfaceDeclaration(
 	ctx: CodeLayoutContextValue,
-	declaration: InterfaceDeclarationNode,
+	declaration: InterfaceDeclaration,
 ): CodeLayoutNode[] {
 	return [
 		keywordToken('interface'),

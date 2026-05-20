@@ -15,9 +15,9 @@ export const entityMatcher: EntityMetaMatcher<ContextEntityPartial> = async ctx 
 	return {
 		type: 'context',
 		name,
-		module,
 		// eslint-disable-next-line dot-notation
 		package: ctx.fsContext.meta['package'] as string,
+		module,
 		path: ctx.dirMeta.path,
 	};
 };

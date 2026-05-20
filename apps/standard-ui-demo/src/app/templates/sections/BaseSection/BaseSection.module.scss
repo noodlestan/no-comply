@@ -3,9 +3,9 @@
 
 @layer app {
   .BaseSection {
-    @include focus-ring;
     transition-property: background-color;
     transition-duration: var(--animation-duration-trailing);
+    @include focus-ring;
 
     &[data-is-active] {
       transition-duration: var(--animation-duration-short);
