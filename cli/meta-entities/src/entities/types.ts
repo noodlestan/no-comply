@@ -1,5 +1,5 @@
+import type { TypeDeclaration } from '@purrception/lang-ts';
 import type { EntityDataBase, EntityDataBasePartial } from '@purrception/primitives';
-import type { TypeDeclaration } from '@purrception/types-ts';
 
 export type NoComplyEntityPartial = EntityDataBasePartial & {
 	module: string | undefined;

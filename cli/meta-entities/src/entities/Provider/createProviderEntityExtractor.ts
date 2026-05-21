@@ -1,4 +1,4 @@
-import { createProgram, createProgramFilesContext } from '@purrception/extract-ts';
+import { createProgram, createProgramFilesContext } from '@purrception/lang-ts-extract';
 import {
 	type DirectoryEntityExtractor,
 	type DirectoryEntityProcessor,

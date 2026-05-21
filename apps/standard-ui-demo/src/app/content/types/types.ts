@@ -1,5 +1,5 @@
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import type { Declaration } from '@purrception/types-ts';
+import type { Declaration } from '@purrception/lang-ts';
 import type { JSX } from 'solid-js';
 
 import type { DocsItemProps, DocsResponsiveItemProps, DocsSectionProps } from './components';

@@ -1,9 +1,0 @@
-import type { OperatorTypeNode } from '@purrception/types-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
-
-import { keywordToken, spaceToken } from '../layout';
-import { layoutExpression } from '../layoutExpression';
-
-export function expOperator(ctx: CodeLayoutContextValue, node: OperatorTypeNode): CodeLayoutNode[] {
-	return [keywordToken(node.operator), spaceToken(), ...layoutExpression(ctx, node.operand)];
-}

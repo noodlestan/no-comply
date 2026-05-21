@@ -6,12 +6,12 @@ It is deeply type-aware, and highly customizable.
 
 ## Layer Overview
 
-| Package                   | Responsibility                                                                      |
-| ------------------------- | ----------------------------------------------------------------------------------- |
-| `@purrception/primitives` | Minimal shared types                                                                |
-| `@purrception/source-fs`  | Traversing, watching, and batching tools for extracting entities from file systems. |
-| `@purrception/types-ts`   | Lightweight Typescript AST                                                          |
-| `@purrception/extract-ts` | Extract lightweight Typescript AST from source code                                 |
+| Package                        | Responsibility                                                                      |
+| ------------------------------ | ----------------------------------------------------------------------------------- |
+| `@purrception/primitives`      | Minimal shared types                                                                |
+| `@purrception/source-fs`       | Traversing, watching, and batching tools for extracting entities from file systems. |
+| `@purrception/lang-ts`         | Lightweight Typescript AST                                                          |
+| `@purrception/lang-ts-extract` | Extract lightweight Typescript AST from source code                                 |
 
 **Note:** Purrception is entity agnostic. An example implementation for SolidJS-aware extractors and codebase rules can be found in `@no-comply/meta-entities`
 
@@ -49,7 +49,7 @@ Knows how to walk the filesystem — not what to extract.
 - Root traversal (`processPaths`, `processRootDir`)
 - FS watchers (`createDebouncedWatcher`, `splitContextsToUpdate`, etc.)
 
-## ⚙️ `@purrception/extract-ts`
+## ⚙️ `@purrception/lang-ts-extract`
 
 TypeScript-level AST parsing and type modeling.
 

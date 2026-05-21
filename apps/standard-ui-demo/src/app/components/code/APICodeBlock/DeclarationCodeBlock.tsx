@@ -3,8 +3,11 @@ import type { ToggleActionIcons, ToggleActionLabels } from '@no-comply/solid-com
 import { createIconValue } from '@no-comply/solid-contexts';
 import { createClassList } from '@no-comply/solid-primitives';
 import { Flex, Surface, ToggleButton } from '@no-comply/standard-ui';
-import { createResolveTypeContext, resolveTypeDeclaration } from '@purrception/types-ts';
-import type { TypeDeclaration } from '@purrception/types-ts';
+import {
+	type TypeDeclaration,
+	createResolveTypeContext,
+	resolveTypeDeclaration,
+} from '@purrception/lang-ts';
 import { CodeBlock } from '@purrtrait/solid-code';
 import SplitIcon from 'lucide-solid/icons/trending-up-down';
 import UndoIcon from 'lucide-solid/icons/undo';

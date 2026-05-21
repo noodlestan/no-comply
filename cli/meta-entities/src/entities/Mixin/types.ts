@@ -1,4 +1,4 @@
-import type { FunctionDeclaration, TypeDeclaration } from '@purrception/types-ts';
+import type { FunctionDeclaration, TypeDeclaration } from '@purrception/lang-ts';
 
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 

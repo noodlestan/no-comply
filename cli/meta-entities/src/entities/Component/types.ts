@@ -2,7 +2,7 @@ import type {
 	ComponentDeclaration,
 	FunctionDeclaration,
 	TypeDeclaration,
-} from '@purrception/types-ts';
+} from '@purrception/lang-ts';
 
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 

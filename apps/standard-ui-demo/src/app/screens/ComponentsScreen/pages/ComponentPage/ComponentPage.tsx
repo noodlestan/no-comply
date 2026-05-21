@@ -1,5 +1,4 @@
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import { tsCodeLayout } from '@purrtrait/code-ts';
 import {
 	CodeBlock,
 	SolidCodeLayoutProvider,
@@ -8,6 +7,7 @@ import {
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
+import { tsCodeLayout } from '../../../../../../../../libs/purrtrait-lang-ts/src';
 import { type ComponentName } from '../../../../../data';
 import { useMeta } from '../../../../../providers';
 import {

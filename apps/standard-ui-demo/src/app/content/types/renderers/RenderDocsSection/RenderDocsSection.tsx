@@ -1,5 +1,5 @@
 import { type DisplayLevel } from '@no-comply/standard-ui';
-import type { Declaration } from '@purrception/types-ts';
+import type { Declaration } from '@purrception/lang-ts';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
 
