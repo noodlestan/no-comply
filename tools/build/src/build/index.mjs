@@ -1,11 +1,21 @@
 import * as esbuild from 'esbuild';
 
-import { cjsConfig } from './config/cjs.mjs';
-import { esmConfig } from './config/esm.mjs';
-import { emitTypesPlugin } from './plugins/emitTypesPlugin.mjs';
+import { emitTypesPlugin } from '../plugins/emitTypesPlugin.mjs';
+import { resolvePackageJson } from '../helpers/resolvePackageJson.mjs';
+import { resolveExternalPackages } from '../helpers/resolveExternalPackages.mjs';
 
 export const createBuild = (options = {}, defaults = {}) => {
-  const config = { ...defaults, ...options };
+  const pkg = resolvePackageJson(process.cwd());
+
+  const inferredExternal = resolveExternalPackages(pkg);
+
+  const config = {
+    ...defaults,
+    ...options,
+    external: [
+      ...new Set([...inferredExternal, ...(defaults.external ?? []), ...(options.external ?? [])]),
+    ],
+  };
 
   const watch = async () => {
     const plugins = config.plugins || [];
@@ -25,6 +35,3 @@ export const createBuild = (options = {}, defaults = {}) => {
     build,
   };
 };
-
-export const cjs = options => createBuild(options, cjsConfig);
-export const esm = options => createBuild(options, esmConfig);

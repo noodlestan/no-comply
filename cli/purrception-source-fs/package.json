@@ -28,11 +28,11 @@
     "LICENSE-MIT"
   ],
   "scripts": {
-    "dev": "node scripts/watch.mjs",
+    "dev": "no-comply-watch",
     "build:clean": "rm -rf dist",
     "build:types:esm": "tsc --project tsconfig.esm.json",
     "build:types:cjs": "tsc --project tsconfig.cjs.json",
-    "build": "node scripts/build.mjs",
+    "build": "no-comply-build",
     "test": "echo none yet",
     "test:watch": "vitest",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
@@ -42,12 +42,10 @@
   "dependencies": {
     "@purrception/primitives": "0.0.11",
     "chokidar": "^4.0.3",
-    "perfect-debounce": "^1.0.0",
-    "typescript": "^5.6.3"
+    "perfect-debounce": "^1.0.0"
   },
   "devDependencies": {
     "@no-comply/build-tools": "0.0.11",
-    "@types/node": "^24.0.3",
-    "tsx": "^4.20.3"
+    "@types/node": "^24.0.3"
   }
 }

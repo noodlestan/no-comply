@@ -5,11 +5,9 @@
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
-  "module": "src/index.mjs",
-  "exports": {
-    ".": {
-      "import": "./src/index.mjs"
-    }
+  "bin": {
+    "no-comply-build": "./bin/build.mjs",
+    "no-comply-watch": "./bin/watch.mjs"
   },
   "scripts": {
     "lint": "prettier . -c",

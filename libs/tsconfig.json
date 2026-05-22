@@ -3,7 +3,7 @@
     "skipLibCheck": true, // problems in vitest, @vitest/utils, svgo
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
