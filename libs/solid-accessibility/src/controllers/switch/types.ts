@@ -1,5 +1,5 @@
+import type { AriaAttributes } from '../../attributes';
 import type { SwitchTagName } from '../../tag';
-import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 

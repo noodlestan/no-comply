@@ -1,5 +1,5 @@
+import type { AriaAttributes } from '../../attributes';
 import type { ListItemTagName } from '../../tag';
-import type { AriaAttributes } from '../../types';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
 export interface AriaListItemProps extends AriaLabelledProps {

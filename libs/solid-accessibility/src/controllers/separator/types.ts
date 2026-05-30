@@ -1,5 +1,5 @@
+import type { AriaAttributes } from '../../attributes';
 import type { SeparatorTagName } from '../../tag';
-import type { AriaAttributes } from '../../types';
 
 export type SeparatorOrientation = 'button' | 'submit' | 'reset';
 

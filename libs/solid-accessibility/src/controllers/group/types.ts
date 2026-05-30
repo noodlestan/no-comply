@@ -1,6 +1,6 @@
 import type { Accessor } from 'solid-js';
 
-import type { AriaAttributes } from '../../types';
+import type { AriaAttributes } from '../../attributes';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 

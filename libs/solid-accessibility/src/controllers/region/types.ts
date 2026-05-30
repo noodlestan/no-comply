@@ -1,6 +1,6 @@
 import type { Accessor } from 'solid-js';
 
-import type { AriaRoleName } from '../../types';
+import type { AriaRoleName } from '../../role';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
 export interface AriaRegionProps extends AriaLabelledProps {

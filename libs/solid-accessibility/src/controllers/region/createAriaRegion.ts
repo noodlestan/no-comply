@@ -1,6 +1,6 @@
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
-import type { AriaRoleName } from '../../types';
+import type { AriaRoleName } from '../../role';
 import { createAriaLabelled } from '../label';
 
 import type { AriaGenericRegionAPI, AriaRegionAPI, AriaRegionProps } from './types';
