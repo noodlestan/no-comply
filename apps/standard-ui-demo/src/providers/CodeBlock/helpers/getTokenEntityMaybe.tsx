@@ -6,6 +6,7 @@ export const getTokenEntityMaybe = (
 	entity: EntityDataBase,
 	token: string,
 ): EntityDataBase | undefined => {
+	const errorId = `token "${token}" in entity "${entity.type}:${entity.name}"`;
 	const localType = token in entity.symbols.exported;
 
 	if (localType) {
@@ -15,7 +16,7 @@ export const getTokenEntityMaybe = (
 	const importedSymbol = entity.symbols.imported[token];
 
 	if (!importedSymbol) {
-		console.warn(`Unresolved token "${token}" in entity "${entity.name}".`);
+		console.warn(`Unresolved ${errorId} (unknown symbol).`);
 		return undefined;
 	}
 
@@ -32,10 +33,14 @@ export const getTokenEntityMaybe = (
 		return importedSymbol.name in candidate.symbols.exported;
 	});
 
+	if (matches.length > 1) {
+		console.warn(`Multiple entities matched ${errorId}.`);
+	}
+
 	const targetEntity = matches[0];
 
 	if (!targetEntity) {
-		console.warn(`Multiple entities for "${token}" in entity "${entity.name}".`);
+		console.warn(`Unresolved ${errorId} (no entity matched).`);
 		return undefined;
 	}
 

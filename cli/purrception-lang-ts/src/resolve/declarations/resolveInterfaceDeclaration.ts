@@ -1,20 +1,26 @@
 import type { InterfaceDeclaration, TypeExpressionDeclaration } from '../../declaration';
-import type {
-	ObjectLiteralTypeMember,
-	ObjectLiteralTypeNode,
-	TypeExpressionNode,
-} from '../../node';
-import { resolveExpression } from '../resolveTypeDeclaration';
+import type { ObjectLiteralTypeMember, ObjectLiteralTypeNode } from '../../node';
+import { resolveExpression } from '../expressions';
 import { type ResolveTypeContext } from '../types';
 
 export function resolveInterfaceDeclaration(
 	context: ResolveTypeContext,
-	node: InterfaceDeclaration,
-): TypeExpressionDeclaration<TypeExpressionNode> {
-	const { members = {}, heritage = [] } = node;
+	declaration: InterfaceDeclaration,
+): TypeExpressionDeclaration<ObjectLiteralTypeNode> {
+	const {
+		at,
+		name,
+		generic,
+		members = {},
+		heritage = [],
+		description,
+		templateTags,
+		tags,
+	} = declaration;
 
 	const object: ObjectLiteralTypeNode = {
 		kind: 'object',
+		generic,
 		members: {},
 	};
 
@@ -23,20 +29,22 @@ export function resolveInterfaceDeclaration(
 		source: Record<string, ObjectLiteralTypeMember>,
 	) {
 		for (const key in source) {
-			const member = source[key] as ObjectLiteralTypeMember;
-
-			const resolvedType = resolveExpression(context, member.type);
-
+			const { optional, type, description, templateTags, tags } = source[
+				key
+			] as ObjectLiteralTypeMember;
+			const resolvedType = resolveExpression(context, type);
 			target[key] = {
-				...member,
+				optional,
 				type: resolvedType,
+				description,
+				templateTags,
+				tags,
 			};
 		}
 	}
 
 	for (const h of heritage) {
 		const resolved = resolveExpression(context, h);
-
 		if (
 			resolved &&
 			typeof resolved !== 'string' &&
@@ -48,19 +56,28 @@ export function resolveInterfaceDeclaration(
 	}
 
 	for (const key in members) {
-		const member = members[key] as ObjectLiteralTypeMember;
-
-		const resolvedType = resolveExpression(context, member.type);
-
+		const { optional, type, description, templateTags, tags } = members[
+			key
+		] as ObjectLiteralTypeMember;
+		const resolvedType = resolveExpression(context, type);
 		object.members[key] = {
-			...member,
+			optional,
 			type: resolvedType,
+			description,
+			templateTags,
+			tags,
 		};
 	}
 
-	return {
-		...node,
+	const resolved = {
+		at,
+		name,
 		kind: 'type',
 		node: object,
-	};
+		description,
+		templateTags,
+		tags,
+	} as const;
+
+	return resolved;
 }

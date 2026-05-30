@@ -92,7 +92,7 @@ export async function createProgram(
 	};
 
 	const isLocalImport = (dep: ImportedSymbol) => {
-		return dep.from.includes(ctx.path);
+		return dep.from.endsWith(ctx.path) || dep.from.includes(ctx.path + '/');
 	};
 
 	const extractExternalImports = (files?: string | string[]) => {

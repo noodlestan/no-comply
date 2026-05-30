@@ -12,13 +12,14 @@ import {
 
 export function layoutAliasDeclaration(
 	ctx: CodeLayoutContextValue,
-	node: AliasDeclaration,
+	declaration: AliasDeclaration,
 ): CodeLayoutNode[] {
-	const target = typeof node.target === 'string' ? node.target : node.target.type;
+	const target =
+		typeof declaration.target === 'string' ? declaration.target : declaration.target.type;
 	return [
 		keywordToken('type'),
 		spaceToken(),
-		identifierToken(node.name),
+		identifierToken(declaration.name),
 		spaceToken(),
 		symbolToken('='),
 		spaceToken(),

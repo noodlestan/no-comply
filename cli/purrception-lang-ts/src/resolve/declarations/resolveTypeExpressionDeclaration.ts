@@ -1,14 +1,14 @@
 import type { TypeExpressionDeclaration } from '../../declaration';
 import type { TypeExpressionNode } from '../../node';
-import { resolveExpression } from '../resolveTypeDeclaration';
+import { resolveExpression } from '../expressions';
 import { type ResolveTypeContext } from '../types';
 
 export function resolveTypeExpressionDeclaration(
 	context: ResolveTypeContext,
-	node: TypeExpressionDeclaration,
+	declaration: TypeExpressionDeclaration,
 ): TypeExpressionDeclaration<TypeExpressionNode> {
 	return {
-		...node,
-		node: resolveExpression(context, node.node) as TypeExpressionNode,
+		...declaration,
+		node: resolveExpression(context, declaration.node) as TypeExpressionNode,
 	};
 }

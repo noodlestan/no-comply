@@ -1,9 +1,7 @@
 import type { TypeExpressionNode, TypeRef } from '../types';
 
-export function isTypeExpressionNode(
-	data: TypeExpressionNode | TypeRef,
-): data is TypeExpressionNode {
-	if (!data || typeof data !== 'object' || !('kind' in data)) {
+export function isTypeExpressionNode(exp: TypeExpressionNode | TypeRef): exp is TypeExpressionNode {
+	if (!exp || typeof exp !== 'object' || !('kind' in exp)) {
 		return false;
 	}
 	return true;

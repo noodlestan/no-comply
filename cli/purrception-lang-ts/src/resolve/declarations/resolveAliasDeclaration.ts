@@ -1,15 +1,15 @@
 import type { AliasDeclaration, TypeExpressionDeclaration } from '../../declaration';
 import type { TypeExpressionNode } from '../../node';
-import { resolveExpression } from '../resolveTypeDeclaration';
+import { resolveExpression } from '../expressions';
 import { type ResolveTypeContext } from '../types';
 
 export function resolveAliasDeclaration(
 	context: ResolveTypeContext,
-	node: AliasDeclaration,
+	declaration: AliasDeclaration,
 ): TypeExpressionDeclaration<TypeExpressionNode> {
 	return {
-		...node,
+		...declaration,
 		kind: 'type',
-		node: resolveExpression(context, node.target) as TypeExpressionNode,
+		node: resolveExpression(context, declaration.target) as TypeExpressionNode,
 	};
 }

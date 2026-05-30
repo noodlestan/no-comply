@@ -1,6 +1,8 @@
 import type { InterfaceDeclaration } from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
+import { createCodeLayoutWithGenericParamsContext } from '../../../contexts';
+import { layoutGenerics } from '../generics';
 import { block, group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { appendSemicolon, eachExpression } from '../utils';
@@ -9,16 +11,21 @@ export function layoutInterfaceDeclaration(
 	ctx: CodeLayoutContextValue,
 	declaration: InterfaceDeclaration,
 ): CodeLayoutNode[] {
+	const genericCtx = createCodeLayoutWithGenericParamsContext(
+		ctx,
+		declaration.generic?.map(x => x.name) ?? [],
+	);
+
 	return [
 		keywordToken('interface'),
 		spaceToken(),
 		identifierToken(declaration.name),
-		// ...(node.generic ? typeParams(ctx, node.generic) : []),
+		...layoutGenerics(ctx, declaration.generic),
 		...(declaration.heritage?.length ? [spaceToken(), keywordToken('extends'), spaceToken()] : []),
 		...eachExpression(
-			ctx,
+			genericCtx,
 			declaration.heritage,
-			(ctx, heritage) => layoutExpression(ctx, heritage),
+			(genericCtx, heritage) => layoutExpression(genericCtx, heritage),
 			() => [symbolToken(','), spaceToken()],
 		),
 		...(declaration.heritage ? [spaceToken()] : []),
@@ -31,7 +38,7 @@ export function layoutInterfaceDeclaration(
 					...(member.optional ? [symbolToken('?')] : []),
 					symbolToken(':'),
 					spaceToken(),
-					group(appendSemicolon(layoutExpression(ctx, member.type))),
+					group(appendSemicolon(layoutExpression(genericCtx, member.type))),
 					...(i < arr.length - 1 ? [spaceToken()] : []),
 				]);
 			}),

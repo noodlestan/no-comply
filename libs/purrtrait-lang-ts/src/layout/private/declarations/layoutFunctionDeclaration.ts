@@ -9,34 +9,34 @@ import { eachExpression } from '../utils';
 
 export function layoutFunctionDeclaration(
 	ctx: CodeLayoutContextValue,
-	node: FunctionDeclaration,
+	declaration: FunctionDeclaration,
 ): CodeLayoutNode[] {
-	if (node.type) {
+	if (declaration.type) {
 		return [
 			keywordToken('const'),
 			spaceToken(),
-			identifierToken(node.name),
+			identifierToken(declaration.name),
 			symbolToken(':'),
 			spaceToken(),
-			...layoutExpression(ctx, node.type),
+			...layoutExpression(ctx, declaration.type),
 		];
 	}
 
 	const genericCtx = createCodeLayoutWithGenericParamsContext(
 		ctx,
-		node.generic?.map(x => x.name) ?? [],
+		declaration.generic?.map(x => x.name) ?? [],
 	);
 
 	return [
 		keywordToken('function'),
 		spaceToken(),
-		identifierToken(node.name),
-		...layoutGenerics(ctx, node.generic),
+		identifierToken(declaration.name),
+		...layoutGenerics(ctx, declaration.generic),
 		symbolToken('('),
 		group(
 			eachExpression(
 				ctx,
-				node.params,
+				declaration.params,
 				(ctx, item) => [
 					identifierToken(item.name),
 					symbolToken(':'),
@@ -49,6 +49,6 @@ export function layoutFunctionDeclaration(
 		symbolToken(')'),
 		symbolToken(':'),
 		spaceToken(),
-		...layoutExpression(genericCtx, node.returns?.type || 'void'),
+		...layoutExpression(genericCtx, declaration.returns?.type || 'void'),
 	];
 }

@@ -14,6 +14,7 @@ export const BUILTIN_TYPES = new Set([
 
 export const BUILTIN_GLOBALS = new Set([
 	'Record',
+	'NonNullable',
 	'Partial',
 	'Required',
 	'Readonly',

@@ -6,17 +6,17 @@ import { layoutExpression } from '../layoutExpression';
 
 export function layoutComponentDeclaration(
 	ctx: CodeLayoutContextValue,
-	node: ComponentDeclaration,
+	declaration: ComponentDeclaration,
 ): CodeLayoutNode[] {
 	return [
 		keywordToken('function'),
 		spaceToken(),
-		identifierToken(node.name),
+		identifierToken(declaration.name),
 		symbolToken(':'),
 		spaceToken(),
 		keywordToken('Component'),
 		symbolToken('<'),
-		...(node.props ? layoutExpression(ctx, node.props) : []),
+		...(declaration.props ? layoutExpression(ctx, declaration.props) : []),
 		symbolToken('>'),
 	];
 }
