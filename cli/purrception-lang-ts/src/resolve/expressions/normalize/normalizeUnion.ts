@@ -18,7 +18,7 @@ export function normalizeUnion(exp: TypeExpressionNode | TypeRef): UnionTypeNode
 		};
 	}
 
-	console.warn(`Unsupported union type node:`, exp);
+	console.warn(`Unsupported union type candidate:`, exp);
 	return {
 		kind: 'union',
 		entries: [],

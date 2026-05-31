@@ -1,13 +1,30 @@
-import type { ObjectLiteralTypeMember } from '@purrception/lang-ts';
+import type { ObjectIndexSignature, ObjectLiteralTypeMember } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractDeclarationJsDoc } from '../../jsdoc';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
+type ExtractedObjectMember = {
+	name: string;
+	member: ObjectLiteralTypeMember;
+};
+
+type ExtractedObjectIndexSignature = {
+	signature: ObjectIndexSignature;
+};
+
+type ExtractedObjectElement = ExtractedObjectMember | ExtractedObjectIndexSignature;
+
+function hasReadonlyModifier(
+	node: ts.PropertySignature | ts.MethodSignature | ts.IndexSignatureDeclaration,
+): boolean {
+	return Boolean(node.modifiers?.some(modifier => modifier.kind === ts.SyntaxKind.ReadonlyKeyword));
+}
+
 export function extractObjectLiteralTypeMember(
 	element: ts.TypeElement,
-): { name: string; member: ObjectLiteralTypeMember } | undefined {
+): ExtractedObjectElement | undefined {
 	const { description, tags } = extractDeclarationJsDoc(element);
 
 	if (ts.isPropertySignature(element)) {
@@ -15,6 +32,7 @@ export function extractObjectLiteralTypeMember(
 			name: element.name.getText(),
 			member: {
 				optional: Boolean(element.questionToken),
+				readonly: hasReadonlyModifier(element),
 				type: element.type ? extractTypeExpression(element.type) : 'unknown',
 				description,
 				tags,
@@ -35,22 +53,14 @@ export function extractObjectLiteralTypeMember(
 	}
 
 	if (ts.isIndexSignatureDeclaration(element)) {
-		const name = element.parameters[0]?.name as { text: 'string' };
-		return {
-			name: `[${name?.text || '??'}]`,
-			member: {
-				type: extractTypeExpression(element.type),
-				description,
-				tags,
-			},
-		};
-	}
+		const param = element.parameters[0];
 
-	if (ts.isCallSignatureDeclaration(element)) {
 		return {
-			name: element.name?.getText() || '??',
-			member: {
-				type: element.type ? extractTypeExpression(element.type) : 'unknown',
+			signature: {
+				keyName: param?.name.getText() ?? 'key',
+				keyType: param?.type ? extractTypeExpression(param.type) : 'unknown',
+				valueType: element.type ? extractTypeExpression(element.type) : 'unknown',
+				readonly: hasReadonlyModifier(element),
 				description,
 				tags,
 			},

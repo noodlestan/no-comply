@@ -37,7 +37,6 @@ export function resolveTypeRefNode(
 		return node;
 	}
 
-	console.info('>>', node, type);
 	const nestedContext = context.createChildContext(targetEntity, targetType, targetParams);
 	const declaration = resolveTypeDeclaration(nestedContext, type);
 

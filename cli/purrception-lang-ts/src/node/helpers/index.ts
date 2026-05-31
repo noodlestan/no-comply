@@ -2,6 +2,7 @@
 export * from './isBuiltInToken';
 export * from './isIntersectionTypeNode';
 export * from './isLiteralTypeNode';
+export * from './isMappedTypeNode';
 export * from './isObjectLiteralTypeNode';
 export * from './isTypeExpressionNode';
 export * from './isTypeRef';

@@ -6,9 +6,8 @@ import {
 	isObjectLiteralTypeNode,
 } from '../../../node';
 import type { ResolveTypeContext } from '../../types';
+import { normalizeUnion } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
-
-import { normalizeUnion } from './normalizeUnion';
 
 export function resolvePick(
 	context: ResolveTypeContext,

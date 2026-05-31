@@ -39,11 +39,29 @@ export interface TypeExpressionGeneric {
 export interface ObjectLiteralTypeMember extends DeclarationJsDocData {
 	type: TypeExpressionNode | TypeRef;
 	optional?: boolean;
+	readonly?: boolean;
+}
+
+export interface ObjectIndexSignature extends DeclarationJsDocData {
+	keyName: string;
+	keyType: TypeExpressionNode | TypeRef;
+	valueType: TypeExpressionNode | TypeRef;
+	readonly?: boolean;
+}
+
+export interface ObjectMappedSignature extends DeclarationJsDocData {
+	paramName: string;
+	constraint: TypeExpressionNode | TypeRef;
+	valueType: TypeExpressionNode | TypeRef;
+	optional?: boolean;
+	readonly?: boolean;
 }
 
 export interface ObjectLiteralTypeNode extends TypeExpressionBase<'object'> {
 	kind: 'object';
 	members: Record<string, ObjectLiteralTypeMember>;
+	indexSignatures?: ObjectIndexSignature[];
+	mappedSignatures?: ObjectMappedSignature[];
 }
 
 export interface ArrayTypeNode extends TypeExpressionBase<'array'> {
