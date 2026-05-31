@@ -10,7 +10,7 @@ type Props = {
 
 export const APIComponentSection: Component<Props> = props => {
 	return (
-		<DocsSection title="<Component>">
+		<DocsSection title="Summary">
 			<CodeBlock lang="ts" nodes={[props.ent.component]} context={props.ent} />
 		</DocsSection>
 	);

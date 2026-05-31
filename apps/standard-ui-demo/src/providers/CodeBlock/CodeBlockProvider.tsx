@@ -1,12 +1,11 @@
 // Static imports for build-time JSON inclusion
+import { tsCodeLayout } from '@purrtrait/lang-ts';
 import {
 	type CodeLinkComponent,
 	SolidCodeLayoutProvider,
 	createSolidCodeLayoutContext,
 } from '@purrtrait/solid-code';
 import { type ParentComponent } from 'solid-js';
-
-import { tsCodeLayout } from '../../../../../libs/purrtrait-lang-ts/src';
 
 import { getTokenLinkMaybe } from './helpers';
 

@@ -49,6 +49,12 @@ export const ApiEntityPage: Component = () => {
 				<BasePage
 					title={title()}
 					overtitle={<ApiBreadcrumbs pkg={pkg()} mod={mod()} type={type()} ent={name()} />}
+					undertitle={
+						<Text>
+							See also{' '}
+							<Link href={routeFor.component(data()?.name as string)}>Component Usage</Link>
+						</Text>
+					}
 					data-api-entity-page
 				>
 					<Switch fallback={<>TYPE: {type()}</>}>

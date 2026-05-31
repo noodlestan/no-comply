@@ -1,21 +1,20 @@
+/* eslint-disable dot-notation */
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import {
-	CodeBlock,
-	SolidCodeLayoutProvider,
-	createSolidCodeLayoutContext,
-} from '@purrtrait/solid-code';
+import { Display, Link, Text } from '@no-comply/standard-ui';
+import type { TypeDeclaration } from '@purrception/lang-ts';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
-import { tsCodeLayout } from '../../../../../../../../libs/purrtrait-lang-ts/src';
 import { type ComponentName } from '../../../../../data';
 import { useMeta } from '../../../../../providers';
+import { DeclarationCodeBlock } from '../../../../components';
 import {
 	ComponentMeta,
 	type DocsSectionData,
 	RenderDocsSections,
 	components,
 } from '../../../../content';
+import { routeFor } from '../../../../navigation';
 import { BasePage, NotFoundPage } from '../../../../templates';
 
 export const ComponentPage: Component = () => {
@@ -28,16 +27,6 @@ export const ComponentPage: Component = () => {
 		getEntityMaybe('@no-comply/standard-ui', 'component', name()) as ComponentEntityData;
 	const page = () => components[name()]?.(data());
 
-	const linker = (ctx: unknown, token: string) => {
-		if (token === 'Props') {
-			return '#Props';
-		}
-		// console.log(token, data());
-		return 'https://works.example';
-	};
-
-	const codeLayoutContext = createSolidCodeLayoutContext({ langs: [tsCodeLayout], linker });
-
 	return (
 		<>
 			<Show when={!data()}>
@@ -48,13 +37,23 @@ export const ComponentPage: Component = () => {
 			<Show when={data()}>
 				<BasePage
 					title={data()?.name}
-					undertitle={<ComponentMeta component={data()} />}
+					undertitle={
+						<>
+							<ComponentMeta component={data()} />
+							<Text>
+								See also <Link href={routeFor.entity(data())}>API Reference</Link>
+							</Text>
+						</>
+					}
 					data-component-page
 				>
-					<SolidCodeLayoutProvider context={codeLayoutContext}>
-						<CodeBlock lang="ts" nodes={[data().component]} context={data()} />
-						<RenderDocsSections sections={page()?.items as DocsSectionData[]} />
-					</SolidCodeLayoutProvider>
+					<Display level={3}>Props</Display>
+					<DeclarationCodeBlock
+						type={data().types['Props'] as TypeDeclaration}
+						entity={data()}
+						resolve={true}
+					/>
+					<RenderDocsSections sections={page()?.items as DocsSectionData[]} />
 				</BasePage>
 			</Show>
 		</>

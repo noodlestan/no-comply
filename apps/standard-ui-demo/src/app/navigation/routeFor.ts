@@ -1,14 +1,12 @@
 import type { EntityDataBase } from '@purrception/primitives';
 
-import type { ComponentName } from '../../data';
-
 const url = (path: string) => path;
 
 export const routeFor = {
 	home: (): string => url(`/`),
 	showcase: (screen: string = ''): string => url(`/app/${screen}`),
 	feature: (name: string): string => url(`/features/${name}`),
-	component: (name: ComponentName): string => url(`/features/components/${name}`),
+	component: (name: string): string => url(`/features/components/${name}`),
 	resources: (name: string = ''): string => url(`/resources/${name}`),
 	api: (): string => url(`/api`),
 	package: (pkg: string): string => url(`/api/${pkg}`),
