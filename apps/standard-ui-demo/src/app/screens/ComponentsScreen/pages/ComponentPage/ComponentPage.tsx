@@ -1,19 +1,20 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import { Display, Link, Text } from '@no-comply/standard-ui';
-import type { TypeDeclaration } from '@purrception/lang-ts';
+import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
+import {
+	type ObjectLiteralTypeNode,
+	type TypeDeclaration,
+	type TypeExpressionDeclaration,
+	createResolveTypeContext,
+	resolveTypeDeclaration,
+} from '@purrception/lang-ts';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
 import { type ComponentName } from '../../../../../data';
-import { useMeta } from '../../../../../providers';
-import { DeclarationCodeBlock } from '../../../../components';
-import {
-	ComponentMeta,
-	type DocsSectionData,
-	RenderDocsSections,
-	components,
-} from '../../../../content';
+import { getTokenEntityMaybe, useMeta } from '../../../../../providers';
+import { ComponentPropsTable } from '../../../../components';
+import { ComponentMeta } from '../../../../content';
 import { routeFor } from '../../../../navigation';
 import { BasePage, NotFoundPage } from '../../../../templates';
 
@@ -25,7 +26,16 @@ export const ComponentPage: Component = () => {
 	const { getEntityMaybe } = useMeta();
 	const data = () =>
 		getEntityMaybe('@no-comply/standard-ui', 'component', name()) as ComponentEntityData;
-	const page = () => components[name()]?.(data());
+	// const page = () => components[name()]?.(data());
+
+	const componentProps = () => {
+		const context = createResolveTypeContext(getTokenEntityMaybe, data());
+		const props = resolveTypeDeclaration(
+			context,
+			data().types['Props'] as TypeDeclaration,
+		) as TypeExpressionDeclaration<ObjectLiteralTypeNode>;
+		return Object.entries(props.node.members).map(([name, node]) => ({ name, node }));
+	};
 
 	return (
 		<>
@@ -37,23 +47,22 @@ export const ComponentPage: Component = () => {
 			<Show when={data()}>
 				<BasePage
 					title={data()?.name}
-					undertitle={
-						<>
-							<ComponentMeta component={data()} />
-							<Text>
-								See also <Link href={routeFor.entity(data())}>API Reference</Link>
-							</Text>
-						</>
-					}
+					undertitle={<ComponentMeta component={data()} />}
 					data-component-page
 				>
-					<Display level={3}>Props</Display>
-					<DeclarationCodeBlock
+					<Flex gap="l">
+						<Display level={3}>Props</Display>
+
+						<Text>
+							See also <Link href={routeFor.entity(data())}>API Reference</Link>
+						</Text>
+						{/* <DeclarationCodeBlock
 						type={data().types['Props'] as TypeDeclaration}
 						entity={data()}
 						resolve={true}
-					/>
-					<RenderDocsSections sections={page()?.items as DocsSectionData[]} />
+					/> */}
+						<ComponentPropsTable component={data()} props={componentProps()} />
+					</Flex>
 				</BasePage>
 			</Show>
 		</>

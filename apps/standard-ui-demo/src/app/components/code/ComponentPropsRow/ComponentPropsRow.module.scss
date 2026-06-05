@@ -1,0 +1,10 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .RowHeader {
+    border-block-end: solid var(--border-width-thin);
+
+    @include set-color(__border, primary, border-muted, opaque);
+    @include apply-color(border-color, __border);
+  }
+}

@@ -44,7 +44,7 @@ export type CodeLayoutNode =
 
 export interface CodeLayoutLanguage {
 	lang: string;
-	layout: (ctx: CodeLayoutContextValue, node: object) => CodeLayoutNode[];
+	layout: (ctx: CodeLayoutContextValue, node: object | string) => CodeLayoutNode[];
 }
 
 export interface CodeLayoutLine {

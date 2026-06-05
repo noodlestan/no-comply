@@ -10,8 +10,8 @@
       left: var(--tree-list-item-indent);
       right: 0;
       bottom: 1px;
-      border-bottom: var(--surface-divider-alt);
-      border-bottom-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
+      border-block-end: var(--surface-divider-alt);
+      border-block-end-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
     }
 
     &[data-tree-item-is-selected]::after,

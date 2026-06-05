@@ -10,6 +10,11 @@ import type { ContentSize } from '../../../size';
 
 export type IconProps = HeadlessIconProps &
 	IconMixinProps & {
+		/**
+		 * Sets the icon size
+		 *
+		 * @default normal
+		 */
 		size?: ContentSize;
 	};
 

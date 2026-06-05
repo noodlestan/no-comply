@@ -2,13 +2,7 @@ import type { AriaAttributes } from '../../attributes';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-/**
- * This and that
- */
 export interface AriaTreeItemProps extends AriaLabelledProps {
-	/**
-	 * Foo
-	 */
 	selected: boolean;
 	expanded: boolean;
 	level: number;

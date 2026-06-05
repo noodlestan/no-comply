@@ -1,7 +1,7 @@
 import type { ObjectIndexSignature, ObjectLiteralTypeMember } from '@purrception/lang-ts';
 import ts from 'typescript';
 
-import { extractDeclarationJsDoc } from '../../jsdoc';
+import { extractNodeJsDoc } from '../../jsdoc';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
@@ -25,7 +25,7 @@ function hasReadonlyModifier(
 export function extractObjectLiteralTypeMember(
 	element: ts.TypeElement,
 ): ExtractedObjectElement | undefined {
-	const { description, tags } = extractDeclarationJsDoc(element);
+	const { description, tags } = extractNodeJsDoc(element);
 
 	if (ts.isPropertySignature(element)) {
 		return {

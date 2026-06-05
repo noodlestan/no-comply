@@ -70,7 +70,8 @@ Generates lightweight and portable trees.
 
 ### JSDoc
 
-- `extractDeclarationJsDoc`
+- `extractNodeJsDoc`
+- `extractFunctionJsDoc`
 - `hasJsDocIgnore`
 
 ### Helpers

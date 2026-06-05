@@ -21,7 +21,7 @@ export const CodeBlock: Component<CodeBlockProps> = props => {
 	};
 
 	return (
-		<pre>
+		<pre style={{ margin: 0 }}>
 			<CodeLayoutRenderer lines={lines()} />
 		</pre>
 	);

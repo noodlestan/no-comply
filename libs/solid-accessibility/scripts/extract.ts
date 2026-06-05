@@ -40,8 +40,7 @@ async function main() {
 
 	const entities = extracted.map(({ entity: e }) => e);
 
-	// eslint-disable-next-line dot-notation
-	console.info(entities.map(e => `${e['module']}/${e.type}:${e.name}`));
+	console.info(path.resolve('./dist/meta.json'));
 	await writeFile('./dist/meta.json', JSON.stringify(entities, null, 2));
 
 	// createDebouncedWatcher({

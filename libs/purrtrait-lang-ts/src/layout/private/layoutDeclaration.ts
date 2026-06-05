@@ -1,6 +1,7 @@
 import type {
 	AliasDeclaration,
 	ComponentDeclaration,
+	Declaration,
 	FunctionDeclaration,
 	InterfaceDeclaration,
 	TypeExpressionDeclaration,
@@ -15,21 +16,24 @@ import {
 } from './declarations';
 import { layoutFunctionDeclaration } from './declarations/layoutFunctionDeclaration';
 
-export function layoutDeclaration(ctx: CodeLayoutContextValue, node: object): CodeLayoutNode[] {
-	if ('kind' in node) {
-		switch (node.kind) {
+export function layoutDeclaration(
+	ctx: CodeLayoutContextValue,
+	declaration: Declaration,
+): CodeLayoutNode[] {
+	if ('kind' in declaration) {
+		switch (declaration.kind) {
 			case 'type':
-				return layoutTypeDeclaration(ctx, node as TypeExpressionDeclaration);
+				return layoutTypeDeclaration(ctx, declaration as TypeExpressionDeclaration);
 			case 'alias':
-				return layoutAliasDeclaration(ctx, node as AliasDeclaration);
+				return layoutAliasDeclaration(ctx, declaration as AliasDeclaration);
 			case 'function':
-				return layoutFunctionDeclaration(ctx, node as FunctionDeclaration);
+				return layoutFunctionDeclaration(ctx, declaration as FunctionDeclaration);
 			case 'component':
-				return layoutComponentDeclaration(ctx, node as ComponentDeclaration);
+				return layoutComponentDeclaration(ctx, declaration as ComponentDeclaration);
 			case 'interface':
-				return layoutInterfaceDeclaration(ctx, node as InterfaceDeclaration);
+				return layoutInterfaceDeclaration(ctx, declaration as InterfaceDeclaration);
 		}
 	}
-	console.error(`Invalid node:`, node);
+	console.error(`Invalid node:`, declaration);
 	throw new Error(`Invalid node.`);
 }

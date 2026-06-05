@@ -7,7 +7,7 @@ import {
 } from '@purrception/lang-ts';
 import ts from 'typescript';
 
-import { extractDeclarationJsDoc } from '../jsdoc';
+import { extractNodeJsDoc } from '../jsdoc';
 import type { ProgramFileAPI } from '../program';
 
 import { extractExportedName, extractInterfaceDeclaration, extractTypeExpression } from './helpers';
@@ -19,7 +19,7 @@ export function extractTypeFromProgramNode(
 	const map = programFile.exportsMap();
 
 	const name = extractExportedName(node, map);
-	const jsDoc = extractDeclarationJsDoc(node);
+	const jsDoc = extractNodeJsDoc(node);
 	const { description, templateTags, tags } = jsDoc;
 
 	if (ts.isInterfaceDeclaration(node)) {

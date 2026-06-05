@@ -46,6 +46,6 @@ export function resolveExpression(
 		case 'function':
 			return exp;
 		default:
-			throw new Error(`Unknown kind ${(exp as TypeExpressionNode).kind} in expression`);
+			throw new Error(`Unknown expression kind ${(exp as TypeExpressionNode).kind} in expression`);
 	}
 }

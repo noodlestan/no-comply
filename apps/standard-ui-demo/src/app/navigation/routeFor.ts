@@ -8,7 +8,7 @@ export const routeFor = {
 	feature: (name: string): string => url(`/features/${name}`),
 	component: (name: string): string => url(`/features/components/${name}`),
 	resources: (name: string = ''): string => url(`/resources/${name}`),
-	api: (): string => url(`/api`),
+	api: (path?: string): string => (path ? url(`/api/${path}`) : url(`/api`)),
 	package: (pkg: string): string => url(`/api/${pkg}`),
 	module: (pkg: string, mod: string): string => url(`/api/${pkg}/${mod}`),
 	entity: (

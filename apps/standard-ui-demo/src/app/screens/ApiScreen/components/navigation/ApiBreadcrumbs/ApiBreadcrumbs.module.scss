@@ -2,8 +2,8 @@
 
 @layer app {
   .ApiBreadcrumbs {
-    border-bottom-style: solid;
-    border-bottom-width: var(--border-width-thin);
+    border-block-end-style: solid;
+    border-block-end-width: var(--border-width-thin);
     @include set-color(__border, primary, border-0, opaque);
     @include apply-color(border-color, __border);
   }
