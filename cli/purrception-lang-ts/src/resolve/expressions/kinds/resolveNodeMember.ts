@@ -1,9 +1,9 @@
-import { type TypeExpressionNode, type TypeRef, isObjectLiteralTypeNode } from '../../../node';
+import { type TypeExpressionNode, isObjectLiteralTypeNode } from '../../../node';
 
 export function resolveNodeMember(
 	node: TypeExpressionNode,
 	member: string,
-): TypeExpressionNode | TypeRef | undefined {
+): TypeExpressionNode | undefined {
 	if (!isObjectLiteralTypeNode(node)) {
 		return undefined;
 	}
@@ -12,6 +12,10 @@ export function resolveNodeMember(
 
 	if (!targetMember) {
 		return undefined;
+	}
+
+	if (typeof targetMember.type === 'object') {
+		return { ...targetMember.type, resolved: node.resolved };
 	}
 
 	return targetMember.type;

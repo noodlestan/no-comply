@@ -1,5 +1,4 @@
 import type {
-	AliasDeclaration,
 	ComponentDeclaration,
 	Declaration,
 	FunctionDeclaration,
@@ -9,7 +8,6 @@ import type {
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import {
-	layoutAliasDeclaration,
 	layoutComponentDeclaration,
 	layoutInterfaceDeclaration,
 	layoutTypeDeclaration,
@@ -24,8 +22,6 @@ export function layoutDeclaration(
 		switch (declaration.kind) {
 			case 'type':
 				return layoutTypeDeclaration(ctx, declaration as TypeExpressionDeclaration);
-			case 'alias':
-				return layoutAliasDeclaration(ctx, declaration as AliasDeclaration);
 			case 'function':
 				return layoutFunctionDeclaration(ctx, declaration as FunctionDeclaration);
 			case 'component':

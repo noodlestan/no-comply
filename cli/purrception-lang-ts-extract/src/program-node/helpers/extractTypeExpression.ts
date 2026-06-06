@@ -1,4 +1,4 @@
-import type { TypeExpressionNode, TypeRef } from '@purrception/lang-ts';
+import { type TypeExpressionNode, createPrimitiveNode } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractArrayTypeNode } from './extractArrayTypeNode';
@@ -34,7 +34,7 @@ const primitiveKinds = new Set([
 ]);
 
 /**
- * Recursive entry point to extract either a structured TypeExpression or a TypeRef.
+ * Recursive entry point to extract a structured TypeExpressionNode
  * Accepts any type-related node (top-level declarations or inline type nodes).
  */
 export function extractTypeExpression(
@@ -43,7 +43,7 @@ export function extractTypeExpression(
 		| ts.TypeAliasDeclaration
 		| ts.InterfaceDeclaration
 		| ts.ExpressionWithTypeArguments,
-): TypeExpressionNode | TypeRef {
+): TypeExpressionNode {
 	// readonly/keyof Foo
 	if (ts.isTypeOperatorNode(node)) {
 		return extractOperatorTypeExpression(node);
@@ -124,7 +124,7 @@ export function extractTypeExpression(
 	}
 
 	if (primitiveKinds.has(node.kind)) {
-		return node.getText();
+		return createPrimitiveNode(node.getText());
 	}
 
 	throwUnsupportedNodeError(node, 'type expression');

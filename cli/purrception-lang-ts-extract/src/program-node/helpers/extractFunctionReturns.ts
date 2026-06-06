@@ -1,4 +1,8 @@
-import type { FunctionJsDocData, FunctionTypeReturns } from '@purrception/lang-ts';
+import {
+	type FunctionJsDocData,
+	type FunctionTypeReturns,
+	createPrimitiveNode,
+} from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractTypeExpression } from './extractTypeExpression';
@@ -8,17 +12,19 @@ export function extractFunctionReturns(
 	jsDoc: FunctionJsDocData,
 ): FunctionTypeReturns {
 	if (!returnType) {
-		return { type: 'void' };
+		return { type: createPrimitiveNode('void') };
 	}
 
 	if (ts.isTypePredicateNode(returnType)) {
 		const asserts = {
 			parameter: returnType.parameterName.getText(),
-			type: returnType.type ? extractTypeExpression(returnType.type) : 'unknown',
+			type: returnType.type
+				? extractTypeExpression(returnType.type)
+				: createPrimitiveNode('unknown'),
 		};
 
 		return {
-			type: 'boolean',
+			type: createPrimitiveNode('boolean'),
 			description: jsDoc.returnsTag,
 			asserts,
 		};

@@ -1,14 +1,10 @@
+import type { EntityDataBase } from '@purrception/primitives';
+
 import type { DeclarationJsDocData, JSDocTags } from '../jsdoc';
 
-export type TypeRefObject = {
-	type: string;
-	member?: string;
-	params?: (TypeRef | TypeExpressionNode)[];
-};
-
-export type TypeRef = string | TypeRefObject;
-
 export type TypeExpressionKind =
+	| 'ref'
+	| 'primitive'
 	| 'object'
 	| 'array'
 	| 'tuple'
@@ -25,36 +21,53 @@ export type TypeExpressionKind =
 	| 'conditional'
 	| 'infer';
 
+export interface TypeResolutionMeta {
+	entity: EntityDataBase;
+}
+
 export interface TypeExpressionBase<K extends TypeExpressionKind> extends DeclarationJsDocData {
 	kind: K;
 	generic?: TypeExpressionGeneric[];
+	resolved?: TypeResolutionMeta;
 }
 
 export interface TypeExpressionGeneric {
 	name: string;
-	constraint: TypeRef;
-	default?: TypeRef;
+	constraint: TypeRefNode | PrimitiveNode;
+	default?: TypeRefNode;
 }
 
 export interface ObjectLiteralTypeMember extends DeclarationJsDocData {
-	type: TypeExpressionNode | TypeRef;
+	type: TypeExpressionNode;
 	optional?: boolean;
 	readonly?: boolean;
 }
 
 export interface ObjectIndexSignature extends DeclarationJsDocData {
 	keyName: string;
-	keyType: TypeExpressionNode | TypeRef;
-	valueType: TypeExpressionNode | TypeRef;
+	keyType: TypeExpressionNode;
+	valueType: TypeExpressionNode;
 	readonly?: boolean;
 }
 
 export interface ObjectMappedSignature extends DeclarationJsDocData {
 	paramName: string;
-	constraint: TypeExpressionNode | TypeRef;
-	valueType: TypeExpressionNode | TypeRef;
+	constraint: TypeExpressionNode;
+	valueType: TypeExpressionNode;
 	optional?: boolean;
 	readonly?: boolean;
+}
+
+export interface TypeRefNode extends TypeExpressionBase<'ref'> {
+	ref: string;
+	member?: string;
+	params?: TypeExpressionNode[];
+}
+
+export interface PrimitiveNode extends TypeExpressionBase<'primitive'> {
+	primitive: string;
+	member?: string;
+	params?: TypeExpressionNode[];
 }
 
 export interface ObjectLiteralTypeNode extends TypeExpressionBase<'object'> {
@@ -66,16 +79,16 @@ export interface ObjectLiteralTypeNode extends TypeExpressionBase<'object'> {
 
 export interface ArrayTypeNode extends TypeExpressionBase<'array'> {
 	kind: 'array';
-	elements: TypeExpressionNode | TypeRef;
+	elements: TypeExpressionNode;
 }
 
 export type NamedTupleTypeElement = {
 	name: string;
-	type: TypeExpressionNode | TypeRef;
+	type: TypeExpressionNode;
 	optional?: boolean;
 };
 
-export type TupleTypeElement = TypeExpressionNode | TypeRef | NamedTupleTypeElement;
+export type TupleTypeElement = TypeExpressionNode | NamedTupleTypeElement;
 
 export interface TupleTypeNode extends TypeExpressionBase<'tuple'> {
 	kind: 'tuple';
@@ -84,28 +97,28 @@ export interface TupleTypeNode extends TypeExpressionBase<'tuple'> {
 
 export interface IntersectionTypeNode extends TypeExpressionBase<'intersection'> {
 	kind: 'intersection';
-	entries: (TypeExpressionNode | TypeRef)[];
+	entries: TypeExpressionNode[];
 }
 
 export interface UnionTypeNode extends TypeExpressionBase<'union'> {
 	kind: 'union';
-	entries: (TypeExpressionNode | TypeRef)[];
+	entries: TypeExpressionNode[];
 }
 
 export interface FunctionTypeParam {
 	name: string;
-	type: TypeRef | TypeExpressionNode;
+	type: TypeExpressionNode;
 	optional?: boolean;
 	description?: string;
 	tags?: JSDocTags;
 }
 
 export type FunctionTypeReturns = {
-	type: TypeRef | TypeExpressionNode;
+	type: TypeExpressionNode;
 	description?: string;
 	asserts?: {
 		parameter: string;
-		type: TypeExpressionNode | TypeRef;
+		type: TypeExpressionNode;
 	};
 };
 
@@ -117,19 +130,19 @@ export interface FunctionTypeNode extends TypeExpressionBase<'function'> {
 
 export interface ComponentNode extends TypeExpressionBase<'component'> {
 	kind: 'component';
-	props: TypeExpressionNode | TypeRef | undefined;
+	props: TypeExpressionNode | undefined;
 }
 
 export interface PickTypeNode extends TypeExpressionBase<'pick'> {
 	kind: 'pick';
-	source: TypeExpressionNode | TypeRef;
-	members: UnionTypeNode | TypeRef;
+	source: TypeExpressionNode;
+	members: UnionTypeNode | TypeRefNode;
 }
 
 export interface OmitTypeNode extends TypeExpressionBase<'omit'> {
 	kind: 'omit';
-	source: TypeExpressionNode | TypeRef;
-	members: UnionTypeNode | TypeRef;
+	source: TypeExpressionNode;
+	members: UnionTypeNode | TypeRefNode;
 }
 
 export interface LiteralTypeNode extends TypeExpressionBase<'literal'> {
@@ -141,7 +154,7 @@ export interface TemplateLiteralTypeNode extends TypeExpressionBase<'template-li
 	kind: 'template-literal';
 	head: string;
 	spans: Array<{
-		type: TypeExpressionNode | TypeRef;
+		type: TypeExpressionNode;
 		text: string;
 	}>;
 }
@@ -149,7 +162,7 @@ export interface TemplateLiteralTypeNode extends TypeExpressionBase<'template-li
 export interface OperatorTypeNode extends TypeExpressionBase<'operator'> {
 	kind: 'operator';
 	operator: 'readonly' | 'keyof' | string;
-	operand: TypeExpressionNode | TypeRef;
+	operand: TypeExpressionNode;
 }
 
 export interface MappedTypeNode extends TypeExpressionBase<'mapped'> {
@@ -163,10 +176,10 @@ export interface MappedTypeNode extends TypeExpressionBase<'mapped'> {
 
 export interface ConditionalTypeNode extends TypeExpressionBase<'conditional'> {
 	kind: 'conditional';
-	checkType: TypeExpressionNode | TypeRef;
-	extendsType: TypeExpressionNode | TypeRef;
-	trueType: TypeExpressionNode | TypeRef;
-	falseType: TypeExpressionNode | TypeRef;
+	checkType: TypeExpressionNode;
+	extendsType: TypeExpressionNode;
+	trueType: TypeExpressionNode;
+	falseType: TypeExpressionNode;
 }
 
 export interface InferTypeNode extends TypeExpressionBase<'infer'> {
@@ -175,6 +188,8 @@ export interface InferTypeNode extends TypeExpressionBase<'infer'> {
 }
 
 export type TypeExpressionNode =
+	| TypeRefNode
+	| PrimitiveNode
 	| ObjectLiteralTypeNode
 	| ArrayTypeNode
 	| TupleTypeNode

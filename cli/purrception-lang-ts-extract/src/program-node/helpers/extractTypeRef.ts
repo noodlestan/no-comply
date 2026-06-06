@@ -1,38 +1,23 @@
-import type { TypeRef, TypeRefObject } from '@purrception/lang-ts';
+import { type TypeRefNode, createTypeRefNode } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractTypeExpression } from './extractTypeExpression';
 
-function normalizeTypeRef(type: TypeRef): TypeRefObject {
-	if (typeof type === 'string') {
-		return { type };
-	}
-	return type;
-}
-
-export function extractTypeRef(node: ts.TypeNode): TypeRef {
+export function extractTypeRef(node: ts.TypeNode): TypeRefNode {
 	if (ts.isTypeReferenceNode(node)) {
 		const baseName = node.typeName.getText();
 
-		let params: TypeRefObject['params'] | undefined;
+		let params: TypeRefNode['params'] | undefined;
 
 		if (node.typeArguments?.length) {
 			params = node.typeArguments.map(arg => extractTypeExpression(arg));
 		}
 
-		if (!params) {
-			return baseName;
-		}
-
-		return {
-			type: baseName,
-			params,
-		};
+		return createTypeRefNode(baseName, params);
 	}
 
 	if (ts.isIndexedAccessTypeNode(node)) {
-		const objectTypeRaw = extractTypeRef(node.objectType);
-		const objectType = normalizeTypeRef(objectTypeRaw);
+		const objectType = extractTypeRef(node.objectType);
 
 		const key =
 			ts.isLiteralTypeNode(node.indexType) && ts.isStringLiteral(node.indexType.literal)
@@ -49,5 +34,5 @@ export function extractTypeRef(node: ts.TypeNode): TypeRef {
 		};
 	}
 
-	return node.getText();
+	return createTypeRefNode(node.getText());
 }

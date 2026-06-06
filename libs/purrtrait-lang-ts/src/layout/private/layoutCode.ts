@@ -1,4 +1,4 @@
-import type { Declaration, TypeExpressionNode, TypeRef } from '@purrception/lang-ts';
+import type { Declaration, TypeExpressionNode } from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
@@ -6,12 +6,17 @@ import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
 import { layoutDeclaration } from './layoutDeclaration';
 import { layoutExpression } from './layoutExpression';
 
+import { typeRefToken } from '.';
+
 export function layoutCode(
 	ctx: CodeLayoutContextValue | CodeLayoutWithGenericParamsContextValue,
 	code: string | object,
 ): CodeLayoutNode[] {
-	if (typeof code === 'string' || !('at' in code)) {
-		return layoutExpression(ctx, code as TypeRef | TypeExpressionNode);
+	if (typeof code === 'string') {
+		return [typeRefToken(ctx, code)];
+	}
+	if (!('at' in code)) {
+		return layoutExpression(ctx, code as TypeExpressionNode);
 	}
 	if ('at' in code) {
 		return layoutDeclaration(ctx, code as Declaration);

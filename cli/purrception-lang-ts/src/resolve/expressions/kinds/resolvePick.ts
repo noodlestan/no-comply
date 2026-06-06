@@ -1,7 +1,6 @@
 import {
 	type PickTypeNode,
 	type TypeExpressionNode,
-	type TypeRef,
 	isLiteralTypeNode,
 	isObjectLiteralTypeNode,
 } from '../../../node';
@@ -9,10 +8,7 @@ import type { ResolveTypeContext } from '../../types';
 import { normalizeUnion } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
 
-export function resolvePick(
-	context: ResolveTypeContext,
-	exp: PickTypeNode,
-): TypeExpressionNode | TypeRef {
+export function resolvePick(context: ResolveTypeContext, exp: PickTypeNode): TypeExpressionNode {
 	const resolvedSource = resolveExpression(context, exp.source);
 
 	if (isObjectLiteralTypeNode(resolvedSource)) {

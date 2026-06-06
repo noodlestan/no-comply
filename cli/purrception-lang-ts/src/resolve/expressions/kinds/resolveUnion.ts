@@ -1,14 +1,9 @@
-import {
-	type TypeExpressionNode,
-	type TypeRef,
-	type UnionTypeNode,
-	isUnionTypeNode,
-} from '../../../node';
+import { type TypeExpressionNode, type UnionTypeNode, isUnionTypeNode } from '../../../node';
 import type { ResolveTypeContext } from '../../types';
 import { resolveExpression } from '../resolveExpression';
 
 export function resolveUnion(context: ResolveTypeContext, exp: UnionTypeNode): UnionTypeNode {
-	const resolvedEntries: (TypeExpressionNode | TypeRef)[] = [];
+	const resolvedEntries: TypeExpressionNode[] = [];
 
 	for (const entry of exp.entries) {
 		const resolved = resolveExpression(context, entry);

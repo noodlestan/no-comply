@@ -1,9 +1,5 @@
-import type { ObjectLiteralTypeNode, TypeExpressionNode, TypeRef } from '../types';
+import type { ObjectLiteralTypeNode, TypeExpressionNode } from '../types';
 
-import { isTypeRef } from './isTypeRef';
-
-export function isObjectLiteralTypeNode(
-	exp: TypeExpressionNode | TypeRef,
-): exp is ObjectLiteralTypeNode {
-	return !isTypeRef(exp) && exp.kind === 'object';
+export function isObjectLiteralTypeNode(exp: TypeExpressionNode): exp is ObjectLiteralTypeNode {
+	return exp.kind === 'object';
 }

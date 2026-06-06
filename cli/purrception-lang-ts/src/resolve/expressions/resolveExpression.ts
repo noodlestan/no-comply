@@ -1,4 +1,4 @@
-import { type TypeExpressionNode, type TypeRef, isTypeRef } from '../../node';
+import { type TypeExpressionNode } from '../../node';
 import type { ResolveTypeContext } from '../types';
 
 import { resolveIntersection } from './kinds/resolveIntersection';
@@ -10,13 +10,13 @@ import { resolveUnion } from './kinds/resolveUnion';
 
 export function resolveExpression(
 	context: ResolveTypeContext,
-	exp: TypeRef | TypeExpressionNode,
-): TypeExpressionNode | TypeRef {
-	if (isTypeRef(exp)) {
-		return resolveTypeRefNode(context, exp);
-	}
-
+	exp: TypeExpressionNode,
+): TypeExpressionNode {
 	switch (exp.kind) {
+		case 'ref':
+			return resolveTypeRefNode(context, exp);
+		case 'primitive':
+			return exp;
 		case 'object':
 			return resolveObject(context, exp);
 		case 'intersection':

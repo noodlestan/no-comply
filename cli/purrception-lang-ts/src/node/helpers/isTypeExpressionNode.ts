@@ -1,6 +1,6 @@
-import type { TypeExpressionNode, TypeRef } from '../types';
+import type { TypeExpressionNode } from '../types';
 
-export function isTypeExpressionNode(exp: TypeExpressionNode | TypeRef): exp is TypeExpressionNode {
+export function isTypeExpressionNode(exp: TypeExpressionNode): exp is TypeExpressionNode {
 	if (!exp || typeof exp !== 'object' || !('kind' in exp)) {
 		return false;
 	}

@@ -1,14 +1,12 @@
 import {
 	type ObjectLiteralTypeNode,
 	type TypeExpressionNode,
-	type TypeRef,
+	createTypeRefNode,
 	isMappedTypeNode,
 	isObjectLiteralTypeNode,
 } from '../../../node';
 
-export function normalizeObjectLiteral(
-	exp: TypeExpressionNode | TypeRef,
-): ObjectLiteralTypeNode | undefined {
+export function normalizeObjectLiteral(exp: TypeExpressionNode): ObjectLiteralTypeNode | undefined {
 	if (isObjectLiteralTypeNode(exp)) {
 		return exp;
 	}
@@ -20,8 +18,8 @@ export function normalizeObjectLiteral(
 			mappedSignatures: [
 				{
 					paramName: exp.param,
-					constraint: exp.constraint,
-					valueType: exp.valueType,
+					constraint: createTypeRefNode(exp.constraint),
+					valueType: createTypeRefNode(exp.valueType),
 					optional: exp.optional,
 					readonly: exp.readonly,
 				},

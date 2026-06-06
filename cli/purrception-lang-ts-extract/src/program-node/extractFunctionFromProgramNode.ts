@@ -32,7 +32,7 @@ export function extractFunctionFromProgramNode(
 		name,
 		kind: 'function',
 		generic,
-		params,
+		params: params || [],
 		returns,
 		type,
 		description,

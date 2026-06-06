@@ -2,3 +2,4 @@
 export * from './extractComponentFromProgramNode';
 export * from './extractFunctionFromProgramNode';
 export * from './extractTypeFromProgramNode';
+export * from './helpers';

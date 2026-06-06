@@ -1,12 +1,11 @@
 import {
 	type TypeExpressionNode,
-	type TypeRef,
 	type UnionTypeNode,
 	isLiteralTypeNode,
 	isUnionTypeNode,
 } from '../../../node';
 
-export function normalizeUnion(exp: TypeExpressionNode | TypeRef): UnionTypeNode {
+export function normalizeUnion(exp: TypeExpressionNode): UnionTypeNode {
 	if (isUnionTypeNode(exp)) {
 		return exp;
 	}

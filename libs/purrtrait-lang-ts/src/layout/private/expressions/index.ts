@@ -10,6 +10,7 @@ export * from './expObject';
 export * from './expOmit';
 export * from './expOperator';
 export * from './expPick';
+export * from './expPrimitive';
 export * from './expTemplateLiteral';
 export * from './expTuple';
 export * from './expTypeRef';

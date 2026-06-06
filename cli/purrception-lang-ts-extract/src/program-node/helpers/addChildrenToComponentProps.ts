@@ -1,11 +1,11 @@
-import type { TypeExpressionNode, TypeRef, TypeRefObject } from '@purrception/lang-ts';
+import { type TypeExpressionNode, type TypeRefNode, createTypeRefNode } from '@purrception/lang-ts';
 
 import { isParentComponentType } from './isParentComponentType';
 
 export function addChildrenToComponentProps(
-	componentType: TypeRefObject | undefined,
-	props: TypeExpressionNode | TypeRef | undefined,
-): TypeExpressionNode | TypeRef | undefined {
+	componentType: TypeRefNode | undefined,
+	props: TypeExpressionNode | undefined,
+): TypeExpressionNode | undefined {
 	if (!props) {
 		return undefined;
 	}
@@ -22,7 +22,7 @@ export function addChildrenToComponentProps(
 				kind: 'object',
 				members: {
 					children: {
-						type: 'JSX.Element',
+						type: createTypeRefNode('JSX.Element'),
 						optional: false,
 					},
 				},

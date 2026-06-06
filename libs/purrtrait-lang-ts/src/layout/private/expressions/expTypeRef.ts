@@ -1,24 +1,19 @@
-import type { TypeRef, TypeRefObject } from '@purrception/lang-ts';
+import type { TypeRefNode } from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import { identifierToken, spaceToken, symbolToken, typeRefToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
-export function expTypeRef(ctx: CodeLayoutContextValue, node: TypeRef): CodeLayoutNode[] {
-	const str = typeof node === 'string' ? node : undefined;
-	if (str) {
-		return [{ type: 'token', kind: 'type-ref', value: str }];
-	}
-	const ref = node as TypeRefObject;
-	const nodes: CodeLayoutNode[] = [typeRefToken(ctx, ref.type)];
+export function expTypeRef(ctx: CodeLayoutContextValue, node: TypeRefNode): CodeLayoutNode[] {
+	const nodes: CodeLayoutNode[] = [typeRefToken(ctx, node.ref)];
 
-	if (ref.params) {
+	if (node.params) {
 		nodes.push(
 			symbolToken('<'),
 			...eachExpression(
 				ctx,
-				ref.params,
+				node.params,
 				(ctx, param) => layoutExpression(ctx, param),
 				() => [symbolToken(','), spaceToken()],
 			),
@@ -26,11 +21,11 @@ export function expTypeRef(ctx: CodeLayoutContextValue, node: TypeRef): CodeLayo
 		);
 	}
 
-	if (ref.member) {
+	if (node.member) {
 		nodes.push(
 			symbolToken('['),
 			symbolToken("'"),
-			identifierToken(ref.member),
+			identifierToken(node.member),
 			symbolToken("'"),
 			symbolToken(']'),
 		);

@@ -1,4 +1,4 @@
-import type { FunctionTypeNode } from '@purrception/lang-ts';
+import { type FunctionTypeNode, createPrimitiveNode } from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import { layoutGenerics } from '../generics';
@@ -48,6 +48,6 @@ export function expFunction(ctx: CodeLayoutContextValue, node: FunctionTypeNode)
 							]
 						: []),
 				]
-			: layoutExpression(ctx, node.returns?.type ?? 'void')),
+			: layoutExpression(ctx, node.returns ? node.returns.type : createPrimitiveNode('void'))),
 	];
 }

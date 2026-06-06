@@ -1,7 +1,5 @@
-import type { TypeExpressionNode, TypeRef, UnionTypeNode } from '../types';
+import type { TypeExpressionNode, UnionTypeNode } from '../types';
 
-import { isTypeRef } from './isTypeRef';
-
-export function isUnionTypeNode(exp: TypeExpressionNode | TypeRef): exp is UnionTypeNode {
-	return !isTypeRef(exp) && exp.kind === 'union';
+export function isUnionTypeNode(exp: TypeExpressionNode): exp is UnionTypeNode {
+	return exp.kind === 'union';
 }

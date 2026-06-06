@@ -1,4 +1,4 @@
-import type { TypeExpressionNode, TypeRef } from '@purrception/lang-ts';
+import type { TypeExpressionNode } from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
@@ -15,26 +15,22 @@ import {
 	expOmit,
 	expOperator,
 	expPick,
+	expPrimitive,
 	expTemplateLiteral,
 	expTuple,
 	expUnion,
 } from './expressions';
 import { expTypeRef } from './expressions/expTypeRef';
-import { typeRefToken } from './layout';
 
 export function layoutExpression(
 	ctx: CodeLayoutContextValue | CodeLayoutWithGenericParamsContextValue,
-	exp: TypeRef | TypeExpressionNode,
+	exp: TypeExpressionNode,
 ): CodeLayoutNode[] {
-	if (typeof exp === 'string') {
-		return [typeRefToken(ctx, exp)];
-	}
-
-	if ('type' in exp) {
-		return expTypeRef(ctx, exp);
-	}
-
 	switch (exp.kind) {
+		case 'ref':
+			return expTypeRef(ctx, exp);
+		case 'primitive':
+			return expPrimitive(ctx, exp);
 		case 'object':
 			return expObject(ctx, exp);
 		case 'intersection':
@@ -66,7 +62,4 @@ export function layoutExpression(
 		default:
 			throw new Error(`Unknown kind ${(exp as TypeExpressionNode).kind} in expression`);
 	}
-
-	// console.warn(`Unknown kind ${exp.kind} in expression`, exp);
-	// return [{ type: 'token', kind: 'identifier', value: 'OUCH!' }];
 }

@@ -1,10 +1,4 @@
-import {
-	type AliasDeclaration,
-	type TypeDeclaration,
-	type TypeExpressionDeclaration,
-	isTypeExpressionNode,
-	normalizeTypeRefObject,
-} from '@purrception/lang-ts';
+import { type TypeDeclaration, type TypeExpressionDeclaration } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractNodeJsDoc } from '../jsdoc';
@@ -27,29 +21,14 @@ export function extractTypeFromProgramNode(
 	}
 
 	const base = extractTypeExpression(node);
-	if (isTypeExpressionNode(base)) {
-		const type: TypeExpressionDeclaration = {
-			at: programFile.filepath,
-			name,
-			kind: 'type',
-			node: base,
-			description,
-			templateTags,
-			tags,
-		};
-		return type;
-	}
-
-	const target = normalizeTypeRefObject(base);
-
-	const alias: AliasDeclaration = {
+	const type: TypeExpressionDeclaration = {
 		at: programFile.filepath,
 		name,
-		kind: 'alias',
-		target,
+		kind: 'type',
+		node: base,
 		description,
 		templateTags,
 		tags,
 	};
-	return alias;
+	return type;
 }

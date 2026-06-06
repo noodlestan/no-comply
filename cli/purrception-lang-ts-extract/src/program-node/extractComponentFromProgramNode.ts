@@ -1,4 +1,4 @@
-import { type ComponentDeclaration, normalizeTypeRefObject } from '@purrception/lang-ts';
+import { type ComponentDeclaration } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
@@ -32,9 +32,7 @@ export function extractComponentFromProgramNode(
 	const generic = extractNodeGenerics(node);
 	const returns = extractFunctionReturns(node.type, jsDoc);
 
-	const rawType = extractArrowFunctionType(node);
-	const type = rawType && normalizeTypeRefObject(rawType);
-
+	const type = extractArrowFunctionType(node);
 	const isComponent = type && isComponentType(type);
 	const isParentComponent = type && isParentComponentType(type);
 	const returnsJSX = isJSXReturnType(returns);

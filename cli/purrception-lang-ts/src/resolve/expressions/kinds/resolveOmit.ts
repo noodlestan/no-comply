@@ -1,7 +1,6 @@
 import {
 	type OmitTypeNode,
 	type TypeExpressionNode,
-	type TypeRef,
 	isLiteralTypeNode,
 	isObjectLiteralTypeNode,
 } from '../../../node';
@@ -9,10 +8,7 @@ import type { ResolveTypeContext } from '../../types';
 import { normalizeUnion } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
 
-export function resolveOmit(
-	context: ResolveTypeContext,
-	exp: OmitTypeNode,
-): TypeExpressionNode | TypeRef {
+export function resolveOmit(context: ResolveTypeContext, exp: OmitTypeNode): TypeExpressionNode {
 	const resolvedSource = resolveExpression(context, exp.source);
 
 	if (isObjectLiteralTypeNode(resolvedSource)) {

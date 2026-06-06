@@ -13,10 +13,19 @@ export function resolveObject(
 
 		if (!member) continue;
 
-		resolvedMembers[key] = {
-			...member,
-			type: resolveExpression(context, member.type),
-		};
+		const type = resolveExpression(context, member.type);
+
+		if (typeof type === 'object') {
+			resolvedMembers[key] = {
+				...member,
+				type: { ...type, resolved: exp.resolved },
+			};
+		} else {
+			resolvedMembers[key] = {
+				...member,
+				type,
+			};
+		}
 	}
 
 	return {

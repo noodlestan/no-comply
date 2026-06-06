@@ -1,3 +1,19 @@
+# Purrception
+
+## Streamline comment extraction
+
+- search: `typeof tag.comment === 'string'`
+- extract to function (if it doesn't exist yet)
+- make sure arrays are captured as well
+
+## Incomplete resolutions
+
+http://localhost:3000/api/@no-comply/solid-contexts/container
+Unresolved token "ThemeContextVariant" in entity "module:container" (unknown symbol).
+
+http://localhost:3000/api/@no-comply/solid-contexts/icons#IconComponent
+Unresolved token "unknown[]" in entity "module:icons" (unknown symbol).
+
 # No Comply
 
 ## Flex

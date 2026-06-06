@@ -1,4 +1,8 @@
-import type { FunctionDeclaration } from '@purrception/lang-ts';
+import {
+	type FunctionDeclaration,
+	type FunctionTypeReturns,
+	createPrimitiveNode,
+} from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
 import { createCodeLayoutWithGenericParamsContext } from '../../../contexts';
@@ -27,6 +31,8 @@ export function layoutFunctionDeclaration(
 		declaration.generic?.map(x => x.name) ?? [],
 	);
 
+	const returns = (declaration.returns as FunctionTypeReturns) || createPrimitiveNode('void');
+
 	return [
 		keywordToken('function'),
 		spaceToken(),
@@ -49,6 +55,6 @@ export function layoutFunctionDeclaration(
 		symbolToken(')'),
 		symbolToken(':'),
 		spaceToken(),
-		...layoutExpression(genericCtx, declaration.returns?.type || 'void'),
+		...layoutExpression(genericCtx, returns.type),
 	];
 }

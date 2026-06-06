@@ -1,4 +1,8 @@
-import type { ObjectIndexSignature, ObjectLiteralTypeMember } from '@purrception/lang-ts';
+import {
+	type ObjectIndexSignature,
+	type ObjectLiteralTypeMember,
+	createPrimitiveNode,
+} from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractNodeJsDoc } from '../../jsdoc';
@@ -33,7 +37,7 @@ export function extractObjectLiteralTypeMember(
 			member: {
 				optional: Boolean(element.questionToken),
 				readonly: hasReadonlyModifier(element),
-				type: element.type ? extractTypeExpression(element.type) : 'unknown',
+				type: element.type ? extractTypeExpression(element.type) : createPrimitiveNode('unknown'),
 				description,
 				tags,
 			},
@@ -58,8 +62,10 @@ export function extractObjectLiteralTypeMember(
 		return {
 			signature: {
 				keyName: param?.name.getText() ?? 'key',
-				keyType: param?.type ? extractTypeExpression(param.type) : 'unknown',
-				valueType: element.type ? extractTypeExpression(element.type) : 'unknown',
+				keyType: param?.type ? extractTypeExpression(param.type) : createPrimitiveNode('unknown'),
+				valueType: element.type
+					? extractTypeExpression(element.type)
+					: createPrimitiveNode('unknown'),
 				readonly: hasReadonlyModifier(element),
 				description,
 				tags,

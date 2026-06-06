@@ -45,12 +45,7 @@ export function resolveInterfaceDeclaration(
 
 	for (const h of heritage) {
 		const resolved = resolveExpression(context, h);
-		if (
-			resolved &&
-			typeof resolved !== 'string' &&
-			!('type' in resolved) &&
-			resolved.kind === 'object'
-		) {
+		if (resolved.kind === 'object') {
 			mergeMembers(object.members, resolved.members ?? {});
 		}
 	}
@@ -69,7 +64,7 @@ export function resolveInterfaceDeclaration(
 		};
 	}
 
-	const resolved = {
+	return {
 		at,
 		name,
 		kind: 'type',
@@ -77,7 +72,5 @@ export function resolveInterfaceDeclaration(
 		description,
 		templateTags,
 		tags,
-	} as const;
-
-	return resolved;
+	};
 }

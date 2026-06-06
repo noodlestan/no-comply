@@ -1,6 +1,6 @@
 import type { EntityDataBase } from '@purrception/primitives';
 
-import type { TypeExpressionNode, TypeRef } from '../node';
+import type { TypeExpressionNode } from '../node';
 
 import type { ResolveTypeContext } from './types';
 
@@ -32,7 +32,7 @@ export function createResolveTypeContext(
 	const createChildContext = (
 		entity: EntityDataBase,
 		type: string,
-		params: (TypeRef | TypeExpressionNode)[] = [],
+		params: TypeExpressionNode[] = [],
 	): ResolveTypeContext => {
 		const key = stackKey(entity, type);
 		if (stack.has(key)) {

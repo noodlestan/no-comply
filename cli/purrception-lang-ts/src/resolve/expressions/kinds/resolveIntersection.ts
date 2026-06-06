@@ -1,9 +1,7 @@
 import {
 	type IntersectionTypeNode,
-	type ObjectLiteralTypeMember,
 	type ObjectLiteralTypeNode,
 	type TypeExpressionNode,
-	type TypeRef,
 	isIntersectionTypeNode,
 } from '../../../node';
 import type { ResolveTypeContext } from '../../types';
@@ -13,8 +11,8 @@ import { resolveExpression } from '../resolveExpression';
 export function resolveIntersection(
 	context: ResolveTypeContext,
 	exp: IntersectionTypeNode,
-): TypeExpressionNode | TypeRef {
-	const resolvedEntries: (TypeExpressionNode | TypeRef)[] = [];
+): TypeExpressionNode {
+	const resolvedEntries: TypeExpressionNode[] = [];
 
 	for (const entry of exp.entries) {
 		const resolved = resolveExpression(context, entry);
@@ -32,24 +30,33 @@ export function resolveIntersection(
 		members: {},
 		indexSignatures: [],
 		mappedSignatures: [],
+		resolved: {
+			entity: context.entity,
+		},
 	};
 
-	function mergeMembers(
-		target: Record<string, ObjectLiteralTypeMember>,
-		source: Record<string, ObjectLiteralTypeMember>,
-	) {
-		for (const key in source) {
-			const member = source[key];
+	function mergeMembers(target: ObjectLiteralTypeNode, source: ObjectLiteralTypeNode) {
+		for (const key in source.members) {
+			const member = source.members[key];
 
-			target[key] = {
-				...member,
-				type: resolveExpression(context, member.type),
-			};
+			const type = resolveExpression(context, member.type);
+
+			if (typeof type === 'object') {
+				target.members[key] = {
+					...member,
+					type: { ...type, resolved: source.resolved },
+				};
+			} else {
+				target.members[key] = {
+					...member,
+					type,
+				};
+			}
 		}
 	}
 
 	function mergeObject(target: ObjectLiteralTypeNode, source: ObjectLiteralTypeNode) {
-		mergeMembers(target.members, source.members);
+		mergeMembers(target, source);
 
 		if (target.indexSignatures && source.indexSignatures?.length) {
 			target.indexSignatures.push(...source.indexSignatures);

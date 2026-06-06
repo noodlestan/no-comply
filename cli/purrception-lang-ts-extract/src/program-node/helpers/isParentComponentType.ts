@@ -1,5 +1,5 @@
-import type { TypeRefObject } from '@purrception/lang-ts';
+import type { TypeRefNode } from '@purrception/lang-ts';
 
-export function isParentComponentType(type: TypeRefObject | undefined): boolean {
-	return Boolean(type?.type === 'ParentComponent' && type?.member === undefined);
+export function isParentComponentType(type: TypeRefNode | undefined): boolean {
+	return Boolean(type?.ref === 'ParentComponent' && type?.member === undefined);
 }

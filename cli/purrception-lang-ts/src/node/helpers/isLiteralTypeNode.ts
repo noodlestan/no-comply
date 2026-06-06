@@ -1,7 +1,5 @@
-import type { LiteralTypeNode, TypeExpressionNode, TypeRef } from '../types';
+import type { LiteralTypeNode, TypeExpressionNode } from '../types';
 
-import { isTypeRef } from './isTypeRef';
-
-export function isLiteralTypeNode(exp: TypeExpressionNode | TypeRef): exp is LiteralTypeNode {
-	return !isTypeRef(exp) && exp.kind === 'literal';
+export function isLiteralTypeNode(exp: TypeExpressionNode): exp is LiteralTypeNode {
+	return exp.kind === 'literal';
 }

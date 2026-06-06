@@ -1,5 +1,5 @@
 import type { TypeDeclaration } from '../../../declaration';
-import { type TypeExpressionNode, type TypeRef, isBuiltInToken } from '../../../node';
+import { type TypeExpressionNode, type TypeRefNode, isBuiltInToken } from '../../../node';
 import { resolveTypeDeclaration } from '../../resolveTypeDeclaration';
 import type { ResolveTypeContext } from '../../types';
 
@@ -7,16 +7,13 @@ import { resolveNodeMember } from './resolveNodeMember';
 
 export function resolveTypeRefNode(
 	context: ResolveTypeContext,
-	node: TypeRef,
-): TypeExpressionNode | TypeRef {
-	const typeAlias = typeof node === 'string' ? node : node.type;
-	const targetParams = typeof node === 'string' ? [] : node.params || [];
-
-	if (isBuiltInToken(typeAlias)) {
+	node: TypeRefNode,
+): TypeExpressionNode {
+	if (isBuiltInToken(node.ref)) {
 		return node;
 	}
 
-	const targetEntity = context.resolveEntity(context.entity, typeAlias);
+	const targetEntity = context.resolveEntity(context.entity, node.ref);
 	if (!targetEntity) {
 		return node;
 	}
@@ -24,7 +21,7 @@ export function resolveTypeRefNode(
 		return node;
 	}
 
-	const targetType = context.resolveImportName(typeAlias);
+	const targetType = context.resolveImportName(node.ref);
 	if (context.stackHasEntry(targetEntity, targetType)) {
 		console.warn(`Circular reference: ${targetType}.`, context.stack);
 		return node;
@@ -37,12 +34,11 @@ export function resolveTypeRefNode(
 		return node;
 	}
 
-	const nestedContext = context.createChildContext(targetEntity, targetType, targetParams);
+	const nestedContext = context.createChildContext(targetEntity, targetType, node.params);
 	const declaration = resolveTypeDeclaration(nestedContext, type);
 
-	const targetMember = typeof node !== 'string' && node.member;
-	if (targetMember) {
-		const resolvedMember = resolveNodeMember(declaration.node, targetMember);
+	if (node.member) {
+		const resolvedMember = resolveNodeMember(declaration.node, node.member);
 		if (!resolvedMember) {
 			return node;
 		}

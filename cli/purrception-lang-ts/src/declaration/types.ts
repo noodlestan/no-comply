@@ -7,10 +7,9 @@ import type {
 	ObjectLiteralTypeMember,
 	TypeExpressionGeneric,
 	TypeExpressionNode,
-	TypeRef,
 } from '../node';
 
-export type DeclarationKind = 'type' | 'interface' | 'alias' | 'function' | 'component';
+export type DeclarationKind = 'type' | 'interface' | 'function' | 'component';
 
 export interface DeclarationBase<K extends DeclarationKind>
 	extends ExportedSymbol,
@@ -25,17 +24,13 @@ export type TypeExpressionDeclaration<K extends TypeExpressionNode = TypeExpress
 
 export type InterfaceDeclaration = DeclarationBase<'interface'> & {
 	generic?: TypeExpressionGeneric[];
-	heritage?: (TypeExpressionNode | TypeRef)[];
+	heritage?: TypeExpressionNode[];
 	members: Record<string, ObjectLiteralTypeMember>;
-};
-
-export type AliasDeclaration = DeclarationBase<'alias'> & {
-	target: TypeRef;
 };
 
 export type FunctionDeclaration = DeclarationBase<'function'> &
 	FunctionTypeNode & {
-		type?: TypeExpressionNode | TypeRef;
+		type?: TypeExpressionNode;
 	};
 
 export type ComponentDeclaration = DeclarationBase<'component'> &
@@ -46,11 +41,7 @@ export type ComponentDeclaration = DeclarationBase<'component'> &
 export type Declaration =
 	| TypeExpressionDeclaration<TypeExpressionNode>
 	| InterfaceDeclaration
-	| AliasDeclaration
 	| FunctionDeclaration
 	| ComponentDeclaration;
 
-export type TypeDeclaration =
-	| TypeExpressionDeclaration<TypeExpressionNode>
-	| InterfaceDeclaration
-	| AliasDeclaration;
+export type TypeDeclaration = TypeExpressionDeclaration<TypeExpressionNode> | InterfaceDeclaration;

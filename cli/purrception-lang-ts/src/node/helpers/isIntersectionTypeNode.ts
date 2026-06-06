@@ -1,9 +1,5 @@
-import type { IntersectionTypeNode, TypeExpressionNode, TypeRef } from '../types';
+import type { IntersectionTypeNode, TypeExpressionNode } from '../types';
 
-import { isTypeRef } from './isTypeRef';
-
-export function isIntersectionTypeNode(
-	exp: TypeExpressionNode | TypeRef,
-): exp is IntersectionTypeNode {
-	return !isTypeRef(exp) && exp.kind === 'intersection';
+export function isIntersectionTypeNode(exp: TypeExpressionNode): exp is IntersectionTypeNode {
+	return exp.kind === 'intersection';
 }
