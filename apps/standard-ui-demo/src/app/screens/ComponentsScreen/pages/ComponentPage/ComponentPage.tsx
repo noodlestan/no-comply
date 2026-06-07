@@ -26,6 +26,7 @@ export const ComponentPage: Component = () => {
 	const { getEntityMaybe } = useMeta();
 	const data = () =>
 		getEntityMaybe('@no-comply/standard-ui', 'component', name()) as ComponentEntityData;
+	// const page = () => components[name()]?.(data());
 
 	const componentProps = () => {
 		const context = createResolveTypeContext(getTokenEntityMaybe, data());
@@ -33,6 +34,10 @@ export const ComponentPage: Component = () => {
 			context,
 			data().types['Props'] as TypeDeclaration,
 		) as TypeExpressionDeclaration<ObjectLiteralTypeNode>;
+
+		// Object.entries(props.node.members).forEach(([key, value]) => {
+		// 	console.log(key, value.type._source);
+		// });
 
 		return Object.entries(props.node.members).map(([name, node]) => ({ name, node }));
 	};

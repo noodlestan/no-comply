@@ -9,14 +9,9 @@ export function resolveNodeMember(
 	}
 
 	const targetMember = node.members[member];
-
 	if (!targetMember) {
 		return undefined;
 	}
 
-	if (typeof targetMember.type === 'object') {
-		return { ...targetMember.type, resolved: node.resolved };
-	}
-
-	return targetMember.type;
+	return { ...targetMember.type, _source: targetMember._source || node._source };
 }

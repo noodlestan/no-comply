@@ -13,6 +13,7 @@ export function normalizeObjectLiteral(exp: TypeExpressionNode): ObjectLiteralTy
 
 	if (isMappedTypeNode(exp)) {
 		return {
+			...exp,
 			kind: 'object',
 			members: {},
 			mappedSignatures: [
@@ -26,10 +27,4 @@ export function normalizeObjectLiteral(exp: TypeExpressionNode): ObjectLiteralTy
 			],
 		};
 	}
-
-	console.warn(`Unsupported object literal candidate:`, exp);
-	return {
-		kind: 'object',
-		members: {},
-	};
 }

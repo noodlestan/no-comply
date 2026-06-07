@@ -3,6 +3,22 @@ import type { ObjectLiteralTypeMember, ObjectLiteralTypeNode } from '../../node'
 import { resolveExpression } from '../expressions';
 import { type ResolveTypeContext } from '../types';
 
+function mergeObject(
+	context: ResolveTypeContext,
+	target: ObjectLiteralTypeNode,
+	source: ObjectLiteralTypeNode,
+) {
+	for (const key in source.members) {
+		const member = source.members[key];
+
+		const node = resolveExpression(context, member.type);
+		target.members[key] = {
+			...member,
+			type: { ...node, _source: member._source || source._source },
+		};
+	}
+}
+
 export function resolveInterfaceDeclaration(
 	context: ResolveTypeContext,
 	declaration: InterfaceDeclaration,
@@ -24,43 +40,19 @@ export function resolveInterfaceDeclaration(
 		members: {},
 	};
 
-	function mergeMembers(
-		target: Record<string, ObjectLiteralTypeMember>,
-		source: Record<string, ObjectLiteralTypeMember>,
-	) {
-		for (const key in source) {
-			const { optional, type, description, templateTags, tags } = source[
-				key
-			] as ObjectLiteralTypeMember;
-			const resolvedType = resolveExpression(context, type);
-			target[key] = {
-				optional,
-				type: resolvedType,
-				description,
-				templateTags,
-				tags,
-			};
-		}
-	}
-
 	for (const h of heritage) {
-		const resolved = resolveExpression(context, h);
-		if (resolved.kind === 'object') {
-			mergeMembers(object.members, resolved.members ?? {});
+		const node = resolveExpression(context, h);
+		if (node.kind === 'object') {
+			mergeObject(context, object, node);
 		}
 	}
 
 	for (const key in members) {
-		const { optional, type, description, templateTags, tags } = members[
-			key
-		] as ObjectLiteralTypeMember;
-		const resolvedType = resolveExpression(context, type);
+		const member = members[key] as ObjectLiteralTypeMember;
+		const node = resolveExpression(context, member.type);
 		object.members[key] = {
-			optional,
-			type: resolvedType,
-			description,
-			templateTags,
-			tags,
+			...member,
+			type: { ...node, _source: member._source },
 		};
 	}
 

@@ -6,13 +6,21 @@
 - extract to function (if it doesn't exist yet)
 - make sure arrays are captured as well
 
-## Incomplete resolutions
+## Incomplete (and ambient) resolutions
 
 http://localhost:3000/api/@no-comply/solid-contexts/container
 Unresolved token "ThemeContextVariant" in entity "module:container" (unknown symbol).
 
 http://localhost:3000/api/@no-comply/solid-contexts/icons#IconComponent
 Unresolved token "unknown[]" in entity "module:icons" (unknown symbol).
+Unresolved token "JSX.Element" in entity "module:icons" (unknown symbol).
+Unresolved token "A" in entity "module:icons" (unknown symbol).
+
+http://localhost:3000/features/components/Button#main
+Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getTokenEntityMaybe.tsx:19:11
+Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). getTokenEntityMaybe.tsx:19:11
+Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). getTokenEntityMaybe.tsx:19:11
+Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 # No Comply
 

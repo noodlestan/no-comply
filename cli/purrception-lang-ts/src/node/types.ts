@@ -22,13 +22,14 @@ export type TypeExpressionKind =
 	| 'infer';
 
 export interface TypeResolutionMeta {
+	ref: string;
 	entity: EntityDataBase;
 }
 
 export interface TypeExpressionBase<K extends TypeExpressionKind> extends DeclarationJsDocData {
 	kind: K;
 	generic?: TypeExpressionGeneric[];
-	resolved?: TypeResolutionMeta;
+	_source?: TypeResolutionMeta;
 }
 
 export interface TypeExpressionGeneric {
@@ -41,6 +42,7 @@ export interface ObjectLiteralTypeMember extends DeclarationJsDocData {
 	type: TypeExpressionNode;
 	optional?: boolean;
 	readonly?: boolean;
+	_source?: TypeResolutionMeta;
 }
 
 export interface ObjectIndexSignature extends DeclarationJsDocData {
@@ -48,6 +50,7 @@ export interface ObjectIndexSignature extends DeclarationJsDocData {
 	keyType: TypeExpressionNode;
 	valueType: TypeExpressionNode;
 	readonly?: boolean;
+	_source?: TypeResolutionMeta;
 }
 
 export interface ObjectMappedSignature extends DeclarationJsDocData {
@@ -56,6 +59,7 @@ export interface ObjectMappedSignature extends DeclarationJsDocData {
 	valueType: TypeExpressionNode;
 	optional?: boolean;
 	readonly?: boolean;
+	_source?: TypeResolutionMeta;
 }
 
 export interface TypeRefNode extends TypeExpressionBase<'ref'> {

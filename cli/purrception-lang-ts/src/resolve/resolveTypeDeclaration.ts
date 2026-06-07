@@ -10,20 +10,22 @@ import type { ResolveTypeContext } from './types';
 
 export function resolveTypeDeclaration(
 	context: ResolveTypeContext,
-	node: TypeDeclaration,
+	declaration: TypeDeclaration,
 ): TypeExpressionDeclaration<TypeExpressionNode> {
 	const resolution: TypeResolutionMeta = {
+		ref: declaration.name,
 		entity: context.entity,
 	};
-	let declaration = node;
-	switch (node.kind) {
+
+	let dec = declaration;
+	switch (declaration.kind) {
 		case 'type':
-			declaration = resolveTypeExpressionDeclaration(context, node as TypeExpressionDeclaration);
+			dec = resolveTypeExpressionDeclaration(context, declaration as TypeExpressionDeclaration);
 			break;
 		case 'interface':
-			declaration = resolveInterfaceDeclaration(context, node as InterfaceDeclaration);
+			dec = resolveInterfaceDeclaration(context, declaration as InterfaceDeclaration);
 			break;
 	}
 
-	return { ...declaration, node: { ...declaration.node, resolved: resolution } };
+	return { ...dec, node: { ...dec.node, _source: dec.node._source || resolution } };
 }

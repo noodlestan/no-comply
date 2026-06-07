@@ -6,14 +6,14 @@ export function resolveUnion(context: ResolveTypeContext, exp: UnionTypeNode): U
 	const resolvedEntries: TypeExpressionNode[] = [];
 
 	for (const entry of exp.entries) {
-		const resolved = resolveExpression(context, entry);
+		const node = resolveExpression(context, entry);
 
-		if (isUnionTypeNode(resolved)) {
-			resolvedEntries.push(...resolved.entries);
+		if (isUnionTypeNode(node)) {
+			resolvedEntries.push(...node.entries);
 			continue;
 		}
 
-		resolvedEntries.push(resolved);
+		resolvedEntries.push(node);
 	}
 
 	return {

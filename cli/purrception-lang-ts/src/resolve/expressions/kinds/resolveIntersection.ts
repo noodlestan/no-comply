@@ -1,28 +1,65 @@
-import {
-	type IntersectionTypeNode,
-	type ObjectLiteralTypeNode,
-	type TypeExpressionNode,
-	isIntersectionTypeNode,
-} from '../../../node';
+import { type IntersectionTypeNode, type ObjectLiteralTypeNode } from '../../../node';
 import type { ResolveTypeContext } from '../../types';
 import { normalizeObjectLiteral } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
 
+function mergeMembers(
+	context: ResolveTypeContext,
+	target: ObjectLiteralTypeNode,
+	source: ObjectLiteralTypeNode,
+) {
+	for (const key in source.members) {
+		const member = source.members[key];
+
+		const node = resolveExpression(context, member.type);
+		target.members[key] = {
+			...member,
+			type: { ...node, _source: node._source || source._source },
+		};
+	}
+}
+
+function mergeObject(
+	context: ResolveTypeContext,
+	target: ObjectLiteralTypeNode,
+	source: ObjectLiteralTypeNode,
+) {
+	mergeMembers(context, target, source);
+
+	if (target.indexSignatures && source.indexSignatures?.length) {
+		target.indexSignatures.push(
+			...source.indexSignatures.map(sig => ({
+				...sig,
+				_source: sig._source || source._source,
+			})),
+		);
+	}
+
+	if (target.mappedSignatures && source.mappedSignatures?.length) {
+		target.mappedSignatures.push(
+			...source.mappedSignatures.map(sig => ({
+				...sig,
+				_source: sig._source || source._source,
+			})),
+		);
+	}
+}
+
 export function resolveIntersection(
 	context: ResolveTypeContext,
 	exp: IntersectionTypeNode,
-): TypeExpressionNode {
-	const resolvedEntries: TypeExpressionNode[] = [];
+): ObjectLiteralTypeNode {
+	const resolvedEntries: ObjectLiteralTypeNode[] = [];
 
 	for (const entry of exp.entries) {
-		const resolved = resolveExpression(context, entry);
+		const node = resolveExpression(context, entry);
+		const normalized = normalizeObjectLiteral(node);
 
-		if (isIntersectionTypeNode(resolved)) {
-			resolvedEntries.push(...resolved.entries);
-			continue;
+		if (normalized) {
+			resolvedEntries.push(normalized);
+		} else {
+			console.warn(`Unresolvable intersection member:`, entry);
 		}
-
-		resolvedEntries.push(resolved);
 	}
 
 	const object: ObjectLiteralTypeNode = {
@@ -30,54 +67,11 @@ export function resolveIntersection(
 		members: {},
 		indexSignatures: [],
 		mappedSignatures: [],
-		resolved: {
-			entity: context.entity,
-		},
+		_source: exp._source,
 	};
 
-	function mergeMembers(target: ObjectLiteralTypeNode, source: ObjectLiteralTypeNode) {
-		for (const key in source.members) {
-			const member = source.members[key];
-
-			const type = resolveExpression(context, member.type);
-
-			if (typeof type === 'object') {
-				target.members[key] = {
-					...member,
-					type: { ...type, resolved: source.resolved },
-				};
-			} else {
-				target.members[key] = {
-					...member,
-					type,
-				};
-			}
-		}
-	}
-
-	function mergeObject(target: ObjectLiteralTypeNode, source: ObjectLiteralTypeNode) {
-		mergeMembers(target, source);
-
-		if (target.indexSignatures && source.indexSignatures?.length) {
-			target.indexSignatures.push(...source.indexSignatures);
-		}
-
-		if (target.mappedSignatures && source.mappedSignatures?.length) {
-			target.mappedSignatures.push(...source.mappedSignatures);
-		}
-	}
-
 	for (const entry of resolvedEntries) {
-		const normalized = normalizeObjectLiteral(entry);
-
-		if (!normalized) {
-			return {
-				...exp,
-				entries: resolvedEntries,
-			};
-		}
-
-		mergeObject(object, normalized);
+		mergeObject(context, object, entry);
 	}
 
 	return object;
