@@ -1,0 +1,7 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .ComponentPropsSection {
+    height: 90vh;
+  }
+}

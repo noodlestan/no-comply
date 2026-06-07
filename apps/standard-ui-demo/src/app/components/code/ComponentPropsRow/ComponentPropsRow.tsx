@@ -1,13 +1,24 @@
 /* eslint-disable dot-notation */
+import type { ComponentEntityData } from '@no-comply/meta-entities';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Flex, Text } from '@no-comply/standard-ui';
+import type { ObjectLiteralTypeMember } from '@purrception/lang-ts';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, Show } from 'solid-js';
 
 import { CodeDocDescription } from '../CodeDocDescription';
 
 import styles from './ComponentPropsRow.module.scss';
-import type { ComponentPropsRowProps } from './types';
+
+interface ComponentProp {
+	name: string;
+	node: ObjectLiteralTypeMember;
+}
+
+interface ComponentPropsRowProps {
+	component: ComponentEntityData;
+	prop: ComponentProp;
+}
 
 export const ComponentPropsRow: Component<ComponentPropsRowProps> = props => {
 	const rowHeaderClassList = staticClassList(styles, ['RowHeader']);
@@ -23,7 +34,7 @@ export const ComponentPropsRow: Component<ComponentPropsRowProps> = props => {
 		<Flex direction="column" gap="m">
 			<Flex direction="row" gap="s" align="baseline" classList={rowHeaderClassList}>
 				<Flex direction="column" flex={1}>
-					<Display level={4}>{props.prop.name}</Display>
+					<Display level={5}>{props.prop.name}</Display>
 				</Flex>
 				<div>{props.prop.node.optional ? 'optional' : 'mandatory'}</div>
 				<Show when={defaultValue()}>

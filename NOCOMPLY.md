@@ -1,5 +1,9 @@
 # Purrception
 
+## Don't resolve
+
+[item.entity](http://localhost:3000/features/components/Layout#main)
+
 ## Streamline comment extraction
 
 - search: `typeof tag.comment === 'string'`
