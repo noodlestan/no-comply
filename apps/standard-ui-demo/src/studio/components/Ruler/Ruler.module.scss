@@ -23,14 +23,14 @@
     @include apply-color(border-color, __border);
   }
 
-  .ticks {
+  .-Ticks {
     position: absolute;
     inset-inline: 0;
     bottom: 0px;
     overflow: hidden;
   }
 
-  .tick {
+  .-Tick {
     flex: 0 0 var(--__ruler-size);
 
     &::before {
@@ -53,12 +53,12 @@
     }
   }
 
-  .markers {
+  .-Markers {
     position: absolute;
     inset: 0;
   }
 
-  .marker {
+  .-Marker {
     position: absolute;
     height: 100%;
     transform: translateX(-50%);

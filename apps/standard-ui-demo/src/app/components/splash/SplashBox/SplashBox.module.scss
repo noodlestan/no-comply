@@ -11,13 +11,13 @@
     overflow: hidden;
   }
 
-  .logo {
+  .-Logo {
     display: block;
     --icon-size: var(--scale-2xl);
     animation: splash-box-icon-shake 5s infinite;
   }
 
-  .logo > svg {
+  .-Logo > svg {
     height: 100%;
   }
 }
@@ -35,29 +35,36 @@
     opacity: 0;
     transform: translateX(-800px);
   }
+
   5% {
     opacity: 0.8;
     transform: translateX(-20px);
   }
+
   10% {
     opacity: 1;
     transform: translateX(-1px);
   }
+
   15% {
     transform: translateX(0px);
   }
+
   60% {
     opacity: 1;
     transform: translateX(0);
   }
+
   95% {
     opacity: 0.5;
     transform: translateX(600px);
   }
+
   96% {
     opacity: 0;
     transform: translateX(1000px);
   }
+
   100% {
     opacity: 0;
     transform: translateX(0);
