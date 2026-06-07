@@ -3,15 +3,15 @@ import type { SeparatorTagName } from '../../tag';
 
 export type SeparatorOrientation = 'button' | 'submit' | 'reset';
 
-export interface AriaSeparatorProps {
+export type AriaSeparatorProps = {
 	tag?: SeparatorTagName;
 	orientation?: AriaAttributes['aria-orientation'];
-}
+};
 
-export interface AriaSeparatorAPI {
+export type AriaSeparatorAPI = {
 	$root: {
 		component: SeparatorTagName;
 		role: 'separator' | undefined;
 		'aria-orientation': AriaAttributes['aria-orientation'];
 	};
-}
+};

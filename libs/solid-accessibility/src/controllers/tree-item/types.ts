@@ -2,15 +2,15 @@ import type { AriaAttributes } from '../../attributes';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export interface AriaTreeItemProps extends AriaLabelledProps {
+export type AriaTreeItemProps = AriaLabelledProps & {
 	selected: boolean;
 	expanded: boolean;
 	level: number;
 	setSize: number;
 	posInSet: number;
-}
+};
 
-export interface AriaTreeItemAPI {
+export type AriaTreeItemAPI = {
 	$root: AriaRegionAPI<'treeitem'>['$root'] & {
 		'aria-expanded': AriaAttributes['aria-expanded'];
 		'aria-selected': AriaAttributes['aria-selected'];
@@ -20,4 +20,4 @@ export interface AriaTreeItemAPI {
 	};
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];
-}
+};

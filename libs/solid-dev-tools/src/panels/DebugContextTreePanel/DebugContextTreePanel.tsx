@@ -19,7 +19,10 @@ const TREE_LABELS: TreeListLabels = {
 export const DebugContextTreePanel: Component = () => {
 	const region = createAriaRegion();
 
-	const components = { itemContents: DebugContextTreeItem, expandButton: ExpandButton };
+	const components = {
+		itemContents: DebugContextTreeItem,
+		expandButton: ExpandButton,
+	};
 
 	const rootContext = useContextTreeRoot();
 	const tree = createDebugContextTree(rootContext);

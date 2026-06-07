@@ -11,11 +11,10 @@ import type {
 
 export type DeclarationKind = 'type' | 'interface' | 'function' | 'component';
 
-export interface DeclarationBase<K extends DeclarationKind>
-	extends ExportedSymbol,
-		DeclarationJsDocData {
-	kind: K;
-}
+export type DeclarationBase<K extends DeclarationKind> = ExportedSymbol &
+	DeclarationJsDocData & {
+		kind: K;
+	};
 
 export type TypeExpressionDeclaration<K extends TypeExpressionNode = TypeExpressionNode> =
 	DeclarationBase<'type'> & {

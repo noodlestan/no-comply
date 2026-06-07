@@ -1,1 +1,3 @@
-export type Styles = { [key: string]: string | number | undefined };
+export type Styles = {
+	[key: string]: string | number | undefined;
+};

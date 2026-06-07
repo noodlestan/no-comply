@@ -1,12 +1,15 @@
 /* eslint-disable dot-notation */
 import { Flex, Link, Text } from '@no-comply/standard-ui';
+import type { DeclarationJsDocData } from '@purrception/lang-ts';
 import { type Component, For, type JSX, Show } from 'solid-js';
 
 import { routeFor } from '../../../navigation';
 
-import type { CodeDocDescriptionProps } from './types';
+type Props = {
+	node: DeclarationJsDocData;
+};
 
-export const CodeDocDescription: Component<CodeDocDescriptionProps> = props => {
+export const CodeDocDescription: Component<Props> = props => {
 	const href = (link: string) => {
 		const [type, name] = link.split(':');
 		if (type === 'component') {

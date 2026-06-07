@@ -5,15 +5,16 @@ import { type Component, For } from 'solid-js';
 
 import { routeFor } from '../../../navigation';
 import { ComponentPropsRow } from '../ComponentPropsRow';
+import type { ComponentProp } from '../types';
 
-interface ComponentPropsTableProps {
+type Props = {
 	component: ComponentEntityData;
 	props: ComponentProp[];
-}
+};
 
 type RefProps = { entity?: EntityDataBase; props: ComponentProp[] };
 
-export const ComponentPropsTable: Component<ComponentPropsTableProps> = props => {
+export const ComponentPropsTable: Component<Props> = props => {
 	const propsBySource = () => {
 		return props.props.reduce(
 			(acc, item) => {

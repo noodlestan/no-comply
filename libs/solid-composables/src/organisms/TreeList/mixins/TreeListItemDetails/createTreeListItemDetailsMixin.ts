@@ -9,15 +9,15 @@ export const createTreeListItemDetailsMixin = (): TreeListItemDetailsMixinAPI =>
 	};
 
 	const $focusable = {
-		classList: staticClassList(styles, '-focusable'),
+		classList: staticClassList(styles, '-Focusable'),
 	};
 
 	const $toggle = {
-		classList: staticClassList(styles, '-toggle'),
+		classList: staticClassList(styles, '-Toggle'),
 	};
 
 	const $contents = {
-		classList: staticClassList(styles, '-contents'),
+		classList: staticClassList(styles, '-Contents'),
 	};
 
 	return {

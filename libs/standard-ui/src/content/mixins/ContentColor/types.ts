@@ -1,9 +1,5 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-export type ContentColorMixinProps = {
-	color?: ContentColor;
-};
-
 export type ContentColor =
 	| 'brand'
 	| 'normal'
@@ -14,6 +10,10 @@ export type ContentColor =
 	| 'bad'
 	| 'modified'
 	| 'selected';
+
+export type ContentColorMixinProps = {
+	color?: ContentColor;
+};
 
 export type ContentColorMixinAPI = {
 	$root: {

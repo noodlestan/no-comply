@@ -1,14 +1,8 @@
-import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
-import type { ContentSize } from '../../../size';
-
 import styles from './FieldsetLabel.module.scss';
-
-export type FieldsetLabelProps = {
-	size?: ContentSize;
-	classList?: ClassList;
-};
+import type { FieldsetLabelProps } from './types';
 
 const defaultProps: PickRequired<FieldsetLabelProps, 'size'> = {
 	size: 'normal',

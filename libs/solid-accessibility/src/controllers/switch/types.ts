@@ -3,13 +3,13 @@ import type { SwitchTagName } from '../../tag';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export interface AriaSwitchProps extends AriaLabelledProps {
+export type AriaSwitchProps = AriaLabelledProps & {
 	tag: SwitchTagName;
 	checked: boolean;
 	disabled: boolean;
-}
+};
 
-export interface AriaSwitchAPI {
+export type AriaSwitchAPI = {
 	$root: AriaRegionAPI<'switch'>['$root'] & {
 		type: 'button' | 'checkbox' | undefined;
 		component: SwitchTagName;
@@ -19,4 +19,4 @@ export interface AriaSwitchAPI {
 	};
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];
-}
+};

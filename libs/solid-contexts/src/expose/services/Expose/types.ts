@@ -2,7 +2,9 @@ import type { Accessor } from 'solid-js';
 
 import type { ExposableAPI, ExposedAPI } from '../../types';
 
-export type ExposeServiceOptions = { expose: boolean };
+export type ExposeServiceOptions = {
+	expose: boolean;
+};
 
 export type ExposedItem = [ExposableAPI, ExposedAPI];
 

@@ -1,25 +1,8 @@
-import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type ParentComponent, Show } from 'solid-js';
 
 import styles from './Select.module.scss';
-
-export type SelectSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-export type SelectLength = 's' | 'm' | 'l' | 'full' | 'auto';
-
-export type SelectProps = {
-	id?: string;
-	value?: string;
-	placeholder?: string;
-	size?: SelectSize;
-	length?: number | SelectLength;
-	modified?: boolean;
-	disabled?: boolean;
-	invalid?: boolean;
-	onChange?: (ev: Event) => void;
-	onValueChange?: (id: string) => void;
-	ref?: (el: HTMLSelectElement) => void;
-	classList?: ClassList;
-};
+import type { SelectLength, SelectProps } from './types';
 
 const defaultProps: PickRequired<SelectProps, 'size' | 'length'> = {
 	size: 's',

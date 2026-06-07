@@ -1,12 +1,12 @@
 import type { MenuItemRoleName } from '../../role';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
-export interface AriaMenuItemProps extends AriaLabelledProps {
+export type AriaMenuItemProps = AriaLabelledProps & {
 	role?: MenuItemRoleName;
-}
+};
 
-export interface AriaMenuItemAPI extends Omit<AriaLabelledAPI, '$root'> {
+export type AriaMenuItemAPI = Omit<AriaLabelledAPI, '$root'> & {
 	$root: AriaLabelledAPI['$root'] & {
 		role: MenuItemRoleName;
 	};
-}
+};

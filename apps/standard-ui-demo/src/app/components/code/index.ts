@@ -5,3 +5,4 @@ export * from './CodeDocDescription';
 export * from './CodeSymbolLink';
 export * from './ComponentPropsRow';
 export * from './ComponentPropsTable';
+export * from './types';

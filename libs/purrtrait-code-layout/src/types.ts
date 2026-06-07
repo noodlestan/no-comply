@@ -20,34 +20,34 @@ export type CodeLayoutTokenKind =
 	| 'string'
 	| 'literal';
 
-export interface CodeLayoutToken<T extends CodeLayoutTokenKind = CodeLayoutTokenKind> {
+export type CodeLayoutToken<T extends CodeLayoutTokenKind = CodeLayoutTokenKind> = {
 	type: 'token';
 	kind: T;
 	value: string;
 	link?: string;
-}
+};
 
-export interface CodeLayoutGroup {
+export type CodeLayoutGroup = {
 	type: 'group';
 	content: CodeLayoutNode[];
-}
+};
 
-export interface CodeLayoutBlock {
+export type CodeLayoutBlock = {
 	type: 'block';
 	content: CodeLayoutGroup[];
-}
+};
 
 export type CodeLayoutNode =
 	| CodeLayoutToken<CodeLayoutTokenKind>
 	| CodeLayoutGroup
 	| CodeLayoutBlock;
 
-export interface CodeLayoutLanguage {
+export type CodeLayoutLanguage = {
 	lang: string;
 	layout: (ctx: CodeLayoutContextValue, node: object | string) => CodeLayoutNode[];
-}
+};
 
-export interface CodeLayoutLine {
+export type CodeLayoutLine = {
 	indent: number;
 	content: CodeLayoutToken[];
-}
+};

@@ -4,12 +4,12 @@ import type { AriaAttributes } from '../../attributes';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
-export interface AriaGroupProps extends AriaLabelledProps {
+export type AriaGroupProps = AriaLabelledProps & {
 	expanded?: boolean;
 	setSize?: number;
-}
+};
 
-export interface AriaGroupAPI {
+export type AriaGroupAPI = {
 	$root: Omit<AriaRegionAPI['$root'], 'role'> & {
 		role: 'group' | undefined;
 		'aria-expanded': AriaAttributes['aria-expanded'];
@@ -18,9 +18,9 @@ export interface AriaGroupAPI {
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];
 	hasLabel: Accessor<boolean>;
-}
+};
 
-// interface AriaGroupAPI {
+// type AriaGroupAPI {
 // 	$literal: 1;
 // 	$union: 'a' | 'b' | 'c';
 // 	$intersection: { a: string } & { b: number };

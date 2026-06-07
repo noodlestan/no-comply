@@ -6,12 +6,12 @@ import styles from './MainHeader.module.scss';
 import { HomeButton, MainMenuButton, MainNav } from './parts';
 import { HEADER_LABEL } from './private';
 
-interface Props {
+type Props = {
 	setMenuButtonRef?: (el: HTMLElement) => void;
 	sidebarExpanded?: boolean;
 	toggleSidebar?: () => void;
 	sidebarHidden?: boolean;
-}
+};
 
 export const MainHeader: Component<Props> = props => {
 	const handleMainMenuButtonPress = () => props.toggleSidebar?.();

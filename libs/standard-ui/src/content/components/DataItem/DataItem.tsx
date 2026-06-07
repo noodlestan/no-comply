@@ -1,26 +1,14 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 import { type IconComponent } from '@no-comply/solid-contexts/src/icons';
-import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type JSX, type ParentComponent, Show } from 'solid-js';
 
 import { Icon } from '../../../icon';
-import type { ContentSize } from '../../../size';
 import { Label } from '../../../typography';
-import { DataValue, type DataValueLength } from '../DataValue';
+import { DataValue } from '../DataValue';
 
 import styles from './DataItem.module.scss';
-
-export type DataItemProps = {
-	id?: string;
-	size?: ContentSize;
-	length?: number | DataValueLength;
-	label?: string;
-	units?: string;
-	icon?: IconComponent;
-	onClick?: () => void;
-	classList?: ClassList;
-	value?: JSX.Element;
-};
+import type { DataItemProps } from './types';
 
 const defaultProps: PickRequired<DataItemProps, 'size'> = {
 	size: 'normal',

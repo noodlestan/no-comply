@@ -10,7 +10,7 @@ type Props = {
 
 export const ScreenTemplateBase: ParentComponent<Props> = props => {
 	const classList = staticClassList(styles, 'ScreenTemplateBase');
-	const layoutClassList = staticClassList(styles, 'Layout');
+	const layoutClassList = staticClassList(styles, '-Layout');
 
 	return (
 		<Surface variant="stage" stretch="height" classList={classList} data-screen={props.id}>

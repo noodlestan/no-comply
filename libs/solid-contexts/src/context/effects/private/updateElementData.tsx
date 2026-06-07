@@ -4,7 +4,7 @@ import {
 	dataAttributeName,
 } from '@no-comply/solid-primitives';
 
-export type ElementPreviousData = [DataAttributeName, string][];
+type ElementPreviousData = [DataAttributeName, string][];
 
 export const updateElementData = (
 	targetElement?: HTMLElement,

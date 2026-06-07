@@ -1,22 +1,13 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData } from '@no-comply/meta-entities';
-import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
-import {
-	type ObjectLiteralTypeNode,
-	type TypeDeclaration,
-	type TypeExpressionDeclaration,
-	createResolveTypeContext,
-	resolveTypeDeclaration,
-} from '@purrception/lang-ts';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
 import { type ComponentName } from '../../../../../data';
-import { getTokenEntityMaybe, useMeta } from '../../../../../providers';
-import { ComponentPropsTable } from '../../../../components';
+import { useMeta } from '../../../../../providers';
 import { ComponentMeta } from '../../../../content';
-import { routeFor } from '../../../../navigation';
 import { BasePage, NotFoundPage } from '../../../../templates';
+import { ComponentPropsSection } from '../../components';
 
 export const ComponentPage: Component = () => {
 	const params = useParams();
@@ -27,20 +18,6 @@ export const ComponentPage: Component = () => {
 	const data = () =>
 		getEntityMaybe('@no-comply/standard-ui', 'component', name()) as ComponentEntityData;
 	// const page = () => components[name()]?.(data());
-
-	const componentProps = () => {
-		const context = createResolveTypeContext(getTokenEntityMaybe, data());
-		const props = resolveTypeDeclaration(
-			context,
-			data().types['Props'] as TypeDeclaration,
-		) as TypeExpressionDeclaration<ObjectLiteralTypeNode>;
-
-		// Object.entries(props.node.members).forEach(([key, value]) => {
-		// 	console.log(key, value.type._source);
-		// });
-
-		return Object.entries(props.node.members).map(([name, node]) => ({ name, node }));
-	};
 
 	return (
 		<>
@@ -55,19 +32,7 @@ export const ComponentPage: Component = () => {
 					undertitle={<ComponentMeta component={data()} />}
 					data-component-page
 				>
-					<Flex gap="l">
-						<Display level={3}>Props</Display>
-
-						<Text>
-							See also <Link href={routeFor.entity(data())}>API Reference</Link>
-						</Text>
-						{/* <DeclarationCodeBlock
-						type={data().types['Props'] as TypeDeclaration}
-						entity={data()}
-						resolve={true}
-					/> */}
-						<ComponentPropsTable component={data()} props={componentProps()} />
-					</Flex>
+					<ComponentPropsSection component={data()} />
 				</BasePage>
 			</Show>
 		</>

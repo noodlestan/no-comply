@@ -6,12 +6,12 @@ import { $ID_SCREEN_TITLE } from '../../constants';
 import { PageContentsLayout } from '../../layouts';
 import { EmptyPage } from '../EmptyPage';
 
-export type NotFoundPageProps = {
+type Props = {
 	title?: JSX.Element;
 	classList?: ClassList;
 	undertitle?: JSX.Element;
 };
-export const NotFoundPage: ParentComponent<NotFoundPageProps> = props => {
+export const NotFoundPage: ParentComponent<Props> = props => {
 	return (
 		<EmptyPage aria-labelledby={$ID_SCREEN_TITLE}>
 			<PageContentsLayout classList={props.classList} gap="l">

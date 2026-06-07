@@ -1,23 +1,8 @@
-import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
-import type { JSX, ParentComponent } from 'solid-js';
-
-import type { ContentSize } from '../../../size';
+import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import type { ParentComponent } from 'solid-js';
 
 import styles from './DataValue.module.scss';
-
-export type DataValueLength = 's' | 'm' | 'l' | 'full' | 'auto';
-export type DataValueAlign = 'left' | 'right';
-
-export type DataValueProps = {
-	id?: string;
-	size?: ContentSize;
-	length?: number | DataValueLength;
-	align?: DataValueAlign;
-	wrap?: boolean;
-	onClick?: () => void;
-	classList?: ClassList;
-	value?: JSX.Element;
-};
+import type { DataValueLength, DataValueProps } from './types';
 
 const defaultProps: PickRequired<DataValueProps, 'size' | 'length' | 'align'> = {
 	size: 'normal',

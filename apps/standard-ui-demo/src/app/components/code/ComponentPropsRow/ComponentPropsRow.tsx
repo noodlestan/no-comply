@@ -2,25 +2,20 @@
 import type { ComponentEntityData } from '@no-comply/meta-entities';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Flex, Text } from '@no-comply/standard-ui';
-import type { ObjectLiteralTypeMember } from '@purrception/lang-ts';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, Show } from 'solid-js';
 
 import { CodeDocDescription } from '../CodeDocDescription';
+import type { ComponentProp } from '../types';
 
 import styles from './ComponentPropsRow.module.scss';
 
-interface ComponentProp {
-	name: string;
-	node: ObjectLiteralTypeMember;
-}
-
-interface ComponentPropsRowProps {
+type Props = {
 	component: ComponentEntityData;
 	prop: ComponentProp;
-}
+};
 
-export const ComponentPropsRow: Component<ComponentPropsRowProps> = props => {
+export const ComponentPropsRow: Component<Props> = props => {
 	const rowHeaderClassList = staticClassList(styles, ['RowHeader']);
 
 	const defaultValue = () => {

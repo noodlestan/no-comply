@@ -22,7 +22,7 @@ export const SplashBox: Component<Props> = props => {
 			<Display level={1} variant="l" id={props.labelId}>
 				Standard UI
 			</Display>
-			<Flex flex={1} classList={staticClassList(styles, 'logo')}>
+			<Flex flex={1} classList={staticClassList(styles, '-Logo')}>
 				<IconSvg />
 			</Flex>
 			<Text variant="medium">Made in Noodlestan</Text>

@@ -6,7 +6,7 @@ import type {
 } from '@no-comply/solid-accessibility';
 import type { PressEventHandlers } from '@no-comply/solid-primitives';
 
-export interface PressableProps extends AriaPressableProps, PressEventHandlers {}
+export type PressableProps = AriaPressableProps & PressEventHandlers;
 
 type PressableRoot = {
 	onClick: (ev: MouseEvent) => void;

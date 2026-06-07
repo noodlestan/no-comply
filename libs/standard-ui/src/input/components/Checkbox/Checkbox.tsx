@@ -1,31 +1,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import {
-	type ClassList,
-	type PickRequired,
-	createClassList,
-	staticClassList,
-} from '@no-comply/solid-primitives';
+import { type PickRequired, createClassList, staticClassList } from '@no-comply/solid-primitives';
 import CheckIcon from 'lucide-solid/icons/check';
 import { type Component, createSignal } from 'solid-js';
 
 import styles from './Checkbox.module.scss';
-
-export type CheckboxSize = 's' | 'm' | 'l';
-
-export type CheckboxProps = {
-	id?: string;
-	checked?: boolean;
-	size?: CheckboxSize;
-	label?: string;
-	modified?: boolean;
-	disabled?: boolean;
-	invalid?: boolean;
-	onChange?: (ev: Event) => void;
-	onValueChange?: (value: boolean) => void;
-	ref?: (el: HTMLInputElement) => void;
-	classList?: ClassList;
-};
+import type { CheckboxProps } from './types';
 
 const defaultProps: PickRequired<CheckboxProps, 'size'> = {
 	size: 's',

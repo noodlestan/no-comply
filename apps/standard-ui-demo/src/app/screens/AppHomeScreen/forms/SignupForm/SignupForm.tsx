@@ -4,9 +4,14 @@ import { type Component, Show, createSignal } from 'solid-js';
 import { ConfirmPasswordField, CreatePasswordField, CreateUsernameField } from '../../fields';
 
 import { mockSubmit } from './private';
-import type { SignupData, SignupFormProps } from './types';
+import type { SignupData } from './types';
 
-export const SignupForm: Component<SignupFormProps> = props => {
+type Props = {
+	onCancel: () => void;
+	onComplete: () => void;
+};
+
+export const SignupForm: Component<Props> = props => {
 	const [isSubmitting, setIsSubmitting] = createSignal(false);
 	const [submitError, setSubmitError] = createSignal<Error>();
 	const [signupData, setSignupData] = createSignal<Partial<SignupData>>({});

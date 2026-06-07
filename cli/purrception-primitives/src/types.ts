@@ -1,14 +1,14 @@
-export interface ImportedSymbol {
+export type ImportedSymbol = {
 	at: string;
 	name: string;
 	alias: string;
 	from: string;
-}
+};
 
-export interface ExportedSymbol {
+export type ExportedSymbol = {
 	at: string;
 	name: string;
-}
+};
 
 export type EntityDataBasePartial = {
 	type: string;

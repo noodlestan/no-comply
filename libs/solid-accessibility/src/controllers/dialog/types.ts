@@ -3,8 +3,8 @@ import type { AriaRegionAPI } from '../region';
 
 export type AriaDialogProps = AriaLabelledProps;
 
-export interface AriaDialogAPI {
+export type AriaDialogAPI = {
 	$root: AriaRegionAPI<'dialog'>['$root'];
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];
-}
+};

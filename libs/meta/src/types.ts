@@ -1,6 +1,6 @@
 import type { ModuleEntityData, NoComplyEntityData } from '@no-comply/meta-entities';
 
-export interface NoComplyMetaAPI {
+export type NoComplyMetaAPI = {
 	getEntities(): NoComplyEntityData[];
 	getEntityMaybe<T extends NoComplyEntityData>(
 		pkg: string,
@@ -15,4 +15,4 @@ export interface NoComplyMetaAPI {
 	getModuleMaybe: (pkg: string, mod: string) => ModuleEntityData | undefined;
 	getModuleSubModuleNames: (pkg: string, mod: string) => string[];
 	getModuleEntities: (pkg: string, mod: string) => NoComplyEntityData[];
-}
+};

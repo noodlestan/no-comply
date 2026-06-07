@@ -1,4 +1,4 @@
-import { type ClassList, type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
 import styles from './NumberInput.module.scss';
@@ -12,26 +12,7 @@ import {
 	isTextEditingShortcut,
 	makeStyle,
 } from './functions';
-import type { NumberInputLength, NumberInputSize } from './types';
-
-export type NumberInputProps = {
-	id?: string;
-	value?: string;
-	placeholder?: string;
-	size?: NumberInputSize;
-	length?: number | NumberInputLength;
-	maxLength?: number;
-	min?: number;
-	max?: number;
-	step?: number;
-	modified?: boolean;
-	disabled?: boolean;
-	invalid?: boolean;
-	onChange?: (ev: Event) => void;
-	onValueChange?: (value: string) => void;
-	ref?: (el: HTMLInputElement) => void;
-	classList?: ClassList;
-};
+import type { NumberInputProps } from './types';
 
 const defaultProps: PickRequired<NumberInputProps, 'size' | 'length'> = {
 	size: 's',

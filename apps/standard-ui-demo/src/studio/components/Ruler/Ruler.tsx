@@ -60,23 +60,23 @@ export const Ruler: Component<RulerProps> = props => {
 
 	return (
 		<Flex ref={setContainerRef} style={style()} classList={classList()}>
-			<Flex direction="row" classList={staticClassList(styles, 'ticks')}>
+			<Flex direction="row" classList={staticClassList(styles, '-Ticks')}>
 				<For each={ticks()}>
 					{tick => (
-						<Label tag="span" variant="small" classList={staticClassList(styles, 'tick')}>
+						<Label tag="span" variant="small" classList={staticClassList(styles, '-Tick')}>
 							<span>{tick}</span>
 						</Label>
 					)}
 				</For>
 			</Flex>
 			<Show when={props.markers?.length}>
-				<Flex direction="row" classList={staticClassList(styles, 'markers')}>
+				<Flex direction="row" classList={staticClassList(styles, '-Markers')}>
 					<For each={props.markers}>
 						{marker => (
 							<Label
 								tag="span"
 								variant="small"
-								classList={staticClassList(styles, 'marker')}
+								classList={staticClassList(styles, '-Marker')}
 								style={markerStyle(marker)}
 							>
 								<span>{marker.name}</span>

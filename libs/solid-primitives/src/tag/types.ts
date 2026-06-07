@@ -2,7 +2,7 @@ import type { ClassList, DataAttributes, Styles } from '@no-comply/solid-primiti
 import type { ComponentProps, JSX } from 'solid-js';
 import type { Dynamic } from 'solid-js/web';
 
-type TagOwnProps = {
+export type TagOwnProps = {
 	id?: string;
 	ref?: ComponentProps<typeof Dynamic>['ref'];
 	classList?: ClassList;

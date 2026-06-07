@@ -4,11 +4,11 @@ import { createFilesystemExtractContext } from '../contexts';
 import { processRootDir } from '../processors';
 import type { DirectoryEntityExtractor } from '../types';
 
-interface ExtractEntitiesFromFileSystemOptions {
+type ExtractEntitiesFromFileSystemOptions = {
 	rootDir: string;
 	extractors: DirectoryEntityExtractor[];
 	meta?: Record<string, unknown>;
-}
+};
 
 export async function extractEntitiesFromFileSystem(
 	opts: ExtractEntitiesFromFileSystemOptions,

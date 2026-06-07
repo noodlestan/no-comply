@@ -51,11 +51,12 @@ export const ErrorScreen: ParentComponent = () => {
 	const icon = (index: 0 | 1 | 2) => ICONS[icons()[index]] as IconComponent;
 	const color = (index: 0 | 1 | 2) => COLOR_NAMES[colorIndexes()[index]];
 
+	const classList = staticClassList(styles, 'ErrorScreen');
 	const iconClassList = staticClassList(styles, '-Icon');
 
 	return (
 		<Flex direction="column" stretch="full" justify="stretch">
-			<Layout tag="main" classList={staticClassList(styles, 'ErrorScreen')}>
+			<Layout tag="main" classList={classList}>
 				<Flex padding="xl" gap="l" align="center">
 					<Flex direction="row" gap="s" justify="around">
 						<div style={{ '--error-icon-color-name': color(0) }}>

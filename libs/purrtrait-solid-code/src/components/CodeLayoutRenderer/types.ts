@@ -1,5 +1,5 @@
 import type { CodeLayoutLine } from '@purrtrait/code-layout';
 
-export interface CodeLayoutRendererProps {
+export type CodeLayoutRendererProps = {
 	lines: CodeLayoutLine[];
-}
+};

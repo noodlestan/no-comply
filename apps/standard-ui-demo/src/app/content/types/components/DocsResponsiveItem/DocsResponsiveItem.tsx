@@ -1,6 +1,7 @@
 import { type ParentComponent } from 'solid-js';
 
-import { DocsItem, type DocsItemProps, ResponsiveRuler, type ResponsiveRulerProps } from '../../..';
+import { ResponsiveRuler, type ResponsiveRulerProps } from '../../../components';
+import { DocsItem, type DocsItemProps } from '../DocsItem';
 
 export type DocsResponsiveItemProps = Omit<DocsItemProps, 'slot'> & {
 	bps: string[];

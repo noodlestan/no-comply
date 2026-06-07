@@ -1,7 +1,7 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
-export interface LinkMixinAPI {
+export type LinkMixinAPI = {
 	$root: {
 		classList: ClassList;
 	};
-}
+};
