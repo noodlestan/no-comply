@@ -1,8 +1,10 @@
-# Purrtrait / Code TS
+# Purrtrait / Languages / TypeScript
 
-> TypeScript language support for Purrtrait code trees.
+> Purrtrait support for TypeScript.
 
 Part of the [Purrtrait](https://github.com/noodlestan/purrtrait) toolkit.
+
+Adds support for TypeScript via [@purrception/lang-ts](https://purrception.noodlestan.org/api/@purrception/lang-ts) lightweight AST.
 
 ## Development
 
