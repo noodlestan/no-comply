@@ -1,6 +1,6 @@
 import type { EntityDataBase } from '@purrception/primitives';
 
-import type { DeclarationJsDocData, JSDocTags } from '../jsdoc';
+import type { JsDocData, JsDocTags } from '../jsdoc';
 
 export type TypeExpressionKind =
 	| 'ref'
@@ -26,7 +26,7 @@ export type TypeResolutionMeta = {
 	entity: EntityDataBase;
 };
 
-export type TypeExpressionBase<K extends TypeExpressionKind> = DeclarationJsDocData & {
+export type TypeExpressionBase<K extends TypeExpressionKind> = JsDocData & {
 	kind: K;
 	generic?: TypeExpressionGeneric[];
 	_source?: TypeResolutionMeta;
@@ -38,14 +38,14 @@ export type TypeExpressionGeneric = {
 	default?: TypeRefNode;
 };
 
-export type ObjectLiteralTypeMember = DeclarationJsDocData & {
+export type ObjectLiteralTypeMember = JsDocData & {
 	type: TypeExpressionNode;
 	optional?: boolean;
 	readonly?: boolean;
 	_source?: TypeResolutionMeta;
 };
 
-export type ObjectIndexSignature = DeclarationJsDocData & {
+export type ObjectIndexSignature = JsDocData & {
 	keyName: string;
 	keyType: TypeExpressionNode;
 	valueType: TypeExpressionNode;
@@ -53,7 +53,7 @@ export type ObjectIndexSignature = DeclarationJsDocData & {
 	_source?: TypeResolutionMeta;
 };
 
-export type ObjectMappedSignature = DeclarationJsDocData & {
+export type ObjectMappedSignature = JsDocData & {
 	paramName: string;
 	constraint: TypeExpressionNode;
 	valueType: TypeExpressionNode;
@@ -114,7 +114,7 @@ export type FunctionTypeParam = {
 	type: TypeExpressionNode;
 	optional?: boolean;
 	description?: string;
-	tags?: JSDocTags;
+	tags?: JsDocTags;
 };
 
 export type FunctionTypeReturns = {

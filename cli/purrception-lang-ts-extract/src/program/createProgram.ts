@@ -86,11 +86,6 @@ export async function createProgram(
 		return mergedMap;
 	};
 
-	const extractImports = (files?: string | string[]) => {
-		const map = extractImportMap(files);
-		return Object.fromEntries(map);
-	};
-
 	const isLocalImport = (dep: ImportedSymbol) => {
 		return dep.from.endsWith(ctx.path) || dep.from.includes(ctx.path + '/');
 	};
@@ -103,8 +98,9 @@ export async function createProgram(
 
 	const formatExports = (...args: Declaration[][]) => {
 		const entries = args
-			.map(arg => arg.map(({ at, name }) => [name, { at, name } as ExportedSymbol]))
-			.flat();
+			.flat()
+			.filter(arg => !arg.private)
+			.map(({ at, name }) => [name, { at, name } as ExportedSymbol]);
 		return Object.fromEntries(entries);
 	};
 
@@ -113,7 +109,6 @@ export async function createProgram(
 		extractComponents,
 		extractFunctions,
 		extractTypes,
-		extractImports,
 		extractExternalImports,
 		formatExports,
 	};

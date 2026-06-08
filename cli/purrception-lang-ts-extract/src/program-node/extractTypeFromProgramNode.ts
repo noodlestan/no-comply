@@ -4,7 +4,12 @@ import ts from 'typescript';
 import { extractNodeJsDoc } from '../jsdoc';
 import type { ProgramFileAPI } from '../program';
 
-import { extractExportedName, extractInterfaceDeclaration, extractTypeExpression } from './helpers';
+import {
+	extractExportedName,
+	extractInterfaceDeclaration,
+	extractTypeExpression,
+	isExportedDeclaration,
+} from './helpers';
 
 export function extractTypeFromProgramNode(
 	programFile: ProgramFileAPI,
@@ -25,6 +30,7 @@ export function extractTypeFromProgramNode(
 		at: programFile.filepath,
 		name,
 		kind: 'type',
+		private: !isExportedDeclaration(node),
 		node: base,
 		description,
 		templateTags,

@@ -3,7 +3,7 @@ import ts from 'typescript';
 
 import { extractParamTags, extractReturnsTag, extractTags, extractTemplateTags } from './private';
 export function extractFunctionJsDoc(
-	node: ts.FunctionTypeNode | ts.FunctionDeclaration | ts.ArrowFunction,
+	node: ts.FunctionDeclaration | ts.VariableDeclaration,
 ): FunctionJsDocData {
 	const jsDoc = ts.getJSDocCommentsAndTags(node).find(ts.isJSDoc) as ts.JSDoc | undefined;
 

@@ -10,7 +10,9 @@ import {
 	extractExportedName,
 	extractFunctionReturns,
 	extractNodeGenerics,
+	getArrowFunctionDeclarationNode,
 	isComponentType,
+	isExportedDeclaration,
 	isJSXReturnType,
 	isParentComponentType,
 } from './helpers';
@@ -26,7 +28,8 @@ export function extractComponentFromProgramNode(
 		return;
 	}
 
-	const jsDoc = extractFunctionJsDoc(node);
+	const declarationNode = getArrowFunctionDeclarationNode(node);
+	const jsDoc = extractFunctionJsDoc(declarationNode);
 	const { description, templateTags, tags } = jsDoc;
 
 	const generic = extractNodeGenerics(node);
@@ -47,6 +50,7 @@ export function extractComponentFromProgramNode(
 		at: programFile.filepath,
 		name,
 		kind: 'component',
+		private: !isExportedDeclaration(declarationNode),
 		generic,
 		props,
 		description,

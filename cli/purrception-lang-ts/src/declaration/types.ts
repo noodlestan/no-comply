@@ -1,6 +1,6 @@
 import type { ExportedSymbol } from '@purrception/primitives';
 
-import type { DeclarationJsDocData } from '../jsdoc';
+import type { JsDocData } from '../jsdoc';
 import type {
 	ComponentNode,
 	FunctionTypeNode,
@@ -12,8 +12,9 @@ import type {
 export type DeclarationKind = 'type' | 'interface' | 'function' | 'component';
 
 export type DeclarationBase<K extends DeclarationKind> = ExportedSymbol &
-	DeclarationJsDocData & {
+	JsDocData & {
 		kind: K;
+		private?: boolean;
 	};
 
 export type TypeExpressionDeclaration<K extends TypeExpressionNode = TypeExpressionNode> =

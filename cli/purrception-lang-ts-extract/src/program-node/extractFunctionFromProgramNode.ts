@@ -10,6 +10,8 @@ import {
 	extractFunctionParams,
 	extractFunctionReturns,
 	extractNodeGenerics,
+	getArrowFunctionDeclarationNode,
+	isExportedDeclaration,
 } from './helpers';
 
 export function extractFunctionFromProgramNode(
@@ -19,7 +21,8 @@ export function extractFunctionFromProgramNode(
 	const map = programFile.exportsMap();
 
 	const name = extractExportedName(node, map);
-	const jsDoc = extractFunctionJsDoc(node);
+	const declarationNode = getArrowFunctionDeclarationNode(node);
+	const jsDoc = extractFunctionJsDoc(declarationNode);
 	const { description, templateTags, tags } = jsDoc;
 
 	const type = extractArrowFunctionType(node);
@@ -31,6 +34,7 @@ export function extractFunctionFromProgramNode(
 		at: programFile.filepath,
 		name,
 		kind: 'function',
+		private: !isExportedDeclaration(declarationNode),
 		generic,
 		params: params || [],
 		returns,

@@ -13,7 +13,10 @@ export function resolveTypeRefNode(
 		return node;
 	}
 
-	const targetEntity = context.resolveEntity(context.entity, node.ref);
+	const targetEntity =
+		node.ref in context.entity.symbols.imported
+			? context.resolveEntity(context.entity, node.ref)
+			: context.entity;
 	if (!targetEntity) {
 		return node;
 	}

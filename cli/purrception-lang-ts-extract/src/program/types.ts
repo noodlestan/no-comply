@@ -29,7 +29,6 @@ export type ProgramAPI = {
 	extractComponents: (files?: string | string[]) => ComponentDeclaration[];
 	extractFunctions: (files?: string | string[]) => FunctionDeclaration[];
 	extractTypes: (files?: string | string[]) => Record<string, TypeDeclaration>;
-	extractImports: (files?: string | string[]) => Record<string, ImportedSymbol>;
 	extractExternalImports: (files?: string | string[]) => Record<string, ImportedSymbol>;
 	formatExports: (...args: Declaration[][]) => Record<string, ExportedSymbol>;
 };

@@ -9,7 +9,7 @@ import { extractTypeExpression } from './extractTypeExpression';
 
 export function extractFunctionReturns(
 	returnType: ts.TypeNode | undefined,
-	jsDoc: FunctionJsDocData,
+	jsDoc?: FunctionJsDocData,
 ): FunctionTypeReturns {
 	if (!returnType) {
 		return { type: createPrimitiveNode('void') };
@@ -25,7 +25,7 @@ export function extractFunctionReturns(
 
 		return {
 			type: createPrimitiveNode('boolean'),
-			description: jsDoc.returnsTag,
+			description: jsDoc?.returnsTag,
 			asserts,
 		};
 	}
@@ -34,6 +34,6 @@ export function extractFunctionReturns(
 
 	return {
 		type,
-		description: jsDoc.returnsTag,
+		description: jsDoc?.returnsTag,
 	};
 }
