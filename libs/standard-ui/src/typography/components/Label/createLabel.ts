@@ -18,6 +18,7 @@ export const createLabel = (props: LabelProps): LabelAPI => {
 	const component = () => locals.tag ?? defaultProps.tag;
 	const $root = computedProps({
 		component,
+		for: () => props.for,
 	});
 
 	return exposeAPI(expose, '$root', {
