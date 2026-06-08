@@ -49,24 +49,7 @@ export type SideShorthandPropValues<T> =
 	| readonly [T | undefined, T | undefined]
 	| readonly [T | undefined, T | undefined, T | undefined]
 	| readonly [T | undefined, T | undefined, T | undefined, T | undefined]
-	| readonly [T | undefined, T | undefined, T | undefined, T | undefined, T | undefined]
-	| readonly [
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-	  ]
-	| readonly [
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-			T | undefined,
-	  ];
+	| readonly [T | undefined, T | undefined, T | undefined, T | undefined, T | undefined];
 
 export type SideShorthandProp<T> = T | SideShorthandPropValues<T>;
 
