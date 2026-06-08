@@ -1,7 +1,7 @@
 {
-  "name": "@no-comply/meta-entities",
+  "name": "@no-comply/meta-extract",
   "version": "0.0.11",
-  "description": "Purrception entities for the [no-comply] project.",
+  "description": "Purrception extraction tools for the [no-comply] project.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

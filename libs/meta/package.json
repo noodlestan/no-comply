@@ -1,7 +1,7 @@
 {
   "name": "@no-comply/meta",
   "version": "0.0.11",
-  "description": "Provides metadata about @no-comply libraries and APIs.",
+  "description": "Purrception types, services, and helpers for the [no-comply] project.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,
