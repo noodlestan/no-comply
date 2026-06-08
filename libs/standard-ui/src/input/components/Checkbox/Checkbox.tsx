@@ -1,8 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { type PickRequired, createClassList, staticClassList } from '@no-comply/solid-primitives';
+import {
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
+	staticClassList,
+} from '@no-comply/solid-primitives';
 import CheckIcon from 'lucide-solid/icons/check';
-import { type Component, createSignal } from 'solid-js';
+import { type Component } from 'solid-js';
+
+import { createFocusRing } from '../../../focus';
 
 import styles from './Checkbox.module.scss';
 import type { CheckboxProps } from './types';
@@ -15,7 +23,8 @@ export const Checkbox: Component<CheckboxProps> = props => {
 	let inputRef: HTMLInputElement | undefined;
 
 	const size = () => props.size ?? defaultProps.size;
-	const [isFocused, setIsFocused] = createSignal<boolean>(false);
+
+	const { $root: $focusRingRoot, $focusTarget } = createFocusRing();
 
 	const setInputRef = (ref: HTMLInputElement) => {
 		inputRef = ref;
@@ -26,10 +35,6 @@ export const Checkbox: Component<CheckboxProps> = props => {
 		props.onChange?.(ev);
 		props.onValueChange?.(!props.checked);
 	};
-
-	const handleFocus = () => setIsFocused(true);
-
-	const handleBlur = () => setIsFocused(false);
 
 	const handleMouseDown = (ev: MouseEvent) => {
 		ev.stopImmediatePropagation();
@@ -56,9 +61,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
 	};
 
 	const inputHandlers = {
-		onChange: handleChange,
-		onFocus: handleFocus,
-		onBlur: handleBlur,
+		// onChange: handleChange,
 		onKeyDown: handleKeyDown,
 	};
 
@@ -69,21 +72,27 @@ export const Checkbox: Component<CheckboxProps> = props => {
 		'is-invalid': Boolean(props.invalid),
 		'is-modified': Boolean(props.modified),
 		'is-checked': Boolean(props.checked),
-		'is-focused': isFocused(),
 	}));
 
+	const $root = computedProps({
+		classList,
+	});
+
+	const $ = combineProps($focusRingRoot, $root);
+
 	return (
-		<div classList={classList()} {...handlers}>
+		<div {...handlers} {...$}>
 			<span classList={staticClassList(styles, '-Control')}>
-				<CheckIcon />
+				<CheckIcon aria-hidden />
 				<input
+					id={props.id}
 					// eslint-disable-next-line solid/reactivity
 					ref={setInputRef}
 					type="checkbox"
 					checked={props.checked}
 					disabled={props.disabled}
 					{...inputHandlers}
-					classList={classList()}
+					{...$focusTarget}
 					aria-label={props.label}
 				/>
 			</span>

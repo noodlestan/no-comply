@@ -13,6 +13,7 @@
       border-inline-end-width: var(--__divider-width);
     }
 
+    @include set-palette(__border, primary);
     @include apply-color(border-color, __border);
   }
 

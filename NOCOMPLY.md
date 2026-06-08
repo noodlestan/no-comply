@@ -1,6 +1,6 @@
 # Purrception
 
-## Don't resolve
+## add @noresolve tag to skip resolution
 
 [item.entity](http://localhost:3000/features/components/Layout#main)
 

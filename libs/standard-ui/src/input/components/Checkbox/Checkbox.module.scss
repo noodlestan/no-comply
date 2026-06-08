@@ -1,3 +1,5 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
 @layer lib.standard-ui.checkbox {
   .Checkbox {
     display: flex;
@@ -5,6 +7,14 @@
     justify-content: center;
     pointer-events: all;
     padding: 3px;
+
+    width: var(--__size);
+    height: var(--__size);
+    border-radius: var(--input-border-radius);
+
+    @include set-color(__fg, primary, fg-primary, invisible);
+    @include set-color(__bg, primary, bg-2, opaque);
+    @include set-color(__border, primary, border-0, opaque);
 
     input {
       position: absolute;
@@ -17,16 +27,20 @@
       border: 0;
       outline: none;
     }
+
     svg {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none; /* for DevX sake */
+      pointer-events: none;
+      /* for DevX sake */
       stroke-width: var(--input-checkbox-stroke);
       color: transparent;
       transition: color ease var(--animation-duration-short);
+
+      @include apply-color(color, __fg);
     }
   }
 
@@ -34,64 +48,52 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: hsla(var(--input-bg), var(--o-input-fg));
+
     border: var(--input-checkbox-border);
-    border-color: hsla(var(--input-checkbox-border-color), var(--o-input-border));
     border-radius: var(--input-border-radius);
     cursor: pointer;
     transition: background-color ease var(--animation-duration-short);
+
+    @include apply-color(border-color, __border);
+    @include apply-color(background-color, __bg);
   }
 
   .size-s {
-    height: var(--size-xs);
-    width: var(--size-xs);
+    --__size: var(--size-xs);
   }
 
   .size-m {
-    height: var(--size-s);
-    width: var(--size-s);
+    --__size: var(--size-s);
   }
 
   .size-l {
-    height: var(--size-l);
-    width: var(--size-l);
+    --__size: var(--size-l);
   }
 
-  .is-checked .-Control {
-    background-color: hsla(var(--color-selected), var(--o-input-fg));
+  .is-checked {
+    @include set-alpha(__fg, opaque);
   }
 
-  .is-checked svg,
-  :hover.is-checked svg {
-    color: hsla(var(--input-bg), var(--o-input-fg));
+  .is-modified {
+    @include set-palette(__border, modified);
   }
 
-  :focus-within .-Control {
-    outline-offset: var(--outline-offset);
-    outline-style: var(--outline-style);
-    outline-width: var(--outline-width);
-    outline-color: --f-color(var(--outline-palette));
+  .is-invalid {
+    @include set-palette(__bg, danger);
+    @include set-palette(__border, danger);
   }
 
-  .is-modified .-Control {
-    border-color: hsla(var(--data-modified-border-color), var(--o-surface-outline));
+  .is-focused {
+    @include set-palette(__bg, good);
   }
 
-  .is-modified.is-checked:not(.is-disabled) .-Control {
-    background-color: hsla(var(--data-modified-fg-color), var(--o-input-fg));
-  }
+  .is-disabled {
+    @include set-color(__border, primary, fg-disabled, opaque);
+    @include set-color(__fg, primary, fg-disabled, opaque);
+    @include set-color(__bg, primary, bg-disabled, opaque);
 
-  .is-invalid .-Control {
-    border-color: hsla(var(--data-error-border-color), var(--o-surface-outline));
-  }
-
-  .is-invalid.is-checked:not(.is-disabled) .-Control {
-    background-color: hsla(var(--data-error-fg-color), var(--o-input-fg));
-  }
-
-  .is-disabled .-Control {
-    color: hsla(var(--action-disabled-fg-color), var(--o-action-fg));
-    background-color: hsla(var(--action-disabled-bg-color), var(--o-action-bg));
-    cursor: default;
+    .-Control {
+      cursor: default;
+    }
   }
 }

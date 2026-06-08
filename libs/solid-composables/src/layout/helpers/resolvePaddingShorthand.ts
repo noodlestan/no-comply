@@ -28,7 +28,7 @@ export const resolvePaddingProps = (
 			if (ps.length === 3) {
 				return [EMPTY, EMPTY, ps[0], ps[2], ps[1], EMPTY, EMPTY];
 			}
-			return [EMPTY, EMPTY, ps[0], ps[2], EMPTY, ps[1], ps[3]];
+			return [EMPTY, EMPTY, ps[0], ps[2], EMPTY, ps[3], ps[1]];
 		} else
 			return [
 				pad,

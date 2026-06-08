@@ -27,12 +27,12 @@
     --input-handle-disabled-color: var(--color-i-disabled-hue-sat), var(--input-light-muted);
 
     --input-border-width: var(--border-width-thin);
-    --input-border: var(--input-border-width) var(--surface-border-style);
+    --input-border: var(--input-border-width) solid;
     --input-border-color: var(--color-primary-hue-sat), var(--input-light-muted);
     --input-border-focused-color: var(--color-primary-hue-sat), var(--input-light-high);
     --input-border-radius: var(--radius-xs);
 
-    --input-checkbox-border: var(--border-width-base) var(--surface-border-style);
+    --input-checkbox-border: var(--border-width-base) solid;
     --input-checkbox-border-color: var(--color-primary-hue-sat), var(--input-light-high);
     --input-checkbox-stroke: 3px;
 
