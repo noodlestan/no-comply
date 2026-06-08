@@ -1,7 +1,7 @@
 {
   "name": "@purrception/lang-ts-extract",
   "version": "0.0.11",
-  "description": "Extract lightweight Typescript AST from source code.",
+  "description": "Purrception language: lightweight Typescript AST extraction.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

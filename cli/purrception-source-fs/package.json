@@ -1,7 +1,7 @@
 {
   "name": "@purrception/source-fs",
   "version": "0.0.11",
-  "description": "Traversing, watching, and batching tools for extracting entitites from file systems.",
+  "description": "Purrception tools for extracting entitites from file systems.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

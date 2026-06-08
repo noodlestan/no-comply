@@ -1,4 +1,4 @@
-# 🐾 Purrception
+# Purrception
 
 **Purrception is a layered, extensible entity extraction system** designed to power codebase introspection, metadata extraction, and documentation tooling.
 
@@ -13,9 +13,9 @@ It is deeply type-aware, and highly customizable.
 | `@purrception/lang-ts`         | Lightweight Typescript AST                                                          |
 | `@purrception/lang-ts-extract` | Extract lightweight Typescript AST from source code                                 |
 
-**Note:** Purrception is entity agnostic. An example implementation for SolidJS-aware extractors and codebase rules can be found in `@no-comply/meta-entities`
+**Note:** Purrception is entity agnostic. An example implementation for SolidJS-aware extractors and codebase rules can be found in `@no-comply/meta`
 
-## 💠 `@purrception/primitives`
+## `@purrception/primitives`
 
 Defines shared, minimal types for extractors.
 
@@ -27,7 +27,7 @@ No logic or assumptions — purely structural.
 - `EntityExtractContext<T>` – context wrapper
 - `EntityExtractResult<T>` – output of a processor
 
-## 📂 `@purrception/source-fs`
+## `@purrception/source-fs`
 
 Filesystem-driven discovery and orchestration.
 
@@ -49,7 +49,7 @@ Knows how to walk the filesystem — not what to extract.
 - Root traversal (`processPaths`, `processRootDir`)
 - FS watchers (`createDebouncedWatcher`, `splitContextsToUpdate`, etc.)
 
-## ⚙️ `@purrception/lang-ts-extract`
+## `@purrception/lang-ts-extract`
 
 TypeScript-level AST parsing and type modeling.
 
@@ -79,7 +79,7 @@ Generates lightweight and portable trees.
 - Inference utilities like `isComponentType`, `isJSXReturnType`, etc.
 - Deep AST analysis tools (`extractMappedTypeNode`, `extractFunctionReturns`, etc.)
 
-## 🧩 `@no-comply/meta-entities`
+## `@no-comply/meta`
 
 Userland package for defining SolidJS-aware entity models and extractors based on project conventions.
 
