@@ -1,5 +1,5 @@
 /* eslint-disable dot-notation */
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { ComponentEntityData } from '@no-comply/meta';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
 import type { EntityDataBase } from '@purrception/primitives';
@@ -52,15 +52,15 @@ export const ComponentPropsRow: Component<Props> = props => {
 					<Text variant="small">(default: {defaultValue()})</Text>
 				</Show>
 			</Flex>
+			<Show when={props.showDocs && !props.showGroups}>
+				<Text>
+					Composed from <Link href={sourceHref()}>{typeRef()}</Link>
+				</Text>
+			</Show>
 			<Show when={props.showDocs && props.prop.node.description}>
 				<CodeDocDescription node={props.prop.node} />
 			</Show>
 			<Show when={props.showDocs}>
-				<Show when={!props.showGroups}>
-					<Text>
-						Composed from <Link href={sourceHref()}>{typeRef()}</Link>
-					</Text>
-				</Show>
 				<Flex direction="row" align="baseline" gap="s">
 					<Text>type:</Text>
 					<CodeBlock lang="ts" nodes={[props.prop.node.type as object]} context={props.component} />

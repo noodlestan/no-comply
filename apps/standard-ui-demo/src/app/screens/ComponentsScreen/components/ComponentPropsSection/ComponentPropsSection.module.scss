@@ -4,4 +4,10 @@
   .ComponentPropsSection {
     height: 90vh;
   }
+
+  .-Header {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 1.5px 2px var(--__shadow-c);
+  }
 }

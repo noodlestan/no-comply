@@ -1,4 +1,9 @@
-import { type TypeExpressionNode, type UnionTypeNode, isUnionTypeNode } from '../../../node';
+import {
+	type TypeExpressionNode,
+	type UnionTypeNode,
+	isLiteralTypeNode,
+	isUnionTypeNode,
+} from '../../../node';
 import type { ResolveTypeContext } from '../../types';
 import { resolveExpression } from '../resolveExpression';
 
@@ -9,11 +14,18 @@ export function resolveUnion(context: ResolveTypeContext, exp: UnionTypeNode): U
 		const node = resolveExpression(context, entry);
 
 		if (isUnionTypeNode(node)) {
-			resolvedEntries.push(...node.entries);
+			for (const unionEntry of node.entries) {
+				if (isLiteralTypeNode(unionEntry, 'string')) {
+					resolvedEntries.push(unionEntry);
+				}
+			}
+
 			continue;
 		}
 
-		resolvedEntries.push(node);
+		if (isLiteralTypeNode(node, 'string')) {
+			resolvedEntries.push(node);
+		}
 	}
 
 	return {

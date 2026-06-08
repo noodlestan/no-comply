@@ -1,5 +1,5 @@
 /* eslint-disable dot-notation */
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { ComponentEntityData } from '@no-comply/meta';
 import { shortId } from '@no-comply/solid-primitives';
 import {
 	AlignFirstLine,
@@ -7,7 +7,7 @@ import {
 	Display,
 	Flex,
 	Icon,
-	Label,
+	LabelAligned,
 	Link,
 	TextAligned,
 } from '@no-comply/standard-ui';
@@ -32,8 +32,8 @@ export const ComponentPropsSectionHeader: Component<Props> = props => {
 		props.onShowDocsChange(v);
 	};
 	return (
-		<Flex direction="row" gap="l" align="baseline" justify="between">
-			<Flex direction="row" gap="l" align="baseline">
+		<Flex direction="row" gap="l" align="baseline" justify="between" wrap>
+			<Flex direction="row" gap="m" align="baseline" wrap>
 				<Display level={3}>Props</Display>
 				<AlignFirstLine height="s" type="text" variant="small">
 					<Flex direction="row" gap="s" align="start">
@@ -44,19 +44,23 @@ export const ComponentPropsSectionHeader: Component<Props> = props => {
 					</Flex>
 				</AlignFirstLine>
 			</Flex>
-			<Flex direction="row" gap="l" align="baseline">
-				<Flex direction="row-reverse" gap="s" align="center">
-					<Label for={docsFieldId}>Show docs</Label>
-					<Checkbox id={docsFieldId} checked={props.showDocs} onValueChange={handleShowDocs} />
-				</Flex>
-				<Flex direction="row-reverse" gap="s" align="center">
-					<Label for={groupsFieldId}>Show groups</Label>
-					<Checkbox
-						id={groupsFieldId}
-						checked={props.showGroups}
-						onValueChange={props.onShowGroupsChange}
-					/>
-				</Flex>
+			<Flex direction="row" gap="m" align="baseline" wrap>
+				<AlignFirstLine height="xs" type="label" variant="small">
+					<Flex direction="row-reverse" gap="xs" align="start">
+						<LabelAligned for={docsFieldId}>Show docs</LabelAligned>
+						<Checkbox id={docsFieldId} checked={props.showDocs} onValueChange={handleShowDocs} />
+					</Flex>
+				</AlignFirstLine>
+				<AlignFirstLine height="xs" type="label" variant="small">
+					<Flex direction="row-reverse" gap="xs" align="start">
+						<LabelAligned for={groupsFieldId}>Show groups</LabelAligned>
+						<Checkbox
+							id={groupsFieldId}
+							checked={props.showGroups}
+							onValueChange={props.onShowGroupsChange}
+						/>
+					</Flex>
+				</AlignFirstLine>
 			</Flex>
 		</Flex>
 	);

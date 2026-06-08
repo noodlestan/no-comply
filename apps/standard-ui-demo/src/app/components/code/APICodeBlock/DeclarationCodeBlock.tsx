@@ -1,4 +1,4 @@
-import type { NoComplyEntityData } from '@no-comply/meta-entities';
+import type { NoComplyEntityData } from '@no-comply/meta';
 import type { ToggleActionIcons, ToggleActionLabels } from '@no-comply/solid-composables';
 import { createIconValue } from '@no-comply/solid-contexts';
 import { createClassList } from '@no-comply/solid-primitives';

@@ -1,6 +1,7 @@
 import { type TypeExpressionNode } from '../../node';
 import type { ResolveTypeContext } from '../types';
 
+import { resolveOperator } from './kinds';
 import { resolveIntersection } from './kinds/resolveIntersection';
 import { resolveObject } from './kinds/resolveObject';
 import { resolveOmit } from './kinds/resolveOmit';
@@ -36,7 +37,7 @@ export function resolveExpression(
 		case 'template-literal':
 			return exp;
 		case 'operator':
-			return exp;
+			return resolveOperator(context, exp);
 		case 'mapped':
 			return exp;
 		case 'conditional':

@@ -1,12 +1,12 @@
 /* eslint-disable dot-notation */
 import { Flex, Link, Text } from '@no-comply/standard-ui';
-import type { DeclarationJsDocData } from '@purrception/lang-ts';
+import type { JsDocData } from '@purrception/lang-ts';
 import { type Component, For, type JSX, Show } from 'solid-js';
 
 import { routeFor } from '../../../navigation';
 
 type Props = {
-	node: DeclarationJsDocData;
+	node: JsDocData;
 };
 
 export const CodeDocDescription: Component<Props> = props => {
@@ -15,12 +15,18 @@ export const CodeDocDescription: Component<Props> = props => {
 		if (type === 'component') {
 			return routeFor.component(name as string);
 		}
-		return routeFor.api(name as string);
+		return routeFor.api((name || type) as string);
 	};
 
 	const name = (link: string) => {
 		const parts = link.split(':');
-		return parts.pop() || '';
+		const target = parts.pop() || '';
+		const targetParts = target.split('#');
+		if (targetParts.length > 1) {
+			return targetParts[targetParts.length - 1];
+		}
+		const pathParts = targetParts[0]?.split('/') || '';
+		return pathParts[pathParts.length - 1];
 	};
 
 	const links = () => {

@@ -3,6 +3,7 @@ export * from './resolveIntersection';
 export * from './resolveNodeMember';
 export * from './resolveObject';
 export * from './resolveOmit';
+export * from './resolveOperator';
 export * from './resolvePick';
 export * from './resolveTypeRefNode';
 export * from './resolveUnion';

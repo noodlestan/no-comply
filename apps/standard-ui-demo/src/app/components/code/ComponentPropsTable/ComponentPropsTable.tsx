@@ -1,15 +1,26 @@
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import {
+	type ComponentEntityData,
+	resolveComponentProps,
+	resolveComponentPropsJsDocData,
+} from '@no-comply/meta';
 import { Display, Flex, Link } from '@no-comply/standard-ui';
+import {
+	type JsDocData,
+	type ObjectLiteralTypeNode,
+	createResolveTypeContext,
+	resolveExpression,
+} from '@purrception/lang-ts';
 import type { EntityDataBase } from '@purrception/primitives';
 import { type Component, For, Show } from 'solid-js';
 
+import { getTokenEntityMaybe } from '../../../../providers';
 import { routeFor } from '../../../navigation';
+import { CodeDocDescription } from '../CodeDocDescription';
 import { ComponentPropsRow } from '../ComponentPropsRow';
 import type { ComponentProp } from '../types';
 
 type Props = {
 	component: ComponentEntityData;
-	props: ComponentProp[];
 	showDocs: boolean;
 	showGroups: boolean;
 };
@@ -17,8 +28,20 @@ type Props = {
 type RefProps = { entity?: EntityDataBase; props: ComponentProp[] };
 
 export const ComponentPropsTable: Component<Props> = props => {
+	const componentProps = () => {
+		const context = createResolveTypeContext(getTokenEntityMaybe, props.component);
+		return resolveExpression(
+			context,
+			resolveComponentProps(props.component),
+		) as ObjectLiteralTypeNode;
+	};
+
+	const propsMembers = () => {
+		return Object.entries(componentProps().members).map(([name, node]) => ({ name, node }));
+	};
+
 	const propsBySource = () => {
-		return props.props.reduce(
+		return propsMembers().reduce(
 			(acc, prop) => {
 				const _source = prop.node.type._source;
 				const key = _source?.ref || '';
@@ -35,6 +58,9 @@ export const ComponentPropsTable: Component<Props> = props => {
 
 	return (
 		<Flex gap="l" direction="column">
+			<Show when={props.showDocs && resolveComponentPropsJsDocData(props.component)}>
+				<CodeDocDescription node={resolveComponentPropsJsDocData(props.component) as JsDocData} />
+			</Show>
 			<For each={Object.entries(propsBySource()).reverse()}>
 				{([ref, source]) => (
 					<Flex gap="l" direction="column">
