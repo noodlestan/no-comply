@@ -6,6 +6,9 @@ import { ACTION_LABEL_ALIGNED_PROPS } from './constants';
 import { createActionLabelAligned } from './createActionLabelAligned';
 import type { ActionLabelAlignedProps } from './types';
 
+/**
+ * Typography options – defined by {@link @no-comply/standard-ui/typography/mixin/ActionLabel#ActionLabelMixinProps} – should be passed directly to the {@link component:AlignFirstLine} wrapper.
+ */
 type Props = ClosedTagProps & ActionLabelAlignedProps;
 
 export const ActionLabelAligned: ParentComponent<Props> = props => {

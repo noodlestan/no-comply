@@ -6,6 +6,9 @@ import { TEXT_ALIGNED_PROPS } from './constants';
 import { createTextAligned } from './createTextAligned';
 import type { TextAlignedProps } from './types';
 
+/**
+ * Typography options – defined by {@link @no-comply/standard-ui/typography/mixin/Text#TextMixinProps} – should be passed directly to the {@link component:AlignFirstLine} wrapper.
+ */
 type Props = ClosedTagProps & TextAlignedProps;
 
 export const TextAligned: ParentComponent<Props> = props => {
