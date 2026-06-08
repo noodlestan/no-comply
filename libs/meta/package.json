@@ -4,10 +4,7 @@
   "description": "Purrception types, services, and helpers for the [no-comply] project.",
   "author": "Noodlestan Collective",
   "license": "MIT",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/noodlestan/no-comply.git",

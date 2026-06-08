@@ -1,4 +1,8 @@
-import { type IntersectionTypeNode, type ObjectLiteralTypeNode } from '../../../node';
+import {
+	type IntersectionTypeNode,
+	type ObjectLiteralTypeMember,
+	type ObjectLiteralTypeNode,
+} from '../../../node';
 import type { ResolveTypeContext } from '../../types';
 import { normalizeObjectLiteral } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
@@ -9,7 +13,7 @@ function mergeMembers(
 	source: ObjectLiteralTypeNode,
 ) {
 	for (const key in source.members) {
-		const member = source.members[key];
+		const member = source.members[key] as ObjectLiteralTypeMember;
 
 		const node = resolveExpression(context, member.type);
 		target.members[key] = {

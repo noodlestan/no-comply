@@ -11,33 +11,22 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/noodlestan/no-comply.git",
-    "directory": "cli/purrception-primitives"
+    "directory": "libs/purrception-primitives"
   },
   "type": "module",
-  "module": "dist/esm/index.mjs",
-  "main": "dist/cjs/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.mjs",
-      "types": "./dist/esm/index.d.ts",
-      "require": "./dist/cjs/index.js"
-    }
-  },
+  "sideEffects": false,
+  "main": "./src/index.ts",
   "files": [
-    "dist",
+    "src",
     "LICENSE-MIT"
   ],
   "scripts": {
-    "dev": "no-comply-watch",
-    "build:clean": "rm -rf dist",
-    "build:types:esm": "tsc --project tsconfig.esm.json",
-    "build:types:cjs": "tsc --project tsconfig.cjs.json",
-    "build": "no-comply-build",
-    "test": "echo none yet",
-    "test:watch": "vitest",
+    "dev": "vite build --watch",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
-    "ci": "npm run build:clean && npm run build && npm run test"
+    "build:clean": "rm -rf dist",
+    "build": "vite build",
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
   },
   "dependencies": {},
   "devDependencies": {

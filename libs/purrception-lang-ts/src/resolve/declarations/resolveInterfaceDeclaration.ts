@@ -9,7 +9,7 @@ function mergeObject(
 	source: ObjectLiteralTypeNode,
 ) {
 	for (const key in source.members) {
-		const member = source.members[key];
+		const member = source.members[key] as ObjectLiteralTypeMember;
 
 		const node = resolveExpression(context, member.type);
 		target.members[key] = {

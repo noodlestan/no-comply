@@ -4,14 +4,11 @@
   "description": "Purrception extraction tools for the [no-comply] project.",
   "author": "Noodlestan Collective",
   "license": "MIT",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/noodlestan/no-comply.git",
-    "directory": "cli/purrception-profile-solidjs"
+    "directory": "cli/meta-extract"
   },
   "type": "module",
   "module": "dist/esm/index.mjs",
