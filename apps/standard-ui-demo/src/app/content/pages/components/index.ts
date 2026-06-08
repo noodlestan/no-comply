@@ -1,5 +1,5 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `import ${f.path.replace(/\/index$/, '').replace(/\.\//, '')}Page from '${f.path.replace(/\/index$/, '')}';`)
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { ComponentEntityData } from '@no-comply/meta';
 
 import type { ComponentName } from '../../../../data';
 import type { DocsComponentPageData } from '../../types';

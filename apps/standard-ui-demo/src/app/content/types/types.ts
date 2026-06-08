@@ -1,4 +1,4 @@
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { ComponentEntityData } from '@no-comply/meta';
 import type { Declaration } from '@purrception/lang-ts';
 import type { JSX } from 'solid-js';
 

@@ -1,4 +1,4 @@
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { ComponentEntityData } from '@no-comply/meta';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component } from 'solid-js';
 

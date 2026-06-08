@@ -1,4 +1,4 @@
-import type { ServiceEntityData } from '@no-comply/meta-entities';
+import type { ServiceEntityData } from '@no-comply/meta';
 import { type Component } from 'solid-js';
 
 import { APIDependenciesSection, APIFactoriesSection, APITypesSection } from '../../sections';

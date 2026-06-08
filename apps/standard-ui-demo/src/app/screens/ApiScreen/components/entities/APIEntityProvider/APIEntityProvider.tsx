@@ -1,4 +1,4 @@
-import type { ProviderEntityData } from '@no-comply/meta-entities';
+import type { ProviderEntityData } from '@no-comply/meta';
 import { type Component } from 'solid-js';
 
 import { APIDependenciesSection, APITypesSection } from '../../sections';

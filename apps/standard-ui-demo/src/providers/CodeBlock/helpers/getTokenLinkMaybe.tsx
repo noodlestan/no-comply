@@ -1,4 +1,4 @@
-import type { NoComplyEntityData } from '@no-comply/meta-entities';
+import type { NoComplyEntityData } from '@no-comply/meta';
 import type { CodeLayoutContextValue } from '@purrtrait/code-layout';
 
 import { routeFor } from '../../../app';

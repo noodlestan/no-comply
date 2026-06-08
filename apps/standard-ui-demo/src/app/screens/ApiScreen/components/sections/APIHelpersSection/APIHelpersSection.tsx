@@ -1,4 +1,4 @@
-import type { ProviderEntityData } from '@no-comply/meta-entities';
+import type { ProviderEntityData } from '@no-comply/meta';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
 

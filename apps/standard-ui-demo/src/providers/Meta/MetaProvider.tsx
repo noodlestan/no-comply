@@ -1,6 +1,6 @@
 // Static imports for build-time JSON inclusion
 import { createNoComplyMetaService } from '@no-comply/meta';
-import type { NoComplyEntityData } from '@no-comply/meta-entities';
+import type { NoComplyEntityData } from '@no-comply/meta';
 import metaSolidAccessibility from '@no-comply/solid-accessibility/dist/meta.json';
 import metaSolidComposables from '@no-comply/solid-composables/dist/meta.json';
 import metaSolidContexts from '@no-comply/solid-contexts/dist/meta.json';

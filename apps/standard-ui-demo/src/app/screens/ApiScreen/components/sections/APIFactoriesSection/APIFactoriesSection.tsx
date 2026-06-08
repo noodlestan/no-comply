@@ -3,7 +3,7 @@ import type {
 	ControllerEntityData,
 	MixinEntityData,
 	ServiceEntityData,
-} from '@no-comply/meta-entities';
+} from '@no-comply/meta';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For } from 'solid-js';
 

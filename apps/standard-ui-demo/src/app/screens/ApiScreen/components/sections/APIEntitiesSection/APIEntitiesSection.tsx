@@ -1,4 +1,4 @@
-import type { ModuleEntityData } from '@no-comply/meta-entities';
+import type { ModuleEntityData } from '@no-comply/meta';
 import { Link, Text } from '@no-comply/standard-ui';
 import { type Component, For, Show } from 'solid-js';
 

@@ -6,7 +6,7 @@ import type {
 	MixinEntityData,
 	ProviderEntityData,
 	ServiceEntityData,
-} from '@no-comply/meta-entities';
+} from '@no-comply/meta';
 import { Link, Text } from '@no-comply/standard-ui';
 import { useParams } from '@solidjs/router';
 import { type Component, Match, Show, Switch } from 'solid-js';

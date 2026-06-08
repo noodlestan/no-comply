@@ -1,5 +1,5 @@
 /* eslint-disable dot-notation */
-import type { ComponentEntityData } from '@no-comply/meta-entities';
+import type { ComponentEntityData } from '@no-comply/meta';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 

@@ -6,7 +6,7 @@ import type {
 	ModuleEntityData,
 	ProviderEntityData,
 	ServiceEntityData,
-} from '@no-comply/meta-entities';
+} from '@no-comply/meta';
 import { type Component, For, Show } from 'solid-js';
 
 import { CodeSymbolLink } from '../../../../../components';
