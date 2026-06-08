@@ -6,8 +6,8 @@ import type {
 import type { LayoutMixinAPI, LayoutMixinProps } from '../../../layout';
 import type { SurfaceVariant } from '../../../theme';
 
-export type SurfaceProps = Omit<HeadlessSurfaceProps, 'variant'> &
-	LayoutMixinProps & {
+export type SurfaceProps = LayoutMixinProps &
+	Omit<HeadlessSurfaceProps, 'variant'> & {
 		variant?: SurfaceVariant;
 	};
 
