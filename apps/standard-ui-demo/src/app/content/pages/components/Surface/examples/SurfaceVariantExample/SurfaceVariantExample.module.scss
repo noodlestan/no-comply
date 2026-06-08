@@ -1,0 +1,11 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .SurfaceVariantExample > div {
+    padding: var(--space-gap-3);
+    border: 1px dotted;
+    @include set-color(__border, graphics-3, border-1, opaque);
+
+    @include apply-color(border-color, __border);
+  }
+}

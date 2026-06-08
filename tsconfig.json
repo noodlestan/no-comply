@@ -1,19 +1,33 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "lib": ["es6"],
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "rootDir": ".",
     "allowJs": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": [],
+    // module
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    // emit
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    // strict
     "strict": true,
     "noImplicitAny": true,
-    "skipLibCheck": true,
-    "paths": {
-      "*": ["./node_modules/*"]
-    }
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    // root specific
+    "skipLibCheck": true, // problems in vitest, @vitest/utils, svgo
+    "noEmit": true
   },
-  "include": ["packages/", "config/"],
-  "exclude": ["**/node_modules/", "**/dist/", "**/*.cjs", "**/coverage/", "**/*.config.mjs"]
+  "include": ["apps/", "cli/", "libs/", "tools/"],
+  "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }

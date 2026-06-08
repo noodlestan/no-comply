@@ -1,0 +1,44 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer dev-tools {
+  :root {
+    @include def-color-palette(debug, --p-red);
+  }
+
+  [data-debug] [data-surface] {
+    @include set-color(__debug-fg, debug, static-fg-primary, opaque);
+    @include set-color(__debug-bg, debug, static-bg-3, translucid);
+    @include set-color(__debug-border, debug, static-border, opaque);
+  }
+
+  [data-debug] [data-surface]::after {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    display: block;
+    padding: 1px 3px;
+    content: attr(data-surface);
+    font-family: var(--data-type-family);
+    font-size: var(--data-type-size-xs);
+    pointer-events: none;
+
+    @include apply-color(color, __debug-fg);
+    @include apply-color(background-color, __debug-bg);
+  }
+
+  [data-debug] [data-surface]:hover::after {
+    opacity: var(--transparent-alpha);
+  }
+
+  [data-debug] [data-surface]::before {
+    position: absolute;
+    inset: -2px;
+    display: block;
+    content: '';
+    pointer-events: none;
+    border: 1px dashed;
+    border-radius: var(--__border-radius);
+
+    @include apply-color(border-color, __debug-border);
+  }
+}

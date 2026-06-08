@@ -1,36 +1,32 @@
 {
-  "name": "ui-system",
+  "name": "no-comply",
   "version": "0.0.11",
-  "description": "Component library and UI services built with SolidJS.",
+  "description": "Context-aware UI system built with SolidJS and modern CSS.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
+  "packageManager": "npm@10.2.3",
   "workspaces": [
-    "packages/client/apps/*",
-    "packages/client/libs/*",
-    "packages/cli/*"
+    "apps/*",
+    "cli/*",
+    "libs/*",
+    "tools/*"
   ],
   "engines": {
-    "node": "20.10.0"
+    "node": "24.15.0"
   },
   "scripts": {
-    "lint": "prettier . -c && eslint .",
-    "lint:silent": "prettier . -c --log-level silent && eslint .",
-    "ci:lib-desginer-decisions": "npm run --prefix packages/client/libs/designer-decisions ci",
-    "ci:lib-ui-system": "npm run --prefix packages/client/libs/ui-system ci",
-    "ci:libs": "npm run ci:lib-desginer-decisions && npm run ci:lib-ui-system",
-    "ci:cli-desginer-generators": "npm run --prefix packages/cli/designer-generators ci",
-    "ci:cli": "npm run ci:cli-desginer-generators",
-    "ci:lib-desginer-schemas": "npm run --prefix packages/client/libs/designer-schemas ci",
-    "ci:schemas": "npm run ci:lib-desginer-schemas",
-    "ci:app-designer-sandbox": "npm run --prefix packages/client/apps/designer-sandbox ci",
-    "ci:app-ui-system-docs": "npm run --prefix packages/client/apps/ui-system-docs ci",
-    "ci:app-ui-system-sandbox": "npm run --prefix packages/client/apps/ui-system-sandbox ci",
-    "ci:apps": "npm run ci:app-designer-sandbox && npm run ci:app-ui-system-docs && npm run ci:app-ui-system-sandbox",
-    "ci": "npm run ci:libs && npm run ci:cli && npm run ci:schemas && npm run ci:apps"
+    "dev": "turbo run dev --ui tui",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "test": "turbo run test",
+    "build": "turbo run build",
+    "extract": "turbo run extract",
+    "ci": "turbo run ci",
+    "clean": "turbo run build:clean"
   },
   "devDependencies": {
-    "@noodlestan/eslint-config": "0.0.4",
+    "@noodlestan/eslint-config": "0.0.6",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "dotenv": "16.3.1",
     "eslint": "8.57.1",
@@ -42,7 +38,7 @@
     "eslint-plugin-solid": "0.14.3",
     "lefthook": "1.5.5",
     "prettier": "3.3.3",
-    "typescript": "5.6.3",
-    "vitest": "^1.6.0"
+    "turbo": "2.9.14",
+    "typescript": "5.6.3"
   }
 }

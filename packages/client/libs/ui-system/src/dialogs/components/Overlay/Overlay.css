@@ -1,6 +1,0 @@
-.Overlay {
-    position: absolute;
-    z-index: 10;
-    inset: 0;
-    background-color: hsla(var(--surface-bg-overlay), var(--o-surface-bg-overlay));
-}

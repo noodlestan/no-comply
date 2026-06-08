@@ -1,7 +1,0 @@
-.NUI-Theme-base {
-    --outline-radius: var(--radius-s);
-    --outline-offset: 2px;
-    --outline-offset--active: 1px;
-    --outline-width: var(--surface-border-width-base);
-    --outline-style: solid;
-}

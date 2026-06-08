@@ -1,0 +1,194 @@
+@layer theme.standard {
+  /* prettier-ignore */
+  @function --f-palette-0(--l) {
+            result: if(
+                style(--l: 50): var(--palette-0-50);
+                style(--l: 100): var(--palette-0-100);
+                style(--l: 150): var(--palette-0-150);
+                style(--l: 200): var(--palette-0-200);
+                style(--l: 300): var(--palette-0-300);
+                style(--l: 400): var(--palette-0-400);
+                style(--l: 500): var(--palette-0-500);
+                style(--l: 600): var(--palette-0-600);
+                style(--l: 700): var(--palette-0-700);
+                style(--l: 800): var(--palette-0-800);
+                style(--l: 850): var(--palette-0-850);
+                style(--l: 900): var(--palette-0-900);
+                style(--l: 950): var(--palette-0-950);
+                style(--l: 1000): var(--palette-0-1000);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-1(--l) {
+            result: if(
+                style(--l: 100): var(--palette-1-100);
+                style(--l: 200): var(--palette-1-200);
+                style(--l: 300): var(--palette-1-300);
+                style(--l: 400): var(--palette-1-400);
+                style(--l: 500): var(--palette-1-500);
+                style(--l: 600): var(--palette-1-600);
+                style(--l: 700): var(--palette-1-700);
+                style(--l: 800): var(--palette-1-800);
+                style(--l: 900): var(--palette-1-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-2(--l) {
+            result: if(
+                style(--l: 100): var(--palette-2-100);
+                style(--l: 200): var(--palette-2-200);
+                style(--l: 300): var(--palette-2-300);
+                style(--l: 400): var(--palette-2-400);
+                style(--l: 500): var(--palette-2-500);
+                style(--l: 600): var(--palette-2-600);
+                style(--l: 700): var(--palette-2-700);
+                style(--l: 800): var(--palette-2-800);
+                style(--l: 900): var(--palette-2-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-3(--l) {
+            result: if(
+                style(--l: 100): var(--palette-3-100);
+                style(--l: 200): var(--palette-3-200);
+                style(--l: 300): var(--palette-3-300);
+                style(--l: 400): var(--palette-3-400);
+                style(--l: 500): var(--palette-3-500);
+                style(--l: 600): var(--palette-3-600);
+                style(--l: 700): var(--palette-3-700);
+                style(--l: 800): var(--palette-3-800);
+                style(--l: 900): var(--palette-3-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-4(--l) {
+            result: if(
+                style(--l: 100): var(--palette-4-100);
+                style(--l: 200): var(--palette-4-200);
+                style(--l: 300): var(--palette-4-300);
+                style(--l: 400): var(--palette-4-400);
+                style(--l: 500): var(--palette-4-500);
+                style(--l: 600): var(--palette-4-600);
+                style(--l: 700): var(--palette-4-700);
+                style(--l: 800): var(--palette-4-800);
+                style(--l: 900): var(--palette-4-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-5(--l) {
+            result: if(
+                style(--l: 100): var(--palette-5-100);
+                style(--l: 200): var(--palette-5-200);
+                style(--l: 300): var(--palette-5-300);
+                style(--l: 400): var(--palette-5-400);
+                style(--l: 500): var(--palette-5-500);
+                style(--l: 600): var(--palette-5-600);
+                style(--l: 700): var(--palette-5-700);
+                style(--l: 800): var(--palette-5-800);
+                style(--l: 900): var(--palette-5-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-6(--l) {
+            result: if(
+                style(--l: 100): var(--palette-6-100);
+                style(--l: 200): var(--palette-6-200);
+                style(--l: 300): var(--palette-6-300);
+                style(--l: 400): var(--palette-6-400);
+                style(--l: 500): var(--palette-6-500);
+                style(--l: 600): var(--palette-6-600);
+                style(--l: 700): var(--palette-6-700);
+                style(--l: 800): var(--palette-6-800);
+                style(--l: 900): var(--palette-6-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-7(--l) {
+            result: if(
+                style(--l: 100): var(--palette-7-100);
+                style(--l: 200): var(--palette-7-200);
+                style(--l: 300): var(--palette-7-300);
+                style(--l: 400): var(--palette-7-400);
+                style(--l: 500): var(--palette-7-500);
+                style(--l: 600): var(--palette-7-600);
+                style(--l: 700): var(--palette-7-700);
+                style(--l: 800): var(--palette-7-800);
+                style(--l: 900): var(--palette-7-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-8(--l) {
+            result: if(
+                style(--l: 100): var(--palette-8-100);
+                style(--l: 200): var(--palette-8-200);
+                style(--l: 300): var(--palette-8-300);
+                style(--l: 400): var(--palette-8-400);
+                style(--l: 500): var(--palette-8-500);
+                style(--l: 600): var(--palette-8-600);
+                style(--l: 700): var(--palette-8-700);
+                style(--l: 800): var(--palette-8-800);
+                style(--l: 900): var(--palette-8-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-palette-9(--l) {
+            result: if(
+                style(--l: 100): var(--palette-9-100);
+                style(--l: 200): var(--palette-9-200);
+                style(--l: 300): var(--palette-9-300);
+                style(--l: 400): var(--palette-9-400);
+                style(--l: 500): var(--palette-9-500);
+                style(--l: 600): var(--palette-9-600);
+                style(--l: 700): var(--palette-9-700);
+                style(--l: 800): var(--palette-9-800);
+                style(--l: 900): var(--palette-9-900);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-clamp-l(--l) {
+            result: if(
+                style(--l: 50): 100;
+                style(--l: 150): 200;
+                style(--l: 850): 800;
+                style(--l: 950): 900;
+                style(--l: 1000): 900;
+                else: var(--l);
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-color-by-palette(--p, --l) {
+            --clamped-l: var(--l);
+            --clamped-l: --f-clamp-l(var(--l));
+            result: if(
+                style(--p: palette-0): --f-palette-0(var(--clamped-l));
+                style(--p: palette-1): --f-palette-1(var(--clamped-l));
+                style(--p: palette-2): --f-palette-2(var(--clamped-l));
+                style(--p: palette-3): --f-palette-3(var(--clamped-l));
+                style(--p: palette-4): --f-palette-4(var(--clamped-l));
+                style(--p: palette-5): --f-palette-5(var(--clamped-l));
+                style(--p: palette-6): --f-palette-6(var(--clamped-l));
+                style(--p: palette-7): --f-palette-7(var(--clamped-l));
+                style(--p: palette-8): --f-palette-8(var(--clamped-l));
+                style(--p: palette-9): --f-palette-9(var(--clamped-l));
+            );
+        }
+
+  /* prettier-ignore */
+  @function --f-color(--p, --l: 500) {
+            result: if(
+                style(--p: palette-0): --f-palette-0(var(--l));
+                else: --f-color-by-palette(var(--p), var(--l));
+            );
+        }
+}

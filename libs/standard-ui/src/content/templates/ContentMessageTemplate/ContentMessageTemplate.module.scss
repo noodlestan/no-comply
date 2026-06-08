@@ -1,0 +1,28 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.content-message {
+  .ContentMessage {
+    width: var(--_content-message-width);
+  }
+
+  .-Title {
+    @include set-level(surface-fg, fg-muted);
+
+    @include apply-color(color, surface-fg);
+  }
+
+  .-Icon {
+    @include set-level(surface-fg, graphics);
+
+    @include apply-color(color, surface-fg);
+  }
+
+  .length-full {
+    --_content-message-width: 100%;
+  }
+
+  .length-compact {
+    --_content-message-width: max-content;
+    max-width: 600px; // WIP Layout width references
+  }
+}

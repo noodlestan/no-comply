@@ -1,0 +1,7 @@
+@use '../../../scss/mixins/focus.scss' as *;
+
+@layer composables {
+  .FocusRing {
+    @include focus-ring;
+  }
+}

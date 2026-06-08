@@ -1,0 +1,40 @@
+{
+  "name": "@purrtrait/code-layout",
+  "version": "0.0.11",
+  "description": "Purrtrait code layout abstractions and language registration.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "cli/purrtrait-code-layout"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "LICENSE-MIT"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
+    "build:clean": "rm -rf dist",
+    "build": "vite build",
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "vite": "^6.2.2",
+    "vite-plugin-solid": "^2.11.6",
+    "vite-plugin-solid-svg": "^0.8.1",
+    "vite-plugin-top-level-await": "^1.5.0",
+    "vitest": "^3.0.9"
+  }
+}

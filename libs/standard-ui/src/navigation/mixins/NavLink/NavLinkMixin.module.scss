@@ -1,0 +1,121 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.nav-link {
+  .NavLink {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-gap-0);
+    font-family: var(--action-base-family);
+    font-weight: var(--action-base-weight);
+    line-height: 1;
+    user-select: none;
+    transition:
+      color ease var(--animation-duration-short),
+      background-color ease var(--animation-duration-short),
+      border-color ease var(--animation-duration-short);
+
+    @include set-color(__bg, surface, content-bg-1, invisible);
+    @include set-color(__highlight, primary, border-1, invisible);
+
+    @include apply-color(background-color, __bg);
+    @include apply-color(--__highlight, __highlight);
+
+    &:hover,
+    &:active,
+    &[data-nav-link-current] {
+      @include set-level(__fg, fg-primary);
+      @include set-alpha(__bg, opaque);
+      @include set-alpha(__highlight, opaque);
+    }
+
+    &:active {
+      text-decoration: none;
+
+      @include set-level(__fg, fg-contrast);
+      @include set-level(__bg, content-bg-0);
+      @include set-level(__highlight, fg-muted);
+    }
+
+    &[data-nav-link-current] {
+      text-decoration: none;
+
+      @include set-level(__bg, content-bg-2);
+      @include set-palette(__highlight, interactive);
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 0;
+      height: 0;
+      background-color: var(--__highlight);
+      transition:
+        width ease var(--animation-duration-normal),
+        height ease var(--animation-duration-normal),
+        background-color ease var(--animation-duration-short);
+    }
+  }
+
+  .layout-h::before {
+    width: auto;
+    height: 1px;
+  }
+
+  .layout-h.highlight-before::before {
+    bottom: auto;
+  }
+
+  .layout-h.highlight-after::before {
+    top: auto;
+  }
+
+  .layout-h:hover::before,
+  .layout-h:active::before,
+  .layout-h[data-nav-link-current]::before {
+    width: auto;
+    height: var(--border-width-highlight);
+  }
+
+  .layout-v::before {
+    width: 1px;
+    height: auto;
+  }
+
+  .layout-v.highlight-before::before {
+    right: auto;
+  }
+
+  .layout-v.highlight-after::before {
+    left: auto;
+  }
+
+  .layout-v:hover::before,
+  .layout-v:active::before,
+  .layout-v[data-nav-link-current]::before {
+    width: var(--border-width-highlight);
+    height: auto;
+  }
+
+  .size-small {
+    padding-block: var(--space-gap-0);
+    padding-inline: var(--space-gap-1);
+  }
+
+  .size-normal {
+    padding-block: var(--space-gap-1);
+    padding-inline: var(--space-gap-2);
+  }
+
+  .size-medium {
+    padding-block: var(--space-gap-2);
+    padding-inline: var(--space-gap-3);
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}

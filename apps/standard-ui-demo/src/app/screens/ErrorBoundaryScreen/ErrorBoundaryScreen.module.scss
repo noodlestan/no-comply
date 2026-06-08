@@ -1,0 +1,15 @@
+@layer app {
+  .ErrorScreen {
+    height: 100vh;
+    padding-top: var(--space-pad-3);
+    padding-bottom: var(--scale-xl);
+    width: auto;
+  }
+
+  .-Icon {
+    color: --f-color(var(--error-icon-color-name), var(--color-level-mid));
+    min-height: var(--scale-l);
+    min-width: var(--scale-l);
+    transition: color 0.1s ease;
+  }
+}

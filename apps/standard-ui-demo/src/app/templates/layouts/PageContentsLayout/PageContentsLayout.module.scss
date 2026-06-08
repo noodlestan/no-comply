@@ -1,0 +1,25 @@
+@use '@no-comply/solid-composables/scss/mixins/layout.scss' as *;
+
+@layer app {
+  .PageContentsLayout {
+    padding-block-start: var(--scale-m);
+    padding-block-end: var(--scale-xl);
+    @include container-inline-padding(var(--scale-s));
+  }
+
+  @media screen and (min-width: 960px) {
+    .PageContentsLayout {
+      padding-block-start: var(--scale-xl);
+      padding-block-end: var(--scale-2xl);
+      @include container-inline-padding(var(--scale-m));
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .PageContentsLayout {
+      padding-block-start: var(--scale-xl);
+      padding-block-end: var(--scale-3xl);
+      @include container-inline-padding(var(--scale-xl));
+    }
+  }
+}

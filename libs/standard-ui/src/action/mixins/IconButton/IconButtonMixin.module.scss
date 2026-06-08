@@ -1,0 +1,25 @@
+@layer lib.standard-ui {
+  @layer action, sized-action, button, icon-button;
+}
+
+@layer lib.standard-ui.icon-button {
+  .IconButton {
+    width: var(--__height);
+    height: var(--__height);
+    min-width: var(--__height);
+    min-height: var(--__height);
+    max-width: var(--__height);
+    max-height: var(--__height);
+    padding: 0;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .is-small .-Icon {
+    --__icon-size: calc(var(--size-2xs) * 1.25);
+  }
+
+  .is-round {
+    border-radius: 50%;
+  }
+}

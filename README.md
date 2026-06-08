@@ -1,10 +1,13 @@
-# Noodlestan UI System
+# [No Comply]
 
-> Component library and UI services built with [SolidJS](https://www.solidjs.com/).
+> Context-aware UI system built with [SolidJS](https://www.solidjs.com/) and modern CSS.
+
+- [[No Comply] Docs](https://no-comply.noodlestan.org/)
+- [Standard UI Demo](https://standard-ui.noodlestan.org/)
 
 ## Noodlestan 🐘 Collective
 
-We are an open collective of people dedicated to the design and software crafts: UX, design, code, web, 3d, audio, the works. Learn more about us and our projects at [Noodlestan.org](https://noodlestan.org).
+We are an open collective of people dedicated to the design and software crafts: UX, design, code, web, 3d, audio, the works. Learn more about us and our projects at [Noodlestan.org](https://noodlestan.org/).
 
 **👐 Your contribution is welcome! 👐**
 
@@ -16,6 +19,7 @@ System requirements:
 
 - [Node.js](https://nodejs.org/)
 - [NVM](https://github.com/nvm-sh/nvm)
+- [Google Chrome Canary](https://www.google.com/chrome/canary/)
 
 We recommended using [VS Code](https://code.visualstudio.com/) with the following extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx), [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode), [SpellRight](https://marketplace.visualstudio.com/items?itemName=ban.spellright)
 
@@ -25,30 +29,34 @@ First make sure you are using the correct node version by running `nvm use`.
 
 Install dependencies with `npm install`.
 
-Run `npm run dev` in the UI System sandbox application: `packages/client/apps/ui-system-sandbox/`.
+In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev` to launch a development server.
+
+Launch Chrome Canary with support for `@function` and `@mixin` in CSS:
+
+```bash
+open -a "Google Chrome Canary" --args --enable-experimental-web-platform-features --enable-features=CSSMixins
+```
 
 ### In this repository
 
-Libraries:
-
-- [UI System](./packages/client/libs/ui-system/README.md)- component library (themes, components, controllers, and more)
-- [Designer Decisions](./packages/client/libs/designer-decisions/README.md) - library for modeling design decisions
-- [Designer Schemas](./packages/client/libs/designer-schemas/README.md) - collection of JSON schemas to validate design decision inputs
-
-Cli tools:
-
-- [Designer Generators](./packages/cli/designer-generators/README.md) - generates schemas for design decision, validators, and transformations.
-
 Apps:
 
-- [UI System Sandbox](./packages/client/apps/ui-system-sandbox/README.md) - for developing and testing UI System features
-- [Designer Sandbox](./packages/client/apps/designer-sandbox/README.md) - for developing _Designer_ features
+- [Standard UI Demo](https://github.com/noodlestan/no-comply/blob/apps/standard-ui-demo/README.md) - Demo application built with [Standard UI](https://standard-ui.noodlestan.org/).
+
+Libraries:
+
+- [Solid Contexts](https://github.com/noodlestan/no-comply/blob/libs/solid-contexts/README.md) - Context-aware application services, and controllers.
+- [Solid Primitives](https://github.com/noodlestan/no-comply/blob/libs/solid-primitives/README.md) - Core types and utils.
+- [Solid Accessibility](https://github.com/noodlestan/no-comply/blob/libs/solid-accessibility/README.md) - Aria types, primitives, and utils.
+- [Solid Composables](https://github.com/noodlestan/no-comply/blob/libs/solid-composables/README.md) - Composable components, controllers, and mixins.
+- [Solid Dev](https://github.com/noodlestan/no-comply/blob/libs/solid-dev-tools/README.md) - Instrumentation and debug tools.
+- [Standard UI](https://github.com/noodlestan/no-comply/blob/libs/standard-ui/README.md) - Themeable component library.
 
 ### Stack
 
-This component library targets the [Solid JS](https://www.solidjs.com/) ([docs](https://docs.solidjs.com/)).
+This project is built targets [Solid JS](https://www.solidjs.com/) ([docs](https://docs.solidjs.com/)) applications and component libraries.
 
-Most libraries are coupled with this framework wherever signals and other reactive primitives are used.
+It depends only on SolidJS core and a few [Solid Primitives](https://primitives.solidjs.community/).
 
 Documentation is built on top of [Astro](https://docs.astro.build) / [Starlight](https://starlight.astro.build/).
 
@@ -56,6 +64,7 @@ Documentation is built on top of [Astro](https://docs.astro.build) / [Starlight]
 
 - [Vite](https://vitejs.dev/) and [Vitest](https://vitest.dev/guide/)
 - [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config) - our style guide (ESLint + Prettier)
+- [Turborepo](https://turborepo.com/) - manages build tasks
 - [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) - manages the git hooks
 
 ### Committing
@@ -64,6 +73,15 @@ Make sure the `pre-commit` hook was executed. It runs automatically before every
 
 ## MIT License
 
-Copyright (c) 2024 [Noodlestan](https://noodlestan.org/).
+Copyright (c) 2024-2025 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).
+
+---
+
+### Acknowledgements
+
+This project contains code based on the following open-source projects:
+
+- [SolidJS](https://github.com/solidjs/solid) – Copyright (c) 2016-2025 Ryan Carniato – Licensed under the MIT License.
+- [solid-i18next](https://github.com/noodlestan/solid-i18next) – Copyright (c) 2021-2023 Martynas Barzda – Licensed under the MIT License.

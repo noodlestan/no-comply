@@ -1,0 +1,64 @@
+@layer lib.standard-ui.data-value {
+  .DataValue {
+    --data-value-length-s: var(--size-s);
+    --data-value-length-m: var(--size-xl);
+    --data-value-length-l: var(--size-3xl);
+    width: var(--data-value-length);
+    margin: 0;
+    padding: 0;
+    color: hsla(var(--data-value-fg-color), var(--o-surface-fg));
+    font-family: var(--data-type-family);
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: all;
+    user-select: text;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  .wrap {
+    white-space: normal;
+  }
+
+  .size-xs {
+    font-size: var(--data-type-size-xs);
+    font-weight: var(--data-type-weight-s);
+  }
+
+  .size-s {
+    font-size: var(--data-type-size-s);
+    font-weight: var(--data-type-weight-s);
+  }
+
+  .size-m {
+    font-size: var(--data-type-size-m);
+    font-weight: var(--data-type-weight-m);
+  }
+
+  .size-l {
+    font-size: var(--data-type-size-l);
+    font-weight: var(--data-type-weight-l);
+  }
+
+  .is-interactive {
+    cursor: pointer;
+  }
+
+  .is-interactive:hover {
+    color: --f-color(var(--p-interactive));
+    text-decoration: underline;
+  }
+
+  .is-interactive:focus,
+  .is-interactive:focus-visible {
+    text-decoration: underline;
+    outline-offset: var(--outline-offset);
+    outline-style: var(--outline-style);
+    outline-width: var(--outline-width);
+    outline-color: --f-color(var(--outline-palette));
+  }
+}

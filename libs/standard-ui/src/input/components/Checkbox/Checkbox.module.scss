@@ -1,0 +1,99 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer lib.standard-ui.checkbox {
+  .Checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    padding: 3px;
+
+    width: var(--__size);
+    height: var(--__size);
+    border-radius: var(--input-border-radius);
+
+    @include set-color(__fg, primary, fg-primary, invisible);
+    @include set-color(__bg, primary, bg-2, opaque);
+    @include set-color(__border, primary, border-0, opaque);
+
+    input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      outline: none;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      /* for DevX sake */
+      stroke-width: var(--input-checkbox-stroke);
+      color: transparent;
+      transition: color ease var(--animation-duration-short);
+
+      @include apply-color(color, __fg);
+    }
+  }
+
+  .-Control {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    border: var(--input-checkbox-border);
+    border-radius: var(--input-border-radius);
+    cursor: pointer;
+    transition: background-color ease var(--animation-duration-short);
+
+    @include apply-color(border-color, __border);
+    @include apply-color(background-color, __bg);
+  }
+
+  .size-s {
+    --__size: var(--size-xs);
+  }
+
+  .size-m {
+    --__size: var(--size-s);
+  }
+
+  .size-l {
+    --__size: var(--size-l);
+  }
+
+  .is-checked {
+    @include set-alpha(__fg, opaque);
+  }
+
+  .is-modified {
+    @include set-palette(__border, modified);
+  }
+
+  .is-invalid {
+    @include set-palette(__bg, danger);
+    @include set-palette(__border, danger);
+  }
+
+  .is-focused {
+    @include set-palette(__bg, good);
+  }
+
+  .is-disabled {
+    @include set-color(__border, primary, fg-disabled, opaque);
+    @include set-color(__fg, primary, fg-disabled, opaque);
+    @include set-color(__bg, primary, bg-disabled, opaque);
+
+    .-Control {
+      cursor: default;
+    }
+  }
+}

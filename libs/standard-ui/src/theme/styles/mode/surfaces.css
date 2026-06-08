@@ -1,0 +1,6 @@
+@layer theme.standard {
+  @layer base, light;
+}
+
+@layer theme.standard.light.surfaces {
+}

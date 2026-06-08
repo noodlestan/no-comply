@@ -1,0 +1,25 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.surface {
+  .Surface {
+    border-width: var(--__border-width);
+    border-style: var(--__border-style);
+    border-radius: var(--__border-radius);
+
+    box-shadow: var(--__shadow-size) var(--__shadow-c);
+
+    @include apply-color(color, __fg);
+    @include apply-color(background-color, __bg);
+    @include apply-color(border-color, __border);
+    @include apply-color(--__shadow-c, __shadow);
+
+    /* transition: background-color 0.5s ease-in; */
+  }
+}
+
+@layer reset {
+  .Surface *::selection {
+    @include apply-color(color, __bg);
+    @include apply-color(background-color, __fg);
+  }
+}

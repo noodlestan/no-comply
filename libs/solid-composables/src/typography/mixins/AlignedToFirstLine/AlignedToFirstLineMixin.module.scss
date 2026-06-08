@@ -1,0 +1,10 @@
+@layer composables {
+  .AlignedToFirstLine {
+    // border-left: var(--__first-line-height, 0px) solid red;
+    // border-right: var(--__first-line-element-height, 0px) solid green;
+    --__align-offset: calc(
+      (var(--__first-line-target-height, 0px) - var(--__first-line-element-height, 0px)) / 2
+    );
+    margin-block-start: var(--__align-offset);
+  }
+}

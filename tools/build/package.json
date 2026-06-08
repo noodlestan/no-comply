@@ -1,0 +1,20 @@
+{
+  "name": "@no-comply/build-tools",
+  "version": "0.0.11",
+  "description": "Internal tools used to build Designer Decisions packages and generate code.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "bin": {
+    "no-comply-build": "./bin/build.mjs",
+    "no-comply-watch": "./bin/watch.mjs"
+  },
+  "scripts": {
+    "lint": "prettier . -c",
+    "lint:fix": "prettier . -c --write"
+  },
+  "devDependencies": {
+    "esbuild-plugin-file-path-extensions": "^2.1.4",
+    "ts-node": "10.9.2"
+  }
+}

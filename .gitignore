@@ -31,6 +31,7 @@ pids
 *.pid.lock
 
 # Cache directories
+.turbo
 .npm
 .eslintcache
 

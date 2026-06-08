@@ -1,0 +1,23 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .ExampleLayoutChild {
+    padding: var(--space-pad-1);
+
+    box-shadow: 0px 0px 0px 1px inset var(--__shadow-color);
+
+    @include set-color(__fg, primary, fg-muted, opaque);
+    @include set-color(__bg, graphics-2, bg-3, opaque);
+    @include set-color(__border, graphics-2, border-1, opaque);
+
+    @include apply-color(color, __fg);
+    @include apply-color(background-color, __bg);
+    @include apply-color(--__shadow-color, __border);
+  }
+
+  [data-example-layout-child-content] {
+    display: flex;
+    align-items: start;
+    gap: var(--space-gap-0);
+  }
+}

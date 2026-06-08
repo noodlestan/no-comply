@@ -1,0 +1,9 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .ShowPalette {
+    > label {
+      min-width: var(--scale-m);
+    }
+  }
+}
