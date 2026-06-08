@@ -52,7 +52,7 @@ export const ComponentPropsRow: Component<Props> = props => {
 					<Text variant="small">(default: {defaultValue()})</Text>
 				</Show>
 			</Flex>
-			<Show when={props.showDocs && !props.showGroups}>
+			<Show when={props.showDocs && !props.showGroups && typeRef()}>
 				<Text>
 					Composed from <Link href={sourceHref()}>{typeRef()}</Link>
 				</Text>

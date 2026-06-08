@@ -2,12 +2,12 @@ import type { EntityDataBase } from '@purrception/primitives';
 
 import { useMeta } from '../../Meta';
 
-export const getTokenEntityMaybe = (
+export const getSymbolEntityMaybe = (
 	entity: EntityDataBase,
 	token: string,
 ): EntityDataBase | undefined => {
 	const errorId = `token "${token}" in entity "${entity.type}:${entity.name}"`;
-	const localType = token in entity.symbols.exported;
+	const localType = token in entity.symbols.declared;
 
 	if (localType) {
 		return entity;
@@ -30,7 +30,7 @@ export const getTokenEntityMaybe = (
 		} else if (!isLocalPackage && candidate.package !== importedSymbol.from) {
 			return false;
 		}
-		return importedSymbol.name in candidate.symbols.exported;
+		return importedSymbol.name in candidate.symbols.declared;
 	});
 
 	if (matches.length > 1) {

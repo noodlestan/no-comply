@@ -1,22 +1,24 @@
-import type { ModuleEntityData } from '@no-comply/meta';
+import { type ProviderEntityData, getEntityFunctions } from '@no-comply/meta';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
 
 import { DocsSection } from '../../../../../content';
 
 type Props = {
-	ent: ModuleEntityData;
+	ent: ProviderEntityData;
 };
 
-export const APIHelpersSection: Component<Props> = props => {
-	const show = () => props.ent.helpers.length > 0;
+export const APIhooksSection: Component<Props> = props => {
+	const hooks = () => getEntityFunctions(props.ent, props.ent.hooks);
+	const show = () => hooks().length > 0;
+
 	return (
 		<Show when={show()}>
-			<DocsSection title="Helpers">
-				<For each={props.ent.helpers}>
-					{helper => (
-						<DocsSection title={helper.name} level={4}>
-							<CodeBlock lang="ts" nodes={[helper]} context={props.ent} />
+			<DocsSection title="hooks">
+				<For each={hooks()}>
+					{hook => (
+						<DocsSection title={hook.name} level={4}>
+							<CodeBlock lang="ts" nodes={[hook]} context={props.ent} />
 						</DocsSection>
 					)}
 				</For>

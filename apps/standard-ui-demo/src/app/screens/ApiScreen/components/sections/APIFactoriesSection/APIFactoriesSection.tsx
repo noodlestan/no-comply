@@ -1,11 +1,12 @@
-import type {
-	ContextEntityData,
-	ControllerEntityData,
-	MixinEntityData,
-	ServiceEntityData,
+import {
+	type ContextEntityData,
+	type ControllerEntityData,
+	type MixinEntityData,
+	type ServiceEntityData,
+	getEntityFunctions,
 } from '@no-comply/meta';
 import { CodeBlock } from '@purrtrait/solid-code';
-import { type Component, For } from 'solid-js';
+import { type Component, For, Show } from 'solid-js';
 
 import { DocsSection } from '../../../../../content';
 
@@ -14,15 +15,20 @@ type Props = {
 };
 
 export const APIFactoriesSection: Component<Props> = props => {
+	const factories = () => getEntityFunctions(props.ent, props.ent.factories);
+	const show = () => factories().length > 0;
+
 	return (
-		<DocsSection title="Factories">
-			<For each={props.ent.factories}>
-				{factory => (
-					<DocsSection title={factory.name} level={4}>
-						<CodeBlock lang="ts" nodes={[factory]} context={props.ent} />
-					</DocsSection>
-				)}
-			</For>
-		</DocsSection>
+		<Show when={show()}>
+			<DocsSection title="Factories">
+				<For each={factories()}>
+					{factory => (
+						<DocsSection title={factory.name} level={4}>
+							<CodeBlock lang="ts" nodes={[factory]} context={props.ent} />
+						</DocsSection>
+					)}
+				</For>
+			</DocsSection>
+		</Show>
 	);
 };

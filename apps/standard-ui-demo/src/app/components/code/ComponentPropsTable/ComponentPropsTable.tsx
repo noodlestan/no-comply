@@ -13,7 +13,7 @@ import {
 import type { EntityDataBase } from '@purrception/primitives';
 import { type Component, For, Show } from 'solid-js';
 
-import { getTokenEntityMaybe } from '../../../../providers';
+import { getSymbolEntityMaybe } from '../../../../providers';
 import { routeFor } from '../../../navigation';
 import { CodeDocDescription } from '../CodeDocDescription';
 import { ComponentPropsRow } from '../ComponentPropsRow';
@@ -29,7 +29,7 @@ type RefProps = { entity?: EntityDataBase; props: ComponentProp[] };
 
 export const ComponentPropsTable: Component<Props> = props => {
 	const componentProps = () => {
-		const context = createResolveTypeContext(getTokenEntityMaybe, props.component);
+		const context = createResolveTypeContext(getSymbolEntityMaybe, props.component);
 		return resolveExpression(
 			context,
 			resolveComponentProps(props.component),

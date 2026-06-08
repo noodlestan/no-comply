@@ -42,9 +42,9 @@ Unresolved token "JSX.Element" in entity "module:icons" (unknown symbol).
 Unresolved token "A" in entity "module:icons" (unknown symbol).
 
 http://localhost:3000/features/components/Button#main
-Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getTokenEntityMaybe.tsx:19:11
-Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). getTokenEntityMaybe.tsx:19:11
-Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). getTokenEntityMaybe.tsx:19:11
+Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
 Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 # No Comply

@@ -1,4 +1,4 @@
-import type { ComponentEntityData } from '@no-comply/meta';
+import { type ComponentEntityData, resolveComponentFactoryDeclaration } from '@no-comply/meta';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component } from 'solid-js';
 
@@ -9,9 +9,11 @@ type Props = {
 };
 
 export const APIFactorySection: Component<Props> = props => {
+	const factory = () => resolveComponentFactoryDeclaration(props.ent);
+
 	return (
 		<DocsSection title="Factory">
-			<CodeBlock lang="ts" nodes={[props.ent.factory]} context={props.ent} />
+			<CodeBlock lang="ts" nodes={[factory()]} context={props.ent} />
 		</DocsSection>
 	);
 };

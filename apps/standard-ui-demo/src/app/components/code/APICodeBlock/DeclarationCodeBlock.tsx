@@ -13,7 +13,7 @@ import SplitIcon from 'lucide-solid/icons/trending-up-down';
 import UndoIcon from 'lucide-solid/icons/undo';
 import { type Component, Show, createEffect, createSignal } from 'solid-js';
 
-import { getTokenEntityMaybe } from '../../../../providers';
+import { getSymbolEntityMaybe } from '../../../../providers';
 
 import styles from './DeclarationCodeBlock.module.scss';
 
@@ -44,7 +44,7 @@ export const DeclarationCodeBlock: Component<DeclarationCodeBlockProps> = props 
 		}
 	});
 
-	const context = () => createResolveTypeContext(getTokenEntityMaybe, props.entity);
+	const context = () => createResolveTypeContext(getSymbolEntityMaybe, props.entity);
 	const node = () => (resolve() ? resolveTypeDeclaration(context(), props.type) : props.type);
 
 	const handleResolveClick = () => {

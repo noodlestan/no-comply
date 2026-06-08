@@ -35,20 +35,20 @@ export function createProviderEntityExtractor(
 			const components = program.extractComponents(files.implementation);
 			const hooks = program.extractFunctions(files.hooks);
 			const types = program.extractTypes(files.implementation);
-			const imported = program.extractExternalImports();
-			const exported = program.formatExports(components, hooks, Object.values(types));
+
+			const imported = program.extractImportedSymbols();
+			const declared = program.indexDeclaredSymbols(components, hooks, Object.values(types));
 
 			return [
 				{
 					context: entityContext,
 					entity: {
 						...partial,
-						components,
-						hooks,
-						types,
+						components: components.map(component => component.name),
+						hooks: hooks.map(hook => hook.name),
 						symbols: {
 							imported,
-							exported,
+							declared,
 						},
 					},
 				},

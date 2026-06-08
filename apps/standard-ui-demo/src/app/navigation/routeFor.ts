@@ -26,9 +26,9 @@ export const routeFor = {
 		}
 		return url(`/api/${pkg}/${module}/${t}/${name}`);
 	},
-	entityToken: (ent: EntityDataBase, token: string): string => {
+	entitySymbol: (ent: EntityDataBase, symbol: string): string => {
 		const route = routeFor.entity(ent);
-		return url(`${route}#${token}`);
+		return url(`${route}#${symbol}`);
 	},
 	settings: (): string => url(`/settings`),
 };

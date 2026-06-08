@@ -3,25 +3,25 @@ import type { CodeLayoutContextValue } from '@purrtrait/code-layout';
 
 import { routeFor } from '../../../app';
 
-import { getTokenEntityMaybe } from './getTokenEntityMaybe';
+import { getSymbolEntityMaybe } from './getSymbolEntityMaybe';
 
-export const getTokenLinkMaybe = (
+export const getSymbolLinkMaybe = (
 	ctx: CodeLayoutContextValue,
 	token: string,
 ): string | undefined => {
 	const entity = ctx.context as NoComplyEntityData;
 
-	const localType = token in entity.symbols.exported;
+	const localType = token in entity.symbols.declared;
 
 	if (localType) {
 		return `#${token}`;
 	}
 
-	const targetEntity = getTokenEntityMaybe(entity, token);
+	const targetEntity = getSymbolEntityMaybe(entity, token);
 
 	if (!targetEntity) {
 		return undefined;
 	}
 
-	return routeFor.entityToken(targetEntity, token);
+	return routeFor.entitySymbol(targetEntity, token);
 };

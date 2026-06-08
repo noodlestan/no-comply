@@ -1,5 +1,3 @@
-import type { FunctionDeclaration, TypeDeclaration } from '@purrception/lang-ts';
-
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ContextEntityFiles = {
@@ -13,6 +11,5 @@ export type ContextEntityPartial = NoComplyEntityPartial & {
 
 export type ContextEntityData = ContextEntityPartial &
 	NoComplyEntityData & {
-		factories: FunctionDeclaration[];
-		types: Record<string, TypeDeclaration>;
+		factories: string[];
 	};

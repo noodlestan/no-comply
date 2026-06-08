@@ -2,6 +2,7 @@
 export * from './Component';
 export * from './Context';
 export * from './Controller';
+export * from './helpers';
 export * from './Mixin';
 export * from './Module';
 export * from './Provider';

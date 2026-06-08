@@ -7,7 +7,7 @@ import {
 } from '@purrtrait/solid-code';
 import { type ParentComponent } from 'solid-js';
 
-import { getTokenLinkMaybe } from './helpers';
+import { getSymbolLinkMaybe } from './helpers';
 
 type Props = {
 	link: CodeLinkComponent;
@@ -16,7 +16,7 @@ type Props = {
 export const CodeBlockProvider: ParentComponent<Props> = props => {
 	const codeLayoutContext = createSolidCodeLayoutContext({
 		langs: [tsCodeLayout],
-		linker: getTokenLinkMaybe,
+		linker: getSymbolLinkMaybe,
 		// eslint-disable-next-line solid/reactivity
 		link: props.link,
 	});

@@ -1,9 +1,3 @@
-import type {
-	ComponentDeclaration,
-	FunctionDeclaration,
-	TypeDeclaration,
-} from '@purrception/lang-ts';
-
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ComponentEntityFiles = {
@@ -18,7 +12,6 @@ export type ComponentEntityPartial = NoComplyEntityPartial & {
 
 export type ComponentEntityData = ComponentEntityPartial &
 	NoComplyEntityData & {
-		component: ComponentDeclaration;
-		factory: FunctionDeclaration;
-		types: Record<string, TypeDeclaration>;
+		component: string;
+		factory: string;
 	};

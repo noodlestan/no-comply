@@ -30,19 +30,19 @@ export function createModuleEntityExtractor(
 
 			const helpers = program.extractFunctions(files.helpers);
 			const types = program.extractTypes(files.types);
-			const imported = program.extractExternalImports();
-			const exported = program.formatExports(helpers, Object.values(types));
+
+			const imported = program.extractImportedSymbols();
+			const declared = program.indexDeclaredSymbols(helpers, Object.values(types));
 
 			return [
 				{
 					context: entityContext,
 					entity: {
 						...partial,
-						types,
-						helpers,
+						helpers: helpers.map(helper => helper.name),
 						symbols: {
 							imported,
-							exported,
+							declared,
 						},
 					},
 				},

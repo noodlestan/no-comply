@@ -1,11 +1,12 @@
-import type {
-	ComponentEntityData,
-	ContextEntityData,
-	ControllerEntityData,
-	MixinEntityData,
-	ModuleEntityData,
-	ProviderEntityData,
-	ServiceEntityData,
+import {
+	type ComponentEntityData,
+	type ContextEntityData,
+	type ControllerEntityData,
+	type MixinEntityData,
+	type ModuleEntityData,
+	type ProviderEntityData,
+	type ServiceEntityData,
+	getEntityTypes,
 } from '@no-comply/meta';
 import { type Component, For, Show } from 'solid-js';
 
@@ -24,8 +25,8 @@ type Props = {
 };
 
 export const APITypesSection: Component<Props> = props => {
-	const show = () => Object.keys(props.ent.types).length > 0;
-	const types = () => Object.values(props.ent.types);
+	const types = () => getEntityTypes(props.ent);
+	const show = () => types().length > 0;
 	const publicTypes = () => types().filter(t => !t.private);
 	const privateTypes = () => types().filter(t => t.private);
 

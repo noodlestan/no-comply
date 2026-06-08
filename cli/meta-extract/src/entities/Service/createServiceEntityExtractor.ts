@@ -30,19 +30,19 @@ export function createServiceEntityExtractor(
 
 			const functions = program.extractFunctions(files.implementation);
 			const types = program.extractTypes();
-			const imported = program.extractExternalImports();
-			const exported = program.formatExports(functions, Object.values(types));
+
+			const imported = program.extractImportedSymbols();
+			const declared = program.indexDeclaredSymbols(functions, Object.values(types));
 
 			return [
 				{
 					context: entityContext,
 					entity: {
 						...partial,
-						factories: functions,
-						types,
+						factories: functions.map(func => func.name),
 						symbols: {
 							imported,
-							exported,
+							declared,
 						},
 					},
 				},

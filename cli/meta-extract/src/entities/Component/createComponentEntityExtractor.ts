@@ -32,7 +32,6 @@ export function createComponentEntityExtractor(
 			const program = await createProgram(programContext, files);
 
 			const components = program.extractComponents(files.implementation);
-
 			if (!components.length) {
 				return [];
 			}
@@ -40,20 +39,23 @@ export function createComponentEntityExtractor(
 			const types = program.extractTypes([files.implementation, files.types]);
 			const functions = program.extractFunctions(files.factory);
 
-			const imported = program.extractExternalImports();
-			const exported = program.formatExports([functions[0], components[0]], Object.values(types));
+			const imported = program.extractImportedSymbols();
+			const declared = program.indexDeclaredSymbols(
+				[functions[0], components[0]],
+				Object.values(types),
+			);
 
 			return [
 				{
 					context: entityContext,
 					entity: {
 						...partial,
-						component: components[0],
-						factory: functions[0],
+						component: components[0].name,
+						factory: functions[0].name,
 						types,
 						symbols: {
 							imported,
-							exported,
+							declared,
 						},
 					},
 				},
