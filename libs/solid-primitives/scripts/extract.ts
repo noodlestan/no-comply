@@ -1,7 +1,7 @@
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
-import { createModuleEntityExtractor } from '@no-comply/meta-entities';
+import { createModuleEntityExtractor } from '@no-comply/meta-extract';
 import { extractEntitiesFromFileSystem } from '@purrception/source-fs';
 
 const moduleExtractor = createModuleEntityExtractor();

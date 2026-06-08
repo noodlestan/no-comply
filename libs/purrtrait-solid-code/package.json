@@ -1,7 +1,7 @@
 {
   "name": "@purrtrait/solid-code",
   "version": "0.0.11",
-  "description": "SolidJS renderers for Purrtrait code trees.",
+  "description": "Purrtrait renderers: SolidJS.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

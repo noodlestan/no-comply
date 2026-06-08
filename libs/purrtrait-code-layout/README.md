@@ -1,6 +1,6 @@
 # Purrtrait / Code Layout
 
-> Purrtrait code layout abstractions and language registration.
+> Purrtrait code layout: context, layout entry point, and language support registration.
 
 Part of the [Purrtrait](https://github.com/noodlestan/purrtrait) toolkit.
 

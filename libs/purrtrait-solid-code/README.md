@@ -1,6 +1,6 @@
-# Purrtrait / Solid Code
+# Purrtrait / Renderers / SolidJS
 
-> SolidJS renderers for Purrtrait code trees.
+> SolidJS renderers for Purrtrait code blocks.
 
 Part of the [Purrtrait](https://github.com/noodlestan/purrtrait) toolkit.
 

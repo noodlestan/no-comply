@@ -4,7 +4,7 @@ import path from 'path';
 import {
 	createControllerEntityExtractor,
 	createModuleEntityExtractor,
-} from '@no-comply/meta-entities';
+} from '@no-comply/meta-extract';
 import {
 	type DirectoryExtractContext,
 	extractEntitiesFromFileSystem,

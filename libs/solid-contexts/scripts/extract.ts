@@ -6,7 +6,7 @@ import {
 	createModuleEntityExtractor,
 	createProviderEntityExtractor,
 	createServiceEntityExtractor,
-} from '@no-comply/meta-entities';
+} from '@no-comply/meta-extract';
 import { extractEntitiesFromFileSystem } from '@purrception/source-fs';
 
 const moduleExtractor = createModuleEntityExtractor();
