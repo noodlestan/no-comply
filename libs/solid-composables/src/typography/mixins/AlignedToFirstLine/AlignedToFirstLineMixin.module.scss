@@ -5,6 +5,6 @@
     --__align-offset: calc(
       (var(--__first-line-target-height, 0px) - var(--__first-line-element-height, 0px)) / 2
     );
-    margin-block: var(--__align-offset);
+    margin-block-start: var(--__align-offset);
   }
 }
