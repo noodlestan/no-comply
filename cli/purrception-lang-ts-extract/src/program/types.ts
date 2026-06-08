@@ -4,7 +4,7 @@ import type {
 	FunctionDeclaration,
 	TypeDeclaration,
 } from '@purrception/lang-ts';
-import { type ExportedSymbol, type ImportedSymbol } from '@purrception/primitives';
+import { type ImportedSymbol } from '@purrception/primitives';
 import ts from 'typescript';
 
 export type ProgramFilesContext = {
@@ -28,7 +28,7 @@ export type ProgramAPI = {
 	files: Record<string, ProgramFileAPI>;
 	extractComponents: (files?: string | string[]) => ComponentDeclaration[];
 	extractFunctions: (files?: string | string[]) => FunctionDeclaration[];
-	extractTypes: (files?: string | string[]) => Record<string, TypeDeclaration>;
-	extractExternalImports: (files?: string | string[]) => Record<string, ImportedSymbol>;
-	formatExports: (...args: Declaration[][]) => Record<string, ExportedSymbol>;
+	extractTypes: (files?: string | string[]) => TypeDeclaration[];
+	extractImportedSymbols: (files?: string | string[]) => Record<string, ImportedSymbol>;
+	indexDeclaredSymbols: (...args: Declaration[][]) => Record<string, Declaration>;
 };

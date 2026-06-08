@@ -1,4 +1,4 @@
-import { type ComponentDeclaration } from '@purrception/lang-ts';
+import { type ComponentDeclaration, PurrceptionLanguageId } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractFunctionJsDoc } from '../jsdoc';
@@ -49,6 +49,7 @@ export function extractComponentFromProgramNode(
 	return {
 		at: programFile.filepath,
 		name,
+		lang: PurrceptionLanguageId,
 		kind: 'component',
 		private: !isExportedDeclaration(declarationNode),
 		generic,

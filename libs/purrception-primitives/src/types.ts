@@ -5,9 +5,15 @@ export type ImportedSymbol = {
 	from: string;
 };
 
-export type ExportedSymbol = {
+export type DeclaredSymbol = {
 	at: string;
+	lang: string;
 	name: string;
+	private: boolean;
+};
+
+export type LanguageDeclaredSymbol<L extends string> = DeclaredSymbol & {
+	lang: L;
 };
 
 export type EntityDataBasePartial = {
@@ -19,7 +25,7 @@ export type EntityDataBasePartial = {
 export type EntityDataBase = EntityDataBasePartial & {
 	symbols: {
 		imported: Record<string, ImportedSymbol>;
-		exported: Record<string, ExportedSymbol>;
+		declared: Record<string, DeclaredSymbol>;
 	};
 	[key: string]: unknown;
 };

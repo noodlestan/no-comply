@@ -1,9 +1,10 @@
-import type { InterfaceDeclaration } from '@purrception/lang-ts';
+import { type InterfaceDeclaration, PurrceptionLanguageId } from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractNodeGenerics } from './extractNodeGenerics';
 import { extractObjectLiteralTypeNode } from './extractObjectLiteralTypeNode';
 import { extractTypeExpression } from './extractTypeExpression';
+import { isExportedDeclaration } from './isExportedDeclaration';
 
 export function extractInterfaceDeclaration(
 	at: string,
@@ -20,7 +21,10 @@ export function extractInterfaceDeclaration(
 	return {
 		at,
 		name,
+
+		lang: PurrceptionLanguageId,
 		kind: 'interface',
+		private: !isExportedDeclaration(node),
 		generic,
 		heritage: extended,
 		members: object.members,

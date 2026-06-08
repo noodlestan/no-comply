@@ -1,5 +1,5 @@
-import type { Declaration, TypeDeclaration } from '@purrception/lang-ts';
-import type { ExportedSymbol, ImportedSymbol } from '@purrception/primitives';
+import type { Declaration } from '@purrception/lang-ts';
+import type { ImportedSymbol } from '@purrception/primitives';
 
 import {
 	extractComponentsFromProgram,
@@ -54,13 +54,7 @@ export async function createProgram(
 	const extractTypes = (files?: string | string[]) => {
 		const programs = getPrograms(files);
 		const nested = programs.map(p => extractTypesFromProgram(p));
-		const flat = nested.flat();
-
-		const types: Record<string, TypeDeclaration> = {};
-		for (const t of flat) {
-			types[t.name] = t;
-		}
-		return types;
+		return nested.flat();
 	};
 
 	const extractImportMap = (files?: string | string[]) => {
@@ -90,17 +84,14 @@ export async function createProgram(
 		return dep.from.endsWith(ctx.path) || dep.from.includes(ctx.path + '/');
 	};
 
-	const extractExternalImports = (files?: string | string[]) => {
+	const extractImportedSymbols = (files?: string | string[]) => {
 		const map = extractImportMap(files);
 		const entries = Array.from(map.entries()).filter(([, value]) => !isLocalImport(value));
 		return Object.fromEntries(entries);
 	};
 
-	const formatExports = (...args: Declaration[][]) => {
-		const entries = args
-			.flat()
-			.filter(arg => !arg.private)
-			.map(({ at, name }) => [name, { at, name } as ExportedSymbol]);
+	const indexDeclaredSymbols = (...args: Declaration[][]) => {
+		const entries = args.flat().map(symbol => [symbol.name, symbol]);
 		return Object.fromEntries(entries);
 	};
 
@@ -109,7 +100,7 @@ export async function createProgram(
 		extractComponents,
 		extractFunctions,
 		extractTypes,
-		extractExternalImports,
-		formatExports,
+		extractImportedSymbols,
+		indexDeclaredSymbols,
 	};
 }

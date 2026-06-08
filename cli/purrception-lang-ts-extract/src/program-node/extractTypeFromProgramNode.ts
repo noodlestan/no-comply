@@ -1,4 +1,8 @@
-import { type TypeDeclaration, type TypeExpressionDeclaration } from '@purrception/lang-ts';
+import {
+	PurrceptionLanguageId,
+	type TypeDeclaration,
+	type TypeExpressionDeclaration,
+} from '@purrception/lang-ts';
 import ts from 'typescript';
 
 import { extractNodeJsDoc } from '../jsdoc';
@@ -29,6 +33,7 @@ export function extractTypeFromProgramNode(
 	const type: TypeExpressionDeclaration = {
 		at: programFile.filepath,
 		name,
+		lang: PurrceptionLanguageId,
 		kind: 'type',
 		private: !isExportedDeclaration(node),
 		node: base,

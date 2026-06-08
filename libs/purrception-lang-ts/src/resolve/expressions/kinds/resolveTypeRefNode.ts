@@ -1,4 +1,4 @@
-import type { TypeDeclaration } from '../../../declaration';
+import { isInterfaceDeclaration, isTypeDeclaration } from '../../../declaration';
 import { type TypeExpressionNode, type TypeRefNode, isBuiltInToken } from '../../../node';
 import { resolveTypeDeclaration } from '../../resolveTypeDeclaration';
 import type { ResolveTypeContext } from '../../types';
@@ -20,9 +20,6 @@ export function resolveTypeRefNode(
 	if (!targetEntity) {
 		return node;
 	}
-	if (!('types' in targetEntity)) {
-		return node;
-	}
 
 	const targetType = context.resolveImportName(node.ref);
 	if (context.stackHasEntry(targetEntity, targetType)) {
@@ -30,10 +27,13 @@ export function resolveTypeRefNode(
 		return node;
 	}
 
-	const type = (targetEntity as unknown as { types: Record<string, TypeDeclaration> }).types[
-		targetType
-	];
+	const type = targetEntity.symbols.declared[targetType];
 	if (!type) {
+		return node;
+	}
+
+	if (!isTypeDeclaration(type) && !isInterfaceDeclaration(type)) {
+		console.warn(`Invalid type reference: ${targetType}.`, type);
 		return node;
 	}
 

@@ -1,4 +1,4 @@
-import type { ExportedSymbol } from '@purrception/primitives';
+import type { LanguageDeclaredSymbol } from '@purrception/primitives';
 
 import type { JsDocData } from '../jsdoc';
 import type {
@@ -11,11 +11,12 @@ import type {
 
 export type DeclarationKind = 'type' | 'interface' | 'function' | 'component';
 
-export type DeclarationBase<K extends DeclarationKind> = ExportedSymbol &
-	JsDocData & {
-		kind: K;
-		private?: boolean;
-	};
+export type DeclarationBase<K extends DeclarationKind> =
+	LanguageDeclaredSymbol<'@purrception/lang-ts'> &
+		JsDocData & {
+			kind: K;
+			private?: boolean;
+		};
 
 export type TypeExpressionDeclaration<K extends TypeExpressionNode = TypeExpressionNode> =
 	DeclarationBase<'type'> & {
@@ -39,9 +40,9 @@ export type ComponentDeclaration = DeclarationBase<'component'> &
 	};
 
 export type Declaration =
-	| TypeExpressionDeclaration<TypeExpressionNode>
+	| TypeExpressionDeclaration
 	| InterfaceDeclaration
 	| FunctionDeclaration
 	| ComponentDeclaration;
 
-export type TypeDeclaration = TypeExpressionDeclaration<TypeExpressionNode> | InterfaceDeclaration;
+export type TypeDeclaration = TypeExpressionDeclaration | InterfaceDeclaration;

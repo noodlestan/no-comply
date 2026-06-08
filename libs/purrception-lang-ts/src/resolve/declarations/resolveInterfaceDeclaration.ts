@@ -1,3 +1,4 @@
+import { PurrceptionLanguageId } from '../../constants';
 import type { InterfaceDeclaration, TypeExpressionDeclaration } from '../../declaration';
 import type { ObjectLiteralTypeMember, ObjectLiteralTypeNode } from '../../node';
 import { resolveExpression } from '../expressions';
@@ -58,8 +59,10 @@ export function resolveInterfaceDeclaration(
 
 	return {
 		at,
+		lang: PurrceptionLanguageId,
 		name,
 		kind: 'type',
+		private: declaration.private,
 		node: object,
 		description,
 		templateTags,
