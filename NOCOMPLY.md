@@ -1,14 +1,35 @@
 # Purrception
 
+## Utility to render links in any JSDoc
+
+apps/standard-ui-demo/src/app/components/code/CodeDocDescription/CodeDocDescription.tsx
+
+## some generics not resolved
+
+example: children T
+http://localhost:3000/features/components/Surface#main
+
 ## add @noresolve tag to skip resolution
 
-[item.entity](http://localhost:3000/features/components/Layout#main)
+example
+http://localhost:3000/api/@no-comply/solid-composables/layout#LayoutPaddingProps
+http://localhost:3000/features/components/Layout#main
 
 ## Streamline comment extraction
 
 - search: `typeof tag.comment === 'string'`
 - extract to function (if it doesn't exist yet)
 - make sure arrays are captured as well
+
+## Streamline component/function extraction
+
+Currently
+
+see:
+- @purrception/lang-ts-extract
+  - src/program-node/extractTypeFromProgramNode.ts
+  - src/program-node/extractFunctionFromProgramNode.ts
+  - src/program-node/extractFunctionFromProgramNode.ts
 
 ## Incomplete (and ambient) resolutions
 
@@ -28,9 +49,28 @@ Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 # No Comply
 
-## Flex
+## NoSelect
 
---__flex-flex: NaN;
+as a component and as a mixin
+
+## Surface
+
+### nested surfaces
+
+- when nesting a page surface within a panel surface it should have an inset drop shadow that matches the panel's drop shadow
+
+
+### Scope surface vars
+
+`@scope ([data-surface]) to ([data-surface])`
+https://css-tricks.com/almanac/rules/s/scope/
+
+## Layouts
+
+- fix: --__flex-flex: NaN;
+- compose flex + grid into standard Surface?
+- Responsive Flex and Grid
+
 
 ## OverflowItems
 
@@ -64,10 +104,6 @@ if (!exposable) {
   });
 }
 ```
-
-## compose flex + grid into standard Surface?
-
-## Responsive Flex and Grid
 
 ## user-select and pointer-events
 
@@ -333,11 +369,6 @@ export type MenuItemRadioProps = MenuItemBaseProps & {
 
 - no scrollbars
 - links are not focusable
-
-## Scope surface vars
-
-`@scope ([data-surface]) to ([data-surface])`
-https://css-tricks.com/almanac/rules/s/scope/
 
 ## abstract input controller around a focus context
 
