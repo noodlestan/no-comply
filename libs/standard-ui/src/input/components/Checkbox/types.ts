@@ -1,8 +1,9 @@
+import type { AlignedToFirstLineMixinProps } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
 export type CheckboxSize = 's' | 'm' | 'l';
 
-export type CheckboxProps = {
+export type CheckboxProps = AlignedToFirstLineMixinProps & {
 	id?: string;
 	checked?: boolean;
 	size?: CheckboxSize;

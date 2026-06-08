@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import { createAlignedToFirstLineMixin } from '@no-comply/solid-composables';
 import {
 	type PickRequired,
 	combineProps,
@@ -25,6 +26,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
 	const size = () => props.size ?? defaultProps.size;
 
 	const { $root: $focusRingRoot, $focusTarget } = createFocusRing();
+	const { $root: $alignedToFirstLineRoot } = createAlignedToFirstLineMixin(props);
 
 	const setInputRef = (ref: HTMLInputElement) => {
 		inputRef = ref;
@@ -78,7 +80,7 @@ export const Checkbox: Component<CheckboxProps> = props => {
 		classList,
 	});
 
-	const $ = combineProps($focusRingRoot, $root);
+	const $ = combineProps($focusRingRoot, $alignedToFirstLineRoot, $root);
 
 	return (
 		<div {...handlers} {...$}>
