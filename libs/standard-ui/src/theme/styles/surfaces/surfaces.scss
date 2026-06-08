@@ -32,7 +32,7 @@
     }
 
     [data-surface-panel] {
-      --__shadow-size: var(--box-shadow-2);
+      --__shadow-size: var(--box-shadow-1);
 
       @include set-level(__bg, bg-1);
       @include set-level(content-bg-1, bg-3);
