@@ -1,8 +1,7 @@
 import path from 'path';
 
+import type { ComponentEntityPartial } from '@no-comply/meta';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
-
-import type { ComponentEntityPartial } from '../types';
 
 export const entityMatcher: EntityMetaMatcher<ComponentEntityPartial> = async ctx => {
 	const match = ctx.dirMeta.relative.match(/^([^/]+)\/components\//);

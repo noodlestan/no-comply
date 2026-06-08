@@ -1,8 +1,7 @@
 import path from 'path';
 
+import type { MixinEntityPartial } from '@no-comply/meta';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
-
-import type { MixinEntityPartial } from '../types';
 
 export const entityMatcher: EntityMetaMatcher<MixinEntityPartial> = async ctx => {
 	const match = ctx.dirMeta.relative.match(/^([^/]+)\/mixins\//);

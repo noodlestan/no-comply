@@ -1,8 +1,7 @@
 import path from 'path';
 
+import type { ControllerEntityPartial } from '@no-comply/meta';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
-
-import type { ControllerEntityPartial } from '../types';
 
 export const entityMatcher: EntityMetaMatcher<ControllerEntityPartial> = async ctx => {
 	const match = ctx.dirMeta.relative.match(/^([^/]+)\/controllers\//);

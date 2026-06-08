@@ -40,6 +40,7 @@
     "ci": "npm run build:clean && npm run build && npm run test"
   },
   "dependencies": {
+    "@no-comply/meta": "0.0.11",
     "@purrception/primitives": "0.0.11",
     "@purrception/lang-ts-extract": "0.0.11",
     "@purrception/source-fs": "0.0.11"

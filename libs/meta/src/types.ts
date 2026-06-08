@@ -1,4 +1,4 @@
-import type { ModuleEntityData, NoComplyEntityData } from '@no-comply/meta-entities';
+import type { ModuleEntityData, NoComplyEntityData } from './entities';
 
 export type NoComplyMetaAPI = {
 	getEntities(): NoComplyEntityData[];

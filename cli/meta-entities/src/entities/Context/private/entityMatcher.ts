@@ -1,8 +1,7 @@
 import path from 'path';
 
+import type { ContextEntityPartial } from '@no-comply/meta';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
-
-import type { ContextEntityPartial } from '../types';
 
 export const entityMatcher: EntityMetaMatcher<ContextEntityPartial> = async ctx => {
 	const match = ctx.dirMeta.relative.match(/^([^/]+)\/contexts\//);

@@ -1,8 +1,7 @@
 import path from 'path';
 
+import type { ProviderEntityPartial } from '@no-comply/meta';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
-
-import type { ProviderEntityPartial } from '../types';
 
 export const entityMatcher: EntityMetaMatcher<ProviderEntityPartial> = async ctx => {
 	const match = ctx.dirMeta.relative.match(/^([^/]+)\/providers\//);

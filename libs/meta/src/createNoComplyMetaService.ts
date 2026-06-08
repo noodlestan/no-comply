@@ -1,5 +1,4 @@
-import type { ModuleEntityData, NoComplyEntityData } from '@no-comply/meta-entities';
-
+import type { ModuleEntityData, NoComplyEntityData } from './entities';
 import { indexEntities } from './private';
 import type { NoComplyMetaAPI } from './types';
 

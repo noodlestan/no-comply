@@ -1,7 +1,7 @@
+import type { ProviderEntityFiles } from '@no-comply/meta';
 import type { EntityFileResolver } from '@purrception/source-fs';
 
 import { findFactoryFile, findHookFiles, findTypesFile } from '../../../utils';
-import type { ProviderEntityFiles } from '../types';
 
 export const fileResolver: EntityFileResolver<ProviderEntityFiles> = async ctx => {
 	const implementation = findFactoryFile(ctx);

@@ -1,3 +1,8 @@
+import type {
+	ComponentEntityData,
+	ComponentEntityFiles,
+	ComponentEntityPartial,
+} from '@no-comply/meta';
 import { createProgram, createProgramFilesContext } from '@purrception/lang-ts-extract';
 import {
 	type DirectoryEntityExtractor,
@@ -9,7 +14,6 @@ import {
 import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
 
 import { entityMatcher, fileResolver } from './private';
-import type { ComponentEntityData, ComponentEntityFiles, ComponentEntityPartial } from './types';
 
 export function createComponentEntityExtractor(
 	options: EntityExtractorOptions<ComponentEntityPartial, ComponentEntityFiles> = {},

@@ -1,7 +1,7 @@
+import type { ModuleEntityFiles } from '@no-comply/meta';
 import type { EntityFileResolver } from '@purrception/source-fs';
 
 import { findHelperFiles, findTypesFile } from '../../../utils';
-import type { ModuleEntityFiles } from '../types';
 
 export const fileResolver: EntityFileResolver<ModuleEntityFiles> = async ctx => {
 	const types = findTypesFile(ctx);

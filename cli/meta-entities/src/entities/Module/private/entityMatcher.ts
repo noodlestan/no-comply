@@ -1,6 +1,5 @@
+import type { ModuleEntityPartial } from '@no-comply/meta';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
-
-import type { ModuleEntityPartial } from '../types';
 
 export const entityMatcher: EntityMetaMatcher<ModuleEntityPartial> = async ctx => {
 	const match = ctx.dirMeta.relative.match(/^([^/]+)$/);

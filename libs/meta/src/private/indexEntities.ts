@@ -1,4 +1,4 @@
-import type { NoComplyEntityData } from '@no-comply/meta-entities';
+import type { NoComplyEntityData } from '../entities';
 
 type IndexByName = Record<string, NoComplyEntityData>;
 type IndexByType = Record<string, IndexByName>;

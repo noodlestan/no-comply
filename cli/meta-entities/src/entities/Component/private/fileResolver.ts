@@ -1,7 +1,7 @@
+import type { ComponentEntityFiles } from '@no-comply/meta';
 import type { EntityFileResolver } from '@purrception/source-fs';
 
 import { findComponentFile, findFactoryFile, findTypesFile } from '../../../utils';
-import type { ComponentEntityFiles } from '../types';
 
 export const fileResolver: EntityFileResolver<ComponentEntityFiles> = async ctx => {
 	const implementation = findComponentFile(ctx);
