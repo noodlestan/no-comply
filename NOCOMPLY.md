@@ -1,5 +1,61 @@
 # Purrception
 
+## Optimize meta.json file size
+
+add `at` path to entities
+make symbols `at` relative to entity `at`
+make alias optional and remove when not different from name
+remove `optional`, `readonly` and `private` when value is false
+
+writer:
+- remove `"indexSignatures": []` when empty
+- remove `symbols`, `imported` and `declared` when empty
+reader:
+- add them back
+
+## Optimize even more
+
+- hash dependencies => store a map of imported symbols
+- consider making this optional on write
+- check for hashed references on lookup (involves keeping "global" in lookup alongside entity)
+
+```
+"global": {
+  "symbols": {
+    "abc123",
+      "name": "combineProps",
+      "from": "@no-comply/solid-primitives"
+  }
+},
+"entities": [
+  "type": "component",
+  "name": "MenuItemGroup",
+  ...
+  "symbols": {
+    "imported": {
+      combineProps": {
+        "at": "MenuItemGroup.tsx",
+        "$": 'abc123'
+      },
+    }
+  }
+]
+```
+
+## Fix: module without name
+
+in `libs/standard-ui/dist/meta.json`
+
+```
+{
+  "type": "module",
+  "name": "content",
+  "package": "@no-comply/standard-ui",
+  "module": "",
+  "path": "src/content",
+},
+```
+
 ## Utility to render links in any JSDoc
 
 apps/standard-ui-demo/src/app/components/code/CodeDocDescription/CodeDocDescription.tsx
@@ -48,6 +104,8 @@ Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). 
 Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 # No Comply
+
+##
 
 ## NoSelect
 

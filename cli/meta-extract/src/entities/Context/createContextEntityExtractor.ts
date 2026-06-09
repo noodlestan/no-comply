@@ -29,7 +29,7 @@ export function createContextEntityExtractor(
 			const types = program.extractTypes(files.types);
 
 			const imported = program.extractImportedSymbols();
-			const declared = program.indexDeclaredSymbols(functions, Object.values(types));
+			const declared = program.indexDeclaredSymbols(functions, types);
 
 			return [
 				{

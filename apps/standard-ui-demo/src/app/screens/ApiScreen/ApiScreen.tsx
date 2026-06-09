@@ -5,10 +5,10 @@ import { SidebarNav } from '../../navigation';
 import { ScreenTemplateWithSidebar } from '../../templates';
 
 export const ApiScreen: ParentComponent = props => {
-	const sideBarItems = () => [];
+	const sidebarNavItems = () => [];
 
 	return (
-		<ScreenTemplateWithSidebar id="components" sidebar={<SidebarNav items={sideBarItems()} />}>
+		<ScreenTemplateWithSidebar id="components" sidebar={<SidebarNav items={sidebarNavItems()} />}>
 			{props.children}
 		</ScreenTemplateWithSidebar>
 	);

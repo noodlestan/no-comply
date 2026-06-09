@@ -32,7 +32,7 @@ export function createModuleEntityExtractor(
 			const types = program.extractTypes(files.types);
 
 			const imported = program.extractImportedSymbols();
-			const declared = program.indexDeclaredSymbols(helpers, Object.values(types));
+			const declared = program.indexDeclaredSymbols(helpers, types);
 
 			return [
 				{

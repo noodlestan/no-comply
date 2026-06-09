@@ -8,10 +8,10 @@ import { $ID_SIDEBAR_NAV } from '../private';
 
 import { SIDEBAR_NAV_TARGET } from './constant';
 import { NavLinkItemGroup } from './parts';
-import type { SidebarItemGroup } from './types';
+import type { SidebarNavGroup } from './types';
 
 type Props = {
-	items: SidebarItemGroup[];
+	items: SidebarNavGroup[];
 };
 
 export const SidebarNav: Component<Props> = props => {

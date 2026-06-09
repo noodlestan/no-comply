@@ -40,10 +40,9 @@ export function createComponentEntityExtractor(
 			const functions = program.extractFunctions(files.factory);
 
 			const imported = program.extractImportedSymbols();
-			const declared = program.indexDeclaredSymbols(
-				[functions[0], components[0]],
-				Object.values(types),
-			);
+			const factory = functions[0];
+			const component = components[0];
+			const declared = program.indexDeclaredSymbols([factory, component], types);
 
 			return [
 				{
@@ -51,6 +50,7 @@ export function createComponentEntityExtractor(
 					entity: {
 						...partial,
 						component: components[0].name,
+						group: partial.module || 'misc',
 						factory: functions[0].name,
 						types,
 						symbols: {

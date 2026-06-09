@@ -37,7 +37,7 @@ export function createProviderEntityExtractor(
 			const types = program.extractTypes(files.implementation);
 
 			const imported = program.extractImportedSymbols();
-			const declared = program.indexDeclaredSymbols(components, hooks, Object.values(types));
+			const declared = program.indexDeclaredSymbols(components, hooks, types);
 
 			return [
 				{

@@ -1,9 +1,9 @@
-export type SidebarItem = {
+export type SidebarNavItem = {
 	title: string;
-	route: string;
+	href: string;
 };
 
-export type SidebarItemGroup = {
+export type SidebarNavGroup = {
 	title: string;
-	items: SidebarItem[];
+	items: SidebarNavItem[];
 };

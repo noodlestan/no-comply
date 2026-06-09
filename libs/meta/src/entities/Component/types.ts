@@ -12,6 +12,7 @@ export type ComponentEntityPartial = NoComplyEntityPartial & {
 
 export type ComponentEntityData = ComponentEntityPartial &
 	NoComplyEntityData & {
+		group: string;
 		component: string;
 		factory: string;
 	};

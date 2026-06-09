@@ -1,12 +1,12 @@
-import { type SidebarItemGroup, routeFor } from '../../../navigation';
+import { type SidebarNavGroup, routeFor } from '../../../navigation';
 
-export const APP_SIDEBAR_ITEMS: SidebarItemGroup[] = [
+export const APP_SIDEBAR_ITEMS: SidebarNavGroup[] = [
 	{
 		title: 'Todo',
 		items: [
 			{
 				title: 'Scales',
-				route: routeFor.showcase(''),
+				href: routeFor.showcase(''),
 			},
 		],
 	},
@@ -15,11 +15,11 @@ export const APP_SIDEBAR_ITEMS: SidebarItemGroup[] = [
 		items: [
 			{
 				title: 'Category 1',
-				route: routeFor.home(),
+				href: routeFor.home(),
 			},
 			{
 				title: 'Category 2',
-				route: routeFor.home(),
+				href: routeFor.home(),
 			},
 		],
 	},
@@ -28,7 +28,7 @@ export const APP_SIDEBAR_ITEMS: SidebarItemGroup[] = [
 		items: [
 			{
 				title: 'Display',
-				route: routeFor.home(),
+				href: routeFor.home(),
 			},
 		],
 	},

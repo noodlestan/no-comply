@@ -1,9 +1,8 @@
 /* eslint-disable dot-notation */
-import type { ComponentEntityData } from '@no-comply/meta';
+import { type ComponentEntityData, isNoComplyComponent } from '@no-comply/meta';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
-import { type ComponentName } from '../../../../../data';
 import { useMeta } from '../../../../../providers';
 import { ComponentMeta } from '../../../../content';
 import { BasePage, NotFoundPage } from '../../../../templates';
@@ -13,26 +12,28 @@ export const ComponentPage: Component = () => {
 	const params = useParams();
 
 	// eslint-disable-next-line dot-notation
-	const name = () => params['component'] as ComponentName;
-	const { getEntityMaybe } = useMeta();
-	const data = () =>
-		getEntityMaybe('@no-comply/standard-ui', 'component', name()) as ComponentEntityData;
-	// const page = () => components[name()]?.(data());
+	const name = () => params['component'] as string;
+	const { getEntities } = useMeta();
+
+	const maybeData = () =>
+		getEntities().find(entity => {
+			return isNoComplyComponent(entity) && entity.name === name();
+		});
 
 	return (
 		<>
-			<Show when={!data()}>
+			<Show when={!maybeData()}>
 				<NotFoundPage undertitle={`Component ${name()} does not exist.`}>
 					Search for components
 				</NotFoundPage>
 			</Show>
-			<Show when={data()}>
+			<Show when={maybeData()}>
 				<BasePage
-					title={data()?.name}
-					undertitle={<ComponentMeta component={data()} />}
+					title={maybeData()?.name}
+					undertitle={<ComponentMeta component={maybeData() as ComponentEntityData} />}
 					data-component-page
 				>
-					<ComponentPropsSection component={data()} />
+					<ComponentPropsSection component={maybeData() as ComponentEntityData} />
 				</BasePage>
 			</Show>
 		</>

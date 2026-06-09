@@ -32,7 +32,7 @@ export function createServiceEntityExtractor(
 			const types = program.extractTypes();
 
 			const imported = program.extractImportedSymbols();
-			const declared = program.indexDeclaredSymbols(functions, Object.values(types));
+			const declared = program.indexDeclaredSymbols(functions, types);
 
 			return [
 				{

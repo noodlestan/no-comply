@@ -1,48 +1,26 @@
-import { type SidebarItemGroup, routeFor } from '../../../navigation';
+import {
+	type SidebarNavGroup,
+	createSidebarNavGroup,
+	createSidebarNavItem,
+	routeFor,
+} from '../../../navigation';
 
-export const RESOURCES_SIDEBAR_ITEMS: SidebarItemGroup[] = [
-	{
-		title: 'Space',
-		items: [
-			{
-				title: 'Scales',
-				route: routeFor.resources('space/scales'),
-			},
-		],
-	},
-	{
-		title: 'Typography',
-		items: [
-			{
-				title: 'Variants',
-				route: routeFor.resources('typography/variants'),
-			},
-		],
-	},
-	{
-		title: 'Color',
-		items: [
-			{
-				title: 'Palettes',
-				route: routeFor.resources('color/palettes'),
-			},
-		],
-	},
-	{
-		title: 'Composition',
-		items: [
-			{
-				title: 'Large',
-				route: routeFor.resources('composition/large'),
-			},
-			{
-				title: 'Medium',
-				route: routeFor.resources('composition/medium'),
-			},
-			{
-				title: 'Small',
-				route: routeFor.resources('composition/small'),
-			},
-		],
-	},
+export const RESOURCES_SIDEBAR_ITEMS: SidebarNavGroup[] = [
+	createSidebarNavGroup('Space', [
+		createSidebarNavItem('Scales', routeFor.resources('space/scales')),
+	]),
+
+	createSidebarNavGroup('Typography', [
+		createSidebarNavItem('Variants', routeFor.resources('typography/variants')),
+	]),
+
+	createSidebarNavGroup('Color', [
+		createSidebarNavItem('Palettes', routeFor.resources('color/palettes')),
+	]),
+
+	createSidebarNavGroup('Composition', [
+		createSidebarNavItem('Large', routeFor.resources('composition/large')),
+		createSidebarNavItem('Medium', routeFor.resources('composition/medium')),
+		createSidebarNavItem('Small', routeFor.resources('composition/small')),
+	]),
 ];
