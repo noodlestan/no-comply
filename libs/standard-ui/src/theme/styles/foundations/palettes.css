@@ -14,7 +14,7 @@
     --l-900: 0.1955;
     --l-950: 0.1629;
     --l-1000: 0.072;
-    --l-center: var(--l-50);
+    --l-center: var(--l-500);
 
     --p-neutral: palette-0;
     --p-neutral-center: oklch(58.03% 0.005 273);

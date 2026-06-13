@@ -2,6 +2,13 @@
 
 @layer theme.standard.base.foundations {
   [data-theme-standard] {
+    --__desat-base-center: 0.5;
+    --__desat-base-max: 1;
+    --__desat-base-factor: 1.8;
+    --__desat-center: var(--__desat-base-center);
+    --__desat-max: var(--__desat-base-max);
+    --__desat-factor: var(--__desat-base-factor);
+
     @include def-color-level(fg-contrast, 50);
     @include def-color-level(fg-primary, 100);
     @include def-color-level(fg-muted, 200);

@@ -6,6 +6,13 @@
 
 @layer theme.standard.light.tokens {
   [data-theme-standard][data-mode-light] {
+    --__desat-light-center: 0.5;
+    --__desat-light-max: 1;
+    --__desat-light-factor: 2.5;
+    --__desat-center: var(--__desat-light-center);
+    --__desat-max: var(--__desat-light-max);
+    --__desat-factor: var(--__desat-light-factor);
+
     @include def-color-level(shadow, 400);
 
     @include def-color-level(static-fg-contrast, 1000);

@@ -168,7 +168,6 @@
 
   /* prettier-ignore */
   @function --f-color-by-palette(--p, --l) {
-            --clamped-l: var(--l);
             --clamped-l: --f-clamp-l(var(--l));
             result: if(
                 style(--p: palette-0): --f-palette-0(var(--clamped-l));
