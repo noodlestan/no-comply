@@ -42,10 +42,10 @@
   "dependencies": {
     "@purrception/primitives": "0.0.11",
     "@purrception/lang-ts": "0.0.11",
-    "typescript": "^5.6.3"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@no-comply/build-tools": "0.0.11",
-    "@types/node": "^24.0.3"
+    "@types/node": "^25.9.3"
   }
 }

@@ -1,6 +1,5 @@
 # Purrception
 
-
 ## Fix: module without name
 
 in `libs/standard-ui/dist/meta.json`
@@ -24,7 +23,6 @@ step 2 - auto link
 
 apps/standard-ui-demo/src/app/components/code/CodeDocDescription/CodeDocDescription.tsx
 
-
 ## ambient resolutions
 
 make them configurable
@@ -41,10 +39,10 @@ Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 package in a new package `purrception-ambient-solidjs`
 
-
 ## make component types and prop extraction configurable
 
 currently works with
+
 - returns JSX
 - Component
 - ParentComponent
@@ -55,10 +53,10 @@ trickle down contexts down to where heuristics applied
 
 package in a new package `purrception-solid-js`
 
-
 ## some resolutions skip layers
 
 http://localhost:3000/features/components/ExpandButton
+
 - round - comes from IconButtonProps
 - controls, expanded, and labels - from ExpandActionProps
 - popoverTarget and popoverTargetAction correctly resolvedd to PopoverTriggerTagProps
@@ -83,7 +81,6 @@ http://localhost:3000/features/components/Layout#main
 - extract to function (if it doesn't exist yet)
 - make sure arrays are captured as well
 
-
 ## Incomplete resolutions
 
 http://localhost:3000/api/@no-comply/standard-ui/action/component/ExpandButton#ExpandButtonProps
@@ -99,8 +96,6 @@ Unresolved token "A" in entity "module:icons" (unknown symbol).
 http://localhost:3000/features/components/Button#main
 Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
 
-
-
 ## Optimize meta.json file size
 
 add `at` path to entities
@@ -109,9 +104,10 @@ make alias optional and remove when not different from name
 remove `optional`, `readonly` and `private` when value is false
 
 writer:
+
 - remove `"indexSignatures": []` when empty
 - remove `symbols`, `imported` and `declared` when empty
-reader:
+  reader:
 - add them back
 
 ## Optimize even more
@@ -143,8 +139,12 @@ reader:
 ]
 ```
 
-
 # No Comply
+
+## cssMinify: false
+
+minifier choking on what seems to be valid CSS since upgrading vite from ^6.2.2 to ^8.0.16
+lightningcss got upgraded from ^1.21.0 to ^1.32.0
 
 ## Pill/Tag
 
@@ -160,7 +160,6 @@ as a component and as a mixin
 
 - when nesting a page surface within a panel surface it should have an inset drop shadow that matches the panel's drop shadow
 
-
 ### Scope surface vars
 
 `@scope ([data-surface]) to ([data-surface])`
@@ -168,10 +167,9 @@ https://css-tricks.com/almanac/rules/s/scope/
 
 ## Layouts
 
-- fix: --__flex-flex: NaN;
+- fix: --\_\_flex-flex: NaN;
 - compose flex + grid into standard Surface?
 - Responsive Flex and Grid
-
 
 ## OverflowItems
 

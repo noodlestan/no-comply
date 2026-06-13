@@ -28,8 +28,8 @@ export const createFieldContext = (options: FieldContextOptions = {}): FieldCont
 		return Boolean(
 			// formGroup?.isReadonly() ||
 			formContext?.isReadonly() ||
-				// formGroup?.isPending() ||
-				formContext?.isPending(),
+			// formGroup?.isPending() ||
+			formContext?.isPending(),
 		);
 	};
 

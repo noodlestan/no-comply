@@ -1,6 +1,6 @@
 @mixin container-inline-padding($start, $end: null, $offsetStart: 0px, $offsetEnd: null) {
-  $resolved-end: if($end == null, $start, $end);
-  $resolved-offset-end: if($offsetEnd == null, $offsetStart, $offsetEnd);
+  $resolved-end: if(sass($end == null): $start; else: $end);
+  $resolved-offset-end: if(sass($offsetEnd ==null): $offsetStart; else: $offsetEnd);
 
   padding-inline-start: $start;
   padding-inline-end: $resolved-end;

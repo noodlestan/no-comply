@@ -1,5 +1,7 @@
 {
-  "spellright.language": ["en"],
+  "spellright.language": [
+    "en"
+  ],
   "spellright.documentTypes": [
     "plaintext",
     "markdown",
@@ -56,10 +58,13 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  },
   "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "typescript.preferences.autoImportSpecifierExcludeRegexes": [
@@ -67,6 +72,23 @@
     "dist/",
     "...*/private/.+",
     "./[^./]+/[^./]+"
+  ],
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".jsx",
+      ".mdx",
+      ".ts",
+      ".tsx"
+    ],
+  },
+  "eslint.validate": [
+    "mdx",
+    "javascript",
+    "javascriptreact",
+    "html",
+    "typescript",
+    "typescriptreact",
   ],
   "svg.preview.background": "transparent"
 }

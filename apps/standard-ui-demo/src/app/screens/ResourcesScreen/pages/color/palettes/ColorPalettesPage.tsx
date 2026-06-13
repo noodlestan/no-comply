@@ -3,7 +3,7 @@ import {
 	type ToggleActionLabels,
 	createSupportsQuery,
 } from '@no-comply/solid-composables';
-import { createIconValue, l } from '@no-comply/solid-contexts';
+import { createIconValue } from '@no-comply/solid-contexts';
 import { Callout, Flex, Link, ToggleButton } from '@no-comply/standard-ui';
 import EyeIcon from 'lucide-solid/icons/eye';
 import EyeOffIcon from 'lucide-solid/icons/eye-off';
@@ -31,8 +31,6 @@ export const ColorPalettesPage: Component = () => {
 		return ['pink', 'red', 'yellow', 'olive', 'green', 'ocean', 'blue', 'indigo', 'violet'];
 	};
 
-	const label = () => l(enablePalettes() && isSupported() ? LABELS.on : LABELS.off);
-
 	const handleSwitchModePress = () => setenablePalettes(v => !v);
 
 	return (
@@ -46,7 +44,6 @@ export const ColorPalettesPage: Component = () => {
 						labels={LABELS}
 						icons={ICONS}
 					/>
-					{label()}
 				</Flex>
 				<Show when={!isSupported()}>
 					<Callout variant="warning" title="Browser Support">

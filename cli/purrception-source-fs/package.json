@@ -41,11 +41,11 @@
   },
   "dependencies": {
     "@purrception/primitives": "0.0.11",
-    "chokidar": "^4.0.3",
-    "perfect-debounce": "^1.0.0"
+    "chokidar": "^5.0.0",
+    "perfect-debounce": "^2.1.0"
   },
   "devDependencies": {
     "@no-comply/build-tools": "0.0.11",
-    "@types/node": "^24.0.3"
+    "@types/node": "^25.9.3"
   }
 }

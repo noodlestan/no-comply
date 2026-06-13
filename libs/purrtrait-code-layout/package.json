@@ -31,10 +31,10 @@
   "dependencies": {},
   "peerDependencies": {},
   "devDependencies": {
-    "vite": "^6.2.2",
-    "vite-plugin-solid": "^2.11.6",
+    "vite": "^8.0.16",
+    "vite-plugin-solid": "^2.11.12",
     "vite-plugin-solid-svg": "^0.8.1",
-    "vite-plugin-top-level-await": "^1.5.0",
-    "vitest": "^3.0.9"
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vitest": "^4.1.8"
   }
 }
