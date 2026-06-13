@@ -36,6 +36,5 @@ export default defineConfig({
 				'solid-js',
 			],
 		},
-		cssMinify: false,
 	},
 });

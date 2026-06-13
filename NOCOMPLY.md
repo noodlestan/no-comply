@@ -141,11 +141,6 @@ writer:
 
 # No Comply
 
-## cssMinify: false
-
-minifier choking on what seems to be valid CSS since upgrading vite from ^6.2.2 to ^8.0.16
-lightningcss got upgraded from ^1.21.0 to ^1.32.0
-
 ## Pill/Tag
 
 Use it in docs to render tags
@@ -566,6 +561,25 @@ function supportsPopover() {
 - layers
 
 # FUTURE CSS
+
+## Functions
+
+### Color functions handled via SCSS mixin.
+
+- functions for Chrome and Edge.
+- fallback colors via calc() based on hue and level, Firefox and Safari.
+
+### For other functions
+
+Provide a fallback via:
+
+```
+@supports (-moz-appearance:none) {
+    h1 { color:red; }
+}
+```
+
+See [article](https://devgex.com/en/article/00004557) and[Stack Overflow](https://stackoverflow.com/questions/952861/targeting-only-firefox-with-css#answer-32455002).
 
 ## style queries
 

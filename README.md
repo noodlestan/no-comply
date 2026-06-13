@@ -19,7 +19,6 @@ System requirements:
 
 - [Node.js](https://nodejs.org/)
 - [NVM](https://github.com/nvm-sh/nvm)
-- [Google Chrome Canary](https://www.google.com/chrome/canary/)
 
 We recommended using [VS Code](https://code.visualstudio.com/) with the following extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx), [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode), [SpellRight](https://marketplace.visualstudio.com/items?itemName=ban.spellright)
 
@@ -30,12 +29,6 @@ First make sure you are using the correct node version by running `nvm use`.
 Install dependencies with `npm install`.
 
 In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev` to launch a development server.
-
-Launch Chrome Canary with support for `@function` and `@mixin` in CSS:
-
-```bash
-open -a "Google Chrome Canary" --args --enable-experimental-web-platform-features --enable-features=CSSMixins
-```
 
 ### In this repository
 
