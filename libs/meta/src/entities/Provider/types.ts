@@ -1,6 +1,7 @@
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ProviderEntityFiles = {
+	index: string;
 	implementation: string;
 	hooks: string[];
 };

@@ -50,11 +50,8 @@ export const CodeDocDescription: Component<Props> = props => {
 		for (const match of desc.matchAll(/\{@link\s+([^}]+)\}/g)) {
 			const [full, target] = match;
 			const index = match.index ?? 0;
-
 			parts.push(desc.slice(offset, index));
-
 			parts.push(<Link href={href(target as string)}>{name(target as string)}</Link>);
-
 			offset = index + full.length;
 		}
 
@@ -64,13 +61,15 @@ export const CodeDocDescription: Component<Props> = props => {
 	};
 
 	return (
-		<Flex direction="row" gap="l">
-			<Show when={description()}>
-				<Text>{description()}</Text>
-			</Show>
-			<Show when={links().length}>
-				<For each={links()}>{link => <Link href={link.href}>{link.text}</Link>}</For>
-			</Show>
-		</Flex>
+		<Show when={description().length || links().length}>
+			<Flex direction="row" gap="l">
+				<Show when={description().length}>
+					<Text>{description()}</Text>
+				</Show>
+				<Show when={links().length}>
+					<For each={links()}>{link => <Link href={link.href}>{link.text}</Link>}</For>
+				</Show>
+			</Flex>
+		</Show>
 	);
 };

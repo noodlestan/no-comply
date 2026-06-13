@@ -11,7 +11,7 @@ export async function resolveEntityFiles<
 >(
 	ctx: DirectoryExtractContext,
 	partial: P,
-	resolver?: EntityFileResolver<F, P>,
+	resolver: EntityFileResolver<P, F>,
 ): Promise<F | undefined> {
 	return await (resolver && resolver(ctx, partial));
 }

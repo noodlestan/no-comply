@@ -6,5 +6,5 @@ import { resolveComponentDeclaration } from './resolveComponentDeclaration';
 
 export function resolveComponentProps(entity: ComponentEntityData): ObjectLiteralTypeNode {
 	const component = resolveComponentDeclaration(entity);
-	return component.props as ObjectLiteralTypeNode;
+	return component.node.props as ObjectLiteralTypeNode;
 }

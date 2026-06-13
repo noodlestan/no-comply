@@ -17,7 +17,7 @@ export const getSymbolLinkMaybe = (
 		return `#${token}`;
 	}
 
-	const targetEntity = getSymbolEntityMaybe(entity, token);
+	const targetEntity = getSymbolEntityMaybe(entity, token) as NoComplyEntityData;
 
 	if (!targetEntity) {
 		return undefined;

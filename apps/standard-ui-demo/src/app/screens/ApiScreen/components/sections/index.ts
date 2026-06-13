@@ -2,6 +2,7 @@
 export * from './APIComponentSection';
 export * from './APIDependenciesSection';
 export * from './APIEntitiesSection';
+export * from './APIEntitySummary';
 export * from './APIFactoriesSection';
 export * from './APIFactorySection';
 export * from './APIHelpersSection';

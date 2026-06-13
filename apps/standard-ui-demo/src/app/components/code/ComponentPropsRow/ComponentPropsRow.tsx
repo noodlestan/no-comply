@@ -1,8 +1,7 @@
 /* eslint-disable dot-notation */
-import type { ComponentEntityData } from '@no-comply/meta';
+import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
-import type { EntityDataBase } from '@purrception/primitives';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, Show } from 'solid-js';
 
@@ -14,7 +13,7 @@ import styles from './ComponentPropsRow.module.scss';
 
 type Props = {
 	component: ComponentEntityData;
-	entity?: EntityDataBase;
+	entity?: NoComplyEntityData;
 	prop: ComponentProp;
 	showDocs: boolean;
 	showGroups: boolean;

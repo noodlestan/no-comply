@@ -1,5 +1,106 @@
 # Purrception
 
+
+## Fix: module without name
+
+in `libs/standard-ui/dist/meta.json`
+
+```
+{
+  "type": "module",
+  "name": "content",
+  "package": "@no-comply/standard-ui",
+  "module": "",
+  "path": "src/content",
+},
+```
+
+## Auto links in descriptions
+
+step 1 - decorate the links at extraction time in `extractDescription()`
+step 2 - auto link
+
+## Utility to render links in any JSDoc
+
+apps/standard-ui-demo/src/app/components/code/CodeDocDescription/CodeDocDescription.tsx
+
+
+## ambient resolutions
+
+make them configurable
+package them in `purrception-ambient-jsdom` and `purrception-ambient-solidjs`
+
+examples :
+http://localhost:3000/api/@no-comply/solid-contexts/icons#IconComponent
+Unresolved token "JSX.Element" in entity "module:icons" (unknown symbol).
+
+http://localhost:3000/features/components/Button#main
+Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
+
+package in a new package `purrception-ambient-solidjs`
+
+
+## make component types and prop extraction configurable
+
+currently works with
+- returns JSX
+- Component
+- ParentComponent
+
+make them configurable
+inject into options at the top of the stack
+trickle down contexts down to where heuristics applied
+
+package in a new package `purrception-solid-js`
+
+
+## some resolutions skip layers
+
+http://localhost:3000/features/components/ExpandButton
+- round - comes from IconButtonProps
+- controls, expanded, and labels - from ExpandActionProps
+- popoverTarget and popoverTargetAction correctly resolvedd to PopoverTriggerTagProps
+- only icons is declared in ExpandButtonProps
+
+culprit is most definitely the omit resolution
+
+## some generics not resolved
+
+example: children T
+http://localhost:3000/features/components/Surface#main
+
+## add @noresolve tag to skip resolution
+
+example
+http://localhost:3000/api/@no-comply/solid-composables/layout#LayoutPaddingProps
+http://localhost:3000/features/components/Layout#main
+
+## Streamline comment extraction
+
+- search: `typeof tag.comment === 'string'`
+- extract to function (if it doesn't exist yet)
+- make sure arrays are captured as well
+
+
+## Incomplete resolutions
+
+http://localhost:3000/api/@no-comply/standard-ui/action/component/ExpandButton#ExpandButtonProps
+icons?: { expanded: ;collapsed: ; };
+
+http://localhost:3000/api/@no-comply/solid-contexts/container
+Unresolved token "ThemeContextVariant" in entity "module:container" (unknown symbol).
+
+http://localhost:3000/api/@no-comply/solid-contexts/icons#IconComponent
+Unresolved token "unknown[]" in entity "module:icons" (unknown symbol).
+Unresolved token "A" in entity "module:icons" (unknown symbol).
+
+http://localhost:3000/features/components/Button#main
+Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+
+
+
 ## Optimize meta.json file size
 
 add `at` path to entities
@@ -42,70 +143,12 @@ reader:
 ]
 ```
 
-## Fix: module without name
-
-in `libs/standard-ui/dist/meta.json`
-
-```
-{
-  "type": "module",
-  "name": "content",
-  "package": "@no-comply/standard-ui",
-  "module": "",
-  "path": "src/content",
-},
-```
-
-## Utility to render links in any JSDoc
-
-apps/standard-ui-demo/src/app/components/code/CodeDocDescription/CodeDocDescription.tsx
-
-## some generics not resolved
-
-example: children T
-http://localhost:3000/features/components/Surface#main
-
-## add @noresolve tag to skip resolution
-
-example
-http://localhost:3000/api/@no-comply/solid-composables/layout#LayoutPaddingProps
-http://localhost:3000/features/components/Layout#main
-
-## Streamline comment extraction
-
-- search: `typeof tag.comment === 'string'`
-- extract to function (if it doesn't exist yet)
-- make sure arrays are captured as well
-
-## Streamline component/function extraction
-
-Currently
-
-see:
-- @purrception/lang-ts-extract
-  - src/program-node/extractTypeFromProgramNode.ts
-  - src/program-node/extractFunctionFromProgramNode.ts
-  - src/program-node/extractFunctionFromProgramNode.ts
-
-## Incomplete (and ambient) resolutions
-
-http://localhost:3000/api/@no-comply/solid-contexts/container
-Unresolved token "ThemeContextVariant" in entity "module:container" (unknown symbol).
-
-http://localhost:3000/api/@no-comply/solid-contexts/icons#IconComponent
-Unresolved token "unknown[]" in entity "module:icons" (unknown symbol).
-Unresolved token "JSX.Element" in entity "module:icons" (unknown symbol).
-Unresolved token "A" in entity "module:icons" (unknown symbol).
-
-http://localhost:3000/features/components/Button#main
-Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
-Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
-Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
-Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 # No Comply
 
-##
+## Pill/Tag
+
+Use it in docs to render tags
 
 ## NoSelect
 

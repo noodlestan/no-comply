@@ -1,16 +1,21 @@
-import type { ServiceEntityFiles } from '@no-comply/meta';
+import type { ServiceEntityFiles, ServiceEntityPartial } from '@no-comply/meta';
 import type { EntityFileResolver } from '@purrception/source-fs';
 
-import { findFactoryFile, findTypesFile } from '../../../utils';
+import { findFactoryFile, findIndexFile, findTypesFile } from '../../../utils';
 
-export const fileResolver: EntityFileResolver<ServiceEntityFiles> = async ctx => {
+export const fileResolver: EntityFileResolver<
+	ServiceEntityPartial,
+	ServiceEntityFiles
+> = async ctx => {
+	const index = findIndexFile(ctx);
 	const implementation = findFactoryFile(ctx);
 	const types = findTypesFile(ctx);
-	if (!implementation || !types) {
+	if (!index || !implementation || !types) {
 		return;
 	}
 
 	return {
+		index,
 		implementation,
 		types,
 	};

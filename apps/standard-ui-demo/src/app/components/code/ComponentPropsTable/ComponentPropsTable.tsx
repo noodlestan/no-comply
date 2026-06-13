@@ -1,5 +1,6 @@
 import {
 	type ComponentEntityData,
+	type NoComplyEntityData,
 	resolveComponentProps,
 	resolveComponentPropsJsDocData,
 } from '@no-comply/meta';
@@ -10,7 +11,6 @@ import {
 	createResolveTypeContext,
 	resolveExpression,
 } from '@purrception/lang-ts';
-import type { EntityDataBase } from '@purrception/primitives';
 import { type Component, For, Show } from 'solid-js';
 
 import { getSymbolEntityMaybe } from '../../../../providers';
@@ -25,7 +25,7 @@ type Props = {
 	showGroups: boolean;
 };
 
-type RefProps = { entity?: EntityDataBase; props: ComponentProp[] };
+type RefProps = { entity?: NoComplyEntityData; props: ComponentProp[] };
 
 export const ComponentPropsTable: Component<Props> = props => {
 	const componentProps = () => {
@@ -45,7 +45,7 @@ export const ComponentPropsTable: Component<Props> = props => {
 			(acc, prop) => {
 				const _source = prop.node.type._source;
 				const key = _source?.ref || '';
-				acc[key] = acc[key] || { entity: _source?.entity, props: [] };
+				acc[key] = acc[key] || { entity: _source?.entity as NoComplyEntityData, props: [] };
 				acc[key].props.push(prop);
 				return acc;
 			},
@@ -53,7 +53,7 @@ export const ComponentPropsTable: Component<Props> = props => {
 		);
 	};
 
-	const sourceHref = (ref: string, entity?: EntityDataBase) =>
+	const sourceHref = (ref: string, entity?: NoComplyEntityData) =>
 		entity ? `${routeFor.entity(entity)}#${ref}` : ref;
 
 	return (

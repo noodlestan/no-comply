@@ -33,7 +33,7 @@ export const SidebarNav: Component<Props> = props => {
 			ref={setNavRef}
 			{...$}
 		>
-			<Flex direction="column" padding="m" gap="m">
+			<Flex direction="column" padding={['m', 'none', 'm', 'm']} gap="m">
 				<For each={props.items}>
 					{item => <NavLinkItemGroup title={item.title} items={item.items} />}
 				</For>

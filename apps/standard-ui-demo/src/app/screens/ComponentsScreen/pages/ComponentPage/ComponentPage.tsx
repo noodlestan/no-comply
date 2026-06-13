@@ -1,9 +1,15 @@
 /* eslint-disable dot-notation */
-import { type ComponentEntityData, isNoComplyComponent } from '@no-comply/meta';
+import {
+	type ComponentEntityData,
+	isNoComplyComponent,
+	resolveComponentDeclaration,
+} from '@no-comply/meta';
+import { Flex } from '@no-comply/standard-ui';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
 import { useMeta } from '../../../../../providers';
+import { CodeDocDescription } from '../../../../components';
 import { ComponentMeta } from '../../../../content';
 import { BasePage, NotFoundPage } from '../../../../templates';
 import { ComponentPropsSection } from '../../components';
@@ -18,7 +24,7 @@ export const ComponentPage: Component = () => {
 	const maybeData = () =>
 		getEntities().find(entity => {
 			return isNoComplyComponent(entity) && entity.name === name();
-		});
+		}) as ComponentEntityData;
 
 	return (
 		<>
@@ -33,6 +39,10 @@ export const ComponentPage: Component = () => {
 					undertitle={<ComponentMeta component={maybeData() as ComponentEntityData} />}
 					data-component-page
 				>
+					<Flex direction="column" gap="m">
+						<CodeDocDescription node={maybeData()} />
+						<CodeDocDescription node={resolveComponentDeclaration(maybeData())} />
+					</Flex>
 					<ComponentPropsSection component={maybeData() as ComponentEntityData} />
 				</BasePage>
 			</Show>

@@ -5,5 +5,5 @@ export type SidebarNavItem = {
 
 export type SidebarNavGroup = {
 	title: string;
-	items: SidebarNavItem[];
+	items: (SidebarNavItem | SidebarNavGroup)[];
 };

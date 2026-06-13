@@ -3,58 +3,19 @@ import type {
 	ProviderEntityFiles,
 	ProviderEntityPartial,
 } from '@no-comply/meta';
-import { createProgram, createProgramFilesContext } from '@purrception/lang-ts-extract';
-import {
-	type DirectoryEntityExtractor,
-	type DirectoryEntityProcessor,
-	type EntityExtractorOptions,
-	createEntityExtractContext,
-} from '@purrception/source-fs';
+import { type DirectoryExtractorFactory, defineDirectoryExtractor } from '@purrception/source-fs';
 
-import { resolveEntityFiles, resolveEntityPartial } from '../../heuristics';
+import { entityExtractor, entityMatcher, fileResolver } from './private';
 
-import { entityMatcher, fileResolver } from './private';
-
-export function createProviderEntityExtractor(
-	options: EntityExtractorOptions<ProviderEntityPartial, ProviderEntityFiles> = {},
-): DirectoryEntityExtractor<ProviderEntityData> {
-	return async ctx => {
-		const partial = await resolveEntityPartial(ctx, options?.matcher ?? entityMatcher);
-		const files =
-			partial && (await resolveEntityFiles(ctx, partial, options?.resolver ?? fileResolver));
-
-		if (!partial || !files) {
-			return;
-		}
-
-		const processor: DirectoryEntityProcessor<ProviderEntityData> = async () => {
-			const entityContext = createEntityExtractContext(ctx, partial);
-			const programContext = createProgramFilesContext(ctx.dirMeta.path, ctx.readFile);
-			const program = await createProgram(programContext, files);
-
-			const components = program.extractComponents(files.implementation);
-			const hooks = program.extractFunctions(files.hooks);
-			const types = program.extractTypes(files.implementation);
-
-			const imported = program.extractImportedSymbols();
-			const declared = program.indexDeclaredSymbols(components, hooks, types);
-
-			return [
-				{
-					context: entityContext,
-					entity: {
-						...partial,
-						components: components.map(component => component.name),
-						hooks: hooks.map(hook => hook.name),
-						symbols: {
-							imported,
-							declared,
-						},
-					},
-				},
-			];
-		};
-
-		return [processor, true];
-	};
-}
+export const createProviderEntityExtractor: DirectoryExtractorFactory<
+	ProviderEntityPartial,
+	ProviderEntityFiles,
+	ProviderEntityData
+> = (options = {}) => {
+	return defineDirectoryExtractor({
+		match: options.matcher ?? entityMatcher,
+		resolve: options?.resolver ?? fileResolver,
+		extract: entityExtractor,
+		skipSubDirs: true,
+	});
+};

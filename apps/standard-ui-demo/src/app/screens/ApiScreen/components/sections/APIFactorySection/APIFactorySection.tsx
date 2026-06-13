@@ -2,7 +2,8 @@ import { type ComponentEntityData, resolveComponentFactoryDeclaration } from '@n
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component } from 'solid-js';
 
-import { DocsSection } from '../../../../../content';
+import { CodeDocDescription } from '../../../../../components';
+import { DocsItem, DocsSection } from '../../../../../content';
 
 type Props = {
 	ent: ComponentEntityData;
@@ -13,7 +14,10 @@ export const APIFactorySection: Component<Props> = props => {
 
 	return (
 		<DocsSection title="Factory">
-			<CodeBlock lang="ts" nodes={[factory()]} context={props.ent} />
+			<DocsItem gap="m">
+				<CodeBlock lang="ts" nodes={[factory()]} context={props.ent} />
+				<CodeDocDescription node={resolveComponentFactoryDeclaration(props.ent)} />
+			</DocsItem>
 		</DocsSection>
 	);
 };

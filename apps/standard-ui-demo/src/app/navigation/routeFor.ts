@@ -1,4 +1,4 @@
-import type { EntityDataBase } from '@purrception/primitives';
+import type { NoComplyEntityData } from '@no-comply/meta';
 
 const url = (path: string) => path;
 
@@ -12,7 +12,7 @@ export const routeFor = {
 	package: (pkg: string): string => url(`/api/${pkg}`),
 	module: (pkg: string, mod: string): string => url(`/api/${pkg}/${mod}`),
 	entity: (
-		entOrPkg: EntityDataBase | string,
+		entOrPkg: NoComplyEntityData | string,
 		mod?: string,
 		type?: string,
 		ent?: string,
@@ -26,7 +26,7 @@ export const routeFor = {
 		}
 		return url(`/api/${pkg}/${module}/${t}/${name}`);
 	},
-	entitySymbol: (ent: EntityDataBase, symbol: string): string => {
+	entitySymbol: (ent: NoComplyEntityData, symbol: string): string => {
 		const route = routeFor.entity(ent);
 		return url(`${route}#${symbol}`);
 	},

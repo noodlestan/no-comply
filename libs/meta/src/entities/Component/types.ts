@@ -1,6 +1,7 @@
 import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
 
 export type ComponentEntityFiles = {
+	index: string;
 	implementation: string;
 	factory: string;
 	types: string;

@@ -21,16 +21,20 @@ export const NavLinkItemGroup: Component<SidebarNavGroup> = props => {
 			</Display>
 
 			<For each={props.items}>
-				{item => (
-					<NavLink
-						href={item.href + `#${$ID_SCREEN_MAIN}`}
-						onPress={handleNavLink}
-						layout="v"
-						size="small"
-					>
-						{item.title}
-					</NavLink>
-				)}
+				{item =>
+					'href' in item ? (
+						<NavLink
+							href={item.href + `#${$ID_SCREEN_MAIN}`}
+							onPress={handleNavLink}
+							layout="v"
+							size="small"
+						>
+							{item.title}
+						</NavLink>
+					) : (
+						<NavLinkItemGroup title={item.title} items={item.items} />
+					)
+				}
 			</For>
 		</Flex>
 	);

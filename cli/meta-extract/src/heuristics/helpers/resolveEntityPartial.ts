@@ -3,7 +3,7 @@ import type { DirectoryExtractContext, EntityMetaMatcher } from '@purrception/so
 
 export async function resolveEntityPartial<P extends EntityDataBasePartial>(
 	ctx: DirectoryExtractContext,
-	matcher?: EntityMetaMatcher<P>,
+	matcher: EntityMetaMatcher<P>,
 ): Promise<P | undefined> {
 	return await (matcher && matcher(ctx));
 }

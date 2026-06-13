@@ -10,8 +10,8 @@ import {
 } from '@no-comply/meta';
 import { type Component, For, Show } from 'solid-js';
 
-import { DeclarationCodeBlock } from '../../../../../components';
-import { DocsSection } from '../../../../../content';
+import { CodeDocDescription, DeclarationCodeBlock } from '../../../../../components';
+import { DocsItem, DocsSection } from '../../../../../content';
 
 type Props = {
 	ent:
@@ -37,7 +37,10 @@ export const APITypesSection: Component<Props> = props => {
 					<For each={publicTypes()}>
 						{type => (
 							<DocsSection title={type.name + (type.private ? ' (private)' : '')} level={4}>
-								<DeclarationCodeBlock type={type} entity={props.ent} resolve="show" />
+								<DocsItem gap="m">
+									<CodeDocDescription node={type} />
+									<DeclarationCodeBlock type={type} entity={props.ent} resolve="show" />
+								</DocsItem>
 							</DocsSection>
 						)}
 					</For>
@@ -52,7 +55,10 @@ export const APITypesSection: Component<Props> = props => {
 								title={type.name + (type.private ? ' (private)' : '')}
 								level={4}
 							>
-								<DeclarationCodeBlock type={type} entity={props.ent} resolve="show" />
+								<DocsItem gap="m">
+									<CodeDocDescription node={type} />
+									<DeclarationCodeBlock type={type} entity={props.ent} resolve="show" />
+								</DocsItem>
 							</DocsSection>
 						)}
 					</For>

@@ -2,7 +2,7 @@ import type { NoComplyEntityData } from '@no-comply/meta';
 import type { ToggleActionIcons, ToggleActionLabels } from '@no-comply/solid-composables';
 import { createIconValue } from '@no-comply/solid-contexts';
 import { createClassList } from '@no-comply/solid-primitives';
-import { Flex, Surface, ToggleButton } from '@no-comply/standard-ui';
+import { Flex, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
 import {
 	type TypeDeclaration,
 	createResolveTypeContext,
@@ -52,11 +52,11 @@ export const DeclarationCodeBlock: Component<DeclarationCodeBlockProps> = props 
 	};
 
 	return (
-		<Surface variant="card" padding="s" classList={classList()}>
+		<Surface variant="card" padding="xs" classList={classList()}>
 			<Show when={props.resolve === 'show'}>
 				<Surface variant="panel" padding="s">
-					<Flex direction="row" gap="s" align="center" justify="between">
-						{resolve() ? <>Viewing resolved types</> : <>Viewing source declaration</>}
+					<Flex direction="row-reverse" gap="m" align="center" justify="end">
+						{resolve() ? <Text variant="small">Viewing resolved types</Text> : <span />}
 						<ToggleButton
 							value={resolve()}
 							labels={LABELS}

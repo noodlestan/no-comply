@@ -14,10 +14,10 @@
         },
         {
             "type": "node-terminal",
-            "name": "Run Script: extract (libs/solid-primitives)",
+            "name": "Run Script: extract (libs/standard-ui)",
             "request": "launch",
             "command": "npm run extract",
-            "cwd": "${workspaceFolder}/libs/solid-primitives"
+            "cwd": "${workspaceFolder}/libs/standard-ui"
         }
     ]
 }

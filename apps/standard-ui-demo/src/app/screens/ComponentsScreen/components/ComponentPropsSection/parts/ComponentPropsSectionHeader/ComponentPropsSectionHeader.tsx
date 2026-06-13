@@ -36,12 +36,12 @@ export const ComponentPropsSectionHeader: Component<Props> = props => {
 			<Flex direction="row" gap="m" align="baseline" wrap>
 				<Display level={3}>Props</Display>
 				<AlignFirstLine height="s" type="text" variant="small">
-					<Flex direction="row" gap="s" align="start">
-						<Icon icon={BookOpenIcon} size="small" aligned />
-						<TextAligned>
-							<Link href={routeFor.entity(props.component)}>API Reference</Link>
-						</TextAligned>
-					</Flex>
+					<Link href={routeFor.entity(props.component)}>
+						<Flex direction="row" gap="xs" align="start" tag="span">
+							<Icon icon={BookOpenIcon} size="small" aligned />{' '}
+							<TextAligned>API Reference</TextAligned>
+						</Flex>
+					</Link>
 				</AlignFirstLine>
 			</Flex>
 			<Flex direction="row" gap="m" align="baseline" wrap>

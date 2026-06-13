@@ -3,5 +3,6 @@ export * from './findComponentFile';
 export * from './findFactoryFile';
 export * from './findHelperFiles';
 export * from './findHookFiles';
+export * from './findIndexFile';
 export * from './findProviderFile';
 export * from './findTypesFile';
