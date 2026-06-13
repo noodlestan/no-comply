@@ -14,6 +14,12 @@ const ICONS: ExpandActionIcons = {
 	collapsed: createIconValue(ChevronUpIcon),
 };
 
+/**
+ * Composes {@link ExpandAction} making the `icons` prop optional
+ * and providing default icon values (chevron up/down).
+ *
+ * Exposes props for the underlying {@link component:IconButton}.
+ */
 export const createExpandButton = (props: ExpandButtonProps): ExpandButtonAPI => {
 	const [locals, expose, compose] = createExposable($EXPAND_BUTTON, props);
 

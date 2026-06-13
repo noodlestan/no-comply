@@ -1,13 +1,22 @@
 import type { ExpandActionAPI, ExpandActionProps } from '@no-comply/solid-composables';
+import type { PopoverTriggerTagProps } from '@no-comply/solid-primitives';
 
 import type { IconButtonProps } from '../IconButton';
 
-export type ExpandButtonProps = Pick<IconButtonProps, 'size' | 'onPress' | 'disabled' | 'aligned'> &
-	Omit<ExpandActionProps, 'icons'> & {
+/**
+ * Builds on {@link IconButtonProps} by hiding the `label` and `icon` props,
+ * on {@link ExpandActionProps} by making the `icons` prop optional,
+ * and on {@link PopoverTriggerTagProps}.
+ */
+export type ExpandButtonProps = Omit<IconButtonProps, 'label' | 'icon'> &
+	Omit<ExpandActionProps, 'icons'> &
+	PopoverTriggerTagProps & {
 		icons?: ExpandActionProps['icons'];
 	};
 
+/**
+ * Exposes the props for the underlying {@link component:IconButton}.
+ */
 export type ExpandButtonAPI = {
-	_iconButton: Pick<IconButtonProps, 'variant' | 'size' | 'onPress' | 'disabled' | 'aligned'> &
-		ExpandActionAPI['_icon'];
+	_iconButton: IconButtonProps & ExpandActionAPI['_icon'];
 };

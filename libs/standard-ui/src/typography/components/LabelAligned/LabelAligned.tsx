@@ -11,6 +11,9 @@ import type { LabelAlignedProps } from './types';
  */
 type Props = ClosedTagProps & LabelAlignedProps;
 
+/**
+ * Similar to {@link component:Label} but does not accept the typography props directly.
+ */
 export const LabelAligned: ParentComponent<Props> = props => {
 	const [locals, $others] = splitProps(props, LABEL_ALIGNED_PROPS);
 

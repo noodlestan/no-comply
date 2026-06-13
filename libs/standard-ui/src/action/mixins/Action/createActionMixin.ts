@@ -18,6 +18,9 @@ const defaultProps: PickRequired<ActionMixinProps, 'variant' | 'intent'> = {
 	intent: 'neutral',
 };
 
+/**
+ * Applies styles for all actions, handling the `variant` and `intent` props, and composing {@link @no-comply/solid-composables/action/mixin/ActionMixin} and {@link @no-comply/standard-ui/action/focus/FocusRingMixin}.
+ */
 export const createActionMixin = (props: ActionMixinProps): ActionMixinAPI => {
 	const [locals, expose, compose] = createExposable($ACTION_MIXIN, props);
 

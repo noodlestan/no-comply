@@ -9,6 +9,11 @@ import styles from './ButtonMixin.module.scss';
 import { $BUTTON_MIXIN } from './constants';
 import type { ButtonMixinAPI, ButtonMixinProps } from './types';
 
+/**
+ * Applies button styles by composing {@link ActionMixin} and {@link SizedActionMixin} and {@link ActionLabelMixin}.
+ *
+ * Exposes a `size()` method that provides access to the actual value when prop was undefined and default value was applied.
+ */
 export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
 	const [locals, expose, compose] = createExposable($BUTTON_MIXIN, props);
 
