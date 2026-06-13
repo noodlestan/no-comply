@@ -1,8 +1,6 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
 export * from './addChildrenToComponentProps';
 export * from './extractArrayTypeNode';
-export * from './extractArrowFunctionType';
-export * from './extractComponentProps';
 export * from './extractConditionalTypeNode';
 export * from './extractExportedName';
 export * from './extractFunctionParams';
@@ -24,9 +22,6 @@ export * from './extractTupleTypeNode';
 export * from './extractTypeExpression';
 export * from './extractTypeRef';
 export * from './extractUnionTypeNode';
-export * from './getArrowFunctionDeclarationNode';
-export * from './isComponentType';
+export * from './extractVariableFunctionType';
 export * from './isExportedDeclaration';
-export * from './isJSXReturnType';
-export * from './isParentComponentType';
 export * from './throwUnsupportedNodeError';

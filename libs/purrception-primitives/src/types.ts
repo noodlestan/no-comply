@@ -1,3 +1,10 @@
+export type DocsTags = Record<string, string | string[]>;
+
+export type DocsData = {
+	description?: string;
+	tags?: DocsTags;
+};
+
 export type ImportedSymbol = {
 	at: string;
 	name: string;
@@ -10,7 +17,7 @@ export type DeclaredSymbol = {
 	lang: string;
 	name: string;
 	private: boolean;
-};
+} & DocsData;
 
 export type LanguageDeclaredSymbol<L extends string> = DeclaredSymbol & {
 	lang: L;
@@ -22,13 +29,14 @@ export type EntityDataBasePartial = {
 	package: string;
 };
 
-export type EntityDataBase = EntityDataBasePartial & {
-	symbols: {
-		imported: Record<string, ImportedSymbol>;
-		declared: Record<string, DeclaredSymbol>;
+export type EntityDataBase = EntityDataBasePartial &
+	DocsData & {
+		symbols: {
+			imported: Record<string, ImportedSymbol>;
+			declared: Record<string, DeclaredSymbol>;
+		};
+		// [key: string]: unknown;
 	};
-	[key: string]: unknown;
-};
 
 export type EntityExtractContext<T extends object> = {
 	context: T;
@@ -43,3 +51,7 @@ export type EntityExtractResult<
 	entity: T;
 	warnings?: string[];
 };
+
+export type AnonymousEntityProcessor = () => Promise<EntityExtractResult<EntityDataBase>[]>;
+
+export type EntityDecorator<T extends EntityDataBase> = (partial: T) => EntityDataBase;

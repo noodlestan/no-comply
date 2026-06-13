@@ -1,13 +1,17 @@
-import type { FunctionJsDocData } from '@purrception/lang-ts';
+import type { FunctionJsDocData, FunctionLikeDeclaration } from '@purrception/lang-ts';
 import ts from 'typescript';
 
-import { extractParamTags, extractReturnsTag, extractTags, extractTemplateTags } from './private';
-export function extractFunctionJsDoc(
-	node: ts.FunctionDeclaration | ts.VariableDeclaration,
-): FunctionJsDocData {
+import {
+	extractDescription,
+	extractParamTags,
+	extractReturnsTag,
+	extractTags,
+	extractTemplateTags,
+} from './private';
+export function extractFunctionJsDoc(node: FunctionLikeDeclaration): FunctionJsDocData {
 	const jsDoc = ts.getJSDocCommentsAndTags(node).find(ts.isJSDoc) as ts.JSDoc | undefined;
 
-	const description = jsDoc?.comment?.toString();
+	const description = extractDescription(jsDoc);
 	const templateTags = extractTemplateTags(jsDoc);
 	const paramTags = extractParamTags(jsDoc);
 	const returnsTag = extractReturnsTag(jsDoc);

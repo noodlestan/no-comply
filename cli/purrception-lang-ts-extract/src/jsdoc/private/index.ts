@@ -4,3 +4,4 @@ export * from './extractParamTags';
 export * from './extractReturnsTag';
 export * from './extractTags';
 export * from './extractTemplateTags';
+export * from './getFirstJsDocNode';

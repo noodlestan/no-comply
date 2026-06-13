@@ -1,30 +1,31 @@
 import { type InterfaceDeclaration, PurrceptionLanguageId } from '@purrception/lang-ts';
 import ts from 'typescript';
 
+import type { ProgramFileAPI } from '../../program';
+
 import { extractNodeGenerics } from './extractNodeGenerics';
 import { extractObjectLiteralTypeNode } from './extractObjectLiteralTypeNode';
 import { extractTypeExpression } from './extractTypeExpression';
 import { isExportedDeclaration } from './isExportedDeclaration';
 
 export function extractInterfaceDeclaration(
-	at: string,
+	programFile: ProgramFileAPI,
 	name: string,
-	node: ts.InterfaceDeclaration,
+	declaration: ts.InterfaceDeclaration,
 ): InterfaceDeclaration {
-	const generic = extractNodeGenerics(node);
-	const object = extractObjectLiteralTypeNode(node);
+	const generic = extractNodeGenerics(declaration);
+	const object = extractObjectLiteralTypeNode(declaration);
 
-	const extended = (node.heritageClauses || [])
+	const extended = (declaration.heritageClauses || [])
 		.flatMap(clause => clause.types)
 		.map(type => extractTypeExpression(type));
 
 	return {
-		at,
+		at: programFile.filepath,
 		name,
-
 		lang: PurrceptionLanguageId,
 		kind: 'interface',
-		private: !isExportedDeclaration(node),
+		private: !isExportedDeclaration(programFile, declaration),
 		generic,
 		heritage: extended,
 		members: object.members,

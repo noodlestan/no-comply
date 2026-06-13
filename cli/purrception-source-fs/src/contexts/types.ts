@@ -1,8 +1,8 @@
-import type { DirectoryEntityExtractor } from '../types';
+import type { DirectoryExtractAPI } from '../types';
 
 export type FilesystemExtractContext = {
 	rootDir: string;
-	extractors: DirectoryEntityExtractor[];
+	extractors: DirectoryExtractAPI[];
 	defaults?: Record<string, unknown>;
 	meta: Record<string, unknown>;
 	log?: (msg: string) => void;

@@ -16,7 +16,7 @@ export function layoutComponentDeclaration(
 		spaceToken(),
 		keywordToken('Component'),
 		symbolToken('<'),
-		...(declaration.props ? layoutExpression(ctx, declaration.props) : []),
+		...(declaration.node.props ? layoutExpression(ctx, declaration.node.props) : []),
 		symbolToken('>'),
 	];
 }

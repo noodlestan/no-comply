@@ -2,6 +2,7 @@
 export * from './createPrimitiveNode';
 export * from './createTypeRefNode';
 export * from './isBuiltInToken';
+export * from './isFunctionTypeNode';
 export * from './isIntersectionTypeNode';
 export * from './isLiteralTypeNode';
 export * from './isMappedTypeNode';

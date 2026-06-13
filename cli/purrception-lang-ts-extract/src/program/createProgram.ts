@@ -39,6 +39,14 @@ export async function createProgram(
 		return fileArray.map(file => programs[file]);
 	};
 
+	const extractDocs = (file: string) => {
+		const program = programs[file];
+		if (!program) {
+			return undefined;
+		}
+		return program.docs();
+	};
+
 	const extractComponents = (files?: string | string[]) => {
 		const programs = getPrograms(files);
 		const nested = programs.map(p => extractComponentsFromProgram(p));
@@ -97,6 +105,7 @@ export async function createProgram(
 
 	return {
 		files: programs,
+		extractDocs,
 		extractComponents,
 		extractFunctions,
 		extractTypes,

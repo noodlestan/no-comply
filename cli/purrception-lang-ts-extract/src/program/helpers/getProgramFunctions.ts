@@ -1,18 +1,25 @@
+import type { FunctionLikeDeclaration } from '@purrception/lang-ts';
 import ts from 'typescript';
 
-export function getProgramFunctions(
-	sourceFile: ts.SourceFile,
-): (ts.FunctionDeclaration | ts.ArrowFunction)[] {
-	const functions: (ts.FunctionDeclaration | ts.ArrowFunction)[] = [];
+export function getProgramFunctions(sourceFile: ts.SourceFile): FunctionLikeDeclaration[] {
+	const out: ts.Node[] = [];
 
-	const visit = (node: ts.Node) => {
-		if (ts.isFunctionDeclaration(node) || ts.isArrowFunction(node)) {
-			functions.push(node);
+	function visit(node: ts.Node) {
+		if (ts.isFunctionDeclaration(node)) {
+			out.push(node);
+		} else if (ts.isVariableStatement(node)) {
+			for (const decl of node.declarationList.declarations) {
+				const init = decl.initializer;
+
+				if (init && (ts.isArrowFunction(init) || ts.isFunctionExpression(init))) {
+					out.push(node);
+				}
+			}
+		} else {
+			ts.forEachChild(node, visit);
 		}
-		ts.forEachChild(node, visit);
-	};
+	}
 
 	visit(sourceFile);
-
-	return functions;
+	return out as FunctionLikeDeclaration[];
 }

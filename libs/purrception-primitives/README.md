@@ -35,7 +35,7 @@ Knows how to walk the filesystem — not what to extract.
 
 ### Contracts
 
-- `DirectoryEntityExtractor<T>`
+- `DirectoryExtractorFactory<T>`
 - `DirectoryEntityProcessor<T>`
 - `EntityExtractorFiles`
 - `EntityMetaMatcher<P extends EntityDataBase>`

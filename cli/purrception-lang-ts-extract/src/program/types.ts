@@ -2,6 +2,8 @@ import type {
 	ComponentDeclaration,
 	Declaration,
 	FunctionDeclaration,
+	FunctionLikeDeclaration,
+	JsDocData,
 	TypeDeclaration,
 } from '@purrception/lang-ts';
 import { type ImportedSymbol } from '@purrception/primitives';
@@ -18,14 +20,16 @@ export type ProgramFileAPI = {
 	filepath: string;
 	sourceFile: ts.SourceFile;
 	checker: ts.TypeChecker;
+	docs: () => JsDocData | undefined;
 	types: () => (ts.TypeAliasDeclaration | ts.InterfaceDeclaration)[];
-	functions: () => (ts.FunctionDeclaration | ts.ArrowFunction)[];
+	functions: () => FunctionLikeDeclaration[];
 	exportsMap: () => Map<ts.Node, string>;
 	importsMap: () => Map<string, ImportedSymbol>;
 };
 
 export type ProgramAPI = {
 	files: Record<string, ProgramFileAPI>;
+	extractDocs: (file: string) => JsDocData | undefined;
 	extractComponents: (files?: string | string[]) => ComponentDeclaration[];
 	extractFunctions: (files?: string | string[]) => FunctionDeclaration[];
 	extractTypes: (files?: string | string[]) => TypeDeclaration[];

@@ -1,32 +1,45 @@
-import { type TypeExpressionNode, type TypeRefNode, createTypeRefNode } from '@purrception/lang-ts';
+import {
+	type ObjectLiteralTypeNode,
+	type TypeExpressionNode,
+	createTypeRefNode,
+} from '@purrception/lang-ts';
 
-import { isParentComponentType } from './isParentComponentType';
-
+/**
+ * Augments component props with a required `children` property when the
+ * component is classified as a ParentComponent.
+ *
+ * Examples:
+ *
+ * ParentComponent
+ *   => { children: JSX.Element }
+ *
+ * ParentComponent<Props>
+ *   => Props & { children: JSX.Element }
+ */
 export function addChildrenToComponentProps(
-	componentType: TypeRefNode | undefined,
 	props: TypeExpressionNode | undefined,
+	isParentComponent: boolean,
 ): TypeExpressionNode | undefined {
+	const childrenProps: ObjectLiteralTypeNode = {
+		kind: 'object',
+		members: {
+			children: {
+				type: createTypeRefNode('JSX.Element'),
+				optional: false,
+			},
+		},
+	};
+
 	if (!props) {
-		return undefined;
+		return childrenProps;
 	}
 
-	if (!isParentComponentType(componentType)) {
+	if (!isParentComponent) {
 		return props;
 	}
 
 	return {
 		kind: 'intersection',
-		entries: [
-			props,
-			{
-				kind: 'object',
-				members: {
-					children: {
-						type: createTypeRefNode('JSX.Element'),
-						optional: false,
-					},
-				},
-			},
-		],
+		entries: [props, childrenProps],
 	};
 }

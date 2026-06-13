@@ -2,6 +2,7 @@ import {
 	type FunctionDeclaration,
 	type FunctionTypeReturns,
 	createPrimitiveNode,
+	isFunctionTypeNode,
 } from '@purrception/lang-ts';
 import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
 
@@ -15,34 +16,35 @@ export function layoutFunctionDeclaration(
 	ctx: CodeLayoutContextValue,
 	declaration: FunctionDeclaration,
 ): CodeLayoutNode[] {
-	if (declaration.type) {
+	const node = declaration.node;
+	if (!isFunctionTypeNode(node)) {
 		return [
 			keywordToken('const'),
 			spaceToken(),
 			identifierToken(declaration.name),
 			symbolToken(':'),
 			spaceToken(),
-			...layoutExpression(ctx, declaration.type),
+			...layoutExpression(ctx, node),
 		];
 	}
 
 	const genericCtx = createCodeLayoutWithGenericParamsContext(
 		ctx,
-		declaration.generic?.map(x => x.name) ?? [],
+		node.generic?.map(x => x.name) ?? [],
 	);
 
-	const returns = (declaration.returns as FunctionTypeReturns) || createPrimitiveNode('void');
+	const returns = (node.returns as FunctionTypeReturns) || createPrimitiveNode('void');
 
 	return [
 		keywordToken('function'),
 		spaceToken(),
 		identifierToken(declaration.name),
-		...layoutGenerics(ctx, declaration.generic),
+		...layoutGenerics(ctx, node.generic),
 		symbolToken('('),
 		group(
 			eachExpression(
 				ctx,
-				declaration.params,
+				node.params,
 				(ctx, item) => [
 					identifierToken(item.name),
 					symbolToken(':'),

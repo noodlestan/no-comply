@@ -1,5 +1,4 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './extractComponentFromProgramNode';
-export * from './extractFunctionFromProgramNode';
-export * from './extractTypeFromProgramNode';
+export * from './extractFunctionFromDeclaration';
+export * from './extractTypeFromDeclaration';
 export * from './helpers';

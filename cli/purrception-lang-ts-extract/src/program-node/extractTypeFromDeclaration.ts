@@ -15,27 +15,27 @@ import {
 	isExportedDeclaration,
 } from './helpers';
 
-export function extractTypeFromProgramNode(
+export function extractTypeFromDeclaration(
 	programFile: ProgramFileAPI,
-	node: ts.TypeAliasDeclaration | ts.InterfaceDeclaration,
+	declaration: ts.TypeAliasDeclaration | ts.InterfaceDeclaration,
 ): TypeDeclaration {
 	const map = programFile.exportsMap();
 
-	const name = extractExportedName(node, map);
-	const jsDoc = extractNodeJsDoc(node);
+	const name = extractExportedName(declaration, map);
+	const jsDoc = extractNodeJsDoc(declaration);
 	const { description, templateTags, tags } = jsDoc;
 
-	if (ts.isInterfaceDeclaration(node)) {
-		return extractInterfaceDeclaration(programFile.filepath, name, node);
+	if (ts.isInterfaceDeclaration(declaration)) {
+		return extractInterfaceDeclaration(programFile, name, declaration);
 	}
 
-	const base = extractTypeExpression(node);
+	const base = extractTypeExpression(declaration);
 	const type: TypeExpressionDeclaration = {
 		at: programFile.filepath,
 		name,
 		lang: PurrceptionLanguageId,
 		kind: 'type',
-		private: !isExportedDeclaration(node),
+		private: !isExportedDeclaration(programFile, declaration),
 		node: base,
 		description,
 		templateTags,

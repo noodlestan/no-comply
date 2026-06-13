@@ -133,7 +133,7 @@ export type FunctionTypeNode = TypeExpressionBase<'function'> & {
 };
 
 export type ComponentNode = TypeExpressionBase<'component'> & {
-	kind: 'component';
+	funcNode: FunctionTypeNode | TypeExpressionNode;
 	props: TypeExpressionNode | undefined;
 };
 

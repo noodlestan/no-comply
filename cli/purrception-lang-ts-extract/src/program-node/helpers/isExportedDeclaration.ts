@@ -1,28 +1,19 @@
 import ts from 'typescript';
 
+import type { ProgramFileAPI } from '../../program';
+
 export function isExportedDeclaration(
+	programFile: ProgramFileAPI,
 	node:
-		| ts.VariableDeclaration
+		| ts.ArrowFunction
+		| ts.FunctionExpression
 		| ts.FunctionDeclaration
 		| ts.TypeAliasDeclaration
 		| ts.InterfaceDeclaration,
 ): boolean {
-	if (
-		ts.isTypeAliasDeclaration(node) ||
-		ts.isInterfaceDeclaration(node) ||
-		ts.isFunctionDeclaration(node)
-	) {
+	if (ts.isTypeAliasDeclaration(node) || ts.isInterfaceDeclaration(node)) {
 		return !!node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword);
 	}
 
-	if (ts.isVariableDeclaration(node)) {
-		const statement = node.parent?.parent;
-
-		return (
-			ts.isVariableStatement(statement) &&
-			!!statement.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword)
-		);
-	}
-
-	return false;
+	return programFile.exportsMap().has(node);
 }

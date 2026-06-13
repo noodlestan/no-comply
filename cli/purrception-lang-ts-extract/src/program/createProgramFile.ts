@@ -2,6 +2,8 @@ import path from 'path';
 
 import ts from 'typescript';
 
+import { getFileJsDoc } from '../jsdoc';
+
 import { getExportMap, getImportMap, getProgramFunctions, getProgramTypes } from './helpers';
 import type { ProgramFileAPI, ProgramFilesContext } from './types';
 
@@ -29,15 +31,24 @@ export async function createProgramFile(
 		throw new Error(`Could not load: ${fullPath}`);
 	}
 
+	let map: Map<ts.Node, string>;
+	const exportsMap = () => {
+		if (!map) {
+			map = getExportMap(sourceFile, checker);
+		}
+		return map;
+	};
+
 	return {
 		path: ctx.path,
 		filename,
 		filepath: path.join(ctx.path, filename),
 		sourceFile,
 		checker,
+		docs: () => getFileJsDoc(sourceFile),
 		types: () => getProgramTypes(sourceFile),
 		functions: () => getProgramFunctions(sourceFile),
-		exportsMap: () => getExportMap(sourceFile, checker),
+		exportsMap,
 		importsMap: () => getImportMap(path.join(ctx.path, filename), sourceFile),
 	};
 }

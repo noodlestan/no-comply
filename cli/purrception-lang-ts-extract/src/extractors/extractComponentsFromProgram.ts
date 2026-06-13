@@ -1,16 +1,17 @@
-import type { ComponentDeclaration } from '@purrception/lang-ts';
+import { type ComponentDeclaration, type FunctionDeclaration } from '@purrception/lang-ts';
 
-import { hasJsDocIgnore } from '../jsdoc';
 import { type ProgramFileAPI } from '../program';
-import { extractComponentFromProgramNode } from '../program-node';
+import { extractFunctionFromDeclaration } from '../program-node';
+
+import { extractComponentFromFunctionDeclaration } from './private';
 
 export function extractComponentsFromProgram(program: ProgramFileAPI): ComponentDeclaration[] {
-	const exportMap = program.exportsMap();
-	const functions = program
-		.functions()
-		.filter(node => exportMap.has(node) && !hasJsDocIgnore(node))
-		.map(node => extractComponentFromProgramNode(program, node))
-		.filter(Boolean);
+	const funcsDeclarations = program.functions();
 
-	return functions as ComponentDeclaration[];
+	const maybeComponents = funcsDeclarations
+		.map(node => extractFunctionFromDeclaration(program, node))
+		.filter((x): x is FunctionDeclaration => x !== undefined)
+		.map(declaration => extractComponentFromFunctionDeclaration(declaration));
+
+	return maybeComponents.filter((x): x is ComponentDeclaration => x !== undefined);
 }

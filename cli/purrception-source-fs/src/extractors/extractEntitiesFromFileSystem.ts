@@ -2,11 +2,11 @@ import type { EntityExtractResult } from '@purrception/primitives';
 
 import { createFilesystemExtractContext } from '../contexts';
 import { processRootDir } from '../processors';
-import type { DirectoryEntityExtractor } from '../types';
+import type { DirectoryExtractAPI } from '../types';
 
 type ExtractEntitiesFromFileSystemOptions = {
 	rootDir: string;
-	extractors: DirectoryEntityExtractor[];
+	extractors: DirectoryExtractAPI[];
 	meta?: Record<string, unknown>;
 };
 
