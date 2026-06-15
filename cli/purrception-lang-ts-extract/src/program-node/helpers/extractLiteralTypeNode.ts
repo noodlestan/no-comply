@@ -1,4 +1,3 @@
-// extractLiteralTypeNode.ts
 import type { LiteralTypeNode } from '@purrception/lang-ts';
 import ts from 'typescript';
 

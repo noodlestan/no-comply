@@ -12,7 +12,7 @@ import { useMeta } from '../../../../../providers';
 import { CodeDocDescription } from '../../../../components';
 import { ComponentMeta } from '../../../../content';
 import { BasePage, NotFoundPage } from '../../../../templates';
-import { ComponentPropsSection } from '../../components';
+import { ComponentPropsSection, ExamplePreview } from '../../components';
 
 export const ComponentPage: Component = () => {
 	const params = useParams();
@@ -41,6 +41,7 @@ export const ComponentPage: Component = () => {
 				>
 					<Flex direction="column" gap="m">
 						<CodeDocDescription node={maybeData()} />
+						<ExamplePreview />
 						<CodeDocDescription node={resolveComponentDeclaration(maybeData())} />
 					</Flex>
 					<ComponentPropsSection component={maybeData() as ComponentEntityData} />

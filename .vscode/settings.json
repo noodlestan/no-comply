@@ -40,23 +40,29 @@
     "**/coverage": true,
     "**/node_modules": true
   },
+  "js/ts.preferences.autoImportSpecifierExcludeRegexes": [
+    "src/",
+    "dist/",
+    "...*/private/.+",
+    "./[^./]+/[^./]+"
+  ],
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -67,12 +73,6 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
-    "src/",
-    "dist/",
-    "...*/private/.+",
-    "./[^./]+/[^./]+"
-  ],
   "eslint.options": {
     "extensions": [
       ".js",
@@ -90,5 +90,6 @@
     "typescript",
     "typescriptreact",
   ],
-  "svg.preview.background": "transparent"
+  "svg.preview.background": "transparent",
+  "editor.inlineSuggest.experimental.emptyResponseInformation": false,
 }
