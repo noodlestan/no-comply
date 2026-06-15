@@ -1,3 +1,9 @@
+# Purrtrait Client TSX
+
+// WIP handle render children prop here
+
+// WIP This contract is a duplication from in @purrpose/client-babel but it is unreasonable to depend on that package here.
+
 # Purrception
 
 ## Fix: module without name

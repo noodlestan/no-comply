@@ -11,7 +11,7 @@ export const ExamplePreview: Component = () => {
 	const example = (): ExampleData => ({
 		name: 'Basic Usage',
 		description: 'Some description',
-		tsx: `<h1>Demo</h1><Flex padding="l"><Button target intent="negative" onClick={() => console.log("!")}><Display>foo</Display></Button></Flex>`,
+		tsx: `<h1>Demo</h1><Flex padding="l"><Button tsx-view-target intent="negative" onClick={() => console.log("!")}><Display>foo</Display></Button></Flex>`,
 	});
 
 	const parsed = createParseExample(example);

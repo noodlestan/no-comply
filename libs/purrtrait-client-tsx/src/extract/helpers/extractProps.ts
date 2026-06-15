@@ -1,21 +1,21 @@
 import ts from 'typescript';
 
-import type { XPressValue } from '../values';
+import type { TSXNode } from '../../nodes';
 
 import {
+	extractAttributeExpression,
 	extractAttributeName,
 	extractBooleanAttribute,
 	extractChildren,
-	extractExpressionAttribute,
 	extractStringAttribute,
-} from './props';
+} from './private';
 
 export function extractProps(
 	node: ts.JsxElement | ts.JsxSelfClosingElement,
 	sourceFile: ts.SourceFile,
 	ignore?: (attr: ts.JsxAttribute) => boolean,
-): Record<string, XPressValue> {
-	const result: Record<string, XPressValue> = {};
+): Record<string, TSXNode> {
+	const result: Record<string, TSXNode> = {};
 
 	const attrs = ts.isJsxElement(node)
 		? node.openingElement.attributes.properties
@@ -39,17 +39,15 @@ export function extractProps(
 		}
 
 		if (ts.isJsxExpression(attr.initializer) && attr.initializer.expression) {
-			result[name] = extractExpressionAttribute(sourceFile, attr.initializer.expression);
+			result[name] = extractAttributeExpression(sourceFile, attr.initializer.expression);
 		}
 	}
 
-	if (ts.isJsxElement(node)) {
-		const children = extractChildren(sourceFile, node);
+	const children = extractChildren(sourceFile, node);
 
-		if (children) {
-			// eslint-disable-next-line dot-notation
-			result['children'] = children;
-		}
+	if (children) {
+		// eslint-disable-next-line dot-notation
+		result['children'] = children;
 	}
 
 	return result;

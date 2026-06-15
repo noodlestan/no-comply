@@ -70,18 +70,18 @@ const sourceFile = parseSource(source.trim());
 const props = extractProps(input, sourceFile);
 ```
 
-Outputs a map of `XPressValue` for all props, including children.
+Outputs a map of `TSXNode` for all props, including children.
 
 ```
 {
   variant: {
     type: 'expression',
-    ast: ts.StringLiteral,
+    tsNode: ts.StringLiteral,
     serialized: 'danger'
   },
   children: {
     type: 'JSX',
-    ast: ts.JsxFragment,
+    tsNode: ts.JsxFragment,
     serialized: '<><Icon icon={TrashIcon}/> Delete</>'
   }
 }
@@ -110,7 +110,7 @@ function printNode(node: ts.Node): string;
 
 ### extractProps(node: ts.Node)
 
-Extracts JSX props, including childfren, from a JSX expression such as `<Button variant="danger">....</Button>` into XPress value models.
+Extracts JSX props, including children, from a JSX expression such as `<Button variant="danger">....</Button>` into lightweight `TSXNode`.
 
 The optional `ignore` param can be used to filter out specific props.
 
@@ -119,33 +119,33 @@ export function extractProps(
   node: ts.JsxElement | ts.JsxSelfClosingElement,
   sourceFile: ts.SourceFile,
   ignore?: (attr: ts.JsxAttribute) => boolean,
-): Record<string, XPressValue>;
+): Record<string, TSXNode>;
 ```
 
-### Value model (XPress)
+### Node types
 
 These types are used to classify types of TS nodes that are especially relevant for building documentation
 
 ```ts
-type XPressValueJsx = {
+type TSXElementNode = {
   type: 'jsx';
-  ast: ts.JsxElement | ts.JsxSelfClosingElement | ts.JsxFragment;
+  tsNode: ts.JsxElement | ts.JsxSelfClosingElement | ts.JsxFragment;
   serialized: string;
 };
 
-type XPressValueHandler = {
+type TSXHandlerNode = {
   type: 'handler';
-  ast: ts.ArrowFunction | ts.FunctionExpression;
+  tsNode: ts.ArrowFunction | ts.FunctionExpression;
   serialized: string;
 };
 
-type XPressValueExpression = {
+type TSXExpressionNode = {
   type: 'expression';
-  ast: ts.Expression;
+  tsNode: ts.Expression;
   serialized: string;
 };
 
-type XPressValue = XPressValueJsx | XPressValueHandler | XPressValueExpression;
+type TSXNode = TSXElementNode | TSXHandlerNode | TSXExpressionNode;
 ```
 
 ## Development

@@ -1,15 +1,15 @@
-import { type XTractableNode, unwrapExtractableNode } from '@purrtrait/client-tsx';
+import { type TypescriptNode, unwrapExtractableNode } from '@purrtrait/client-tsx';
 import ts from 'typescript';
 
-import { createXPressTargetPlaceholderNode } from './createXPressTargetPlaceholderNode';
+import { createTSXViewTargetPlaceholder } from './createTSXViewTargetPlaceholder';
 
 export function replaceTarget(
 	root: ts.Node,
 	target: ts.JsxElement | ts.JsxSelfClosingElement,
-): XTractableNode {
+): TypescriptNode {
 	function visit(n: ts.Node): ts.Node {
 		if (n === target) {
-			return createXPressTargetPlaceholderNode();
+			return createTSXViewTargetPlaceholder();
 		}
 
 		return ts.visitEachChild(n, visit, undefined);

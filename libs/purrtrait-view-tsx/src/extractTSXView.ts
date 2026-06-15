@@ -1,4 +1,4 @@
-import { type XPressValueJsx, extractProps, parseSource, printNode } from '@purrtrait/client-tsx';
+import { type TSXElementNode, extractProps, parseSource, printNode } from '@purrtrait/client-tsx';
 import type ts from 'typescript';
 
 import {
@@ -8,9 +8,9 @@ import {
 	replaceTarget,
 	wrapSourceInFragment,
 } from './private';
-import type { XPressViewExtracted } from './types';
+import type { TSXView } from './types';
 
-export function createXPressView(source: string): XPressViewExtracted {
+export function extractTSXView(source: string): TSXView {
 	const code = wrapSourceInFragment(source);
 	const sourceFile = parseSource(code);
 	const targetNode = findTargetNode(sourceFile);
@@ -19,16 +19,16 @@ export function createXPressView(source: string): XPressViewExtracted {
 		throw new Error('No target node found');
 	}
 
-	const raw: XPressValueJsx = {
+	const raw: TSXElementNode = {
 		type: 'jsx',
-		ast: targetNode,
+		tsNode: targetNode,
 		serialized: printNode(sourceFile, targetNode),
 	};
 
 	const wrapperAst = replaceTarget(sourceFile, targetNode);
-	const wrapper: XPressValueJsx = {
+	const wrapper: TSXElementNode = {
 		type: 'jsx',
-		ast: wrapperAst as ts.JsxElement | ts.JsxSelfClosingElement | ts.JsxFragment,
+		tsNode: wrapperAst as ts.JsxElement | ts.JsxSelfClosingElement | ts.JsxFragment,
 		serialized: printNode(sourceFile, wrapperAst),
 	};
 

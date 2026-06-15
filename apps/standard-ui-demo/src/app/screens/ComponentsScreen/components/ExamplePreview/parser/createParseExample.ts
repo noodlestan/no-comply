@@ -1,6 +1,6 @@
+import { extractTSXView } from '@purrtrait/view-tsx';
 import { type Accessor, createResource } from 'solid-js';
 
-import { createXPressView } from '../../../../../../../../../libs/purrtrait-view-tsx/src';
 import type { ExampleData, ParsedExample, ParsedExampleAPI } from '../types';
 
 function delay(ms: number) {
@@ -11,7 +11,7 @@ async function parseExample(data: ExampleData): Promise<ParsedExample> {
 	await delay(500);
 
 	const tsx = data.tsx;
-	const view = createXPressView(tsx);
+	const view = extractTSXView(tsx);
 
 	return { view };
 }

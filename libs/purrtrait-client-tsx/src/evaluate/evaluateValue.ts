@@ -1,10 +1,10 @@
-import type { XPressValue } from '../values/types';
+import type { TSXNode } from '../nodes/types';
 
 import type { ICompilerAPI, ICompilerScope } from './types';
 
 export function evaluateValue<T>(
 	compiler: ICompilerAPI,
-	value: XPressValue,
+	value: TSXNode,
 	scope: ICompilerScope,
 	debug?: boolean | string | undefined,
 ): T | (() => void) | unknown {

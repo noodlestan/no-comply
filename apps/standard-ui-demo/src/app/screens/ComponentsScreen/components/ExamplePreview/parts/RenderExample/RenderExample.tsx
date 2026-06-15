@@ -57,13 +57,13 @@ export const RenderExample: Component<Props> = props => {
 		);
 	};
 
-	const XPressTargetPlaceholder = (props: Record<string, unknown>) => (
+	const TSXViewTargetPlaceholder = (props: Record<string, unknown>) => (
 		<Dynamic component={component()} {...props} />
 	);
 
 	const scope = () => ({
 		...components,
-		XPressTargetPlaceholder,
+		TSXViewTargetPlaceholder,
 	});
 
 	return <JSXRenderer compiler={compiler} source={source()} props={propValues()} scope={scope()} />;

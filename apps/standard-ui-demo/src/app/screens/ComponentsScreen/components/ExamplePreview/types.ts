@@ -1,4 +1,4 @@
-import type { XPressViewExtracted } from '@purrtrait/view-tsx';
+import type { TSXView } from '@purrtrait/view-tsx';
 import type { Resource } from 'solid-js';
 
 export type ExampleData = {
@@ -8,7 +8,7 @@ export type ExampleData = {
 };
 
 export type ParsedExample = {
-	view: XPressViewExtracted;
+	view: TSXView;
 };
 
 export type ParsedExampleAPI = {

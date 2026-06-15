@@ -6,11 +6,19 @@ This package provides high level abstractions for modelling editable TSX code.
 
 It was designed for **interactive component environments**: documentation sandboxes, visual editors, and runtime JSX evaluation in the browser.
 
-Used together with a parser such as [](@purrpose/client-ts) and a compiler like [@purrpose/client-babel](), it consitutes a system that allows a user to provide TSX snippets, extract them into a structured editable model, edit individual props/wrappers/children independently, then re-materialize them into executable JSX components at runtime.
+Used together with a TypeScript parser and a runtime compiler, this package allows TSX snippets to be extracted into structured editable models, modified at a fine-grained level, and recompiled into executable JSX.
 
 ## Features
 
--
+Extract editable view models from TSX snippets into a framework-agnostic representation suitable for React, SolidJS, and custom runtimes.
+
+Supports independent editing of:
+
+- **Target component:** identified by `tsx-view-target` attribute
+- **Template wrapper:** everything around the target component
+- **Target component props:** including children, classified as `TSXNode` values (JSX, handlers, and expressions)
+
+This allows wrapper structure and target component props to be edited independently in a way that only requires re-extracting the view and re-compiling the wrapper component when the wrapper itself is modified.
 
 ## Installation
 
@@ -24,56 +32,151 @@ npm install @purrtrait/view-tsx
 
 ## Usage
 
-Extraction Invariants
+### Dependencies
 
-Exactly one target node must exist.
+This package is intended to be used together with:
 
-Valid:
+- `@purrtrait/client-ts` for parsing and AST utilities
+- `@purrpose/client-babel` for runtime compilation and evaluation
 
-<Button target />
+The extracted model itself contains no runtime execution logic.
 
-Invalid:
+### Extracting a view model
 
-<Button />
+Given the following TSX:
 
-Invalid:
+```tsx
+<h1>hello</h1>
+<Flex padding="l">
+	<Button
+		tsx-view-target
+		intent="negative"
+		onClick={() => console.log('!')}
+	>
+		<Display>foo</Display>
+	</Button>
+</Flex>
+```
 
-<Button target />
-<Button target />
+Create an editable view:
 
-Target marker is removed from extracted props.
+```ts
+import { extractTSXView } from '@purrtrait/view-tsx';
 
-The target marker exists only during extraction.
+const view = extractTSXView(source);
+```
 
-It is not part of the resulting view model.
+Result (simplified):
 
-Children Handling
+```ts
+{
+	wrapper: {
+		type: 'jsx',
+		serialized:
+			'<><h1>hello</h1><Flex padding="l"><TSXViewTargetPlaceholder {...props} /></Flex></>'
+	},
+	target: {
+		component: {
+			name: 'Button'
+		}
+	},
+	props: {
+		intent: {
+			type: 'expression',
+			serialized: '"negative"'
+		},
+		onClick: {
+			type: 'handler',
+			serialized:
+				'() => console.log("!")'
+		},
+		children: {
+			type: 'jsx',
+			serialized:
+				'<><Display>foo</Display></>'
+		}
+	}
+}
+```
+
+### Target nodes
+
+A target component is identified using the `tsx-view-target` attribute.
+
+Valid input:
+
+```tsx
+<Button tsx-view-target />
+```
+
+Exactly one target component must exist.
+
+The `tsx-view-target` attribute is used only during extraction and is not included in the resulting view model.
+
+### Wrapper extraction
+
+Any content surrounding the target component is also extracted as `wrapper` where the target component is replaced by a the `TSXViewTargetPlaceholder` component which will delegate dynamic props to the target component.
+
+Input:
+
+```tsx
+<Flex>
+  <Button target />
+</Flex>
+```
+
+Wrapper:
+
+```tsx
+<Flex>
+  <TSXViewTargetPlaceholder {...props} />
+</Flex>
+```
+
+### Children handling
 
 Children are extracted as a normal prop:
 
-props.children
+```ts
+view.props.children;
+```
 
-Children are normalized to fragments.
+Multiple children are normalized into a fragment:
 
-Example:
-
-<Display />
-<Text />
-
-becomes:
-
+```tsx
 <>
-<Display />
-<Text />
+  <Display />
+  <Text />
 </>
+```
 
-This avoids needing:
-
-XPressValueJsx[]
-
-and keeps the value model uniform.
+This keeps all editable values represented by a single `TSXNode` abstraction.
 
 ## API
+
+### `extractTSXView(source: string)`
+
+Extracts an editable TSX view model.
+
+```ts
+function extractTSXView(source: string): TSXView;
+```
+
+### `TSXView`
+
+```ts
+type TSXView = {
+  source: string;
+  wrapper: TSXElementNode;
+  target: {
+    component: {
+      name: string;
+    };
+    raw: TSXElementNode;
+  };
+  props: Record<string, TSXNode>;
+};
+```
 
 ## Development
 

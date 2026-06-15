@@ -1,11 +1,12 @@
 import ts from 'typescript';
 
-import { isExtractableNode } from './isExtractableNode';
-import { type XTractableNode } from './types';
+import { type TypescriptNode } from '../types';
 
-export function unwrapExtractableNode(node: ts.Node): XTractableNode {
+import { isExtractableElementNode } from './isExtractableElementNode';
+
+export function unwrapExtractableNode(node: ts.Node): TypescriptNode {
 	if (!ts.isSourceFile(node)) {
-		if (!isExtractableNode(node)) {
+		if (!isExtractableElementNode(node)) {
 			throw new Error('Expected extractable JSX node');
 		}
 
@@ -18,7 +19,7 @@ export function unwrapExtractableNode(node: ts.Node): XTractableNode {
 		throw new Error('Expected source file to contain a JSX root');
 	}
 
-	if (ts.isExpressionStatement(child) && isExtractableNode(child.expression)) {
+	if (ts.isExpressionStatement(child) && isExtractableElementNode(child.expression)) {
 		return child.expression;
 	}
 

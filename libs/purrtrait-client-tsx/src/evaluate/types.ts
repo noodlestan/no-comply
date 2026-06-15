@@ -1,3 +1,5 @@
+// WIP This contract is a duplication from in @purrpose/client-babel but it is unreasonable to depend on that package here.
+
 export type IDebugOption = boolean | string | undefined;
 
 export type ICompilerScope = Record<string, unknown>;

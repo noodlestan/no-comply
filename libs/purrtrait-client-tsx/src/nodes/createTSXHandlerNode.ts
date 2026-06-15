@@ -1,14 +1,14 @@
 import type ts from 'typescript';
 
-import type { XPressValueHandler } from './types';
+import type { TSXHandlerNode } from './types';
 
-export function createXPressValueHandler(
+export function createTSXHandlerNode(
 	node: ts.ArrowFunction | ts.FunctionExpression,
 	serialized: string,
-): XPressValueHandler {
+): TSXHandlerNode {
 	return {
 		type: 'handler',
-		ast: node,
+		tsNode: node,
 		serialized,
 	};
 }
