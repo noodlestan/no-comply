@@ -2,4 +2,5 @@
 export * from './ComponentMeta';
 export * from './ImportStatement';
 export * from './LoremIpsum';
+export * from './Markdown';
 export * from './ResponsiveRuler';

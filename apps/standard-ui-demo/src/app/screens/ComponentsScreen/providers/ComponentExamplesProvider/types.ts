@@ -1,11 +1,16 @@
 import type { TSXView } from '@purrtrait/view-tsx';
 import type { Resource } from 'solid-js';
 
-export type ExampleData = {
-	name: string;
-	description: string;
-	lockProps?: string[];
+export type ComponentExampleData = {
+	title?: string;
+	description?: string;
+	lockedProps?: string[];
 	tsx: string;
+};
+
+export type ComponentDocsData = {
+	preview: ComponentExampleData;
+	examples: ComponentExampleData[];
 };
 
 export type ParsedExample = {
@@ -13,6 +18,6 @@ export type ParsedExample = {
 };
 
 export type ParsedExampleAPI = {
-	data: ExampleData;
+	data: ComponentExampleData;
 	parsed: Resource<ParsedExample | undefined>;
 };

@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
 import { staticClassList } from '@no-comply/solid-primitives';
-import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
+import { Flex, Link, Text } from '@no-comply/standard-ui';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, Show } from 'solid-js';
 
@@ -44,7 +44,7 @@ export const ComponentPropsRow: Component<Props> = props => {
 		<Flex direction="column" gap="m">
 			<Flex direction="row" gap="s" align="baseline" classList={rowHeaderClassList}>
 				<Flex direction="column" flex={1}>
-					<Display level={5}>{props.prop.name}</Display>
+					<Text variant="large">{props.prop.name}</Text>
 				</Flex>
 				<div>{props.prop.node.optional ? 'optional' : 'mandatory'}</div>
 				<Show when={defaultValue()}>

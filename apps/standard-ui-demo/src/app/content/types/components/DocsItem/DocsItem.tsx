@@ -100,7 +100,6 @@ export const DocsItem: ParentComponent<DocsItemProps> = props => {
 				padding={locals.padding}
 				align={locals.align}
 				style={contentsStyle()}
-				data-demo-item-contents
 			>
 				{locals.children}
 			</Flex>

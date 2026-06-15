@@ -4,11 +4,11 @@ import type { Component } from 'solid-js';
 import { DocsItem } from '../../../../content';
 import { useComponentExamples } from '../../providers';
 import { ComponentPlaygroundHeader } from '../ComponentPlaygroundHeader';
+import { ComponentPlaygroundPreview } from '../ComponentPlaygroundPreview';
 import { ComponentPropsSection } from '../ComponentPropsSection';
-import { ExamplePreview } from '../ExamplePreview';
 
 export const ComponentPlaygroundSection: Component = () => {
-	const { component, currentExample } = useComponentExamples();
+	const { component } = useComponentExamples();
 
 	return (
 		<DocsItem gap="l">
@@ -18,7 +18,7 @@ export const ComponentPlaygroundSection: Component = () => {
 					<ComponentPropsSection component={component} />
 				</Flex>
 				<Flex stretch="width">
-					<ExamplePreview example={currentExample} />
+					<ComponentPlaygroundPreview />
 				</Flex>
 			</Flex>
 		</DocsItem>

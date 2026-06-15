@@ -34,7 +34,7 @@ export const ComponentPropsSectionHeader: Component<Props> = props => {
 	return (
 		<Flex direction="row" gap="l" align="baseline" justify="between" wrap>
 			<Flex direction="row" gap="m" align="baseline" wrap>
-				<Display level={3}>Props</Display>
+				<Display level={4}>Props</Display>
 				<AlignFirstLine height="s" type="text" variant="small">
 					<Link href={routeFor.entity(props.component)}>
 						<Flex direction="row" gap="xs" align="start" tag="span">

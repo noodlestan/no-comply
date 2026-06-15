@@ -4,7 +4,7 @@ import type { Component } from 'solid-js';
 import { CodeDocDescription } from '../../../../components';
 import { DocsItem } from '../../../../content';
 import { useComponentExamples } from '../../providers';
-import { ExamplePreview } from '../ExamplePreview';
+import { ComponentMainPreview } from '../ExamplePreview';
 
 type Props = {
 	component: ComponentEntityData;
@@ -14,9 +14,9 @@ export const ComponentMainSection: Component<Props> = props => {
 	const { primaryExample } = useComponentExamples();
 
 	return (
-		<DocsItem>
+		<DocsItem gap="l">
 			<CodeDocDescription node={props.component} />
-			<ExamplePreview example={primaryExample} />
+			<ComponentMainPreview example={primaryExample} defaultTitle="Preview" />
 			<CodeDocDescription node={resolveComponentDeclaration(props.component)} />
 		</DocsItem>
 	);

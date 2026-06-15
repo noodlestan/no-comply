@@ -1,7 +1,11 @@
 @use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
 
 @layer app {
-  .DocsItem {
+  .ComponentMainPreview {
+    position: relative;
+  }
+
+  .-Header {
     position: relative;
   }
 }

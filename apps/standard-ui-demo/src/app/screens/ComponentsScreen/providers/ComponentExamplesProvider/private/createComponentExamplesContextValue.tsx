@@ -3,11 +3,11 @@
 import type { ComponentEntityData } from '@no-comply/meta';
 import { createResource, createSignal } from 'solid-js';
 
-import type { ExampleData } from '../types';
+import type { ComponentExampleData } from '../types';
 
 import { createTSXCompiler } from './createCompiler';
 import { createParseExample } from './createParseExample';
-import { fetchExamples } from './fetchExamples';
+import { fetchComponentDocsData } from './fetchComponentDocsData';
 import type { ComponentExamplesContextValue } from './types';
 
 export const createComponentExamplesContextValue = (
@@ -15,12 +15,14 @@ export const createComponentExamplesContextValue = (
 ): ComponentExamplesContextValue => {
 	const compiler = createTSXCompiler();
 
-	const [exampleList] = createResource(() => component.name, fetchExamples);
+	const [componentsDocsData] = createResource(() => component.name, fetchComponentDocsData);
 
-	const [currentExample, setCurrentExample] = createSignal<ExampleData>();
+	const exampleList = () => componentsDocsData()?.examples as ComponentExampleData[];
 
-	const [primaryExample] = createResource(exampleList, examples => {
-		const first = examples?.[0];
+	const [currentExample, setCurrentExample] = createSignal<ComponentExampleData>();
+
+	const [primaryExample] = createResource(componentsDocsData, data => {
+		const first = data.preview || data.examples?.[0];
 
 		if (!first) {
 			throw new Error(`No examples found for ${component.name}`);

@@ -1,8 +1,14 @@
 @use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
 
 @layer app {
-  .ExamplePreview {
+  .ComponentPlaygroundPreview {
     display: block;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .ComponentPlaygroundPreview {
+      height: 90vh;
+    }
   }
 
   .-Header {

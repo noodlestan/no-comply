@@ -4,11 +4,11 @@ import { evaluateValue } from '@purrtrait/client-tsx';
 import { type Component } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { type ParsedExampleAPI, useComponentExamples } from '../../../../providers';
-import { JSXRenderer } from '../../../JSXRenderer';
+import { type ParsedExampleAPI, useComponentExamples } from '../../providers';
+import { JSXRenderer } from '../JSXRenderer';
 
 type Props = {
-	parsed: ParsedExampleAPI;
+	example: ParsedExampleAPI;
 };
 
 const components = {
@@ -20,7 +20,7 @@ const components = {
 export const RenderExample: Component<Props> = props => {
 	const { compiler } = useComponentExamples();
 
-	const view = () => props.parsed.parsed()?.view;
+	const view = () => props.example.parsed()?.view;
 
 	const source = () => view()?.wrapper.serialized || '';
 	const componentName = () => view()?.target.component.name;

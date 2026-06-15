@@ -65,7 +65,7 @@ export const ComponentPropsTable: Component<Props> = props => {
 				{([ref, source]) => (
 					<Flex gap="l" direction="column">
 						<Show when={props.showGroups}>
-							<Display level={4}>
+							<Display level={5}>
 								<Link href={sourceHref(ref, source.entity)}>{ref}</Link>
 							</Display>
 						</Show>
