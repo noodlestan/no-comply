@@ -1,18 +1,11 @@
 /* eslint-disable dot-notation */
 import { Button, Display, Flex } from '@no-comply/standard-ui';
-import { createCompiler } from '@purrpose/client-babel';
-import solidPreset from '@purrpose/client-babel-preset-solidjs';
 import { evaluateValue } from '@purrtrait/client-tsx';
 import { type Component } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
-import { JSXRenderer } from '../../parser';
-import type { ParsedExampleAPI } from '../../types';
-
-const compiler = createCompiler({
-	// debug: 'STANDARD_UI_DEMO',
-	presets: [solidPreset()],
-});
+import { type ParsedExampleAPI, useComponentExamples } from '../../../../providers';
+import { JSXRenderer } from '../../../JSXRenderer';
 
 type Props = {
 	parsed: ParsedExampleAPI;
@@ -25,6 +18,8 @@ const components = {
 };
 
 export const RenderExample: Component<Props> = props => {
+	const { compiler } = useComponentExamples();
+
 	const view = () => props.parsed.parsed()?.view;
 
 	const source = () => view()?.wrapper.serialized || '';

@@ -4,6 +4,7 @@ import type { Resource } from 'solid-js';
 export type ExampleData = {
 	name: string;
 	description: string;
+	lockProps?: string[];
 	tsx: string;
 };
 

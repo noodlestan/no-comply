@@ -1,32 +1,28 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Flex, Surface } from '@no-comply/standard-ui';
-import { type Component, Show, Suspense } from 'solid-js';
+import { type Component, type Resource, Show, Suspense } from 'solid-js';
+
+import { type ParsedExampleAPI } from '../../providers';
 
 import styles from './ExamplePreview.module.scss';
-import { createParseExample } from './parser';
 import { RenderExample } from './parts';
-import type { ExampleData } from './types';
 
-export const ExamplePreview: Component = () => {
-	const example = (): ExampleData => ({
-		name: 'Basic Usage',
-		description: 'Some description',
-		tsx: `<h1>Demo</h1><Flex padding="l"><Button tsx-view-target intent="negative" onClick={() => console.log("!")}><Display>foo</Display></Button></Flex>`,
-	});
+type Props = {
+	example: Resource<ParsedExampleAPI>;
+};
 
-	const parsed = createParseExample(example);
-
+export const ExamplePreview: Component<Props> = props => {
 	const classList = staticClassList(styles, ['ExamplePreview']);
 
 	return (
 		<Surface variant="panel" classList={classList}>
 			<Flex direction="column" stretch="height">
-				<Flex padding={['s', 'm']} classList={staticClassList(styles, ['-Header'])}>
-					{example().name}
-				</Flex>
-				<Suspense fallback={'COMPILING...'}>
-					<Show when={parsed.parsed()}>
-						<RenderExample parsed={parsed} />
+				<Suspense fallback={'LOADING...'}>
+					<Flex padding={['s', 'm']} classList={staticClassList(styles, ['-Header'])}>
+						{props.example()?.data.name}
+					</Flex>
+					<Show when={props.example()?.parsed()}>
+						<RenderExample parsed={props.example() as ParsedExampleAPI} />
 					</Show>
 				</Suspense>
 			</Flex>
