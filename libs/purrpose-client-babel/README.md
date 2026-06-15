@@ -56,11 +56,11 @@ const result = compiler.execute(`${code}; return x`);
 
 By providing a JSX transform preset, the same compiler can produce executable framework components at runtime.
 
-The following example uses [@purrpose/client-babel-solidjs-preset](../purrpose-client-babel-solidjs-preset) to generate a SolidJS component from raw code.
+The following example uses [@purrpose/client-babel-preset-solidjs](../purrpose-client-babel-preset-solidjs) to generate a SolidJS component from raw code.
 
 ```tsx
 import { createCompiler } from '@purrpose/client-babel';
-import solidPreset from '@purrpose/client-babel-solidjs-preset';
+import solidPreset from '@purrpose/client-babel-preset-solidjs';
 
 const options = compile: { preset: solidPreset }
 const compiler = createCompiler(options);
@@ -79,7 +79,7 @@ The following example creates a sandbox demo renderer that recompiles only when 
 
 ```tsx
 import { createCompiler } from '@purrpose/client-babel';
-import solidPreset from '@purrpose/client-babel-solidjs-preset';
+import solidPreset from '@purrpose/client-babel-preset-solidjs';
 import { type Component, createMemo, Dynamic } from 'solid-js';
 import * as solidWeb from 'solid-js/web';
 import Button from 'my-component-library';
