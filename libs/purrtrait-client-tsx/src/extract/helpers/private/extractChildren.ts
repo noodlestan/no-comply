@@ -1,11 +1,12 @@
 import ts from 'typescript';
 
 import { type TSXNode, createTSXElementNode } from '../../../nodes';
+import type { TypescriptComponentNode } from '../../types';
 import { printNode } from '../printNode';
 
 export function extractChildren(
 	sourceFile: ts.SourceFile,
-	node: ts.JsxElement | ts.JsxSelfClosingElement,
+	node: TypescriptComponentNode,
 ): TSXNode | undefined {
 	if (ts.isJsxSelfClosingElement(node) || !node.children?.length) {
 		return undefined;

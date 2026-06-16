@@ -1,6 +1,7 @@
 import ts from 'typescript';
 
 import type { TSXNode } from '../../nodes';
+import type { TypescriptComponentNode } from '../types';
 
 import {
 	extractAttributeExpression,
@@ -11,7 +12,7 @@ import {
 } from './private';
 
 export function extractProps(
-	node: ts.JsxElement | ts.JsxSelfClosingElement,
+	node: TypescriptComponentNode,
 	sourceFile: ts.SourceFile,
 	ignore?: (attr: ts.JsxAttribute) => boolean,
 ): Record<string, TSXNode> {

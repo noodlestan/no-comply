@@ -116,7 +116,7 @@ The optional `ignore` param can be used to filter out specific props.
 
 ```ts
 export function extractProps(
-  node: ts.JsxElement | ts.JsxSelfClosingElement,
+  node: TypescriptComponentNode,
   sourceFile: ts.SourceFile,
   ignore?: (attr: ts.JsxAttribute) => boolean,
 ): Record<string, TSXNode>;
@@ -129,13 +129,13 @@ These types are used to classify types of TS nodes that are especially relevant 
 ```ts
 type TSXElementNode = {
   type: 'jsx';
-  tsNode: ts.JsxElement | ts.JsxSelfClosingElement | ts.JsxFragment;
+  tsNode: TypescriptElementNode;
   serialized: string;
 };
 
 type TSXHandlerNode = {
   type: 'handler';
-  tsNode: ts.ArrowFunction | ts.FunctionExpression;
+  tsNode: TypescriptFunctionNode;
   serialized: string;
 };
 

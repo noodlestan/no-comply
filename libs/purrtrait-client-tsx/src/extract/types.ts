@@ -1,6 +1,8 @@
 import type ts from 'typescript';
 
-export type TypescriptElementNode = ts.JsxElement | ts.JsxSelfClosingElement | ts.JsxFragment;
+export type TypescriptComponentNode = ts.JsxElement | ts.JsxSelfClosingElement;
+
+export type TypescriptElementNode = TypescriptComponentNode | ts.JsxFragment;
 
 export type TypescriptFunctionNode = ts.FunctionExpression | ts.ArrowFunction;
 
