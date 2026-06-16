@@ -48,10 +48,10 @@ Given the following TSX:
 ```tsx
 <h1>Hello</h1>
 <div>
-	<Button tsx-view-target />
-	<Button tsx-view-target intent="negative" onClick={() => console.log('!')}>
-		<Display>foo</Display>
-	</Button>
+  <Button tsx-view-target />
+  <Button tsx-view-target intent="negative" onClick={() => console.log('!')}>
+    <Display>foo</Display>
+  </Button>
 </div>
 ```
 
@@ -64,31 +64,31 @@ const view = extractTSXView(source);
 
 The captured result extracts the targets from the wrapper expression, capturing all props with `TSXNode` nodes from `@purrtrait/client-tsx`.
 
-```yaml
+````yaml
 wrapper:
-	type: 'jsx'
-	serialized: '<><h1>Hello</h1><div><TSXViewTargetPlaceholder key="0" component="Button" props={props} /><TSXViewTargetPlaceholder key="1" component="Button" props={props} /></div></>'
+  type: 'jsx'
+  serialized: '<><h1>Hello</h1><div><TSXViewTargetPlaceholder key="0" component="Button" props={props} /><TSXViewTargetPlaceholder key="1" component="Button" props={props} /></div></>'
 targets:
-	'0':
-		component:
-			name: 'Button'
-	'1':
-		component:
-			name: 'Button'
-		props:
-			intent:
-				type: 'expression'
-				tsNode: ...
-				serialized: '"negative"'
-			onClick:
-				type: 'handler'
-				tsNode: ...
-				serialized: '() => console.log("!")'
-			children:
-				type: 'jsx'
-				tsNode: ...
-				serialized: '<><Display>foo</Display></>'
-```
+  '0':
+  component:
+    name: 'Button'
+    1':
+  component:
+    name: 'Button'
+    rops:
+    intent:
+      type: 'expression'
+      tsNode: ...
+      serialized: '"negative"'
+    onClick:
+      type: 'handler'
+      tsNode: ...
+      serialized: '() => console.log("!")'
+    children:
+      type: 'jsx'
+      tsNode: ...
+      serialized: '<><Display>foo</Display></>'
+``
 
 ### Target nodes
 
@@ -98,7 +98,7 @@ The attribute name is `tsx-view-target` by default and is configurable via `opti
 
 ```tsx
 <Button tsx-view-target />
-```
+````
 
 You can provide a name for each, some, or all of the targets.
 
@@ -116,7 +116,7 @@ If nested targets are found, only the top-most targets are kept. Any nested cont
 ```tsx
 <Button tsx-view-target />
 <Button tsx-view-target="parent">
-	<Button tsx-view-target /> // not captured as a target, but as children of `parent`
+  <Button tsx-view-target /> // not captured as a target, but as children of `parent`
 </Button>
 ```
 
@@ -146,16 +146,16 @@ You can easily retrieve the original props inside of each instance, before rende
 
 ```tsx
 const TSXViewTargetPlaceholder = (props: Record<string, unknown>) => {
-  const key = () => (props[PLACEHOLDER_KEY_PROP] || '') as string;
-  const component = () => (props[PLACEHOLDER_COMPONENT_PROP] || '') as string;
-  const allProps = () => (props[PLACEHOLDER_PROPS_PROP] || {}) as Record<string, unknown>;
+  const key = () => props[PLACEHOLDER_KEY_PROP] || '';
+  const component = () => props[PLACEHOLDER_COMPONENT_PROP] || '';
+  const allProps = () => props[PLACEHOLDER_PROPS_PROP] || {};
   const ownProps = () => allProps()[key()] || {};
 
   return <Dynamic component={component()} {...ownProps} />;
 };
 ```
 
-You can also use the placeholder renderer to merge props from other sources such as playground props table.
+You can also use the placeholder renderer to merge props from other sources such as a playground props table.
 
 ### Props and Children extraction
 
@@ -234,6 +234,78 @@ PLACEHOLDER_PROPS_PROP = 'props';
 PLACEHOLDER_PROPS_VARIABLE = 'props';
 ```
 
+### Helpers
+
+#### `viewPropsByTarget(...)`
+
+Retrieve props for a specific target.
+
+```ts
+function viewTargetProps(
+  view: TSXView,
+  targetKey: string,
+  evaluate: PropEvaluator,
+): Record<string, unknown>;
+```
+
+The evalutator function determines the prop values based on each node. It is invoked with the prop `name` the full `TSXNode` and the `targetKey` in case you need fulll context.
+
+```ts
+type PropEvaluator = (entry: [name: string, node: TSXNode, targetKey: string]) => unknown;
+```
+
+The simplest use case is it to retrieve the original `serialized` value of each prop.
+
+```ts
+const targetProps = viewTargetProps(view, '0', ([, node]) => {
+  return node.serialized;
+});
+// {
+//   intent: '"negative"'
+//   onClick: '() => console.log("!")'
+//   children: '<><Display>foo</Display></>'
+// }
+```
+
+You can also use it to compile to executable javascript.
+
+```ts
+const targetProps = viewTargetProps(view, '0', ([, value]) => {
+  return evaluateValue(compiler, value, components),
+});
+// {
+//   intent: "negative",
+//   onClick: () => console.log("!"),
+//   children: JSX.Component => <><Display...
+// }
+```
+
+#### `viewPropsByTarget(...)`
+
+Retrieve props of all props at once.
+
+```ts
+function viewPropsByTarget(
+  view: TSXView,
+  evaluate: PropEvaluator,
+): Record<string, ViewTargetPropsTransformed>;
+```
+
+The evalutator function determines the prop values based on each node.
+
+This example retrieves the orifginal serialized value of each prop.
+
+```ts
+const targetProps = viewTargetProps(view, '0', ([, node]) => {
+  return node.serialized;
+});
+// "0": { },
+// "1": {
+//   intent: '"negative"'
+//   onClick: '() => console.log("!")'
+//   children: '<><Display>foo</Display></>'
+// }
+
 ## Development
 
 Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
@@ -253,3 +325,4 @@ This library is distributed as ESM and intended to be processed by a bundler suc
 Copyright (c) 2026 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).
+```

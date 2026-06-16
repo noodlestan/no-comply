@@ -9,6 +9,9 @@ export type TSXViewOptions = {
 	placeholderPropsVar: string;
 };
 
+export type ViewTargetPropsRaw = Record<string, TSXNode>;
+export type ViewTargetPropsTransformed = Record<string, unknown>;
+
 export type TSXViewTarget = {
 	component: {
 		name: string;
@@ -24,3 +27,5 @@ export type TSXView = {
 		[key: string]: TSXViewTarget;
 	};
 };
+
+export type PropEvaluator = (entry: [name: string, node: TSXNode, targetKey: string]) => unknown;
