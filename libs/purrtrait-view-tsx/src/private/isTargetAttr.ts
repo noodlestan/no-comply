@@ -1,7 +1,7 @@
 import ts from 'typescript';
 
-import { TARGET_ATTRIBUTE_NAME } from '../constants';
+import type { TSXViewOptions } from '../types';
 
-export function isTargetAttr(attr: ts.JsxAttribute): boolean {
-	return ts.isIdentifier(attr.name) && attr.name.text === TARGET_ATTRIBUTE_NAME;
+export function isTargetAttr(options: TSXViewOptions, attr: ts.JsxAttribute): boolean {
+	return ts.isIdentifier(attr.name) && attr.name.text === options.targetAttributeName;
 }

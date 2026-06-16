@@ -1,15 +1,33 @@
 import ts from 'typescript';
 
-import { TARGET_PLACEHOLDER_NAME } from '../constants';
+import type { TSXViewOptions } from '../types';
 
 export function createTSXViewTargetPlaceholder(
-	propsBindingName = 'props',
+	options: TSXViewOptions,
+	keyValue: string,
+	componentName: string,
 ): ts.JsxSelfClosingElement {
+	const props = [
+		ts.factory.createJsxAttribute(
+			ts.factory.createIdentifier(options.placeholderPropsProp),
+			ts.factory.createJsxExpression(
+				undefined,
+				ts.factory.createIdentifier(options.placeholderPropsVar),
+			),
+		),
+		ts.factory.createJsxAttribute(
+			ts.factory.createIdentifier(options.placeholderKeyProp),
+			ts.factory.createStringLiteral(keyValue),
+		),
+		ts.factory.createJsxAttribute(
+			ts.factory.createIdentifier(options.placeholderComponentProp),
+			ts.factory.createStringLiteral(componentName),
+		),
+	];
+
 	return ts.factory.createJsxSelfClosingElement(
-		ts.factory.createIdentifier(TARGET_PLACEHOLDER_NAME),
+		ts.factory.createIdentifier(options.placeholderName),
 		undefined,
-		ts.factory.createJsxAttributes([
-			ts.factory.createJsxSpreadAttribute(ts.factory.createIdentifier(propsBindingName)),
-		]),
+		ts.factory.createJsxAttributes(props),
 	);
 }

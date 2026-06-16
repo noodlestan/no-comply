@@ -6,17 +6,17 @@ This package provides high level abstractions for modelling editable TSX code.
 
 It was designed for **interactive component environments**: documentation sandboxes, visual editors, and runtime JSX evaluation in the browser.
 
-Used together with a TypeScript parser and a runtime compiler, this package allows TSX snippets to be extracted into structured editable models, modified at a fine-grained level, and recompiled into executable JSX.
-
 ## Features
 
 Extract editable view models from TSX snippets into a framework-agnostic representation suitable for React, SolidJS, and custom runtimes.
 
 Supports independent editing of:
 
-- **Target component:** identified by `tsx-view-target` attribute
-- **Template wrapper:** everything around the target component
-- **Target component props:** including children, classified as `TSXNode` values (JSX, handlers, and expressions)
+- **Multitple target components**
+- **Template wrapper** – everything around the target components
+- **Target component props** – including children, classified as `TSXNode`
+
+Used together with a TypeScript parser and a runtime compiler, this package allows TSX snippets to be extracted into structured editable models, modified at a fine-grained level, and later recompiled into executable JSX.
 
 This allows wrapper structure and target component props to be edited independently in a way that only requires re-extracting the view and re-compiling the wrapper component when the wrapper itself is modified.
 
@@ -46,99 +46,127 @@ The extracted model itself contains no runtime execution logic.
 Given the following TSX:
 
 ```tsx
-<h1>hello</h1>
-<Flex padding="l">
-	<Button
-		tsx-view-target
-		intent="negative"
-		onClick={() => console.log('!')}
-	>
+<h1>Hello</h1>
+<div>
+	<Button tsx-view-target />
+	<Button tsx-view-target intent="negative" onClick={() => console.log('!')}>
 		<Display>foo</Display>
 	</Button>
-</Flex>
+</div>
 ```
 
-Create an editable view:
+Extract the view with `extractTSXView()`
 
 ```ts
 import { extractTSXView } from '@purrtrait/view-tsx';
-
 const view = extractTSXView(source);
 ```
 
-Result (simplified):
+The captured result extracts the targets from the wrapper expression, capturing all props with `TSXNode` nodes from `@purrtrait/client-tsx`.
 
-```ts
-{
-	wrapper: {
-		type: 'jsx',
-		serialized:
-			'<><h1>hello</h1><Flex padding="l"><TSXViewTargetPlaceholder {...props} /></Flex></>'
-	},
-	target: {
-		component: {
+```yaml
+wrapper:
+	type: 'jsx'
+	serialized: '<><h1>Hello</h1><div><TSXViewTargetPlaceholder key="0" component="Button" props={props} /><TSXViewTargetPlaceholder key="1" component="Button" props={props} /></div></>'
+targets:
+	'0':
+		component:
 			name: 'Button'
-		}
-	},
-	props: {
-		intent: {
-			type: 'expression',
-			serialized: '"negative"'
-		},
-		onClick: {
-			type: 'handler',
-			serialized:
-				'() => console.log("!")'
-		},
-		children: {
-			type: 'jsx',
-			serialized:
-				'<><Display>foo</Display></>'
-		}
-	}
-}
+	'1':
+		component:
+			name: 'Button'
+		props:
+			intent:
+				type: 'expression'
+				tsNode: ...
+				serialized: '"negative"'
+			onClick:
+				type: 'handler'
+				tsNode: ...
+				serialized: '() => console.log("!")'
+			children:
+				type: 'jsx'
+				tsNode: ...
+				serialized: '<><Display>foo</Display></>'
 ```
 
 ### Target nodes
 
-A target component is identified using the `tsx-view-target` attribute.
+Target nodes are identified using an attribute.
 
-Valid input:
+The attribute name is `tsx-view-target` by default and is configurable via `options`.
 
 ```tsx
 <Button tsx-view-target />
 ```
 
-Exactly one target component must exist.
+You can provide a name for each, some, or all of the targets.
+
+If multitple targets are present and no names are provided, an auto-incremented index is generated for each one.
+
+```tsx
+<Button tsx-view-target="first" />
+<Button tsx-view-target /> // becomes '1'
+<Button tsx-view-target /> // becomes '2'
+<Button tsx-view-target="last" />
+```
+
+If nested targets are found, only the top-most targets are kept. Any nested content inside a target is treated as its `children` prop.
+
+```tsx
+<Button tsx-view-target />
+<Button tsx-view-target="parent">
+	<Button tsx-view-target /> // not captured as a target, but as children of `parent`
+</Button>
+```
 
 The `tsx-view-target` attribute is used only during extraction and is not included in the resulting view model.
 
-### Wrapper extraction
+### Placeholder components
 
-Any content surrounding the target component is also extracted as `wrapper` where the target component is replaced by a the `TSXViewTargetPlaceholder` component which will delegate dynamic props to the target component.
+All valid targets are replaced in the the wrapper (both in the enclosed `tsNode` and the `serialized` value) by a placeholder component.
 
-Input:
-
-```tsx
-<Flex>
-  <Button target />
-</Flex>
-```
-
-Wrapper:
+This component will receive the target `key` and `component` name, along with an extra `props` prop.
 
 ```tsx
-<Flex>
-  <TSXViewTargetPlaceholder {...props} />
-</Flex>
+<TSXViewTargetPlaceholder key="0" component="Button" props={props} />
 ```
 
-### Children handling
+There is no implementation for the placeholder.
+
+When compiling the wrapper, you will need to populate the scope with the implementation for the placeholder, along with the implementations of any components invoked in the wrapper template.
+
+This is easy to achieve with a library such as `@purrpose/babel-client`.
+
+#### Example implementation
+
+If you chose to provide the compiled wrapper with all props of all targets at once (ideally indexed by key).
+
+You can easily retrieve the original props inside of each instance, before rendering the target component.
+
+```tsx
+const TSXViewTargetPlaceholder = (props: Record<string, unknown>) => {
+  const key = () => (props[PLACEHOLDER_KEY_PROP] || '') as string;
+  const component = () => (props[PLACEHOLDER_COMPONENT_PROP] || '') as string;
+  const allProps = () => (props[PLACEHOLDER_PROPS_PROP] || {}) as Record<string, unknown>;
+  const ownProps = () => allProps()[key()] || {};
+
+  return <Dynamic component={component()} {...ownProps} />;
+};
+```
+
+You can also use the placeholder renderer to merge props from other sources such as playground props table.
+
+### Props and Children extraction
+
+All props passed to each target are stored in the view.
+
+You can use these values to populate props tables or provide further documentation.
 
 Children are extracted as a normal prop:
 
 ```ts
-view.props.children;
+view.targets[0].props.children = `<span>World</span>`;
 ```
 
 Multiple children are normalized into a fragment:
@@ -150,16 +178,16 @@ Multiple children are normalized into a fragment:
 </>
 ```
 
-This keeps all editable values represented by a single `TSXNode` abstraction.
+This keeps all editable values represented by a single `TSXNode`.
 
 ## API
 
-### `extractTSXView(source: string)`
+### `extractTSXView(source, options)`
 
-Extracts an editable TSX view model.
+Extracts a TSX view model synchronously.
 
 ```ts
-function extractTSXView(source: string): TSXView;
+function extractTSXView(source: string, options?: Partial<TSXViewOptions>): TSXView;
 ```
 
 ### `TSXView`
@@ -168,14 +196,42 @@ function extractTSXView(source: string): TSXView;
 type TSXView = {
   source: string;
   wrapper: TSXElementNode;
-  target: {
-    component: {
-      name: string;
-    };
-    raw: TSXElementNode;
+  targets: {
+    [key: string]: TSXViewTarget;
   };
+};
+
+export type TSXViewTarget = {
+  component: {
+    name: string;
+  };
+  raw: TSXElementNode;
   props: Record<string, TSXNode>;
 };
+```
+
+### Options
+
+```ts
+export type TSXViewOptions = {
+  targetAttributeName: string;
+  placeholderName: string;
+  placeholderKeyProp: string;
+  placeholderComponentProp: string;
+  placeholderPropsProp: string;
+  placeholderPropsVar: string;
+};
+```
+
+The default values are exported as constants so that you can reference them in your rendering code.
+
+```ts
+TARGET_ATTRIBUTE_NAME = 'tsx-view-target';
+PLACEHOLDER_NAME = 'TSXViewTargetPlaceholder';
+PLACEHOLDER_KEY_PROP = 'key';
+PLACEHOLDER_COMPONENT_PROP = 'component';
+PLACEHOLDER_PROPS_PROP = 'props';
+PLACEHOLDER_PROPS_VARIABLE = 'props';
 ```
 
 ## Development
