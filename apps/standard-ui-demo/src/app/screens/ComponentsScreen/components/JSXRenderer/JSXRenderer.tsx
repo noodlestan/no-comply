@@ -6,7 +6,7 @@ export type JSXRendererProps = {
 	compiler: CompilerAPI;
 	source: string;
 	scope: CompilerScope;
-	props: CompilerScope;
+	wrapperProps: Record<string, unknown>;
 };
 
 export const JSXRenderer: Component<JSXRendererProps> = props => {
@@ -14,5 +14,5 @@ export const JSXRenderer: Component<JSXRendererProps> = props => {
 		return props.compiler.evaluateComponent<Component>(undefined, props.source, props.scope);
 	});
 
-	return <Dynamic component={Component()} {...props.props} />;
+	return <Dynamic component={Component()} {...props.wrapperProps} />;
 };

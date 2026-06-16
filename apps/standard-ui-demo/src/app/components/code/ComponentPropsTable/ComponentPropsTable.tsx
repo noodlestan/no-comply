@@ -23,6 +23,10 @@ type Props = {
 	component: ComponentEntityData;
 	showDocs: boolean;
 	showGroups: boolean;
+	props: Record<string, unknown>;
+	onChangeProp?: (name: string, value: unknown) => void;
+	onResetProp?: (name: string) => void;
+	onResetProps?: () => void;
 };
 
 type RefProps = { entity?: NoComplyEntityData; props: ComponentProp[] };
@@ -78,6 +82,9 @@ export const ComponentPropsTable: Component<Props> = props => {
 										prop={prop}
 										showDocs={props.showDocs}
 										showGroups={props.showGroups}
+										value={props.props[prop.name]}
+										onChangeProp={value => props.onChangeProp?.(prop.name, value)}
+										onResetProp={() => props.onResetProp?.(prop.name)}
 									/>
 								)}
 							</For>

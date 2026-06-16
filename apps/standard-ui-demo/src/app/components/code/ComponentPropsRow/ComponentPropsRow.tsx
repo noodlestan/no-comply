@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
 import { staticClassList } from '@no-comply/solid-primitives';
-import { Flex, Link, Text } from '@no-comply/standard-ui';
+import { Flex, Link, Text, TextInput } from '@no-comply/standard-ui';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, Show } from 'solid-js';
 
@@ -15,8 +15,11 @@ type Props = {
 	component: ComponentEntityData;
 	entity?: NoComplyEntityData;
 	prop: ComponentProp;
+	value?: unknown;
 	showDocs: boolean;
 	showGroups: boolean;
+	onChangeProp?: (value: unknown) => void;
+	onResetProp?: () => void;
 };
 
 export const ComponentPropsRow: Component<Props> = props => {
@@ -58,6 +61,12 @@ export const ComponentPropsRow: Component<Props> = props => {
 			</Show>
 			<Show when={props.showDocs && props.prop.node.description}>
 				<CodeDocDescription node={props.prop.node} />
+			</Show>
+			<Show when={props.showDocs}>
+				<Flex direction="row" align="baseline" gap="s">
+					<Text>value:</Text>
+					<TextInput value={String(props.value)} onValueChange={props.onChangeProp} />
+				</Flex>
 			</Show>
 			<Show when={props.showDocs}>
 				<Flex direction="row" align="baseline" gap="s">

@@ -3,8 +3,8 @@ import type { Component } from 'solid-js';
 
 import { DocsItem } from '../../../../content';
 import { useComponentExamples } from '../../providers';
+import { ComponentPlaygroundExample } from '../ComponentPlaygroundExample';
 import { ComponentPlaygroundHeader } from '../ComponentPlaygroundHeader';
-import { ComponentPlaygroundPreview } from '../ComponentPlaygroundPreview';
 import { ComponentPropsSection } from '../ComponentPropsSection';
 
 export const ComponentPlaygroundSection: Component = () => {
@@ -18,7 +18,7 @@ export const ComponentPlaygroundSection: Component = () => {
 					<ComponentPropsSection component={component} />
 				</Flex>
 				<Flex stretch="width">
-					<ComponentPlaygroundPreview />
+					<ComponentPlaygroundExample />
 				</Flex>
 			</Flex>
 		</DocsItem>

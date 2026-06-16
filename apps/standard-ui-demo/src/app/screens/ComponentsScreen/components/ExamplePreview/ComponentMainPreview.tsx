@@ -3,7 +3,7 @@ import { Display, Divider, Flex } from '@no-comply/standard-ui';
 import { type Component, type Resource, Show, Suspense } from 'solid-js';
 
 import { Markdown } from '../../../../content';
-import { type ParsedExampleAPI } from '../../providers';
+import { type ParsedExampleAPI, type ReadyExampleAPI } from '../../providers';
 import { RenderExample } from '../RenderExample';
 
 import styles from './ComponentMainPreview.module.scss';
@@ -17,9 +17,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 	const classList = staticClassList(styles, ['ComponentMainPreview']);
 
 	const parsed = () => props.example()?.parsed();
-
 	const title = () => props.example()?.data.title || props.defaultTitle;
-
 	const description = () => props.example()?.data.description;
 
 	return (
@@ -40,7 +38,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 					</Flex>
 				</Show>
 				<Show when={parsed()}>
-					<RenderExample example={props.example() as ParsedExampleAPI} />
+					<RenderExample example={props.example() as ReadyExampleAPI} />
 				</Show>
 			</Suspense>
 		</Flex>

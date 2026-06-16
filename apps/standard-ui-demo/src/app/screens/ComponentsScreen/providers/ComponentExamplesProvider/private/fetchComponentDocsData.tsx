@@ -20,9 +20,9 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 				description: 'Another description',
 				lockedProps: ['size'],
 				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
-					<Button size="small" tsx-view-target>Small</Button>
-					<Button size="normal">Normal</Button>
-					<Button size="large">Large</Button>
+					<Button tsx-view-target size="small">Small</Button>
+					<Button tsx-view-target size="normal">Normal</Button>
+					<Button tsx-view-target size="large">Large</Button>
 				</Flex>`,
 			},
 			{
@@ -30,9 +30,9 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 				description: 'Another description',
 				lockedProps: ['variant'],
 				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
-					<Button variant="primary" tsx-view-target>Primary</Button>
-					<Button variant="secondary">Secondary</Button>
-					<Button variant="plain">Plain</Button>
+					<Button tsx-view-target variant="primary">Primary</Button>
+					<Button tsx-view-target variant="secondary">Secondary</Button>
+					<Button tsx-view-target variant="plain">Plain</Button>
 				</Flex>`,
 			},
 			{
@@ -40,9 +40,9 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 				description: 'Another description',
 				lockedProps: ['intent'],
 				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
-					<Button intent="positive" tsx-view-target>Positive</Button>
-					<Button intent="negative">Negative</Button>
-					<Button intent="neutral">Neutral</Button>
+					<Button tsx-view-target intent="positive">Positive</Button>
+					<Button tsx-view-target intent="negative">Negative</Button>
+					<Button tsx-view-target intent="neutral">Neutral</Button>
 				</Flex>`,
 			},
 		],
