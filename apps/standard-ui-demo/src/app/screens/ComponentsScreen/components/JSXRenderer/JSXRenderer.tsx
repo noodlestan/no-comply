@@ -1,6 +1,7 @@
-import { type CompilerAPI, type CompilerScope } from '@purrpose/client-babel';
 import { type Component, createMemo } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
+
+import type { CompilerAPI, CompilerScope } from '../../../../../modules/TSXCompilerModule';
 
 export type JSXRendererProps = {
 	compiler: CompilerAPI;

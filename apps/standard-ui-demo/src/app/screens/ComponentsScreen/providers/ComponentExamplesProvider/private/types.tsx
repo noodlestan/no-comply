@@ -1,5 +1,4 @@
 import type { ComponentEntityData } from '@no-comply/meta';
-import type { CompilerAPI } from '@purrpose/client-babel';
 import type { Accessor, Resource, Setter } from 'solid-js';
 
 import type {
@@ -11,7 +10,6 @@ import type {
 
 export type ComponentExamplesContextValue = {
 	component: ComponentEntityData;
-	compiler: CompilerAPI;
 	exampleList: Resource<ComponentExampleData[]>;
 	primaryExample: Resource<ParsedExampleAPI>;
 	currentExample: Resource<ParsedExampleAPI>;

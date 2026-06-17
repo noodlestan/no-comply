@@ -1,5 +1,6 @@
-import { type Component } from 'solid-js';
+import { type Component, Show, Suspense, createResource } from 'solid-js';
 
+import type { CompilerAPI } from '../../../../../modules/TSXCompilerModule';
 import { type ReadyExampleAPI, useComponentExamples } from '../../providers';
 import { RenderExample } from '../RenderExample';
 
@@ -10,6 +11,11 @@ type Props = {
 export const ComponentPlaygroundPreview: Component<Props> = props => {
 	const { currentExampleIndex, examplePropsOverrides: exampleOverrides } = useComponentExamples();
 
+	const [compiler] = createResource(async () => {
+		const compilerModule = await import('../../../../../modules/TSXCompilerModule');
+		return compilerModule.createTSXCompilerModule().createCompiler();
+	});
+
 	const propOverrides = () => {
 		const index = currentExampleIndex();
 
@@ -19,5 +25,15 @@ export const ComponentPlaygroundPreview: Component<Props> = props => {
 		throw new Error(`WIP = Read before ready`);
 	};
 
-	return <RenderExample example={props.example} overrides={propOverrides()} />;
+	return (
+		<Suspense fallback={'LOADING...'}>
+			<Show when={compiler()}>
+				<RenderExample
+					example={props.example}
+					overrides={propOverrides()}
+					compiler={compiler() as CompilerAPI}
+				/>
+			</Show>
+		</Suspense>
+	);
 };

@@ -9,7 +9,6 @@ import type {
 	TargetPropsOverrides,
 } from '../types';
 
-import { createTSXCompiler } from './createCompiler';
 import { createParseExample } from './createParseExample';
 import { fetchComponentDocsData } from './fetchComponentDocsData';
 import type { ComponentExamplesContextValue } from './types';
@@ -20,8 +19,6 @@ export const createComponentExamplesContextValue = (
 	const [currentExample, setCurrentExample] = createSignal<ComponentExampleData>();
 	const [currentTargetKey, setCurrentTargetKey] = createSignal<string | undefined>();
 	const [propOverrides, setPropOverrides] = createStore<PropOverridesStore>({});
-
-	const compiler = createTSXCompiler();
 
 	const [componentsDocsData] = createResource(() => component.name, fetchComponentDocsData);
 
@@ -106,7 +103,6 @@ export const createComponentExamplesContextValue = (
 
 	return {
 		component,
-		compiler,
 		exampleList,
 		primaryExample,
 		currentExample: currentExampleParsed,

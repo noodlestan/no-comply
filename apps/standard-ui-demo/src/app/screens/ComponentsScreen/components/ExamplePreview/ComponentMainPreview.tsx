@@ -1,7 +1,8 @@
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Divider, Flex } from '@no-comply/standard-ui';
-import { type Component, type Resource, Show, Suspense } from 'solid-js';
+import { type Component, type Resource, Show, Suspense, createResource } from 'solid-js';
 
+import type { CompilerAPI } from '../../../../../modules/TSXCompilerModule';
 import { Markdown } from '../../../../content';
 import { type ParsedExampleAPI, type ReadyExampleAPI } from '../../providers';
 import { RenderExample } from '../RenderExample';
@@ -15,6 +16,11 @@ type Props = {
 
 export const ComponentMainPreview: Component<Props> = props => {
 	const classList = staticClassList(styles, ['ComponentMainPreview']);
+
+	const [compiler] = createResource(async () => {
+		const compilerModule = await import('../../../../../modules/TSXCompilerModule');
+		return compilerModule.createTSXCompilerModule().createCompiler();
+	});
 
 	const parsed = () => props.example()?.parsed();
 	const title = () => props.example()?.data.title || props.defaultTitle;
@@ -37,8 +43,11 @@ export const ComponentMainPreview: Component<Props> = props => {
 						<Divider />
 					</Flex>
 				</Show>
-				<Show when={parsed()}>
-					<RenderExample example={props.example() as ReadyExampleAPI} />
+				<Show when={parsed() && compiler()}>
+					<RenderExample
+						example={props.example() as ReadyExampleAPI}
+						compiler={compiler() as CompilerAPI}
+					/>
 				</Show>
 			</Suspense>
 		</Flex>

@@ -10,6 +10,22 @@ export default defineConfig({
 	},
 	build: {
 		target: 'esnext',
+		rollupOptions: {
+			output: {
+				advancedChunks: {
+					groups: [
+						{
+							name: 'babel',
+							test: /babel/,
+						},
+						{
+							name: 'typscript',
+							test: /typescript/,
+						},
+					],
+				},
+			},
+		},
 	},
 	css: {
 		preprocessorOptions: {
