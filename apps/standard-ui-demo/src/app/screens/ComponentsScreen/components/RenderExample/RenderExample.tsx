@@ -1,30 +1,42 @@
 /* eslint-disable dot-notation */
 import { evaluateValue } from '@purrtrait/client-tsx';
-import { viewPropsByTarget } from '@purrtrait/view-tsx';
+import { type TSXView, viewPropsByTarget } from '@purrtrait/view-tsx';
 import { type Component, mergeProps } from 'solid-js';
 
 import type { CompilerAPI } from '../../../../../modules/TSXCompilerModule';
-import { type ExamplePropsOverrides, type ReadyExampleAPI } from '../../providers';
-import { JSXRenderer } from '../JSXRenderer';
+import { JSXRenderer } from '../../../../components';
+import { type ExamplePropsOverrides } from '../../providers';
 
 import { STATIC_SCOPE } from './constants';
 import { TSXViewTargetPlaceholder } from './parts';
 
 type Props = {
 	compiler: CompilerAPI;
-	example: ReadyExampleAPI;
+	parsed: TSXView;
 	overrides?: ExamplePropsOverrides;
 };
 
 export const RenderExample: Component<Props> = props => {
-	const view = () => props.example.parsed().view;
+	const view = () => props.parsed;
 
 	const source = () => view().wrapper.serialized;
 
+	// 	const code = `<ContextRootProvider root={root}>
+	// 	<ModeContextProvider context={modeContext}>
+	// 		<ThemeContextProvider context={themeContext}>
+	// 			<SurfaceContextProvider context={surfaceContext}>
+	// 				<ContextEffects />
+	// 				${tsx}
+	// 			</SurfaceContextProvider>
+	// 		</ThemeContextProvider>
+	// 	</ModeContextProvider>
+	// </ContextRootProvider>`;
+
 	const wrapperProps = () => {
-		const values = viewPropsByTarget(view(), ([, value]) =>
-			evaluateValue(props.compiler, value, STATIC_SCOPE),
-		);
+		// eslint-disable-next-line solid/reactivity
+		const values = viewPropsByTarget(view(), ([, value]) => {
+			return evaluateValue(props.compiler, value, STATIC_SCOPE);
+		});
 
 		const targetsProps: Record<string, unknown> = {};
 		for (const target in values) {

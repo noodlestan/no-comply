@@ -1,3 +1,17 @@
+## Standard UI Demo
+
+### Code splitting not effective
+
+`babel` loaded by default on everypage
+
+`import type { CompilerAPI, CompilerScope } from '../../../../modules/TSXCompilerModule';`
+
+check also for typescript
+
+### Cacth example compilation errors
+
+Good oportunity to test propagation of errors through resources
+
 # Purrtrait Client TSX
 
 // WIP handle render children prop here

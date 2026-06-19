@@ -2,22 +2,18 @@ import type { ComponentDocsData } from '../types';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-export const fetchComponentDocsData = async (component: string): Promise<ComponentDocsData> => {
-	await delay(500);
-
-	console.info('FETCHING ', component);
-
-	return {
+const data = {
+	Button: {
 		preview: {
-			description: 'Some description',
+			// description: 'description',
 			tsx: `<Flex padding="l" direction="row">
-					<Button tsx-view-target intent="negative" onPress={() => console.log("!")}>Cancel</Button>
+					<Button tsx-view-target intent="negative" onPress={() => console.log("!")}>Close</Button>
 				</Flex>`,
 		},
 		examples: [
 			{
 				title: 'All sizes',
-				description: 'Another description',
+				// description: 'description',
 				lockedProps: ['size'],
 				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
 					<Button tsx-view-target size="small">Small</Button>
@@ -27,7 +23,7 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 			},
 			{
 				title: 'All variants',
-				description: 'Another description',
+				// description: 'description',
 				lockedProps: ['variant'],
 				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
 					<Button tsx-view-target variant="primary">Primary</Button>
@@ -37,7 +33,7 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 			},
 			{
 				title: 'All intents',
-				description: 'Another description',
+				// description: 'description',
 				lockedProps: ['intent'],
 				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
 					<Button tsx-view-target intent="positive">Positive</Button>
@@ -46,5 +42,63 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 				</Flex>`,
 			},
 		],
+	},
+	CloseButton: {
+		preview: {
+			// description: 'description',
+			tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1}>
+					<CloseButton tsx-view-target intent="negative" onPress={() => console.log("!")} label="Close"/>
+				</Flex>`,
+		},
+		examples: [
+			{
+				title: 'Label',
+				description: 'label is mandatory on close buttons',
+				lockedProps: ['size'],
+				tsx: `<CloseButton tsx-view-target size="small" label="Small"/>`,
+			},
+			{
+				title: 'All sizes',
+				// description: 'description',
+				lockedProps: ['size'],
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+					<CloseButton tsx-view-target size="small" label="Small"/>
+					<CloseButton tsx-view-target size="normal" label="Normal"/>
+					<CloseButton tsx-view-target size="large" label="Large"/>
+				</Flex>`,
+			},
+			{
+				title: 'All intents',
+				// description: 'description',
+				lockedProps: ['intent'],
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+					<CloseButton tsx-view-target intent="positive" label="Positive"/>
+					<CloseButton tsx-view-target intent="negative" label="Negative"/>
+					<CloseButton tsx-view-target intent="neutral" label="Neutral"/>
+				</Flex>`,
+			},
+		],
+	},
+};
+
+export const fetchComponentDocsData = async (component: string): Promise<ComponentDocsData> => {
+	console.info('FETCHING ', component);
+	await delay(3000);
+	console.info('FETCHED ', component);
+
+	const componentData = data[component as keyof typeof data];
+
+	if (componentData) {
+		return componentData;
+	}
+	return {
+		preview: {
+			title: 'Preview (Placeholder)',
+			description: 'WIP - This is just a placehoder example',
+			tsx: `<Flex padding="l" direction="row">
+					<${component} tsx-view-target>Maybe</${component}>
+				</Flex>`,
+		},
+		examples: [],
 	};
 };

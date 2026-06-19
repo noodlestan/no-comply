@@ -6,7 +6,7 @@ import { type Component, Show } from 'solid-js';
 import { useMeta } from '../../../../../providers';
 import { ComponentMeta } from '../../../../content';
 import { BasePage, NotFoundPage } from '../../../../templates';
-import { ComponentMainSection, ComponentPlaygroundSection } from '../../components';
+import { ComponentMainSection, ComponentPlaygroundSection } from '../../components/sections';
 import { ComponentExamplesProvider } from '../../providers';
 
 export const ComponentPage: Component = () => {

@@ -1,0 +1,19 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .PlaygroundProps {
+    height: 40vh;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .PlaygroundProps {
+      height: 90vh;
+    }
+  }
+
+  .-Header {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 1.5px 2px var(--__shadow-c);
+  }
+}

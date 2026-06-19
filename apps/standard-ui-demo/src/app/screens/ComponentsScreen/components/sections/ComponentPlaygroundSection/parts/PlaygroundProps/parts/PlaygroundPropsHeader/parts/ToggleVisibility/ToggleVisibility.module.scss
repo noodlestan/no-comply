@@ -1,0 +1,15 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .is-on {
+    .-Icon {
+      @include set-color(__fg, selected, fg-saturated, content-fg);
+
+      @include apply-color(color, __fg);
+    }
+  }
+
+  .-Layout {
+    pointer-events: none;
+  }
+}

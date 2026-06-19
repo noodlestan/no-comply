@@ -3,10 +3,5 @@
   "compilerOptions": {
     "types": ["vite/client"]
   },
-  "include": [
-    "src/",
-    "../purrpose-client-babel/src/helpers/evaluateComponent.ts",
-    "../purrpose-client-babel/src/helpers/evaluateExpression.ts",
-    "../purrpose-client-babel/src/helpers/evaluateHandler.ts"
-  ]
+  "include": ["src/"]
 }

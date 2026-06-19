@@ -1,0 +1,12 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .ComponentMainPreview {
+    position: relative;
+    min-height: 30vh;
+  }
+
+  .-Header {
+    position: relative;
+  }
+}

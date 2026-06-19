@@ -10,6 +10,7 @@ export type TSXViewOptions = {
 };
 
 export type ViewTargetPropsRaw = Record<string, TSXNode>;
+
 export type ViewTargetPropsTransformed = Record<string, unknown>;
 
 export type TSXViewTarget = {

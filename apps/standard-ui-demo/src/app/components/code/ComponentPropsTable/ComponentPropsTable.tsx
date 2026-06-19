@@ -4,32 +4,29 @@ import {
 	resolveComponentProps,
 	resolveComponentPropsJsDocData,
 } from '@no-comply/meta';
-import { Display, Flex, Link } from '@no-comply/standard-ui';
+import { Divider, Flex } from '@no-comply/standard-ui';
 import {
 	type JsDocData,
 	type ObjectLiteralTypeNode,
 	createResolveTypeContext,
 	resolveExpression,
 } from '@purrception/lang-ts';
-import { type Component, For, Show } from 'solid-js';
+import { type Component, For, type JSX, type Resource, Show, createMemo } from 'solid-js';
 
 import { getSymbolEntityMaybe } from '../../../../providers';
-import { routeFor } from '../../../navigation';
 import { CodeDocDescription } from '../CodeDocDescription';
-import { ComponentPropsRow } from '../ComponentPropsRow';
-import type { ComponentProp } from '../types';
+
+import { ComponentPropsTableGroup } from './parts';
+import type { ComponentProp, ComponentPropsGroup } from './types';
 
 type Props = {
 	component: ComponentEntityData;
 	showDocs: boolean;
 	showGroups: boolean;
-	props: Record<string, unknown>;
-	onChangeProp?: (name: string, value: unknown) => void;
-	onResetProp?: (name: string) => void;
-	onResetProps?: () => void;
+	propValues: Resource<Record<string, unknown>>;
+	onChangeProp: (name: string, value: unknown) => void;
+	propControls?: (prop: ComponentProp) => JSX.Element;
 };
-
-type RefProps = { entity?: NoComplyEntityData; props: ComponentProp[] };
 
 export const ComponentPropsTable: Component<Props> = props => {
 	const componentProps = () => {
@@ -48,48 +45,34 @@ export const ComponentPropsTable: Component<Props> = props => {
 		return propsMembers().reduce(
 			(acc, prop) => {
 				const _source = prop.node.type._source;
-				const key = _source?.ref || '';
-				acc[key] = acc[key] || { entity: _source?.entity as NoComplyEntityData, props: [] };
-				acc[key].props.push(prop);
+				const typeRef = _source?.ref || '';
+				acc[typeRef] = acc[typeRef] || {
+					ref: typeRef,
+					entity: _source?.entity as NoComplyEntityData,
+					props: [],
+				};
+				acc[typeRef].props.push(prop);
 				return acc;
 			},
-			{} as Record<string, RefProps>,
+			{} as Record<string, ComponentPropsGroup>,
 		);
 	};
 
-	const sourceHref = (ref: string, entity?: NoComplyEntityData) =>
-		entity ? `${routeFor.entity(entity)}#${ref}` : ref;
+	const propsBySourceReversed = createMemo(() => Object.values(propsBySource()).reverse());
 
 	return (
 		<Flex gap="l" direction="column">
 			<Show when={props.showDocs && resolveComponentPropsJsDocData(props.component)}>
 				<CodeDocDescription node={resolveComponentPropsJsDocData(props.component) as JsDocData} />
 			</Show>
-			<For each={Object.entries(propsBySource()).reverse()}>
-				{([ref, source]) => (
-					<Flex gap="l" direction="column">
-						<Show when={props.showGroups}>
-							<Display level={5}>
-								<Link href={sourceHref(ref, source.entity)}>{ref}</Link>
-							</Display>
+			<For each={propsBySourceReversed()}>
+				{(group, ix) => (
+					<>
+						<ComponentPropsTableGroup {...props} group={group} />
+						<Show when={ix() < propsBySourceReversed().length - 1}>
+							<Divider variant={props.showGroups ? 'base' : 'strong'} />
 						</Show>
-						<Flex gap="l" direction="column">
-							<For each={source.props}>
-								{prop => (
-									<ComponentPropsRow
-										component={props.component}
-										entity={source.entity}
-										prop={prop}
-										showDocs={props.showDocs}
-										showGroups={props.showGroups}
-										value={props.props[prop.name]}
-										onChangeProp={value => props.onChangeProp?.(prop.name, value)}
-										onResetProp={() => props.onResetProp?.(prop.name)}
-									/>
-								)}
-							</For>
-						</Flex>
-					</Flex>
+					</>
 				)}
 			</For>
 		</Flex>

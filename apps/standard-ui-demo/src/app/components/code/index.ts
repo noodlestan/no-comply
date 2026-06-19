@@ -3,6 +3,5 @@ export * from './APICodeBlock';
 export * from './CodeBlockLink';
 export * from './CodeDocDescription';
 export * from './CodeSymbolLink';
-export * from './ComponentPropsRow';
 export * from './ComponentPropsTable';
-export * from './types';
+export * from './JSXRenderer';
