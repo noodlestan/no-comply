@@ -4,10 +4,10 @@ type IndexByName = Record<string, NoComplyEntityData>;
 type IndexByType = Record<string, IndexByName>;
 type IndexByPackage = Record<string, IndexByType>;
 
-export function indexEntities(extracted: NoComplyEntityData[]): IndexByPackage {
+export function indexEntities(data: NoComplyEntityData[]): IndexByPackage {
 	const index: IndexByPackage = {};
 
-	for (const entity of extracted) {
+	for (const entity of data) {
 		const { package: pkg, name, type } = entity;
 		if (typeof pkg !== 'string' || typeof type !== 'string' || typeof name !== 'string') {
 			console.error(`Invalid entity`, entity);

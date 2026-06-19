@@ -5,6 +5,7 @@ export * from './events-ext';
 export * from './events';
 export * from './id';
 export * from './props';
+export * from './resources';
 export * from './styles';
 export * from './tag';
 export * from './ts';
