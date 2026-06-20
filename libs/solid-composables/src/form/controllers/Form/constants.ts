@@ -9,6 +9,5 @@ export const $FORM = 'controller:composable:form';
 export const FORM_PROPS = definePropKeys<FormProps>()([
 	...FORM_CONTEXT_OPTIONS,
 	...ARIA_FORM_PROPS,
-	'tag',
 	'onSubmit',
 ]);

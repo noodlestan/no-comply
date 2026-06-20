@@ -12,6 +12,4 @@ export const TREE_LIST_PROPS = definePropKeys<TreeListProps>()([
 	...ARIA_TREE_PROPS,
 	'keyboard',
 	'expand',
-	'labels',
-	'icons',
 ]);

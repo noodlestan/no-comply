@@ -11,6 +11,5 @@ export const LINK_PROPS = definePropKeys<LinkProps>()([
 	'href',
 	'label',
 	'target',
-	'disabled',
 	'rel',
 ]);

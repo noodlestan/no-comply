@@ -7,8 +7,4 @@ import type { GridProps } from './types';
 
 export const $GRID = 'component:standard:flex';
 
-export const GRID_PROPS = definePropKeys<GridProps>()([
-	...LAYOUT_PROPS,
-	...GRID_MIXIN_PROPS,
-	'gap',
-]);
+export const GRID_PROPS = definePropKeys<GridProps>()([...LAYOUT_PROPS, ...GRID_MIXIN_PROPS]);

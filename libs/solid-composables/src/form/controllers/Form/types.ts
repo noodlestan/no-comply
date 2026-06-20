@@ -1,16 +1,10 @@
-import type {
-	AriaFormAPI,
-	AriaFormProps,
-	AriaLabelledAPI,
-	FormTagName,
-} from '@no-comply/solid-accessibility';
+import type { AriaFormAPI, AriaFormProps, AriaLabelledAPI } from '@no-comply/solid-accessibility';
 import type { FormContext, FormContextOptions, FormContextValue } from '@no-comply/solid-contexts';
 
 import type { PressableProps } from '../../../action';
 
 export type FormProps = AriaFormProps &
 	FormContextOptions & {
-		tag?: FormTagName;
 		onSubmit?: (form: FormAPI) => void;
 	};
 

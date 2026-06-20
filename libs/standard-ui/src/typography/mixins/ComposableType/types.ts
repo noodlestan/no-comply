@@ -27,10 +27,11 @@ export type ComposableTypeMixinProps =
 	| ComposableLabelProps
 	| ComposableTextProps;
 
-export type ComposableTypeMixinAllProps = ActionLabelMixinProps &
-	DisplayMixinProps &
-	LabelMixinProps &
-	TextMixinProps & {
+/**
+ * ActionLabelMixinProps, LabelMixinProps, not included because they have the same shape as TextMixinProps
+ */
+export type ComposableTypeMixinAllProps = TextMixinProps &
+	Pick<DisplayMixinProps, 'level'> & {
 		type: 'action' | 'display' | 'label' | 'text';
 	};
 

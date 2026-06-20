@@ -1,5 +1,5 @@
 /**
- * Specialized {@link component:IconButton} with customisable icons and label pairs that allows controlling a `popover` target.
+ * Specialized {@link component:IconButton} with customisable icons and label pairs that allows controlling a an `aria-controls` target.
  */
 
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)

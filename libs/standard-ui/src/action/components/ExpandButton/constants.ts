@@ -1,9 +1,5 @@
 import { EXPAND_ACTION_PROPS } from '@no-comply/solid-composables';
-import {
-	POPVER_TRIGGER_TAG_PROPS,
-	definePropKeys,
-	omitPropKeys,
-} from '@no-comply/solid-primitives';
+import { definePropKeys, omitPropKeys } from '@no-comply/solid-primitives';
 
 import { ICON_BUTTON_PROPS } from '../IconButton';
 
@@ -13,6 +9,5 @@ export const $EXPAND_BUTTON = 'component:standard:expand-button';
 
 export const EXPAND_BUTTON_PROPS = definePropKeys<ExpandButtonProps>()([
 	...omitPropKeys(ICON_BUTTON_PROPS, ['label', 'icon'] as const),
-	...POPVER_TRIGGER_TAG_PROPS,
 	...EXPAND_ACTION_PROPS,
 ]);

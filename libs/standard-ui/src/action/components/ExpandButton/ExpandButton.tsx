@@ -9,6 +9,9 @@ import type { ExpandButtonProps } from './types';
 
 type Props = ClosedTagProps & ExpandButtonProps;
 
+/**
+ * Renders an `IconButton` of `variant` plain
+ */
 export const ExpandButton: Component<Props> = props => {
 	const [locals, $others] = splitProps(props, EXPAND_BUTTON_PROPS);
 
