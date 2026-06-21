@@ -6,6 +6,7 @@ type Props = {
 	onPress: () => void;
 	label: string;
 	iconOnly?: boolean;
+	disabled?: boolean;
 	size?: IconButtonProps['size'];
 };
 
@@ -15,9 +16,15 @@ export const PlaygroundResetButton: Component<Props> = props => {
 	return (
 		<>
 			{props.iconOnly ? (
-				<IconButton size={size()} icon={ResetIcon} label={props.label} onPress={props.onPress} />
+				<IconButton
+					disabled={props.disabled}
+					size={size()}
+					icon={ResetIcon}
+					label={props.label}
+					onPress={props.onPress}
+				/>
 			) : (
-				<Button onPress={props.onPress}>
+				<Button disabled={props.disabled} onPress={props.onPress}>
 					<Icon icon={ResetIcon} size="small" />
 					{props.label}
 				</Button>

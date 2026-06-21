@@ -4,16 +4,14 @@ import { type Component, Show } from 'solid-js';
 
 import { routeFor } from '../../../../../../../navigation';
 import { $ID_PLAYGROUND_TITLE } from '../../../../../constants';
-import { useComponentExamples } from '../../../../../providers';
+import { useComponentExamples, useComponentPlaygroundProps } from '../../../../../providers';
 import { PlaygroundResetButton } from '../PlaygroundResetButton';
 
 export const ComponentPlaygroundHeader: Component = () => {
-	const { component, resetAllOverrides } = useComponentExamples();
-	const { exampleList } = useComponentExamples();
+	const { component, exampleList } = useComponentExamples();
+	const { resetAllOverrides, hasOverrides } = useComponentPlaygroundProps();
 
 	const handleResetresetPlaygroundClick = () => resetAllOverrides();
-
-	// WIP conditionally show reset button
 
 	return (
 		<Flex direction="row" justify="between" gap="l" wrap>
@@ -34,7 +32,7 @@ export const ComponentPlaygroundHeader: Component = () => {
 					</Link>
 				</Flex>
 			</Flex>
-			<Show when={!exampleList.loading && Number(exampleList()?.length) > 1}>
+			<Show when={!exampleList.loading && Number(exampleList()?.length) > 1 && hasOverrides()}>
 				<Flex direction="row" align="end" gap="m">
 					<PlaygroundResetButton onPress={handleResetresetPlaygroundClick} label="Reset all" />
 				</Flex>

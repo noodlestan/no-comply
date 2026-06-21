@@ -1,10 +1,10 @@
 import { Flex, Label, Select } from '@no-comply/standard-ui';
 import { type Component, For } from 'solid-js';
 
-import { type ComponentExampleData, useComponentExamples } from '../../../../../../../providers';
+import { type ComponentExampleData, useComponentPlayground } from '../../../../../../../providers';
 
 export const PlaygroundExampleSelect: Component = () => {
-	const { exampleList, currentExample, setCurrentExample } = useComponentExamples();
+	const { exampleList, currentExample, setCurrentExample } = useComponentPlayground();
 
 	const isSelected = (example: ComponentExampleData) => example.title === currentExample()?.title;
 

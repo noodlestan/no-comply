@@ -4,15 +4,15 @@ import { Display, Divider, Flex, Scrollable, Surface } from '@no-comply/standard
 import { type Component, Show, Suspense } from 'solid-js';
 
 import { Markdown } from '../../../../../../../content';
-import { useComponentExamples } from '../../../../../providers';
+import { useComponentPlayground, useComponentPlaygroundProps } from '../../../../../providers';
 import { PlaygroundResetButton } from '../PlaygroundResetButton';
 
 import styles from './PlaygroundExample.module.scss';
 import { ComponentPlaygroundPreview, PlaygroundExampleSelect } from './parts';
 
 export const PlaygroundExample: Component = () => {
-	const { currentExample, currentExampleParsed, currentExampleIndex, resetExampleOverrides } =
-		useComponentExamples();
+	const { currentExample, currentExampleParsed, currentExampleIndex } = useComponentPlayground();
+	const { hasExampleOverrides, resetExampleOverrides } = useComponentPlaygroundProps();
 
 	const classList = staticClassList(styles, ['PlaygroundExample']);
 
@@ -20,8 +20,6 @@ export const PlaygroundExample: Component = () => {
 	const description = () => currentExample()?.description;
 
 	const handleResetExampleClick = () => resetExampleOverrides(currentExampleIndex() as number);
-
-	// WIP conditionally show reset button
 
 	return (
 		<Surface variant="panel" classList={classList}>
@@ -39,7 +37,9 @@ export const PlaygroundExample: Component = () => {
 							classList={staticClassList(styles, ['-Header'])}
 						>
 							<PlaygroundExampleSelect />
-							<PlaygroundResetButton label="Reset example" onPress={handleResetExampleClick} />
+							<Show when={hasExampleOverrides(currentExampleIndex() as number)}>
+								<PlaygroundResetButton label="Reset example" onPress={handleResetExampleClick} />
+							</Show>
 						</Flex>
 					</Show>
 					<Scrollable y>

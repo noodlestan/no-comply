@@ -2,15 +2,15 @@ import type { TSXView } from '@purrtrait/view-tsx';
 import { type Component, Show, Suspense, createResource } from 'solid-js';
 
 import type { CompilerAPI } from '../../../../../../../../../../modules/TSXCompilerModule';
-import { useComponentExamples } from '../../../../../../../providers';
+import {
+	useComponentPlayground,
+	useComponentPlaygroundProps,
+} from '../../../../../../../providers';
 import { RenderExample } from '../../../../../../RenderExample';
 
 export const ComponentPlaygroundPreview: Component = () => {
-	const {
-		currentExampleParsed,
-		currentExampleIndex,
-		examplePropsOverrides: exampleOverrides,
-	} = useComponentExamples();
+	const { currentExampleParsed, currentExampleIndex } = useComponentPlayground();
+	const { examplePropsOverrides: exampleOverrides } = useComponentPlaygroundProps();
 
 	const [compiler] = createResource(async () => {
 		const compilerModule = await import('../../../../../../../../../../modules/TSXCompilerModule');

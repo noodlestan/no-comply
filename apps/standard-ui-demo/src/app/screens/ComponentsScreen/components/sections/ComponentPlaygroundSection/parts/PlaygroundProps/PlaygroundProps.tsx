@@ -7,10 +7,10 @@ import {
 } from '@no-comply/solid-primitives';
 import { Flex, Layout, Scrollable, Surface } from '@no-comply/standard-ui';
 import { type TSXView, viewTargetProps } from '@purrtrait/view-tsx';
-import { type Component, createResource, createSignal, mergeProps } from 'solid-js';
+import { type Component, createSignal, mergeProps } from 'solid-js';
 
 import { ComponentPropsTable } from '../../../../../../../components';
-import { useComponentExamples } from '../../../../../providers';
+import { useComponentPlayground, useComponentPlaygroundProps } from '../../../../../providers';
 
 import styles from './PlaygroundProps.module.scss';
 import { PlaygroundPropControls, PlaygroundPropsHeader } from './parts';
@@ -25,39 +25,30 @@ export const PlaygroundProps: Component<Props> = props => {
 
 	const classList = staticClassList(styles, ['PlaygroundProps']);
 
-	const {
-		currentExampleIndex,
-		currentExampleParsed,
-		currentTargetKey,
-		targetPropsOverrides,
-		setTargetPropOverride,
-		resetTargetOverrides,
-	} = useComponentExamples();
-
-	const [targets] = createChainedResource(currentExampleParsed, parsed => parsed.targets);
-
-	const [currentTarget] = createResource(
-		createCombinedResource([targets, currentTargetKey]),
-		([targets, key]) => key || Object.keys(targets)[0],
-	);
+	const { currentExampleIndex, currentExampleParsed, currentExampleTargets, currentTargetKey } =
+		useComponentPlayground();
+	const { targetPropsOverrides, setTargetPropOverride, resetTargetOverrides } =
+		useComponentPlaygroundProps();
 
 	const [propValues] = createChainedResource(
-		createCombinedResource([currentExampleIndex, currentExampleParsed, currentTarget]),
-		([index, parsed, target]) => {
-			const targetProps = viewTargetProps(
-				parsed as TSXView,
-				target as string,
-				([, node]) => node.serialized,
-			);
+		createCombinedResource([currentExampleParsed, currentTargetKey]),
+		([parsed, target]) => {
+			return viewTargetProps(parsed as TSXView, target as string, ([, node]) => node.serialized);
+		},
+	);
+
+	const [propValuesWithOverrides] = createChainedResource(
+		createCombinedResource([currentExampleIndex, currentTargetKey, propValues]),
+		([index, target, values]) => {
 			const overrides = targetPropsOverrides(index as number, target as string);
-			const merged = mergeProps(targetProps, overrides);
+			const merged = mergeProps(values, overrides);
 			return merged;
 		},
 	);
 
 	const handleChangeProp = (name: string, value: unknown) => {
 		const index = currentExampleIndex();
-		const t = targets();
+		const t = currentExampleTargets();
 		const target = currentTargetKey() || Object.keys(t || {})[0];
 		if (index !== undefined && target !== undefined) {
 			setTargetPropOverride(index, target, name, value);
@@ -66,21 +57,34 @@ export const PlaygroundProps: Component<Props> = props => {
 
 	const handleResetProp = (name: string) => handleChangeProp(name, undefined);
 
-	const handleResetTarget = () => {
-		resetTargetOverrides(currentExampleIndex() as number, currentTargetKey() as string);
+	const isResetEnabledForProp = (name: string) => {
+		if (!currentExampleTargets()) {
+			return false;
+		}
+		const originalValues = propValues();
+		const withOverrides = propValuesWithOverrides();
+		if (!withOverrides) {
+			return false;
+		}
+		return withOverrides?.[name] !== originalValues[name];
+	};
+
+	const handleResetTarget = (targetKey: string) => {
+		resetTargetOverrides(currentExampleIndex() as number, targetKey);
 	};
 
 	return (
-		<Surface variant="panel" classList={classList} stretch="height">
+		<Surface tag="section" variant="panel" classList={classList} stretch="height">
 			<Flex direction="column" stretch="height">
 				<Layout padding={['s', 'm']} classList={staticClassList(styles, ['-Header'])}>
 					<PlaygroundPropsHeader
 						component={props.component}
+						targets={currentExampleTargets()}
 						showDocs={showDocs()}
 						onShowDocsChange={setShowDocs}
 						showGroups={showGroups()}
 						onShowGroupsChange={setShowGroups}
-						onResetExample={handleResetTarget}
+						onResetTarget={handleResetTarget}
 					/>
 				</Layout>
 
@@ -91,10 +95,14 @@ export const PlaygroundProps: Component<Props> = props => {
 								component={props.component}
 								showDocs={showDocs()}
 								showGroups={showGroups()}
-								propValues={propValues}
+								propValues={propValuesWithOverrides}
 								onChangeProp={handleChangeProp}
 								propControls={prop => (
-									<PlaygroundPropControls prop={prop} onResetProp={handleResetProp} />
+									<PlaygroundPropControls
+										prop={prop}
+										onResetProp={handleResetProp}
+										resetEnabled={isResetEnabledForProp(prop.name)}
+									/>
 								)}
 							/>
 						</Layout>

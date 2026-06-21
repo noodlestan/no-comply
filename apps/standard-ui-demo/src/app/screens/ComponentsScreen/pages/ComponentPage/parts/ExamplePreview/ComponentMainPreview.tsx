@@ -5,8 +5,8 @@ import { type Component, type Resource, Show, Suspense, createResource } from 's
 
 import type { CompilerAPI } from '../../../../../../../modules/TSXCompilerModule';
 import { Markdown } from '../../../../../../content';
-import { RenderExample } from '../../../../components/RenderExample';
-import { useComponentExamples } from '../../../../providers';
+import { RenderExample } from '../../../../components';
+import { useComponentPlayground } from '../../../../providers';
 
 import styles from './ComponentMainPreview.module.scss';
 
@@ -27,7 +27,7 @@ export const Title: Component<TitleProps> = props => {
 };
 
 export const ComponentMainPreview: Component<Props> = props => {
-	const { currentExample, currentExampleParsed } = useComponentExamples();
+	const { currentExample, currentExampleParsed } = useComponentPlayground();
 
 	const classList = staticClassList(styles, ['ComponentMainPreview']);
 

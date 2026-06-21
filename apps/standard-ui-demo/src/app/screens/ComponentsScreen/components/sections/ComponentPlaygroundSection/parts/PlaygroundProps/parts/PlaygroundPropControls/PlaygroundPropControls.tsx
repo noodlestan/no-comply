@@ -5,10 +5,9 @@ import { PlaygroundResetButton } from '../../../PlaygroundResetButton';
 
 type Props = {
 	prop: ComponentProp;
+	resetEnabled: boolean;
 	onResetProp: (name: string) => void;
 };
-
-// WIP conditionally show reset button
 
 export const PlaygroundPropControls: Component<Props> = props => {
 	const handleResetPropClick = () => props.onResetProp(props.prop.name);
@@ -16,6 +15,7 @@ export const PlaygroundPropControls: Component<Props> = props => {
 	return (
 		<PlaygroundResetButton
 			iconOnly
+			disabled={!props.resetEnabled}
 			label="Reset prop to value from example"
 			onPress={handleResetPropClick}
 		/>

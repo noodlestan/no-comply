@@ -1,8 +1,7 @@
-import { extractTSXView } from '@purrtrait/view-tsx';
-import type { TSXView } from '@purrtrait/view-tsx';
+import { type TSXView, extractTSXView } from '@purrtrait/view-tsx';
 
 import { FORCED_DELAY } from '../../../../../../env';
-import type { ComponentExampleData } from '../types';
+import type { ComponentExampleData } from '../../ComponentExamplesProvider';
 
 function delay(ms: number) {
 	return new Promise(resolve => setTimeout(resolve, ms));

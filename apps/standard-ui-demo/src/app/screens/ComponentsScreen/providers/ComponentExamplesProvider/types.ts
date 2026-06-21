@@ -1,5 +1,3 @@
-import type { TSXView } from '@purrtrait/view-tsx';
-
 export type ComponentExampleData = {
 	title?: string;
 	description?: string;
@@ -10,9 +8,3 @@ export type ComponentExampleData = {
 export type ComponentDocsData = {
 	examples: ComponentExampleData[];
 };
-
-export type ParsedExample = TSXView;
-
-export type TargetPropsOverrides = Record<string, unknown>;
-export type ExamplePropsOverrides = Record<string, TargetPropsOverrides>;
-export type PropOverridesStore = Record<number, ExamplePropsOverrides>;

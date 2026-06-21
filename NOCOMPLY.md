@@ -12,6 +12,10 @@ check also for typescript
 
 Good oportunity to test propagation of errors through resources
 
+### Compile examples with function body
+
+### Sepecialised prop unputs
+
 # Purrtrait Client TSX
 
 // WIP handle render children prop here
@@ -187,7 +191,7 @@ https://css-tricks.com/almanac/rules/s/scope/
 
 ### add FlexChildMixin and make Layout compose it
 
-use here apps/standard-ui-demo/src/app/screens/ComponentsScreen/components/sections/ComponentPlaygroundSection/ComponentPlaygroundSection.tsx
+use here apps/standard-ui-demo/src/app/ ... PlaygroundExample + PlaygroundProps
 props:
 
 - flex (move it from Flex)

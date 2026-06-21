@@ -9,7 +9,7 @@ const data = {
 			{
 				title: 'Basic usage',
 				// description: 'description',
-				tsx: `<Flex padding="l" direction="row">
+				tsx: `<Flex padding="l" direction="row" wrap>
 					<Button tsx-view-target intent="negative" onPress={() => console.log("!")}>Close</Button>
 				</Flex>`,
 			},
@@ -17,7 +17,7 @@ const data = {
 				title: 'All sizes',
 				// description: 'description',
 				lockedProps: ['size'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<Button tsx-view-target size="small">Small</Button>
 					<Button tsx-view-target size="normal">Normal</Button>
 					<Button tsx-view-target size="large">Large</Button>
@@ -27,7 +27,7 @@ const data = {
 				title: 'All variants',
 				// description: 'description',
 				lockedProps: ['variant'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<Button tsx-view-target variant="primary">Primary</Button>
 					<Button tsx-view-target variant="secondary">Secondary</Button>
 					<Button tsx-view-target variant="plain">Plain</Button>
@@ -37,7 +37,7 @@ const data = {
 				title: 'All intents',
 				// description: 'description',
 				lockedProps: ['intent'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<Button tsx-view-target intent="positive">Positive</Button>
 					<Button tsx-view-target intent="negative">Negative</Button>
 					<Button tsx-view-target intent="neutral">Neutral</Button>
@@ -50,7 +50,7 @@ const data = {
 			{
 				title: 'Basic usage',
 				// description: 'description',
-				tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1}>
+				tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1} wrap>
 					<CloseButton tsx-view-target intent="negative" onPress={() => console.log("!")} label="Close"/>
 				</Flex>`,
 			},
@@ -64,7 +64,7 @@ const data = {
 				title: 'All sizes',
 				// description: 'description',
 				lockedProps: ['size'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<CloseButton tsx-view-target size="small" label="Small"/>
 					<CloseButton tsx-view-target size="normal" label="Normal"/>
 					<CloseButton tsx-view-target size="large" label="Large"/>
@@ -74,7 +74,7 @@ const data = {
 				title: 'All intents',
 				// description: 'description',
 				lockedProps: ['intent'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<CloseButton tsx-view-target intent="positive" label="Positive"/>
 					<CloseButton tsx-view-target intent="negative" label="Negative"/>
 					<CloseButton tsx-view-target intent="neutral" label="Neutral"/>
@@ -87,7 +87,7 @@ const data = {
 			{
 				title: 'Basic usage',
 				// description: 'description',
-				tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1}>
+				tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1} wrap>
 					<ExpandButton tsx-view-target
 						expanded={false}
 						labels={{on: 'Show', off: 'Hide'}}
@@ -122,7 +122,7 @@ const data = {
 				title: 'All sizes',
 				// description: 'description',
 				lockedProps: ['size'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<CloseButton tsx-view-target size="small" label="Small"/>
 					<CloseButton tsx-view-target size="normal" label="Normal"/>
 					<CloseButton tsx-view-target size="large" label="Large"/>
@@ -132,7 +132,7 @@ const data = {
 				title: 'All intents',
 				// description: 'description',
 				lockedProps: ['intent'],
-				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
 					<CloseButton tsx-view-target intent="positive" label="Positive"/>
 					<CloseButton tsx-view-target intent="negative" label="Negative"/>
 					<CloseButton tsx-view-target intent="neutral" label="Neutral"/>
@@ -157,7 +157,7 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 			{
 				title: 'Preview (Placeholder)',
 				description: 'WIP - This is just a placehoder example',
-				tsx: `<Flex padding="l" direction="row">
+				tsx: `<Flex padding="l" direction="row" wrap>
 					<${component} tsx-view-target>Maybe</${component}>
 				</Flex>`,
 			},
