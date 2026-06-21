@@ -51,3 +51,5 @@ export type FormTagName = 'form' | 'div';
 export type MenuTagName = 'div';
 
 export type DisplayTagName = TextTagName;
+
+export type VisuallyHiddenTagName = RegionTagName | TextTagName;

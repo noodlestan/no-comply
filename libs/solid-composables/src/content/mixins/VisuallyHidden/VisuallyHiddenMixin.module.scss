@@ -1,0 +1,7 @@
+@use '@no-comply/solid-accessibility/scss/mixins/visibility.scss' as *;
+
+@layer composables {
+  .VisuallyHidden {
+    @include visually-hidden;
+  }
+}
