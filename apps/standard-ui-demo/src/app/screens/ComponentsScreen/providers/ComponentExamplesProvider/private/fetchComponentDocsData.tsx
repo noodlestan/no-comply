@@ -1,3 +1,4 @@
+import { FORCED_DELAY } from '../../../../../../env';
 import type { ComponentDocsData } from '../types';
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -143,7 +144,7 @@ const data = {
 
 export const fetchComponentDocsData = async (component: string): Promise<ComponentDocsData> => {
 	console.info('FETCHING ', component);
-	await delay(3000);
+	await delay(FORCED_DELAY);
 	console.info('FETCHED ', component);
 
 	const componentData = data[component as keyof typeof data];
