@@ -1,4 +1,3 @@
-import { VisuallyHidden } from '@no-comply/solid-composables';
 import { Display, Flex, Icon, Link, Text } from '@no-comply/standard-ui';
 import BookOpenIcon from 'lucide-solid/icons/book-open';
 import { type Component, Show } from 'solid-js';
@@ -15,20 +14,25 @@ export const ComponentPlaygroundHeader: Component = () => {
 	const handleResetresetPlaygroundClick = () => resetAllOverrides();
 
 	// WIP conditionally show reset button
-	// WIP make label sr only
 
 	return (
-		<Flex direction="row" align="baseline" justify="between" gap="l" wrap>
-			<Flex direction="row" align="baseline" gap="l" wrap>
+		<Flex direction="row" justify="between" gap="l" wrap>
+			<Flex direction="row" align="end" gap="l" wrap>
 				<Display id={$ID_PLAYGROUND_TITLE} level={3}>
-					Playground: <VisuallyHidden tag="span">{component().name}</VisuallyHidden>
+					Playground: {component().name}
 				</Display>
 
-				<Link href={routeFor.entity(component())}>
-					<Flex direction="row" gap="xs" align="center" tag="span">
-						<Icon icon={BookOpenIcon} size="small" /> <Text variant="small">API</Text>
-					</Flex>
+				<Link aria-hidden href={routeFor.component(component().name)}>
+					Preview
 				</Link>
+
+				<Flex direction="row" align="end" gap="l" wrap>
+					<Link href={routeFor.entity(component())}>
+						<Flex direction="row" gap="xs" align="center" tag="span">
+							<Icon icon={BookOpenIcon} size="small" /> <Text variant="small">API</Text>
+						</Flex>
+					</Link>
+				</Flex>
 			</Flex>
 			<Show when={!exampleList.loading && Number(exampleList()?.length) > 1}>
 				<Flex direction="row" align="end" gap="m">
