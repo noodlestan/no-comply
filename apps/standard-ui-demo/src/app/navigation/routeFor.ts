@@ -7,6 +7,7 @@ export const routeFor = {
 	showcase: (screen: string = ''): string => url(`/app/${screen}`),
 	feature: (name: string): string => url(`/features/${name}`),
 	component: (name: string): string => url(`/features/components/${name}`),
+	playground: (name: string): string => url(`/features/components/${name}/playground`),
 	resources: (name: string = ''): string => url(`/resources/${name}`),
 	api: (path?: string): string => (path ? url(`/api/${path}`) : url(`/api`)),
 	package: (pkg: string): string => url(`/api/${pkg}`),

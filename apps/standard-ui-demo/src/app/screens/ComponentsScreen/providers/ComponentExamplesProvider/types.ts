@@ -8,7 +8,6 @@ export type ComponentExampleData = {
 };
 
 export type ComponentDocsData = {
-	preview: ComponentExampleData;
 	examples: ComponentExampleData[];
 };
 

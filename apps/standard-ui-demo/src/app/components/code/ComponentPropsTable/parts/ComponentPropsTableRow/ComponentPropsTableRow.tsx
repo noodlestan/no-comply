@@ -1,5 +1,6 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
+import { VisuallyHidden } from '@no-comply/solid-composables';
 import { Flex, Label, Link, Text, TextInput } from '@no-comply/standard-ui';
 import { CodeBlock } from '@purrtrait/solid-code';
 import { type Component, type JSX, type Resource, Show } from 'solid-js';
@@ -26,13 +27,6 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 
 	const propValue = () => props.propValues()?.[props.prop.name];
 
-	const defaultValue = () => {
-		const tag = props.prop.node.tags?.['default'];
-		if (tag) {
-			return typeof tag === 'string' ? tag : tag;
-		}
-	};
-
 	const typeRef = () => {
 		const _source = props.prop.node.type._source;
 		return _source?.ref || '';
@@ -46,7 +40,12 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 
 	const handleValueChange = (value: unknown) => props.onChangeProp?.(props.prop.name, value);
 
-	// WIP make label sr only
+	const defaultValue = () => {
+		const tag = props.prop.node.tags?.['default'];
+		if (tag) {
+			return typeof tag === 'string' ? tag : tag;
+		}
+	};
 
 	return (
 		<Flex direction="column" gap="m">
@@ -54,27 +53,31 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 				<Flex direction="column" flex={1}>
 					<Text variant="large">{props.prop.name}</Text>
 				</Flex>
-				<div>{props.prop.node.optional ? 'optional' : 'mandatory'}</div>
-				<Show when={defaultValue()}>
-					<Text variant="small">(default: {defaultValue()})</Text>
-				</Show>
-			</Flex>
-			<Flex direction="row" align="center" justify="between" gap="s">
-				<Flex direction="row" align="center" gap="s">
-					<Label for={id()}>{label()}</Label>
-					<TextInput
-						id={id()}
-						value={String(propValue())}
-						disabled={props.propValues.loading}
-						onValueChange={handleValueChange}
-					/>
+				<Flex direction="row" align="center" justify="between" gap="s">
+					<Flex direction="row" align="center" gap="s">
+						<VisuallyHidden>
+							<Label for={id()}>{label()}</Label>
+						</VisuallyHidden>
+						<TextInput
+							id={id()}
+							value={String(propValue())}
+							disabled={props.propValues.loading}
+							onValueChange={handleValueChange}
+						/>
+					</Flex>
+					{props.propControls?.(props.prop)}
 				</Flex>
-				{props.propControls?.(props.prop)}
 			</Flex>
 			<Show when={props.showDocs}>
 				<Flex direction="row" align="baseline" gap="s">
 					<Text>type:</Text>
 					<CodeBlock lang="ts" nodes={[props.prop.node.type as object]} context={props.component} />
+				</Flex>
+				<Flex direction="row" align="baseline" gap="s">
+					<div>{props.prop.node.optional ? 'optional' : 'mandatory'}</div>
+					<Show when={defaultValue()}>
+						<Text variant="small">(default: {defaultValue()})</Text>
+					</Show>
 				</Flex>
 			</Show>
 			<Show when={props.showDocs && !props.showGroups && typeRef()}>

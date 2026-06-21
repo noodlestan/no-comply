@@ -1,27 +1,22 @@
-import { Flex } from '@no-comply/standard-ui';
-import { type Component, Show } from 'solid-js';
+import { Flex, Layout } from '@no-comply/standard-ui';
+import { type Component } from 'solid-js';
 
-import { DocsSection } from '../../../../../content';
 import { useComponentExamples } from '../../../providers';
 
 import { ComponentPlaygroundHeader, PlaygroundExample, PlaygroundProps } from './parts';
 
 export const ComponentPlaygroundSection: Component = () => {
-	const { component, exampleList } = useComponentExamples();
+	const { component } = useComponentExamples();
 
 	return (
-		<DocsSection title="Playground">
-			<Show when={!exampleList.loading && Number(exampleList()?.length) > 1}>
+		<Layout padding={['l', 'xl', 's']} stretch="full" uncontained>
+			<Flex tag="section" direction="column" gap="m" stretch="full">
 				<ComponentPlaygroundHeader />
-			</Show>
-			<Flex direction={{ _: 'column-reverse', l: 'row' }} gap="l" stretch="width">
-				<Flex stretch="width">
+				<Flex direction={{ _: 'column', l: 'row' }} gap="s" stretch="full">
+					<PlaygroundExample />
 					<PlaygroundProps component={component()} />
 				</Flex>
-				<Flex stretch="width">
-					<PlaygroundExample />
-				</Flex>
 			</Flex>
-		</DocsSection>
+		</Layout>
 	);
 };

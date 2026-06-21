@@ -1,12 +1,13 @@
 import { createChainedResource, staticClassList } from '@no-comply/solid-primitives';
-import { Display, Divider, Flex } from '@no-comply/standard-ui';
+import { Display, Divider, Flex, Link } from '@no-comply/standard-ui';
 import type { TSXView } from '@purrtrait/view-tsx';
 import { type Component, type Resource, Show, Suspense, createResource } from 'solid-js';
 
-import type { CompilerAPI } from '../../../../../../../../modules/TSXCompilerModule';
-import { Markdown } from '../../../../../../../content';
-import { useComponentExamples } from '../../../../../providers';
-import { RenderExample } from '../../../../RenderExample';
+import type { CompilerAPI } from '../../../../../../../modules/TSXCompilerModule';
+import { Markdown } from '../../../../../../content';
+import { routeFor } from '../../../../../../navigation';
+import { RenderExample } from '../../../../components/RenderExample';
+import { useComponentExamples } from '../../../../providers';
 
 import styles from './ComponentMainPreview.module.scss';
 
@@ -26,20 +27,22 @@ export const Title: Component<TitleProps> = props => {
 	return <>zzzz{title()}zzz</>;
 };
 
+// WIP loading spinners and text placeholders
+
 export const ComponentMainPreview: Component<Props> = props => {
-	const { primaryExample, primaryExampleParsed } = useComponentExamples();
+	const { component, currentExample, currentExampleParsed } = useComponentExamples();
 
 	const classList = staticClassList(styles, ['ComponentMainPreview']);
 
 	const [compiler] = createResource(async () => {
-		const compilerModule = await import('../../../../../../../../modules/TSXCompilerModule');
+		const compilerModule = await import('../../../../../../../modules/TSXCompilerModule');
 		return compilerModule.createTSXCompilerModule().createCompiler();
 	});
 
-	const [title] = createChainedResource(primaryExample, e => e.title || props.defaultTitle, {
+	const [title] = createChainedResource(currentExample, e => e.title || props.defaultTitle, {
 		name: 'title',
 	});
-	const [description] = createChainedResource(primaryExample, e => e.description, {
+	const [description] = createChainedResource(currentExample, e => e.description, {
 		name: 'description',
 	});
 
@@ -59,9 +62,12 @@ export const ComponentMainPreview: Component<Props> = props => {
 			</Suspense>
 			<Divider />
 			<Suspense fallback={'LOADING...'}>
-				<Show when={primaryExampleParsed() && compiler()}>
+				<Show when={currentExampleParsed() && compiler()}>
 					<RenderExample
-						parsed={primaryExampleParsed() as TSXView}
+						controls={() => (
+							<Link href={routeFor.playground(component().name)}>Open in playground</Link>
+						)}
+						parsed={currentExampleParsed() as TSXView}
 						compiler={compiler() as CompilerAPI}
 					/>
 				</Show>

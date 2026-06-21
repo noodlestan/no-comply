@@ -1,12 +1,15 @@
 /* eslint-disable dot-notation */
+import { staticClassList } from '@no-comply/solid-primitives';
+import { Flex, Layout } from '@no-comply/standard-ui';
 import { evaluateValue } from '@purrtrait/client-tsx';
 import { type TSXView, viewPropsByTarget } from '@purrtrait/view-tsx';
-import { type Component, mergeProps } from 'solid-js';
+import { type Component, type JSX, Show, mergeProps } from 'solid-js';
 
 import type { CompilerAPI } from '../../../../../modules/TSXCompilerModule';
 import { JSXRenderer } from '../../../../components';
 import { type ExamplePropsOverrides } from '../../providers';
 
+import styles from './RenderExample.module.scss';
 import { STATIC_SCOPE } from './constants';
 import { TSXViewTargetPlaceholder } from './parts';
 
@@ -14,6 +17,7 @@ type Props = {
 	compiler: CompilerAPI;
 	parsed: TSXView;
 	overrides?: ExamplePropsOverrides;
+	controls?: () => JSX.Element;
 };
 
 export const RenderExample: Component<Props> = props => {
@@ -51,11 +55,16 @@ export const RenderExample: Component<Props> = props => {
 	});
 
 	return (
-		<JSXRenderer
-			compiler={props.compiler}
-			source={source()}
-			scope={scope()}
-			wrapperProps={wrapperProps()}
-		/>
+		<Layout stretch="full" classList={staticClassList(styles, 'RenderExample')}>
+			<Show when={props.controls}>
+				<Flex classList={staticClassList(styles, '-Controls')}>{props.controls?.()}</Flex>
+			</Show>
+			<JSXRenderer
+				compiler={props.compiler}
+				source={source()}
+				scope={scope()}
+				wrapperProps={wrapperProps()}
+			/>
+		</Layout>
 	);
 };

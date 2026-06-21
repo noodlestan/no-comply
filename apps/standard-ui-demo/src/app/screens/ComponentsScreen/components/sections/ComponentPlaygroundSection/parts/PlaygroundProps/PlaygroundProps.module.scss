@@ -2,13 +2,7 @@
 
 @layer app {
   .PlaygroundProps {
-    height: 40vh;
-  }
-
-  @media screen and (min-width: 1200px) {
-    .PlaygroundProps {
-      height: 90vh;
-    }
+    flex: 50%;
   }
 
   .-Header {

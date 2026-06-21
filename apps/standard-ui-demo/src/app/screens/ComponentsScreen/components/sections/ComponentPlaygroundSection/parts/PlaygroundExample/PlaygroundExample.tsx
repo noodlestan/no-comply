@@ -1,3 +1,4 @@
+import { VisuallyHidden } from '@no-comply/solid-composables';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Divider, Flex, Scrollable, Surface } from '@no-comply/standard-ui';
 import { type Component, Show, Suspense } from 'solid-js';
@@ -7,7 +8,7 @@ import { useComponentExamples } from '../../../../../providers';
 import { PlaygroundResetButton } from '../PlaygroundResetButton';
 
 import styles from './PlaygroundExample.module.scss';
-import { ComponentPlaygroundPreview } from './parts';
+import { ComponentPlaygroundPreview, PlaygroundExampleSelect } from './parts';
 
 export const PlaygroundExample: Component = () => {
 	const { currentExample, currentExampleParsed, currentExampleIndex, resetExampleOverrides } =
@@ -25,15 +26,19 @@ export const PlaygroundExample: Component = () => {
 	return (
 		<Surface variant="panel" classList={classList}>
 			<Flex direction="column" stretch="height">
+				<VisuallyHidden>
+					<Display level={4}>{title()}</Display>
+				</VisuallyHidden>
 				<Suspense fallback={'LOADING...'}>
 					<Show when={title()}>
 						<Flex
 							direction="row"
 							justify="between"
+							align="end"
 							padding={['s', 'm']}
 							classList={staticClassList(styles, ['-Header'])}
 						>
-							<Display level={4}>{title()}</Display>
+							<PlaygroundExampleSelect />
 							<PlaygroundResetButton label="Reset example" onPress={handleResetExampleClick} />
 						</Flex>
 					</Show>

@@ -80,7 +80,7 @@ export const DocsItem: ParentComponent<DocsItemProps> = props => {
 	const $ = combineProps($others, $root);
 
 	return (
-		<Flex direction="column" gap="m" aria-labelledby={labelId()} {...$}>
+		<Flex tag="section" direction="column" gap="m" aria-labelledby={labelId()} {...$}>
 			<Show when={locals.title}>
 				<Display level={props.level ?? 4} id={labelId()}>
 					{locals.title}

@@ -61,7 +61,7 @@ export const ComponentPropsTable: Component<Props> = props => {
 	const propsBySourceReversed = createMemo(() => Object.values(propsBySource()).reverse());
 
 	return (
-		<Flex gap="l" direction="column">
+		<Flex gap="m" direction="column">
 			<Show when={props.showDocs && resolveComponentPropsJsDocData(props.component)}>
 				<CodeDocDescription node={resolveComponentPropsJsDocData(props.component) as JsDocData} />
 			</Show>
@@ -70,7 +70,7 @@ export const ComponentPropsTable: Component<Props> = props => {
 					<>
 						<ComponentPropsTableGroup {...props} group={group} />
 						<Show when={ix() < propsBySourceReversed().length - 1}>
-							<Divider variant={props.showGroups ? 'base' : 'strong'} />
+							<Divider variant={props.showGroups ? 'base' : 'muted'} />
 						</Show>
 					</>
 				)}

@@ -1,21 +1,15 @@
 /* eslint-disable dot-notation */
-import {
-	type ComponentEntityData,
-	isNoComplyComponent,
-	resolveComponentDeclaration,
-} from '@no-comply/meta';
+import { type ComponentEntityData, isNoComplyComponent } from '@no-comply/meta';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
 import { useMeta } from '../../../../../providers';
-import { CodeDocDescription } from '../../../../components';
-import { ComponentMeta, DocsItem } from '../../../../content';
-import { BasePage, NotFoundPage } from '../../../../templates';
+import { EmptyPage, NotFoundPage } from '../../../../templates';
+import { ComponentPlaygroundSection } from '../../components';
+import { $ID_PLAYGROUND_TITLE } from '../../constants';
 import { ComponentExamplesProvider } from '../../providers';
 
-import { ComponentMainPreview } from './parts';
-
-export const ComponentPage: Component = () => {
+export const ComponentPlaygroundPage: Component = () => {
 	const params = useParams();
 
 	// eslint-disable-next-line dot-notation
@@ -36,19 +30,11 @@ export const ComponentPage: Component = () => {
 				</NotFoundPage>
 			</Show>
 			<Show when={maybeData()}>
-				<BasePage
-					title={maybeData()?.name}
-					undertitle={<ComponentMeta component={maybeData()} />}
-					data-component-page
-				>
+				<EmptyPage aria-labelledby={$ID_PLAYGROUND_TITLE} data-component-page>
 					<ComponentExamplesProvider component={maybeData()}>
-						<ComponentMainPreview defaultTitle="Preview" />
-						<DocsItem gap="l">
-							<CodeDocDescription node={maybeData()} />
-							<CodeDocDescription node={resolveComponentDeclaration(maybeData())} />
-						</DocsItem>
+						<ComponentPlaygroundSection />
 					</ComponentExamplesProvider>
-				</BasePage>
+				</EmptyPage>
 			</Show>
 		</>
 	);

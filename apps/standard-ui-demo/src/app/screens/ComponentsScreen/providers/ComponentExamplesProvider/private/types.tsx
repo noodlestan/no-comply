@@ -7,8 +7,6 @@ import type { ComponentExampleData, ExamplePropsOverrides, TargetPropsOverrides 
 export type ComponentExamplesContextValue = {
 	component: Accessor<ComponentEntityData>;
 	exampleList: Resource<ComponentExampleData[]>;
-	primaryExample: Resource<ComponentExampleData>;
-	primaryExampleParsed: Resource<TSXView>;
 	currentExample: Resource<ComponentExampleData>;
 	currentExampleParsed: Resource<TSXView>;
 	currentExampleIndex: Resource<number>;

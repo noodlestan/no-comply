@@ -4,13 +4,14 @@ const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const data = {
 	Button: {
-		preview: {
-			// description: 'description',
-			tsx: `<Flex padding="l" direction="row">
+		examples: [
+			{
+				title: 'Basic usage',
+				// description: 'description',
+				tsx: `<Flex padding="l" direction="row">
 					<Button tsx-view-target intent="negative" onPress={() => console.log("!")}>Close</Button>
 				</Flex>`,
-		},
-		examples: [
+			},
 			{
 				title: 'All sizes',
 				// description: 'description',
@@ -44,18 +45,77 @@ const data = {
 		],
 	},
 	CloseButton: {
-		preview: {
-			// description: 'description',
-			tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1}>
+		examples: [
+			{
+				title: 'Basic usage',
+				// description: 'description',
+				tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1}>
 					<CloseButton tsx-view-target intent="negative" onPress={() => console.log("!")} label="Close"/>
 				</Flex>`,
-		},
-		examples: [
+			},
 			{
 				title: 'Label',
 				description: 'label is mandatory on close buttons',
 				lockedProps: ['size'],
 				tsx: `<CloseButton tsx-view-target size="small" label="Small"/>`,
+			},
+			{
+				title: 'All sizes',
+				// description: 'description',
+				lockedProps: ['size'],
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+					<CloseButton tsx-view-target size="small" label="Small"/>
+					<CloseButton tsx-view-target size="normal" label="Normal"/>
+					<CloseButton tsx-view-target size="large" label="Large"/>
+				</Flex>`,
+			},
+			{
+				title: 'All intents',
+				// description: 'description',
+				lockedProps: ['intent'],
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center">
+					<CloseButton tsx-view-target intent="positive" label="Positive"/>
+					<CloseButton tsx-view-target intent="negative" label="Negative"/>
+					<CloseButton tsx-view-target intent="neutral" label="Neutral"/>
+				</Flex>`,
+			},
+		],
+	},
+	ExpandButton: {
+		examples: [
+			{
+				title: 'Basic usage',
+				// description: 'description',
+				tsx: `<Flex padding="l" direction="row" align="center" justify="center" flex={1}>
+					<ExpandButton tsx-view-target
+						expanded={false}
+						labels={{on: 'Show', off: 'Hide'}}
+						onPress={() => console.log('Pressed')}
+						controls="#sidebar"
+						size="large"
+						variant="primary"
+					/>
+					<ExpandButton tsx-view-target
+						expanded={true}
+						labels={{on: 'Show', off: 'Hide'}}
+						onPress={() => console.log('Pressed')}
+						controls="#sidebar"
+						intent="negative"
+					/>
+				</Flex>`,
+			},
+			{
+				title: 'Label',
+				description: 'label is mandatory on close buttons',
+				lockedProps: ['size'],
+				tsx: `<ExpandButton tsx-view-target
+						expanded={false}
+						labels={{on: 'Show', off: 'Hide'}}
+						onPress={() => console.log('Pressed')}
+						controls="#sidebar"
+						size="large"
+						variant="primary"
+					/>`,
 			},
 			{
 				title: 'All sizes',
@@ -92,13 +152,14 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 		return componentData;
 	}
 	return {
-		preview: {
-			title: 'Preview (Placeholder)',
-			description: 'WIP - This is just a placehoder example',
-			tsx: `<Flex padding="l" direction="row">
+		examples: [
+			{
+				title: 'Preview (Placeholder)',
+				description: 'WIP - This is just a placehoder example',
+				tsx: `<Flex padding="l" direction="row">
 					<${component} tsx-view-target>Maybe</${component}>
 				</Flex>`,
-		},
-		examples: [],
+			},
+		],
 	};
 };

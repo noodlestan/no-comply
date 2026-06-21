@@ -26,13 +26,11 @@ export const createComponentExamplesContextValue = (
 
 	const [componentsDocsData] = createResource(() => componentData().name, fetchComponentDocsData);
 	const [exampleList] = createChainedResource(componentsDocsData, data => data.examples);
-	const [primaryExample] = createChainedResource(componentsDocsData, data => data.preview);
-	const [primaryExampleParsed] = createChainedResource(primaryExample, data => parseExample(data));
 
 	const [currentExample] = createChainedResource(
-		createCombinedResource([selectedExample, exampleList, primaryExample]),
-		([current, list, primary]) => {
-			const c = current ?? list?.[0] ?? primary;
+		createCombinedResource([selectedExample, exampleList]),
+		([current, list]) => {
+			const c = current ?? list?.[0];
 			if (!c) {
 				throw new Error(`No examples found for ${componentData.name}`);
 			}
@@ -117,8 +115,6 @@ export const createComponentExamplesContextValue = (
 	return {
 		component: componentData,
 		exampleList,
-		primaryExample,
-		primaryExampleParsed,
 		currentExample,
 		currentExampleParsed,
 		currentExampleIndex,

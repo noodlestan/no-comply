@@ -1,4 +1,4 @@
-import { Select } from '@no-comply/standard-ui';
+import { Flex, Label, Select } from '@no-comply/standard-ui';
 import { type Component, For } from 'solid-js';
 
 import { type ComponentExampleData, useComponentExamples } from '../../../../../../../providers';
@@ -22,17 +22,20 @@ export const PlaygroundExampleSelect: Component = () => {
 	};
 
 	return (
-		<Select
-			size="m"
-			length="m"
-			onValueChange={handleValueChange}
-			value={currentExample()?.title}
-			disabled={exampleList.loading}
-			placeholder={placeholder()}
-		>
-			<For each={exampleList()}>
-				{example => <option selected={isSelected(example)}>{example.title}</option>}
-			</For>
-		</Select>
+		<Flex direction="column" align="start" gap="xs">
+			<Label variant="small">Select example</Label>
+			<Select
+				size="m"
+				length="m"
+				onValueChange={handleValueChange}
+				value={currentExample()?.title}
+				disabled={exampleList.loading}
+				placeholder={placeholder()}
+			>
+				<For each={exampleList()}>
+					{example => <option selected={isSelected(example)}>{example.title}</option>}
+				</For>
+			</Select>
+		</Flex>
 	);
 };

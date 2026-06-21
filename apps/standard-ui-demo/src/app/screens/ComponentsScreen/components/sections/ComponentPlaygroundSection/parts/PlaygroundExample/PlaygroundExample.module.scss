@@ -1,15 +1,7 @@
-@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
-
 @layer app {
   .PlaygroundExample {
     display: block;
-    height: 40vh;
-  }
-
-  @media screen and (min-width: 1200px) {
-    .PlaygroundExample {
-      height: 90vh;
-    }
+    flex: 50%;
   }
 
   .-Header {

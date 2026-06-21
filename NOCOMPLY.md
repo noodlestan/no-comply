@@ -182,20 +182,31 @@ https://css-tricks.com/almanac/rules/s/scope/
 
 ## Layouts
 
-- fix: --\_\_flex-flex: NaN;
 - compose flex + grid into standard Surface?
 - Responsive Flex and Grid
+
+### add FlexChildMixin and make Layout compose it
+
+use here apps/standard-ui-demo/src/app/screens/ComponentsScreen/components/sections/ComponentPlaygroundSection/ComponentPlaygroundSection.tsx
+props:
+
+- flex (move it from Flex)
+- fix: flex-flex: NaN;
+
+### remove flex defaults
+
+go through existing components and discover the patterns
+
+- <Column> => column / justify-start / align-start
+- <Stack> => column / justify-start / align-stretch
+- <Row> => row / justify-start / align-start
+- <Bar> => row / justify-between / align-center
+- <Centered stretch row>
+  same for the app
 
 ## OverflowItems
 
 not rendering trigger and content
-
-## Headless to Composable
-
-## remove flex defaults
-
-go through existing components and discover the patterns - <Column> => column / justify-start / align-start - <Stack> => column / justify-start / align-stretch - <Row> => row / justify-start / align-start - <Bar> => row / justify-between / align-center
-same for the app
 
 ## Instrumentation
 

@@ -71,7 +71,7 @@ export const PlaygroundProps: Component<Props> = props => {
 	};
 
 	return (
-		<Surface variant="panel" classList={classList}>
+		<Surface variant="panel" classList={classList} stretch="height">
 			<Flex direction="column" stretch="height">
 				<Layout padding={['s', 'm']} classList={staticClassList(styles, ['-Header'])}>
 					<PlaygroundPropsHeader
@@ -84,24 +84,22 @@ export const PlaygroundProps: Component<Props> = props => {
 					/>
 				</Layout>
 
-				<Flex overflow="hidden">
-					<Surface variant="page" stretch="height">
-						<Scrollable y>
-							<Layout padding={['l', 'none', 'm', 'm']}>
-								<ComponentPropsTable
-									component={props.component}
-									showDocs={showDocs()}
-									showGroups={showGroups()}
-									propValues={propValues}
-									onChangeProp={handleChangeProp}
-									propControls={prop => (
-										<PlaygroundPropControls prop={prop} onResetProp={handleResetProp} />
-									)}
-								/>
-							</Layout>
-						</Scrollable>
-					</Surface>
-				</Flex>
+				<Surface variant="page" stretch="height">
+					<Scrollable y>
+						<Layout padding={['l', 'none', 'm', 'm']}>
+							<ComponentPropsTable
+								component={props.component}
+								showDocs={showDocs()}
+								showGroups={showGroups()}
+								propValues={propValues}
+								onChangeProp={handleChangeProp}
+								propControls={prop => (
+									<PlaygroundPropControls prop={prop} onResetProp={handleResetProp} />
+								)}
+							/>
+						</Layout>
+					</Scrollable>
+				</Surface>
 			</Flex>
 		</Surface>
 	);
