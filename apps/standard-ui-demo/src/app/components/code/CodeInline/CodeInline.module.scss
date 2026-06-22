@@ -1,0 +1,14 @@
+@layer app {
+  .CodeInline {
+    border: blue;
+    pre {
+      border: red;
+      margin: 0;
+      padding: 0;
+      white-space: normal;
+      overflow: auto;
+      font-family: var(--data-base-family);
+      font-size: var(--data-size-normal-size);
+    }
+  }
+}

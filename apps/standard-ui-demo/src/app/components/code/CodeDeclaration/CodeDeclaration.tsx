@@ -4,20 +4,21 @@ import { createIconValue } from '@no-comply/solid-contexts';
 import { createClassList } from '@no-comply/solid-primitives';
 import { Flex, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
 import {
+	PurrceptionLanguageId,
 	type TypeDeclaration,
 	createResolveTypeContext,
 	resolveTypeDeclaration,
 } from '@purrception/lang-ts';
-import { CodeBlock } from '@purrtrait/solid-code';
+import { CodeBlock as SolidCodeBlock } from '@purrtrait/solid-code';
 import SplitIcon from 'lucide-solid/icons/trending-up-down';
 import UndoIcon from 'lucide-solid/icons/undo';
 import { type Component, Show, createEffect, createSignal } from 'solid-js';
 
 import { getSymbolEntityMaybe } from '../../../../providers';
 
-import styles from './DeclarationCodeBlock.module.scss';
+import styles from './CodeDeclaration.module.scss';
 
-type DeclarationCodeBlockProps = {
+type CodeDeclarationProps = {
 	type: TypeDeclaration;
 	entity: NoComplyEntityData;
 	resolve?: 'show' | true | false;
@@ -33,8 +34,8 @@ const ICONS: ToggleActionIcons = {
 	off: createIconValue(SplitIcon),
 };
 
-export const DeclarationCodeBlock: Component<DeclarationCodeBlockProps> = props => {
-	const classList = createClassList(styles, () => ['DeclarationCodeBlock']);
+export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
+	const classList = createClassList(styles, () => ['CodeDeclaration']);
 
 	const [resolve, setResolve] = createSignal(false);
 
@@ -66,7 +67,11 @@ export const DeclarationCodeBlock: Component<DeclarationCodeBlockProps> = props 
 					</Flex>
 				</Surface>
 			</Show>
-			<CodeBlock lang="ts" nodes={[node()]} context={props.entity} />
+			<pre data-purrception-lang={PurrceptionLanguageId}>
+				<code>
+					<SolidCodeBlock lang={PurrceptionLanguageId} nodes={[node()]} context={props.entity} />
+				</code>
+			</pre>
 		</Surface>
 	);
 };

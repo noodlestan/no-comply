@@ -1,15 +1,16 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
-import { VisuallyHidden } from '@no-comply/solid-composables';
-import { Flex, Label, Link, Text, TextInput } from '@no-comply/standard-ui';
-import { CodeBlock } from '@purrtrait/solid-code';
+import { Display, Flex, Link, Text, TextInput } from '@no-comply/standard-ui';
+import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, type JSX, type Resource, Show } from 'solid-js';
 
 import { routeFor } from '../../../../../navigation';
 import { CodeDocDescription } from '../../../CodeDocDescription';
+import { CodeInline } from '../../../CodeInline';
 import type { ComponentProp, ComponentPropsGroup } from '../../types';
 
 type Props = {
+	id: string;
 	component: ComponentEntityData;
 	entity?: NoComplyEntityData;
 	prop: ComponentProp;
@@ -51,18 +52,18 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 		<Flex direction="column" gap="m">
 			<Flex direction="row" gap="s" align="baseline">
 				<Flex direction="column" flex={1}>
-					<Text variant="large">{props.prop.name}</Text>
+					<Display id={props.id} level={5} variant="s">
+						{props.prop.name}
+					</Display>
 				</Flex>
 				<Flex direction="row" align="center" justify="between" gap="s">
 					<Flex direction="row" align="center" gap="s">
-						<VisuallyHidden>
-							<Label for={id()}>{label()}</Label>
-						</VisuallyHidden>
 						<TextInput
 							id={id()}
 							value={String(propValue())}
 							disabled={props.propValues.loading}
 							onValueChange={handleValueChange}
+							aria-label={label()}
 						/>
 					</Flex>
 					{props.propControls?.(props.prop)}
@@ -71,7 +72,11 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 			<Show when={props.showDocs}>
 				<Flex direction="row" align="baseline" gap="s">
 					<Text>type:</Text>
-					<CodeBlock lang="ts" nodes={[props.prop.node.type as object]} context={props.component} />
+					<CodeInline
+						lang={PurrceptionLanguageId}
+						nodes={[props.prop.node.type as object]}
+						context={props.component}
+					/>
 				</Flex>
 				<Flex direction="row" align="baseline" gap="s">
 					<div>{props.prop.node.optional ? 'optional' : 'mandatory'}</div>

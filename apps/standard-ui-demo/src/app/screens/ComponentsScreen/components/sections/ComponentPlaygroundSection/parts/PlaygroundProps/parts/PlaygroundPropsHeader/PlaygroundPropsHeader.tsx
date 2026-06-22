@@ -1,5 +1,6 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData } from '@no-comply/meta';
+import { VisuallyHidden } from '@no-comply/solid-composables';
 import { createIconValue } from '@no-comply/solid-contexts';
 import { Display, Flex } from '@no-comply/standard-ui';
 import type { TSXViewTarget } from '@purrtrait/view-tsx';
@@ -7,6 +8,7 @@ import List from 'lucide-solid/icons/list';
 import ListCollapse from 'lucide-solid/icons/list-collapse';
 import { type Component, type Setter, Show } from 'solid-js';
 
+import { $ID_PLAYGROUND_PROPS_TITLE } from '../../../../../../../constants';
 import {
 	useComponentPlayground,
 	useComponentPlaygroundProps,
@@ -41,18 +43,21 @@ export const PlaygroundPropsHeader: Component<Props> = props => {
 	const handleResetTargetClick = () => props.onResetTarget(currentTargetKey() as string);
 
 	return (
-		<Flex direction="row" gap="l" align="center" justify="between" wrap>
+		<Flex tag="header" direction="row" gap="l" align="center" justify="between" wrap>
 			<Flex direction="row" gap="l" align="baseline" justify="start" wrap>
 				<Flex direction="row" gap="m" align="end">
-					<Display level={4}>Props</Display>
+					<Display id={$ID_PLAYGROUND_PROPS_TITLE} level={4}>
+						Props <VisuallyHidden>Editor</VisuallyHidden>
+						<Show when={hasMultitpleTargets()}>
+							<VisuallyHidden>for {currentTargetKey()}</VisuallyHidden>
+						</Show>
+					</Display>
 				</Flex>
-				<Show when={hasMultitpleTargets()}>
-					<Flex direction="row" gap="s" align="center">
-						<PlaygroundTargetSelect />
-					</Flex>
-				</Show>
 			</Flex>
-			<Flex direction="row" gap="l" align="center" justify="between" wrap>
+			<Flex role="toolbar" direction="row" gap="l" align="center" justify="between" wrap>
+				<Show when={hasMultitpleTargets()}>
+					<PlaygroundTargetSelect />
+				</Show>
 				<Flex direction="row" gap="s" align="center" wrap>
 					<ToggleVisibility
 						value={props.showDocs}

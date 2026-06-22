@@ -6,7 +6,7 @@ type Props = {
 	token: CodeLayoutToken;
 };
 
-export const CodeBlockLink: Component<Props> = props => {
+export const CodeLink: Component<Props> = props => {
 	const href = () => props.token.link as string;
 
 	return <Link href={href()}>{props.token.value}</Link>;

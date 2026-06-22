@@ -4,7 +4,7 @@ import { type Component } from 'solid-js';
 
 import { Card } from '../../../../components';
 import { routeFor } from '../../../../navigation';
-import { $ID_SCREEN_TITLE, PageContentsLayout } from '../../../../templates';
+import { PageContentsLayout } from '../../../../templates';
 
 export const WelcomePage: Component = () => {
 	return (
@@ -12,9 +12,7 @@ export const WelcomePage: Component = () => {
 			<Flex gap="2xl">
 				<Flex align="center" direction="row" gap="m">
 					<Icon icon={SquareMousePointerIcon} size="large" aria-hidden />
-					<Display level={1} id={$ID_SCREEN_TITLE}>
-						Standard UI
-					</Display>
+					<Display level={1}>Standard UI</Display>
 				</Flex>
 				<Grid gap="m" columns={2}>
 					<Card>

@@ -1,0 +1,11 @@
+@layer app {
+  .CodeDeclaration {
+    pre {
+      margin: 0;
+      padding: var(--space-pad-1);
+      overflow: auto;
+      font-family: var(--data-base-family);
+      font-size: var(--data-size-normal-size);
+    }
+  }
+}

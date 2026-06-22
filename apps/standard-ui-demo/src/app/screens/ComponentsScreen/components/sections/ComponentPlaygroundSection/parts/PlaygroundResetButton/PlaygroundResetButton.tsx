@@ -24,7 +24,7 @@ export const PlaygroundResetButton: Component<Props> = props => {
 					onPress={props.onPress}
 				/>
 			) : (
-				<Button disabled={props.disabled} onPress={props.onPress}>
+				<Button disabled={props.disabled} aria-hidden="true" onPress={props.onPress}>
 					<Icon icon={ResetIcon} size="small" />
 					{props.label}
 				</Button>

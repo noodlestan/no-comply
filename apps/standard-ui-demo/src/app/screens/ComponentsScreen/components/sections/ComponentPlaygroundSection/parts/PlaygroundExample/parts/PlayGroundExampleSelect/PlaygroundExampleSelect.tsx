@@ -23,8 +23,11 @@ export const PlaygroundExampleSelect: Component = () => {
 
 	return (
 		<Flex direction="column" align="start" gap="xs">
-			<Label variant="small">Select example</Label>
+			<Label for="playground-select-example" variant="small">
+				Select example
+			</Label>
 			<Select
+				id="playground-select-example"
 				size="m"
 				length="m"
 				onValueChange={handleValueChange}

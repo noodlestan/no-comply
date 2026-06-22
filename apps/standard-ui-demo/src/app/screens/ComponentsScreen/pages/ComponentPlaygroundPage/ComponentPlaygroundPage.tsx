@@ -1,12 +1,13 @@
 /* eslint-disable dot-notation */
 import { type ComponentEntityData, isNoComplyComponent } from '@no-comply/meta';
+import { VisuallyHidden } from '@no-comply/solid-composables';
+import { Display } from '@no-comply/standard-ui';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
 import { useMeta } from '../../../../../providers';
 import { EmptyPage, NotFoundPage } from '../../../../templates';
 import { ComponentPlaygroundSection } from '../../components';
-import { $ID_PLAYGROUND_TITLE } from '../../constants';
 import { ComponentExamplesProvider } from '../../providers';
 
 export const ComponentPlaygroundPage: Component = () => {
@@ -30,7 +31,10 @@ export const ComponentPlaygroundPage: Component = () => {
 				</NotFoundPage>
 			</Show>
 			<Show when={maybeData()}>
-				<EmptyPage aria-labelledby={$ID_PLAYGROUND_TITLE} data-component-page>
+				<EmptyPage data-component-page>
+					<VisuallyHidden>
+						<Display level={2}>Playground page</Display>
+					</VisuallyHidden>
 					<ComponentExamplesProvider component={maybeData()}>
 						<ComponentPlaygroundSection />
 					</ComponentExamplesProvider>

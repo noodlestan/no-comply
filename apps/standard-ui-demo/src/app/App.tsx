@@ -13,7 +13,7 @@ import {
 } from '../providers';
 
 import styles from './App.module.scss';
-import { AppSplash, CodeBlockLink } from './components';
+import { AppSplash, CodeLink } from './components';
 import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';
@@ -58,7 +58,7 @@ const Root: ParentComponent = props => {
 		<ErrorBoundaryScreen>
 			<AppServicesProvider>
 				<MetaProvider>
-					<CodeBlockProvider link={CodeBlockLink}>
+					<CodeBlockProvider link={CodeLink}>
 						<UIRootProvider defaultCtxId={APP.id}>
 							<Main>{props.children}</Main>
 							{/* <DebugDrawer /> */}

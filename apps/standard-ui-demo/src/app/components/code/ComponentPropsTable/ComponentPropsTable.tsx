@@ -1,32 +1,23 @@
 import {
-	type ComponentEntityData,
 	type NoComplyEntityData,
 	resolveComponentProps,
 	resolveComponentPropsJsDocData,
 } from '@no-comply/meta';
-import { Divider, Flex } from '@no-comply/standard-ui';
+import { Flex } from '@no-comply/standard-ui';
 import {
 	type JsDocData,
 	type ObjectLiteralTypeNode,
 	createResolveTypeContext,
 	resolveExpression,
 } from '@purrception/lang-ts';
-import { type Component, For, type JSX, type Resource, Show, createMemo } from 'solid-js';
+import { type Component, For, Show, createMemo } from 'solid-js';
 
 import { getSymbolEntityMaybe } from '../../../../providers';
 import { CodeDocDescription } from '../CodeDocDescription';
 
 import { ComponentPropsTableGroup } from './parts';
-import type { ComponentProp, ComponentPropsGroup } from './types';
-
-type Props = {
-	component: ComponentEntityData;
-	showDocs: boolean;
-	showGroups: boolean;
-	propValues: Resource<Record<string, unknown>>;
-	onChangeProp: (name: string, value: unknown) => void;
-	propControls?: (prop: ComponentProp) => JSX.Element;
-};
+import type { Props } from './parts';
+import type { ComponentPropsGroup } from './types';
 
 export const ComponentPropsTable: Component<Props> = props => {
 	const componentProps = () => {
@@ -61,20 +52,24 @@ export const ComponentPropsTable: Component<Props> = props => {
 	const propsBySourceReversed = createMemo(() => Object.values(propsBySource()).reverse());
 
 	return (
-		<Flex gap="m" direction="column">
+		<Flex tag="section" gap="m" direction="column">
 			<Show when={props.showDocs && resolveComponentPropsJsDocData(props.component)}>
-				<CodeDocDescription node={resolveComponentPropsJsDocData(props.component) as JsDocData} />
+				<Flex tag="section" direction="column" aria-label="Props description">
+					<CodeDocDescription node={resolveComponentPropsJsDocData(props.component) as JsDocData} />
+				</Flex>
 			</Show>
-			<For each={propsBySourceReversed()}>
-				{(group, ix) => (
-					<>
-						<ComponentPropsTableGroup {...props} group={group} />
-						<Show when={ix() < propsBySourceReversed().length - 1}>
-							<Divider variant={props.showGroups ? 'base' : 'muted'} />
-						</Show>
-					</>
-				)}
-			</For>
+			<Flex tag="ul" gap="m" direction="column" aria-label="Props list">
+				<For each={propsBySourceReversed()}>
+					{(group, ix) => (
+						<ComponentPropsTableGroup
+							{...props}
+							listLength={propsBySourceReversed().length}
+							group={group}
+							index={ix()}
+						/>
+					)}
+				</For>
+			</Flex>
 		</Flex>
 	);
 };

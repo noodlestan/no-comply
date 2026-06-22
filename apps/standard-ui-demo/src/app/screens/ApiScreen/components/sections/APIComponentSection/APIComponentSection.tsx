@@ -1,8 +1,8 @@
 import { type ComponentEntityData, resolveComponentDeclaration } from '@no-comply/meta';
-import { CodeBlock } from '@purrtrait/solid-code';
+import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component } from 'solid-js';
 
-import { CodeDocDescription } from '../../../../../components';
+import { CodeBlock, CodeDocDescription } from '../../../../../components';
 import { DocsItem, DocsSection } from '../../../../../content';
 
 type Props = {
@@ -15,7 +15,7 @@ export const APIComponentSection: Component<Props> = props => {
 	return (
 		<DocsSection title="Function">
 			<DocsItem gap="m">
-				<CodeBlock lang="ts" nodes={[component()]} context={props.ent} />
+				<CodeBlock lang={PurrceptionLanguageId} nodes={[component()]} context={props.ent} />
 				<CodeDocDescription node={resolveComponentDeclaration(props.ent)} />
 			</DocsItem>
 		</DocsSection>

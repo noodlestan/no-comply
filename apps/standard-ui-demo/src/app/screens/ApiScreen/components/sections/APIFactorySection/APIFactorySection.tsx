@@ -1,8 +1,8 @@
 import { type ComponentEntityData, resolveComponentFactoryDeclaration } from '@no-comply/meta';
-import { CodeBlock } from '@purrtrait/solid-code';
+import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component } from 'solid-js';
 
-import { CodeDocDescription } from '../../../../../components';
+import { CodeBlock, CodeDocDescription } from '../../../../../components';
 import { DocsItem, DocsSection } from '../../../../../content';
 
 type Props = {
@@ -15,7 +15,7 @@ export const APIFactorySection: Component<Props> = props => {
 	return (
 		<DocsSection title="Factory">
 			<DocsItem gap="m">
-				<CodeBlock lang="ts" nodes={[factory()]} context={props.ent} />
+				<CodeBlock lang={PurrceptionLanguageId} nodes={[factory()]} context={props.ent} />
 				<CodeDocDescription node={resolveComponentFactoryDeclaration(props.ent)} />
 			</DocsItem>
 		</DocsSection>

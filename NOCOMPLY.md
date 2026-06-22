@@ -646,3 +646,11 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/text-box-trim
 - Color Calibration
 - CSS Layers
 - Proxy props
+
+# Studio UI
+
+Toolbars
+
+# Solid Data
+
+https://docs.devexpress.com/WindowsForms/2449/controls-and-libraries/vertical-grid

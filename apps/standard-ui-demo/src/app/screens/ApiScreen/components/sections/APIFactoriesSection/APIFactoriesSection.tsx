@@ -5,9 +5,10 @@ import {
 	type ServiceEntityData,
 	getEntityFunctions,
 } from '@no-comply/meta';
-import { CodeBlock } from '@purrtrait/solid-code';
+import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, For, Show } from 'solid-js';
 
+import { CodeBlock } from '../../../../../components';
 import { DocsSection } from '../../../../../content';
 
 type Props = {
@@ -24,7 +25,7 @@ export const APIFactoriesSection: Component<Props> = props => {
 				<For each={factories()}>
 					{factory => (
 						<DocsSection title={factory.name} level={4}>
-							<CodeBlock lang="ts" nodes={[factory]} context={props.ent} />
+							<CodeBlock lang={PurrceptionLanguageId} nodes={[factory]} context={props.ent} />
 						</DocsSection>
 					)}
 				</For>

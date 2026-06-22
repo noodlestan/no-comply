@@ -10,6 +10,7 @@ import { type TSXView, viewTargetProps } from '@purrtrait/view-tsx';
 import { type Component, createSignal, mergeProps } from 'solid-js';
 
 import { ComponentPropsTable } from '../../../../../../../components';
+import { $ID_PLAYGROUND_PROPS_TITLE } from '../../../../../constants';
 import { useComponentPlayground, useComponentPlaygroundProps } from '../../../../../providers';
 
 import styles from './PlaygroundProps.module.scss';
@@ -74,7 +75,13 @@ export const PlaygroundProps: Component<Props> = props => {
 	};
 
 	return (
-		<Surface tag="section" variant="panel" classList={classList} stretch="height">
+		<Surface
+			tag="section"
+			aria-labelledby={$ID_PLAYGROUND_PROPS_TITLE}
+			variant="panel"
+			classList={classList}
+			stretch="height"
+		>
 			<Flex direction="column" stretch="height">
 				<Layout padding={['s', 'm']} classList={staticClassList(styles, ['-Header'])}>
 					<PlaygroundPropsHeader

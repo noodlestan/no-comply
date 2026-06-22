@@ -4,6 +4,10 @@ import { Display, Divider, Flex, Scrollable, Surface } from '@no-comply/standard
 import { type Component, Show, Suspense } from 'solid-js';
 
 import { Markdown } from '../../../../../../../content';
+import {
+	$ID_PLAYGROUND_PREVIEW_DESCRIPTION,
+	$ID_PLAYGROUND_PREVIEW_TITLE,
+} from '../../../../../constants';
 import { useComponentPlayground, useComponentPlaygroundProps } from '../../../../../providers';
 import { PlaygroundResetButton } from '../PlaygroundResetButton';
 
@@ -22,13 +26,26 @@ export const PlaygroundExample: Component = () => {
 	const handleResetExampleClick = () => resetExampleOverrides(currentExampleIndex() as number);
 
 	return (
-		<Surface variant="panel" classList={classList}>
-			<Flex direction="column" stretch="height">
-				<VisuallyHidden>
-					<Display level={4}>{title()}</Display>
-				</VisuallyHidden>
-				<Suspense fallback={'LOADING...'}>
+		<Surface
+			tag="section"
+			aria-labelledby={$ID_PLAYGROUND_PREVIEW_TITLE}
+			aria-describedby={description() ? $ID_PLAYGROUND_PREVIEW_DESCRIPTION : undefined}
+			variant="panel"
+			classList={classList}
+		>
+			<Suspense fallback={'LOADING......'}>
+				<Flex tag="section" direction="column" stretch="height">
+					<VisuallyHidden>
+						<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
+							Example preview area
+						</Display>
+					</VisuallyHidden>
 					<Show when={title()}>
+						<VisuallyHidden>
+							<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
+								Current example: {title()}
+							</Display>
+						</VisuallyHidden>
 						<Flex
 							direction="row"
 							justify="between"
@@ -44,19 +61,19 @@ export const PlaygroundExample: Component = () => {
 					</Show>
 					<Scrollable y>
 						<Show when={description()}>
-							<Flex padding="m" gap="m">
+							<Flex id={$ID_PLAYGROUND_PREVIEW_DESCRIPTION} padding="m" gap="m">
 								<Markdown content={description() as string} />
 								<Divider />
 							</Flex>
 						</Show>
 						<Show when={currentExampleParsed()}>
-							<Flex padding="m" gap="m">
+							<Flex role="region" aria-label="Rendered example" padding="m" gap="m">
 								<ComponentPlaygroundPreview />
 							</Flex>
 						</Show>
 					</Scrollable>
-				</Suspense>
-			</Flex>
+				</Flex>
+			</Suspense>
 		</Surface>
 	);
 };

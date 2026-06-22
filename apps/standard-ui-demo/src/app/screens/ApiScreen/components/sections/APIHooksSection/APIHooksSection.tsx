@@ -1,7 +1,8 @@
 import { type ProviderEntityData, getEntityFunctions } from '@no-comply/meta';
-import { CodeBlock } from '@purrtrait/solid-code';
+import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, For, Show } from 'solid-js';
 
+import { CodeBlock } from '../../../../../components';
 import { DocsSection } from '../../../../../content';
 
 type Props = {
@@ -18,7 +19,7 @@ export const APIhooksSection: Component<Props> = props => {
 				<For each={hooks()}>
 					{hook => (
 						<DocsSection title={hook.name} level={4}>
-							<CodeBlock lang="ts" nodes={[hook]} context={props.ent} />
+							<CodeBlock lang={PurrceptionLanguageId} nodes={[hook]} context={props.ent} />
 						</DocsSection>
 					)}
 				</For>
