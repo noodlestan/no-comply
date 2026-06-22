@@ -20,9 +20,5 @@ export const CodeBlock: Component<CodeBlockProps> = props => {
 			.flat();
 	};
 
-	return (
-		<pre style={{ margin: 0 }}>
-			<CodeLayoutRenderer lines={lines()} />
-		</pre>
-	);
+	return <CodeLayoutRenderer lines={lines()} />;
 };
