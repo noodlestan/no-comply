@@ -6,10 +6,7 @@ export function createAriaSeparator(props: AriaSeparatorProps): AriaSeparatorAPI
 	const component = () => props.tag ?? 'hr';
 
 	const role = () => {
-		if (component() === 'hr') {
-			return undefined;
-		}
-		return 'separator';
+		return props.role ?? 'presentation';
 	};
 
 	const $root = computedProps({

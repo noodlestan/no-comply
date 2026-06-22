@@ -77,13 +77,13 @@
 - note
 - row
 - rowgroup
-- term'
+- term
 - treegrid
 - gridcell
 - menuitemcheckbox
 - menuitemradio
 - scrollbar
-- search'
+- search
 
 ## By HTML Element
 

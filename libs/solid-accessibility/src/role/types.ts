@@ -9,3 +9,9 @@ export type FormRoleName = 'form' | 'search';
 export type MenuRoleName = 'menu' | 'menubar';
 
 export type MenuItemRoleName = 'menuitem' | 'menuitemcheckbox' | 'menuitemradio';
+
+export type LayoutRoleName = 'region' | 'group' | 'toolbar' | 'dialog';
+
+export type VisuallyHiddenRoleName = 'status';
+
+export type SeparatorRoleName = 'separator' | 'presentation';
