@@ -1,9 +1,9 @@
 import type { DividerMixinAPI, DividerMixinProps } from '../../mixins';
 
-export type DividerProps = DividerMixinProps;
+export type DividerProps = Omit<DividerMixinProps, 'role'>;
 
 export type DividerAPI = {
 	$root: DividerMixinAPI['$root'] & {
-		'data-component': 'divider';
+		role: 'presentation';
 	};
 };

@@ -19,6 +19,7 @@ export const createLayout = (props: LayoutProps): LayoutAPI => {
 
 	const $root = computedProps({
 		component,
+		role: () => locals.role,
 	});
 
 	return exposeAPI(expose, '$root', {

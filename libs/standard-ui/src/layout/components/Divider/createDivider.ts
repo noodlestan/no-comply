@@ -12,7 +12,7 @@ export const createDivider = (props: DividerProps): DividerAPI => {
 	const { $root: $dividerMixinRoot } = compose(createDividerMixin(locals));
 
 	const $root = {
-		'data-component': 'divider' as const,
+		role: 'presentation' as const,
 	};
 
 	return exposeAPI(expose, '$root', {

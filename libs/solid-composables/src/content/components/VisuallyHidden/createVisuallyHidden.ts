@@ -19,6 +19,7 @@ export const createVisuallyHidden = (props: VisuallyHiddenProps): VisuallyHidden
 
 	const $root = computedProps({
 		component,
+		role: () => locals.role,
 	});
 
 	return exposeAPI(expose, '$root', {

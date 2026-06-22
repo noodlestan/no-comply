@@ -6,4 +6,4 @@ import type { LayoutProps } from './types';
 
 export const $LAYOUT = 'component:standard:layout';
 
-export const LAYOUT_PROPS = definePropKeys<LayoutProps>()([...LAYOUT_MIXIN_PROPS, 'tag']);
+export const LAYOUT_PROPS = definePropKeys<LayoutProps>()([...LAYOUT_MIXIN_PROPS, 'tag', 'role']);
