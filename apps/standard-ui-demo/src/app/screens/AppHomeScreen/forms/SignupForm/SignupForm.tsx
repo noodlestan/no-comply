@@ -1,4 +1,4 @@
-import { Button, Flex, Form, MessageBox } from '@no-comply/standard-ui';
+import { Button, Callout, Flex, Form } from '@no-comply/standard-ui';
 import { type Component, Show, createSignal } from 'solid-js';
 
 import { ConfirmPasswordField, CreatePasswordField, CreateUsernameField } from '../../fields';
@@ -60,7 +60,11 @@ export const SignupForm: Component<Props> = props => {
 					<Flex direction="column" gap="m">
 						<Button {...form.$submitButton}>Submit</Button>
 						<Show when={submitError()}>
-							<MessageBox title={submitError()?.message as string} variant="error" />
+							<Callout
+								title={submitError()?.message as string}
+								variant="warning"
+								summary="Lorem ipsum"
+							/>
 						</Show>
 					</Flex>
 				</Flex>

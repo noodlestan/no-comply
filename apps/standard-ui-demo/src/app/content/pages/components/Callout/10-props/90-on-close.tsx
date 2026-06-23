@@ -8,7 +8,7 @@ export default createDocsSectionData({
 	title: 'onClose',
 	items: [
 		createDocsItemData({ title: 'medium', props }, () => (
-			<Callout title={lipsumWords(5)} variant="success" size="medium">
+			<Callout title={lipsumWords()} summary={lipsumWords()} variant="warning" size="medium">
 				<LoremIpsum words={12} />
 			</Callout>
 		)),

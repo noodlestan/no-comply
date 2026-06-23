@@ -17,6 +17,8 @@ import ClockIcon from 'lucide-solid/icons/clock';
 import LockIcon from 'lucide-solid/icons/lock';
 import { type Component, createSignal } from 'solid-js';
 
+import { LoremIpsum } from '../../components';
+
 import styles from './ExampleLarge.module.scss';
 
 type ExampleLargeProps = {
@@ -107,7 +109,7 @@ export const ExampleLargeFooter: Component<ExampleLargeProps> = () => {
 export const ExampleLarge: Component<ExampleLargeProps> = props => {
 	return (
 		<Flex direction="column" padding="xl" gap="xl">
-			<Callout title={props.title || 'Lorem Ipsum'} variant="success" />
+			<Callout title={props.title || 'Lorem Ipsum'} variant="info" summary={<LoremIpsum />} />
 			<ExampleLargeHeader />
 			<ExampleLargeBody />
 		</Flex>

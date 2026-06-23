@@ -7,9 +7,7 @@ export default createDocsSectionData({
 	title: 'Basic usage',
 	items: [
 		createDocsItemData({}, () => (
-			<Callout title={lipsumWords()} variant="info">
-				<LoremIpsum words={30} />
-			</Callout>
+			<Callout title={lipsumWords()} variant="info" summary={<LoremIpsum words={30} />} />
 		)),
 	],
 });

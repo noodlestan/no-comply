@@ -9,17 +9,17 @@ export default createDocsSectionData({
 	collapse: true,
 	items: [
 		createDocsItemData({ title: 'medium', props }, () => (
-			<Callout title={lipsumWords(5)} variant="success" size="medium">
+			<Callout title={lipsumWords(3)} summary={lipsumWords()} variant="info" size="medium">
 				<LoremIpsum words={12} />
 			</Callout>
 		)),
 		createDocsItemData({ title: 'normal', props: { ...props, defaultValue: true } }, () => (
-			<Callout title={lipsumWords(5)} variant="success" size="normal">
+			<Callout title={lipsumWords(3)} summary={lipsumWords()} variant="info" size="normal">
 				<LoremIpsum words={12} />
 			</Callout>
 		)),
 		createDocsItemData({ title: 'small', props }, () => (
-			<Callout title={lipsumWords(5)} variant="success" size="small">
+			<Callout title={lipsumWords(3)} summary={lipsumWords()} variant="info" size="small">
 				<LoremIpsum words={12} />
 			</Callout>
 		)),

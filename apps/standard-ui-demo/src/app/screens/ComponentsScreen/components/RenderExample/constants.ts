@@ -30,8 +30,6 @@ import {
 	MenuItemAction,
 	MenuItemGroup,
 	MenuItemSubMenu,
-	MessageBox,
-	MessageToast,
 	ModalDialog,
 	NavLink,
 	NumberInput,
@@ -43,6 +41,7 @@ import {
 	Text,
 	TextAligned,
 	TextInput,
+	ToastMessage,
 	ToggleButton,
 } from '@no-comply/standard-ui';
 
@@ -61,8 +60,7 @@ export const STATIC_SCOPE = {
 	// dialog
 	ModalDialog,
 	// feedback
-	MessageBox,
-	MessageToast,
+	ToastMessage,
 	// form
 	Field,
 	FieldLabel,

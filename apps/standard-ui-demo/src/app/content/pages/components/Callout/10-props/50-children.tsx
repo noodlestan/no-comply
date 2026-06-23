@@ -8,7 +8,7 @@ export default createDocsSectionData({
 	title: 'children',
 	items: [
 		createDocsItemData({ props }, () => (
-			<Callout title={lipsumWords(3)} size="medium">
+			<Callout title={lipsumWords(3)} summary={lipsumWords()} size="medium">
 				<Flex gap="m" direction="column">
 					<Text variant="medium">
 						<LoremIpsum words={5} />

@@ -46,9 +46,12 @@ export const ColorPalettesPage: Component = () => {
 					/>
 				</Flex>
 				<Show when={!isSupported()}>
-					<Callout variant="warning" title="Browser Support">
-						Your browser does not support Custom CSS functions (
-						<Link href="https://github.com/w3c/csswg-drafts/issues/9350">Proposal</Link>)
+					<Callout
+						variant="warning"
+						title="Browser Support"
+						summary="Your browser does not support Custom CSS functions"
+					>
+						(<Link href="https://github.com/w3c/csswg-drafts/issues/9350">Proposal</Link>)
 					</Callout>
 				</Show>
 			</Flex>
