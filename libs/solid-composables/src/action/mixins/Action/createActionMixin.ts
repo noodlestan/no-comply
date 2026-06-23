@@ -1,5 +1,5 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { computedProps, staticClassList } from '@no-comply/solid-primitives';
+import { staticClassList } from '@no-comply/solid-primitives';
 
 import styles from './ActionMixin.module.scss';
 import { $ACTION_MIXIN } from './constants';
@@ -11,7 +11,7 @@ export const createActionMixin = (): ActionMixinAPI => {
 	const $static = {
 		classList: staticClassList(styles, 'Action'),
 	};
-	const $root = computedProps($static, {});
+	const $root = $static;
 
 	return exposeAPI(expose, '$root', {
 		$root,
