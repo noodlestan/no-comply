@@ -18,7 +18,8 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
 	const variant = () => locals.variant ?? defaultProps.variant;
 
 	const [, others] = splitProps(locals, ['variant']);
-	const variantProps = computedProps(others, { variant });
+	const computedSurfaceProps = computedProps({ variant });
+	const variantProps = combineProps(others, computedSurfaceProps);
 	const { $root: $surfaceRoot, ...rest } = compose(createHeadlessSurface(variantProps));
 	const { $root: $surfaceMixinRoot } = compose(createSurfaceMixin(locals));
 

@@ -1,42 +1,48 @@
 import type { ContentMessageAPI } from '@no-comply/solid-composables';
-import type { ExposedDataProps } from '@no-comply/solid-contexts';
 import type { ClassList } from '@no-comply/solid-primitives';
-import type { Accessor } from 'solid-js';
+import type { Accessor, JSX } from 'solid-js';
 
 import type { CloseButtonProps } from '../../../action';
 import type { FlexGap, LayoutPaddingShorthand } from '../../../layout';
 import type { ContentSize, SizeScale } from '../../../size';
 import type { DisplayVariant, TextVariant } from '../../../typography';
 
-export type ContentMessageTemplateSize = 'small' | 'normal' | 'medium';
-export type ContentMessageTemplateLength = 'compact' | 'full';
+export type ToastMessageVariant = 'passive' | 'info' | 'warning' | 'danger';
+export type ToastMessageSize = 'small' | 'normal' | 'medium';
+export type ToastMessageLength = 'compact' | 'full';
 
-export type ContentMessageTemplateOwnProps = {
+export type ToastMessageProps = {
+	title: JSX.Element;
+	summary: JSX.Element;
+	variant?: ToastMessageVariant;
 	onClose?: () => void;
-	size?: ContentMessageTemplateSize;
-	length?: ContentMessageTemplateLength;
+	size?: ToastMessageSize;
+	length?: ToastMessageLength;
 };
-export type ContentMessageTemplateProps = ExposedDataProps &
-	ContentMessageAPI &
-	ContentMessageTemplateOwnProps;
 
-export type ContentMessageTemplateAPI = {
+export type ToastMessageAPI = {
 	$root: ContentMessageAPI['$root'] & {
 		classList: ClassList;
 	};
-	$title: ContentMessageAPI['$title'] & {
+	$title: ContentMessageAPI['$label'] & {
 		classList: ClassList;
+		variant: DisplayVariant;
 	};
-	$description: ContentMessageAPI['$description'];
+	$body: ContentMessageAPI['$description'] & {
+		variant: TextVariant;
+	};
+	$description: ContentMessageAPI['$description'] & {
+		variant: TextVariant;
+	};
 	_icon: ContentMessageAPI['_icon'] & {
 		size: ContentSize;
 		classList: ClassList;
 	};
+	hasIcon: ContentMessageAPI['hasIcon'];
 	alignmentHeight: Accessor<SizeScale>;
 	padding: Accessor<LayoutPaddingShorthand>;
 	gap: Accessor<FlexGap>;
 	titleVariant: Accessor<DisplayVariant>;
-	descriptionVariant: Accessor<TextVariant>;
 	hasCloseButton: Accessor<boolean>;
 	closeButtonSize: Accessor<CloseButtonProps['size']>;
 };

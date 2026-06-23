@@ -1,36 +1,38 @@
-import { combineProps } from '@no-comply/solid-primitives';
-import { Show, splitProps } from 'solid-js';
-import type { ParentComponent } from 'solid-js';
+import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
+import { type Component, type JSX, Show, splitProps } from 'solid-js';
 
 import { CloseButton } from '../../../action';
-import { Icon } from '../../../icon';
+import { Icon, type IconProps } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
 import { AlignFirstLine, DisplayAligned, Text } from '../../../typography';
 
-import { CONTENT_MESSAGE_TEMPLATE_PROPS } from './constants';
-import { createContentMessageTemplate } from './createContentMessageTemplate';
-import type { ContentMessageTemplateProps } from './types';
+import { TOASTMESSAGE_PROPS } from './constants';
+import { createToastMessage } from './createToastMessage';
+import type { ToastMessageProps } from './types';
 
-type Props = ContentMessageTemplateProps;
+type Props = ClosedTagProps &
+	ToastMessageProps & {
+		children?: JSX.Element;
+	};
 
-export const ContentMessageTemplate: ParentComponent<Props> = props => {
-	const [locals, $others] = splitProps(props, [...CONTENT_MESSAGE_TEMPLATE_PROPS, 'children']);
+export const ToastMessage: Component<Props> = props => {
+	const [locals, $others] = splitProps(props, [...TOASTMESSAGE_PROPS, 'children']);
 
 	const {
 		$root,
 		$title,
 		$description,
+		$body,
 		_icon,
 		alignmentHeight,
 		padding,
 		gap,
 		titleVariant,
-		descriptionVariant,
+		hasIcon,
 		hasCloseButton,
 		closeButtonSize,
-	} = createContentMessageTemplate(locals);
-
+	} = createToastMessage(locals);
 	const $ = combineProps($root, $others);
 
 	return (
@@ -43,10 +45,15 @@ export const ContentMessageTemplate: ParentComponent<Props> = props => {
 					variant={titleVariant()}
 				>
 					<Flex direction="row" align="start" gap={gap()}>
-						<Icon {..._icon} aligned />
+						<Show when={hasIcon()}>
+							<Icon {...(_icon as IconProps)} aligned />
+						</Show>
 						<Flex gap={padding()}>
-							<DisplayAligned {...$title} />
-							<Text tag="div" {...$description} variant={descriptionVariant()}>
+							<DisplayAligned {...$title}>{locals.title}</DisplayAligned>
+							<Text tag="div" {...$description}>
+								{locals.summary}
+							</Text>
+							<Text tag="div" {...$body}>
 								{locals.children}
 							</Text>
 						</Flex>

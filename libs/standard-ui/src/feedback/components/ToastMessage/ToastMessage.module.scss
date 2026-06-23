@@ -1,7 +1,7 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer lib.standard-ui.content-message {
-  .ContentMessage {
+  .ToastMessage {
     width: var(--_content-message-width);
   }
 

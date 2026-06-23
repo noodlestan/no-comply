@@ -8,22 +8,22 @@ import {
 	staticClassList,
 } from '@no-comply/solid-primitives';
 
-import styles from './Callout.module.scss';
-import { $CALLOUT } from './constants';
+import styles from './ToastMessage.module.scss';
+import { $TOASTMESSAGE } from './constants';
 import { SIZE_MAP } from './private';
-import type { CalloutAPI, CalloutProps } from './types';
+import type { ToastMessageAPI, ToastMessageProps } from './types';
 
-const defaultProps: PickRequired<CalloutProps, 'size' | 'length'> = {
+const defaultProps: PickRequired<ToastMessageProps, 'size' | 'length'> = {
 	size: 'normal',
 	length: 'full',
 };
 
-export const createCallout = (props: CalloutProps): CalloutAPI => {
-	const [locals, expose, compose] = createExposable($CALLOUT, props);
+export const createToastMessage = (props: ToastMessageProps): ToastMessageAPI => {
+	const [locals, expose, compose] = createExposable($TOASTMESSAGE, props);
 
 	const size = () => locals.size ?? defaultProps.size;
 	const length = () => locals.length ?? defaultProps.length;
-	const classList = createClassList(styles, () => ['Callout', `length-${length()}`]);
+	const classList = createClassList(styles, () => ['ToastMessage', `length-${length()}`]);
 
 	const messageProps = computedProps({
 		described: () => Boolean(props.summary),
@@ -37,12 +37,12 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
 		hasIcon,
 	} = compose(createContentMessage(messageProps));
 
-	const $calloutRoot = computedProps({
+	const $toastmessageRoot = computedProps({
 		classList,
 	});
 
 	const titleVariant = () => SIZE_MAP[size()].titleVariant;
-	const $calloutTitle = computedProps(
+	const $toastmessageTitle = computedProps(
 		{
 			classList: staticClassList(styles, '-Title'),
 		},
@@ -52,7 +52,7 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
 	);
 
 	const textVariant = () => SIZE_MAP[size()].textVariant;
-	const $calloutDescription = computedProps({
+	const $toastmessageDescription = computedProps({
 		variant: textVariant,
 	});
 
@@ -63,7 +63,7 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
 	const _iconSstatic = {
 		classList: staticClassList(styles, '-Icon'),
 	};
-	const _calloutIcon = computedProps(_iconSstatic, {
+	const _toastmessageIcon = computedProps(_iconSstatic, {
 		size,
 	});
 
@@ -74,11 +74,11 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
 	const hasCloseButton = () => Boolean(locals.onClose);
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($messageRoot, $calloutRoot),
-		$title: combineProps($messageLabel, $calloutTitle),
-		$description: combineProps($messageDescription, $calloutDescription),
+		$root: combineProps($messageRoot, $toastmessageRoot),
+		$title: combineProps($messageLabel, $toastmessageTitle),
+		$description: combineProps($messageDescription, $toastmessageDescription),
 		$body,
-		_icon: combineProps(_messageIcon, _calloutIcon),
+		_icon: combineProps(_messageIcon, _toastmessageIcon),
 		hasIcon,
 		alignmentHeight,
 		padding,
