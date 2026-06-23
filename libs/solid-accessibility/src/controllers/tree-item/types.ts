@@ -1,4 +1,3 @@
-import type { AriaAttributes } from '../../attributes';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
 
@@ -12,11 +11,11 @@ export type AriaTreeItemProps = AriaLabelledProps & {
 
 export type AriaTreeItemAPI = {
 	$root: AriaRegionAPI<'treeitem'>['$root'] & {
-		'aria-expanded': AriaAttributes['aria-expanded'];
-		'aria-selected': AriaAttributes['aria-selected'];
-		'aria-level': AriaAttributes['aria-level'];
-		'aria-setsize': AriaAttributes['aria-setsize'];
-		'aria-posinset': AriaAttributes['aria-posinset'];
+		'aria-expanded': boolean;
+		'aria-selected': boolean;
+		'aria-level': number;
+		'aria-setsize': number;
+		'aria-posinset': number;
 	};
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];

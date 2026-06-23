@@ -52,7 +52,7 @@ export function createAriaPressable(
 		type,
 		tabIndex,
 		disabled,
-		'aria-disabled': () => (props.disabled && !disabled() ? true : undefined),
+		'aria-disabled': () => Boolean(props.disabled && !disabled()),
 		'data-disabled': () => (props.disabled ? '' : undefined),
 	});
 

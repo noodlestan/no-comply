@@ -1,4 +1,4 @@
-import type { AriaAttributes } from '../../attributes';
+import type { AriaAttributeChecked } from '../../attributes';
 import type { SwitchTagName } from '../../tag';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 import type { AriaRegionAPI } from '../region';
@@ -13,8 +13,8 @@ export type AriaSwitchAPI = {
 	$root: AriaRegionAPI<'switch'>['$root'] & {
 		type: 'button' | 'checkbox' | undefined;
 		component: SwitchTagName;
-		'aria-checked': AriaAttributes['aria-checked'];
-		'aria-disabled': AriaAttributes['aria-disabled'];
+		'aria-checked': AriaAttributeChecked;
+		'aria-disabled': boolean;
 		'data-disabled': '' | undefined;
 	};
 	$label: AriaLabelledAPI['$label'];

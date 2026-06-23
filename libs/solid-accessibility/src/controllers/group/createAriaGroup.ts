@@ -9,7 +9,7 @@ export const createAriaGroup = (props: AriaGroupProps = {}): AriaGroupAPI => {
 
 	const $root = computedProps({
 		role: () => (hasLabel() ? 'group' : undefined),
-		'aria-expanded': () => props.expanded,
+		'aria-expanded': () => Boolean(props.expanded),
 		'aria-setsize': () => props.setSize,
 	});
 

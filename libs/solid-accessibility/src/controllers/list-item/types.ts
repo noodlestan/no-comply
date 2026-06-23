@@ -1,4 +1,3 @@
-import type { AriaAttributes } from '../../attributes';
 import type { ListItemTagName } from '../../tag';
 import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
 
@@ -13,9 +12,9 @@ export type AriaListItemAPI = {
 	$root: AriaLabelledAPI['$root'] & {
 		component: ListItemTagName;
 		role: 'listitem' | undefined;
-		'aria-selected': AriaAttributes['aria-selected'];
-		'aria-setsize': AriaAttributes['aria-setsize'];
-		'aria-posinset': AriaAttributes['aria-posinset'];
+		'aria-selected': boolean;
+		'aria-setsize': number;
+		'aria-posinset': number;
 	};
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];

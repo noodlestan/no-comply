@@ -7,12 +7,6 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
 	const labelledRandomId = createMemo(shortId);
 	const describedRandomId = createMemo(shortId);
 
-	const label = () => {
-		if (props.label) {
-			return props.label;
-		}
-	};
-
 	const labelledby = () => {
 		if (props.label) {
 			return;
@@ -34,11 +28,12 @@ export const createAriaLabelled = (props: AriaLabelledProps = {}): AriaLabelledA
 		}
 	};
 
-	const hasLabel = () => Boolean(label() || labelledby());
+	const hasLabel = () => Boolean(props.label || labelledby());
 
 	const $root = computedProps({
-		'aria-label': label,
+		'aria-label': () => props.label,
 		'aria-labelledby': labelledby,
+		'aria-description': () => props.description,
 		'aria-describedby': describedby,
 	});
 

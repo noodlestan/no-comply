@@ -1,4 +1,3 @@
-import type { AriaAttributes } from '../../attributes';
 import type { PressableRoleName } from '../../role';
 import type { PressableTagName } from '../../tag';
 
@@ -18,7 +17,7 @@ type AriaPressableRoot = {
 	type: PressableType | undefined;
 	tabIndex: number | undefined;
 	disabled: boolean | undefined;
-	'aria-disabled': AriaAttributes['aria-disabled'];
+	'aria-disabled': boolean;
 	'data-disabled': '' | undefined;
 };
 
