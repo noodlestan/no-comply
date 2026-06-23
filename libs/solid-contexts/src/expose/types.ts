@@ -15,7 +15,6 @@ export type ExposableAPI = {
 	name: string;
 	parent?: string;
 	props: AnyProps;
-	args: unknown[];
 	compose: <T>(t: T) => T;
 	composes: () => unknown[];
 };

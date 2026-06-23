@@ -9,7 +9,6 @@ const shim = <T>(t: T): T => t;
 export const createExposable = <P extends AnyProps>(
 	name: string,
 	props: P = {} as P,
-	...rest: unknown[]
 ): [P, ExposableAPI | undefined, ExposableAPI['compose']] => {
 	const expose = useExposeServiceMaybe();
 
@@ -17,6 +16,6 @@ export const createExposable = <P extends AnyProps>(
 		return [props, undefined, shim];
 	}
 
-	const exposable = createExposableAPI(name, props, rest);
+	const exposable = createExposableAPI(name, props);
 	return [props, exposable, exposable.compose];
 };
