@@ -1,25 +1,25 @@
 import type {
-	AriaAttributes,
+	AriaLabelledAPI,
+	AriaLabelledProps,
 	AriaRegionAPI,
-	AriaRegionProps,
 } from '@no-comply/solid-accessibility';
 import type { IconComponent } from '@no-comply/solid-contexts';
+import type { Accessor } from 'solid-js';
 
-export type ContentMessageProps = Pick<AriaRegionProps, 'aria-describedby'> & {
-	title: string;
+export type ContentMessageProps = AriaLabelledProps & {
 	variant: string;
-	icon: IconComponent;
+	icon?: IconComponent;
+	iconMap?: Record<string, IconComponent>;
 };
 
 export type ContentMessageAPI = {
-	$root: AriaRegionAPI<'note' | 'status' | 'alert'>['$root'] & {
-		'data-message': string;
+	$root: AriaRegionAPI<'note'>['$root'] & {
+		'data-message-variant': string;
 	};
-	$title: AriaRegionAPI['$label'] & {
-		children: string;
+	$label: AriaLabelledAPI['$label'];
+	$description: AriaLabelledAPI['$description'];
+	_icon: {
+		icon: IconComponent | undefined;
 	};
-	$description: AriaRegionAPI['$description'];
-	_icon: Pick<AriaAttributes, 'aria-label'> & {
-		icon: IconComponent;
-	};
+	hasIcon: Accessor<boolean>;
 };
