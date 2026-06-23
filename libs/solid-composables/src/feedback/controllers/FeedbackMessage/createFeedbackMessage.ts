@@ -1,51 +1,40 @@
+import { createAriaFeedback } from '@no-comply/solid-accessibility';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { type PickRequired, combineProps, computedProps } from '@no-comply/solid-primitives';
-import HourglassIcon from 'lucide-solid/icons/hourglass';
-import ThumbsUpIcon from 'lucide-solid/icons/thumbs-up';
-import XCircleIcon from 'lucide-solid/icons/x-circle';
-import { type Component, splitProps } from 'solid-js';
+import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { splitProps } from 'solid-js';
 
-import { createContentMessage } from '../../../content';
-
-import { $FEEDBACK_MESSAGE } from './constants';
-import type { FeedbackMessageAPI, FeedbackMessageProps, FeedbackMessageVariant } from './types';
-
-const VARIANT_ICON_MAP: Record<FeedbackMessageVariant, Component> = {
-	busy: HourglassIcon,
-	error: XCircleIcon,
-	success: ThumbsUpIcon,
-};
-
-const defaultProps: PickRequired<FeedbackMessageProps, 'variant'> = {
-	variant: 'busy',
-};
+import { $FEEDBACK_MESSAGE, FEEDBACK_MESSAGE_ARIA_PROPS } from './constants';
+import type { FeedbackMessageAPI, FeedbackMessageProps } from './types';
 
 export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMessageAPI => {
 	const [locals, expose, compose] = createExposable($FEEDBACK_MESSAGE, props);
 
-	const variant = () => locals.variant ?? defaultProps.variant;
-	const role = () => (variant() === 'busy' ? ('status' as const) : ('alert' as const));
-	const icon = () => VARIANT_ICON_MAP[variant()];
-
-	const messageProps = computedProps({
-		variant,
-		icon,
+	const feedbackOwnProps = splitProps(locals, FEEDBACK_MESSAGE_ARIA_PROPS);
+	const feedbackVariant = computedProps({
+		state: () => (props.pending ? undefined : props.variantStateMap[props.variant]),
 	});
-	const contentMessageProps = combineProps(locals, messageProps);
-	const { $root: $contentMessageRoot, ...rest } = compose(
-		createContentMessage(contentMessageProps),
-	);
-
-	const [, $contentMessageRootPicked] = splitProps($contentMessageRoot, ['data-message', 'role']);
+	const feedbackProps = combineProps(feedbackOwnProps, feedbackVariant);
+	const {
+		$root: $regionRoot,
+		$label: $regionLabel,
+		$description: $regionDescription,
+	} = compose(createAriaFeedback(feedbackProps));
 
 	const $root = computedProps({
-		role,
-		'aria-live': () => (variant() === 'busy' ? 'polite' : 'assertive'),
-		'data-message': variant,
+		'data-message-variant': () => locals.variant,
 	});
 
+	const icon = () => locals.icon ?? locals.iconMap?.[locals.variant];
+
+	const _icon = computedProps({ icon });
+
+	const hasIcon = () => Boolean(_icon.icon);
+
 	return exposeAPI(expose, '$root', {
-		...rest,
-		$root: combineProps($contentMessageRootPicked, $root),
+		$root: combineProps($regionRoot, $root),
+		$label: $regionLabel,
+		$description: $regionDescription,
+		_icon,
+		hasIcon,
 	});
 };

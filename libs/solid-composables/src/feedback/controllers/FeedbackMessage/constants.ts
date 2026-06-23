@@ -1,11 +1,17 @@
+import { ARIA_FEEDBACK_PROPS } from '@no-comply/solid-accessibility';
 import { definePropKeys, omitPropKeys } from '@no-comply/solid-primitives';
-
-import { CONTENT_MESSAGE_PROPS } from '../../../content';
 
 import type { FeedbackMessageProps } from './types';
 
 export const $FEEDBACK_MESSAGE = 'controller:composable:feedback-message';
 
+export const FEEDBACK_MESSAGE_ARIA_PROPS = omitPropKeys(ARIA_FEEDBACK_PROPS, ['state'] as const);
+
 export const FEEDBACK_MESSAGE_PROPS = definePropKeys<FeedbackMessageProps>()([
-	...omitPropKeys(CONTENT_MESSAGE_PROPS, ['icon'] as const),
+	...FEEDBACK_MESSAGE_ARIA_PROPS,
+	'variant',
+	'pending',
+	'variantStateMap',
+	'icon',
+	'iconMap',
 ]);

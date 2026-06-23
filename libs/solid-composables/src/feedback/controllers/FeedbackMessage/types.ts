@@ -1,18 +1,31 @@
-import type { AriaRegionAPI } from '@no-comply/solid-accessibility';
-import type { ExposedDataProps } from '@no-comply/solid-contexts';
+import type {
+	AriaFeedbackAPI,
+	AriaFeedbackProps,
+	AriaFeedbackState,
+	AriaLabelledProps,
+	AriaRegionAPI,
+	FeedbackRoleName,
+} from '@no-comply/solid-accessibility';
+import type { IconComponent } from '@no-comply/solid-contexts';
+import type { Accessor } from 'solid-js';
 
-import type { ContentMessageAPI, ContentMessageProps } from '../../../content';
+export type FeedbackMessageProps = AriaLabelledProps &
+	Omit<AriaFeedbackProps, 'state'> & {
+		variant: string;
+		pending?: boolean;
+		variantStateMap: Record<string, AriaFeedbackState>;
+		icon?: IconComponent;
+		iconMap?: Record<string, IconComponent>;
+	};
 
-export type FeedbackMessageVariant = 'busy' | 'success' | 'error';
-
-export type FeedbackMessageProps = Omit<ContentMessageProps, 'variant' | 'icon'> & {
-	variant?: FeedbackMessageVariant;
-};
-
-export type FeedbackMessageAPI = Omit<ContentMessageAPI, '$root'> & {
-	$root: AriaRegionAPI<'status' | 'alert'>['$root'] &
-		ExposedDataProps & {
-			'aria-live': 'polite' | 'assertive';
-			'data-message': FeedbackMessageVariant;
-		};
+export type FeedbackMessageAPI = {
+	$root: AriaRegionAPI<FeedbackRoleName>['$root'] & {
+		'data-message-variant': string;
+	};
+	$label: AriaFeedbackAPI['$label'];
+	$description: AriaFeedbackAPI['$description'];
+	_icon: {
+		icon: IconComponent | undefined;
+	};
+	hasIcon: Accessor<boolean>;
 };
