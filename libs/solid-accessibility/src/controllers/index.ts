@@ -13,6 +13,7 @@ export * from './log';
 export * from './menu';
 export * from './menuitem';
 export * from './pressable';
+export * from './radiogroup';
 export * from './region';
 export * from './separator';
 export * from './status';
