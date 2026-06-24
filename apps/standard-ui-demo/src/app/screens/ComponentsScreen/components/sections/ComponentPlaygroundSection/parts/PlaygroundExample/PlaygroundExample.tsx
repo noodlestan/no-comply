@@ -12,7 +12,11 @@ import { useComponentPlayground, useComponentPlaygroundProps } from '../../../..
 import { PlaygroundResetButton } from '../PlaygroundResetButton';
 
 import styles from './PlaygroundExample.module.scss';
-import { ComponentPlaygroundPreview, PlaygroundExampleSelect } from './parts';
+import {
+	ComponentPlaygroundPreview,
+	PlayGroundExampleModeChoice,
+	PlaygroundExampleSelect,
+} from './parts';
 
 export const PlaygroundExample: Component = () => {
 	const { currentExample, currentExampleParsed, currentExampleIndex } = useComponentPlayground();
@@ -34,23 +38,20 @@ export const PlaygroundExample: Component = () => {
 			classList={classList}
 		>
 			<Suspense fallback={'LOADING......'}>
-				<Flex tag="section" direction="column" stretch="height">
-					<VisuallyHidden>
-						<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
-							Example preview area
-						</Display>
-					</VisuallyHidden>
+				<Flex tag="section" direction="column" stretch="height" gap="l">
 					<Show when={title()}>
 						<VisuallyHidden>
 							<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
-								Current example: {title()}
+								Rendered example: {title()}
 							</Display>
 						</VisuallyHidden>
 						<Flex
 							direction="row"
 							justify="between"
 							align="end"
+							gap="m"
 							padding={['s', 'm']}
+							wrap
 							classList={staticClassList(styles, ['-Header'])}
 						>
 							<PlaygroundExampleSelect />
@@ -67,6 +68,7 @@ export const PlaygroundExample: Component = () => {
 							</Flex>
 						</Show>
 						<Show when={currentExampleParsed()}>
+							<PlayGroundExampleModeChoice />
 							<Flex role="region" aria-label="Rendered example" padding="m" gap="m">
 								<ComponentPlaygroundPreview />
 							</Flex>

@@ -6,6 +6,7 @@ export * from './feedback';
 export * from './focus';
 export * from './form';
 export * from './icon';
+export * from './input';
 export * from './layout';
 export * from './menu';
 export * from './modal';

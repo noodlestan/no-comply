@@ -50,7 +50,7 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 
 	return (
 		<Flex direction="column" gap="m">
-			<Flex direction="row" gap="s" align="baseline">
+			<Flex direction="row" gap="s" align="baseline" wrap>
 				<Flex direction="column" flex={1}>
 					<Display id={props.id} level={5} variant="s">
 						{props.prop.name}

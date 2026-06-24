@@ -1,0 +1,20 @@
+@layer lib.standard-ui.segmented-button {
+  .SegmentedButtonItem {
+    position: relative;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      .-Button {
+        border-start-start-radius: 0;
+        border-end-start-radius: 0;
+      }
+    }
+
+    &:not(:last-child) {
+      .-Button {
+        border-start-end-radius: 0;
+        border-end-end-radius: 0;
+      }
+    }
+  }
+}
