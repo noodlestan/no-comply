@@ -23,8 +23,8 @@ export const createModalDialog = (props: ModalDialogProps): ModalDialogAPI => {
 
 	const {
 		$root: $dialogRoot,
-		$description,
 		$label,
+		$description,
 		context,
 		contextValue,
 	} = compose(createHeadlessModalDialog(locals));
@@ -43,8 +43,8 @@ export const createModalDialog = (props: ModalDialogProps): ModalDialogAPI => {
 
 	return exposeAPI(expose, '_surface', {
 		_surface: combineProps(_surface, $dialogRoot, $dialogMixinRoot, $root),
-		$description,
 		$label,
+		$description,
 		context,
 		contextValue,
 	});

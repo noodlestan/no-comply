@@ -25,8 +25,8 @@ export const createSurface = (props: SurfaceProps): SurfaceAPI => {
 
 	return exposeAPI(expose, '$root', {
 		$root: combineProps(dataAttributes, $regionRoot, $root),
-		$description,
 		$label,
+		$description,
 		context,
 		contextValue,
 	});

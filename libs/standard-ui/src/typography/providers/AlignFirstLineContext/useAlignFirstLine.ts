@@ -2,12 +2,12 @@ import { useContext } from 'solid-js';
 
 import type { ComposableTypeMixinProps } from '../../mixins';
 
-import { AlignFirstLineContextProviderCTX } from './private';
+import { AlignFirstLineContextCTX } from './private';
 
 export const useAlignFirstLine = <T extends ComposableTypeMixinProps>(
 	type: ComposableTypeMixinProps['type'],
 ): T => {
-	const context = useContext(AlignFirstLineContextProviderCTX);
+	const context = useContext(AlignFirstLineContextCTX);
 	if (!context) {
 		throw new Error('useAlignFirstLine() must be wrapped in <AlignFirstLineContextProvider/>');
 	}

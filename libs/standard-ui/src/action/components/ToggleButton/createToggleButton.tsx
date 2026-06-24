@@ -15,8 +15,8 @@ import { $TOGGLE_BUTTON } from './constants';
 import type { ToggleButtonAPI, ToggleButtonProps } from './types';
 
 const LABELS: ToggleActionLabels = {
-	on: 'Collapse',
-	off: 'Expand',
+	on: 'On',
+	off: 'Off',
 };
 
 const ICONS: ToggleActionIcons = {
