@@ -1,5 +1,7 @@
 # no-comply demo
 
+> This file extends [noodlestan conventions](./noodlestan.md).
+
 This document consolidates naming, file organization, API design, and typing conventions across @no-comply demo-scope packages: standard-ui-demo, build-tools, meta, and meta-extract. It serves as a single source of truth for contributors.
 
 ## API & Types

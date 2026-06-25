@@ -44,9 +44,9 @@ Only when running in **Executor Agent**
 
 ---
 
-### Execute Tasks
+### Execute Plan
 
-Executes a task group by delegating individual tasks to sub-agents and tracking group progress
+Executes a plan by delegating individual tasks to sub-agents and tracking plan progress
 
 #### When to use
 

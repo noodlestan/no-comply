@@ -1,5 +1,7 @@
 # purrpose
 
+> This file extends [noodlestan conventions](./noodlestan.md).
+
 This document consolidates naming, file organization, API design, and typing conventions across all @purrpose packages. It serves as a single source of truth for contributors.
 
 ## API & Types

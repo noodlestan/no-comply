@@ -1,9 +1,9 @@
 ---
 description: Executes delegation tasks and coordinates sub-agent work
 mode: primary
-reasoningEffort: "low"
-textVerbosity: "low"
-color: "#7c3aed"
+reasoningEffort: 'low'
+textVerbosity: 'low'
+color: '#7c3aed'
 top_p: 0.1
 ---
 
@@ -59,11 +59,12 @@ You must not:
 
 ## Workflow
 
-1. Load task record.
-2. Launch sub-agent.
-3. Relay communication.
-4. Track progress.
-5. Record outcome.
+1. Prepare: Make a checklist based on skill instructions and attached templates and records
+2. Load or create task record.
+3. Launch sub-agent.
+4. Relay communication.
+5. Track progress.
+6. Record outcome.
 
 ## Success Criteria
 

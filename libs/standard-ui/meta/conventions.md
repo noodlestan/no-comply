@@ -1,27 +1,6 @@
 # @no-comply/standard-ui — Conventions
 
-> Generated: 2026-06-25
-> By: sub-agent
-
----
-
-## Naming Conventions
-
-| Category             | Convention                                      | Examples                                                     |
-| -------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| Components           | PascalCase                                      | `Button`, `Flex`, `TreeListItemDetails`                      |
-| Factories            | `create` + PascalCase                           | `createButton`, `createFlex`                                 |
-| Mixin factories      | `create` + PascalCase + `Mixin`                 | `createActionMixin`, `createFocusRingMixin`                  |
-| Props types          | `{Thing}Props`                                  | `ButtonProps`, `FlexProps`                                   |
-| API types            | `{Thing}API`                                    | `ButtonAPI`, `FlexAPI`                                       |
-| Prop key arrays      | `SCREAMING_SNAKE_CASE`                          | `BUTTON_PROPS`, `FLEX_PROPS`                                 |
-| Exposable tokens     | `$UPPER_SNAKE`                                  | `$BUTTON`, `$SEGMENTED_BUTTON`                               |
-| SCSS module files    | `{Name}Mixin.module.scss`, `{Name}.module.scss` | `ActionMixin.module.scss`, `Button.module.scss`              |
-| SCSS class names     | PascalCase, BEM-like modifiers                  | `.Action`, `.Button`, `-Toggle`, `variant-primary`, `size-m` |
-| Private internals    | `private/` directory per domain                 | `theme/private/`, `menu/private/`                            |
-| Theme context tokens | `STANDARD_UI_` prefix                           | `STANDARD_UI_MODE_DARK`, `STANDARD_UI_SURFACE_CARD`          |
-
----
+> This file extends [no-comply libs conventions](../../../conventions/no-comply-libs.md).
 
 ## File Organization
 
@@ -72,8 +51,6 @@ export * from './content';
 // ... one line per domain
 ```
 
----
-
 ## Component Pattern
 
 Every component follows this consistent structure:
@@ -100,8 +77,6 @@ Key elements:
 3. **Factory call** — `create*()` returns a `{ $root }` API object
 4. **combineProps** — merges intrinsic and computed props
 5. **Dynamic** — renders the appropriate HTML element (defaults to `div` or semantic element)
-
----
 
 ## Mixin Pattern
 
@@ -130,37 +105,6 @@ Key elements:
 3. **combineProps** — merges child mixin roots with computed style props
 4. **exposeAPI** — exposes the mixin API through SolidJS context
 
----
-
-## Typing Conventions
-
-| Convention             | Pattern                                        | Example                                                                          |
-| ---------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- |
-| Props intersection     | `IntrinsicProps & DomainProps`                 | `ButtonProps = PressableProps & ButtonMixinProps`                                |
-| API merge target       | `$root` key with intersection type             | `{ $root: MixinRootA & MixinRootB & { classList } }`                             |
-| Prop key safety        | `definePropKeys<Type>()([...])`                | `const BUTTON_PROPS = definePropKeys<ButtonMixinProps>()(['variant', 'intent'])` |
-| Registration tokens    | String constants                               | `'component:standard:button'`                                                    |
-| Reactive state         | `Accessor<Type>`                               | `Accessor<ContentSize>`                                                          |
-| Union types over enums | String literal unions                          | `type ActionVariant = 'primary' \| 'secondary' \| 'plain'`                       |
-| Generics               | Minimal; preferred for intrinsic element types | `ClosedTagProps<T extends keyof JSX.IntrinsicElements>`                          |
-
----
-
 ## Styling Conventions
 
-- **CSS Modules** — Each component/mixin has a `.module.scss` file for scoped class names.
-- **SCSS globals** — Shared via `scss/globals.scss` (responsive breakpoints, variant mixins).
-- **CSS Custom Properties** — Theme-driven via `--variable-name` pattern in `theme/styles/`.
 - **CSS Layers** — Declared in `layers.css`: `reset` → `composables` → `theme` → `lib`.
-- **Color system** — Color-name + scale (e.g., `ocean-400`, `olive-400`).
-- **Mode system** — `data-theme-standard` attribute with dark/light variants.
-- **SCSS classes** — PascalCase class names (`.Action`, `.Button`), BEM-like modifier suffixes (`variant-primary`, `size-m`, `-Toggle`).
-
----
-
-## Error Handling & Debug
-
-- No runtime error boundaries in this package.
-- Props are strictly typed; invalid values are caught at compile time.
-- No explicit debug mode; components rely on TypeScript strict mode.
-- Missing context (e.g., using a context without a provider) follows SolidJS default behaviour (undefined context value).

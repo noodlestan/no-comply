@@ -1,19 +1,23 @@
-# Task Group: <task group name>
+# Task Plan: <plan name>
 
 ## Status
 
-EXECUTING
+PREPARING / READY / EXECUTING / BLOCKED / DONE
 
 ## Summary
 
 Create missing meta files across all packages.
 
+## Paths
+
+- `<tasks>`: `<root>/tasks/group-of-tasks`
+
 ## Tasks
 
-- `inspect-core` - DONE
-- `create-meta-core` - DONE
-- `inspect-ui` - BLOCKED
-- `create-meta-ui` - PENDING
+- `<tasks>/task_inspect-core` - DONE
+- `<tasks>/task_create-meta-core` - DONE
+- `<root>/ideas/task_inspect-ui` - BLOCKED
+- `<tasks>/subdir/create-meta-ui` - PENDING
 
 ## Blockers
 

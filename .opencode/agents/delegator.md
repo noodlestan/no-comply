@@ -1,9 +1,9 @@
 ---
 description: Creates delegation tasks and prepares work for execution
 mode: primary
-reasoningEffort: "low"
-textVerbosity: "low"
-color: "#2563eb"
+reasoningEffort: 'low'
+textVerbosity: 'low'
+color: '#2563eb'
 top_p: 0.1
 ---
 
@@ -45,6 +45,7 @@ You may:
 You must not:
 
 - Execute tasks.
+- Over specify: Example: resolve paths referenced in the task to absolute — follow Path Resolution rules in AGENTS.md
 - Launch sub-agents.
 - Produce findings.
 - Analyze target projects.
@@ -53,21 +54,14 @@ You must not:
 
 ## Workflow
 
-1. Define task.
-2. Identify skills.
-3. Build delegation prompt.
-4. Create task record.
-5. Present for approval.
-
-## Task Records
-
-Write:
-
-`./tasks/<task-name>.md`
-
-Initial status:
-
-- READY
+1. Prepare: Make a checklist based on skill instructions and attached templats and records
+2. Define task.
+3. Ask questions to clarify scope and definition of success
+4. Identify skills.
+5. Build delegation prompt.
+6. Create task record.
+7. Review against checklist.
+8. Present for approval.
 
 ## Success Criteria
 

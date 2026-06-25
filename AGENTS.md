@@ -9,6 +9,33 @@ Before diving into a package or task, prefer lightweight context sources over fi
 - **`.opencode/skills/index.md`** — YOU MUST READ THIS FIRST when entering the codebase or uncertain which skill to apply, and whenever the user asks to "list skills".
 - **`meta/*.md`** — Each package may contain `meta/api.md`, `meta/architecture.md`, `meta/conventions.md`, `meta/modules.md`, and `meta/health.md`. Read these before scanning the filesystem — they provide curated summaries of entry points, exports, architecture, conventions, and known issues.
 
+## Path Resolution
+
+### Placeholders
+
+All artifacts (tasks, plans, reports, prompts) MUST use relative paths with these placeholders:
+
+| Placeholder  | Resolves To                         | Example                                             |
+| ------------ | ----------------------------------- | --------------------------------------------------- |
+| `<root>/`    | Monorepo root directory             | `<root>/libs/meta/src/index.ts`                     |
+| `<project>/` | Task-specific project scope         | `<project>/src/controllers`                         |
+| `<scope>/`   | Task-specific filesystem scope      | `<scope>/components/`                               |
+| `<iterator>` | Dynamic segment (e.g., entity name) | `<root>/libs/meta/src/entities/<iterator>/types.ts` |
+| `<name>`     | Any arbitrary placeholder           | `<root>/libs/<module-a>/src/index.ts`               |
+
+### RULE: Path Resolution
+
+All paths in task records, delegation prompts, plan records, and reports MUST:
+
+1. Use placeholders instead of absolute paths
+2. Use `<root>/` for monorepo-relative references
+3. Use `<project>/` when referencing files inside the task's project (defined at the task top)
+4. Use `<scope>/` only when a task is scoped to a specific location (defined at task top)
+5. Use any arbitrary placeholders, example `<module-a>`, `<module-b>`, when needed (defined where convenient)
+6. NEVER resolve placeholders to absolute paths in written artifacts
+
+**Exception:** The executor agent MAY resolve placeholders when reading a task for execution, but MUST NOT write resolved paths back into artifacts.
+
 ## Package Domains
 
 | Scope            | Domain                                                       |

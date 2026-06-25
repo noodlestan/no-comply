@@ -1,5 +1,7 @@
 # purrception
 
+> This file extends [noodlestan conventions](./noodlestan.md).
+
 This document consolidates naming, file organization, API design, and typing conventions across all @purrception packages. It serves as a single source of truth for contributors.
 
 ## API & Types
@@ -30,6 +32,13 @@ This document consolidates naming, file organization, API design, and typing con
 - **Circular references**: throw `Error`
 - **Duplicate import detection**: `extractImportedSymbols` throws on duplicate import keys with diagnostic logging
 - **Thin wrappers**: most extractors are thin compositions of lower-level helpers with no additional logic
+- **Maybe/Option pattern**: every lookup has a safe variant returning `undefined` and a throwing variant (`getEntityMaybe` / `getEntity`)
+- **Generic filter pattern**: API functions accept a `Filter` union — array of names (whitelist) or predicate function
+- **Defensive copying**: `getEntities()` returns `[...entities]` spread copy to prevent mutation
+- **Consistent error message format**: error messages follow patterns like `"Could not resolve ..."`, `"Unknown entity ..."`, `"Duplicate entity ..."`
+- **Optional override pattern**: matcher, resolver, and decorator default to private implementations but can be overridden via factory `options`
+- **Consistent factory signature**: all factory functions follow the same `createXEntityExtractor` structure delegating to `defineDirectoryExtractor`
+- **Type-generic pipeline**: type parameters `P` (Partial), `F` (Files), `T` (Data) flow through the match → resolve → extract chain
 
 ### Typing Conventions
 
@@ -60,6 +69,10 @@ This document consolidates naming, file organization, API design, and typing con
 - **Helper modules**: shared utilities live in `helpers/` subdirectories
 - **Sub-resolver isolation**: complex logic further decomposed into subdirectories (`kinds/`, `normalize/`, `operators/`)
 - **One file per AST node kind**: TypeScript AST node extractors each have their own file (`extractUnionTypeNode.ts`, `extractObjectLiteralTypeNode.ts`)
+- **Entity-per-directory**: each entity type in `src/entities/<EntityName>/` with `index.ts`, `types.ts`, and `helpers/`
+- **Per-entity with factory and private**: each entity directory has a thin `create*EntityExtractor.ts` factory and a `private/` subdirectory with extractor, matcher, and resolver modules
+- **Cross-cutting utilities**: shared helpers go in `utils/helpers/`
+- **Heuristics layer**: thin wrapper functions that delegate to callbacks
 
 ## Naming
 
@@ -76,6 +89,16 @@ This document consolidates naming, file organization, API design, and typing con
 - **Prefix groups**: `Entity*` for pipeline types, `Docs*` for documentation metadata, `*Symbol` for symbol tracking
 - **Generic type parameters**: `T` for entity type, `C` for context type, `L` for language string literal, `F` and `P` in companion packages
 - **Internal fields**: underscore prefix for transient or internal fields (`_source`)
+- **Accessors**: `get*` prefix (`getEntities`, `getEntityMaybe`)
+- **Type guards**: `is*` prefix (`isNoComplyComponent`, `isNoComplyContext`)
+- **Existence checks**: `has*` prefix (`hasPackage`, `packageHasModule`)
+- **Resolvers**: `resolve*` prefix (`resolveComponentDeclaration`)
+- **Indexers**: `index*` prefix (`indexEntities`)
+- **Type discriminators**: lowercase singular (`'component'`, `'context'`, `'module'`)
+- **Private modules**: lowercase camelCase (`entityExtractor`, `entityMatcher`)
+- **File finders**: `find*File(s)` prefix (`findEntityFiles`)
+- **Source files**: kebab-case (`create-no-comply-meta-service.ts`)
+- **Entity directories**: PascalCase (`Component/`, `Context/`, `Controller/`)
 
 ## Others
 

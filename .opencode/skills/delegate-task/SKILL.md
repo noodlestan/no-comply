@@ -23,16 +23,18 @@ Make sure the agent is the correct one.
 
 The task file already exists and follows:
 
-- **Task Template** `.opencode/templates/simple-task_template.md`
-- **Task Record** `.opencode/templates/simple-task_record.md`
+- **Task Template** `<root>/.opencode/templates/simple-task_template.md`
+- **Task Record** `<root>/.opencode/templates/simple-task_record.md`
+
+Paths follow Path Resolution rules in AGENTS.md.
 
 Treat the task file as authoritative.
 
 ### Step 4: Execute
 
-Load:
+Load the task from given location:
 
-`./tasks/<task-name>.md`
+`<path>/task_<task-name>.md`
 
 Extract the delegation prompt.
 
@@ -106,6 +108,6 @@ Present:
 
 Write and maintain:
 
-`./task/<task-name>.md`
+`task_<task-name>.md`
 
 The task file is the only shared state between delegator and sub-agent.

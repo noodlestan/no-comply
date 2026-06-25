@@ -1,13 +1,13 @@
 ---
-name: execute-tasks
-description: Executes a task group by delegating individual tasks to sub-agents and tracking group progress
+name: execute-plan
+description: Executes a plan by delegating individual tasks to sub-agents and tracking the plan's progress
 ---
 
 # Skill: Execute Tasks
 
 ## Goal
 
-Execute a task group by delegating individual tasks to sub-agents and tracking overall progress via the task-group record.
+Execute a plan (sequence of tasks) by delegating individual tasks to sub-agents and tracking overall progress via the plan record.
 
 ## When To Use
 
@@ -22,10 +22,12 @@ Do not use for single-task execution — use `delegate-task`.
 This skill relies on:
 
 - **delegate-task** — for individual task execution
-- **task-group_template** — `.opencode/templates/task-group_template.md`
-- **task-group_record** — `.opencode/templates/task-group_record.md`
+- **Plan Template** — `<root>/.opencode/templates/plan_template.md`
+- **Plan Record** — `<root>/.opencode/templates/plan_record.md`
 
-The task-group record is the authoritative source for group state.
+Paths follow Path Resolution rules defined in AGENTS.md.
+
+The plan record is the authoritative source for plan state.
 
 ## Instructions
 
@@ -35,21 +37,21 @@ Ensure:
 
 - You are in **Executor Agent**
 - All referenced task files already exist and follow the task record template
-- A task-group file exists or will be created via the task-group template
+- A plan file exists or will be created via the Plan Template
 
-Treat all task files and the task-group file as authoritative state.
+Treat all task files and the plan file as authoritative state.
 
 Do not inspect task contents beyond what is required for delegation mechanics.
 
 ---
 
-### Step 1: Load task group
+### Step 1: Load plan
 
-Load the task group file.
+Load the plan file.
 
 If it does not exist:
 
-- Create it from the task-group template
+- Create it in the required location from the Plan Template in the
 - Confirm location with the user
 - Stop before execution
 
@@ -57,13 +59,13 @@ If it does not exist:
 
 ### Step 2: Set execution state
 
-Mark task group as executing per task-group record rules.
+Mark plan as EXECUTING as per Plan Record rules.
 
 ---
 
 ### Step 3: Select eligible tasks
 
-From the task group:
+From the plan:
 
 - Identify tasks not yet completed
 - For each task, verify only `## Status` is `READY`
@@ -94,8 +96,8 @@ For each batch:
 
 If a task becomes blocked:
 
-- Update task using `delegate-task` blocked rules
-- Record blocker in task-group using task-group record rules
+- Update task using `delegate-task` skill "Blocked" rules
+- Add blocker to plan using Plan Record rules
 - Continue remaining tasks in batch
 
 ---
@@ -104,9 +106,9 @@ If a task becomes blocked:
 
 When a task completes:
 
-- Update task via `delegate-task` completion rules
-- Update task-group using task-group record rules
-- Do not copy task outputs into group record (only status-level data)
+- Update task via `delegate-task` skill "Record outcome" rules
+- Update plan using Plan Record record rules
+- Do not copy task outputs into plan record (only status-level data)
 
 ---
 
@@ -118,8 +120,8 @@ If tasks remain:
 
 If all tasks complete:
 
-- Mark task-group as DONE per task-group record rules
-- Present final summary (group-level only)
+- Mark plan as DONE per Plan Record rules
+- Present final summary (plan-level only)
 
 ---
 
@@ -127,15 +129,15 @@ If all tasks complete:
 
 Maintain:
 
-- `tasks/<group>/task-group.md` (task-group record)
+- `plan_<name>.md` (plan record)
 - Individual task files (via `delegate-task`)
 
-The task-group record is the only shared orchestration state.
+The plan record is the only shared orchestration state.
 
 ## Success Criteria
 
 - All READY tasks are executed via delegation
-- Task-group record reflects only status-level progress
-- No task content is duplicated into group record
+- Plan record reflects only status-level progress
+- No task content is duplicated into plan record
 - Blocked tasks do not halt execution
 - Execution proceeds in controlled batches

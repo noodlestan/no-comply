@@ -1,13 +1,9 @@
 # @purrception/lang-ts-extract — Architecture
 
+> This file extends [purrception architecture](../../../architecture/purrception.md).
+
 > Generated: 2026-06-25
 > By: sub-agent
-
-## Design Principles
-
-1. **Thin transformation layer** — Each function does one AST-to-model conversion with no side effects. Extractors are pure compositions of lower-level helpers.
-2. **Lazy computation** — `exportsMap()` and `importsMap()` on `ProgramFileAPI` are memoized closures computed on first access, not at creation time.
-3. **Ignore-by-convention** — The `@ignore` JSDoc tag is the standard mechanism to exclude declarations from extraction output.
 
 ## Layering
 
@@ -47,31 +43,6 @@
 | **Program**    | `src/program/`                          | Creates TypeScript programs via compiler API; provides `ProgramFileAPI` (per-file) and `ProgramAPI` (aggregate)         |
 | **Extraction** | `src/extractors/` + `src/program-node/` | Transforms raw TS AST nodes into Purrception domain models (FunctionDeclaration, ComponentDeclaration, TypeDeclaration) |
 | **JSDoc**      | `src/jsdoc/`                            | Extracts JSDoc metadata from TS nodes; consumed by extraction layer                                                     |
-
-## Dependency Flow
-
-```
-extractors/  ──→  program-node/  ──→  program/ (types)
-     │                                   ↑
-     └───────────────── jsdoc/ ──────────┘
-```
-
-- `extractors/` imports `program-node/` (transformers) and `program/` (types only)
-- `program-node/` imports `jsdoc/` (JSDoc extraction) and `program/` (types only)
-- `program/` imports `jsdoc/` (file-level docs)
-- No circular dependencies
-
-## External Dependencies
-
-| Dependency                         | Usage                                                                                                                   |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `typescript` (^5.9.3)              | Compiler API: `ts.createProgram`, `ts.createCompilerHost`, `ts.TypeChecker`, `ts.SourceFile`, `ts.is*()` type guards    |
-| `@purrception/primitives` (0.0.11) | Base types: `ImportedSymbol`                                                                                            |
-| `@purrception/lang-ts` (0.0.11)    | Domain types: `FunctionDeclaration`, `ComponentDeclaration`, `TypeDeclaration`, `JsDocData`, `TypeExpressionNode`, etc. |
-
-## Peer Dependencies
-
-None declared.
 
 ## Internal Module Boundaries
 

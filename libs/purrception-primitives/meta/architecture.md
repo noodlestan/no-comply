@@ -1,13 +1,9 @@
 # `@purrception/primitives` — Architecture
 
+> This file extends [purrception architecture](../../../architecture/purrception.md).
+
 - **Generated**: 2026-06-25
 - **By**: sub-agent
-
-## Design Principles
-
-1. **Zero assumptions** — No runtime logic, no framework coupling, no runtime dependencies. Purely structural types.
-2. **Composition over inheritance** — Entity shapes are built by intersecting base types (`EntityDataBasePartial` + `DocsData` + `symbols`). Upstream packages extend via intersection.
-3. **Generic threading** — Context (`C`) and entity (`T`) types are threaded through the extraction pipeline via generics, preserving type safety across stages.
 
 ## Layering
 
@@ -35,20 +31,6 @@
 │  Zero dependencies                                │
 └──────────────────────────────────────────────────┘
 ```
-
-## Dependency Flow
-
-- **Inbound**: `@purrception/source-fs`, `@purrception/lang-ts`, `@purrception/lang-ts-extract`, `@no-comply/meta` all depend on `@purrception/primitives`.
-- **Outbound**: None — zero runtime or peer dependencies.
-- **Circular deps**: None. This is the bottom layer with no dependents pointing back.
-
-## External Dependencies
-
-None (`"dependencies": {}`).
-
-## Peer Dependencies
-
-None.
 
 ## Module Boundaries
 

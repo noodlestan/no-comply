@@ -1,5 +1,7 @@
 # no-comply libs
 
+> This file extends [noodlestan conventions](./noodlestan.md).
+
 This document consolidates naming, file organization, API design, and typing conventions across all @no-comply SolidJS libraries. It serves as a single source of reference for contributors.
 
 ## API & Types
@@ -152,3 +154,27 @@ This document consolidates naming, file organization, API design, and typing con
 - **TypeScript as validation layer**: no explicit runtime input validation in factories — TypeScript strict mode and well-typed APIs catch errors at compile time
 - **No runtime error boundaries** (standard-ui): no explicit error boundaries in the package; relies on SolidJS default behaviour and `ErrorBoundary` in consumer apps
 - **Missing context** (composables, standard-ui): controllers do not throw for missing context; `use{Name}Maybe` returns `undefined`
+
+## Build Tooling
+
+The esbuild-based build system: `@no-comply/build-tools`.
+
+### Build Configuration Patterns
+
+- **Partial application / currying**: CLI wrappers use curried factories (`const cjs = options => createBuild(options, cjsConfig)`)
+- **Config merging with layering**: inferred externals → defaults → user options (later wins, deduped via Set)
+- **Plugin composition**: user plugins + default plugins + auto-appended `emitTypesPlugin`
+- **No TypeScript**: the package uses plain JavaScript (`.mjs`); typing is implicit through object shapes passed to esbuild
+
+### Modules and Files
+
+- **One concern per directory**: directories separated by architectural role (`config/`, `helpers/`, `plugins/`)
+
+### Naming
+
+- **Factory case**: PascalCase after `create` (`createBuild`, `copyStaticFilesPlugin`)
+- **Config objects**: camelCase (`commonConfig`, `cjsConfig`, `esmConfig`)
+- **Esbuild plugin names**: kebab-case (`'emitTypes'`, `'copy-static-files'`)
+- **CLI binary names**: kebab-case (`no-comply-build`, `no-comply-watch`)
+- **Source files**: kebab-case with `.mjs` extension (`resolve-package-json.mjs`)
+- **Generic directories**: kebab-case (`build/`, `config/`, `helpers/`, `plugins/`)

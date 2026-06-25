@@ -1,8 +1,10 @@
 # Simple Task Record
 
-The Template `.opencode/templates/simple-task_template.md` defines the structure of a task file such as:
+The Template `<root>/.opencode/templates/simple-task_template.md` defines the structure of a task file in an arbitrary location.
 
-`./tasks/<task-name>.md`
+The task record file name (typically) matches:
+
+`task_<task-name>.md`
 
 Statuses:
 

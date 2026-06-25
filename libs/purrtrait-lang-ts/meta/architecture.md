@@ -1,13 +1,9 @@
 # @purrtrait/lang-ts — Architecture
 
+> This file extends [purrtrait architecture](../../../architecture/purrtrait.md).
+
 > Generated: 2026-06-25
 > By: sub-agent
-
-## Design Principles
-
-1. **Separation of Concerns** — AST structure (`@purrception/lang-ts`), layout model (`@purrtrait/code-layout`), and rendering are separate packages. This package bridges them.
-2. **Composition over Configuration** — Layout is built by composing small atomic functions (per-expression, per-declaration handlers) rather than a configuration-driven approach.
-3. **Explicit Data Flow** — All state is passed explicitly through `ctx` parameter; no implicit state or globals.
 
 ## Layering
 
@@ -47,14 +43,3 @@ layout/                         — tsCodeLayout entry point
 - Context flows sideways (passed through function parameters)
 - No circular dependencies between subdomains (expressions don't import from declarations, etc.)
 - Pure function composition — no classes, no instances
-
-## External Dependencies
-
-| Package                  | Version | Role                                                                   |
-| ------------------------ | ------- | ---------------------------------------------------------------------- |
-| `@purrception/lang-ts`   | 0.0.11  | TypeScript AST node type definitions                                   |
-| `@purrtrait/code-layout` | 0.0.11  | Code layout model (CodeLayoutLanguage interface, CodeLayoutNode types) |
-
-## Peer Dependencies
-
-None.

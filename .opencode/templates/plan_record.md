@@ -1,8 +1,10 @@
-# Task Group Record
+# Plan Record
 
-The Template `.opencode/templates/task-group_template.md` defines the structure of a task group file such as:
+The Template `<root>/.opencode/templates/plan_template.md` defines the structure of a plan file in an arbitrary location.
 
-`./task-groups/<task-group-name>.md`
+The plan record file name (typically) matches:
+
+`plan_<plan-name>.md`
 
 Statuses:
 
@@ -12,30 +14,42 @@ Statuses:
 - BLOCKED
 - DONE
 
-The task group record is the authoritative state for orchestration across multiple tasks.
+The plan record is the authoritative state for orchestration across multiple tasks.
 
-A task group records coordination state only.
+A plan records coordination state only.
 
 It must never duplicate task contents.
 
 It must never copy findings, prompts, outputs, reports, code, analysis, or generated content from individual tasks.
 
-Only record:
-
-- Task name
-- Task status
-- Task path (optional)
-- Batch membership
-- Blocker summary
-- Overall execution status
-
 Detailed information remains in the individual task files.
+
+## Listing tasks
+
+IMPORTANT: tasks referenced should follow Path Resolution rules in AGENTS.md — use placeholders (`<root>/`, `<project>/`, `<scope>/`) instead of absolute paths.
+
+The record contains 2 lists
+
+### Task List
+
+Contains only
+
+- Task name (resolvable to the task file e.g.: `<tasks>/task_inspect-core`)
+- Task status
+
+The task list eventually groups tasks that can be executed in paralel under phase headings. Example: "Phase 1: Prepare", "Phase 2: Execute"
+
+### Execution
+
+- Batch membership
+- Phase and tasks (simplified name, example: `inspect-core`)
+- Overall execution status
 
 ---
 
 ## PREPARING
 
-Used while tasks are being identified and assembled into the group.
+Used while tasks are being identified and assembled into the plan.
 
 Example:
 
@@ -49,7 +63,7 @@ PREPARING
 
 ## READY
 
-Used when the task group has been fully defined and is ready for execution.
+Used when the plan has been fully defined and is ready for execution.
 
 Example:
 
@@ -63,7 +77,7 @@ READY
 
 ## EXECUTING
 
-Used while one or more tasks in the group are being executed.
+Used between the first task starts being executed until one gets blocked or all succeed.
 
 Example:
 
@@ -74,9 +88,9 @@ EXECUTING
 
 ## Tasks
 
-- `inspect-core` - DONE
-- `create-meta-core` - EXECUTING
-- `inspect-ui` - READY
+`<tasks>/task_inspect-core` - DONE
+`<tasks>/task_create-meta-core` - EXECUTING
+`<tasks>/task_inspect-ui` - READY
 ```
 
 ---
@@ -116,7 +130,7 @@ Required skill not found.
 
 ## DONE
 
-Used when all tasks in the group have completed successfully.
+Used when all tasks in the plan have completed successfully.
 
 Requirements:
 

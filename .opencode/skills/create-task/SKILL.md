@@ -9,8 +9,8 @@ description: Creates a delegation task record and sub-agent prompt
 
 Prepare a task for delegation to a sub-agent based on a task template.
 
-- **Task Template** `.opencode/templates/simple-task_template.md`
-- **Task Record** `.opencode/templates/simple-task_record.md`
+- **Task Template** `<root>/.opencode/templates/simple-task_template.md`
+- **Task Record** `<root>/.opencode/templates/simple-task_record.md`
 
 The result of this skill is a task file and delegation prompt.
 
@@ -69,9 +69,15 @@ Present:
 
 Create a self-contained delegation prompt containing:
 
+**IMPORTANT:** all files and directories referenced in a task must follow the Path Resolution rules in AGENTS.md.
+
+- Use placeholders as defined in AGENTS.md (`<root>/`, `<project>/`, `<scope>/`, `<iterator>`, `<name>`) instead of absolute paths
+- Define `<project>/`, `<scope>/` paths at the top of the task and abritrary placeholders such as `<iterator-name>` or `<module-a>` where convenient
+- NEVER resolve placeholders to absolute paths in written artifacts
+
 - Task description
-- Project path
 - Skill references
+- Input details with relative file references
 - Output expectations
 - Non-interactive directive
 
@@ -93,7 +99,7 @@ Present prompt.
 
 ### Step 3: Create task record
 
-Generate a task file using the **Task Template** and **Task Record** directives.
+Generate a task record file named `task_<task-name>.md` in the required location, using the **Task Template** and the **Task Record** directives.
 
 Populate:
 

@@ -1,10 +1,6 @@
 # Architecture
 
-## Design Principles
-
-1. **Single responsibility** — exactly one concern: configure Babel for SolidJS JSX transform. Nothing else.
-2. **Configuration over code** — the package contains almost no logic; it's a value-object factory returning Babel plugin config + runtime scope.
-3. **Adapters, not wrappers** — extracts config from `babel-preset-solid` rather than wrapping it, insulating the browser compiler from non-standalone Babel.
+> This file extends [purrpose architecture](../../../architecture/purrpose.md).
 
 ## Layering
 
@@ -31,15 +27,3 @@
 ```
 
 - The reverse flow is consumer-driven: `@purrpose/client-babel`'s `createCompiler()` calls this preset's return value.
-
-## External Dependencies
-
-None. The package has zero runtime dependencies of its own.
-
-## Peer Dependencies
-
-| Package                            | Version   | Role                                                        |
-| ---------------------------------- | --------- | ----------------------------------------------------------- |
-| `@purrpose/client-babel`           | `0.0.11`  | Provides `CompilerPreset` type and compiler infrastructure  |
-| `babel-plugin-jsx-dom-expressions` | `^0.40.7` | Babel plugin that transforms JSX to SolidJS DOM expressions |
-| `solid-js`                         | `1.9.13`  | Runtime (`solid-js/web` supplied via `scope`)               |
