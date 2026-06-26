@@ -1,24 +1,23 @@
-import type { ActionMixinAPI } from '@no-comply/solid-composables';
+import type { ActionMixinAPI, FocusableMixinAPI } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
-import type { SizedActionMixinAPI } from '../../../action';
+import type { SizedActionMixinAPI, ToggleActionMixinAPI } from '../../../action';
 import type { ContentSize } from '../../../size';
 
 export type SegmentedButtonItemMixinProps = {
-	size: ContentSize;
+	active: boolean;
+	size?: ContentSize;
 };
 
 export type SegmentedButtonItemMixinAPI = {
-	$root: {
+	$root: FocusableMixinAPI['$root'] & {
 		classList: ClassList;
 	};
 	$label: ActionMixinAPI['$root'] &
-		SizedActionMixinAPI['$root'] & {
+		SizedActionMixinAPI['$root'] &
+		ToggleActionMixinAPI['$root'] & {
 			classList: ClassList;
 		};
-	$radio: {
-		classList: ClassList;
-	};
 	size: Accessor<ContentSize>;
 };

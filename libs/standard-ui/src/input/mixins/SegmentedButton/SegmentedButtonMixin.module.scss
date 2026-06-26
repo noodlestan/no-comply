@@ -2,25 +2,8 @@
   .SegmentedButton {
     display: flex;
     direction: row;
-    height: var(--size-m);
     gap: 0;
     margin: 0;
     pointer-events: all;
-  }
-
-  .size-small {
-    --__height: var(--size-xs);
-  }
-
-  .size-normal {
-    --__height: var(--size-s);
-  }
-
-  .size-medium {
-    --__height: var(--size-m);
-  }
-
-  .size-large {
-    --__height: var(--size-l);
   }
 }

@@ -7,6 +7,7 @@
     display: flex;
     gap: var(--__gap, 0);
     flex-direction: row;
+    align-items: center;
     height: var(--__height);
     min-height: var(--__height);
     padding-inline: var(--__padding-inline, var(--space-pad-0));

@@ -2,8 +2,12 @@
   .SegmentedButtonItem {
     position: relative;
     cursor: pointer;
+    border-radius: var(--action-border-radius);
 
     &:not(:first-child) {
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+
       .-Button {
         border-start-start-radius: 0;
         border-end-start-radius: 0;
@@ -11,6 +15,9 @@
     }
 
     &:not(:last-child) {
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+
       .-Button {
         border-start-end-radius: 0;
         border-end-end-radius: 0;

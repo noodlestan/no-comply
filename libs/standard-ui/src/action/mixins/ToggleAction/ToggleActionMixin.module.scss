@@ -1,0 +1,31 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui {
+  @layer action, sized-action, toggle-action;
+}
+
+@layer lib.standard-ui.action {
+  .ToggleAction {
+    transition:
+      color ease var(--animation-duration-blip),
+      background-color ease var(--animation-duration-blip),
+      border-color ease var(--animation-duration-blip);
+
+    // border-block-end-width: 10px;
+    // border-block-end-style: solid;
+
+    @include set-palette(__toggle-bg, primary);
+    @include set-level(__toggle-bg, bg-2);
+    @include apply-color(background-color, __toggle-bg);
+
+    @include set-color(__border-block-end, primary, border-0, opaque);
+    @include apply-color(border-block-end-color, __border-block-end);
+  }
+
+  .is-active,
+  .is-active:hover {
+    @include set-palette(__toggle-bg, selected);
+    @include set-level(__toggle-bg, bg-4);
+    @include set-color(__border-block-end, selected, border-1, opaque);
+  }
+}

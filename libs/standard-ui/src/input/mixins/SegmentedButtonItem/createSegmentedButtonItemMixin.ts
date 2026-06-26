@@ -1,7 +1,13 @@
+import { createFocusableMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, staticClassList } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, staticClassList } from '@no-comply/solid-primitives';
 
-import { createActionMixin, createSizedActionMixin } from '../../../action';
+import {
+	createActionMixin,
+	createSizedActionMixin,
+	createToggleActionMixin,
+} from '../../../action';
+import { createActionLabelMixin } from '../../../typography';
 
 import styles from './SegmentedButtonItemMixin.module.scss';
 import { $SEGMENTED_BUTTON_ITEM_MIXIN } from './constants';
@@ -12,12 +18,18 @@ export const createSegmentedButtonItemMixin = (
 ): SegmentedButtonItemMixinAPI => {
 	const [locals, expose, compose] = createExposable($SEGMENTED_BUTTON_ITEM_MIXIN, props);
 
-	const actionMixinProps = {
-		variant: 'primary',
-		intent: 'negative',
-	} as const;
+	const actionMixinProps = { variant: 'secondary' } as const;
+	const { $root: $focusableMixinRoot } = compose(createFocusableMixin());
 	const { $root: $actionMixinRoot } = compose(createActionMixin(actionMixinProps));
 	const { $root: $sizedActionMixinRoot, size } = compose(createSizedActionMixin(locals));
+
+	const toggleActionMixinProps = computedProps({
+		value: () => props.active,
+	});
+	const { $root: $toggleActionMixinRoot } = createToggleActionMixin(toggleActionMixinProps);
+
+	const actionLabelMixinProps = computedProps({ variant: size });
+	const { $root: $actionLabelMixinRoot } = createActionLabelMixin(actionLabelMixinProps);
 
 	const $root = {
 		classList: staticClassList(styles, 'SegmentedButtonItem'),
@@ -27,14 +39,15 @@ export const createSegmentedButtonItemMixin = (
 		classList: staticClassList(styles, '-Button'),
 	};
 
-	const $radio = {
-		classList: staticClassList(styles, '-RadioInput'),
-	};
-
 	return exposeAPI(expose, '$root', {
-		$root,
-		$label: combineProps($actionMixinRoot, $sizedActionMixinRoot, $label),
-		$radio,
+		$root: combineProps($focusableMixinRoot, $root),
+		$label: combineProps(
+			$actionMixinRoot,
+			$sizedActionMixinRoot,
+			$toggleActionMixinRoot,
+			$actionLabelMixinRoot,
+			$label,
+		),
 		size,
 	});
 };

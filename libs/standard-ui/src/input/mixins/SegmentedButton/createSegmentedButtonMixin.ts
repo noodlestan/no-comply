@@ -17,7 +17,7 @@ export const createSegmentedButtonMixin = (
 	const [locals, expose] = createExposable($SEGMENTED_BUTTON_MIXIN, props);
 
 	const size = () => locals.size ?? defaultProps.size;
-	const classList = createClassList(styles, () => [`SegmentedButton`, `size-${size()}`]);
+	const classList = createClassList(styles, () => [`SegmentedButton`]);
 
 	const $root = computedProps({
 		classList,

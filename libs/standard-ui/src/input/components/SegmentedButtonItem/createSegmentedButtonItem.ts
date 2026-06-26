@@ -1,3 +1,4 @@
+import { createFocusable } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
@@ -15,37 +16,36 @@ export const createSegmentedButtonItem = (
 	const { optionGroupContext, size } = useSegmentedButton();
 	const { name, isDisabled, isActive, onValueChange } = optionGroupContext();
 
-	const segmentedButtonItemMixinProps = computedProps({ size });
-	const {
-		$root: $mixinRoot,
-		$label: $mixinLabel,
-		$radio: $mixinRadio,
-	} = compose(createSegmentedButtonItemMixin(segmentedButtonItemMixinProps));
+	const segmentedButtonItemMixinProps = computedProps({
+		size,
+		active: () => isActive(locals.value),
+	});
+	const { $root: $mixinRoot, $label: $mixinLabel } = compose(
+		createSegmentedButtonItemMixin(segmentedButtonItemMixinProps),
+	);
 
-	const $root = {
-		// onClick: () => onValueChange(locals.value),
-	};
+	const { $root: $focusableRoot, $target, contextValue, isFocused } = compose(createFocusable());
 
 	const $label = {
 		onClick: () => onValueChange(locals.value),
 	};
 
-	const $radio = computedProps(
-		{
-			type: 'radio',
-			onInput: () => onValueChange(locals.value),
-		},
-		{
-			name,
-			isDisabled,
-			checked: () => isActive(locals.value),
-		},
-	);
+	const $radioStatic = {
+		type: 'radio' as const,
+		onInput: () => onValueChange(locals.value),
+	};
+	const $radio = computedProps($radioStatic, {
+		name,
+		checked: () => isActive(locals.value),
+		disabled: isDisabled,
+	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($mixinRoot, $root),
+		$root: combineProps($mixinRoot, $focusableRoot),
 		$label: combineProps($mixinLabel, $label),
-		$radio: combineProps($mixinRadio, $radio),
+		$radio: combineProps($target, $radio),
 		size,
+		contextValue,
+		isFocused,
 	});
 };
