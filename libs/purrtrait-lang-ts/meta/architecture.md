@@ -20,21 +20,21 @@
 ### Internal
 
 ```
-constants/                      — language identifier strings
-    ↓
-contexts/                       — generic params tracking context
-    ↓
-layout/                         — tsCodeLayout entry point
-    ↓
-  private/
-    ├─ layoutCode.ts            — top-level dispatcher (string / expression / declaration)
-    ├─ layoutDeclaration.ts     — declaration dispatcher (type / function / component / interface)
-    ├─ layoutExpression.ts      — expression dispatcher (16 expression kinds)
-    ├─ declarations/            — per-kind declaration renderers
-    ├─ expressions/             — per-kind expression renderers
-    ├─ generics/                — generic parameter rendering
-    ├─ layout/                  — token factories (identifier, keyword, symbol, etc.)
-    └─ utils/                   — shared helpers (eachExpression, appendSemicolon)
+src/
+├── constants.ts                 — language identifier strings (PurrceptionLanguageId, LanguageName)
+├── contexts/
+│   └── <entity>/               — context factories and types (e.g., CodeLayoutWithGenericParams)
+├── layout/
+│   ├── tsCodeLayout.ts         — plugin entry point (CodeLayoutLanguage object)
+│   └── private/                — internal implementation details
+│       ├── layoutCode.ts       — top-level dispatcher (string / expression / declaration)
+│       ├── layoutDeclaration.ts — declaration dispatcher (type / function / component / interface)
+│       ├── layoutExpression.ts — expression dispatcher (16 kinds)
+│       ├── <declaration>/      — per-kind declaration renderers (type, function, component, interface)
+│       ├── <expression>/       — per-kind expression renderers (16 expression kinds)
+│       ├── generics/           — generic parameter rendering
+│       ├── layout/             — token factories (identifier, keyword, symbol, etc.) + helpers
+│       └── utils/              — shared helpers (eachExpression, appendSemicolon)
 ```
 
 ## Dependency Flow
