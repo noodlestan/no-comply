@@ -1,8 +1,18 @@
 import { VisuallyHidden } from '@no-comply/solid-composables';
 import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Divider, Flex, Scrollable, Surface } from '@no-comply/standard-ui';
-import { type Component, Show, Suspense } from 'solid-js';
+import type { TSXView } from '@purrtrait/view-tsx';
+import {
+	type Component,
+	Match,
+	Show,
+	Suspense,
+	Switch,
+	createResource,
+	createSignal,
+} from 'solid-js';
 
+import type { CompilerAPI } from '../../../../../../../../modules/TSXCompilerModule';
 import { Markdown } from '../../../../../../../content';
 import {
 	$ID_PLAYGROUND_PREVIEW_DESCRIPTION,
@@ -13,6 +23,7 @@ import { PlaygroundResetButton } from '../PlaygroundResetButton';
 
 import styles from './PlaygroundExample.module.scss';
 import {
+	ComponentPlaygroundHTML,
 	ComponentPlaygroundPreview,
 	PlayGroundPreviewOptions,
 	PlaygroundExampleSelect,
@@ -21,6 +32,24 @@ import {
 export const PlaygroundExample: Component = () => {
 	const { currentExample, currentExampleParsed, currentExampleIndex } = useComponentPlayground();
 	const { hasExampleOverrides, resetExampleOverrides } = useComponentPlaygroundProps();
+
+	const [mode, setMode] = createSignal('preview');
+
+	const { examplePropsOverrides: exampleOverrides } = useComponentPlaygroundProps();
+
+	const [compiler] = createResource(async () => {
+		const compilerModule = await import('../../../../../../../../modules/TSXCompilerModule');
+		return compilerModule.createTSXCompilerModule().createCompiler();
+	});
+
+	const propOverrides = () => {
+		const index = currentExampleIndex();
+
+		if (index !== undefined) {
+			return exampleOverrides(index);
+		}
+		throw new Error(`WIP = Read before ready`);
+	};
 
 	const classList = staticClassList(styles, ['PlaygroundExample']);
 
@@ -39,30 +68,30 @@ export const PlaygroundExample: Component = () => {
 		>
 			<Suspense fallback={'LOADING......'}>
 				<Flex tag="section" direction="column" stretch="height" gap="l">
-					<Show when={title()}>
-						<VisuallyHidden>
-							<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
-								Rendered example: {title()}
-							</Display>
-						</VisuallyHidden>
-						<Flex
-							direction="row"
-							justify="between"
-							align="end"
-							gap="m"
-							padding={['s', 'm']}
-							wrap
-							classList={staticClassList(styles, ['-Header'])}
-						>
-							<PlaygroundExampleSelect />
-							<Show when={hasExampleOverrides(currentExampleIndex() as number)}>
-								<PlaygroundResetButton label="Reset example" onPress={handleResetExampleClick} />
-							</Show>
-						</Flex>
-					</Show>
-					<Flex stretch="full">
+					<VisuallyHidden>
+						<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
+							Rendered example: {title()}
+						</Display>
+					</VisuallyHidden>
+					<Flex
+						direction="row"
+						justify="between"
+						align="end"
+						gap="m"
+						padding={['s', 'm']}
+						wrap
+						classList={staticClassList(styles, ['-Header'])}
+					>
+						<PlaygroundExampleSelect />
+						<Show when={hasExampleOverrides(currentExampleIndex() as number)}>
+							<PlaygroundResetButton label="Reset example" onPress={handleResetExampleClick} />
+						</Show>
+					</Flex>
+					<Flex stretch="full" shrink>
 						<Show when={currentExampleParsed()}>
 							<PlayGroundPreviewOptions
+								mode={mode()}
+								setMode={setMode}
 								classList={staticClassList(styles, ['-PlayGroundPreviewOptions'])}
 							/>
 						</Show>
@@ -74,8 +103,29 @@ export const PlaygroundExample: Component = () => {
 								</Flex>
 							</Show>
 							<Show when={currentExampleParsed()}>
-								<Flex role="region" aria-label="Rendered example" padding="m" gap="m">
-									<ComponentPlaygroundPreview />
+								<Flex
+									role="region"
+									aria-label="Rendered example"
+									padding={['m', 'none', 'm', 'm']}
+									gap="m"
+								>
+									<Switch>
+										<Match when={mode() === 'source'}>SOURCE CODE</Match>
+										<Match when={mode() === 'preview' && compiler()}>
+											<ComponentPlaygroundPreview
+												view={currentExampleParsed() as TSXView}
+												compiler={compiler() as CompilerAPI}
+												overrides={propOverrides()}
+											/>
+										</Match>
+										<Match when={mode() === 'html'}>
+											<ComponentPlaygroundHTML
+												view={currentExampleParsed() as TSXView}
+												compiler={compiler() as CompilerAPI}
+												overrides={propOverrides()}
+											/>
+										</Match>
+									</Switch>
 								</Flex>
 							</Show>
 						</Scrollable>

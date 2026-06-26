@@ -1,40 +1,22 @@
 import type { TSXView } from '@purrtrait/view-tsx';
-import { type Component, Show, Suspense, createResource } from 'solid-js';
+import { type Component } from 'solid-js';
 
 import type { CompilerAPI } from '../../../../../../../../../../modules/TSXCompilerModule';
-import {
-	useComponentPlayground,
-	useComponentPlaygroundProps,
-} from '../../../../../../../providers';
+import { type ExamplePropsOverrides } from '../../../../../../../providers';
 import { RenderExample } from '../../../../../../RenderExample';
 
-export const ComponentPlaygroundPreview: Component = () => {
-	const { currentExampleParsed, currentExampleIndex } = useComponentPlayground();
-	const { examplePropsOverrides: exampleOverrides } = useComponentPlaygroundProps();
+type Props = {
+	view: TSXView;
+	compiler: CompilerAPI;
+	overrides: ExamplePropsOverrides;
+};
 
-	const [compiler] = createResource(async () => {
-		const compilerModule = await import('../../../../../../../../../../modules/TSXCompilerModule');
-		return compilerModule.createTSXCompilerModule().createCompiler();
-	});
-
-	const propOverrides = () => {
-		const index = currentExampleIndex();
-
-		if (index !== undefined) {
-			return exampleOverrides(index);
-		}
-		throw new Error(`WIP = Read before ready`);
-	};
-
+export const ComponentPlaygroundPreview: Component<Props> = props => {
 	return (
-		<Suspense fallback={'LOADING...'}>
-			<Show when={currentExampleParsed() && compiler()}>
-				<RenderExample
-					parsed={currentExampleParsed() as TSXView}
-					overrides={propOverrides()}
-					compiler={compiler() as CompilerAPI}
-				/>
-			</Show>
-		</Suspense>
+		<RenderExample
+			view={props.view as TSXView}
+			overrides={props.overrides}
+			compiler={props.compiler as CompilerAPI}
+		/>
 	);
 };

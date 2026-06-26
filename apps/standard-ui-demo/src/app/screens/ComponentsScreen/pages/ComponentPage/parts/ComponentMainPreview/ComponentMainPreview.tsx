@@ -86,7 +86,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 								controls={() => (
 									<Link href={routeFor.playground(component().name)}>Open in playground</Link>
 								)}
-								parsed={currentExampleParsed() as TSXView}
+								view={currentExampleParsed() as TSXView}
 								compiler={compiler() as CompilerAPI}
 							/>
 						</Show>

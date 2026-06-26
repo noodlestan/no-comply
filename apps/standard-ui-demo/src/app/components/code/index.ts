@@ -7,3 +7,4 @@ export * from './CodeLink';
 export * from './CodeSymbolLink';
 export * from './ComponentPropsTable';
 export * from './JSXRenderer';
+export * from './CodeRenderer';

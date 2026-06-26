@@ -199,7 +199,6 @@ use here apps/standard-ui-demo/src/app/ ... PlaygroundExample + PlaygroundProps
 props:
 
 - flex (move it from Flex)
-- fix: flex-flex: NaN;
 
 ### remove flex defaults
 
