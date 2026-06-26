@@ -6,6 +6,9 @@ import type { ExposableAPI } from '../types';
 
 const shim = <T>(t: T): T => t;
 
+/**
+ * Transparent wrapper around an entity's input props used to track compositions in development tools
+ */
 export const createExposable = <P extends AnyProps>(
 	name: string,
 	props: P = {} as P,

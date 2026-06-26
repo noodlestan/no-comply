@@ -1,5 +1,6 @@
 import type { IconValue, LabelValue } from '@no-comply/solid-contexts';
 
+import type { IconMappedAPI } from '../../../icons';
 import type { IconActionProps } from '../IconAction';
 
 export type ToggleActionProps = {
@@ -19,5 +20,5 @@ export type ToggleActionIcons = {
 };
 
 export type ToggleActionAPI = {
-	_icon: Pick<IconActionProps, 'label' | 'icon'>;
+	_icon: Pick<IconActionProps, 'label'> & IconMappedAPI['_icon'];
 };
