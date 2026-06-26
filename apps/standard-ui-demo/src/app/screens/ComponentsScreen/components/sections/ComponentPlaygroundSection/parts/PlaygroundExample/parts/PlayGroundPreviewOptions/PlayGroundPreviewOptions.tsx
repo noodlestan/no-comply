@@ -1,21 +1,34 @@
 import { VisuallyHidden } from '@no-comply/solid-composables';
-import { shortId } from '@no-comply/solid-primitives';
+import { type ClassList, shortId } from '@no-comply/solid-primitives';
 import { Flex, Label, SegmentedButton, SegmentedButtonItem } from '@no-comply/standard-ui';
 import { type Component, createSignal } from 'solid-js';
 
-export const PlayGroundExampleModeChoice: Component = () => {
+type Props = {
+	classList: ClassList;
+};
+
+export const PlayGroundPreviewOptions: Component<Props> = props => {
 	const labelId = shortId();
 
 	const [value, setValue] = createSignal('preview');
 
 	return (
-		<Flex direction="column" align="start" gap="xs" role="toolbar">
+		<Flex
+			direction="row"
+			justify="end"
+			gap="s"
+			padding="xs"
+			role="toolbar"
+			aria-label="Preview options"
+			{...props}
+		>
 			<VisuallyHidden>
 				<Label id={labelId} variant="small">
 					Select preview mode
 				</Label>
 			</VisuallyHidden>
 			<SegmentedButton
+				size="small"
 				name="example-mode-choice"
 				aria-labelledby={labelId}
 				value={value()}

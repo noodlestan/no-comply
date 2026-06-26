@@ -9,4 +9,10 @@
     z-index: 1;
     box-shadow: 0 1.5px 2px var(--__shadow-c);
   }
+
+  .-PlayGroundPreviewOptions {
+    position: absolute;
+    inset-inline-end: var(--space-gap-0);
+    z-index: 1;
+  }
 }

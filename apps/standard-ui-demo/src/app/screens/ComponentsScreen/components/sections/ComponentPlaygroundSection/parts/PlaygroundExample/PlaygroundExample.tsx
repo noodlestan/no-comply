@@ -14,7 +14,7 @@ import { PlaygroundResetButton } from '../PlaygroundResetButton';
 import styles from './PlaygroundExample.module.scss';
 import {
 	ComponentPlaygroundPreview,
-	PlayGroundExampleModeChoice,
+	PlayGroundPreviewOptions,
 	PlaygroundExampleSelect,
 } from './parts';
 
@@ -60,20 +60,26 @@ export const PlaygroundExample: Component = () => {
 							</Show>
 						</Flex>
 					</Show>
-					<Scrollable y>
-						<Show when={description()}>
-							<Flex id={$ID_PLAYGROUND_PREVIEW_DESCRIPTION} padding="m" gap="m">
-								<Markdown content={description() as string} />
-								<Divider />
-							</Flex>
-						</Show>
+					<Flex stretch="full">
 						<Show when={currentExampleParsed()}>
-							<PlayGroundExampleModeChoice />
-							<Flex role="region" aria-label="Rendered example" padding="m" gap="m">
-								<ComponentPlaygroundPreview />
-							</Flex>
+							<PlayGroundPreviewOptions
+								classList={staticClassList(styles, ['-PlayGroundPreviewOptions'])}
+							/>
 						</Show>
-					</Scrollable>
+						<Scrollable y>
+							<Show when={description()}>
+								<Flex id={$ID_PLAYGROUND_PREVIEW_DESCRIPTION} padding="m" gap="m">
+									<Markdown content={description() as string} />
+									<Divider />
+								</Flex>
+							</Show>
+							<Show when={currentExampleParsed()}>
+								<Flex role="region" aria-label="Rendered example" padding="m" gap="m">
+									<ComponentPlaygroundPreview />
+								</Flex>
+							</Show>
+						</Scrollable>
+					</Flex>
 				</Flex>
 			</Suspense>
 		</Surface>
