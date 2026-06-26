@@ -10,7 +10,7 @@ export type FlexMixinProps = LayoutGapProps & {
 	// shrink?: ResponsiveProp<boolean | number>;
 	shrink?: ResponsiveProp<boolean>;
 	wrap?: ResponsiveProp<boolean>;
-	flex?: ResponsiveProp<number>;
+	flex?: ResponsiveProp<number | number[]>;
 	inline?: ResponsiveProp<boolean>;
 };
 

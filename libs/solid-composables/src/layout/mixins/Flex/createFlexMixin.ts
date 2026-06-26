@@ -45,9 +45,12 @@ export function createFlexMixin(
 		[`flex`]: locals.flex !== undefined,
 	}));
 
-	const style = () => ({
-		'--__flex-flex': Number(props.flex),
-	});
+	const style = () =>
+		props.flex !== undefined
+			? {
+					'--__flex-flex': Number(props.flex),
+				}
+			: {};
 
 	const $root = computedProps({
 		classList,
