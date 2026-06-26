@@ -15,9 +15,11 @@
     @include focus-ring-styles;
   }
 
+  &[data-has-focus],
   &[data-had-focus],
   &:focus-visible,
   &[data-is-active] {
+    z-index: 1;
     @include focus-ring-active-styles;
   }
 }

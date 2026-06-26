@@ -15,7 +15,7 @@
     @include focus-ring;
   }
 
-  .-Button {
+  [data-focusable-target] {
     @include visually-hidden;
   }
 }
