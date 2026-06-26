@@ -1,11 +1,13 @@
-import type { FocusableAPI } from '@no-comply/solid-composables';
+import type { FocusableAPI, IconMappedAPI, ToggleActionIcons } from '@no-comply/solid-composables';
 import type { FocusContextValue } from '@no-comply/solid-contexts';
 import type { Accessor } from 'solid-js';
 
+import type { ContentSize } from '../../../size';
 import type { SegmentedButtonItemMixinAPI } from '../../mixins';
 
 export type SegmentedButtonItemProps = {
 	value: string;
+	icons?: ToggleActionIcons;
 };
 
 export type SegmentedButtonItemAPI = SegmentedButtonItemMixinAPI & {
@@ -19,6 +21,9 @@ export type SegmentedButtonItemAPI = SegmentedButtonItemMixinAPI & {
 		checked: boolean;
 		disabled: boolean;
 		onInput: (ev: Event) => void;
+	};
+	_icon: IconMappedAPI['_icon'] & {
+		size: ContentSize;
 	};
 	contextValue: FocusContextValue;
 	isFocused: Accessor<boolean>;

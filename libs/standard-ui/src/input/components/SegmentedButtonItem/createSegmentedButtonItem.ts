@@ -1,12 +1,23 @@
-import { createFocusable } from '@no-comply/solid-composables';
-import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+import {
+	type ToggleActionIcons,
+	createFocusable,
+	createIconMapped,
+} from '@no-comply/solid-composables';
+import { createExposable, createIconValue, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import CircleDot from 'lucide-solid/icons/circle-dot';
+import Dot from 'lucide-solid/icons/dot';
 
 import { createSegmentedButtonItemMixin } from '../../mixins';
 import { useSegmentedButton } from '../../providers';
 
 import { $SEGMENTED_BUTTON_ITEM } from './constants';
 import type { SegmentedButtonItemAPI, SegmentedButtonItemProps } from './types';
+
+const ICONS: ToggleActionIcons = {
+	on: createIconValue(CircleDot),
+	off: createIconValue(Dot),
+};
 
 export const createSegmentedButtonItem = (
 	props: SegmentedButtonItemProps,
@@ -40,10 +51,27 @@ export const createSegmentedButtonItem = (
 		disabled: isDisabled,
 	});
 
+	const map = computedProps({
+		false: () => locals.icons?.off ?? ICONS.off,
+		true: () => locals.icons?.on ?? ICONS.on,
+	});
+
+	const iconMappedProps = computedProps(
+		{ map },
+		{
+			key: () => String(isActive(locals.value)),
+		},
+	);
+	const { _icon: _iconMapped } = compose(createIconMapped(iconMappedProps));
+
+	const _sizedIcon = computedProps({ size });
+	const _icon = combineProps(_iconMapped, _sizedIcon);
+
 	return exposeAPI(expose, '$root', {
 		$root: combineProps($mixinRoot, $focusableRoot),
 		$label: combineProps($mixinLabel, $label),
 		$radio: combineProps($target, $radio),
+		_icon,
 		size,
 		contextValue,
 		isFocused,
