@@ -1,7 +1,7 @@
 {
   "name": "@no-comply/build-tools",
   "version": "0.0.11",
-  "description": "Internal tools used to build Designer Decisions packages and generate code.",
+  "description": "Internal tools used to build [no-comply] packages.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
@@ -14,7 +14,6 @@
     "lint:fix": "prettier . -c --write"
   },
   "devDependencies": {
-    "esbuild-plugin-file-path-extensions": "^2.1.4",
-    "ts-node": "10.9.2"
+    "esbuild-plugin-file-path-extensions": "^2.1.4"
   }
 }

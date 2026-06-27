@@ -93,11 +93,6 @@ Userland package for defining SolidJS-aware entity models and extractors based o
 - `Provider`
 - `Service`
 
-### Heuristics
-
-- `resolveEntityPartial`
-- `resolveEntityFiles`
-
 #### Helpers
 
 - `findComponentFile`
