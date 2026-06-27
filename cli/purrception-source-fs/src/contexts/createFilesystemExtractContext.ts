@@ -1,21 +1,12 @@
-import type { DirectoryExtractAPI } from '../types';
-
-import type { FilesystemExtractContext } from './types';
-
-type CreateFilesystemExtractContextOptions = {
-	rootDir: string;
-	extractors: DirectoryExtractAPI[];
-	defaults?: Record<string, unknown>;
-	log?: (msg: string) => void;
-	meta?: Record<string, unknown>;
-};
+import type { FilesystemExtractContext, FilesystemExtractContextOptions } from './types';
 
 export function createFilesystemExtractContext(
-	options: CreateFilesystemExtractContextOptions,
+	options: FilesystemExtractContextOptions,
 ): FilesystemExtractContext {
 	return {
 		rootDir: options.rootDir,
 		extractors: options.extractors,
+		hooks: options.hooks ?? {},
 		defaults: options.defaults ?? {},
 		meta: options.meta || {},
 		log: options.log ?? (() => {}),

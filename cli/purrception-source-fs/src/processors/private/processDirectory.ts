@@ -20,6 +20,13 @@ export async function processDirectory(
 ): Promise<AnonymousEntityProcessor[]> {
 	const processors: AnonymousEntityProcessor[] = [];
 
+	const filter = ctx.hooks.directoryFilter;
+	if (filter && typeof filter === 'function') {
+		if (filter(dir, ctx.rootDir)) {
+			return processors;
+		}
+	}
+
 	const entries = await listDirEntries(dir);
 	const meta = await createDirectoryExtractMeta(dir, ctx.rootDir);
 	const directoryContext = createDirectoryExtractContext(ctx, meta);

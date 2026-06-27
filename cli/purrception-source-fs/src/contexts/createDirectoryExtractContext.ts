@@ -13,11 +13,11 @@ export function createDirectoryExtractContext(
 	dirMeta: DirectoryExtractMeta,
 ): DirectoryExtractContext {
 	const fileCache = new Map<string, string>();
-	const watched = new Set<[string, boolean]>();
+	// const watched = new Set<[string, boolean]>();
 
 	const hasFile = (filename: string) => {
 		const exists = dirMeta.files.includes(filename);
-		watched.add([filename, exists]);
+		// watched.add([filename, exists]);
 		return exists;
 	};
 
@@ -37,7 +37,7 @@ export function createDirectoryExtractContext(
 
 	const hasDir = (dirname: string) => {
 		const exists = dirMeta.dirs.includes(dirname);
-		watched.add([dirname, exists]);
+		// watched.add([dirname, exists]);
 		return exists;
 	};
 
