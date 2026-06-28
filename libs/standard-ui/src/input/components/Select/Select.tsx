@@ -1,33 +1,23 @@
-import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import {
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
+} from '@no-comply/solid-primitives';
 import { type ParentComponent, Show } from 'solid-js';
 
+import { createContentLengthMixin } from '../../../content';
+
 import styles from './Select.module.scss';
-import type { SelectLength, SelectProps } from './types';
+import type { SelectProps } from './types';
 
 const defaultProps: PickRequired<SelectProps, 'size' | 'length'> = {
 	size: 's',
 	length: 'full',
 };
 
-const makeLength = (length: number | SelectLength): string => {
-	if (typeof length === 'number') {
-		return `${length}em`;
-	}
-	if (length === 'full') {
-		return '100%';
-	}
-	if (length === 'auto') {
-		return 'min-content';
-	}
-	return `var(--select-length-${length})`;
-};
-
-const makeStyle = (length?: number | SelectLength) =>
-	length ? { '--select-length': makeLength(length) } : {};
-
 export const Select: ParentComponent<SelectProps> = props => {
 	const size = () => props.size ?? defaultProps.size;
-	const length = () => props.length ?? defaultProps.length;
 
 	const handleChange = (ev: Event) => {
 		const target = ev.target as HTMLSelectElement;
@@ -61,7 +51,13 @@ export const Select: ParentComponent<SelectProps> = props => {
 		[`size-${size()}`]: true,
 	}));
 
-	const style = () => makeStyle(length());
+	const $root = computedProps({
+		classList,
+	});
+
+	const { $root: $contentLengthMixinRoot } = createContentLengthMixin(props);
+
+	const $ = combineProps($contentLengthMixinRoot, $root);
 
 	return (
 		<select
@@ -70,8 +66,8 @@ export const Select: ParentComponent<SelectProps> = props => {
 			onChange={handleChange}
 			onKeyDown={handleKeyDown}
 			onKeyUp={handleKeyUp}
-			classList={classList()}
-			style={style()}
+			classList={$.classList}
+			style={$.style}
 			value={props.value ?? ''}
 		>
 			<Show when={!!props.placeholder}>

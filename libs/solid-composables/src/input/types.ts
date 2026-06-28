@@ -3,6 +3,7 @@ export type BaseInputProps<T = unknown> = {
 	value?: T;
 	disabled?: boolean;
 	invalid?: boolean;
+	modified?: boolean;
 	onChange?: (ev: Event) => void;
 	onValueChange?: (value: T) => void;
 };

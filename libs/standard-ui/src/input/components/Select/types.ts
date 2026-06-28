@@ -1,14 +1,15 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
+import type { ContentLengthProp } from '../../../content';
+
 export type SelectSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-export type SelectLength = 's' | 'm' | 'l' | 'full' | 'auto';
 
 export type SelectProps = {
 	id?: string;
 	value?: string;
 	placeholder?: string;
 	size?: SelectSize;
-	length?: number | SelectLength;
+	length?: ContentLengthProp;
 	modified?: boolean;
 	disabled?: boolean;
 	invalid?: boolean;

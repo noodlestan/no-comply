@@ -7,7 +7,7 @@ import {
 	createClassList,
 } from '@no-comply/solid-primitives';
 
-import type { DividerLength } from '../../types';
+import type { DividerLengthProp } from '../../types';
 
 import styles from './DividerMixin.module.scss';
 import { $DIVIDER_MIXIN } from './constants';
@@ -15,10 +15,10 @@ import type { DividerMixinAPI, DividerMixinProps } from './types';
 
 const defaultProps: PickRequired<DividerMixinProps, 'variant' | 'length'> = {
 	variant: 'base',
-	length: 'full',
+	length: 'medium',
 };
 
-const makeStyle = (length: DividerLength | number) => {
+const makeStyle = (length: DividerLengthProp) => {
 	if (typeof length === 'number') {
 		return { '--__divider-length': `${length}em` };
 	}

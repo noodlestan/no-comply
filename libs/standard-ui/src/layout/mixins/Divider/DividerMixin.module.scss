@@ -17,24 +17,24 @@
     @include apply-color(border-color, __border);
   }
 
-  .length-s {
-    --__divider-length: var(--size-m);
+  .length-short {
+    --__divider-length: var(--length-short);
 
     &[aria-orientation='vertical'] {
       --__divider-length: var(--size-s);
     }
   }
 
-  .length-m {
-    --__divider-length: var(--size-l);
+  .length-medium {
+    --__divider-length: var(--length-medium);
 
     &[aria-orientation='vertical'] {
       --__divider-length: var(--size-m);
     }
   }
 
-  .length-l {
-    --__divider-length: var(--size-2xl);
+  .length-long {
+    --__divider-length: var(--length-long);
 
     &[aria-orientation='vertical'] {
       --__divider-length: var(--size-l);

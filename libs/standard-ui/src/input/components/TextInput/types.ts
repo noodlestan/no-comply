@@ -1,20 +1,22 @@
-import type { BaseInputProps } from '@no-comply/solid-composables';
+import type { TextInputValueAPI, TextInputValueProps } from '@no-comply/solid-composables';
 
-import type { InputBoxMixinProps, SizedInputBoxMixinProps } from '../../mixins';
+import type { ContentLengthMixinAPI, ContentLengthMixinProps } from '../../../content';
+import type {
+	InputBoxMixinAPI,
+	InputBoxMixinProps,
+	SizedInputBoxMixinAPI,
+	SizedInputBoxMixinProps,
+} from '../../mixins';
 
-export type TextInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-export type TextInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
-
-export type TextInputProps = BaseInputProps<string> &
+export type TextInputProps = TextInputValueProps &
 	InputBoxMixinProps &
-	SizedInputBoxMixinProps & {
-		type?: string;
-		placeholder?: string;
-		length?: number | TextInputLength;
-		maxLength?: number;
-		modified?: boolean;
-	};
+	SizedInputBoxMixinProps &
+	ContentLengthMixinProps;
 
 export type TextInputAPI = {
-	$root: object;
+	$root: TextInputValueAPI['$root'] & InputBoxMixinAPI['$root'] & SizedInputBoxMixinAPI['$root'];
+	value: TextInputValueAPI['value'];
+	wasTouched: TextInputValueAPI['wasTouched'];
+	size: SizedInputBoxMixinAPI['size'];
+	length: ContentLengthMixinAPI['length'];
 };

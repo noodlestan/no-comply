@@ -1,20 +1,22 @@
-import type { BaseInputProps } from '@no-comply/solid-composables';
+import type { NumberInputValueAPI, NumberInputValueProps } from '@no-comply/solid-composables';
 
-import type { InputBoxMixinProps, SizedInputBoxMixinProps } from '../../mixins';
+import type { ContentLengthMixinAPI, ContentLengthMixinProps } from '../../../content';
+import type {
+	InputBoxMixinAPI,
+	InputBoxMixinProps,
+	SizedInputBoxMixinAPI,
+	SizedInputBoxMixinProps,
+} from '../../mixins';
 
-export type NumberInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
-
-export type NumberInputProps = BaseInputProps<string> &
+export type NumberInputProps = NumberInputValueProps &
 	InputBoxMixinProps &
-	SizedInputBoxMixinProps & {
-		placeholder?: string;
-		length?: number | NumberInputLength;
-		maxLength?: number;
-		min?: number;
-		max?: number;
-		step?: number;
-	};
+	SizedInputBoxMixinProps &
+	ContentLengthMixinProps;
 
 export type NumberInputAPI = {
-	$root: object;
+	$root: NumberInputValueAPI['$root'] & InputBoxMixinAPI['$root'] & SizedInputBoxMixinAPI['$root'];
+	value: NumberInputValueAPI['value'];
+	wasTouched: NumberInputValueAPI['wasTouched'];
+	size: SizedInputBoxMixinAPI['size'];
+	length: ContentLengthMixinAPI['length'];
 };

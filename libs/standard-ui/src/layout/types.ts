@@ -1,2 +1,5 @@
 export type DividerVariant = 'base' | 'strong' | 'muted' | 'alt';
-export type DividerLength = 's' | 'm' | 'l' | 'full';
+
+export type DividerLength = 'short' | 'medium' | 'long' | 'full';
+
+export type DividerLengthProp = number | DividerLength;

@@ -1,7 +1,8 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
+import type { ContentLengthProp } from '../../../content';
+
 export type RangeInputSize = 'xs' | 's' | 'm' | 'l' | 'xl';
-export type RangeInputLength = 's' | 'm' | 'l' | 'full' | 'auto';
 
 export type RangeInputProps = {
 	id?: string;
@@ -10,7 +11,7 @@ export type RangeInputProps = {
 	max?: number;
 	step?: number;
 	size?: RangeInputSize;
-	length?: number | RangeInputLength;
+	length?: ContentLengthProp;
 	modified?: boolean;
 	disabled?: boolean;
 	invalid?: boolean;

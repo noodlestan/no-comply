@@ -4,11 +4,11 @@ import type {
 } from '@no-comply/solid-composables';
 import type { ClassList, Styles } from '@no-comply/solid-primitives';
 
-import type { DividerLength, DividerVariant } from '../../types';
+import type { DividerLengthProp, DividerVariant } from '../../types';
 
 export type DividerMixinProps = HeadlessDividerMixinProps & {
 	variant?: DividerVariant;
-	length?: number | DividerLength;
+	length?: DividerLengthProp;
 };
 
 export type DividerMixinAPI = {

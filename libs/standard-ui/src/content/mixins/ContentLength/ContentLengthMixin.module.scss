@@ -1,0 +1,14 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.content-length {
+  .ContentLength {
+    --__content-length-short: var(--length-short);
+    --__content-length-medium: var(--length-medium);
+    --__content-length-long: var(--length-long);
+    --__content-length-full: 100%;
+
+    width: min(var(--__content-length), 100%);
+    min-width: min(var(--__content-length), 100%);
+    max-width: min(var(--__content-length), 100%);
+  }
+}

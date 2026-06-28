@@ -1,8 +1,8 @@
 @use '../../../theme/mixins/color.scss' as *;
 
-@layer lib.standard-ui.content-message {
+@layer lib.standard-ui.toast-message {
   .ToastMessage {
-    width: var(--_content-message-width);
+    width: var(--_toast-message-width);
   }
 
   .-Title {
@@ -18,11 +18,11 @@
   }
 
   .length-full {
-    --_content-message-width: 100%;
+    --_toast-message-width: 100%;
   }
 
   .length-compact {
-    --_content-message-width: max-content;
+    --_toast-message-width: max-content;
     max-width: 600px; // WIP Layout width references
   }
 }

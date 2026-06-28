@@ -1,30 +1,23 @@
-import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import {
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
+} from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
 
+import { createContentLengthMixin } from '../../../content';
+
 import styles from './RangeInput.module.scss';
-import type { RangeInputLength, RangeInputProps } from './types';
+import type { RangeInputProps } from './types';
 
 const defaultProps: PickRequired<RangeInputProps, 'size' | 'length'> = {
 	size: 's',
 	length: 'auto',
 };
 
-const makeLength = (length: number | RangeInputLength): string => {
-	if (typeof length === 'number') {
-		return `${length}em`;
-	}
-	if (length === 'full') {
-		return '100%';
-	}
-	return `var(--input-length-${length})`;
-};
-
-const makeStyle = (length?: RangeInputLength | number) =>
-	length ? { '--input-length': makeLength(length) } : {};
-
 export const RangeInput: Component<RangeInputProps> = props => {
 	const size = () => props.size ?? defaultProps.size;
-	const length = () => props.length ?? defaultProps.length;
 
 	const [wasTouched, setWasTouched] = createSignal<boolean>(false);
 
@@ -73,7 +66,13 @@ export const RangeInput: Component<RangeInputProps> = props => {
 		[`size-${size()}`]: true,
 	}));
 
-	const style = () => makeStyle(length());
+	const $root = computedProps({
+		classList,
+	});
+
+	const { $root: $contentLengthMixinRoot } = createContentLengthMixin(props);
+
+	const $ = combineProps($contentLengthMixinRoot, $root);
 
 	return (
 		<input
@@ -86,8 +85,7 @@ export const RangeInput: Component<RangeInputProps> = props => {
 			disabled={props.disabled}
 			{...handlers}
 			ref={props.ref}
-			classList={classList()}
-			style={style()}
+			{...$}
 		/>
 	);
 };

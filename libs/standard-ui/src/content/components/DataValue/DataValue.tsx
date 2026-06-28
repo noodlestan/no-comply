@@ -1,8 +1,15 @@
-import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import {
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
+} from '@no-comply/solid-primitives';
 import type { ParentComponent } from 'solid-js';
 
+import { createContentLengthMixin } from '../../mixins';
+
 import styles from './DataValue.module.scss';
-import type { DataValueLength, DataValueProps } from './types';
+import type { DataValueProps } from './types';
 
 const defaultProps: PickRequired<DataValueProps, 'size' | 'length' | 'align'> = {
 	size: 'normal',
@@ -10,25 +17,8 @@ const defaultProps: PickRequired<DataValueProps, 'size' | 'length' | 'align'> = 
 	align: 'left',
 };
 
-const makeLength = (length: number | DataValueLength): string => {
-	if (typeof length === 'number') {
-		return `${length * 0.63 + 0.5}em`;
-	}
-	if (length === 'auto') {
-		return `min-content`;
-	}
-	if (length === 'full') {
-		return '100%';
-	}
-	return `var(--data-value-length-${length})`;
-};
-
-const makeStyle = (length?: DataValueLength | number) =>
-	length ? { '--data-value-length': makeLength(length) } : {};
-
 export const DataValue: ParentComponent<DataValueProps> = props => {
 	const size = () => props.size ?? defaultProps.size;
-	const length = () => props.length ?? defaultProps.length;
 
 	const handleClick = () => props.onClick?.();
 
@@ -39,6 +29,7 @@ export const DataValue: ParentComponent<DataValueProps> = props => {
 	};
 
 	const tabindex = () => (props.onClick ? 0 : undefined);
+	const role = () => (props.onClick ? 'button' : undefined);
 
 	const classList = createClassList(styles, () => ({
 		DataValue: true,
@@ -48,19 +39,16 @@ export const DataValue: ParentComponent<DataValueProps> = props => {
 		[`wrap`]: !!props.wrap,
 	}));
 
-	const role = () => (props.onClick ? 'button' : undefined);
+	const $root = computedProps({
+		classList,
+	});
 
-	const style = () => makeStyle(length());
+	const { $root: $contentLengthMixinRoot } = createContentLengthMixin(props);
+
+	const $ = combineProps($contentLengthMixinRoot, $root);
 
 	return (
-		<div
-			role={role()}
-			onClick={handleClick}
-			onKeyDown={handleKeyDown}
-			tabIndex={tabindex()}
-			classList={classList()}
-			style={style()}
-		>
+		<div role={role()} onClick={handleClick} onKeyDown={handleKeyDown} tabIndex={tabindex()} {...$}>
 			{props.value ?? props.children}
 		</div>
 	);

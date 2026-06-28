@@ -9,6 +9,7 @@ export const BASE_INPUT_PROPS = definePropKeys<BaseInputProps>()([
 	'value',
 	'disabled',
 	'invalid',
+	'modified',
 	'onChange',
 	'onValueChange',
 ]);

@@ -43,6 +43,12 @@
     /* 462px  →  547px */
     --size-5xl: var(--scale-5xl);
 
+    /* length */
+
+    --length-short: var(--size-2xl);
+    --length-medium: var(--size-3xl);
+    --length-long: var(--size-4xl);
+
     /* Space 6xs: 0.5px  →  1px */
     --scale-6xs: clamp(0.03125rem, 0.0175rem + 0.0575vw, 0.0625rem);
     /* Space 5xs: 1px  →  2px */
