@@ -1,0 +1,40 @@
+@layer lib.standard-ui {
+  @layer input-box, input-typography;
+}
+
+@layer lib.standard-ui.input-typography {
+  .InputTypography {
+    --__type-family: var(--input-base-family);
+    --__type-font-style: normal;
+    --__type-transform: none;
+    --__type-wrap-style: auto;
+  }
+
+  .variant-small {
+    --__input-font-size: var(--input-size-small-size);
+    --__input-font-weight: var(--input-size-small-weight);
+    --__input-line-height: var(--input-size-small-height);
+    --__input-letter-spacing: var(--input-size-small-spacing);
+  }
+
+  .variant-normal {
+    --__input-font-size: var(--input-size-normal-size);
+    --__input-font-weight: var(--input-size-normal-weight);
+    --__input-line-height: var(--input-size-normal-height);
+    --__input-letter-spacing: var(--input-size-normal-spacing);
+  }
+
+  .variant-medium {
+    --__input-font-size: var(--input-size-medium-size);
+    --__input-font-weight: var(--input-size-medium-weight);
+    --__input-line-height: var(--input-size-medium-height);
+    --__input-letter-spacing: var(--input-size-medium-spacing);
+  }
+
+  .variant-large {
+    --__input-font-size: var(--input-size-large-size);
+    --__input-font-weight: var(--input-size-large-weight);
+    --__input-line-height: var(--input-size-large-height);
+    --__input-letter-spacing: var(--input-size-large-spacing);
+  }
+}
