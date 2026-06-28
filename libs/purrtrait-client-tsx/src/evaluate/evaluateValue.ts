@@ -7,15 +7,15 @@ export function evaluateValue<T>(
 	value: TSXNode,
 	scope: ICompilerScope,
 	debug?: boolean | string | undefined,
-): T | (() => void) | unknown {
+): () => T | (() => void) | unknown {
 	switch (value.type) {
 		case 'handler':
-			return compiler.evaluateHandler(value.serialized, debug, scope);
+			return () => compiler.evaluateHandler(value.serialized, debug, scope);
 
 		case 'jsx':
-			return compiler.evaluateExpression(value.serialized, scope);
+			return compiler.evaluateExpression(`() => (${value.serialized})`, scope);
 
 		case 'expression':
-			return compiler.evaluateExpression(value.serialized, scope);
+			return compiler.evaluateExpression(`() => (${value.serialized})`, scope);
 	}
 }
