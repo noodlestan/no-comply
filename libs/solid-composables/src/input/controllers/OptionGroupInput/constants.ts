@@ -1,7 +1,7 @@
 import { ARIA_RADIO_GROUP_PROPS } from '@no-comply/solid-accessibility';
 import { definePropKeys } from '@no-comply/solid-primitives';
 
-import { BASE_INPUT_PROPS } from '../BaseInput';
+import { BASE_INPUT_PROPS } from '../../constants';
 
 import type { OptionGroupInputProps } from './types';
 
