@@ -4,12 +4,6 @@
     --input-length-m: var(--size-3xl);
     --input-length-l: var(--size-4xl);
     width: var(--input-length);
-    height: var(--size-m);
-    margin: 0;
-    padding: 0 var(--space-pad-0);
-    font-family: var(--data-base-family);
-    line-height: 1;
-    text-align: left;
     color: hsla(var(--input-fg), var(--o-input-fg));
     background-color: hsla(var(--input-bg), var(--o-input-bg));
     border: var(--input-border);
@@ -32,40 +26,6 @@
       outline-width: var(--outline-width);
       outline-color: --f-color(var(--outline-palette));
     }
-  }
-
-  .size-xs {
-    height: var(--size-2xs);
-    padding: 0 var(--space-pad--1);
-    font-size: var(--data-size-small-size);
-    font-weight: var(--data-size-s-weight);
-  }
-  .size-s {
-    height: var(--size-xs);
-    padding: 0 var(--space-pad--1);
-    font-size: var(--data-size-s-size);
-    font-weight: var(--data-size-m-weight);
-  }
-
-  .size-m {
-    height: var(--size-s);
-    padding: 0 var(--space-pad-0);
-    font-size: var(--data-size-m-size);
-    font-weight: var(--data-size-m-weight);
-  }
-
-  .size-l {
-    height: var(--size-m);
-    padding: 0 var(--space-pad-1);
-    font-size: var(--data-size-l-size);
-    font-weight: var(--data-size-l-weight);
-  }
-
-  .size-xl {
-    height: var(--size-l);
-    padding: 0 var(--space-pad-2);
-    font-size: var(--data-size-xl-size);
-    font-weight: var(--data-size-l-weight);
   }
 
   .is-modified:not(.is-disabled) {

@@ -29,7 +29,7 @@ const defaultProps: PickRequired<DisplayMixinProps, 'level' | 'variant'> = {
 export const createDisplayMixin = (props: DisplayMixinProps): DisplayMixinAPI => {
 	const [locals, expose, compose] = createExposable($DISPLAY_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
+	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 
 	const level = () => locals.level ?? defaultProps.level;
 	const variant = () => locals.variant ?? MAP_LEVEL_TO_VARIANT[level()];
@@ -39,7 +39,7 @@ export const createDisplayMixin = (props: DisplayMixinProps): DisplayMixinAPI =>
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($textMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $root),
 		level,
 	});
 };

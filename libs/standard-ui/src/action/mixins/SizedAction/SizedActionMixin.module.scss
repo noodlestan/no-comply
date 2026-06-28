@@ -17,17 +17,21 @@
 
   .size-small {
     --__height: var(--size-xs);
+    --__padding-inline: var(--space-pad-0);
   }
 
   .size-normal {
     --__height: var(--size-s);
+    --__padding-inline: var(--space-pad-1);
   }
 
   .size-medium {
     --__height: var(--size-m);
+    --__padding-inline: var(--space-pad-2);
   }
 
   .size-large {
     --__height: var(--size-l);
+    --__padding-inline: var(--space-pad-3);
   }
 }

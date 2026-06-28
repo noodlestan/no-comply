@@ -6,37 +6,37 @@
     --__type-wrap-style: balance;
     text-transform: uppercase;
 
-    --__type-font-size-fallback: var(--label-base-size);
-    --__type-font-weight-fallback: var(--label-base-weight);
-    --__type-line-height-fallback: var(--label-base-height);
-    --__type-letter-spacing-fallback: var(--label-base-spacing);
+    --__type-font-size: var(--__label-font-size, var(--label-base-size));
+    --__type-font-weight: var(--__label-font-weight, var(--label-base-weight));
+    --__type-line-height: var(--__label-line-height, var(--label-base-height));
+    --__type-letter-spacing: var(--__label-letter-spacing, var(--label-base-spacing));
   }
 
   .variant-small {
-    --__type-font-size: var(--label-size-small-size);
-    --__type-font-weight: var(--label-size-small-weight);
-    --__type-line-height: var(--label-size-small-height);
-    --__type-letter-spacing: var(--label-size-small-spacing);
+    --__label-font-size: var(--label-size-small-size);
+    --__label-font-weight: var(--label-size-small-weight);
+    --__label-line-height: var(--label-size-small-height);
+    --__label-letter-spacing: var(--label-size-small-spacing);
   }
 
   .variant-normal {
-    --__type-font-size: var(--label-size-normal-size);
-    --__type-font-weight: var(--label-size-normal-weight);
-    --__type-line-height: var(--label-size-normal-height);
-    --__type-letter-spacing: var(--label-size-normal-spacing);
+    --__label-font-size: var(--label-size-normal-size);
+    --__label-font-weight: var(--label-size-normal-weight);
+    --__label-line-height: var(--label-size-normal-height);
+    --__label-letter-spacing: var(--label-size-normal-spacing);
   }
 
   .variant-medium {
-    --__type-font-size: var(--label-size-medium-size);
-    --__type-font-weight: var(--label-size-medium-weight);
-    --__type-line-height: var(--label-size-medium-height);
-    --__type-letter-spacing: var(--label-size-medium-spacing);
+    --__label-font-size: var(--label-size-medium-size);
+    --__label-font-weight: var(--label-size-medium-weight);
+    --__label-line-height: var(--label-size-medium-height);
+    --__label-letter-spacing: var(--label-size-medium-spacing);
   }
 
   .variant-large {
-    --__type-font-size: var(--label-size-large-size);
-    --__type-font-weight: var(--label-size-large-weight);
-    --__type-line-height: var(--label-size-large-height);
-    --__type-letter-spacing: var(--label-size-large-spacing);
+    --__label-font-size: var(--label-size-large-size);
+    --__label-font-weight: var(--label-size-large-weight);
+    --__label-line-height: var(--label-size-large-height);
+    --__label-letter-spacing: var(--label-size-large-spacing);
   }
 }

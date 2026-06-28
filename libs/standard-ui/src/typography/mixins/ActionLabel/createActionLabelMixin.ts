@@ -18,7 +18,7 @@ const defaultProps: PickRequired<ActionLabelMixinProps, 'variant'> = {
 export const createActionLabelMixin = (props: ActionLabelMixinProps): ActionLabelMixinAPI => {
 	const [locals, expose, compose] = createExposable($ACTION_LABEL_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
+	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 
 	const variant = () => locals.variant ?? defaultProps.variant;
 	const classList = createClassList(styles, () => ['ActionLabel', `variant-${variant()}`]);
@@ -28,6 +28,6 @@ export const createActionLabelMixin = (props: ActionLabelMixinProps): ActionLabe
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($textMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $root),
 	});
 };

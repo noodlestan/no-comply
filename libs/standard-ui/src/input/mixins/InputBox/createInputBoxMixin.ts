@@ -9,7 +9,7 @@ import type { InputBoxMixinAPI, InputBoxMixinProps } from './types';
 export const createInputBoxMixin = (props: InputBoxMixinProps): InputBoxMixinAPI => {
 	const [locals, expose, compose] = createExposable($INPUT_BOX_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
+	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 
 	const classList = staticClassList(styles, `InputBox`);
 
@@ -18,6 +18,6 @@ export const createInputBoxMixin = (props: InputBoxMixinProps): InputBoxMixinAPI
 	};
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($textMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $root),
 	});
 };

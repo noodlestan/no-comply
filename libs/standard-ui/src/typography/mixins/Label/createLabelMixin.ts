@@ -18,7 +18,7 @@ const defaultProps: PickRequired<LabelMixinProps, 'variant'> = {
 export const createLabelMixin = (props: LabelMixinProps): LabelMixinAPI => {
 	const [locals, expose, compose] = createExposable($LABEL_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
+	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 
 	const variant = () => locals.variant ?? defaultProps.variant;
 	const classList = createClassList(styles, () => ['Label', `variant-${variant()}`]);
@@ -27,6 +27,6 @@ export const createLabelMixin = (props: LabelMixinProps): LabelMixinAPI => {
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($textMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $root),
 	});
 };

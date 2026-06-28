@@ -18,7 +18,7 @@ const defaultProps: PickRequired<TextMixinProps, 'variant'> = {
 export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
 	const [locals, expose, compose] = createExposable($TEXT_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
+	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 
 	const variant = () => locals.variant ?? defaultProps.variant;
 	const classList = createClassList(styles, () => ['Text', `variant-${variant()}`]);
@@ -27,6 +27,6 @@ export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($textMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $root),
 	});
 };

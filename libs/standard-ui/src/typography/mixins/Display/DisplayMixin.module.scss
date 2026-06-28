@@ -5,51 +5,51 @@
     --__type-transform: none;
     --__type-wrap-style: pretty;
 
-    --__type-font-size-fallback: var(--display-base-size);
-    --__type-font-weight-fallback: var(--display-base-weight);
-    --__type-line-height-fallback: var(--display-base-height);
-    --__type-letter-spacing-fallback: var(--display-base-spacing);
+    --__type-font-size: var(--__display-font-size, var(--display-base-size));
+    --__type-font-weight: var(--__display-font-weight, var(--display-base-weight));
+    --__type-line-height: var(--__display-line-height, var(--display-base-height));
+    --__type-letter-spacing: var(--__display-letter-spacing, var(--display-base-spacing));
   }
 
   .variant-hero {
-    --__type-font-size: var(--display-variant-hero-size);
-    --__type-font-weight: var(--display-variant-hero-weight);
-    --__type-line-height: var(--display-variant-hero-height);
-    --__type-letter-spacing: var(--display-variant-hero-spacing);
+    --__display-font-size: var(--display-variant-hero-size);
+    --__display-font-weight: var(--display-variant-hero-weight);
+    --__display-line-height: var(--display-variant-hero-height);
+    --__display-letter-spacing: var(--display-variant-hero-spacing);
   }
 
   .variant-xl {
-    --__type-font-size: var(--display-variant-xl-size);
-    --__type-font-weight: var(--display-variant-xl-weight);
-    --__type-line-height: var(--display-variant-xl-height);
-    --__type-letter-spacing: var(--display-variant-xl-spacing);
+    --__display-font-size: var(--display-variant-xl-size);
+    --__display-font-weight: var(--display-variant-xl-weight);
+    --__display-line-height: var(--display-variant-xl-height);
+    --__display-letter-spacing: var(--display-variant-xl-spacing);
   }
 
   .variant-l {
-    --__type-font-size: var(--display-variant-l-size);
-    --__type-font-weight: var(--display-variant-l-weight);
-    --__type-line-height: var(--display-variant-l-height);
-    --__type-letter-spacing: var(--display-variant-l-spacing);
+    --__display-font-size: var(--display-variant-l-size);
+    --__display-font-weight: var(--display-variant-l-weight);
+    --__display-line-height: var(--display-variant-l-height);
+    --__display-letter-spacing: var(--display-variant-l-spacing);
   }
 
   .variant-m {
-    --__type-font-size: var(--display-variant-m-size);
-    --__type-font-weight: var(--display-variant-m-weight);
-    --__type-line-height: var(--display-variant-m-height);
-    --__type-letter-spacing: var(--display-variant-m-spacing);
+    --__display-font-size: var(--display-variant-m-size);
+    --__display-font-weight: var(--display-variant-m-weight);
+    --__display-line-height: var(--display-variant-m-height);
+    --__display-letter-spacing: var(--display-variant-m-spacing);
   }
 
   .variant-s {
-    --__type-font-size: var(--display-variant-s-size);
-    --__type-font-weight: var(--display-variant-s-weight);
-    --__type-line-height: var(--display-variant-s-height);
-    --__type-letter-spacing: var(--display-variant-s-spacing);
+    --__display-font-size: var(--display-variant-s-size);
+    --__display-font-weight: var(--display-variant-s-weight);
+    --__display-line-height: var(--display-variant-s-height);
+    --__display-letter-spacing: var(--display-variant-s-spacing);
   }
 
   .variant-xs {
-    --__type-font-size: var(--display-variant-xs-size);
-    --__type-font-weight: var(--display-variant-xs-weight);
-    --__type-line-height: var(--display-variant-xs-height);
-    --__type-letter-spacing: var(--display-variant-xs-spacing);
+    --__display-font-size: var(--display-variant-xs-size);
+    --__display-font-weight: var(--display-variant-xs-weight);
+    --__display-line-height: var(--display-variant-xs-height);
+    --__display-letter-spacing: var(--display-variant-xs-spacing);
   }
 }

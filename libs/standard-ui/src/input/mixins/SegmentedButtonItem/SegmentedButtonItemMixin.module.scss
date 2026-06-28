@@ -7,6 +7,7 @@
     .-Button {
       display: flex;
       gap: var(--space-gap-0);
+      padding-inline-start: var(--space-gap-0);
     }
 
     &:not(:first-child) {
