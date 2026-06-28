@@ -3,7 +3,7 @@ import type { Accessor } from 'solid-js';
 
 export type OptionGroupContextOptions = {
 	name: string;
-	value: string | undefined;
+	value?: string;
 	disabled?: boolean;
 	onValueChange: (value: string) => void;
 };
