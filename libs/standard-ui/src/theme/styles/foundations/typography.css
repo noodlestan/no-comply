@@ -9,6 +9,7 @@
     /* text */
 
     --text-base-family: Arial, sans-serif;
+    --text-base-size: var(--typography-step-0);
     --text-base-weight: 300;
     --text-base-height: 1.6;
     --text-base-spacing: 1.6;
@@ -23,6 +24,7 @@
     /* display */
 
     --display-base-family: Arial, sans-serif;
+    --display-base-size: var(--typography-step-6);
     --display-base-weight: 300;
     --display-base-height: 1.2;
     --display-base-spacing: 1;
@@ -31,6 +33,7 @@
     --display-variant-hero-height: 1;
     --display-variant-xl-size: var(--typography-step-7);
     --display-variant-xl-height: 1;
+    --display-variant-normal-size: var(--typography-step-6);
     --display-variant-l-size: var(--typography-step-6);
     --display-variant-l-height: 1;
     --display-variant-m-size: var(--typography-step-4);
@@ -40,6 +43,7 @@
     /* action */
 
     --action-base-family: Tahoma, Arial, sans-serif;
+    --action-base-size: var(--typography-step--1);
     --action-base-weight: 300;
     --action-base-height: 1.2;
     --action-base-spacing: 1;
@@ -52,6 +56,7 @@
     /* label */
 
     --label-base-family: Arial, sans-serif;
+    --label-base-size: var(--typography-step--1);
     --label-base-weight: 300;
     --label-base-height: 1.4;
     --label-base-spacing: 1;
@@ -67,6 +72,7 @@
     /* data */
 
     --data-base-family: 'Consolas', 'Andale Mono', monospace;
+    --data-base-size: var(--typography-step--1);
     --data-base-weight: 300;
     --data-base-height: 1;
     --data-base-spacing: 1;

@@ -1,4 +1,4 @@
-import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
+import { createTypographyMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
 	type PickRequired,
@@ -18,7 +18,7 @@ const defaultProps: PickRequired<LabelMixinProps, 'variant'> = {
 export const createLabelMixin = (props: LabelMixinProps): LabelMixinAPI => {
 	const [locals, expose, compose] = createExposable($LABEL_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createHeadlessTextMixin(locals));
+	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
 
 	const variant = () => locals.variant ?? defaultProps.variant;
 	const classList = createClassList(styles, () => ['Label', `variant-${variant()}`]);

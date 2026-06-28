@@ -1,17 +1,14 @@
-import type {
-	TextMixinAPI as HeadlessTextMixinAPI,
-	TextMixinProps as HeadlessTextMixinProps,
-} from '@no-comply/solid-composables';
+import type { TypographyMixinAPI, TypographyMixinProps } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
 import type { LabelVariant } from '../../types';
 
-export type LabelMixinProps = HeadlessTextMixinProps & {
+export type LabelMixinProps = TypographyMixinProps & {
 	variant?: LabelVariant;
 };
 
 export type LabelMixinAPI = {
-	$root: HeadlessTextMixinAPI['$root'] & {
+	$root: TypographyMixinAPI['$root'] & {
 		classList: ClassList;
 	};
 };

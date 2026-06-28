@@ -1,4 +1,4 @@
-import { createTextMixin as createHeadlessTextMixin } from '@no-comply/solid-composables';
+import { createTypographyMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
 	type PickRequired,
@@ -29,7 +29,7 @@ const defaultProps: PickRequired<DisplayMixinProps, 'level' | 'variant'> = {
 export const createDisplayMixin = (props: DisplayMixinProps): DisplayMixinAPI => {
 	const [locals, expose, compose] = createExposable($DISPLAY_MIXIN, props);
 
-	const { $root: $textMixinRoot } = compose(createHeadlessTextMixin(locals));
+	const { $root: $textMixinRoot } = compose(createTypographyMixin(locals));
 
 	const level = () => locals.level ?? defaultProps.level;
 	const variant = () => locals.variant ?? MAP_LEVEL_TO_VARIANT[level()];
