@@ -14,3 +14,7 @@ export type NumberInputProps = BaseInputProps<string> &
 		max?: number;
 		step?: number;
 	};
+
+export type NumberInputAPI = {
+	$root: object;
+};

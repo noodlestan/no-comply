@@ -11,7 +11,6 @@ export type RangeInputProps = {
 	step?: number;
 	size?: RangeInputSize;
 	length?: number | RangeInputLength;
-	autoConfirm?: boolean;
 	modified?: boolean;
 	disabled?: boolean;
 	invalid?: boolean;

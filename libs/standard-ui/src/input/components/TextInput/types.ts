@@ -12,8 +12,9 @@ export type TextInputProps = BaseInputProps<string> &
 		placeholder?: string;
 		length?: number | TextInputLength;
 		maxLength?: number;
-		min?: number;
-		max?: number;
-		autoConfirm?: boolean;
 		modified?: boolean;
 	};
+
+export type TextInputAPI = {
+	$root: object;
+};

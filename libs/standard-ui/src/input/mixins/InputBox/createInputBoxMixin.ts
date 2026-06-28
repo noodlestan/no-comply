@@ -1,23 +1,26 @@
-import { createTypographyMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, staticClassList } from '@no-comply/solid-primitives';
+import { computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import styles from './InputBoxMixin.module.scss';
 import { $INPUT_BOX_MIXIN } from './constants';
 import type { InputBoxMixinAPI, InputBoxMixinProps } from './types';
 
 export const createInputBoxMixin = (props: InputBoxMixinProps): InputBoxMixinAPI => {
-	const [locals, expose, compose] = createExposable($INPUT_BOX_MIXIN, props);
+	const [, expose] = createExposable($INPUT_BOX_MIXIN, props);
 
-	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
+	const classList = createClassList(styles, () => ({
+		InputBox: true,
+		'is-disabled': Boolean(props.disabled),
+		'is-invalid': Boolean(props.invalid),
+		'is-modified': Boolean(props.modified),
+		'is-touched': Boolean(props.touched),
+	}));
 
-	const classList = staticClassList(styles, `InputBox`);
-
-	const $root = {
+	const $root = computedProps({
 		classList,
-	};
+	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($typographyMixinRoot, $root),
+		$root,
 	});
 };

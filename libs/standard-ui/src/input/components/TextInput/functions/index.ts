@@ -1,0 +1,3 @@
+// @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)export * from './isTextEditingShortcut';
+export * from './makeLength';
+export * from './makeStyle';
