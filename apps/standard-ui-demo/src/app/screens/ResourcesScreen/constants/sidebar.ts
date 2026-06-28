@@ -18,6 +18,10 @@ export const RESOURCES_SIDEBAR_ITEMS: SidebarNavGroup[] = [
 		createSidebarNavItem('Palettes', routeFor.resources('color/palettes')),
 	]),
 
+	createSidebarNavGroup('Forms', [
+		createSidebarNavItem('Inputs', routeFor.resources('forms/inputs')),
+	]),
+
 	createSidebarNavGroup('Composition', [
 		createSidebarNavItem('Large', routeFor.resources('composition/large')),
 		createSidebarNavItem('Medium', routeFor.resources('composition/medium')),

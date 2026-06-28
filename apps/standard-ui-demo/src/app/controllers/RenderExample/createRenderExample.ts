@@ -1,4 +1,4 @@
-import { evaluateValue } from '@purrtrait/client-tsx';
+import { type TSXNode, evaluateValue } from '@purrtrait/client-tsx';
 import { viewPropsByTarget } from '@purrtrait/view-tsx';
 import { mergeProps } from 'solid-js';
 
@@ -30,7 +30,16 @@ export const createRenderExample = (props: RenderExampleProps): RenderExampleAPI
 
 		const targetsProps: Record<string, unknown> = {};
 		for (const target in values) {
-			targetsProps[target] = mergeProps(values[target], props.overrides?.[target] || {});
+			const p: Record<string, unknown> = {};
+			const targetOverrides = props.overrides?.[target] || {};
+			for (const target in targetOverrides) {
+				const node: TSXNode = {
+					type: 'jsx',
+					serialized: targetOverrides[target] as string,
+				} as TSXNode;
+				p[target] = evaluateValue(props.compiler, node, STATIC_SCOPE);
+			}
+			targetsProps[target] = mergeProps(values[target], p);
 		}
 		return targetsProps;
 	};

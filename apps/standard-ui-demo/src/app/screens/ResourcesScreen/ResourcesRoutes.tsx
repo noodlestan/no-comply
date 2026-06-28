@@ -4,6 +4,7 @@ import type { Component } from 'solid-js';
 import { ResourcesScreen } from './ResourcesScreen';
 import {
 	ColorPalettesPage,
+	FormInputsPage,
 	LargeCompositionsPage,
 	MediumCompositionsPage,
 	ResourcesIndexPage,
@@ -17,6 +18,7 @@ export const ResourcesRoutes: Component = () => (
 		<Route path="/" component={ResourcesIndexPage} />
 		<Route path="/space/scales" component={SpaceScalePage} />
 		<Route path="/color/palettes" component={ColorPalettesPage} />
+		<Route path="/forms/inputs" component={FormInputsPage} />
 		<Route path="/typography/variants" component={TypographyVariantsPage} />
 		<Route path="/composition/large" component={LargeCompositionsPage} />
 		<Route path="/composition/medium" component={MediumCompositionsPage} />

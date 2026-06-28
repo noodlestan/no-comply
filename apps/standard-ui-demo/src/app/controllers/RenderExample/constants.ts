@@ -35,6 +35,8 @@ import {
 	NumberInput,
 	RangeInput,
 	Scrollable,
+	SegmentedButton,
+	SegmentedButtonItem,
 	Select,
 	SkipLink,
 	Surface,
@@ -75,6 +77,8 @@ export const STATIC_SCOPE = {
 	RangeInput,
 	Select,
 	TextInput,
+	SegmentedButton,
+	SegmentedButtonItem,
 	// layout
 	Divider,
 	Flex,

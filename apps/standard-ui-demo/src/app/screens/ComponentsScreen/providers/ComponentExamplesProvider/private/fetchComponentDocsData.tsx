@@ -82,6 +82,18 @@ const data = {
 			},
 		],
 	},
+	SegmentedButton: {
+		examples: [
+			{
+				title: 'Basic usage',
+				tsx: `<SegmentedButton tsx-view-target value="top" onValueChange={(value) => console.log('Changed:', value)}>
+					<SegmentedButtonItem value="top">top</SegmentedButtonItem>
+					<SegmentedButtonItem value="middle">middle</SegmentedButtonItem>
+					<SegmentedButtonItem value="bottom">bottom</SegmentedButtonItem>
+				</SegmentedButton>`,
+			},
+		],
+	},
 	ExpandButton: {
 		examples: [
 			{
@@ -157,7 +169,7 @@ export const fetchComponentDocsData = async (component: string): Promise<Compone
 			{
 				title: 'Preview (Placeholder)',
 				description: 'WIP - This is just a placehoder example',
-				tsx: `<Flex padding="l" direction="row" wrap>
+				tsx: `<Flex padding="l" direction="column" stretch="full" wrap>
 					<${component} tsx-view-target>Maybe</${component}>
 				</Flex>`,
 			},
