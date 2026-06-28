@@ -1,11 +1,17 @@
-import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import {
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
+} from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
+
+import { createInputBoxMixin, createSizedInputBoxMixin } from '../../mixins';
 
 import styles from './TextInput.module.scss';
 import type { TextInputLength, TextInputProps } from './types';
 
-const defaultProps: PickRequired<TextInputProps, 'size' | 'length'> = {
-	size: 's',
+const defaultProps: PickRequired<TextInputProps, 'length'> = {
 	length: 'auto',
 };
 
@@ -26,7 +32,6 @@ const makeStyle = (length?: TextInputLength | number, maxLength?: number) =>
 	length ? { '--input-length': makeLength(length, maxLength) } : {};
 
 export const TextInput: Component<TextInputProps> = props => {
-	const size = () => props.size ?? defaultProps.size;
 	const length = () => props.length ?? defaultProps.length;
 
 	const [wasTouched, setWasTouched] = createSignal<boolean>(false);
@@ -68,16 +73,23 @@ export const TextInput: Component<TextInputProps> = props => {
 	};
 
 	const classList = createClassList(styles, () => ({
-		...props.classList,
 		TextInput: true,
 		'is-disabled': Boolean(props.disabled),
 		'is-invalid': Boolean(props.invalid),
 		'is-modified': Boolean(props.modified),
 		'was-touched': wasTouched(),
-		[`size-${size()}`]: true,
 	}));
 
+	const $root = computedProps({
+		classList,
+	});
+
+	const { $root: $inputBoxMixinRoot } = createInputBoxMixin(props);
+	const { $root: $sizedInputBoxMixinRoot } = createSizedInputBoxMixin(props);
+
 	const style = () => makeStyle(length(), props.maxLength);
+
+	const $ = combineProps($root, $inputBoxMixinRoot, $sizedInputBoxMixinRoot);
 
 	return (
 		<input
@@ -90,9 +102,8 @@ export const TextInput: Component<TextInputProps> = props => {
 			value={props.value}
 			disabled={props.disabled}
 			{...handlers}
-			ref={props.ref}
-			classList={classList()}
 			style={style()}
+			{...$}
 		/>
 	);
 };

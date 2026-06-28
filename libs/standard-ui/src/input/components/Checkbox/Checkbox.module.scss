@@ -58,12 +58,16 @@
     @include apply-color(background-color, __bg);
   }
 
-  .size-s {
+  .size-xs {
     --__size: var(--size-xs);
   }
 
-  .size-m {
+  .size-s {
     --__size: var(--size-s);
+  }
+
+  .size-m {
+    --__size: var(--size-m);
   }
 
   .size-l {

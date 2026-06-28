@@ -1,0 +1,18 @@
+@layer lib.standard-ui.input-box {
+  .InputBox {
+    --__height: var(--size-s);
+
+    --__type-family: var(--data-base-size);
+    --__type-font-size-fallback: var(--data-base-weight);
+    --__type-font-weight-fallback: var(--data-base-height);
+    --__type-line-height-fallback: var(--data-base-spacing);
+
+    height: var(--__height);
+    min-height: var(--__height);
+    margin: 0;
+    padding: 0 var(--space-pad-0);
+    text-align: start;
+
+    --__first-line-element-height: var(--__height);
+  }
+}

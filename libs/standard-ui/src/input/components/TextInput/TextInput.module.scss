@@ -9,7 +9,7 @@
     padding: 0 var(--space-pad-0);
     font-family: var(--data-type-family);
     line-height: 1;
-    text-align: left;
+    text-align: start;
     color: hsla(var(--input-fg), var(--o-input-fg));
     background-color: hsla(var(--input-bg), var(--o-input-bg));
     border: var(--input-border);
@@ -30,7 +30,7 @@
   }
 
   .size-xs {
-    height: var(--size-xs);
+    height: var(--size-2xs);
     padding: calcvar(--space-pad--1);
     font-size: var(--data-type-size-xs);
     font-weight: var(--data-type-weight-s);

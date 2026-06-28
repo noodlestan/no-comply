@@ -1,0 +1,39 @@
+@layer lib.standard-ui {
+  @layer input-box, sized-input;
+}
+
+@layer lib.standard-ui.sized-input {
+  .SizedInputBox {
+    padding-inline: var(--__padding-inline, var(--space-pad--1));
+
+    --__first-line-element-height: var(--__height);
+  }
+
+  .size-small {
+    --__height: var(--size-2xs);
+    --__padding-inline: var(--space-pad--1);
+    --__font-size: var(--data-size-small-size);
+    --__font-weight: var(--data-size-small-weight);
+  }
+
+  .size-normal {
+    --__height: var(--size-xs);
+    --__padding-inline: var(--space-pad--1);
+    --__font-size: var(--data-size-normal-size);
+    --__font-weight: var(--data-size-normal-weight);
+  }
+
+  .size-medium {
+    --__height: var(--size-s);
+    --__padding-inline: var(--space-pad-0);
+    --__font-size: var(--data-size-medium-size);
+    --__font-weight: var(--data-size-medium-weight);
+  }
+
+  .size-large {
+    --__height: var(--size-m);
+    --__padding-inline: var(--space-pad-1);
+    --__font-size: var(--data-size-large-size);
+    --__font-weight: var(--data-size-large-weight);
+  }
+}

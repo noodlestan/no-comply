@@ -1,5 +1,12 @@
-import { type PickRequired, createClassList } from '@no-comply/solid-primitives';
+import {
+	type PickRequired,
+	combineProps,
+	computedProps,
+	createClassList,
+} from '@no-comply/solid-primitives';
 import { type Component, type JSX, createSignal } from 'solid-js';
+
+import { createInputBoxMixin, createSizedInputBoxMixin } from '../../mixins';
 
 import styles from './NumberInput.module.scss';
 import { VALID_KEYS } from './constants';
@@ -14,15 +21,13 @@ import {
 } from './functions';
 import type { NumberInputProps } from './types';
 
-const defaultProps: PickRequired<NumberInputProps, 'size' | 'length'> = {
-	size: 's',
+const defaultProps: PickRequired<NumberInputProps, 'length'> = {
 	length: 'auto',
 };
 
 export const NumberInput: Component<NumberInputProps> = props => {
 	let inputRef: HTMLInputElement;
 
-	const size = () => props.size ?? defaultProps.size;
 	const length = () => props.length ?? defaultProps.length;
 
 	const [wasTouched, setWasTouched] = createSignal<boolean>(false);
@@ -44,7 +49,7 @@ export const NumberInput: Component<NumberInputProps> = props => {
 
 	const setInputRef = (ref: HTMLInputElement) => {
 		inputRef = ref;
-		props.ref?.(ref);
+		// props.ref?.(ref);
 	};
 
 	const isCaretAtStart = () => {
@@ -131,16 +136,23 @@ export const NumberInput: Component<NumberInputProps> = props => {
 	};
 
 	const classList = createClassList(styles, () => ({
-		...props.classList,
 		NumberInput: true,
 		'is-disabled': Boolean(props.disabled),
 		'is-invalid': Boolean(props.invalid),
-		'is-modified': Boolean(props.modified),
+		// 'is-modified': Boolean(props.modified),
 		'is-touched': wasTouched(),
-		[`size-${size()}`]: true,
 	}));
 
+	const $root = computedProps({
+		classList,
+	});
+
+	const { $root: $inputBoxMixinRoot } = createInputBoxMixin(props);
+	const { $root: $sizedInputBoxMixinRoot } = createSizedInputBoxMixin(props);
+
 	const style = () => makeStyle(length(), props.maxLength);
+
+	const $ = combineProps($root, $inputBoxMixinRoot, $sizedInputBoxMixinRoot);
 
 	return (
 		<input
@@ -157,8 +169,8 @@ export const NumberInput: Component<NumberInputProps> = props => {
 			{...handlers}
 			// eslint-disable-next-line solid/reactivity
 			ref={setInputRef}
-			classList={classList()}
 			style={style()}
+			{...$}
 		/>
 	);
 };
