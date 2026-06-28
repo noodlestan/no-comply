@@ -60,7 +60,7 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 					<Flex direction="row" align="center" gap="s">
 						<TextInput
 							id={id()}
-							size="xs"
+							size="small"
 							value={String(propValue())}
 							disabled={props.propValues.loading}
 							onValueChange={handleValueChange}

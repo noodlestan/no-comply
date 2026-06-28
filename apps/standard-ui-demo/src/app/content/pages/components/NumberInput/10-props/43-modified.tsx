@@ -11,7 +11,7 @@ export default createDocsSectionData({
 			const { value, handleValueChange } = createNumberInputExampleController({
 				value: '33',
 			});
-			return <NumberInput value={value()} onValueChange={handleValueChange} modified />;
+			return <NumberInput value={value()} onValueChange={handleValueChange} />;
 		}),
 	],
 });

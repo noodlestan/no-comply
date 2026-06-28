@@ -40,12 +40,12 @@ export const FormInputsPage: Component = () => {
 		<ResourcesPage title="Variants">
 			<Display level={3}>small</Display>
 
-			<Flex direction="row" align="center" gap="l">
+			<Flex direction="row" align="center" gap="l" wrap>
 				<Checkbox size="xs" checked={checkboxValue()} onValueChange={setCheckboxValue} />
-				<TextInput length="s" size="xs" value={textValue()} onValueChange={setTextValue} />
+				<TextInput length="s" size="small" value={textValue()} onValueChange={setTextValue} />
 				<NumberInput
 					length="s"
-					size="xs"
+					size="small"
 					value={String(numberValue())}
 					onValueChange={setNumberValue}
 				/>
@@ -65,12 +65,12 @@ export const FormInputsPage: Component = () => {
 
 			<Display level={3}>normal</Display>
 
-			<Flex direction="row" align="center" gap="l">
+			<Flex direction="row" align="center" gap="l" wrap>
 				<Checkbox size="s" checked={checkboxValue()} onValueChange={setCheckboxValue} />
-				<TextInput length="s" size="s" value={textValue()} onValueChange={setTextValue} />
+				<TextInput length="s" size="normal" value={textValue()} onValueChange={setTextValue} />
 				<NumberInput
 					length="s"
-					size="s"
+					size="normal"
 					value={String(numberValue())}
 					onValueChange={setNumberValue}
 				/>
@@ -90,12 +90,12 @@ export const FormInputsPage: Component = () => {
 
 			<Display level={3}>medium</Display>
 
-			<Flex direction="row" align="center" gap="l">
+			<Flex direction="row" align="center" gap="l" wrap>
 				<Checkbox size="m" checked={checkboxValue()} onValueChange={setCheckboxValue} />
-				<TextInput length="s" size="m" value={textValue()} onValueChange={setTextValue} />
+				<TextInput length="s" size="medium" value={textValue()} onValueChange={setTextValue} />
 				<NumberInput
 					length="s"
-					size="m"
+					size="medium"
 					value={String(numberValue())}
 					onValueChange={setNumberValue}
 				/>
@@ -115,12 +115,12 @@ export const FormInputsPage: Component = () => {
 
 			<Display level={3}>large</Display>
 
-			<Flex direction="row" align="center" gap="l">
+			<Flex direction="row" align="center" gap="l" wrap>
 				<Checkbox size="l" checked={checkboxValue()} onValueChange={setCheckboxValue} />
-				<TextInput length="s" size="l" value={textValue()} onValueChange={setTextValue} />
+				<TextInput length="s" size="large" value={textValue()} onValueChange={setTextValue} />
 				<NumberInput
 					length="s"
-					size="l"
+					size="large"
 					value={String(numberValue())}
 					onValueChange={setNumberValue}
 				/>

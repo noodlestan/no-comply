@@ -26,7 +26,7 @@ export const ExampleMedium: Component<Props> = props => {
 			</Flex>
 			<Flex gap="s">
 				<Label variant="small">Password</Label>
-				<TextInput size="s" length="m" value="password" type="password" />
+				<TextInput size="normal" length="m" value="password" type="password" />
 			</Flex>
 			<Flex direction="row" gap="m" align="center">
 				<IconButton variant="primary" intent="negative" icon={LockIcon} label="Lock" />

@@ -1,16 +1,10 @@
-import {
-	Field,
-	Flex,
-	Icon,
-	IconButton,
-	type InputControllerProps,
-	TextInput,
-} from '@no-comply/standard-ui';
+import type { BaseInputProps } from '@no-comply/solid-composables';
+import { Field, Flex, Icon, IconButton, TextInput } from '@no-comply/standard-ui';
 import SearchIcon from 'lucide-solid/icons/search';
 import XIcon from 'lucide-solid/icons/x';
 import { type Component, Show } from 'solid-js';
 
-type Props = InputControllerProps<string>;
+type Props = BaseInputProps<string>;
 
 export const APISearchField: Component<Props> = props => {
 	const handleClearClick = () => props.onValueChange?.('');
@@ -21,7 +15,7 @@ export const APISearchField: Component<Props> = props => {
 					<Icon icon={SearchIcon} />
 					<TextInput
 						length="full"
-						size="m"
+						size="medium"
 						value={props.value}
 						onValueChange={props.onValueChange}
 						{...field.$input}

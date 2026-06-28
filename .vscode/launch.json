@@ -14,10 +14,10 @@
     },
     {
       "type": "node-terminal",
-      "name": "Run Script: extract (libs/standard-ui)",
+      "name": "Run Script: extract (libs/solid-composables)",
       "request": "launch",
       "command": "npm run extract",
-      "cwd": "${workspaceFolder}/libs/standard-ui"
+      "cwd": "${workspaceFolder}/libs/solid-composables"
     },
     {
       "type": "node",

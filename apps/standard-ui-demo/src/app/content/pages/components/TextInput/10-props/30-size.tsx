@@ -8,29 +8,29 @@ import { createTextInputExampleController } from '../controllers';
 export default createDocsSectionData({
 	title: 'size',
 	items: [
-		createDocsItemData({ title: 'l', props }, () => {
+		createDocsItemData({ title: 'large', props }, () => {
 			const { value, handleValueChange } = createTextInputExampleController({
 				value: lipsumWords(3),
 			});
-			return <TextInput value={value()} onValueChange={handleValueChange} size="l" />;
+			return <TextInput value={value()} onValueChange={handleValueChange} size="large" />;
 		}),
-		createDocsItemData({ title: 'm', props }, () => {
+		createDocsItemData({ title: 'medium', props }, () => {
 			const { value, handleValueChange } = createTextInputExampleController({
 				value: lipsumWords(3),
 			});
-			return <TextInput value={value()} onValueChange={handleValueChange} size="m" />;
+			return <TextInput value={value()} onValueChange={handleValueChange} size="medium" />;
 		}),
-		createDocsItemData({ title: 's', props }, () => {
+		createDocsItemData({ title: 'normal', props }, () => {
 			const { value, handleValueChange } = createTextInputExampleController({
 				value: lipsumWords(3),
 			});
-			return <TextInput value={value()} onValueChange={handleValueChange} size="s" />;
+			return <TextInput value={value()} onValueChange={handleValueChange} size="normal" />;
 		}),
-		createDocsItemData({ title: 'xs', props }, () => {
+		createDocsItemData({ title: 'small', props }, () => {
 			const { value, handleValueChange } = createTextInputExampleController({
 				value: lipsumWords(3),
 			});
-			return <TextInput value={value()} onValueChange={handleValueChange} size="xs" />;
+			return <TextInput value={value()} onValueChange={handleValueChange} size="small" />;
 		}),
 	],
 });

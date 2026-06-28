@@ -66,11 +66,11 @@ export const ExampleLargeBody: Component<ExampleLargeProps> = () => {
 				<Fieldset label="Login" size="large">
 					<Flex gap="m">
 						<FieldLabel for="username">Username</FieldLabel>
-						<TextInput id="username" size="m" value={username()} onValueChange={setUsername} />
+						<TextInput id="username" size="medium" value={username()} onValueChange={setUsername} />
 					</Flex>
 					<Flex gap="m">
 						<FieldLabel for="password">Password</FieldLabel>
-						<TextInput id="password" size="m" value={password()} onValueChange={setPassword} />
+						<TextInput id="password" size="medium" value={password()} onValueChange={setPassword} />
 					</Flex>
 				</Fieldset>
 				<Flex direction="row" gap="m" justify="end">

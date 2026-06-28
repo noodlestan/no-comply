@@ -1,10 +1,18 @@
-## Acccessibiilty + Composables
+# Standard UI Demo
 
-Change all`'data-disabled': '' | undefined;` to `bolean `
+## Examples
 
-## Standard UI Demo
+- ability to express a body function for wrappers (e.g.: declare a signal)
+- wrap JSX expressions (if prop says it is, but serialized value not <>)
 
-### Code splitting not effective
+## Prop Fields
+
+### PropFieldJSX
+
+- evalate before emitting onChange (wrap with <></> before evaluation)
+- set input to error if evalation fails
+
+## Code splitting not effective
 
 `babel` loaded by default on everypage
 
@@ -12,13 +20,13 @@ Change all`'data-disabled': '' | undefined;` to `bolean `
 
 check also for typescript
 
-### Cacth example compilation errors
+## Cacth example compilation errors
 
 Good oportunity to test propagation of errors through resources
 
-### Compile examples with function body
+## Compile examples with function body
 
-### Sepecialised prop unputs
+## Sepecialised prop unputs
 
 # Purrtrait Client TSX
 
@@ -168,6 +176,10 @@ writer:
 ```
 
 # No Comply
+
+## Acccessibiilty + Composables
+
+Change all`'data-disabled': '' | undefined;` to `bolean `
 
 ## Pill/Tag
 

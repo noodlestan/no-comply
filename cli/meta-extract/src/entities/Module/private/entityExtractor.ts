@@ -13,7 +13,7 @@ export const entityExtractor: DirectoryEntityProcessor<
 
 	const docs = program.extractDocs(files.index);
 	const helpers = program.extractFunctions(files.helpers);
-	const types = program.extractTypes(files.types);
+	const types = files.types ? program.extractTypes(files.types) : [];
 
 	const imported = program.extractImportedSymbols();
 	const declared = program.indexDeclaredSymbols(helpers, types);

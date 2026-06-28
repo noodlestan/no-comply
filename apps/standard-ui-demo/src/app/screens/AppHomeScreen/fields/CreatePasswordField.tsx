@@ -1,7 +1,8 @@
-import { Field, type InputControllerProps, TextInput } from '@no-comply/standard-ui';
+import type { BaseInputProps } from '@no-comply/solid-composables';
+import { Field, TextInput } from '@no-comply/standard-ui';
 import { type Component, Show } from 'solid-js';
 
-type Props = InputControllerProps<string>;
+type Props = BaseInputProps<string>;
 
 export const CreatePasswordField: Component<Props> = props => {
 	return (
@@ -16,7 +17,7 @@ export const CreatePasswordField: Component<Props> = props => {
 					</Show>
 					<TextInput
 						type="password"
-						size="m"
+						size="medium"
 						value={props.value}
 						onValueChange={props.onValueChange}
 						{...field.$input}
