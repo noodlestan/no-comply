@@ -2,14 +2,10 @@
   .Typography {
     margin: 0;
     font-family: var(--__type-family, --typography-base-family);
-    --__size-fallback: var(--__type-font-size-fallback, var(--typography-base-size));
-    font-size: var(--__type-font-size, var(--__size-fallback));
-    --__weight-fallback: var(--__type-font-weight-fallback, var(--typography-base-weight));
-    font-weight: var(--__type-font-weight, var(--__weight-fallback));
-    --__height-fallback: var(--__type-line-height-fallback, var(--typography-base-height));
-    line-height: var(--__type-line-height, var(--__height-fallback));
-    --__spacing-fallback: var(--__type-letter-spacing-fallback, var(--typography-base-spacing));
-    letter-spacing: var(--__type-letter-spacing, var(--__spacing-fallback));
+    font-size: var(--__type-font-size, var(--typography-base-size));
+    font-weight: var(--__type-font-weight, var(--typography-base-weight));
+    line-height: var(--__type-line-height, var(--typography-base-height));
+    letter-spacing: var(--__type-letter-spacing, var(--typography-base-spacing));
     font-style: var(--__type-font-style, normal);
     text-transform: var(--__type-transform, none);
     white-space: inherit;
