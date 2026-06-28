@@ -3,17 +3,17 @@ import { combineProps, computedProps, createClassList } from '@no-comply/solid-p
 
 import { createAlignedToFirstLineMixin } from '../AlignedToFirstLine';
 
-import styles from './TextMixin.module.scss';
-import { $TEXT_MIXIN } from './constants';
-import type { TextMixinAPI, TextMixinProps } from './types';
+import styles from './TypographyMixin.module.scss';
+import { $TYPOGRAPHY_MIXIN } from './constants';
+import type { TypographyMixinAPI, TypographyMixinProps } from './types';
 
-export const createTextMixin = (props: TextMixinProps): TextMixinAPI => {
-	const [locals, expose, compose] = createExposable($TEXT_MIXIN, props);
+export const createTypographyMixin = (props: TypographyMixinProps): TypographyMixinAPI => {
+	const [locals, expose, compose] = createExposable($TYPOGRAPHY_MIXIN, props);
 
 	const { $root: $alignedToFirstLine } = compose(createAlignedToFirstLineMixin(locals));
 
 	const classList = createClassList(styles, () => ({
-		Text: true,
+		Typography: true,
 		nowrap: Boolean(locals.nowrap),
 	}));
 

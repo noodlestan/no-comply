@@ -1,4 +1,4 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
 export * from './AlignedToFirstLine';
 export * from './AlignFirstLine';
-export * from './TextMixin';
+export * from './TypographyMixin';
