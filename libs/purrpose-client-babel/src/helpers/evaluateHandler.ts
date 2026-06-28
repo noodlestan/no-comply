@@ -8,7 +8,7 @@ export function evaluateHandler<T>(
 	scope: Record<string, unknown>,
 ): T {
 	const debugCode = debug
-		? `console.info(${makeMessage(debug, 'Handler called with arguments:')})}, ...args);`
+		? `console.info(${makeMessage(debug, 'Handler called with arguments:')}, ...args);`
 		: '';
 	const exposedCode = `const exposed = (...args) => { ${debugCode} return handler(...args); }`;
 	const code = `const handler = (${handler}); ${exposedCode}`;
