@@ -15,7 +15,7 @@ export async function createProgram(
 	ctx: ProgramFilesContext,
 	files: Record<string, string | string[]>,
 ): Promise<ProgramAPI> {
-	const programs: Record<string, ProgramFileAPI> = {};
+	const programMap: Record<string, ProgramFileAPI> = {};
 
 	for (const key in files) {
 		const file = files[key];
@@ -23,50 +23,66 @@ export async function createProgram(
 			continue;
 		}
 		if (typeof file === 'string') {
-			programs[file] = await createProgramFile(ctx, file);
+			programMap[file] = await createProgramFile(ctx, file);
 		} else {
 			for (const name of file) {
-				programs[name] = await createProgramFile(ctx, name);
+				programMap[name] = await createProgramFile(ctx, name);
 			}
 		}
 	}
 
-	const getPrograms = (files?: string | string[]) => {
-		if (!files) {
-			return Object.values(programs);
-		}
+	const getPrograms = (files: string | string[]) => {
 		const fileArray = typeof files === 'string' ? [files] : files;
-		return fileArray.map(file => programs[file]);
+		return fileArray.map(file => programMap[file]);
 	};
 
 	const extractDocs = (file: string) => {
-		const program = programs[file];
+		const program = programMap[file];
 		if (!program) {
 			return undefined;
 		}
 		return program.docs();
 	};
 
-	const extractComponents = (files?: string | string[]) => {
-		const programs = getPrograms(files);
+	function extractComponents(files?: string | string[]) {
+		const includeFiles = arguments.length ? files : Object.keys(programMap);
+		if (includeFiles === undefined) {
+			throw new Error(`extractComponents() called with indefined at ${ctx.path}`);
+		}
+		const programs = getPrograms(includeFiles);
 		const nested = programs.map(p => extractComponentsFromProgram(p));
 		return nested.flat();
-	};
+	}
 
-	const extractFunctions = (files?: string | string[]) => {
-		const programs = getPrograms(files);
+	function extractFunctions(files?: string | string[]) {
+		const includeFiles = arguments.length ? files : Object.keys(programMap);
+		if (includeFiles === undefined) {
+			throw new Error(`extractFunctions() called with indefined at ${ctx.path}`);
+		}
+
+		const programs = getPrograms(includeFiles);
 		const nested = programs.map(p => extractFunctionsFromProgram(p));
 		return nested.flat();
-	};
+	}
 
-	const extractTypes = (files?: string | string[]) => {
-		const programs = getPrograms(files);
+	function extractTypes(files?: string | string[]) {
+		const includeFiles = arguments.length ? files : Object.keys(programMap);
+		if (includeFiles === undefined) {
+			throw new Error(`extractTypes() called with indefined at ${ctx.path}`);
+		}
+
+		const programs = getPrograms(includeFiles);
 		const nested = programs.map(p => extractTypesFromProgram(p));
 		return nested.flat();
-	};
+	}
 
-	const extractImportMap = (files?: string | string[]) => {
-		const programs = getPrograms(files);
+	function extractImportMap(files?: string | string[]) {
+		const includeFiles = arguments.length ? files : Object.keys(programMap);
+		if (includeFiles === undefined) {
+			throw new Error(`extractImportMap() called with indefined at ${ctx.path}`);
+		}
+
+		const programs = getPrograms(includeFiles);
 		const maps = programs.map(p => extractImportsFromProgram(p));
 
 		const mergedMap = new Map<string, ImportedSymbol>();
@@ -86,17 +102,21 @@ export async function createProgram(
 		}
 
 		return mergedMap;
-	};
+	}
 
 	const isLocalImport = (dep: ImportedSymbol) => {
 		return dep.from.endsWith(ctx.path) || dep.from.includes(ctx.path + '/');
 	};
 
-	const extractImportedSymbols = (files?: string | string[]) => {
-		const map = extractImportMap(files);
+	function extractImportedSymbols(files?: string | string[]) {
+		const includeFiles = arguments.length ? files : Object.keys(programMap);
+		if (includeFiles === undefined) {
+			throw new Error(`extractImportMap() called with indefined at ${ctx.path}`);
+		}
+		const map = extractImportMap(includeFiles);
 		const entries = Array.from(map.entries()).filter(([, value]) => !isLocalImport(value));
 		return Object.fromEntries(entries);
-	};
+	}
 
 	const indexDeclaredSymbols = (...args: Declaration[][]) => {
 		const entries = args.flat().map(symbol => [symbol.name, symbol]);
@@ -104,7 +124,7 @@ export async function createProgram(
 	};
 
 	return {
-		files: programs,
+		files: programMap,
 		extractDocs,
 		extractComponents,
 		extractFunctions,
