@@ -1,5 +1,5 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { attributeBoolean, combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../../../action';
 import { isExternalURL, linkRelFor } from '../../helpers';
@@ -15,15 +15,12 @@ export const createLink = (props: LinkProps): LinkAPI => {
 	const href = () => (locals.disabled ? undefined : locals.href);
 	const target = () => locals.target;
 	const rel = () => linkRelFor(locals.href, locals.rel);
-	const tabIndex = () => (locals.disabled ? -1 : undefined);
 
 	const $root = computedProps({
 		href,
 		target,
 		rel,
-		tabIndex,
-		'aria-label': () => locals.label,
-		'data-external': () => (isExternalURL(locals.href) ? '' : undefined),
+		'data-external': () => attributeBoolean(isExternalURL(locals.href)),
 	});
 
 	return exposeAPI(expose, '$root', {

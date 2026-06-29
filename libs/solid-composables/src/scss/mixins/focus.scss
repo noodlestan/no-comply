@@ -16,9 +16,8 @@
   }
 
   &[data-has-focus],
-  &[data-had-focus],
-  &:focus-visible,
-  &[data-is-active] {
+  &[data-is-focused],
+  &:focus-visible {
     z-index: 1;
     @include focus-ring-active-styles;
   }
