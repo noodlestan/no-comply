@@ -1,12 +1,10 @@
-import { definePropKeys } from '@no-comply/solid-primitives';
+import { definePropKeys, omitPropKeys } from '@no-comply/solid-primitives';
 
-import { ARIA_LABELLED_PROPS } from '../label';
+import { ARIA_PRESSABLE_PROPS } from '../pressable';
 
 import type { AriaSwitchProps } from './types';
 
 export const ARIA_SWITCH_PROPS = definePropKeys<AriaSwitchProps>()([
-	...ARIA_LABELLED_PROPS,
-	'tag',
+	...omitPropKeys(ARIA_PRESSABLE_PROPS, ['type'] as const),
 	'checked',
-	'disabled',
 ]);

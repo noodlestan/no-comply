@@ -5,7 +5,7 @@ import { createAriaLabelled } from '../label';
 import type { AriaListItemAPI, AriaListItemProps } from './types';
 
 export const createAriaListItem = (props: AriaListItemProps): AriaListItemAPI => {
-	const { $root: $regionRoot, $label, $description } = createAriaLabelled(props);
+	const { $root: $labelledRoot, $label, $description } = createAriaLabelled(props);
 
 	const component = () => props.tag || 'li';
 	const role = () => (component() !== 'li' ? 'listitem' : undefined);
@@ -18,7 +18,7 @@ export const createAriaListItem = (props: AriaListItemProps): AriaListItemAPI =>
 	});
 
 	return {
-		$root: combineProps($regionRoot, $root),
+		$root: combineProps($labelledRoot, $root),
 		$label,
 		$description,
 	};

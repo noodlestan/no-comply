@@ -1,4 +1,4 @@
-import { computedProps } from '@no-comply/solid-primitives';
+import { attributeBooleanValue, computedProps } from '@no-comply/solid-primitives';
 
 import type { PressableRoleName } from '../../role';
 
@@ -43,17 +43,14 @@ export function createAriaPressable(
 	};
 
 	const type = () => (component() === 'button' ? props.type : undefined);
-	const tabIndex = () => (props.disabled ? undefined : (props.tabIndex ?? 0));
-	const disabled = () => (component() === 'button' ? props.disabled : undefined);
+	const tabIndex = () => props.tabIndex ?? 0;
 
 	const $root = computedProps({
 		component,
 		role,
 		type,
 		tabIndex,
-		disabled,
-		'aria-disabled': () => Boolean(props.disabled && !disabled()),
-		'data-disabled': () => (props.disabled ? '' : undefined),
+		'aria-disabled': () => attributeBooleanValue(props.disabled),
 	});
 
 	return {

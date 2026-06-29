@@ -1,3 +1,5 @@
+import type { AttributeBoolean, AttributeNumber } from '@no-comply/solid-primitives';
+
 import type { PressableRoleName } from '../../role';
 import type { PressableTagName } from '../../tag';
 
@@ -7,28 +9,26 @@ export type AriaPressableProps = {
 	tag?: PressableTagName;
 	role?: PressableRoleName;
 	type?: PressableType;
-	tabIndex?: number | null;
+	tabIndex?: number;
 	disabled?: boolean;
 };
 
-type AriaPressableRoot = {
+export type AriaPressableRootAPI = {
 	component: PressableTagName;
 	role?: PressableRoleName;
 	type: PressableType | undefined;
-	tabIndex: number | undefined;
-	disabled: boolean | undefined;
-	'aria-disabled': boolean;
-	'data-disabled': '' | undefined;
+	tabIndex: AttributeNumber;
+	'aria-disabled': AttributeBoolean;
 };
 
 export type AriaPressableAPI<T extends PressableRoleName = PressableRoleName> = {
-	$root: AriaPressableRoot & {
+	$root: AriaPressableRootAPI & {
 		role: T;
 	};
 };
 
 export type AriaGenericPressableAPI = {
-	$root: AriaPressableRoot & {
+	$root: AriaPressableRootAPI & {
 		role: PressableRoleName | undefined;
 	};
 };

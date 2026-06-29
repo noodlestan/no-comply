@@ -1,22 +1,15 @@
-import type { AriaAttributeChecked } from '../../attributes';
 import type { SwitchTagName } from '../../tag';
-import type { AriaLabelledAPI, AriaLabelledProps } from '../label';
-import type { AriaRegionAPI } from '../region';
+import type { AriaPressableProps, AriaPressableRootAPI } from '../pressable';
 
-export type AriaSwitchProps = AriaLabelledProps & {
+export type AriaSwitchProps = Omit<AriaPressableProps, 'tag' | 'type'> & {
 	tag: SwitchTagName;
 	checked: boolean;
-	disabled: boolean;
 };
 
 export type AriaSwitchAPI = {
-	$root: AriaRegionAPI<'switch'>['$root'] & {
-		type: 'button' | 'checkbox' | undefined;
+	$root: Omit<AriaPressableRootAPI, 'component' | 'type'> & {
 		component: SwitchTagName;
-		'aria-checked': AriaAttributeChecked;
-		'aria-disabled': boolean;
-		'data-disabled': '' | undefined;
+		type: 'button' | 'checkbox' | undefined;
+		'aria-checked': boolean;
 	};
-	$label: AriaLabelledAPI['$label'];
-	$description: AriaLabelledAPI['$description'];
 };

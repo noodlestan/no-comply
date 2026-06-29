@@ -5,8 +5,6 @@ export type AriaAttributes = JSX.AriaAttributes;
 /** the source attribute is
  * "aria-checked"?: boolean | "false" | "mixed" | "true" | undefined;
  */
-export type AriaAttributeChecked = boolean;
-
 export type AriaAttributeOrientation = 'vertical' | 'horizontal';
 
 export type AriaAttributeLive = 'off' | 'assertive' | 'polite';

@@ -5,7 +5,7 @@ import { createAriaLabelled } from '../label';
 import type { AriaListAPI, AriaListProps } from './types';
 
 export const createAriaList = (props: AriaListProps): AriaListAPI => {
-	const { $root: $regionRoot, $label, $description } = createAriaLabelled(props);
+	const { $root: $labelledRoot, $label, $description } = createAriaLabelled(props);
 
 	const component = () => props.tag || 'ul';
 	const role = () => {
@@ -20,7 +20,7 @@ export const createAriaList = (props: AriaListProps): AriaListAPI => {
 	});
 
 	return {
-		$root: combineProps($regionRoot, $root),
+		$root: combineProps($labelledRoot, $root),
 		$label,
 		$description,
 	};
