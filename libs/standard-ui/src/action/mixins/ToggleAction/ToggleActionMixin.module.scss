@@ -1,7 +1,7 @@
 @use '../../../theme/mixins/color.scss' as *;
 
 @layer lib.standard-ui {
-  @layer action, sized-action, toggle-action;
+  @layer action, toggle-action;
 }
 
 @layer lib.standard-ui.toggle-action {
@@ -12,7 +12,7 @@
     @include set-level(__border-block-end, border-1);
     @include set-alpha(__border-block-end, content-fg);
 
-    @include set-color(__lit-icon, selected, saturated, opaque);
+    @include set-color(__lit-icon, selected, border-2, opaque);
   }
 
   .variant-primary {
@@ -28,6 +28,11 @@
       @include set-level(__bg-active, content-bg-0);
 
       @include set-alpha(__border, translucid);
+
+      &:is([aria-disabled], [data-inactive]) {
+        @include set-palette(__bg, primary);
+        @include set-level(__bg, static-bg-1);
+      }
     }
 
     /* looks like primary but using selected pallete for background */
@@ -35,9 +40,12 @@
       @include apply-color(border-block-end-color, __border-block-end);
 
       &:not([aria-disabled], [data-inactive]) {
-        @include set-level(__fg, content-bg-0);
+        @include set-level(__fg, inverted-fg-contrast);
         @include set-palette(__bg, selected);
-        @include set-level(__bg, saturated);
+        @include set-palette(__border, selected);
+        @include set-level(__bg-rest, inverted-bg-2);
+        @include set-level(__bg-hover, inverted-bg-3);
+        @include set-level(__bg-active, inverted-bg-1);
 
         svg {
           @include apply-color(color, __fg);
@@ -53,11 +61,6 @@
       &:is(:focus-visible, :hover) {
         @include set-alpha(__border, opaque);
       }
-    }
-
-    &:is([aria-disabled], [data-inactive]):not(.is-active) {
-      @include set-palette(__bg, primary);
-      @include set-level(__bg, static-bg-1);
     }
   }
 

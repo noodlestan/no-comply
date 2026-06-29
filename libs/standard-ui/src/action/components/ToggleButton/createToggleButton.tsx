@@ -33,7 +33,9 @@ export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI =>
 		labels: () => Object.assign({}, LABELS, locals.labels),
 		icons: () => Object.assign({}, ICONS, locals.icons),
 	});
-	const { _icon } = compose(createToggleAction(toggleActionProps));
+	const { _icon: toggleActionIcon } = compose(createToggleAction(toggleActionProps));
+	const _sizedIcon = computedProps({ size: () => locals.size });
+	const _icon = combineProps(toggleActionIcon, _sizedIcon);
 
 	const ariaSwitchStaticProps = { tag: 'button' as const };
 	const ariaSwitchProps = computedProps(ariaSwitchStaticProps, {
