@@ -3,7 +3,7 @@
 }
 
 @layer lib.standard-ui.focus-ring-offset {
-  .FocusRingOffset[data-is-active],
+  .FocusRingOffset[data-is-focused],
   .FocusRingOffset:active {
     outline-offset: var(--outline-active-offset);
   }
@@ -12,7 +12,7 @@
     outline-offset: var(--outline-inset-offset);
   }
 
-  .inset[data-is-active],
+  .inset[data-is-focused],
   .inset:active {
     outline-offset: var(--outline-active-inset-offset);
   }

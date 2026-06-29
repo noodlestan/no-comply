@@ -18,15 +18,19 @@ export const createSegmentedButtonItemMixin = (
 ): SegmentedButtonItemMixinAPI => {
 	const [locals, expose, compose] = createExposable($SEGMENTED_BUTTON_ITEM_MIXIN, props);
 
-	const actionMixinProps = { variant: 'secondary' } as const;
+	const disabled = () => props.disabled;
+
+	const actionMixinProps = computedProps({ variant: 'primary' } as const, { disabled });
 	const { $root: $focusableMixinRoot } = compose(createFocusableMixin());
 	const { $root: $actionMixinRoot } = compose(createActionMixin(actionMixinProps));
 	const { $root: $sizedActionMixinRoot, size } = compose(createSizedActionMixin(locals));
 
-	const toggleActionMixinProps = computedProps({
+	const toggleActionMixinProps = computedProps({ variant: 'primary' } as const, {
 		value: () => props.active,
 	});
-	const { $root: $toggleActionMixinRoot } = createToggleActionMixin(toggleActionMixinProps);
+	const { $root: $toggleActionMixinRoot } = compose(
+		createToggleActionMixin(toggleActionMixinProps),
+	);
 
 	const actionLabelMixinProps = computedProps({ variant: size });
 	const { $root: $actionLabelMixinRoot } = createActionLabelMixin(actionLabelMixinProps);

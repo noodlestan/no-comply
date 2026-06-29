@@ -1,4 +1,4 @@
-import { createTextInputValue } from '@no-comply/solid-composables';
+import { createNumberInputValue } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps, pickProps } from '@no-comply/solid-primitives';
 
@@ -16,7 +16,7 @@ import type { NumberInputAPI, NumberInputProps } from './types';
 export const createNumberInput = (props: NumberInputProps): NumberInputAPI => {
 	const [locals, expose, compose] = createExposable($NUMBER_INPUT, props);
 
-	const { $root: $textInputValueRoot, value, wasTouched } = createTextInputValue(props);
+	const { $root: $textInputValueRoot, value, wasTouched } = createNumberInputValue(props);
 
 	const inputBoxMixinProps = combineProps(
 		pickProps(locals, INPUT_BOX_MIXIN_PROPS_RELAYED),

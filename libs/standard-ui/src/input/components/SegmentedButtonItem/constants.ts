@@ -7,4 +7,5 @@ export const $SEGMENTED_BUTTON_ITEM = 'component:standard:segmented-button';
 export const SEGMENTED_BUTTON_ITEM_PROPS = definePropKeys<SegmentedButtonItemProps>()([
 	'value',
 	'icons',
+	'disabled',
 ]);

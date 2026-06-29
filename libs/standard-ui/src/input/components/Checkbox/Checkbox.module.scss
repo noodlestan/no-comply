@@ -97,7 +97,7 @@
     @include set-color(__bg, primary, bg-disabled, opaque);
 
     .-Control {
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 }

@@ -6,9 +6,10 @@ import {
 } from '@no-comply/solid-composables';
 import { createExposable, createIconValue, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps, pickProps } from '@no-comply/solid-primitives';
-import ChevronDownIcon from 'lucide-solid/icons/chevron-down';
-import ChevronUpIcon from 'lucide-solid/icons/chevron-up';
+import CircleDot from 'lucide-solid/icons/circle-dot';
+import Dot from 'lucide-solid/icons/dot';
 
+import { TOGGLE_ACTION_MIXIN_PROPS, createToggleActionMixin } from '../../mixins';
 import type { ActionVariant } from '../../types';
 
 import { $TOGGLE_BUTTON } from './constants';
@@ -20,8 +21,8 @@ const LABELS: ToggleActionLabels = {
 };
 
 const ICONS: ToggleActionIcons = {
-	on: createIconValue(ChevronDownIcon),
-	off: createIconValue(ChevronUpIcon),
+	on: createIconValue(CircleDot),
+	off: createIconValue(Dot),
 };
 
 export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI => {
@@ -45,10 +46,20 @@ export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI =>
 	const _iconButton = {
 		variant: 'plain' as ActionVariant,
 	};
-	const _iconButtonAllowedProps = pickProps(locals, ['size', 'onPress', 'disabled']);
+	const _iconButtonAllowedProps = pickProps(locals, ['size', 'onPress', 'disabled', 'variant']);
+
+	const toggleActionMixinProps = pickProps(locals, TOGGLE_ACTION_MIXIN_PROPS);
+	const { $root: $toggleButtonMixinRoot } = compose(
+		createToggleActionMixin(toggleActionMixinProps),
+	);
 
 	return exposeAPI(expose, '_iconButton', {
-		_button: combineProps($switchRoot, _iconButton, _iconButtonAllowedProps),
+		_button: combineProps(
+			$switchRoot,
+			_iconButton,
+			_iconButtonAllowedProps,
+			$toggleButtonMixinRoot,
+		),
 		_icon,
 		_iconButton: combineProps($switchRoot, _iconButton, _icon, _iconButtonAllowedProps),
 	});

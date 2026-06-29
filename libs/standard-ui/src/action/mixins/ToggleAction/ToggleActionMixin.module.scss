@@ -4,28 +4,68 @@
   @layer action, sized-action, toggle-action;
 }
 
-@layer lib.standard-ui.action {
+@layer lib.standard-ui.toggle-action {
   .ToggleAction {
-    transition:
-      color ease var(--animation-duration-blip),
-      background-color ease var(--animation-duration-blip),
-      border-color ease var(--animation-duration-blip);
+    padding-inline-start: var(--space-gap-0);
 
-    // border-block-end-width: 10px;
-    // border-block-end-style: solid;
+    @include set-palette(__border-block-end, selected);
+    @include set-level(__border-block-end, border-1);
+    @include set-alpha(__border-block-end, content-fg);
 
-    @include set-palette(__toggle-bg, primary);
-    @include set-level(__toggle-bg, bg-2);
-    @include apply-color(background-color, __toggle-bg);
-
-    @include set-color(__border-block-end, primary, border-0, opaque);
-    @include apply-color(border-block-end-color, __border-block-end);
+    @include set-color(__lit-icon, selected, saturated, opaque);
   }
 
-  .is-active,
-  .is-active:hover {
-    @include set-palette(__toggle-bg, selected);
-    @include set-level(__toggle-bg, bg-4);
-    @include set-color(__border-block-end, selected, border-1, opaque);
+  .variant-primary {
+    /* looks like ActionMixin variant-secondary */
+    &:not(is-active) {
+      @include set-level(__fg-rest, fg-saturated);
+      @include set-level(__bg-rest, content-bg-0);
+
+      @include set-level(__fg-hover, fg-contrast);
+      @include set-level(__bg-hover, content-bg-1);
+
+      @include set-level(__fg-active, fg-contrast);
+      @include set-level(__bg-active, content-bg-0);
+
+      @include set-alpha(__border, translucid);
+    }
+
+    /* looks like primary but using selected pallete for background */
+    &.is-active {
+      @include apply-color(border-block-end-color, __border-block-end);
+
+      &:not([aria-disabled], [data-inactive]) {
+        @include set-level(__fg, content-bg-0);
+        @include set-palette(__bg, selected);
+        @include set-level(__bg, saturated);
+
+        svg {
+          @include apply-color(color, __fg);
+        }
+      }
+    }
+
+    &:not([aria-disabled], [data-inactive]) {
+      svg {
+        @include apply-color(color, __lit-icon);
+      }
+
+      &:is(:focus-visible, :hover) {
+        @include set-alpha(__border, opaque);
+      }
+    }
+
+    &:is([aria-disabled], [data-inactive]):not(.is-active) {
+      @include set-palette(__bg, primary);
+      @include set-level(__bg, static-bg-1);
+    }
+  }
+
+  .variant-secondary {
+    &:not([aria-disabled], [data-inactive]) {
+      svg {
+        @include apply-color(color, __lit-icon);
+      }
+    }
   }
 }
