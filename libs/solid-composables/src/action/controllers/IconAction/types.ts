@@ -1,5 +1,5 @@
-import type { AriaAttributes } from '@no-comply/solid-accessibility';
 import type { IconComponent } from '@no-comply/solid-contexts';
+import type { AttributeString } from '@no-comply/solid-primitives';
 
 import type { IconProps } from '../../../icon';
 
@@ -10,9 +10,9 @@ export type IconActionProps = {
 
 export type IconActionAPI = {
 	$root: {
-		'aria-label': AriaAttributes['aria-label'];
+		'aria-label': NonNullable<AttributeString>;
 	};
 	icon: Pick<IconProps, 'icon'> & {
-		'aria-hidden': AriaAttributes['aria-hidden'];
+		'aria-hidden': true;
 	};
 };

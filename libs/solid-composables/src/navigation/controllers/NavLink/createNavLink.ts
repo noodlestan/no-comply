@@ -1,5 +1,5 @@
 import { createExposable, exposeAPI, useNavigation } from '@no-comply/solid-contexts';
-import { computedProps } from '@no-comply/solid-primitives';
+import { computedProps, dataBoolean } from '@no-comply/solid-primitives';
 
 import { $NAV_LINK } from './constants';
 import type { NavLinkAPI, NavLinkProps } from './types';
@@ -22,7 +22,7 @@ export const createNavLink = (props: NavLinkProps): NavLinkAPI => {
 	};
 
 	const $root = computedProps({
-		'data-nav-link-current': () => (isCurrentNav() ? '' : undefined),
+		'data-nav-link-current': () => dataBoolean(isCurrentNav()),
 		'aria-current': () => (isCurrentNav() ? mode() : undefined),
 	});
 

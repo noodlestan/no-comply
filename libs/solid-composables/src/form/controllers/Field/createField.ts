@@ -4,7 +4,7 @@ import {
 	exposeAPI,
 	useFormMaybe,
 } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, dataBoolean } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
 import { $FIELD } from './constants';
@@ -39,14 +39,14 @@ export const createField = (props: FieldProps): FieldAPI => {
 	const hasFeedback = () => context.isInvalid() && (!form || form?.isFeedbackEnabled());
 
 	const $root = computedProps({
-		'data-disabled': () => (context.isDisabled() ? '' : undefined),
-		'data-field-readonly': () => (context.isReadonly() ? '' : undefined),
-		'data-field-pending': () => (context.isPending() ? '' : undefined),
-		'data-field-touched': () => (context.isTouched() ? '' : undefined),
-		'data-field-modified': () => (context.isModified() ? '' : undefined),
-		'data-field-invalid': () => (context.isInvalid() ? '' : undefined),
-		'data-field-submitted': () => (context.isSubmitted() ? '' : undefined),
-		'data-field-has-feedback': () => (hasFeedback() ? '' : undefined),
+		'data-disabled': () => dataBoolean(context.isDisabled()),
+		'data-field-readonly': () => dataBoolean(context.isReadonly()),
+		'data-field-pending': () => dataBoolean(context.isPending()),
+		'data-field-touched': () => dataBoolean(context.isTouched()),
+		'data-field-modified': () => dataBoolean(context.isModified()),
+		'data-field-invalid': () => dataBoolean(context.isInvalid()),
+		'data-field-submitted': () => dataBoolean(context.isSubmitted()),
+		'data-field-has-feedback': () => dataBoolean(hasFeedback()),
 	});
 
 	const $label = {

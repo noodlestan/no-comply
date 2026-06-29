@@ -1,7 +1,7 @@
 import {
 	type DataAttributeName,
 	type RawDataAttributes,
-	dataAttributeName,
+	dataName,
 } from '@no-comply/solid-primitives';
 
 type ElementPreviousData = [DataAttributeName, string][];
@@ -26,7 +26,7 @@ export const updateElementData = (
 	}
 
 	return Object.entries(data).map(([key, value]) => {
-		const k = dataAttributeName(key);
+		const k = dataName(key);
 		const v = value !== undefined ? String(value) : '';
 		targetElement.setAttribute(k, v);
 		return [k, v];

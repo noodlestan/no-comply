@@ -12,7 +12,7 @@ export const createIconAction = (props: IconActionProps): IconActionAPI => {
 	});
 
 	const staticIconProps = {
-		'aria-hidden': true,
+		'aria-hidden': true as const,
 	};
 	const icon = computedProps(staticIconProps, {
 		icon: () => locals.icon,

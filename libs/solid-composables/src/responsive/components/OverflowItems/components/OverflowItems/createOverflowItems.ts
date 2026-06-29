@@ -1,5 +1,10 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { type ObjectWithId, computedProps, staticClassList } from '@no-comply/solid-primitives';
+import {
+	type ObjectWithId,
+	computedProps,
+	dataBoolean,
+	staticClassList,
+} from '@no-comply/solid-primitives';
 import { createResizeObserver } from '@solid-primitives/resize-observer';
 import { createEffect, onMount } from 'solid-js';
 
@@ -69,7 +74,7 @@ export const createOverflowItems = <T extends ObjectWithId = ObjectWithId>(
 		classList: staticClassList(styles, 'OverflowItems'),
 	};
 	const $root = computedProps($static, {
-		'data-responsive-items-is-reflowing': () => (context.isReflowing() ? '' : undefined),
+		'data-responsive-items-is-reflowing': () => dataBoolean(context.isReflowing()),
 	});
 
 	const $measure = {

@@ -7,7 +7,7 @@ import { $FEEDBACK_MESSAGE, FEEDBACK_MESSAGE_ARIA_PROPS } from './constants';
 import type { FeedbackMessageAPI, FeedbackMessageProps } from './types';
 
 export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMessageAPI => {
-	const [locals, expose, compose] = createExposable($FEEDBACK_MESSAGE, props);
+	const [locals, expose] = createExposable($FEEDBACK_MESSAGE, props);
 
 	const feedbackOwnProps = splitProps(locals, FEEDBACK_MESSAGE_ARIA_PROPS);
 	const feedbackVariant = computedProps({
@@ -18,7 +18,7 @@ export const createFeedbackMessage = (props: FeedbackMessageProps): FeedbackMess
 		$root: $regionRoot,
 		$label: $regionLabel,
 		$description: $regionDescription,
-	} = compose(createAriaFeedback(feedbackProps));
+	} = createAriaFeedback(feedbackProps);
 
 	const $root = computedProps({
 		'data-message-variant': () => locals.variant,

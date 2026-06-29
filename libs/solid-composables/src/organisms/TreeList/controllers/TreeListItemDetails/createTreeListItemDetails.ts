@@ -1,5 +1,5 @@
 import { createExposable, exposeAPI, l } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, dataBoolean } from '@no-comply/solid-primitives';
 
 import { createExtendedPressable } from '../../../../action';
 import { getTreeSelectionUntil } from '../../helpers';
@@ -88,10 +88,10 @@ export const createTreeListItemDetails = (
 
 	const $root = computedProps({
 		'data-tree-item-id': () => locals.node.id,
-		'data-tree-item-is-expandable': () => (hasToggle() ? '' : undefined),
-		'data-tree-item-is-selected': () => (showSelection() && selected() ? '' : undefined),
+		'data-tree-item-is-expandable': () => dataBoolean(hasToggle()),
+		'data-tree-item-is-selected': () => dataBoolean(showSelection() && selected()),
 		'data-tree-item-is-parent-selected': () =>
-			showSelection() && !!locals.parentSelected ? '' : undefined,
+			dataBoolean(showSelection() && !!locals.parentSelected),
 	});
 
 	const handleExpandPress = (ev: Event) => {

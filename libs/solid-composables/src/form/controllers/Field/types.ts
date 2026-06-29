@@ -3,20 +3,21 @@ import type {
 	FieldContextOptions,
 	FieldContextValue,
 } from '@no-comply/solid-contexts';
+import type { DataAttributeBoolean } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
 export type FieldProps = FieldContextOptions;
 
 export type FieldAPI = {
 	$root: {
-		'data-disabled': '' | undefined;
-		'data-field-readonly': '' | undefined;
-		'data-field-pending': '' | undefined;
-		'data-field-touched': '' | undefined;
-		'data-field-modified': '' | undefined;
-		'data-field-invalid': '' | undefined;
-		'data-field-submitted': '' | undefined;
-		'data-field-has-feedback': '' | undefined;
+		'data-disabled': DataAttributeBoolean;
+		'data-field-readonly': DataAttributeBoolean;
+		'data-field-pending': DataAttributeBoolean;
+		'data-field-touched': DataAttributeBoolean;
+		'data-field-modified': DataAttributeBoolean;
+		'data-field-invalid': DataAttributeBoolean;
+		'data-field-submitted': DataAttributeBoolean;
+		'data-field-has-feedback': DataAttributeBoolean;
 	};
 	$label: {
 		for: string;

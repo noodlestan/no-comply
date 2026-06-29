@@ -6,13 +6,13 @@ import { $CONTENT_MESSAGE } from './constants';
 import type { ContentMessageAPI, ContentMessageProps } from './types';
 
 export const createContentMessage = (props: ContentMessageProps): ContentMessageAPI => {
-	const [locals, expose, compose] = createExposable($CONTENT_MESSAGE, props);
+	const [locals, expose] = createExposable($CONTENT_MESSAGE, props);
 
 	const {
 		$root: $regionRoot,
 		$label: $regionLabel,
 		$description: $regionDescription,
-	} = compose(createAriaRegion(locals, 'note'));
+	} = createAriaRegion(locals, 'note');
 
 	const $root = computedProps({
 		'data-message-variant': () => locals.variant,

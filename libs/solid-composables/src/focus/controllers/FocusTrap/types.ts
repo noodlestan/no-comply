@@ -1,3 +1,5 @@
+import type { DataAttributeBoolean } from '@no-comply/solid-primitives';
+
 export type FocusTrapProps = {
 	focusable?: boolean;
 };
@@ -8,7 +10,7 @@ export type FocusTrapAPI = {
 		tabIndex?: number;
 		onKeyDown: (ev: KeyboardEvent) => void;
 		onFocusOut: (ev: FocusEvent) => void;
-		'data-focus-trap': '';
-		'data-focus-trap-focusable': '' | undefined;
+		'data-focus-trap': NonNullable<DataAttributeBoolean>;
+		'data-focus-trap-focusable': DataAttributeBoolean;
 	};
 };

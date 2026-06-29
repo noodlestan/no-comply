@@ -1,6 +1,6 @@
 import { createAriaDialog } from '@no-comply/solid-accessibility';
 import { createExposable, createModalContext, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, dataBoolean } from '@no-comply/solid-primitives';
 
 import { createFocusTrap } from '../../../focus';
 
@@ -36,7 +36,7 @@ export const createModalDialog = (props: ModalDialogProps = {}): ModalDialogAPI 
 		onKeyPress: stopPropagation,
 	};
 	const $root = computedProps($static, {
-		'data-modal-dialog-is-active': () => (context.isActive() ? '' : undefined),
+		'data-modal-dialog-is-active': () => dataBoolean(context.isActive()),
 	});
 
 	return exposeAPI(expose, '$root', {

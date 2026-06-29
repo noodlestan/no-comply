@@ -9,7 +9,6 @@ export const $LINK = 'controller:composable:link';
 export const LINK_PROPS = definePropKeys<LinkProps>()([
 	...PRESSABLE_PROPS,
 	'href',
-	'label',
 	'target',
 	'rel',
 ]);

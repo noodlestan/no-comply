@@ -1,4 +1,5 @@
 import type { AriaAttributes } from '@no-comply/solid-accessibility';
+import type { DataAttributeBoolean } from '@no-comply/solid-primitives';
 
 export type NavLinkProps = {
 	href: string;
@@ -11,7 +12,7 @@ export type NavLinkMode = 'page' | 'section';
 
 export type NavLinkAPI = {
 	$root: {
-		'data-nav-link-current': '' | undefined;
+		'data-nav-link-current': DataAttributeBoolean;
 		'aria-current': AriaAttributes['aria-current'];
 	};
 };

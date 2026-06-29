@@ -1,6 +1,6 @@
 import { createAriaForm } from '@no-comply/solid-accessibility';
 import { createExposable, createFormContext, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, dataBoolean } from '@no-comply/solid-primitives';
 
 import { $FORM } from './constants';
 import type { FormAPI, FormProps } from './types';
@@ -19,14 +19,14 @@ export const createForm = (props: FormProps = {}): FormAPI => {
 		onSubmit: () => locals.onSubmit?.(state.api),
 	};
 	const $root = computedProps($static, {
-		'data-disabled': () => (context.isDisabled() ? '' : undefined),
-		'data-form-readonly': () => (context.isReadonly() ? '' : undefined),
-		'data-form-pending': () => (context.isPending() ? '' : undefined),
-		'data-form-touched': () => (context.isTouched() ? '' : undefined),
-		'data-form-modified': () => (context.isModified() ? '' : undefined),
-		'data-form-invalid': () => (context.isInvalid() ? '' : undefined),
-		'data-form-submitted': () => (context.isSubmitted() ? '' : undefined),
-		'data-form-feedback-enabled': () => (context.isFeedbackEnabled() ? '' : undefined),
+		'data-disabled': () => dataBoolean(context.isDisabled()),
+		'data-form-readonly': () => dataBoolean(context.isReadonly()),
+		'data-form-pending': () => dataBoolean(context.isPending()),
+		'data-form-touched': () => dataBoolean(context.isTouched()),
+		'data-form-modified': () => dataBoolean(context.isModified()),
+		'data-form-invalid': () => dataBoolean(context.isInvalid()),
+		'data-form-submitted': () => dataBoolean(context.isSubmitted()),
+		'data-form-feedback-enabled': () => dataBoolean(context.isFeedbackEnabled()),
 	});
 
 	const $submitButtonStatic = {

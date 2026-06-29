@@ -1,5 +1,5 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { computedProps, staticClassList } from '@no-comply/solid-primitives';
+import { computedProps, dataBoolean, staticClassList } from '@no-comply/solid-primitives';
 
 import { getFocusableElements } from '../../helpers';
 
@@ -80,7 +80,7 @@ export const createFocusTrap = (props: FocusTrapProps = {}): FocusTrapAPI => {
 
 	const $root = computedProps($static, {
 		tabIndex: () => (locals.focusable ? 0 : undefined),
-		'data-focus-trap-focusable': () => (locals.focusable ? '' : undefined),
+		'data-focus-trap-focusable': () => dataBoolean(locals.focusable),
 	});
 
 	return exposeAPI(expose, '$root', {

@@ -8,6 +8,7 @@ import type {
 	ModalContextOptions,
 	ModalContextValue,
 } from '@no-comply/solid-contexts';
+import type { DataAttributeBoolean } from '@no-comply/solid-primitives';
 
 import type { FocusTrapAPI, FocusTrapProps } from '../../../focus';
 
@@ -25,7 +26,7 @@ export type ModalDialogAPI = {
 			onKeyDown: (ev: KeyboardEvent) => void;
 			onKeyUp: (ev: KeyboardEvent) => void;
 			onKeyPress: (ev: KeyboardEvent) => void;
-			'data-modal-dialog-is-active': '' | undefined;
+			'data-modal-dialog-is-active': DataAttributeBoolean;
 		};
 	$label: AriaLabelledAPI['$label'];
 	$description: AriaLabelledAPI['$description'];

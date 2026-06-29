@@ -1,4 +1,4 @@
-import { attributeBooleanValue, computedProps } from '@no-comply/solid-primitives';
+import { attributeBoolean, computedProps } from '@no-comply/solid-primitives';
 
 import type { PressableRoleName } from '../../role';
 
@@ -50,7 +50,7 @@ export function createAriaPressable(
 		role,
 		type,
 		tabIndex,
-		'aria-disabled': () => attributeBooleanValue(props.disabled),
+		'aria-disabled': () => attributeBoolean(props.disabled),
 	});
 
 	return {

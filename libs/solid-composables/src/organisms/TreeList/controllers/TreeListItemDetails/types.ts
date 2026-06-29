@@ -1,5 +1,5 @@
 import type { AriaLabelledProps } from '@no-comply/solid-accessibility';
-import type { PropsWithComponent } from '@no-comply/solid-primitives';
+import type { DataAttributeBoolean, PropsWithComponent } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
 import type { ExpandActionProps } from '../../../../action';
@@ -17,9 +17,9 @@ export type TreeListItemDetailsProps = AriaLabelledProps & {
 export type TreeListItemDetailsAPI = {
 	$root: {
 		'data-tree-item-id': string;
-		'data-tree-item-is-expandable': '' | undefined;
-		'data-tree-item-is-selected': '' | undefined;
-		'data-tree-item-is-parent-selected': '' | undefined;
+		'data-tree-item-is-expandable': DataAttributeBoolean;
+		'data-tree-item-is-selected': DataAttributeBoolean;
+		'data-tree-item-is-parent-selected': DataAttributeBoolean;
 	};
 	_focusable: FocusableBaseProps;
 	_buttonExpand: PropsWithComponent<ExpandActionProps>;

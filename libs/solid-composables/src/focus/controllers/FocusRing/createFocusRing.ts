@@ -1,5 +1,5 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { computedProps } from '@no-comply/solid-primitives';
+import { attributeBoolean, computedProps } from '@no-comply/solid-primitives';
 import { createSignal } from 'solid-js';
 
 import { $FOCUS_RING } from './constants';
@@ -43,8 +43,8 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
 	};
 
 	const $root = computedProps($static, {
-		'data-had-focus': () => (hadFocus() ? '' : undefined),
-		'data-is-active': () => (isActive() ? '' : undefined),
+		'data-had-focus': () => attributeBoolean(hadFocus()),
+		'data-is-focused': () => attributeBoolean(isActive()),
 	});
 
 	const $focusTarget = {

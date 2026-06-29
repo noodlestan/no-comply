@@ -1,6 +1,6 @@
 import { createAriaRegion } from '@no-comply/solid-accessibility';
 import { createExposable, createFocusContext, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, dataBoolean } from '@no-comply/solid-primitives';
 
 import { $FOCUSABLE } from './constants';
 import type { FocusableAPI, FocusableProps } from './types';
@@ -43,9 +43,9 @@ export const createFocusable = (props: FocusableProps = {}): FocusableAPI => {
 	const component = () => locals.tag ?? 'div';
 	const $root = computedProps($static, {
 		component,
-		'data-disabled': () => (locals.disabled ? '' : undefined),
-		'data-has-focus': () => (context.hasFocus() ? '' : undefined),
-		'data-has-focus-within': () => (context.hasFocusWithin() ? '' : undefined),
+		'data-disabled': () => dataBoolean(locals.disabled),
+		'data-has-focus': () => dataBoolean(context.hasFocus()),
+		'data-has-focus-within': () => dataBoolean(context.hasFocusWithin()),
 	});
 
 	const onFocus = () => context.setHasFocus(true);

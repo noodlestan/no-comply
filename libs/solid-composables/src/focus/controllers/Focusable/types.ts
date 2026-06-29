@@ -9,6 +9,7 @@ import type {
 	FocusContextOptions,
 	FocusContextValue,
 } from '@no-comply/solid-contexts';
+import type { DataAttributeBoolean } from '@no-comply/solid-primitives';
 
 export type FocusableProps = AriaRegionProps &
 	FocusContextOptions & {
@@ -23,9 +24,9 @@ export type FocusableAPI = {
 		onFocusIn: (ev: FocusEvent) => void;
 		onFocusOut: (ev: FocusEvent) => void;
 		'data-focusable': string;
-		'data-disabled': string | undefined;
-		'data-has-focus': string | undefined;
-		'data-has-focus-within': string | undefined;
+		'data-disabled': DataAttributeBoolean;
+		'data-has-focus': DataAttributeBoolean;
+		'data-has-focus-within': DataAttributeBoolean;
 	};
 	$target: {
 		ref: (el: HTMLElement) => void;
