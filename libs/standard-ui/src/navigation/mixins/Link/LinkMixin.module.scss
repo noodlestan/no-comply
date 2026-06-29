@@ -7,13 +7,14 @@
     @include set-color(__fg, interactive, fg-saturated, content-fg);
 
     @include apply-color(color, __fg);
-  }
 
-  .Link:not([data-disabled]):hover {
-    @include set-level(__fg, fg-primary);
-  }
+    &:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover) {
+      @include set-level(__fg, fg-primary);
+    }
 
-  .Link[data-disabled] {
-    @include set-color(__fg, disabled, fg-disabled, content-fg);
+    &[aria-disabled],
+    &[data-disabled] {
+      @include set-color(__fg, primary, fg-disabled, content-fg);
+    }
   }
 }

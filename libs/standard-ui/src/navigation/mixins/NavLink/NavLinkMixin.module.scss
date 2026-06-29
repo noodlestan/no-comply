@@ -17,32 +17,43 @@
       border-color ease var(--animation-duration-short);
 
     @include set-color(__bg, surface, content-bg-1, invisible);
-    @include set-color(__highlight, primary, border-1, invisible);
+    @include set-color(__highlight, primary, static-border, invisible);
 
     @include apply-color(background-color, __bg);
     @include apply-color(--__highlight, __highlight);
 
-    &:hover,
-    &:active,
+    &[data-nav-link-current],
+    &:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover, :active) {
+      text-decoration: none;
+    }
+
     &[data-nav-link-current] {
-      @include set-level(__fg, fg-primary);
       @include set-alpha(__bg, opaque);
       @include set-alpha(__highlight, opaque);
+
+      &:not([aria-disabled], [data-inactive]) {
+        @include set-level(__fg, fg-primary);
+        @include set-level(__highlight, fg-muted);
+        @include set-palette(__highlight, interactive);
+      }
     }
 
-    &:active {
-      text-decoration: none;
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-level(__fg, fg-contrast);
+        @include set-palette(__highlight, interactive);
+        @include set-alpha(__highlight, opaque);
 
-      @include set-level(__fg, fg-contrast);
-      @include set-level(__bg, content-bg-0);
-      @include set-level(__highlight, fg-muted);
-    }
+        &:not([data-nav-link-current]) {
+          @include set-alpha(__bg, opaque);
+        }
+      }
 
-    &[data-nav-link-current] {
-      text-decoration: none;
-
-      @include set-level(__bg, content-bg-2);
-      @include set-palette(__highlight, interactive);
+      &:active {
+        @include set-alpha(__bg, invisible);
+        @include set-level(__fg, fg-muted);
+        @include set-level(__highlight, fg-muted);
+      }
     }
 
     &::before {
@@ -58,54 +69,6 @@
         height ease var(--animation-duration-short),
         background-color ease var(--animation-duration-blip);
     }
-  }
-
-  .layout-h::before {
-    width: auto;
-    height: 1px;
-  }
-
-  .layout-h.highlight-before::before {
-    bottom: auto;
-  }
-
-  .layout-h.highlight-after::before {
-    inset-block-start: auto;
-  }
-
-  .layout-h:hover::before,
-  .layout-h:active::before,
-  .layout-h[data-nav-link-current]::before {
-    width: auto;
-    height: var(--border-width-highlight);
-  }
-
-  .layout-v::before {
-    width: 1px;
-    height: auto;
-  }
-
-  .layout-v.highlight-before::before {
-    inset-inline-end: auto;
-  }
-
-  .layout-v.highlight-after::before {
-    inset-inline-start: auto;
-  }
-
-  .layout-v:hover::before,
-  .layout-v:active::before,
-  .layout-v[data-nav-link-current]::before {
-    width: var(--border-width-highlight);
-    height: auto;
-  }
-
-  .layout-h.size-small {
-    padding-block-end: var(--space-gap--1);
-  }
-
-  .layout-h.size-normal {
-    padding-block-end: var(--space-gap--1);
   }
 
   .size-small {
@@ -126,6 +89,61 @@
   .size-large {
     height: var(--size-l);
     padding-inline: var(--space-gap-4);
+  }
+
+  .layout-h {
+    &.size-small {
+      padding-block-end: var(--space-gap--1);
+    }
+
+    &.size-normal {
+      padding-block-end: var(--space-gap--1);
+    }
+
+    &::before {
+      width: auto;
+      height: 1px;
+    }
+
+    &.highlight-before::before {
+      bottom: auto;
+    }
+
+    &.highlight-after::before {
+      inset-block-start: auto;
+    }
+
+    &[data-nav-link-current]::before {
+      width: auto;
+      height: var(--border-width-highlight);
+    }
+
+    &:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover, :active)::before {
+      width: auto;
+      height: var(--border-width-highlight);
+    }
+  }
+
+  .layout-v {
+    &::before {
+      width: 1px;
+      height: auto;
+    }
+
+    &.highlight-before::before {
+      inset-inline-end: auto;
+    }
+
+    &.highlight-after::before {
+      inset-inline-start: auto;
+    }
+
+    &:hover::before,
+    &:active::before,
+    &[data-nav-link-current]::before {
+      width: var(--border-width-highlight);
+      height: auto;
+    }
   }
 
   .nowrap {

@@ -3,6 +3,7 @@
     cursor: pointer;
     pointer-events: all;
 
+    &[aria-disabled],
     &[data-disabled] {
       cursor: not-allowed;
     }
