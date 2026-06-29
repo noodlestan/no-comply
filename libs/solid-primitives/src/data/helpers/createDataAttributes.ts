@@ -2,7 +2,7 @@ import type { Accessor } from 'solid-js';
 
 import type { DataAttributes, RawDataAttributes } from '../types';
 
-import { dataAttributeName } from './dataAttributeName';
+import { dataName } from './dataName';
 
 export const createDataAttributes = <T extends string>(
 	dataAttributes: Accessor<RawDataAttributes<T>>,
@@ -13,9 +13,9 @@ export const createDataAttributes = <T extends string>(
 		for (const key in input) {
 			const value = input[key];
 			if (typeof value === 'boolean' && value) {
-				res[dataAttributeName(key)] = '';
+				res[dataName(key)] = '';
 			} else if (typeof value !== 'boolean') {
-				res[dataAttributeName(key)] = value as T;
+				res[dataName(key)] = value as T;
 			}
 		}
 		return res;
