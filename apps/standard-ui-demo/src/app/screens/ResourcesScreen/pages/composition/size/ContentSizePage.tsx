@@ -1,32 +1,23 @@
 import {
+	Button,
 	Checkbox,
 	Display,
 	Flex,
-	NumberInput,
-	RangeInput,
+	Icon,
+	IconButton,
 	SegmentedButton,
 	SegmentedButtonItem,
-	Select,
 	TextInput,
 } from '@no-comply/standard-ui';
+import ClockIcon from 'lucide-solid/icons/clock';
 import { type Component, createSignal } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
 
-export const FormInputsPage: Component = () => {
+export const ContentSizePage: Component = () => {
 	const [textValue, setTextValue] = createSignal('foo');
-	const [numberValue, setNumberValue] = createSignal(123.45);
-	const [rangeValue, setRangeValue] = createSignal(5);
 	const [selectValue, setSelectValue] = createSignal('middle');
 	const [checkboxValue, setCheckboxValue] = createSignal(true);
-
-	const options = () => (
-		<>
-			<option value="top">top</option>
-			<option value="middle">middle</option>
-			<option value="bottom">bottom</option>
-		</>
-	);
 
 	const buttonItems = () => (
 		<>
@@ -37,22 +28,15 @@ export const FormInputsPage: Component = () => {
 	);
 
 	return (
-		<ResourcesPage title="Variants">
+		<ResourcesPage title="Content Size">
 			<Display level={3}>small</Display>
 
 			<Flex direction="row" align="center" gap="l" wrap>
+				<Icon size="normal" icon={ClockIcon} />
+				<Button size="small">small</Button>
+				<IconButton size="small" label="small" icon={ClockIcon} />
 				<Checkbox size="xs" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="small" value={textValue()} onValueChange={setTextValue} />
-				<NumberInput
-					length="s"
-					size="small"
-					value={String(numberValue())}
-					onValueChange={setNumberValue}
-				/>
-				<RangeInput size="xs" value={String(rangeValue())} onValueChange={setRangeValue} />
-				<Select length="s" size="xs" value={selectValue()} onValueChange={setSelectValue}>
-					{options()}
-				</Select>
 				<SegmentedButton
 					name="small"
 					size="small"
@@ -66,18 +50,11 @@ export const FormInputsPage: Component = () => {
 			<Display level={3}>normal</Display>
 
 			<Flex direction="row" align="center" gap="l" wrap>
+				<Icon size="medium" icon={ClockIcon} />
+				<Button size="normal">normal</Button>
+				<IconButton size="normal" label="normal" icon={ClockIcon} />
 				<Checkbox size="s" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="normal" value={textValue()} onValueChange={setTextValue} />
-				<NumberInput
-					length="s"
-					size="normal"
-					value={String(numberValue())}
-					onValueChange={setNumberValue}
-				/>
-				<RangeInput size="s" value={String(rangeValue())} onValueChange={setRangeValue} />
-				<Select length="s" size="s" value={selectValue()} onValueChange={setSelectValue}>
-					{options()}
-				</Select>
 				<SegmentedButton
 					name="normal"
 					size="normal"
@@ -91,18 +68,11 @@ export const FormInputsPage: Component = () => {
 			<Display level={3}>medium</Display>
 
 			<Flex direction="row" align="center" gap="l" wrap>
+				<Icon size="large" icon={ClockIcon} />
+				<Button size="medium">medium</Button>
+				<IconButton size="medium" label="medium" icon={ClockIcon} />
 				<Checkbox size="m" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="medium" value={textValue()} onValueChange={setTextValue} />
-				<NumberInput
-					length="s"
-					size="medium"
-					value={String(numberValue())}
-					onValueChange={setNumberValue}
-				/>
-				<RangeInput size="m" value={String(rangeValue())} onValueChange={setRangeValue} />
-				<Select length="s" size="m" value={selectValue()} onValueChange={setSelectValue}>
-					{options()}
-				</Select>
 				<SegmentedButton
 					name="medium"
 					size="medium"
@@ -116,18 +86,11 @@ export const FormInputsPage: Component = () => {
 			<Display level={3}>large</Display>
 
 			<Flex direction="row" align="center" gap="l" wrap>
+				<Icon size="large" icon={ClockIcon} />
+				<Button size="large">large</Button>
+				<IconButton size="large" label="large" icon={ClockIcon} />
 				<Checkbox size="l" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="large" value={textValue()} onValueChange={setTextValue} />
-				<NumberInput
-					length="s"
-					size="large"
-					value={String(numberValue())}
-					onValueChange={setNumberValue}
-				/>
-				<RangeInput size="l" value={String(rangeValue())} onValueChange={setRangeValue} />
-				<Select length="s" size="l" value={selectValue()} onValueChange={setSelectValue}>
-					{options()}
-				</Select>
 				<SegmentedButton
 					name="large"
 					size="large"

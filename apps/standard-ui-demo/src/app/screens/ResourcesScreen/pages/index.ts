@@ -2,6 +2,6 @@
 export * from './_ResourcesIndexPage';
 export * from './color';
 export * from './composition';
-export * from './forms';
+export * from './interactions';
 export * from './space';
 export * from './typography';

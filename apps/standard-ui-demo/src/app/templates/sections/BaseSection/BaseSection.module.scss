@@ -7,7 +7,7 @@
     transition-duration: var(--animation-duration-trailing);
     @include focus-ring;
 
-    &[data-is-active] {
+    &[ddata-is-focused] {
       transition-duration: var(--animation-duration-short);
 
       @include set-color(__bg, surface, content-bg-1, opaque);

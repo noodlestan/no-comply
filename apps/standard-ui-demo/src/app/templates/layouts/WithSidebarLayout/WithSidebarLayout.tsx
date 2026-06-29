@@ -4,6 +4,7 @@ import {
 	combineProps,
 	computedProps,
 	createClassList,
+	dataBoolean,
 	staticClassList,
 } from '@no-comply/solid-primitives';
 import { Layout } from '@no-comply/standard-ui';
@@ -45,7 +46,7 @@ export const WithSidebarLayout: ParentComponent<Props> = props => {
 		'is-expanded': props.sidebarExpanded,
 	}));
 	const $root = computedProps({
-		'data-layout-large': () => (isDesktop() ? '' : undefined),
+		'data-layout-large': () => dataBoolean(isDesktop()),
 		classList,
 	});
 

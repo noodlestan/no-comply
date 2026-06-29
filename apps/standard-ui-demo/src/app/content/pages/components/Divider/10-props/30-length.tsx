@@ -9,9 +9,9 @@ export default createDocsSectionData({
 	collapse: true,
 	items: [
 		createDocsItemData({ title: 'full (horizontal)', props }, () => <Divider length="full" />),
-		createDocsItemData({ title: 'l (horizontal)', props }, () => <Divider length="l" />),
-		createDocsItemData({ title: 'm (horizontal)', props }, () => <Divider length="m" />),
-		createDocsItemData({ title: 's (horizontal)', props }, () => <Divider length="s" />),
+		createDocsItemData({ title: 'l (horizontal)', props }, () => <Divider length="long" />),
+		createDocsItemData({ title: 'm (horizontal)', props }, () => <Divider length="medium" />),
+		createDocsItemData({ title: 's (horizontal)', props }, () => <Divider length="short" />),
 		createDocsItemData(
 			{ title: 'number (rem) (horizontal)', props: { ...props, note: '7rem' } },
 			() => <Divider length={7} />,
@@ -23,17 +23,17 @@ export default createDocsSectionData({
 		)),
 		createDocsItemData({ title: 'l (vertical)', props: propsStyled }, () => (
 			<VerticalDividerExample items="medium">
-				<Divider orientation="vertical" length="l" />
+				<Divider orientation="vertical" length="long" />
 			</VerticalDividerExample>
 		)),
 		createDocsItemData({ title: 'm (vertical)', props: propsStyled }, () => (
 			<VerticalDividerExample>
-				<Divider orientation="vertical" length="m" />
+				<Divider orientation="vertical" length="medium" />
 			</VerticalDividerExample>
 		)),
 		createDocsItemData({ title: 's (vertical)', props: propsStyled }, () => (
 			<VerticalDividerExample items="small">
-				<Divider orientation="vertical" length="s" />
+				<Divider orientation="vertical" length="short" />
 			</VerticalDividerExample>
 		)),
 		createDocsItemData(

@@ -94,6 +94,14 @@ const data = {
 			},
 		],
 	},
+	InputText: {
+		examples: [
+			{
+				title: 'Basic usage',
+				tsx: `<InputText tsx-view-target value="top" onValueChange={(value) => console.log('Changed:', value)}/>`,
+			},
+		],
+	},
 	ExpandButton: {
 		examples: [
 			{
