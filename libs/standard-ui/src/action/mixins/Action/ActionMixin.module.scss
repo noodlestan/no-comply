@@ -54,28 +54,30 @@
     @include apply-color(color, __fg);
     @include apply-color(background-color, __bg);
     @include apply-color(border-color, __border);
-  }
 
-  .Action:focus-visible {
-    border-color: transparent;
-  }
+    & :focus-visible {
+      border-color: transparent;
+    }
 
-  .Action:is([aria-disabled], [data-inactive]) {
-    @include set-color(__fg, primary, fg-disabled, content-fg);
-    @include set-color(__bg, primary, bg-disabled, content-bg);
-    @include set-color(__border, __intent, border-muted, content-bg);
-  }
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-color(__fg, primary, fg-disabled, content-fg);
+      @include set-color(__bg, primary, bg-disabled, content-bg);
+      @include set-color(__border, __intent, border-muted, content-bg);
+    }
 
-  .Action:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover) {
-    @include set-level(__fg, __fg-hover);
-    @include set-level(__bg, __bg-hover);
-    @include set-level(__border, __border-hover);
-  }
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-level(__fg, __fg-hover);
+        @include set-level(__bg, __bg-hover);
+        @include set-level(__border, __border-hover);
+      }
 
-  .Action:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-    @include set-level(__fg, __fg-active);
-    @include set-level(__bg, __bg-active);
-    @include set-level(__border, __border-active);
+      &:active {
+        @include set-level(__fg, __fg-active);
+        @include set-level(__bg, __bg-active);
+        @include set-level(__border, __border-active);
+      }
+    }
   }
 
   .variant-primary {
@@ -104,18 +106,20 @@
     @include set-level(__bg-rest, content-bg-0);
 
     @include set-alpha(__border, translucid);
-  }
 
-  .variant-secondary:is([aria-disabled], [data-inactive]) {
-    @include set-level(__bg, content-bg-2);
-  }
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-level(__bg, content-bg-2);
+    }
 
-  .variant-secondary:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover) {
-    @include set-alpha(__border, opaque);
-  }
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-alpha(__border, opaque);
 
-  .variant-secondary:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-    @include set-alpha(__border, opaque);
+        &:active {
+          @include set-alpha(__border, opaque);
+        }
+      }
+    }
   }
 
   .variant-plain {
@@ -125,19 +129,21 @@
 
     @include set-alpha(__bg, invisible);
     @include set-alpha(__border, invisible);
-  }
 
-  .variant-plain:is([aria-disabled], [data-inactive]) {
-    @include set-alpha(__bg, invisible);
-    @include set-alpha(__border, transparent);
-  }
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-alpha(__bg, invisible);
+      @include set-alpha(__border, transparent);
+    }
 
-  .variant-plain:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover) {
-    @include set-alpha(__bg, opaque);
-  }
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-alpha(__bg, opaque);
 
-  .variant-plain:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover):active {
-    @include set-alpha(__bg, opaque);
+        &:active {
+          @include set-alpha(__bg, opaque);
+        }
+      }
+    }
   }
 
   .intent-positive {
