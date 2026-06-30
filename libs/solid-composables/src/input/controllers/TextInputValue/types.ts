@@ -1,7 +1,7 @@
-import type { BaseInputProps } from '@no-comply/solid-composables';
+import type { BaseInputValueProps } from '@no-comply/solid-composables';
 import type { Accessor } from 'solid-js';
 
-export type TextInputValueProps = BaseInputProps<string> & {
+export type TextInputValueProps = BaseInputValueProps<string> & {
 	type?: string;
 	placeholder?: string;
 	maxLength?: number;

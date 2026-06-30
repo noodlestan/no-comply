@@ -4,8 +4,9 @@ import { createSignal } from 'solid-js';
 
 import { isTextEditingShortcut } from '../../helpers';
 
-import { $NUMBER_INPUT_VALUE, VALID_KEYS } from './constants';
+import { $NUMBER_INPUT_VALUE } from './constants';
 import {
+	VALID_KEYS,
 	calcStepMultiplier,
 	getValueRounded,
 	hasDecimalSymbol,
@@ -118,7 +119,7 @@ export const createNumberInputValue = (props: NumberInputValueProps): NumberInpu
 	};
 
 	const handlers = {
-		setInputRef,
+		ref: setInputRef,
 		onInput: handleInput,
 		onFocus: handleFocus,
 		onKeyDown: handleKeyDown,

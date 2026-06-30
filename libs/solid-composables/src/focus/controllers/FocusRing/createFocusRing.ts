@@ -9,14 +9,14 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
 	const [locals, expose] = createExposable($FOCUS_RING, props);
 
 	const [hadFocus, setHadFocus] = createSignal(false);
-	const [isActive, setIsActive] = createSignal(false);
+	const [HasFocus, setHasFocus] = createSignal(false);
 
 	const onFocus = () => {
-		setIsActive(true);
+		setHasFocus(true);
 	};
 
 	const onBlur = () => {
-		setIsActive(false);
+		setHasFocus(false);
 	};
 
 	const onKeyDown = (ev: KeyboardEvent) => {
@@ -27,10 +27,10 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
 			return;
 		}
 		if (ev.key === 'Enter' || ev.key === 'Space') {
-			setIsActive(true);
+			setHasFocus(true);
 			setHadFocus(true);
 			setTimeout(() => {
-				setIsActive(false);
+				setHasFocus(false);
 				setTimeout(() => {
 					setHadFocus(false);
 				}, 75);
@@ -43,8 +43,8 @@ export const createFocusRing = (props: FocusRingProps = {}): FocusRingAPI => {
 	};
 
 	const $root = computedProps($static, {
-		'data-had-focus': () => attributeBoolean(hadFocus()),
-		'data-is-focused': () => attributeBoolean(isActive()),
+		'data-has-focus': () => attributeBoolean(HasFocus()),
+		'data-lost-focus': () => attributeBoolean(hadFocus()),
 	});
 
 	const $focusTarget = {

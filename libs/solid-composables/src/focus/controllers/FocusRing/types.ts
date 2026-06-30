@@ -7,8 +7,8 @@ export type FocusRingProps = {
 export type FocusRingAPI = {
 	$root: {
 		onKeyDown: (ev: KeyboardEvent) => void;
-		'data-had-focus': AttributeBoolean;
-		'data-is-focused': AttributeBoolean;
+		'data-has-focus': AttributeBoolean;
+		'data-lost-focus': AttributeBoolean;
 	};
 	$focusTarget: {
 		onFocus: (ev: FocusEvent) => void;

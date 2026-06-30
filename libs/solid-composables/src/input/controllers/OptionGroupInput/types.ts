@@ -6,10 +6,12 @@ import type {
 import type { Accessor } from 'solid-js';
 
 import type { OptionGroupContext, OptionGroupContextValue } from '../../contexts';
-import type { BaseInputProps } from '../../types';
+import type { BaseInputValueProps } from '../../types';
+import type { BaseInputProps } from '../BaseInput/types';
 
 export type OptionGroupInputProps = AriaRadioGroupProps &
-	Omit<BaseInputProps<string>, 'onValueChange'> & {
+	BaseInputValueProps<string> &
+	BaseInputProps & {
 		name: string;
 		onValueChange: (value: string) => void;
 	};

@@ -1,15 +1,9 @@
 import { definePropKeys } from '@no-comply/solid-primitives';
 
-import type { BaseInputProps } from './types';
+import type { BaseInputValueProps } from './types';
 
-export const $BASE_INPUT = 'controller:composable:base-input';
-
-export const BASE_INPUT_PROPS = definePropKeys<BaseInputProps>()([
-	'id',
+export const BASE_INPUT_VALUE_PROPS = definePropKeys<BaseInputValueProps<unknown>>()([
 	'value',
-	'disabled',
-	'invalid',
-	'modified',
 	'onChange',
 	'onValueChange',
 ]);

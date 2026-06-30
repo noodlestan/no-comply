@@ -1,13 +1,18 @@
 @mixin focus-ring-styles {
   outline-style: var(--outline-style);
   outline-width: var(--outline-width);
+  outline-offset: var(--outline-offset);
   outline-color: transparent;
-  outline-offset: 0;
 }
 
-@mixin focus-ring-active-styles {
+@mixin focus-ring-visible-styles {
   outline-color: var(--outline-color);
   outline-offset: var(--outline-offset);
+}
+
+@mixin focus-ring-disabled-styles {
+  outline-color: var(--outline-color-disabled);
+  outline-offset: var(--outline-offset-disbled);
 }
 
 @mixin focus-ring {
@@ -16,9 +21,14 @@
   }
 
   &[data-has-focus],
-  &[data-is-focused],
   &:focus-visible {
     z-index: 1;
-    @include focus-ring-active-styles;
+    &:not([aria-disabled], [data-disabled]) {
+      @include focus-ring-visible-styles;
+    }
+
+    &:is([aria-disabled], [data-disabled]) {
+      @include focus-ring-disabled-styles;
+    }
   }
 }
