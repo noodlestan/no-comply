@@ -1,26 +1,20 @@
 # No Comply / Standard UI
 
+## ToggleButton / ToggleAction
+
+keyboard press not working?
+
+- enter: no trigger
+- space: double trigger
+
 ## Form inputs
 
-- color
-
-- disabled
-- readonly
-- invalid
-- modified
-
-- TextInput
 - TextareaInput
-- NumberInput
 - Checkbox
 - RadioGroup + RadioGroupItem
 - Select
 - RangeInput
 - SegmentedButton
-
-## ToggleButton
-
-- small variant should use small icon (look at SegmentedButton it works there)
 
 ## interactive
 
@@ -31,6 +25,8 @@ when disabled + interactive
 - keyboard, mouse should work as normal
 
 ## Segmented button - expose variant
+
+## NavLink - add visual indicator for active state
 
 ## Pill/Tag
 
