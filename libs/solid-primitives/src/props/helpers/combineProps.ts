@@ -42,6 +42,21 @@ export function combineProps<
 	source4: AccessorOrValue<W>,
 	source5: AccessorOrValue<X>,
 ): T & U & V & W & X;
+export function combineProps<
+	T extends AnyProps = AnyProps,
+	U extends AnyProps = AnyProps,
+	V extends AnyProps = AnyProps,
+	W extends AnyProps = AnyProps,
+	X extends AnyProps = AnyProps,
+	Y extends AnyProps = AnyProps,
+>(
+	source1: AccessorOrValue<T>,
+	source2: AccessorOrValue<U>,
+	source3: AccessorOrValue<V>,
+	source4: AccessorOrValue<W>,
+	source5: AccessorOrValue<X>,
+	source6: AccessorOrValue<Y>,
+): T & U & V & W & X & Y;
 export function combineProps(...sources: AccessorOrValue<AnyProps>[]): AnyProps {
 	const traps = {
 		get(_: unknown, key: string | symbol) {
