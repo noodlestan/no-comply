@@ -5,6 +5,7 @@ export * from './dialog';
 export * from './feedback';
 export * from './form';
 export * from './group';
+export * from './input';
 export * from './label';
 export * from './list';
 export * from './listitem';
