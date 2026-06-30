@@ -12,9 +12,9 @@
     height: var(--__size);
     border-radius: var(--input-border-radius);
 
-    @include set-color(__fg, primary, fg-primary, invisible);
-    @include set-color(__bg, primary, bg-2, opaque);
-    @include set-color(__border, primary, border-0, opaque);
+    @include set-color(__input-fg, primary, fg-primary, invisible);
+    @include set-color(__input-bg, primary, bg-2, content-fg);
+    @include set-color(__input-border, primary, border-0, content-fg);
 
     input {
       position: absolute;
@@ -40,7 +40,7 @@
       color: transparent;
       transition: color ease var(--animation-duration-short);
 
-      @include apply-color(color, __fg);
+      @include apply-color(color, __input-fg);
     }
   }
 
@@ -49,13 +49,14 @@
     width: 100%;
     height: 100%;
 
-    border: var(--input-checkbox-border);
+    border-width: var(--input-border-width);
+    border-style: var(--input-border-style);
     border-radius: var(--input-border-radius);
     cursor: pointer;
     transition: background-color ease var(--animation-duration-short);
 
-    @include apply-color(border-color, __border);
-    @include apply-color(background-color, __bg);
+    @include apply-color(border-color, __input-border);
+    @include apply-color(background-color, __input-bg);
   }
 
   .size-xs {
@@ -75,26 +76,26 @@
   }
 
   .is-checked {
-    @include set-alpha(__fg, opaque);
+    @include set-alpha(__input-fg, content-fg);
   }
 
   .is-modified {
-    @include set-palette(__border, modified);
+    @include set-palette(__input-border, modified);
   }
 
   .is-invalid {
-    @include set-palette(__bg, danger);
-    @include set-palette(__border, danger);
+    @include set-palette(__input-bg, danger);
+    @include set-palette(__input-border, danger);
   }
 
   .is-focused {
-    @include set-palette(__bg, good);
+    @include set-palette(__input-bg, good);
   }
 
   .is-disabled {
-    @include set-color(__border, primary, fg-disabled, opaque);
-    @include set-color(__fg, primary, fg-disabled, opaque);
-    @include set-color(__bg, primary, bg-disabled, opaque);
+    @include set-color(__input-border, primary, fg-disabled, content-fg);
+    @include set-color(__input-fg, primary, fg-disabled, content-fg);
+    @include set-color(__input-bg, primary, bg-disabled, content-fg);
 
     .-Control {
       cursor: not-allowed;

@@ -1,0 +1,26 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer theme.standard.base.patterns {
+  [data-theme-standard] {
+    --input-border-style: solid;
+    --input-border-radius: var(--radius-s);
+    --input-border-width: 1.5px;
+    // --input-border-width: var(--border-width-thin);
+
+    --input-checkbox-stroke: 3px;
+
+    @include set-palette(input-base, primary);
+    @include set-palette(input-invalid, bad);
+    @include set-palette(input-modified, modified);
+    @include set-palette(input-positive, good);
+
+    --input-track-rest-color: var(--color-primary-hue-sat), var(--input-light-low-1);
+    --input-track-hover-color: var(--color-primary-hue-sat), var(--input-light-low-2);
+    --input-track-disabled-color: var(--color-i-disabled-hue-sat), var(--input-light-disabled);
+
+    --input-handle-rest-color: var(--color-primary-hue-sat), var(--input-light-base);
+    --input-handle-hover-color: var(--color-primary-hue-sat), var(--input-light-high);
+    --input-handle-focus-color: var(--color-primary-hue-sat), var(--input-light-max);
+    --input-handle-disabled-color: var(--color-i-disabled-hue-sat), var(--input-light-muted);
+  }
+}

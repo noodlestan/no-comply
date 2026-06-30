@@ -1,0 +1,40 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer lib.standard-ui {
+  @layer input-box, input-state;
+}
+
+@layer lib.standard-ui.input-state {
+  .InputState {
+    // border-width: var(--input-border-width);
+    // border-style: var(--input-border-style);
+    // border-radius: var(--input-border-radius);
+
+    pointer-events: all;
+
+    // @include set-color(__input-fg, primary, fg-primary, invisible);
+    // @include set-color(__input-bg, primary, bg-2, content-fg);
+    // @include set-color(__input-border, primary, border-0, content-fg);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .is-modified {
+    @include set-palette(__input, input-modified);
+    @include set-level(__input-border, border-1);
+  }
+
+  .is-positive {
+    @include set-palette(__input, input-positive);
+    @include set-level(__input-border, border-1);
+  }
+
+  .is-invalid {
+    @include set-palette(__input, input-invalid);
+    @include set-level(__input-border, border-1);
+  }
+}

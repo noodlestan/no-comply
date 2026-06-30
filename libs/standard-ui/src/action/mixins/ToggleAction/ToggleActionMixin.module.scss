@@ -15,8 +15,8 @@
     @include set-color(__lit-icon, selected, border-2, opaque);
   }
 
+  /* looks like ActionMixin variant-secondary */
   .variant-primary {
-    /* looks like ActionMixin variant-secondary */
     &:not(is-active) {
       @include set-level(__fg-rest, fg-saturated);
       @include set-level(__bg-rest, content-bg-0);
@@ -32,6 +32,10 @@
       &:is([aria-disabled], [data-inactive]) {
         @include set-palette(__bg, primary);
         @include set-level(__bg, static-bg-1);
+      }
+
+      &:is(:focus-visible, :hover) {
+        @include set-alpha(__border, opaque);
       }
     }
 
@@ -56,10 +60,6 @@
     &:not([aria-disabled], [data-inactive]) {
       svg {
         @include apply-color(color, __lit-icon);
-      }
-
-      &:is(:focus-visible, :hover) {
-        @include set-alpha(__border, opaque);
       }
     }
   }

@@ -2,8 +2,6 @@
 
 @layer lib.standard-ui.action {
   .Action {
-    --__border-style: solid;
-
     display: flex;
     gap: var(--__gap, 0);
     flex-direction: row;
@@ -13,7 +11,7 @@
     padding-inline: var(--__padding-inline, var(--space-pad-0));
     border: none;
     border-width: var(--action-border-width);
-    border-style: var(--__border-style);
+    border-style: var(--action-border-style);
     border-radius: var(--action-border-radius);
     text-decoration: none;
     transition:
@@ -55,7 +53,7 @@
     @include apply-color(background-color, __bg);
     @include apply-color(border-color, __border);
 
-    & :focus-visible {
+    &:focus-visible {
       border-color: transparent;
     }
 
@@ -95,7 +93,7 @@
 
     @include set-level(__fg-active, static-fg-contrast);
     @include set-level(__bg-active, static-bg-3);
-    @include set-level(__border-active, static-bg-0);
+    @include set-level(__border-active, static-fg-saturated);
   }
 
   .variant-secondary {
@@ -103,22 +101,15 @@
     @include set-palette(__border, __intent);
 
     @include set-level(__fg-rest, fg-saturated);
+    @include set-level(__fg-hover, border-2);
     @include set-level(__bg-rest, content-bg-0);
 
-    @include set-alpha(__border, translucid);
+    @include set-alpha(__border-rest, translucid);
+    @include set-alpha(__border-hover, opaque);
+    @include set-alpha(__border-active, opaque);
 
     &:is([aria-disabled], [data-inactive]) {
       @include set-level(__bg, content-bg-2);
-    }
-
-    &:not([aria-disabled], [data-inactive]) {
-      &:is(:focus-visible, :hover) {
-        @include set-alpha(__border, opaque);
-
-        &:active {
-          @include set-alpha(__border, opaque);
-        }
-      }
     }
   }
 
@@ -138,6 +129,10 @@
     &:not([aria-disabled], [data-inactive]) {
       &:is(:focus-visible, :hover) {
         @include set-alpha(__bg, opaque);
+
+        &:not(.intent-neutral) {
+          @include set-level(__fg, fg-muted);
+        }
 
         &:active {
           @include set-alpha(__bg, opaque);

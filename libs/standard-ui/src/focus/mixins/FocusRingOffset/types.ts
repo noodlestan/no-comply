@@ -1,7 +1,7 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
 export type FocusRingOffsetMixinProps = {
-	inset?: boolean;
+	compact?: boolean;
 };
 
 export type FocusRingOffsetMixinAPI = {

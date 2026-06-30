@@ -12,7 +12,7 @@ export const createFocusRingOffsetMixin = (
 
 	const classList = createClassList(styles, () => ({
 		FocusRingOffset: true,
-		inset: Boolean(locals.inset),
+		compact: Boolean(locals.compact),
 	}));
 
 	const $root = computedProps({

@@ -1,5 +1,1 @@
-export const INPUT_BOX_MIXIN_PROPS_RELAYED = [
-	'disabled' as const,
-	'invalid' as const,
-	'modified' as const,
-];
+export const INPUT_STATE_MIXIN_PROPS_RELAYED = ['disabled' as const, 'invalid' as const];

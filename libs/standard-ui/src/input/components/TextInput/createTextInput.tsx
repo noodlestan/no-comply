@@ -1,30 +1,31 @@
-import { createTextInputValue } from '@no-comply/solid-composables';
+import { createBaseInput, createTextInputValue } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps, pickProps } from '@no-comply/solid-primitives';
+import { combineProps, pickProps } from '@no-comply/solid-primitives';
 
 import { createContentLengthMixin } from '../../../content';
 import {
+	INPUT_STATE_MIXIN_PROPS,
 	SIZED_INPUT_BOX_MIXIN_PROPS,
 	createInputBoxMixin,
+	createInputStateMixin,
 	createSizedInputBoxMixin,
 } from '../../mixins';
 
 import { $TEXT_INPUT } from './constants';
-import { INPUT_BOX_MIXIN_PROPS_RELAYED } from './private';
 import type { TextInputAPI, TextInputProps } from './types';
 
 export const createTextInput = (props: TextInputProps): TextInputAPI => {
 	const [locals, expose, compose] = createExposable($TEXT_INPUT, props);
 
-	const { $root: $textInputValueRoot, value, wasTouched } = createTextInputValue(props);
+	const { $root: $baseInputRoot, id } = compose(createBaseInput(props));
 
-	const inputBoxMixinProps = combineProps(
-		pickProps(locals, INPUT_BOX_MIXIN_PROPS_RELAYED),
-		computedProps({
-			touched: () => props.touched ?? wasTouched(),
-		}),
-	);
+	const { $root: $textInputValueRoot, value, wasTouched } = compose(createTextInputValue(props));
+
+	const inputBoxMixinProps = pickProps(locals, ['disabled']);
 	const { $root: $inputBoxMixinRoot } = compose(createInputBoxMixin(inputBoxMixinProps));
+
+	const inputStateMixinProps = pickProps(locals, INPUT_STATE_MIXIN_PROPS);
+	const { $root: $inputStateMixinRoot } = compose(createInputStateMixin(inputStateMixinProps));
 
 	const sizedInputBoxMixinProps = pickProps(locals, SIZED_INPUT_BOX_MIXIN_PROPS);
 	const { $root: $sizedInputBoxMixinRoot, size } = compose(
@@ -38,8 +39,10 @@ export const createTextInput = (props: TextInputProps): TextInputAPI => {
 
 	return exposeAPI(expose, '$root', {
 		$root: combineProps(
+			$baseInputRoot,
 			$textInputValueRoot,
 			$inputBoxMixinRoot,
+			$inputStateMixinRoot,
 			$sizedInputBoxMixinRoot,
 			$contentLengthMixinRoot,
 		),
@@ -47,5 +50,6 @@ export const createTextInput = (props: TextInputProps): TextInputAPI => {
 		wasTouched,
 		size,
 		length,
+		id,
 	});
 };

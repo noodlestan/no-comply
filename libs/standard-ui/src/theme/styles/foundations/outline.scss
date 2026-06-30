@@ -2,14 +2,20 @@
 
 @layer theme.standard.base.foundations {
   [data-theme-standard] {
-    --outline-offset: var(--border-width-base);
-    --outline-inset-offset: calc(var(--border-width-base) * -1);
-    --outline-active-offset: calc(var(--border-width-base) / 2);
-    --outline-active-inset-offset: calc(var(--border-width-base) * -1.5);
     --outline-width: var(--border-width-base);
     --outline-style: solid;
+
+    --outline-offset: var(--border-width-base);
+    --outline-offset-disabled: var(--border-width-thin);
+    --outline-offset-active: var(--border-width-thin);
+
+    --outline-offset-compact: calc(var(--border-width-base) * -1);
+    --outline-offset-compact-active: calc(var(--border-width-base) * -1.5);
+
     @include set-color(__outline, focused, focus-ring, opaque);
+    @include set-color(__outline-disabled, focused, border-2, opaque);
 
     @include apply-computed-color(--outline-color, __outline);
+    @include apply-computed-color(--outline-color-disabled, __outline-disabled);
   }
 }

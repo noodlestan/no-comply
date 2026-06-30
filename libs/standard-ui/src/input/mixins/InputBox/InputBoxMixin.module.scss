@@ -1,3 +1,5 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
 @layer lib.standard-ui.input-box {
   .InputBox {
     --__input-height: var(--size-s);
@@ -13,6 +15,46 @@
     padding: 0 var(--space-pad-0);
     text-align: start;
 
+    border-width: var(--input-border-width);
+    border-style: var(--input-border-style);
+    border-radius: var(--input-border-radius);
+
+    @include set-palette(__input, input-base);
+
+    @include set-palette(__input-fg, __input);
+    @include set-level(__input-fg, fg-muted);
+    @include set-alpha(__input-fg, content-fg);
+    @include apply-color(color, __input-fg);
+
+    @include set-palette(__input-bg, __input);
+    @include set-level(__input-bg, content-bg-0);
+    @include set-alpha(__input-bg, content-fg);
+    @include apply-color(background-color, __input-bg);
+
+    @include set-palette(__input-border, __input);
+    @include set-level(__input-border, border-2);
+    @include set-alpha(__input-border, content-fg);
+    @include apply-color(border-color, __input-border);
+
     --__first-line-element-height: var(--__input-height);
+
+    &:hover {
+      @include set-level(__input-border, border-2);
+    }
+
+    &:focus-visible {
+      @include set-level(__input-fg, fg-contrast);
+      @include set-alpha(__input-border, invisible);
+    }
+
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-level(__input-fg, fg-disabled);
+      @include set-level(__input-border, border-muted);
+      cursor: not-allowed;
+
+      &:focus-visible {
+        @include set-level(__input-fg, fg-saturated);
+      }
+    }
   }
 }

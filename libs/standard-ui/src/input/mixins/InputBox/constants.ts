@@ -4,9 +4,4 @@ import type { InputBoxMixinProps } from './types';
 
 export const $INPUT_BOX_MIXIN = 'mixin:standard:input-box';
 
-export const INPUT_BOX_MIXIN_PROPS = definePropKeys<InputBoxMixinProps>()([
-	'disabled',
-	'invalid',
-	'modified',
-	'touched',
-]);
+export const INPUT_BOX_MIXIN_PROPS = definePropKeys<InputBoxMixinProps>()(['disabled']);

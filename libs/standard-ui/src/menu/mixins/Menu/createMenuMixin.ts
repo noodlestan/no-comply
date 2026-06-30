@@ -10,7 +10,7 @@ import type { MenuMixinAPI } from './types';
 export const createMenuMixin = (): MenuMixinAPI => {
 	const [, expose, compose] = createExposable($MENU_MIXIN);
 
-	const { $root: $focusRing } = compose(createFocusRingMixin({ inset: true }));
+	const { $root: $focusRing } = compose(createFocusRingMixin({ compact: true }));
 
 	const classList = staticClassList(styles, 'Menu');
 

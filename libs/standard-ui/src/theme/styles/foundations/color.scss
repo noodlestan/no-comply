@@ -37,6 +37,8 @@
 
     @include def-color-level(static-fg-contrast, 50);
     @include def-color-level(static-fg-primary, 100);
+    @include def-color-level(static-fg-muted, 200);
+    @include def-color-level(static-fg-saturated, 300);
     @include def-color-level(static-border, 500);
     @include def-color-level(static-bg-3, 600);
     @include def-color-level(static-bg-2, 700);
@@ -62,7 +64,7 @@
     @include def-color-palette(bad, --p-red);
     @include def-color-palette(selected, --p-olive);
     @include def-color-palette(focused, --p-indigo);
-    @include def-color-palette(modified, --p-violet);
+    @include def-color-palette(modified, --p-yellow);
 
     @include def-color-palette(graphics-1, --p-violet);
     @include def-color-palette(graphics-2, --p-pink);

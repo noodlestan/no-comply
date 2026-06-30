@@ -10,7 +10,7 @@ import type { SkipLinkMixinAPI, SkipLinkMixinProps } from './types';
 export const createSkipLinkMixin = (props: SkipLinkMixinProps = {}): SkipLinkMixinAPI => {
 	const [locals, expose, compose] = createExposable($SKIP_LINK_MIXIN, props);
 
-	const { $root: $linkMixinRoot } = compose(createLinkMixin({ inset: true }));
+	const { $root: $linkMixinRoot } = compose(createLinkMixin({ compact: true }));
 
 	const classList = createClassList(styles, () => ({
 		SkipLink: true,

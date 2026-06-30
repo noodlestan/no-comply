@@ -1,8 +1,8 @@
 @layer theme.standard.base.foundations {
   [data-theme-standard] {
-    --radius-xs: var(--scale-5xs);
-    --radius-s: var(--scale-4xs);
-    --radius-m: var(--scale-3xs);
+    --radius-xs: 1px;
+    --radius-s: 2px;
+    --radius-m: 4px;
     --radius-l: var(--scale-2xs);
     --radius-xl: var(--scale-xs);
   }

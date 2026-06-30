@@ -1,14 +1,13 @@
 import type { ClassList } from '@no-comply/solid-primitives';
 
+import type { FocusRingMixinAPI } from '../../../focus';
+
 export type InputBoxMixinProps = {
 	disabled?: boolean;
-	invalid?: boolean;
-	modified?: boolean;
-	touched?: boolean;
 };
 
 export type InputBoxMixinAPI = {
-	$root: {
+	$root: FocusRingMixinAPI['$root'] & {
 		classList: ClassList;
 	};
 };
