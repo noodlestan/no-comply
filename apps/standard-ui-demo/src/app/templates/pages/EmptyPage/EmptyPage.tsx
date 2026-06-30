@@ -10,7 +10,7 @@ export const EmptyPage: ParentComponent = props => {
 	const [setMainRef] = createFocusTargetRef(SCREEN_MAIN_TARGET, { transient: true });
 
 	const { $root: $focusRing } = createFocusRing({ passive: true });
-	const { $root: $focusRingMixin } = createFocusRingMixin({ inset: true });
+	const { $root: $focusRingMixin } = createFocusRingMixin({ compact: true });
 
 	const $ = combineProps($focusRing, $focusRingMixin);
 

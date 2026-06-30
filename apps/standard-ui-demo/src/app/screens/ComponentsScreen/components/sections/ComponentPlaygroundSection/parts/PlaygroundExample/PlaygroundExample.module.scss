@@ -10,9 +10,14 @@
     box-shadow: 0 1.5px 2px var(--__shadow-c);
   }
 
-  .-PlayGroundPreviewOptions {
+  .-Layout {
+    position: relative;
+  }
+
+  .-Options {
     position: absolute;
-    inset-inline-end: var(--space-gap-0);
     z-index: 1;
+    inset-block-start: var(--space-gap-0);
+    inset-inline-end: var(--space-gap-1);
   }
 }

@@ -5,14 +5,18 @@ import {
 	Flex,
 	Icon,
 	IconButton,
+	NavLink,
 	SegmentedButton,
 	SegmentedButtonItem,
 	TextInput,
+	ToggleButton,
 } from '@no-comply/standard-ui';
 import ClockIcon from 'lucide-solid/icons/clock';
 import { type Component, createSignal } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
+
+const LABELS = { on: 'On', off: 'Off' };
 
 export const ContentSizePage: Component = () => {
 	const [textValue, setTextValue] = createSignal('foo');
@@ -32,8 +36,13 @@ export const ContentSizePage: Component = () => {
 			<Display level={3}>small</Display>
 
 			<Flex direction="row" align="center" gap="l" wrap>
+				<Icon size="small" icon={ClockIcon} />
 				<Icon size="normal" icon={ClockIcon} />
+				<NavLink current href="/" size="small">
+					Small
+				</NavLink>
 				<Button size="small">small</Button>
+				<ToggleButton size="small" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="small" label="small" icon={ClockIcon} />
 				<Checkbox size="xs" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="small" value={textValue()} onValueChange={setTextValue} />
@@ -51,7 +60,11 @@ export const ContentSizePage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="medium" icon={ClockIcon} />
+				<NavLink current href="/" size="normal">
+					Normal
+				</NavLink>
 				<Button size="normal">normal</Button>
+				<ToggleButton size="normal" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="normal" label="normal" icon={ClockIcon} />
 				<Checkbox size="s" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="normal" value={textValue()} onValueChange={setTextValue} />
@@ -69,7 +82,11 @@ export const ContentSizePage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="large" icon={ClockIcon} />
+				<NavLink current href="/" size="medium">
+					Medium
+				</NavLink>
 				<Button size="medium">medium</Button>
+				<ToggleButton size="medium" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="medium" label="medium" icon={ClockIcon} />
 				<Checkbox size="m" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="medium" value={textValue()} onValueChange={setTextValue} />
@@ -87,7 +104,11 @@ export const ContentSizePage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="large" icon={ClockIcon} />
+				<NavLink current href="/" size="large">
+					Large
+				</NavLink>
 				<Button size="large">large</Button>
+				<ToggleButton size="large" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="large" label="large" icon={ClockIcon} />
 				<Checkbox size="l" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="large" value={textValue()} onValueChange={setTextValue} />

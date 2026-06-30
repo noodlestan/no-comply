@@ -6,8 +6,10 @@ import {
 	Display,
 	Flex,
 	IconButton,
+	Link,
 	Menu,
 	MenuItemAction,
+	NavLink,
 	RangeInput,
 	SegmentedButton,
 	SegmentedButtonItem,
@@ -32,7 +34,7 @@ export const InteractionsStatesPage: Component = () => {
 	const [selectValue, setSelectValue] = createSignal('top');
 	const [checkboxValue, setCheckboxValue] = createSignal(true);
 
-	const [disabled, setDisabled] = createSignal(true);
+	const [disabled, setDisabled] = createSignal(false);
 
 	const $ = computedProps({
 		disabled,
@@ -73,6 +75,26 @@ export const InteractionsStatesPage: Component = () => {
 				</Flex>
 			</Surface>
 
+			<Display level={3}>Link</Display>
+
+			<Flex direction="row" gap="l" align="center" wrap>
+				<Link href="/" {...$}>
+					Link
+				</Link>
+				<NavLink href="/" {...$}>
+					NavLink
+				</NavLink>
+				<NavLink current href="/" {...$}>
+					NavLink (current)
+				</NavLink>
+				<NavLink href="/" {...$} layout="v" highlight="after">
+					NavLink
+				</NavLink>
+				<NavLink current href="/" layout="v" highlight="after" {...$}>
+					NavLink (current)
+				</NavLink>
+			</Flex>
+
 			<Display level={3}>Button</Display>
 
 			<Flex direction="column" gap="l" wrap>
@@ -108,32 +130,6 @@ export const InteractionsStatesPage: Component = () => {
 					<Button variant="plain" intent="neutral" {...$}>
 						plain + neutral
 					</Button>
-				</Flex>
-			</Flex>
-
-			<Display level={3}>Menu Item</Display>
-
-			<Flex direction="column" gap="l" wrap>
-				<Flex direction="row" align="center" gap="l" wrap>
-					<Menu>
-						<MenuItemAction variant="primary" intent="positive" label="primary + positive" />
-						<MenuItemAction variant="primary" intent="negative" label="primary + negative" />
-						<MenuItemAction variant="primary" intent="neutral" label="primary + neutral" />
-					</Menu>
-				</Flex>
-				<Flex direction="row" align="center" gap="l" wrap>
-					<Menu>
-						<MenuItemAction variant="secondary" intent="positive" label="secondary + positive" />
-						<MenuItemAction variant="secondary" intent="negative" label="secondary + negative" />
-						<MenuItemAction variant="secondary" intent="neutral" label="secondary + neutral" />
-					</Menu>
-				</Flex>
-				<Flex direction="row" align="center" gap="l" wrap>
-					<Menu>
-						<MenuItemAction variant="plain" intent="positive" label="plain + positive" />
-						<MenuItemAction variant="plain" intent="negative" label="plain + negative" />
-						<MenuItemAction variant="plain" intent="neutral" label="plain + neutral" />
-					</Menu>
 				</Flex>
 			</Flex>
 
@@ -225,6 +221,32 @@ export const InteractionsStatesPage: Component = () => {
 				<Flex direction="row" align="center" gap="l" wrap>
 					<ToggleButton variant="plain" {...$} value={false} />
 					<ToggleButton variant="plain" {...$} value={true} />
+				</Flex>
+			</Flex>
+
+			<Display level={3}>Menu Item</Display>
+
+			<Flex direction="column" gap="l" wrap>
+				<Flex direction="row" align="center" gap="l" wrap>
+					<Menu>
+						<MenuItemAction variant="primary" intent="positive" label="primary + positive" />
+						<MenuItemAction variant="primary" intent="negative" label="primary + negative" />
+						<MenuItemAction variant="primary" intent="neutral" label="primary + neutral" />
+					</Menu>
+				</Flex>
+				<Flex direction="row" align="center" gap="l" wrap>
+					<Menu>
+						<MenuItemAction variant="secondary" intent="positive" label="secondary + positive" />
+						<MenuItemAction variant="secondary" intent="negative" label="secondary + negative" />
+						<MenuItemAction variant="secondary" intent="neutral" label="secondary + neutral" />
+					</Menu>
+				</Flex>
+				<Flex direction="row" align="center" gap="l" wrap>
+					<Menu>
+						<MenuItemAction variant="plain" intent="positive" label="plain + positive" />
+						<MenuItemAction variant="plain" intent="negative" label="plain + negative" />
+						<MenuItemAction variant="plain" intent="neutral" label="plain + neutral" />
+					</Menu>
 				</Flex>
 			</Flex>
 

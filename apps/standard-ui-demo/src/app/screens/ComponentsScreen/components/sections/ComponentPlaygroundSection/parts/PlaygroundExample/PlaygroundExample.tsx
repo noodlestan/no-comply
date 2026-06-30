@@ -50,13 +50,15 @@ export const PlaygroundExample: Component = () => {
 		}
 		throw new Error(`WIP = Read before ready`);
 	};
-
-	const classList = staticClassList(styles, ['PlaygroundExample']);
-
 	const title = () => currentExample()?.title;
 	const description = () => currentExample()?.description;
 
 	const handleResetExampleClick = () => resetExampleOverrides(currentExampleIndex() as number);
+
+	const classList = staticClassList(styles, ['PlaygroundExample']);
+	const layoutClassList = staticClassList(styles, ['-Layout']);
+	const headerClassList = staticClassList(styles, ['-Header']);
+	const optionsClassList = staticClassList(styles, ['-Options']);
 
 	return (
 		<Surface
@@ -67,7 +69,7 @@ export const PlaygroundExample: Component = () => {
 			classList={classList}
 		>
 			<Suspense fallback={'LOADING......'}>
-				<Flex tag="section" direction="column" stretch="height" gap="l">
+				<Flex tag="section" direction="column" stretch="height" gap="xs">
 					<VisuallyHidden>
 						<Display id={$ID_PLAYGROUND_PREVIEW_TITLE} level={4}>
 							Rendered example: {title()}
@@ -80,19 +82,19 @@ export const PlaygroundExample: Component = () => {
 						gap="m"
 						padding={['s', 'm']}
 						wrap
-						classList={staticClassList(styles, ['-Header'])}
+						classList={headerClassList}
 					>
 						<PlaygroundExampleSelect />
 						<Show when={hasExampleOverrides(currentExampleIndex() as number)}>
 							<PlaygroundResetButton label="Reset example" onPress={handleResetExampleClick} />
 						</Show>
 					</Flex>
-					<Flex stretch="full" shrink>
+					<Flex stretch="full" shrink classList={layoutClassList}>
 						<Show when={currentExampleParsed()}>
 							<PlayGroundPreviewOptions
 								mode={mode()}
 								setMode={setMode}
-								classList={staticClassList(styles, ['-PlayGroundPreviewOptions'])}
+								classList={optionsClassList}
 							/>
 						</Show>
 						<Scrollable y>

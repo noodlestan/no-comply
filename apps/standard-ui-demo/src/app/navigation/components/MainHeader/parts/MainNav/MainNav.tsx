@@ -38,7 +38,7 @@ export const MainNav: Component = () => {
 			currentItemId={selectedItemId()}
 			renderOverflow={({ items }) => <>{items.length}</>}
 			renderItem={({ item, isCurrent }) => (
-				<NavLink href={item.href} onPress={handleNavLink} current={isCurrent}>
+				<NavLink size="medium" href={item.href} onPress={handleNavLink} current={isCurrent} compact>
 					{item.label}
 				</NavLink>
 			)}

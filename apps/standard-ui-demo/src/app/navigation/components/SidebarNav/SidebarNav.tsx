@@ -18,7 +18,7 @@ export const SidebarNav: Component<Props> = props => {
 	const [setNavRef] = createFocusTargetRef(SIDEBAR_NAV_TARGET, { transient: true });
 
 	const { $root: $focusRing } = createFocusRing({ passive: true });
-	const { $root: $focusRingMixin } = createFocusRingMixin({ inset: true });
+	const { $root: $focusRingMixin } = createFocusRingMixin({ compact: true });
 
 	const $ = combineProps($focusRing, $focusRingMixin);
 

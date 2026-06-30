@@ -29,15 +29,16 @@ const INVALID_TOGGLE_LABELS: ToggleActionLabels = {
 	off: 'Valid',
 };
 
+const POSITIVE_TOGGLE_LABELS: ToggleActionLabels = {
+	on: 'Positive',
+	off: 'Neutral',
+};
+
 const MODIFIED_TOGGLE_LABELS: ToggleActionLabels = {
 	on: 'Modified',
 	off: 'Unmodified',
 };
 
-const TOUCHED_TOGGLE_LABELS: ToggleActionLabels = {
-	on: 'Touched',
-	off: 'Untouched',
-};
 export const InteractionsInputsPage: Component = () => {
 	const [textValue, setTextValue] = createSignal('foo');
 	const [numberValue, setNumberValue] = createSignal(123.45);
@@ -47,14 +48,14 @@ export const InteractionsInputsPage: Component = () => {
 
 	const [disabled, setDisabled] = createSignal(true);
 	const [invalid, setInvalid] = createSignal(false);
+	const [positive, setPositive] = createSignal(false);
 	const [modified, setModified] = createSignal(false);
-	const [touched, setTouched] = createSignal(false);
 
 	const $ = computedProps({
 		disabled,
 		invalid,
+		positive,
 		modified,
-		touched,
 	});
 	const options = () => (
 		<>
@@ -97,16 +98,16 @@ export const InteractionsInputsPage: Component = () => {
 						<ToggleButton
 							size="small"
 							variant="secondary"
-							value={modified()}
-							onPress={() => setModified(v => !v)}
-							labels={MODIFIED_TOGGLE_LABELS}
+							value={positive()}
+							onPress={() => setPositive(v => !v)}
+							labels={POSITIVE_TOGGLE_LABELS}
 						/>
 						<ToggleButton
 							size="small"
 							variant="secondary"
-							value={touched()}
-							onPress={() => setTouched(v => !v)}
-							labels={TOUCHED_TOGGLE_LABELS}
+							value={modified()}
+							onPress={() => setModified(v => !v)}
+							labels={MODIFIED_TOGGLE_LABELS}
 						/>
 					</Flex>
 				</Flex>

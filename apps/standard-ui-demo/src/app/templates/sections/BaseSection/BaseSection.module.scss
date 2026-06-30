@@ -3,15 +3,17 @@
 
 @layer app {
   .BaseSection {
-    transition-property: background-color;
-    transition-duration: var(--animation-duration-trailing);
+    transition:
+      outline-offset var(--animation-duration-trailing),
+      outline-color var(--animation-duration-trailing);
+
     @include focus-ring;
 
-    &[ddata-is-focused] {
+    &[data-is-active] {
       transition-duration: var(--animation-duration-short);
 
-      @include set-color(__bg, surface, content-bg-1, opaque);
-      @include apply-color(background-color, __bg);
+      outline-offset: var(--space-gap-0);
+      outline-color: var(--outline-color);
     }
   }
 }
