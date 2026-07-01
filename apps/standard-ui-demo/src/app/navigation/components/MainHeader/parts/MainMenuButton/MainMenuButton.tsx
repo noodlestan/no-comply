@@ -1,6 +1,5 @@
 import type { ExpandActionIcons, ExpandActionLabels } from '@no-comply/solid-composables';
-import { createIconValue } from '@no-comply/solid-contexts';
-import { staticClassList } from '@no-comply/solid-primitives';
+import { createIconValue, staticClassList } from '@no-comply/solid-primitives';
 import { ExpandButton } from '@no-comply/standard-ui';
 import MenuIcon from 'lucide-solid/icons/menu';
 import XIcon from 'lucide-solid/icons/x';

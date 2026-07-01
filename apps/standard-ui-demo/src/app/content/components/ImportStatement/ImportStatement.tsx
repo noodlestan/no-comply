@@ -1,7 +1,5 @@
-import { staticClassList } from '@no-comply/solid-primitives';
+import { Code } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
-
-import styles from './ImportStatement.module.scss';
 
 type ImportStatementProps = {
 	name: string;
@@ -11,9 +9,5 @@ type ImportStatementProps = {
 export const ImportStatement: Component<ImportStatementProps> = props => {
 	const statement = () => `import { ${props.name} } from '${props.package}';`;
 
-	return (
-		<div classList={staticClassList(styles, 'ImportStatement')}>
-			<code>{statement()}</code>
-		</div>
-	);
+	return <Code variant="small">{statement()}</Code>;
 };

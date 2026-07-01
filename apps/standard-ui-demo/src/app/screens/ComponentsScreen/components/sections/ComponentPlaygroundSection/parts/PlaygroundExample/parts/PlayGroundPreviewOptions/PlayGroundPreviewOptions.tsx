@@ -28,7 +28,6 @@ export const PlayGroundPreviewOptions: Component<Props> = props => {
 				</Label>
 			</VisuallyHidden>
 			<SegmentedButton
-				size="small"
 				name="example-mode-choice"
 				aria-labelledby={labelId}
 				value={props.mode}

@@ -1,0 +1,8 @@
+@layer app {
+  .CodeRenderer {
+    pre {
+      padding: var(--space-pad-0);
+      overflow: auto;
+    }
+  }
+}

@@ -22,9 +22,18 @@ type Props = {
 
 type ItemsProps = Props & {
 	group: ComponentPropsGroup;
+	isLastGroup?: boolean;
 };
 
 const Items: Component<ItemsProps> = props => {
+	const showDivider = (index: number) => {
+		const isLastProp = index === props.group.props.length - 1;
+		if (props.showGroups) {
+			return !isLastProp;
+		}
+		return !props.isLastGroup || !isLastProp;
+	};
+
 	return (
 		<For each={props.group.props}>
 			{(prop, ix) => {
@@ -32,8 +41,8 @@ const Items: Component<ItemsProps> = props => {
 				return (
 					<Flex tag="li" direction="column" gap="m" aria-labelledby={id}>
 						<ComponentPropsTableRow {...props} prop={prop} id={id} />
-						<Show when={ix() < props.group.props.length - 1}>
-							<Divider variant="muted" />
+						<Show when={showDivider(ix())}>
+							<Divider variant="muted" length="full" />
 						</Show>
 					</Flex>
 				);
@@ -43,15 +52,17 @@ const Items: Component<ItemsProps> = props => {
 };
 
 export const ComponentPropsTableGroup: Component<Props> = props => {
+	const id = () => `prop-group-${props.group.ref || 'global'}`;
+
 	const sourceHref = (ref: string, entity?: NoComplyEntityData) =>
 		entity ? `${routeFor.entity(entity)}#${ref}` : ref;
 
-	const id = () => `prop-group-${props.group.ref || 'global'}`;
+	const isLastGroup = () => props.index === props.listLength - 1;
 
 	return (
 		<>
 			<Show when={props.showGroups}>
-				<Flex tag="li" gap="m" direction="column" aria-labelledby={id()}>
+				<Flex tag="li" direction="column" gap="m" aria-labelledby={id()}>
 					<Flex direction="column" gap="l">
 						<Display level={5} id={id()}>
 							<VisuallyHidden>
@@ -67,13 +78,13 @@ export const ComponentPropsTableGroup: Component<Props> = props => {
 							<Items {...props} />
 						</Flex>
 					</Flex>
-					<Show when={props.index < props.listLength - 1}>
-						<Divider variant={props.showGroups ? 'base' : 'muted'} />
+					<Show when={!isLastGroup()}>
+						<Divider variant={props.showGroups ? 'base' : 'muted'} length="full" />
 					</Show>
 				</Flex>
 			</Show>
 			<Show when={!props.showGroups}>
-				<Items {...props} />
+				<Items {...props} isLastGroup={isLastGroup()} />
 			</Show>
 		</>
 	);

@@ -16,7 +16,7 @@ export const NavLinkItemGroup: Component<SidebarNavGroup> = props => {
 
 	return (
 		<Flex direction="column" gap="xs">
-			<Display level={3} variant="s">
+			<Display level={3} variant="xs">
 				{props.title}
 			</Display>
 
@@ -27,7 +27,7 @@ export const NavLinkItemGroup: Component<SidebarNavGroup> = props => {
 							href={item.href + `#${$ID_SCREEN_MAIN}`}
 							onPress={handleNavLink}
 							layout="v"
-							size="small"
+							highlight="before"
 						>
 							{item.title}
 						</NavLink>

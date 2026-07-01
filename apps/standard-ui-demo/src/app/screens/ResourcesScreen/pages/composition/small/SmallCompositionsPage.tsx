@@ -22,11 +22,11 @@ export const SmallCompositionsPage: Component = () => {
 			<Display level={3}>Display XS</Display>
 
 			<Surface variant="card" padding="m">
-				<Flex direction="row" gap="m" align="start" justify="between">
+				<Flex direction="row" gap="l" align="start" justify="between">
 					<AlignFirstLine height="2xs" type="display" variant="xs">
 						<Icon size="small" icon={SquareStackIcon} aligned />
-						<Flex gap="l">
-							<Flex gap="m">
+						<Flex direction="column" gap="l">
+							<Flex direction="column" gap="m">
 								<DisplayAligned>Display XS (Level 5)</DisplayAligned>
 								<Text variant="medium" tag="p">
 									And Text Medium
@@ -52,11 +52,11 @@ export const SmallCompositionsPage: Component = () => {
 			<Display level={3}>Large Text</Display>
 
 			<Surface variant="panel" padding="s">
-				<Flex direction="row" gap="s" align="start" justify="between">
+				<Flex direction="row" gap="m" align="start" justify="between">
 					<AlignFirstLine height="s" type="text" variant="large">
 						<Icon size="small" icon={SquareStackIcon} aligned />
-						<Flex gap="m">
-							<Flex gap="s">
+						<Flex direction="column" gap="m">
+							<Flex direction="column" gap="s">
 								<TextAligned>Text Large</TextAligned>
 								<Text variant="medium" tag="p">
 									And Text Medium
@@ -82,12 +82,12 @@ export const SmallCompositionsPage: Component = () => {
 			<Display level={3}>Normal Text</Display>
 
 			<Surface variant="card" padding="s">
-				<Flex direction="row" align="start" justify="between">
+				<Flex direction="row" gap="s" align="start" justify="between">
 					<AlignFirstLine height="xs" type="text" variant="normal">
 						<Flex direction="row" gap="s" align="start">
 							<Icon size="small" icon={SquareStackIcon} aligned />
-							<Flex gap="m">
-								<Flex gap="s">
+							<Flex direction="column" gap="m">
+								<Flex direction="column" gap="s">
 									<TextAligned>Text Normal</TextAligned>
 									<Text variant="small">
 										<LoremIpsum words={33} />
@@ -103,6 +103,20 @@ export const SmallCompositionsPage: Component = () => {
 								</Flex>
 							</Flex>
 						</Flex>
+						<IconButton size="small" icon={SquareStackIcon} label="small" aligned />
+					</AlignFirstLine>
+				</Flex>
+			</Surface>
+
+			<Display level={3}>Small Text</Display>
+
+			<Surface variant="card" padding="s">
+				<Flex direction="row" gap="s" align="start" justify="start">
+					<AlignFirstLine height="xs" type="text" variant="small">
+						<Icon size="small" icon={SquareStackIcon} aligned />
+						<TextAligned>
+							<LoremIpsum words={7} />
+						</TextAligned>
 						<IconButton size="small" icon={SquareStackIcon} label="small" aligned />
 					</AlignFirstLine>
 				</Flex>

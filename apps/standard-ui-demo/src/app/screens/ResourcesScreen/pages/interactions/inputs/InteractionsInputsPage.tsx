@@ -1,4 +1,4 @@
-import type { ToggleActionLabels } from '@no-comply/solid-composables';
+import type { ToggleActionLabelsProp } from '@no-comply/solid-composables';
 import { computedProps, shortId } from '@no-comply/solid-primitives';
 import {
 	Checkbox,
@@ -11,6 +11,7 @@ import {
 	SegmentedButtonItem,
 	Select,
 	Surface,
+	Text,
 	TextInput,
 	ToggleButton,
 } from '@no-comply/standard-ui';
@@ -19,22 +20,22 @@ import { type Component, createSignal } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
 
-const DISABLED_TOGGLE_LABELS: ToggleActionLabels = {
+const DISABLED_TOGGLE_LABELS: ToggleActionLabelsProp = {
 	on: 'Disabled',
 	off: 'Enabled',
 };
 
-const INVALID_TOGGLE_LABELS: ToggleActionLabels = {
+const INVALID_TOGGLE_LABELS: ToggleActionLabelsProp = {
 	on: 'Invalid',
 	off: 'Valid',
 };
 
-const POSITIVE_TOGGLE_LABELS: ToggleActionLabels = {
+const POSITIVE_TOGGLE_LABELS: ToggleActionLabelsProp = {
 	on: 'Positive',
 	off: 'Neutral',
 };
 
-const MODIFIED_TOGGLE_LABELS: ToggleActionLabels = {
+const MODIFIED_TOGGLE_LABELS: ToggleActionLabelsProp = {
 	on: 'Modified',
 	off: 'Unmodified',
 };
@@ -46,7 +47,7 @@ export const InteractionsInputsPage: Component = () => {
 	const [selectValue, setSelectValue] = createSignal('top');
 	const [checkboxValue, setCheckboxValue] = createSignal(true);
 
-	const [disabled, setDisabled] = createSignal(true);
+	const [disabled, setDisabled] = createSignal(false);
 	const [invalid, setInvalid] = createSignal(false);
 	const [positive, setPositive] = createSignal(false);
 	const [modified, setModified] = createSignal(false);
@@ -77,9 +78,9 @@ export const InteractionsInputsPage: Component = () => {
 		<ResourcesPage title="Inputs">
 			<Surface variant="panel" role="toolbar" padding="xs" aria-labelledby={toolbarLabelId}>
 				<Flex direction="row" align="center" gap="l" wrap>
-					<Display level={3} variant="xs" id={toolbarLabelId}>
+					<Text tag="h3" variant="small" id={toolbarLabelId}>
 						Apply to all
-					</Display>
+					</Text>
 					<Flex direction="row" gap="xs" wrap>
 						<ToggleButton
 							size="small"

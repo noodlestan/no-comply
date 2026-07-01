@@ -1,8 +1,7 @@
 import type { NoComplyEntityData } from '@no-comply/meta';
-import type { ToggleActionIcons, ToggleActionLabels } from '@no-comply/solid-composables';
-import { createIconValue } from '@no-comply/solid-contexts';
-import { createClassList } from '@no-comply/solid-primitives';
-import { Flex, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
+import type { ToggleActionIcons, ToggleActionLabelsProp } from '@no-comply/solid-composables';
+import { createClassList, createIconValue } from '@no-comply/solid-primitives';
+import { Code, Flex, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
 import {
 	PurrceptionLanguageId,
 	type TypeDeclaration,
@@ -24,7 +23,7 @@ type CodeDeclarationProps = {
 	resolve?: 'show' | true | false;
 };
 
-const LABELS: ToggleActionLabels = {
+const LABELS: ToggleActionLabelsProp = {
 	on: 'See Original',
 	off: 'Resolve references',
 };
@@ -67,11 +66,13 @@ export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
 					</Flex>
 				</Surface>
 			</Show>
-			<pre data-purrception-lang={PurrceptionLanguageId}>
-				<code>
-					<SolidCodeBlock lang={PurrceptionLanguageId} nodes={[node()]} context={props.entity} />
-				</code>
-			</pre>
+			<Code tag="div">
+				<pre data-purrception-lang={PurrceptionLanguageId}>
+					<code>
+						<SolidCodeBlock lang={PurrceptionLanguageId} nodes={[node()]} context={props.entity} />
+					</code>
+				</pre>
+			</Code>
 		</Surface>
 	);
 };

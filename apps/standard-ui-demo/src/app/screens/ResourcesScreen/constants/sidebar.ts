@@ -19,7 +19,7 @@ export const RESOURCES_SIDEBAR_ITEMS: SidebarNavGroup[] = [
 	]),
 
 	createSidebarNavGroup('Interactions', [
-		createSidebarNavItem('States', routeFor.resources('interactions/states')),
+		createSidebarNavItem('Actions', routeFor.resources('interactions/actions')),
 		createSidebarNavItem('Inputs', routeFor.resources('interactions/inputs')),
 	]),
 

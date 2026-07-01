@@ -1,8 +1,18 @@
-import { createChainedResource, createCombinedResource } from '@no-comply/solid-primitives';
+import {
+	createChainedResource,
+	createCombinedResource,
+	staticClassList,
+} from '@no-comply/solid-primitives';
+import { Code } from '@no-comply/standard-ui';
 import * as htmlParser from 'prettier/plugins/html';
 import * as prettier from 'prettier/standalone';
-import { codeToHtml } from 'shiki';
+import { createHighlighter } from 'shiki';
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 import { type Component, createEffect, createResource, createSignal } from 'solid-js';
+
+import styles from './CodeRenderer.module.scss';
+
+const jsEngine = createJavaScriptRegexEngine();
 
 const prettierPlugins = [htmlParser];
 
@@ -34,10 +44,14 @@ export const CodeRenderer: Component<CodeRendererProps> = props => {
 			if (!code) {
 				return;
 			}
-			return (await codeToHtml(code, {
-				lang,
-				theme: 'slack-dark',
-			})) as string;
+
+			const shiki = await createHighlighter({
+				themes: ['github-dark-dimmed'],
+				engine: jsEngine,
+				langs: ['json', 'javascript'],
+			});
+
+			return (await shiki.codeToHtml(code, { lang, theme: 'github-dark-dimmed' })) as string;
 		},
 	);
 
@@ -49,5 +63,7 @@ export const CodeRenderer: Component<CodeRendererProps> = props => {
 		}
 	});
 
-	return <div ref={setRef} />;
+	const classList = staticClassList(styles, 'CodeRenderer');
+
+	return <Code tag="div" variant="small" ref={setRef} classList={classList} />;
 };

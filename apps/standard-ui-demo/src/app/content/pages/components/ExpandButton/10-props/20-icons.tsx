@@ -1,4 +1,4 @@
-import { createIconValue } from '@no-comply/solid-contexts';
+import { createIconValue } from '@no-comply/solid-primitives';
 import { ExpandButton, Label } from '@no-comply/standard-ui';
 import FolderClosedIcon from 'lucide-solid/icons/folder-closed';
 import FolderOpenIcon from 'lucide-solid/icons/folder-open';

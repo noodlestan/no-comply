@@ -6,8 +6,8 @@ import {
 	ColorPalettesPage,
 	ContentLengthPage,
 	ContentSizePage,
+	InteractionsActionsPage,
 	InteractionsInputsPage,
-	InteractionsStatesPage,
 	LargeCompositionsPage,
 	MediumCompositionsPage,
 	ResourcesIndexPage,
@@ -21,7 +21,7 @@ export const ResourcesRoutes: Component = () => (
 		<Route path="/" component={ResourcesIndexPage} />
 		<Route path="/space/scales" component={SpaceScalePage} />
 		<Route path="/color/palettes" component={ColorPalettesPage} />
-		<Route path="/interactions/states" component={InteractionsStatesPage} />
+		<Route path="/interactions/actions" component={InteractionsActionsPage} />
 		<Route path="/interactions/inputs" component={InteractionsInputsPage} />
 		<Route path="/typography/variants" component={TypographyVariantsPage} />
 		<Route path="/composition/size" component={ContentSizePage} />

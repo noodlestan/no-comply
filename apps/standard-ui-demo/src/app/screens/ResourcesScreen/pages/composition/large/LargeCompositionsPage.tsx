@@ -21,10 +21,10 @@ export const LargeCompositionsPage: Component = () => {
 			<Display level={3}>Hero</Display>
 
 			<Surface variant="page">
-				<Flex direction="row" gap="xl" align="start" justify="between">
+				<Flex direction="row" gap="2xl" align="start" justify="between">
 					<AlignFirstLine height="l" type="display" variant="hero">
-						<Flex gap="2xl">
-							<Flex gap="xl">
+						<Flex direction="column" gap="2xl">
+							<Flex direction="column" gap="xl">
 								<DisplayAligned>Display Hero</DisplayAligned>
 								<Display variant="l" tag="p">
 									And Display L
@@ -50,12 +50,12 @@ export const LargeCompositionsPage: Component = () => {
 			<Display level={3}>XL</Display>
 
 			<Surface variant="stage" padding="l">
-				<Flex direction="row" gap="m" align="start" justify="between">
+				<Flex direction="row" gap="xl" align="start" justify="between">
 					<AlignFirstLine height="m" type="display" variant="xl">
 						<Icon size="large" icon={SquareStackIcon} aligned />
-						<Flex gap="2xl">
-							<Flex gap="xl">
-								<DisplayAligned>Display XL (Level 1)</DisplayAligned>
+						<Flex direction="column" gap="2xl">
+							<Flex direction="column" gap="xl">
+								<DisplayAligned>Display XL (H1)</DisplayAligned>
 								<Display variant="l" tag="p">
 									And Display L
 								</Display>
@@ -80,12 +80,12 @@ export const LargeCompositionsPage: Component = () => {
 			<Display level={3}>L</Display>
 
 			<Surface variant="card" padding="l">
-				<Flex direction="row" gap="m" align="start" justify="between">
+				<Flex direction="row" gap="xl" align="start" justify="between">
 					<AlignFirstLine height="m" type="display" variant="l">
 						<Icon size="large" icon={SquareStackIcon} aligned />
-						<Flex gap="2xl">
-							<Flex gap="l">
-								<DisplayAligned>Display L (Level 2)</DisplayAligned>
+						<Flex direction="column" gap="2xl">
+							<Flex direction="column" gap="l">
+								<DisplayAligned>Display L (H2)</DisplayAligned>
 								<Display variant="m" tag="p">
 									And Display M
 								</Display>

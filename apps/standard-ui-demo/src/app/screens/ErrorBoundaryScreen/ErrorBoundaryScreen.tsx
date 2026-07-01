@@ -1,6 +1,5 @@
 import { ErrorBoundary as HeadlessErrorBoundary } from '@no-comply/solid-composables';
-import { type IconComponent } from '@no-comply/solid-contexts';
-import { staticClassList } from '@no-comply/solid-primitives';
+import { type IconComponent, staticClassList } from '@no-comply/solid-primitives';
 import { Display, Flex, Icon, Layout } from '@no-comply/standard-ui';
 import BugIcon from 'lucide-solid/icons/bug';
 import CloudRainIcon from 'lucide-solid/icons/cloud-rain';

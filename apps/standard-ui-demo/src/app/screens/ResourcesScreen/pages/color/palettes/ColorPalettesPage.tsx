@@ -1,9 +1,9 @@
 import {
 	type ToggleActionIcons,
-	type ToggleActionLabels,
+	type ToggleActionLabelsProp,
 	createSupportsQuery,
 } from '@no-comply/solid-composables';
-import { createIconValue } from '@no-comply/solid-contexts';
+import { createIconValue } from '@no-comply/solid-primitives';
 import { Callout, Flex, Link, ToggleButton } from '@no-comply/standard-ui';
 import EyeIcon from 'lucide-solid/icons/eye';
 import EyeOffIcon from 'lucide-solid/icons/eye-off';
@@ -12,7 +12,7 @@ import { type Component, For, Show, createSignal } from 'solid-js';
 import { ShowPalette } from '../../../components';
 import { ResourcesPage } from '../../../private';
 
-const LABELS: ToggleActionLabels = {
+const LABELS: ToggleActionLabelsProp = {
 	on: 'Palettes enabled',
 	off: 'Palettes disabled (using computed colors)',
 };

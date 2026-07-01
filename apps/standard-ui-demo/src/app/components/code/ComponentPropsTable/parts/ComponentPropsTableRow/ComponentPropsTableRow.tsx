@@ -49,10 +49,10 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 	};
 
 	return (
-		<Flex direction="column" gap="m">
+		<Flex tag="article" arial-label direction="column" gap="m">
 			<Flex direction="row" gap="s" align="baseline" wrap>
 				<Flex direction="column" flex={1}>
-					<Display id={props.id} level={5} variant="s">
+					<Display id={props.id} level={6} variant="xs">
 						{props.prop.name}
 					</Display>
 				</Flex>

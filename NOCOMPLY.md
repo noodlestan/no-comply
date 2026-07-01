@@ -1,5 +1,13 @@
 # No Comply / Standard UI
 
+## PendingText
+
+<Heading><PendingText>{resource()}</PendingText></Heading>
+
+## PendingInputBox
+
+<PendingInputBox><TextInput ...></PendingInputBox>
+
 ## ToggleButton / ToggleAction
 
 keyboard press not working?
@@ -63,7 +71,7 @@ go through existing components and discover the patterns
 - <Stack> => column / justify-start / align-stretch
 - <Row> => row / justify-start / align-start
 - <Bar> => row / justify-between / align-center
-- <Centered stretch row>
+- <Centered> => stretch row
   same for the app
 
 ## OverflowItems
@@ -214,23 +222,23 @@ and aria-paragraph when not p?
 ## BUG: with sidebar does not update all styles
 
 - resize to mobile, open sidebar, resize to desktop
-- navbar shadow not visible over sidebar
+- navbar shadow not visible over sidebar (class is-expanded stays behind)
 
 ## TabNavigation direction inline/block
 
-- composes NavLink
+- TabNavigationItem composes NavLink mode=section (can be set to page if target is main)
 - make no assumptions about the target (could be full page navigation)
 - add NavLink orientation prop, use cases:
   - navbar => underline/over line
   - sidebar (directional i.e. nav vs TOC) => edge
 
-## sketch out TabContainer /context
+## sketch out TabsContainer /context
 
 ```tsx
-<TabContainer>
+<TabsContainer> // provider
   <TabNavigation>
-  <TabTarget>
-    <Content>
+  <TabContain>
+    <TabContent>
 ```
 
 ## motion helper
@@ -352,6 +360,10 @@ onCleanup(cleanupProducer)
 
 # Standard UI Demo
 
+## Code blocks
+
+- use serializer + prettier + shiki (link nodes!)
+
 ## Examples
 
 - ability to express a body function for wrappers (e.g.: declare a signal)
@@ -420,6 +432,10 @@ Good oportunity to test propagation of errors through resources
   - Mode/Contrast/Space
   - Motion
   - Language
+
+# Purrtrait
+
+add serialize() function to use with syntax highlighters
 
 # Purrtrait Client TSX
 

@@ -21,11 +21,11 @@ export const MediumCompositionsPage: Component = () => {
 			<Display level={3}>Medium Heading</Display>
 
 			<Surface variant="card" padding="l">
-				<Flex direction="row" gap="m" align="start" justify="between">
+				<Flex direction="row" gap="l" align="start" justify="between">
 					<AlignFirstLine height="s" type="display" variant="m">
 						<Icon size="normal" icon={SquareStackIcon} aligned />
-						<Flex gap="l">
-							<Flex gap="m">
+						<Flex direction="column" gap="l">
+							<Flex direction="column" gap="m">
 								<DisplayAligned>Display M (Level 3)</DisplayAligned>
 								<Display variant="xs" tag="p">
 									And Display XS
@@ -51,10 +51,10 @@ export const MediumCompositionsPage: Component = () => {
 			<Display level={3}>Small Heading</Display>
 
 			<Surface variant="page">
-				<Flex direction="row" align="start" justify="between">
+				<Flex direction="row" gap="l" align="start" justify="between">
 					<AlignFirstLine height="s" type="display" variant="s">
-						<Flex gap="l">
-							<Flex gap="m">
+						<Flex direction="column" gap="l">
+							<Flex direction="column" gap="m">
 								<DisplayAligned>Display S (Level 4)</DisplayAligned>
 								<Text variant="medium" tag="p">
 									And Text Medium

@@ -1,8 +1,7 @@
-import type { ToggleActionLabels } from '@no-comply/solid-composables';
+import type { ToggleActionLabelsProp } from '@no-comply/solid-composables';
 import { computedProps, shortId } from '@no-comply/solid-primitives';
 import {
 	Button,
-	Checkbox,
 	Display,
 	Flex,
 	IconButton,
@@ -10,12 +9,8 @@ import {
 	Menu,
 	MenuItemAction,
 	NavLink,
-	RangeInput,
-	SegmentedButton,
-	SegmentedButtonItem,
-	Select,
 	Surface,
-	TextInput,
+	Text,
 	ToggleButton,
 } from '@no-comply/standard-ui';
 import ClockIcon from 'lucide-solid/icons/clock';
@@ -23,46 +18,27 @@ import { type Component, createSignal } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
 
-const DISABLED_TOGGLE_LABELS: ToggleActionLabels = {
+const DISABLED_TOGGLE_LABELS: ToggleActionLabelsProp = {
 	on: 'Disabled',
 	off: 'Enabled',
 };
 
-export const InteractionsStatesPage: Component = () => {
-	const [textValue, setTextValue] = createSignal('foo');
-	const [rangeValue, setRangeValue] = createSignal(5);
-	const [selectValue, setSelectValue] = createSignal('top');
-	const [checkboxValue, setCheckboxValue] = createSignal(true);
-
+export const InteractionsActionsPage: Component = () => {
 	const [disabled, setDisabled] = createSignal(false);
 
 	const $ = computedProps({
 		disabled,
 	});
 
-	const options = () => (
-		<>
-			<option value="top">top</option>
-			<option value="bottom">bottom</option>
-		</>
-	);
-
-	const buttonItems = () => (
-		<>
-			<SegmentedButtonItem value="top">top</SegmentedButtonItem>
-			<SegmentedButtonItem value="bottom">bottom</SegmentedButtonItem>
-		</>
-	);
-
 	const toolbarLabelId = shortId();
 
 	return (
-		<ResourcesPage title="States">
+		<ResourcesPage title="Actions and Links">
 			<Surface variant="panel" role="toolbar" padding="xs" aria-labelledby={toolbarLabelId}>
 				<Flex direction="row" align="center" gap="l" wrap>
-					<Display level={3} variant="xs" id={toolbarLabelId}>
+					<Text tag="h3" variant="small" id={toolbarLabelId}>
 						Apply to all
-					</Display>
+					</Text>
 					<Flex direction="row" gap="xs" wrap>
 						<ToggleButton
 							size="small"
@@ -226,7 +202,7 @@ export const InteractionsStatesPage: Component = () => {
 
 			<Display level={3}>Menu Item</Display>
 
-			<Flex direction="column" gap="l" wrap>
+			<Flex direction="row" gap="l" wrap>
 				<Flex direction="row" align="center" gap="l" wrap>
 					<Menu>
 						<MenuItemAction variant="primary" intent="positive" label="primary + positive" />
@@ -248,30 +224,6 @@ export const InteractionsStatesPage: Component = () => {
 						<MenuItemAction variant="plain" intent="neutral" label="plain + neutral" />
 					</Menu>
 				</Flex>
-			</Flex>
-
-			<Display level={3}>Form Inputs</Display>
-
-			<Flex direction="column" align="center" gap="l" wrap>
-				<Checkbox size="m" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
-				<TextInput value={textValue()} onValueChange={setTextValue} {...$} />
-				<RangeInput value={String(rangeValue())} onValueChange={setRangeValue} {...$} />
-				<Select value={selectValue()} onValueChange={setSelectValue} {...$}>
-					{options()}
-				</Select>
-			</Flex>
-
-			<Display level={3}>Segmented Input</Display>
-
-			<Flex direction="row" align="center" gap="l" wrap>
-				<SegmentedButton
-					name="segemented-input-demo"
-					value={selectValue()}
-					onValueChange={setSelectValue}
-					{...$}
-				>
-					{buttonItems()}
-				</SegmentedButton>
 			</Flex>
 		</ResourcesPage>
 	);

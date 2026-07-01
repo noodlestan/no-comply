@@ -79,7 +79,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 							</Flex>
 						</Show>
 					</Suspense>
-					<Divider />
+					<Divider length="full" />
 					<Suspense fallback={'LOADING...'}>
 						<Show when={currentExampleParsed() && compiler()}>
 							<RenderExample
