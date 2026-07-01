@@ -5,9 +5,11 @@
 @layer lib.standard-ui.sized-action {
   .SizedAction {
     display: flex;
-    gap: var(--__gap, 0);
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: center;
+    gap: var(--__gap, 0);
     height: var(--__height);
     min-height: var(--__height);
     padding-inline: var(--__padding-inline, var(--space-pad-0));
@@ -17,21 +19,25 @@
 
   .size-small {
     --__height: var(--size-xs);
+    --__gap: var(--space-gap--1);
     --__padding-inline: var(--space-pad-0);
   }
 
   .size-normal {
     --__height: var(--size-s);
+    --__gap: var(--space-gap-0);
     --__padding-inline: var(--space-pad-1);
   }
 
   .size-medium {
     --__height: var(--size-m);
+    --__gap: var(--space-gap-0);
     --__padding-inline: var(--space-pad-2);
   }
 
   .size-large {
     --__height: var(--size-l);
+    --__gap: var(--space-gap-1);
     --__padding-inline: var(--space-pad-3);
   }
 }

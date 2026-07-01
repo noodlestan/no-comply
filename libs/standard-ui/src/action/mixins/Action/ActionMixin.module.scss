@@ -3,7 +3,7 @@
 @layer lib.standard-ui.action {
   .Action {
     display: flex;
-    gap: var(--__gap, 0);
+    gap: var(--space-gap-1);
     flex-direction: row;
     height: var(--__height);
     min-height: var(--__height);

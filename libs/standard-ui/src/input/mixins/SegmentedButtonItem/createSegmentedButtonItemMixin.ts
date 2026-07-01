@@ -1,6 +1,11 @@
 import { createFocusableMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps, staticClassList } from '@no-comply/solid-primitives';
+import {
+	combineProps,
+	computedProps,
+	createClassList,
+	staticClassList,
+} from '@no-comply/solid-primitives';
 
 import {
 	createActionMixin,
@@ -35,9 +40,11 @@ export const createSegmentedButtonItemMixin = (
 	const actionLabelMixinProps = computedProps({ variant: size });
 	const { $root: $actionLabelMixinRoot } = createActionLabelMixin(actionLabelMixinProps);
 
-	const $root = {
-		classList: staticClassList(styles, 'SegmentedButtonItem'),
-	};
+	const classList = createClassList(styles, ['SegmentedButtonItem', `size-${size()}`]);
+
+	const $root = computedProps({
+		classList,
+	});
 
 	const $label = {
 		classList: staticClassList(styles, '-Button'),
