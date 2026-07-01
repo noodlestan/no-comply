@@ -1,5 +1,5 @@
 import type { AriaAttributes } from '@no-comply/solid-accessibility';
-import type { IconValue, LabelValue } from '@no-comply/solid-contexts';
+import type { IconValue, LabelValue } from '@no-comply/solid-primitives';
 
 import type { IconActionProps } from '../IconAction';
 

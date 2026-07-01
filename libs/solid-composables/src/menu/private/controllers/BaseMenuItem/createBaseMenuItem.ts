@@ -1,6 +1,6 @@
 import { createAriaMenuItem } from '@no-comply/solid-accessibility';
-import { type IconComponent, createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+import { type IconComponent, combineProps, computedProps } from '@no-comply/solid-primitives';
 
 import { createPressable } from '../../../../action';
 import { useMenuItemGroupChild } from '../../../providers';

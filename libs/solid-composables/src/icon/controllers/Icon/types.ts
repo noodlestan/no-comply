@@ -1,4 +1,4 @@
-import type { IconComponent } from '@no-comply/solid-contexts';
+import type { IconComponent } from '@no-comply/solid-primitives';
 import type { JSX } from 'solid-js';
 
 export type IconProps = {

@@ -1,4 +1,4 @@
-import type { LabelValue } from '@no-comply/solid-contexts';
+import type { LabelValue } from '@no-comply/solid-primitives';
 
 import type { FocusableAPI, FocusableProps } from '../../controllers';
 import type { FocusableMixinAPI } from '../../mixins';

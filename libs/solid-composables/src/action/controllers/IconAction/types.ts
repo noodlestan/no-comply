@@ -1,5 +1,4 @@
-import type { IconComponent } from '@no-comply/solid-contexts';
-import type { AttributeString } from '@no-comply/solid-primitives';
+import type { AttributeString, IconComponent } from '@no-comply/solid-primitives';
 
 import type { IconProps } from '../../../icon';
 

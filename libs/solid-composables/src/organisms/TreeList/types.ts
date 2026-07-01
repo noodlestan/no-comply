@@ -1,5 +1,4 @@
-import type { IconValue, LabelValue } from '@no-comply/solid-contexts';
-import type { ObjectWithId } from '@no-comply/solid-primitives';
+import type { IconValue, LabelValue, ObjectWithId } from '@no-comply/solid-primitives';
 import { type Component } from 'solid-js';
 
 import type { ExpandActionProps } from '../../action';

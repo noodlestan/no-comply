@@ -1,5 +1,5 @@
-import { createExposable, exposeAPI, l } from '@no-comply/solid-contexts';
-import { combineProps, computedProps, dataBoolean } from '@no-comply/solid-primitives';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+import { combineProps, computedProps, dataBoolean, labelValue } from '@no-comply/solid-primitives';
 
 import { createExtendedPressable } from '../../../../action';
 import { getTreeSelectionUntil } from '../../helpers';
@@ -82,7 +82,7 @@ export const createTreeListItemDetails = (
 	const _focusable = {
 		onPress: handleItemPress,
 		labels: {
-			region: l(labels().details),
+			region: labelValue(labels().details),
 		},
 	};
 
@@ -107,8 +107,8 @@ export const createTreeListItemDetails = (
 		component: () => components().expandButton,
 		expanded: isItemExpanded,
 		labels: () => ({
-			expanded: l(labels().expanded, locals.node),
-			collapsed: l(labels().collapsed, locals.node),
+			expanded: labelValue(labels().expanded, locals.node),
+			collapsed: labelValue(labels().collapsed, locals.node),
 		}),
 		icons,
 	});

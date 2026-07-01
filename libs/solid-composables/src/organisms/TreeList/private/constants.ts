@@ -1,4 +1,4 @@
-import { createIconValue } from '@no-comply/solid-contexts';
+import { createIconValue } from '@no-comply/solid-primitives';
 import ChevronDownIcon from 'lucide-solid/icons/chevron-down';
 import ChevronRightIcon from 'lucide-solid/icons/chevron-right';
 

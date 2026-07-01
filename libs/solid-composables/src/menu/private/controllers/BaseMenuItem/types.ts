@@ -1,5 +1,5 @@
 import type { AriaAttributes, AriaLabelledAPI } from '@no-comply/solid-accessibility';
-import type { IconComponent } from '@no-comply/solid-contexts';
+import type { IconComponent } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
 import type { PressableAPI, PressableProps } from '../../../../action';

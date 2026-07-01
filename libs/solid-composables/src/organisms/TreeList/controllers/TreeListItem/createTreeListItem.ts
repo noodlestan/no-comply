@@ -1,7 +1,6 @@
 import { createAriaTreeItem } from '@no-comply/solid-accessibility';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { l } from '@no-comply/solid-contexts/src/labels';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, labelValue } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
@@ -20,7 +19,7 @@ export const createTreeListItem = (props: TreeListItemProps): TreeListItemAPI =>
 	const posInSet = () => locals.posInSet ?? 1;
 
 	const ariaTreeItemProps = computedProps({
-		label: () => l(labels().item, locals.node),
+		label: () => labelValue(labels().item, locals.node),
 		selected,
 		expanded,
 		level,

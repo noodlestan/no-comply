@@ -1,18 +1,25 @@
-import type { IconValue, LabelValue } from '@no-comply/solid-contexts';
+import type { IconValue, LabelValue } from '@no-comply/solid-primitives';
 
 import type { IconMappedAPI } from '../../../icons';
 import type { IconActionProps } from '../IconAction';
 
 export type ToggleActionProps = {
 	value: boolean;
-	labels: ToggleActionLabels;
+	/**
+	 * @noresolve
+	 */
+	labels: ToggleActionLabelsProp;
+	/**
+	 * @noresolve
+	 */
 	icons: ToggleActionIcons;
 };
 
-export type ToggleActionLabels = {
+export type ToggleActionLabelsMap = {
 	on: LabelValue;
 	off: LabelValue;
 };
+export type ToggleActionLabelsProp = LabelValue | ToggleActionLabelsMap;
 
 export type ToggleActionIcons = {
 	on: IconValue;

@@ -1,4 +1,4 @@
-import type { IconComponent, IconMap } from '@no-comply/solid-contexts';
+import type { IconComponent, IconMap } from '@no-comply/solid-primitives';
 
 export type IconMappedProps = {
 	key: string;

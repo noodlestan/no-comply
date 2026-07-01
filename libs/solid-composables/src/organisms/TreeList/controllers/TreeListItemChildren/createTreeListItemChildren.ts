@@ -1,7 +1,6 @@
 import { createAriaGroup } from '@no-comply/solid-accessibility';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { l } from '@no-comply/solid-contexts/src/labels';
-import { combineProps, computedProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, labelValue } from '@no-comply/solid-primitives';
 
 import { useTreeList } from '../../providers';
 
@@ -18,7 +17,7 @@ export const createTreeListItemChildren = (
 	const expanded = () => Boolean(locals.expand || isExpanded(locals.node.id));
 	const setSize = () => locals.node.children.length;
 	const ariaTreeGroupProps = computedProps({
-		label: () => l(labels().group, locals.node),
+		label: () => labelValue(labels().group, locals.node),
 		expanded,
 		setSize,
 	});

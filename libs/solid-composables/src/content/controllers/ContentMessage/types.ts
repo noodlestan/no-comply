@@ -3,7 +3,7 @@ import type {
 	AriaLabelledProps,
 	AriaRegionAPI,
 } from '@no-comply/solid-accessibility';
-import type { IconComponent } from '@no-comply/solid-contexts';
+import type { IconComponent } from '@no-comply/solid-primitives';
 import type { Accessor } from 'solid-js';
 
 export type ContentMessageProps = AriaLabelledProps & {
