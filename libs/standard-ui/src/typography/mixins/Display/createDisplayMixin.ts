@@ -19,6 +19,7 @@ const MAP_LEVEL_TO_VARIANT: Record<DisplayLevel, DisplayVariant> = {
 	3: 'm',
 	4: 's',
 	5: 'xs',
+	6: 'xs',
 };
 
 const defaultProps: PickRequired<DisplayMixinProps, 'level' | 'variant'> = {
