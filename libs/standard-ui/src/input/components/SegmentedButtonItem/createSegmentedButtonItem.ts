@@ -4,11 +4,12 @@ import {
 	createIconMapped,
 	createPressable,
 } from '@no-comply/solid-composables';
-import { createExposable, createIconValue, exposeAPI } from '@no-comply/solid-contexts';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
 	attributeBoolean,
 	combineProps,
 	computedProps,
+	createIconValue,
 	shortId,
 } from '@no-comply/solid-primitives';
 import CircleDot from 'lucide-solid/icons/circle-dot';

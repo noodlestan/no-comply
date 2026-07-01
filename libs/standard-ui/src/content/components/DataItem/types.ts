@@ -1,5 +1,4 @@
-import type { IconComponent } from '@no-comply/solid-contexts';
-import type { ClassList } from '@no-comply/solid-primitives';
+import type { ClassList, IconComponent } from '@no-comply/solid-primitives';
 import type { JSX } from 'solid-js';
 
 import type { ContentSize } from '../../../size';
