@@ -1,5 +1,8 @@
+@use '@no-comply/solid-composables/src/scss/mixins/focus.scss' as *;
+
 @layer lib.standard-ui.scrollable {
   .Scrollable {
+    @include focus-ring;
     padding-inline-end: var(--space-pad-1);
   }
 }
