@@ -4,8 +4,7 @@
   [data-theme-standard] {
     --input-border-style: solid;
     --input-border-radius: var(--radius-s);
-    --input-border-width: 1.5px;
-    // --input-border-width: var(--border-width-thin);
+    --input-border-width: var(--border-width-thin);
 
     --input-checkbox-stroke: 3px;
 

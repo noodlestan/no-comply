@@ -74,7 +74,7 @@
     --data-base-family: 'Consolas', 'Andale Mono', monospace;
     --data-base-size: var(--typography-step--1);
     --data-base-weight: 300;
-    --data-base-height: 1;
+    --data-base-height: 1.5;
     --data-base-spacing: 1;
 
     --data-size-small-size: var(--typography-step--2);

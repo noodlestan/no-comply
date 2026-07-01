@@ -7,7 +7,7 @@
     height: var(--size-m);
     margin: 0;
     padding: 0 var(--space-pad-0);
-    font-family: var(--data-type-family);
+    font-family: var(---data-base-family);
     line-height: 1;
     text-align: left;
     color: hsla(var(--input-fg), var(--o-input-fg));
@@ -40,35 +40,28 @@
   .size-xs {
     height: var(--size-xs);
     padding: 0 var(--space-pad--1);
-    font-size: var(--data-type-size-xs);
-    font-weight: var(--data-type-weight-s);
+    font-size: var(--data-size-small-size);
+    font-weight: var(--data-size-small-weight);
   }
   .size-s {
     height: calc(var(--size-xs) + var(--space-pad--1));
     padding: 0 var(--space-pad-0);
-    font-size: var(--data-type-size-s);
-    font-weight: var(--data-type-weight-m);
+    font-size: var(--data-size-normal-size);
+    font-weight: var(--data-size-normal-weight);
   }
 
   .size-m {
     height: var(--size-m);
     padding: 0 var(--space-pad-0);
-    font-size: var(--data-type-size-m);
-    font-weight: var(--data-type-weight-m);
+    font-size: var(--data-size-medium-size);
+    font-weight: var(--data-size-medium-weight);
   }
 
   .size-l {
     height: var(--size-l);
     padding: 0 var(--space-pad-1);
-    font-size: var(--data-type-size-l);
-    font-weight: var(--data-type-weight-l);
-  }
-
-  .size-xl {
-    height: var(--size-l);
-    padding: 0 var(--space-pad-2);
-    font-size: var(--data-type-size-xl);
-    font-weight: var(--data-type-weight-l);
+    font-size: var(--data-size-large-size);
+    font-weight: var(--data-size-large-weight);
   }
 
   .is-modified:not(.is-disabled) {

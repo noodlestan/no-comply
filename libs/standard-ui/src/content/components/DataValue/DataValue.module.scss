@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     color: hsla(var(--data-value-fg-color), var(--o-surface-fg));
-    font-family: var(--data-type-family);
+    font-family: var(--data-base-family);
     text-align: left;
     white-space: nowrap;
     overflow: hidden;
@@ -25,23 +25,23 @@
   }
 
   .size-xs {
-    font-size: var(--data-type-size-xs);
-    font-weight: var(--data-type-weight-s);
+    font-size: var(--data-size-small-size);
+    font-weight: var(--data-size-small-weight);
   }
 
   .size-s {
-    font-size: var(--data-type-size-s);
-    font-weight: var(--data-type-weight-s);
+    font-size: var(--data-size-normal-size);
+    font-weight: var(--data-size-normal-weight);
   }
 
   .size-m {
-    font-size: var(--data-type-size-m);
-    font-weight: var(--data-type-weight-m);
+    font-size: var(--data-size-medium-size);
+    font-weight: var(--data-size-medium-weight);
   }
 
   .size-l {
-    font-size: var(--data-type-size-l);
-    font-weight: var(--data-type-weight-l);
+    font-size: var(--data-size-large-size);
+    font-weight: var(--data-size-large-weight);
   }
 
   .is-interactive {
