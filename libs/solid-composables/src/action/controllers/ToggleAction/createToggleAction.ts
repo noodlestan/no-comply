@@ -1,13 +1,16 @@
-import { createExposable, exposeAPI, l } from '@no-comply/solid-contexts';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { combineProps, computedProps } from '@no-comply/solid-primitives';
 
-import { createIconMapped } from '../../../icons/controllers/IconMapped';
+import { createIconMapped } from '../../../icons/';
 
 import { $TOGGLE_ACTION } from './constants';
+import { resolveToggleActionLabel } from './helpers';
 import type { ToggleActionAPI, ToggleActionProps } from './types';
 
 export const createToggleAction = (props: ToggleActionProps): ToggleActionAPI => {
 	const [locals, expose, compose] = createExposable($TOGGLE_ACTION, props);
+
+	const label = () => resolveToggleActionLabel(locals.labels, locals.value);
 
 	const map = computedProps({
 		false: () => locals.icons.off,
@@ -23,7 +26,7 @@ export const createToggleAction = (props: ToggleActionProps): ToggleActionAPI =>
 	const { _icon: _iconMapped } = compose(createIconMapped(iconMappedProps));
 
 	const _icon = computedProps({
-		label: () => l(locals.value ? locals.labels.on : locals.labels.off),
+		label,
 	});
 
 	return exposeAPI(expose, '_icon', {
