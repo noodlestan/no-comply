@@ -1,6 +1,5 @@
+import type { IconMap } from '@no-comply/solid-primitives';
 import { useContext } from 'solid-js';
-
-import type { IconMap } from '../../types';
 
 import { LocalIconsCTX } from './private';
 

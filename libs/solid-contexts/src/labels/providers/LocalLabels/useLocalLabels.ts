@@ -1,6 +1,5 @@
+import type { LabelMap } from '@no-comply/solid-primitives';
 import { useContext } from 'solid-js';
-
-import type { LabelMap } from '../../types';
 
 import { LocalLabelsCTX } from './private';
 

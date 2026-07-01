@@ -1,7 +1,6 @@
 /* eslint-disable solid/reactivity */
+import type { LabelMap } from '@no-comply/solid-primitives';
 import { type ParentComponent } from 'solid-js';
-
-import type { LabelMap } from '../../types';
 
 import { LocalLabelsCTX } from './private';
 

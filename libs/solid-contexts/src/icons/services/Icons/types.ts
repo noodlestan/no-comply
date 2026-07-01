@@ -1,4 +1,4 @@
-import type { IconComponent } from '../../types';
+import type { IconComponent } from '@no-comply/solid-primitives';
 
 export type IconsServiceAPI = {
 	addIcon: (name: string, icon: IconComponent) => void;

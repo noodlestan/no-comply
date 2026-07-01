@@ -1,7 +1,6 @@
 /* eslint-disable solid/reactivity */
+import type { IconMap } from '@no-comply/solid-primitives';
 import { type ParentComponent } from 'solid-js';
-
-import type { IconMap } from '../../types';
 
 import { LocalIconsCTX } from './private';
 

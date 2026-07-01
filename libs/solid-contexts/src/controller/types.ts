@@ -1,6 +1,5 @@
+import type { IconComponent } from '@no-comply/solid-primitives';
 import { type Accessor } from 'solid-js';
-
-import { type IconComponent } from '../icons';
 
 export type UIContextKey = string;
 
