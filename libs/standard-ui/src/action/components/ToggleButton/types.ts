@@ -3,7 +3,7 @@ import type {
 	IconProps,
 	ToggleActionAPI,
 	ToggleActionIcons,
-	ToggleActionLabels,
+	ToggleActionLabelsProp,
 	ToggleActionProps,
 } from '@no-comply/solid-composables';
 
@@ -14,7 +14,7 @@ import type { IconButtonProps } from '../IconButton';
 export type ToggleButtonProps = Pick<IconButtonProps, 'size' | 'onPress' | 'disabled'> &
 	Pick<ToggleActionProps, 'value'> &
 	Pick<ToggleActionMixinProps, 'variant'> & {
-		labels?: ToggleActionLabels;
+		labels?: ToggleActionLabelsProp;
 		icons?: ToggleActionIcons;
 		iconOnly?: boolean;
 	};

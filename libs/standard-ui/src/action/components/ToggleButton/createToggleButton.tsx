@@ -1,11 +1,17 @@
 import { createAriaSwitch } from '@no-comply/solid-accessibility';
 import {
 	type ToggleActionIcons,
-	type ToggleActionLabels,
+	type ToggleActionLabelsProp,
 	createToggleAction,
+	resolveToggleActionLabelsProp,
 } from '@no-comply/solid-composables';
-import { createExposable, createIconValue, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps, pickProps } from '@no-comply/solid-primitives';
+import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
+import {
+	combineProps,
+	computedProps,
+	createIconValue,
+	pickProps,
+} from '@no-comply/solid-primitives';
 import CircleDot from 'lucide-solid/icons/circle-dot';
 import Dot from 'lucide-solid/icons/dot';
 
@@ -15,7 +21,7 @@ import type { ActionVariant } from '../../types';
 import { $TOGGLE_BUTTON } from './constants';
 import type { ToggleButtonAPI, ToggleButtonProps } from './types';
 
-const LABELS: ToggleActionLabels = {
+const LABELS: ToggleActionLabelsProp = {
 	on: 'On',
 	off: 'Off',
 };
@@ -30,7 +36,7 @@ export const createToggleButton = (props: ToggleButtonProps): ToggleButtonAPI =>
 
 	const toggleActionProps = computedProps({
 		value: () => locals.value,
-		labels: () => Object.assign({}, LABELS, locals.labels),
+		labels: () => resolveToggleActionLabelsProp(LABELS, locals.labels),
 		icons: () => Object.assign({}, ICONS, locals.icons),
 	});
 	const { _icon: toggleActionIcon } = compose(createToggleAction(toggleActionProps));
