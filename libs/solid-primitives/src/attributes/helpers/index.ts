@@ -1,5 +1,5 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './attributeBoolean';
+export * from './resolveAttributeBoolean';
 // @endindex
 
-export { resolveAttributeBoolean as attributeBoolean } from './attributeBoolean';
+export { resolveAttributeBoolean as attributeBoolean } from './resolveAttributeBoolean';
