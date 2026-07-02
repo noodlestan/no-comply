@@ -1,14 +1,21 @@
-import type { TypographyMixinAPI, TypographyMixinProps } from '@no-comply/solid-composables';
+import type {
+	SizedTypographyMixinAPI,
+	SizedTypographyMixinProps,
+	TypographyMixinAPI,
+	TypographyMixinProps,
+} from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { CodeVariant } from '../../types';
+import type { ContentSize } from '../../../size';
 
-export type CodeMixinProps = TypographyMixinProps & {
-	variant?: CodeVariant;
-};
+export type CodeMixinProps = TypographyMixinProps &
+	SizedTypographyMixinProps & {
+		size?: ContentSize;
+	};
 
 export type CodeMixinAPI = {
-	$root: TypographyMixinAPI['$root'] & {
-		classList: ClassList;
-	};
+	$root: TypographyMixinAPI['$root'] &
+		SizedTypographyMixinAPI['$root'] & {
+			classList: ClassList;
+		};
 };

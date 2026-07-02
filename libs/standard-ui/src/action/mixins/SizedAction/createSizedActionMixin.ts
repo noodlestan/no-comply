@@ -18,17 +18,18 @@ const defaultProps: PickRequired<SizedActionMixinProps, 'size'> = {
 export const createSizedActionMixin = (props: SizedActionMixinProps): SizedActionMixinAPI => {
 	const [locals, expose, compose] = createExposable($SIZED_ACTION_MIXIN, props);
 
-	const { $root: $alignedToFirstLineRoot } = compose(createAlignedToFirstLineMixin(locals));
-
 	const size = () => locals.size ?? defaultProps.size;
+
 	const classList = createClassList(styles, () => [`SizedAction`, `size-${size()}`]);
+
+	const { $root: $alignedRoot } = compose(createAlignedToFirstLineMixin(locals, classList));
 
 	const $root = computedProps({
 		classList,
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($alignedToFirstLineRoot, $root),
+		$root: combineProps($alignedRoot, $root),
 		size,
 	});
 };

@@ -20,9 +20,7 @@ export const createButtonMixin = (props: ButtonMixinProps): ButtonMixinAPI => {
 	const { $root: $sizedActionMixinRoot, size } = compose(createSizedActionMixin(locals));
 
 	const actionLabelStaticProps = { nowrap: true };
-	const actionLabelProps = computedProps(actionLabelStaticProps, {
-		variant: size,
-	});
+	const actionLabelProps = computedProps(actionLabelStaticProps, { size });
 	const { $root: $actionLabelMixinRoot } = compose(createActionLabelMixin(actionLabelProps));
 
 	return exposeAPI(expose, '$root', {

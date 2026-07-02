@@ -9,5 +9,5 @@ export const $BUTTON_MIXIN = 'mixin:standard:button';
 export const BUTTON_MIXIN_PROPS = definePropKeys<ButtonMixinProps>()([
 	...ACTION_MIXIN_PROPS,
 	'size',
-	'aligned',
+	'alignFirstLine',
 ]);

@@ -15,10 +15,10 @@ export type MenuItemGroupAPI = Omit<
 	$root: HeadlessMenuItemGroupAPI['$root'] & MenuItemGroupMixinAPI['$root'];
 	_label: HeadlessMenuItemGroupAPI['$label'] &
 		MenuItemGroupMixinAPI['$label'] & {
-			variant: LabelProps['variant'];
+			size: LabelProps['size'];
 		};
 	_textDescription: HeadlessMenuItemGroupAPI['$description'] &
 		MenuItemGroupMixinAPI['$description'] & {
-			variant: TextProps['variant'];
+			size: TextProps['size'];
 		};
 };

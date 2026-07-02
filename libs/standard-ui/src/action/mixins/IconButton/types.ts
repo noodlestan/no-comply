@@ -11,7 +11,7 @@ export type IconButtonMixinAPI = {
 	$root: {
 		classList: ClassList;
 	};
-	icon: {
+	_icon: {
 		classList: ClassList;
 		size: ContentSize;
 	};

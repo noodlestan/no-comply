@@ -10,28 +10,28 @@
     --__type-wrap-style: auto;
   }
 
-  .variant-small {
+  .size-small {
     --__input-font-size: var(--input-size-small-size);
     --__input-font-weight: var(--input-size-small-weight);
     --__input-line-height: var(--input-size-small-height);
     --__input-letter-spacing: var(--input-size-small-spacing);
   }
 
-  .variant-normal {
+  .size-normal {
     --__input-font-size: var(--input-size-normal-size);
     --__input-font-weight: var(--input-size-normal-weight);
     --__input-line-height: var(--input-size-normal-height);
     --__input-letter-spacing: var(--input-size-normal-spacing);
   }
 
-  .variant-medium {
+  .size-medium {
     --__input-font-size: var(--input-size-medium-size);
     --__input-font-weight: var(--input-size-medium-weight);
     --__input-line-height: var(--input-size-medium-height);
     --__input-letter-spacing: var(--input-size-medium-spacing);
   }
 
-  .variant-large {
+  .size-large {
     --__input-font-size: var(--input-size-large-size);
     --__input-font-weight: var(--input-size-large-weight);
     --__input-line-height: var(--input-size-large-height);

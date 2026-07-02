@@ -11,8 +11,8 @@ import styles from './InputTypographyMixin.module.scss';
 import { $INPUT_TYPOGRAPHY_MIXIN } from './constants';
 import type { InputTypographyMixinAPI, InputTypographyMixinProps } from './types';
 
-const defaultProps: PickRequired<InputTypographyMixinProps, 'variant'> = {
-	variant: 'normal',
+const defaultProps: PickRequired<InputTypographyMixinProps, 'size'> = {
+	size: 'normal',
 };
 
 export const createInputTypographyMixin = (
@@ -20,10 +20,12 @@ export const createInputTypographyMixin = (
 ): InputTypographyMixinAPI => {
 	const [locals, expose, compose] = createExposable($INPUT_TYPOGRAPHY_MIXIN, props);
 
+	const size = () => locals.size ?? defaultProps.size;
+
+	const classList = createClassList(styles, () => ['InputTypography', `size-${size()}`]);
+
 	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 
-	const variant = () => locals.variant ?? defaultProps.variant;
-	const classList = createClassList(styles, () => ['InputTypography', `variant-${variant()}`]);
 	const $root = computedProps({
 		classList,
 	});

@@ -1,7 +1,7 @@
 import type { BaseInputProps } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
-export type InputStateMixinProps = Omit<BaseInputProps, 'id'> & {
+export type InputStateMixinProps = BaseInputProps & {
 	modified?: boolean;
 	positive?: boolean;
 };

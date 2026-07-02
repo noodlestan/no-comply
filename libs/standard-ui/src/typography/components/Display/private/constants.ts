@@ -1,6 +1,6 @@
 import type { HeadingTagName } from '@no-comply/solid-accessibility';
 
-import type { DisplayLevel } from '../../../types';
+import type { DisplayLevel } from '../../../mixins/Display/types';
 
 export const MAP_LEVEL_TO_COMPONENT: Record<DisplayLevel, HeadingTagName> = {
 	1: 'h1',

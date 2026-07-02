@@ -1,4 +1,4 @@
-import { createTypographyMixin } from '@no-comply/solid-composables';
+import { createSizedTypographyMixin, createTypographyMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
 	type PickRequired,
@@ -6,41 +6,47 @@ import {
 	computedProps,
 	createClassList,
 } from '@no-comply/solid-primitives';
-
-import type { DisplayLevel, DisplayVariant } from '../../types';
+// import { createEffect } from 'solid-js';
 
 import styles from './DisplayMixin.module.scss';
 import { $DISPLAY_MIXIN } from './constants';
+import { MAP_LEVEL_TO_SIZE_OR_VARIANT as MAP_LEVEL } from './private';
 import type { DisplayMixinAPI, DisplayMixinProps } from './types';
 
-const MAP_LEVEL_TO_VARIANT: Record<DisplayLevel, DisplayVariant> = {
-	1: 'xl',
-	2: 'l',
-	3: 'm',
-	4: 's',
-	5: 'xs',
-	6: 'xs',
-};
-
-const defaultProps: PickRequired<DisplayMixinProps, 'level' | 'variant'> = {
+const defaultProps: PickRequired<DisplayMixinProps, 'level' | 'size'> = {
 	level: 3,
-	variant: 'm',
+	size: 'medium',
 };
 
 export const createDisplayMixin = (props: DisplayMixinProps): DisplayMixinAPI => {
 	const [locals, expose, compose] = createExposable($DISPLAY_MIXIN, props);
 
-	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
+	const useVariant = () => Boolean(locals.variant);
 
 	const level = () => locals.level ?? defaultProps.level;
-	const variant = () => locals.variant ?? MAP_LEVEL_TO_VARIANT[level()];
-	const classList = createClassList(styles, () => ['Display', `variant-${variant()}`]);
+	const variant = () => locals.variant ?? MAP_LEVEL[level()][1];
+	const size = () => (!useVariant() ? (locals.size ?? MAP_LEVEL[level()][0]) : undefined);
+
+	const classList = createClassList(styles, () => {
+		return {
+			Display: true,
+			[`size-${size()}`]: Boolean(size()),
+			[`variant-${variant()}`]: Boolean(variant()),
+		};
+	});
+
+	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
+
+	const { $root: $sizedTypographyRoot } = compose(createSizedTypographyMixin(locals, classList));
+
+	// createEffect(() => console.log({ ...props }, { ...classList() }));
+
 	const $root = computedProps({
 		classList,
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($typographyMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $sizedTypographyRoot, $root),
 		level,
 	});
 };

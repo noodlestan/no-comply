@@ -4,8 +4,7 @@ import type { Accessor, JSX } from 'solid-js';
 
 import type { CloseButtonProps } from '../../../action';
 import type { FlexGap, LayoutPaddingShorthand } from '../../../layout';
-import type { ContentSize, SizeScale } from '../../../size';
-import type { DisplayVariant, TextVariant } from '../../../typography';
+import type { ContentSize } from '../../../size';
 
 export type ToastMessageVariant = 'passive' | 'info' | 'warning' | 'danger';
 export type ToastMessageSize = 'small' | 'normal' | 'medium';
@@ -24,25 +23,25 @@ export type ToastMessageAPI = {
 	$root: ContentMessageAPI['$root'] & {
 		classList: ClassList;
 	};
-	$title: ContentMessageAPI['$label'] & {
+	_displayTitle: ContentMessageAPI['$label'] & {
+		size?: ContentSize;
+		alignFirstLine: 'target';
 		classList: ClassList;
-		variant: DisplayVariant;
 	};
-	$body: ContentMessageAPI['$description'] & {
-		variant: TextVariant;
+	_textBody: ContentMessageAPI['$description'] & {
+		size?: ContentSize;
 	};
-	$description: ContentMessageAPI['$description'] & {
-		variant: TextVariant;
+	_textDescription: ContentMessageAPI['$description'] & {
+		size?: ContentSize;
 	};
 	_icon: ContentMessageAPI['_icon'] & {
 		size: ContentSize;
+		alignFirstLine: 'measure';
 		classList: ClassList;
 	};
 	hasIcon: ContentMessageAPI['hasIcon'];
-	alignmentHeight: Accessor<SizeScale>;
 	padding: Accessor<LayoutPaddingShorthand>;
 	gap: Accessor<FlexGap>;
-	titleVariant: Accessor<DisplayVariant>;
 	hasCloseButton: Accessor<boolean>;
 	closeButtonSize: Accessor<CloseButtonProps['size']>;
 };

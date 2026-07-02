@@ -2,12 +2,10 @@ import type { LabelTagName } from '@no-comply/solid-accessibility';
 
 import type { LabelMixinAPI, LabelMixinProps } from '../../mixins';
 
-export type LabelOwnProps = {
+export type LabelProps = LabelMixinProps & {
 	tag?: LabelTagName;
 	for?: string;
 };
-
-export type LabelProps = LabelMixinProps & LabelOwnProps;
 
 export type LabelAPI = {
 	$root: LabelMixinAPI['$root'] & {

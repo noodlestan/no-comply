@@ -3,16 +3,21 @@
 @layer lib.standard-ui.action {
   .Action {
     display: flex;
-    gap: var(--space-gap-1);
     flex-direction: row;
-    height: var(--__height);
-    min-height: var(--__height);
-    padding-block: var(--__padding-block, 0);
-    padding-inline: var(--__padding-inline, var(--space-pad-0));
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--__action-gap, --space-gap-1);
+    height: var(--__action-height);
+    min-height: var(--__action-height);
+    padding-block: var(--__action-padding-block, 0);
+    padding-inline: var(--__action-padding-inline, var(--space-pad-0));
+
     border: none;
-    border-width: var(--action-border-width);
-    border-style: var(--action-border-style);
-    border-radius: var(--action-border-radius);
+    border-width: var(--__action-border-width, var(--action-border-width));
+    border-style: var(--__action-border-style, var(--action-border-style));
+    border-radius: var(--__action-border-radius, var(--action-border-radius));
     text-decoration: none;
     transition:
       color ease var(--animation-duration-blip),

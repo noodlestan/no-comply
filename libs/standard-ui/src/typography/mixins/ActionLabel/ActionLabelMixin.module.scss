@@ -11,28 +11,28 @@
     --__type-letter-spacing: var(--__action-letter-spacing, var(--action-base-spacing));
   }
 
-  .variant-small {
+  .size-small {
     --__action-font-size: var(--action-size-small-size);
     --__action-font-weight: var(--action-size-small-weight);
     --__action-line-height: var(--action-size-small-height);
     --__action-letter-spacing: var(--action-size-small-spacing);
   }
 
-  .variant-normal {
+  .size-normal {
     --__action-font-size: var(--action-size-normal-size);
     --__action-font-weight: var(--action-size-normal-weight);
     --__action-line-height: var(--action-size-normal-height);
     --__action-letter-spacing: var(--action-size-normal-spacing);
   }
 
-  .variant-medium {
+  .size-medium {
     --__action-font-size: var(--action-size-medium-size);
     --__action-font-weight: var(--action-size-medium-weight);
     --__action-line-height: var(--action-size-medium-height);
     --__action-letter-spacing: var(--action-size-medium-spacing);
   }
 
-  .variant-large {
+  .size-large {
     --__action-font-size: var(--action-size-large-size);
     --__action-font-weight: var(--action-size-large-weight);
     --__action-line-height: var(--action-size-large-height);

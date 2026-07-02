@@ -12,7 +12,7 @@ export const createIconButton = (props: IconButtonProps): IconButtonAPI => {
 	const [locals, expose, compose] = createExposable($ICON_BUTTON, props);
 
 	const { $root: $buttonRoot, size } = compose(createButton(locals));
-	const { $root: $iconButtonRoot, icon } = compose(createIconAction(locals));
+	const { $root: $iconActionRoot, _icon: _iconActionIcon } = compose(createIconAction(locals));
 
 	const iconButttonProps = combineProps(
 		locals,
@@ -20,11 +20,11 @@ export const createIconButton = (props: IconButtonProps): IconButtonAPI => {
 			size,
 		}),
 	);
-	const { $root: $iconButtonMixinRoot, icon: iconButtonMixinIcon } =
+	const { $root: $iconButtonMixinRoot, _icon: _iconButtonMixinIcon } =
 		createIconButtonMixin(iconButttonProps);
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($buttonRoot, $iconButtonRoot, $iconButtonMixinRoot),
-		icon: combineProps(icon, iconButtonMixinIcon),
+		$root: combineProps($buttonRoot, $iconActionRoot, $iconButtonMixinRoot),
+		_icon: combineProps(_iconActionIcon, _iconButtonMixinIcon),
 	});
 };

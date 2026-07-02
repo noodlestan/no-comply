@@ -14,7 +14,7 @@ export const createIconButtonMixin = (props: IconButtonMixinProps): IconButtonMi
 	const iconStaticProps = {
 		classList: staticClassList(styles, '-Icon'),
 	};
-	const icon = computedProps(iconStaticProps, {
+	const _icon = computedProps(iconStaticProps, {
 		size: () => ICON_BUTTOM_MAP_SIZE_TO_ICON_SIZE[locals.size],
 	});
 
@@ -30,6 +30,6 @@ export const createIconButtonMixin = (props: IconButtonMixinProps): IconButtonMi
 
 	return exposeAPI(expose, '$root', {
 		$root,
-		icon,
+		_icon,
 	});
 };

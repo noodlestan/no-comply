@@ -1,3 +1,4 @@
+import { AlignFirstLine } from '@no-comply/solid-composables';
 import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, type JSX, Show, splitProps } from 'solid-js';
 
@@ -5,7 +6,7 @@ import { CloseButton } from '../../../action';
 import { Icon, type IconProps } from '../../../icon';
 import { Flex } from '../../../layout';
 import { Surface } from '../../../surface';
-import { AlignFirstLine, DisplayAligned, Text } from '../../../typography';
+import { Display, Text } from '../../../typography';
 
 import { CALLOUT_PROPS } from './constants';
 import { createCallout } from './createCallout';
@@ -21,14 +22,12 @@ export const Callout: Component<Props> = props => {
 
 	const {
 		$root,
-		$title,
-		$description,
-		$body,
+		_displayTitle,
+		_textDescription,
+		_textBody,
 		_icon,
-		alignmentHeight,
 		padding,
 		gap,
-		titleVariant,
 		hasIcon,
 		hasCloseButton,
 		closeButtonSize,
@@ -36,30 +35,25 @@ export const Callout: Component<Props> = props => {
 	const $ = combineProps($root, $others);
 
 	return (
-		<Surface variant="message" {...$} aria-labelledby={$title.id}>
+		<Surface variant="message" {...$} aria-labelledby={_displayTitle.id}>
 			<Flex direction="row" align="start" padding={padding()} gap={gap()} justify="between">
-				<AlignFirstLine
-					height={alignmentHeight()}
-					type="display"
-					level={4}
-					variant={titleVariant()}
-				>
+				<AlignFirstLine>
 					<Flex direction="row" align="start" gap={gap()}>
 						<Show when={hasIcon()}>
-							<Icon {...(_icon as IconProps)} aligned />
+							<Icon {...(_icon as IconProps)} />
 						</Show>
 						<Flex gap={padding()}>
-							<DisplayAligned {...$title}>{locals.title}</DisplayAligned>
-							<Text tag="div" {...$description}>
+							<Display {..._displayTitle}>{locals.title}</Display>
+							<Text tag="div" {..._textDescription}>
 								{locals.summary}
 							</Text>
-							<Text tag="div" {...$body}>
+							<Text tag="div" {..._textBody}>
 								{locals.children}
 							</Text>
 						</Flex>
 					</Flex>
 					<Show when={hasCloseButton()}>
-						<CloseButton label="Close" size={closeButtonSize()} aligned />
+						<CloseButton label="Close" size={closeButtonSize()} alignFirstLine />
 					</Show>
 				</AlignFirstLine>
 			</Flex>

@@ -1,12 +1,12 @@
-@layer lib.standard-ui.segmented-button {
+@layer lib.standard-ui {
+  @layer input-box, segmented-button-item;
+}
+
+@layer lib.standard-ui.segmented-button-item {
   .SegmentedButtonItem {
     position: relative;
     cursor: pointer;
-    border-radius: var(--action-border-radius);
-
-    .-Button {
-      padding-inline-start: var(--__padding-inline-start);
-    }
+    padding-inline-start: var(--__action-padding-inline-start);
 
     &:not(:first-child) {
       border-start-start-radius: 0;
@@ -31,25 +31,25 @@
 
   .size-small {
     .-Button {
-      --__padding-inline-start: var(--space-pad-0);
+      --__action-padding-inline-start: var(--space-pad-0);
     }
   }
 
   .size-normal {
     .-Button {
-      --__padding-inline-start: var(--space-pad-0);
+      --__action-padding-inline-start: var(--space-pad-0);
     }
   }
 
   .size-medium {
     .-Button {
-      --__padding-inline-start: var(--space-pad-1);
+      --__action-padding-inline-start: var(--space-pad-1);
     }
   }
 
   .size-large {
     .-Button {
-      --__padding-inline-start: var(--space-pad-2);
+      --__action-padding-inline-start: var(--space-pad-2);
     }
   }
 }

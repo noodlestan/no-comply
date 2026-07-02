@@ -1,36 +1,31 @@
 import type { FlexGap, LayoutPaddingShorthand } from '../../../../layout';
-import type { SizeScale } from '../../../../size';
-import type { DisplayVariant, TextVariant } from '../../../../typography';
+import type { ContentSize } from '../../../../size';
 import type { ToastMessageSize } from '../types';
 
 type ToastMessageSizeAttributes = {
-	alignment: SizeScale;
 	padding: LayoutPaddingShorthand;
 	gap: FlexGap;
-	titleVariant: DisplayVariant;
-	textVariant: TextVariant;
+	titleSize: ContentSize;
+	textSize: ContentSize;
 };
 
 export const SIZE_MAP: Record<ToastMessageSize, ToastMessageSizeAttributes> = {
 	small: {
-		alignment: 'xs',
 		padding: ['s', 'm'],
 		gap: 's',
-		titleVariant: 'xs',
-		textVariant: 'small',
+		titleSize: 'small',
+		textSize: 'small',
 	},
 	normal: {
-		alignment: 's',
 		padding: ['s', 'm'],
 		gap: 'm',
-		titleVariant: 's',
-		textVariant: 'normal',
+		titleSize: 'normal',
+		textSize: 'normal',
 	},
 	medium: {
-		alignment: 's',
 		padding: 'm',
 		gap: 'l',
-		titleVariant: 'm',
-		textVariant: 'medium',
+		titleSize: 'medium',
+		textSize: 'medium',
 	},
 };

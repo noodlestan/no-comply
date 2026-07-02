@@ -1,0 +1,24 @@
+@layer lib.standard-ui.sized-icon {
+  .SizedIcon {
+    // applied to the <AlignFirstLine> wrapper
+    --__first-line-content-height: var(--__icon-size);
+    // applied locally to compute the offset
+    --__first-line-element-height: var(--__first-line-content-height);
+  }
+
+  .size-small {
+    --__icon-size: var(--size-2xs);
+  }
+
+  .size-normal {
+    --__icon-size: var(--size-xs);
+  }
+
+  .size-medium {
+    --__icon-size: var(--size-s);
+  }
+
+  .size-large {
+    --__icon-size: var(--size-m);
+  }
+}
