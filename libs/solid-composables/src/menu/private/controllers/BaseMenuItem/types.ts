@@ -21,7 +21,7 @@ export type BaseMenuItemAPI = MenuItemAPI & {
 	$description: AriaLabelledAPI['$description'] & { children: string | undefined };
 	_icon: {
 		icon: IconProps['icon'];
-		aligned: boolean;
+		alignFirstLine: 'measure';
 		'aria-hidden': AriaAttributes['aria-hidden'];
 	};
 	groupHasIcons: Accessor<boolean>;

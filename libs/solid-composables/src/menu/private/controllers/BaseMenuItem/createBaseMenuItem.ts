@@ -41,9 +41,9 @@ export const createBaseMenuItem = (
 	const isSubMenu = () => type === 'sub-menu';
 
 	const iconStaticProps = {
-		aligned: true,
+		alignFirstLine: 'measure',
 		'aria-hidden': true,
-	};
+	} as const;
 
 	const _icon = computedProps(iconStaticProps, {
 		icon: () => {
