@@ -26,7 +26,7 @@ export const entityExtractor: DirectoryEntityProcessor<
 
 	const docs = program.extractDocs(files.index);
 	const types = program.extractTypes([files.implementation, files.types]);
-	const functions = program.extractFunctions(files.factory);
+	const functions = files.factory ? program.extractFunctions(files.factory) : [];
 
 	const imported = program.extractImportedSymbols();
 	const factory = functions[0];
@@ -41,7 +41,7 @@ export const entityExtractor: DirectoryEntityProcessor<
 				...docs,
 				component: components[0].name,
 				group: partial.module || 'misc',
-				factory: functions[0].name,
+				factory: functions[0]?.name,
 				symbols: {
 					imported,
 					declared,

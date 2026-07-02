@@ -11,7 +11,7 @@ export const fileResolver: EntityFileResolver<
 	const implementation = findComponentFile(ctx);
 	const factory = findFactoryFile(ctx);
 	const types = findTypesFile(ctx);
-	if (!index || !implementation || !factory || !types) {
+	if (!index || !implementation || !types) {
 		return;
 	}
 

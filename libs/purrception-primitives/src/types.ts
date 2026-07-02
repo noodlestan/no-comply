@@ -23,8 +23,8 @@ export type LanguageDeclaredSymbol<L extends string> = DeclaredSymbol & {
 	lang: L;
 };
 
-export type EntityDataBasePartial = {
-	type: string;
+export type EntityDataBasePartial<T extends string = string> = {
+	type: T;
 	name: string;
 	package: string;
 };

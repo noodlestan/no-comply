@@ -1,6 +1,7 @@
 import path from 'path';
 
-import type { ServiceEntityPartial } from '@no-comply/meta';
+import { type ServiceEntityPartial, createServiceEntityPartial } from '@no-comply/meta';
+import { createEntityPartial } from '@purrception/primitives';
 import type { EntityMetaMatcher } from '@purrception/source-fs';
 
 export const entityMatcher: EntityMetaMatcher<ServiceEntityPartial> = async ctx => {
@@ -8,14 +9,12 @@ export const entityMatcher: EntityMetaMatcher<ServiceEntityPartial> = async ctx 
 	if (!match) {
 		return;
 	}
-	const module = match[1];
+
 	const name = path.basename(ctx.dirMeta.path);
-	return {
-		type: 'service',
-		name,
-		// eslint-disable-next-line dot-notation
-		package: ctx.fsContext.meta['package'] as string,
-		module,
-		path: ctx.dirMeta.path,
-	};
+	// eslint-disable-next-line dot-notation
+	const packageName = ctx.fsContext.meta['package'] as string;
+	const partial = createEntityPartial('service', name, packageName);
+
+	const moduleName = match[1];
+	return createServiceEntityPartial(partial, moduleName, ctx.dirMeta.path);
 };

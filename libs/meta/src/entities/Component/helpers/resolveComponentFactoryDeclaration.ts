@@ -4,11 +4,11 @@ import type { ComponentEntityData } from '../types';
 
 export function resolveComponentFactoryDeclaration(
 	entity: ComponentEntityData,
-): FunctionDeclaration {
+): FunctionDeclaration | undefined {
 	const name = entity.factory;
 	const factory = entity.symbols.declared[name];
-	if (!factory || !isFunctionDeclaration(factory)) {
+	if (factory && !isFunctionDeclaration(factory)) {
 		throw new Error(`Could not resolve component factory declaration "${name}"`);
 	}
-	return factory as FunctionDeclaration;
+	return factory;
 }

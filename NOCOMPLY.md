@@ -1,10 +1,8 @@
-rename Code component and Mixin to Monospace; rename --data tokens to --monospace
-
 # No Comply / Standard UI
 
 ## PendingText
 
-<Heading><PendingText>{resource()}</PendingText></Heading>
+<Display><PendingText>{resource()}</PendingText></Display>
 
 ## PendingInputBox
 
