@@ -11,7 +11,7 @@ export type IconActionAPI = {
 	$root: {
 		'aria-label': NonNullable<AttributeString>;
 	};
-	icon: Pick<IconProps, 'icon'> & {
+	_icon: Pick<IconProps, 'icon'> & {
 		'aria-hidden': true;
 	};
 };
