@@ -24,7 +24,7 @@ export const ApiBreadcrumbs: Component<Props> = props => {
 			gap="s"
 			classList={classList}
 		>
-			<Text variant="large">
+			<Text size="large">
 				<Link href={routeFor.api()}>API</Link>
 				<Show when={!props.mod}> / Package</Show>
 				<Show when={props.mod}>

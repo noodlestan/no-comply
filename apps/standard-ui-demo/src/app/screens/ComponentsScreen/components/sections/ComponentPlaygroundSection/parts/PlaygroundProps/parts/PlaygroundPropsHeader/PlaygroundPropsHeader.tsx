@@ -42,7 +42,7 @@ export const PlaygroundPropsHeader: Component<Props> = props => {
 		<Flex tag="header" direction="row" gap="l" align="center" justify="between" wrap>
 			<Flex direction="row" gap="l" align="baseline" justify="start" wrap>
 				<Flex direction="row" gap="m" align="end">
-					<Display id={$ID_PLAYGROUND_PROPS_TITLE} level={4} variant="xs">
+					<Display id={$ID_PLAYGROUND_PROPS_TITLE} level={4} size="small">
 						Props <VisuallyHidden>Editor</VisuallyHidden>
 						<Show when={hasMultitpleTargets()}>
 							<VisuallyHidden>for {currentTargetKey()}</VisuallyHidden>

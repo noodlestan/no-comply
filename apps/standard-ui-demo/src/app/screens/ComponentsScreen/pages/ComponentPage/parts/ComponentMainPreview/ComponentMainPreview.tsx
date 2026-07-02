@@ -59,6 +59,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 	const [title] = createChainedResource(currentExample, e => e.title || props.defaultTitle, {
 		name: 'title',
 	});
+
 	const [description] = createChainedResource(currentExample, e => e.description, {
 		name: 'description',
 	});
@@ -68,7 +69,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 			<ComponentPlaygroundPropsProvider component={component()}>
 				<Flex direction="column" stretch="height" gap="m" classList={classList}>
 					<Flex classList={staticClassList(styles, ['-Header'])}>
-						<Display level={3} variant="m">
+						<Display level={3} size="small">
 							<Suspense fallback={'...'}>{title()}</Suspense>
 						</Display>
 					</Flex>

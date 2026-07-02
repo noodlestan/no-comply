@@ -23,7 +23,7 @@ export const PlayGroundPreviewOptions: Component<Props> = props => {
 			{...props}
 		>
 			<VisuallyHidden>
-				<Label id={labelId} variant="small">
+				<Label id={labelId} size="small">
 					Select preview mode
 				</Label>
 			</VisuallyHidden>

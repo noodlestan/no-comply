@@ -8,7 +8,7 @@ export const ResourcesIndexPage: Component = () => {
 		<ResourcesPage
 			title="Resources"
 			undertitle={
-				<Display tag="p" variant="m">
+				<Display tag="p" size="small">
 					Sandbox pages
 				</Display>
 			}

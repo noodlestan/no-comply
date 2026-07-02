@@ -85,7 +85,7 @@ export const DocsItem: ParentComponent<DocsItemProps> = props => {
 				<Display level={props.level ?? 4} id={labelId()}>
 					{locals.title}
 					<Show when={locals.defaultValue}>
-						<Label variant="small" tag="span">
+						<Label size="small" tag="span">
 							(default)
 						</Label>
 					</Show>
@@ -105,7 +105,7 @@ export const DocsItem: ParentComponent<DocsItemProps> = props => {
 			</Flex>
 
 			<Show when={locals.note}>
-				<Text variant="small">{locals.note}</Text>
+				<Text size="small">{locals.note}</Text>
 			</Show>
 		</Flex>
 	);

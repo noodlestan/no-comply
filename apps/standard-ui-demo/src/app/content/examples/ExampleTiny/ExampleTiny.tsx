@@ -14,10 +14,10 @@ export const ExampleTiny: Component<Props> = props => (
 				<Display level={4}>{props.title ?? 'Lorem ipsum'}</Display>
 			</Flex>
 			<Flex gap="m" direction="row" align="center" wrap>
-				<Text variant="medium">
+				<Text size="medium">
 					<Link href="/">Home</Link>
 				</Text>
-				<Text variant="medium">
+				<Text size="medium">
 					<Link href="/">About</Link>
 				</Text>
 			</Flex>

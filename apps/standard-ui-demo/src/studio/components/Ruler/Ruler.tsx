@@ -63,7 +63,7 @@ export const Ruler: Component<RulerProps> = props => {
 			<Flex direction="row" classList={staticClassList(styles, '-Ticks')}>
 				<For each={ticks()}>
 					{tick => (
-						<Label tag="span" variant="small" classList={staticClassList(styles, '-Tick')}>
+						<Label tag="span" size="small" classList={staticClassList(styles, '-Tick')}>
 							<span>{tick}</span>
 						</Label>
 					)}
@@ -75,7 +75,7 @@ export const Ruler: Component<RulerProps> = props => {
 						{marker => (
 							<Label
 								tag="span"
-								variant="small"
+								size="small"
 								classList={staticClassList(styles, '-Marker')}
 								style={markerStyle(marker)}
 							>

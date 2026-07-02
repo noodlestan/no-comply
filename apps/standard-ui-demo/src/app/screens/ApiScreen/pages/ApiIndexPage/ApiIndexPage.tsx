@@ -84,7 +84,7 @@ export const ApiIndexPage: Component = () => {
 					<DocsItem
 						gap="l"
 						title={
-							<Text variant="large">
+							<Text size="large">
 								{entities().length} <Show when={entities().length === 1}>result</Show>
 								<Show when={entities().length > 1}>results</Show> for {terms()}
 							</Text>
@@ -122,7 +122,7 @@ export const ApiIndexPage: Component = () => {
 				</Show>
 				<Show when={showNoResults()}>
 					<DocsItem>
-						<Text variant="large">No results for {terms()}</Text>
+						<Text size="large">No results for {terms()}</Text>
 					</DocsItem>
 				</Show>
 			</DocsSection>

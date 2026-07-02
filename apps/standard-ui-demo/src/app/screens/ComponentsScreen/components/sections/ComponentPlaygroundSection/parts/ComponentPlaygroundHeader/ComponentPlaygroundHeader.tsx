@@ -18,9 +18,9 @@ export const ComponentPlaygroundHeader: Component = () => {
 		!exampleList.loading && Number(exampleList()?.length) > 1 && hasOverrides();
 
 	return (
-		<Flex tag="header" direction="row" justify="between" gap="l" wrap>
+		<Flex tag="header" direction="row" justify="between" align="end" gap="l" wrap>
 			<Flex direction="row" align="end" gap="l" wrap>
-				<Display id={$ID_PLAYGROUND_TITLE} level={3}>
+				<Display id={$ID_PLAYGROUND_TITLE} level={3} size="normal">
 					Playground: {component().name}
 				</Display>
 
@@ -35,7 +35,7 @@ export const ComponentPlaygroundHeader: Component = () => {
 					<Link href={routeFor.component(component().name)}>Component page</Link>
 					<Link href={routeFor.entity(component())}>
 						<Flex tag="span" direction="row" gap="xs" align="center">
-							<Icon icon={BookOpenIcon} size="small" /> <Text variant="small">API</Text>
+							<Icon icon={BookOpenIcon} size="small" /> <Text size="small">API</Text>
 						</Flex>
 					</Link>
 				</Flex>

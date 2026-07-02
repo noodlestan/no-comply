@@ -1,14 +1,5 @@
-import {
-	AlignFirstLine,
-	Button,
-	Display,
-	DisplayAligned,
-	Flex,
-	Icon,
-	IconButton,
-	Surface,
-	Text,
-} from '@no-comply/standard-ui';
+import { AlignFirstLine } from '@no-comply/solid-composables';
+import { Button, Display, Flex, Icon, IconButton, Surface, Text } from '@no-comply/standard-ui';
 import SquareStackIcon from 'lucide-solid/icons/square-stack';
 import { type Component } from 'solid-js';
 
@@ -18,18 +9,20 @@ import { ResourcesPage } from '../../../private';
 export const LargeCompositionsPage: Component = () => {
 	return (
 		<ResourcesPage title="Large Compositions">
-			<Display level={3}>Hero</Display>
+			<Display level={3}>Huge</Display>
 
 			<Surface variant="page">
 				<Flex direction="row" gap="2xl" align="start" justify="between">
-					<AlignFirstLine height="l" type="display" variant="hero">
+					<AlignFirstLine>
 						<Flex direction="column" gap="2xl">
 							<Flex direction="column" gap="xl">
-								<DisplayAligned>Display Hero</DisplayAligned>
-								<Display variant="l" tag="p">
-									And Display L
+								<Display alignFirstLine="target" variant="huge">
+									Display Huge
 								</Display>
-								<Text variant="large">
+								<Display tag="p" size="large">
+									Display Large
+								</Display>
+								<Text size="large">
 									<LoremIpsum words={33} />
 								</Text>
 							</Flex>
@@ -42,7 +35,12 @@ export const LargeCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="medium" icon={SquareStackIcon} label="large" aligned />
+						<IconButton
+							size="medium"
+							icon={SquareStackIcon}
+							label="large"
+							alignFirstLine="measure"
+						/>
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -51,15 +49,17 @@ export const LargeCompositionsPage: Component = () => {
 
 			<Surface variant="stage" padding="l">
 				<Flex direction="row" gap="xl" align="start" justify="between">
-					<AlignFirstLine height="m" type="display" variant="xl">
-						<Icon size="large" icon={SquareStackIcon} aligned />
+					<AlignFirstLine>
+						<Icon size="large" icon={SquareStackIcon} alignFirstLine="measure" />
 						<Flex direction="column" gap="2xl">
 							<Flex direction="column" gap="xl">
-								<DisplayAligned>Display XL (H1)</DisplayAligned>
-								<Display variant="l" tag="p">
-									And Display L
+								<Display alignFirstLine="target" size="large">
+									Display Large
 								</Display>
-								<Text variant="large">
+								<Display tag="p" size="medium">
+									Display Medium
+								</Display>
+								<Text size="large">
 									<LoremIpsum words={33} />
 								</Text>
 							</Flex>
@@ -72,7 +72,7 @@ export const LargeCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="medium" icon={SquareStackIcon} label="large" aligned />
+						<IconButton size="medium" icon={SquareStackIcon} label="large" alignFirstLine />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -81,15 +81,17 @@ export const LargeCompositionsPage: Component = () => {
 
 			<Surface variant="card" padding="l">
 				<Flex direction="row" gap="xl" align="start" justify="between">
-					<AlignFirstLine height="m" type="display" variant="l">
-						<Icon size="large" icon={SquareStackIcon} aligned />
+					<AlignFirstLine>
+						<Icon size="large" icon={SquareStackIcon} alignFirstLine="measure" />
 						<Flex direction="column" gap="2xl">
 							<Flex direction="column" gap="l">
-								<DisplayAligned>Display L (H2)</DisplayAligned>
-								<Display variant="m" tag="p">
-									And Display M
+								<Display alignFirstLine="target" size="medium">
+									Display Medium (H2)
 								</Display>
-								<Text variant="large">
+								<Display size="small" tag="p">
+									Display Small
+								</Display>
+								<Text size="large">
 									<LoremIpsum words={33} />
 								</Text>
 							</Flex>
@@ -102,7 +104,7 @@ export const LargeCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="medium" icon={SquareStackIcon} label="medium" aligned />
+						<IconButton size="medium" icon={SquareStackIcon} label="medium" alignFirstLine />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
