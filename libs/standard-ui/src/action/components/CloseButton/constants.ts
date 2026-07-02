@@ -9,5 +9,5 @@ export const CLOSE_BUTTON_PROPS = definePropKeys<CloseButtonProps>()([
 	'size',
 	'onPress',
 	'disabled',
-	'aligned',
+	'alignFirstLine',
 ]);

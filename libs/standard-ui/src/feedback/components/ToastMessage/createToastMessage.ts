@@ -23,7 +23,11 @@ export const createToastMessage = (props: ToastMessageProps): ToastMessageAPI =>
 
 	const size = () => locals.size ?? defaultProps.size;
 	const length = () => locals.length ?? defaultProps.length;
-	const classList = createClassList(styles, () => ['ToastMessage', `length-${length()}`]);
+
+	const titleSize = () => SIZE_MAP[size()].titleSize;
+	const textSize = () => SIZE_MAP[size()].textSize;
+	const padding = () => SIZE_MAP[size()].padding;
+	const gap = () => SIZE_MAP[size()].gap;
 
 	const messageProps = computedProps({
 		described: () => Boolean(props.summary),
@@ -37,53 +41,38 @@ export const createToastMessage = (props: ToastMessageProps): ToastMessageAPI =>
 		hasIcon,
 	} = compose(createContentMessage(messageProps));
 
-	const $toastmessageRoot = computedProps({
+	const classList = createClassList(styles, () => ['ToastMessage', `length-${length()}`]);
+	const $toastMessageRoot = computedProps({
 		classList,
 	});
 
-	const titleVariant = () => SIZE_MAP[size()].titleVariant;
-	const $toastmessageTitle = computedProps(
-		{
-			classList: staticClassList(styles, '-Title'),
-		},
-		{
-			variant: titleVariant,
-		},
-	);
-
-	const textVariant = () => SIZE_MAP[size()].textVariant;
-	const $toastmessageDescription = computedProps({
-		variant: textVariant,
-	});
-
-	const $body = computedProps({
-		variant: textVariant,
-	});
+	const displayStatic = {
+		alignFirstLine: 'target',
+		classList: staticClassList(styles, '-Title'),
+	} as const;
+	const _displayTitle = computedProps(displayStatic, { size: titleSize });
 
 	const _iconSstatic = {
+		alignFirstLine: 'measure',
 		classList: staticClassList(styles, '-Icon'),
-	};
-	const _toastmessageIcon = computedProps(_iconSstatic, {
-		size,
-	});
+	} as const;
+	const _icon = computedProps(_iconSstatic, { size });
 
-	const alignmentHeight = () => SIZE_MAP[size()].alignment;
-	const padding = () => SIZE_MAP[size()].padding;
-	const gap = () => SIZE_MAP[size()].gap;
+	const _textDescription = computedProps({ size: textSize });
+
+	const _textBody = computedProps({ size: textSize });
 
 	const hasCloseButton = () => Boolean(locals.onClose);
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($messageRoot, $toastmessageRoot),
-		$title: combineProps($messageLabel, $toastmessageTitle),
-		$description: combineProps($messageDescription, $toastmessageDescription),
-		$body,
-		_icon: combineProps(_messageIcon, _toastmessageIcon),
+		$root: combineProps($messageRoot, $toastMessageRoot),
+		_displayTitle: combineProps($messageLabel, _displayTitle),
+		_textDescription: combineProps($messageDescription, _textDescription),
+		_textBody,
+		_icon: combineProps(_messageIcon, _icon),
 		hasIcon,
-		alignmentHeight,
 		padding,
 		gap,
-		titleVariant,
 		hasCloseButton,
 		closeButtonSize: size,
 	});

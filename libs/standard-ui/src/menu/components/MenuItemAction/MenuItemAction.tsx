@@ -1,9 +1,10 @@
+import { AlignFirstLine } from '@no-comply/solid-composables';
 import { type ClosedTagProps, combineProps } from '@no-comply/solid-primitives';
 import { type Component, Show, splitProps } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
 
 import { Icon } from '../../../icon';
-import { AlignFirstLine, Label, Text } from '../../../typography';
+import { Label, Text } from '../../../typography';
 
 import { MENU_ITEM_ACTION_PROPS } from './constants';
 import { createMenuItemAction } from './createMenuItemAction';
@@ -31,7 +32,7 @@ export const MenuItemAction: Component<Props> = props => {
 
 	return (
 		<Dynamic {...$}>
-			<AlignFirstLine height={'xs'} type="action" variant={_label.variant}>
+			<AlignFirstLine>
 				<Show when={groupHasIcons()}>
 					<span {...$iconSlot}>{hasIcon() ? <Icon {..._icon} /> : undefined}</span>
 				</Show>

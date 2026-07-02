@@ -4,9 +4,10 @@
 
 @layer lib.standard-ui.sized-input-box {
   .SizedInputBox {
-    padding-inline: var(--__input-padding-inline, var(--space-pad--1));
-
-    --__first-line-element-height: var(--__height);
+    // applied to the <AlignFirstLine> wrapper
+    --__first-line-content-height: var(--__input-height);
+    // applied locally to compute the offset
+    --__first-line-element-height: var(--__first-line-content-height);
   }
 
   .size-small {

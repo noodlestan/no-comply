@@ -2,16 +2,16 @@ import type { IconProps } from '../../../icon';
 
 export type BaseMenuItemAPI = {
 	_label: {
-		variant: 'small';
+		size: 'small';
 		tag: 'span';
-		aligned: true;
+		alignFirstLine: 'target';
 	};
 	_textDescription: {
-		variant: 'small';
+		size: 'small';
 		tag: 'span';
 	};
 	_icon: {
 		size: NonNullable<IconProps['size']>;
-		aligned: true;
+		alignFirstLine: 'measure';
 	};
 };

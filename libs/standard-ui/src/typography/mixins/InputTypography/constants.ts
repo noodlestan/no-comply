@@ -7,5 +7,5 @@ export const $INPUT_TYPOGRAPHY_MIXIN = 'mixin:standard:input-typography';
 
 export const INPUT_TYPOGRAPHY_MIXIN_PROPS = definePropKeys<InputTypographyMixinProps>()([
 	...TYPOGRAPHY_MIXIN_PROPS,
-	'variant',
+	'size',
 ]);

@@ -2,12 +2,12 @@ import type { IconButtonProps } from '../IconButton';
 
 export type CloseButtonProps = Pick<
 	IconButtonProps,
-	'label' | 'size' | 'onPress' | 'disabled' | 'aligned'
+	'label' | 'size' | 'onPress' | 'disabled' | 'alignFirstLine'
 >;
 
 export type CloseButtonAPI = {
 	_iconButton: Pick<
 		IconButtonProps,
-		'label' | 'variant' | 'size' | 'icon' | 'onPress' | 'disabled' | 'aligned'
+		'label' | 'variant' | 'size' | 'icon' | 'onPress' | 'disabled' | 'alignFirstLine'
 	>;
 };

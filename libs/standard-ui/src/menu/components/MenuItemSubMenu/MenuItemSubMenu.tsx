@@ -1,4 +1,4 @@
-import { PopoverContextProvider } from '@no-comply/solid-composables';
+import { AlignFirstLine, PopoverContextProvider } from '@no-comply/solid-composables';
 import { type ClosedTagProps, type RenderProp, combineProps } from '@no-comply/solid-primitives';
 import ChevronRightIcon from 'lucide-solid/icons/chevron-right';
 import { type Component, Show, splitProps } from 'solid-js';
@@ -6,7 +6,7 @@ import { Dynamic } from 'solid-js/web';
 
 import { Icon } from '../../../icon';
 import { Popover } from '../../../popover';
-import { AlignFirstLine, Label, Text } from '../../../typography';
+import { Label, Text } from '../../../typography';
 
 import { MENU_ITEM_SUB_MENU_PROPS } from './constants';
 import { createMenuItemSubMenu } from './createMenuItemSubMenu';
@@ -45,7 +45,7 @@ export const MenuItemSubMenu: Component<Props> = props => {
 	return (
 		<PopoverContextProvider context={contextValue}>
 			<Dynamic {...$}>
-				<AlignFirstLine height={'xs'} type="action" variant={_label.variant}>
+				<AlignFirstLine>
 					<Show when={groupHasIcons()}>
 						<span {...$iconSlot}>{hasIcon() ? <Icon {..._icon} /> : undefined}</span>
 					</Show>

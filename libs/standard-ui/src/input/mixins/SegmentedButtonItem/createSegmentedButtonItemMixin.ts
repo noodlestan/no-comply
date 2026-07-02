@@ -37,7 +37,7 @@ export const createSegmentedButtonItemMixin = (
 		createToggleActionMixin(toggleActionMixinProps),
 	);
 
-	const actionLabelMixinProps = computedProps({ variant: size });
+	const actionLabelMixinProps = computedProps({ size });
 	const { $root: $actionLabelMixinRoot } = createActionLabelMixin(actionLabelMixinProps);
 
 	const classList = createClassList(styles, ['SegmentedButtonItem', `size-${size()}`]);

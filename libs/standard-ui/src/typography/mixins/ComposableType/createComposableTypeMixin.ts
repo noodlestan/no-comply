@@ -2,6 +2,7 @@ import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { computedProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../ActionLabel';
+import { createCodeMixin } from '../Code';
 import { createDisplayMixin } from '../Display';
 import { createLabelMixin } from '../Label';
 import { createTextMixin } from '../Text';
@@ -15,16 +16,19 @@ export const createComposableTypeMixin = (
 	const [locals, expose, compose] = createExposable($COMPOSABLE_TYPE_MIXIN, props);
 
 	const createTypeMixin = () => {
-		if (locals.type === 'action') {
-			return createActionLabelMixin(locals);
-		}
 		if (locals.type === 'display') {
 			return createDisplayMixin(locals);
 		}
-		if (locals.type === 'text') {
-			return createTextMixin(locals);
+		if (locals.type === 'action') {
+			return createActionLabelMixin(locals);
 		}
-		return createLabelMixin(locals);
+		if (locals.type === 'label') {
+			return createLabelMixin(locals);
+		}
+		if (locals.type === 'code') {
+			return createCodeMixin(locals);
+		}
+		return createTextMixin(locals);
 	};
 
 	const typeMixinClassList = () => {

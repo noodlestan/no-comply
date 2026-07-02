@@ -1,10 +1,10 @@
 import type { TypographyMixinAPI, TypographyMixinProps } from '@no-comply/solid-composables';
 import type { ClassList } from '@no-comply/solid-primitives';
 
-import type { TextVariant } from '../../types';
+import type { ContentSize } from '../../../size';
 
 export type InputTypographyMixinProps = TypographyMixinProps & {
-	variant?: TextVariant;
+	size?: ContentSize;
 };
 
 export type InputTypographyMixinAPI = {

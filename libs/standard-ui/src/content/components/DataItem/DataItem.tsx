@@ -46,7 +46,7 @@ export const DataItem: ParentComponent<DataItemProps> = props => {
 				<Icon icon={props.icon as IconComponent} size={props.size} />
 			</Show>
 			<Show when={props.label}>
-				<Label variant={props.size}>{props.label}</Label>
+				<Label size={props.size}>{props.label}</Label>
 			</Show>
 			<DataValue
 				align={props.units ? 'right' : 'left'}
@@ -56,7 +56,7 @@ export const DataItem: ParentComponent<DataItemProps> = props => {
 				value={props.value ?? props.children}
 			/>
 			<Show when={props.units}>
-				<Label variant={props.size}>{props.units}</Label>
+				<Label size={props.size}>{props.units}</Label>
 			</Show>
 		</div>
 	);

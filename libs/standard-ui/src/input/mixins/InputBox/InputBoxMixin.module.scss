@@ -3,6 +3,7 @@
 @layer lib.standard-ui.input-box {
   .InputBox {
     --__input-height: var(--size-s);
+    --__input-padding-inline: var(--space-pad--1);
 
     --__type-font-size: var(--__input-font-size, var(--input-base-size));
     --__type-font-weight: var(--__input-font-weight, var(--input-base-weight));
@@ -12,12 +13,14 @@
     height: var(--__input-height);
     min-height: var(--__input-height);
     margin: 0;
-    padding: 0 var(--space-pad-0);
+    padding: 0;
+    padding-inline-start: var(--__input-padding-inline-start, var(--__input-padding-inline));
+    padding-inline-end: var(--__input-padding-inline-end, var(--__input-padding-inline));
     text-align: start;
 
-    border-width: var(--input-border-width);
-    border-style: var(--input-border-style);
-    border-radius: var(--input-border-radius);
+    border-width: var(--__input-border-width, var(--input-border-width));
+    border-style: var(--__input-border-style, var(--input-border-style));
+    border-radius: var(--__input-border-radius, var(--input-border-radius));
 
     @include set-palette(__input, input-base);
 
@@ -35,8 +38,6 @@
     @include set-level(__input-border, border-2);
     @include set-alpha(__input-border, content-fg);
     @include apply-color(border-color, __input-border);
-
-    --__first-line-element-height: var(--__input-height);
 
     &:hover {
       @include set-level(__input-border, border-2);

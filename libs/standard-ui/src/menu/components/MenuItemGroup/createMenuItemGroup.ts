@@ -24,11 +24,11 @@ export const createMenuItemGroup = (props: MenuItemGroupProps): MenuItemGroupAPI
 	} = compose(createMenuItemGroupMixin());
 
 	const _label = {
-		variant: 'normal',
+		size: 'normal',
 	} as const;
 
 	const _textDescription = {
-		variant: 'small',
+		size: 'small',
 	} as const;
 
 	return exposeAPI(expose, '$root', {

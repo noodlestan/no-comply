@@ -12,22 +12,22 @@
     --__type-letter-spacing: var(--data-base-spacing);
   }
 
-  .variant-small {
+  .size-small {
     --__data-font-size: var(--data-size-small-size);
     --__data-line-weight: var(--data-size-small-weight);
   }
 
-  .variant-normal {
+  .size-normal {
     --__data-font-size: var(--data-size-normal-size);
     --__data-line-weight: var(--data-size-normal-weight);
   }
 
-  .variant-medium {
+  .size-medium {
     --__data-font-size: var(--data-size-medium-size);
     --__data-line-weight: var(--data-size-medium-weight);
   }
 
-  .variant-large {
+  .size-large {
     --__data-font-size: var(--data-size-large-size);
     --__data-line-weight: var(--data-size-large-weight);
   }

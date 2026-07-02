@@ -1,8 +1,4 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-import { createAlignedToFirstLineMixin } from '@no-comply/solid-composables';
 import {
-	type PickRequired,
 	combineProps,
 	computedProps,
 	createClassList,
@@ -12,21 +8,24 @@ import CheckIcon from 'lucide-solid/icons/check';
 import { type Component } from 'solid-js';
 
 import { createFocusRing } from '../../../focus';
+import { createSizedInputBoxMixin } from '../../mixins';
 
 import styles from './Checkbox.module.scss';
 import type { CheckboxProps } from './types';
 
-const defaultProps: PickRequired<CheckboxProps, 'size'> = {
-	size: 's',
-};
-
 export const Checkbox: Component<CheckboxProps> = props => {
 	let inputRef: HTMLInputElement | undefined;
 
-	const size = () => props.size ?? defaultProps.size;
+	const classList = createClassList(styles, () => ({
+		Checkbox: true,
+		'is-disabled': Boolean(props.disabled),
+		'is-invalid': Boolean(props.invalid),
+		'is-modified': Boolean(props.modified),
+		'is-checked': Boolean(props.checked),
+	}));
 
 	const { $root: $focusRingRoot, $focusTarget } = createFocusRing();
-	const { $root: $alignedToFirstLineRoot } = createAlignedToFirstLineMixin(props);
+	const { $root: $sizedInputRoot } = createSizedInputBoxMixin(props);
 
 	const setInputRef = (ref: HTMLInputElement) => {
 		inputRef = ref;
@@ -67,20 +66,11 @@ export const Checkbox: Component<CheckboxProps> = props => {
 		onKeyDown: handleKeyDown,
 	};
 
-	const classList = createClassList(styles, () => ({
-		Checkbox: true,
-		[`size-${size()}`]: true,
-		'is-disabled': Boolean(props.disabled),
-		'is-invalid': Boolean(props.invalid),
-		'is-modified': Boolean(props.modified),
-		'is-checked': Boolean(props.checked),
-	}));
-
 	const $root = computedProps({
 		classList,
 	});
 
-	const $ = combineProps($focusRingRoot, $alignedToFirstLineRoot, $root);
+	const $ = combineProps($focusRingRoot, $sizedInputRoot, $root);
 
 	return (
 		<div {...handlers} {...$}>

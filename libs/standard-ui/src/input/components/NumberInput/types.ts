@@ -1,6 +1,5 @@
 import type {
 	BaseInputAPI,
-	BaseInputProps,
 	NumberInputValueAPI,
 	NumberInputValueProps,
 } from '@no-comply/solid-composables';
@@ -14,9 +13,8 @@ import type {
 	SizedInputBoxMixinProps,
 } from '../../mixins';
 
-export type NumberInputProps = BaseInputProps &
+export type NumberInputProps = InputStateMixinProps &
 	NumberInputValueProps &
-	InputStateMixinProps &
 	SizedInputBoxMixinProps &
 	ContentLengthMixinProps;
 

@@ -2,19 +2,19 @@ import type { BaseMenuItemAPI } from './types';
 
 export const createBaseMenuItem = (): BaseMenuItemAPI => {
 	const _label = {
-		variant: 'small',
+		size: 'small',
 		tag: 'span',
-		aligned: true,
+		alignFirstLine: 'target',
 	} as const;
 
 	const _textDescription = {
-		variant: 'small',
+		size: 'small',
 		tag: 'span',
 	} as const;
 
 	const _icon = {
-		aligned: true,
 		size: 'small',
+		alignFirstLine: 'measure',
 	} as const;
 
 	return {

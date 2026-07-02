@@ -5,23 +5,23 @@
     cursor: unset;
   }
 
-  .small {
+  .size-small {
     font-weight: 900;
     font-size: var(--fieldset-type-size-s);
     font-weight: var(--fieldset-type-weight-l);
   }
 
-  .normal {
+  .size-normal {
     font-size: var(--fieldset-type-size-m);
     font-weight: var(--fieldset-type-weight-s);
   }
 
-  .medium {
+  .size-medium {
     font-size: var(--fieldset-type-size-l);
     font-weight: var(--fieldset-type-weight-m);
   }
 
-  .large {
+  .size-large {
     font-size: var(--fieldset-type-size-xl);
     font-weight: var(--fieldset-type-weight-l);
   }

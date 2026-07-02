@@ -5,7 +5,8 @@ import type { ActionLabelMixinAPI } from '../../../typography';
 import type { ActionMixinAPI, ActionMixinProps } from '../Action';
 import type { SizedActionMixinAPI, SizedActionMixinProps } from '../SizedAction';
 
-export type ButtonMixinProps = ActionMixinProps & Pick<SizedActionMixinProps, 'size' | 'aligned'>;
+export type ButtonMixinProps = ActionMixinProps &
+	Pick<SizedActionMixinProps, 'size' | 'alignFirstLine'>;
 
 export type ButtonMixinAPI = {
 	$root: ActionMixinAPI['$root'] & SizedActionMixinAPI['$root'] & ActionLabelMixinAPI['$root'];

@@ -17,12 +17,12 @@ type Props = ClosedTagProps & PopoverTriggerTagProps & IconButtonProps;
 export const IconButton: Component<Props> = props => {
 	const [locals, $others] = splitProps(props, ICON_BUTTON_PROPS);
 
-	const { $root, icon } = createIconButton(locals);
+	const { $root, _icon } = createIconButton(locals);
 	const $ = combineProps($others, $root);
 
 	return (
 		<Dynamic {...$}>
-			<Icon {...icon} />
+			<Icon {..._icon} />
 		</Dynamic>
 	);
 };

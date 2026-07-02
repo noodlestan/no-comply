@@ -28,7 +28,7 @@ export const createNavLinkMixin = (props: NavLinkMixinProps): NavLinkMixinAPI =>
 
 	const { $root: $linkMixinRoot } = compose(createLinkMixin(locals));
 
-	const actionLabelMixinProps = computedProps({ variant: size });
+	const actionLabelMixinProps = computedProps({ size });
 	const { $root: $actionLabelMixinRoot } = compose(createActionLabelMixin(actionLabelMixinProps));
 	const classList = createClassList(styles, () => ({
 		NavLink: true,

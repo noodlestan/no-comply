@@ -14,12 +14,12 @@
     --text-base-height: 1.6;
     --text-base-spacing: 1.6;
 
-    --text-variant-small-size: var(--typography-step--1);
-    --text-variant-normal-size: var(--typography-step-0);
-    --text-variant-medium-size: var(--typography-step-1);
-    --text-variant-medium-height: 1.4;
-    --text-variant-large-size: var(--typography-step-2);
-    --text-variant-large-height: 1.2;
+    --text-size-small-size: var(--typography-step--1);
+    --text-size-normal-size: var(--typography-step-0);
+    --text-size-medium-size: var(--typography-step-1);
+    --text-size-medium-height: 1.4;
+    --text-size-large-size: var(--typography-step-2);
+    --text-size-large-height: 1.2;
 
     /* display */
 
@@ -29,16 +29,15 @@
     --display-base-height: 1.2;
     --display-base-spacing: 1;
 
-    --display-variant-hero-size: var(--typography-step-8);
-    --display-variant-hero-height: 1;
-    --display-variant-xl-size: var(--typography-step-7);
-    --display-variant-xl-height: 1;
-    --display-variant-normal-size: var(--typography-step-6);
-    --display-variant-l-size: var(--typography-step-6);
-    --display-variant-l-height: 1;
-    --display-variant-m-size: var(--typography-step-4);
-    --display-variant-s-size: var(--typography-step-3);
-    --display-variant-xs-size: var(--typography-step-2);
+    --display-variant-huge-size: var(--typography-step-8);
+    --display-variant-huge-height: 1;
+    --display-variant-tiny-size: var(--typography-step-2);
+
+    --display-size-large-size: var(--typography-step-6);
+    --display-size-large-height: 1;
+    --display-size-medium-size: var(--typography-step-5);
+    --display-size-normal-size: var(--typography-step-4);
+    --display-size-small-size: var(--typography-step-3);
 
     /* action */
 

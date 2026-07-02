@@ -1,5 +1,9 @@
 @use '../../../theme/mixins/color.scss' as *;
 
+@layer lib.standard-ui {
+  @layer action, menu-item;
+}
+
 @layer lib.standard-ui.menu-item {
   .MenuItem {
     display: flex;
@@ -11,9 +15,10 @@
     height: auto;
     min-height: auto;
     border-radius: var(--menu-border-radius);
-    --__padding-block: var(--space-pad--2);
-    --__padding-inline: var(--space-pad-0);
-    --__gap: var(--space-gap--1);
+
+    --__action-padding-block: var(--space-pad--2);
+    --__action-padding-inline: var(--space-pad-0);
+    --__action-gap: var(--space-gap--1);
   }
 
   .MenuItem:not([data-disabled], [data-inactive]):is(:focus-visible, :hover) {
@@ -52,6 +57,6 @@
   .-Expand {
     width: var(--size-xs);
     position: relative;
-    inset-inline-end: calc(-1 * var(--__padding-inline));
+    inset-inline-end: calc(-1 * var(--__action-padding-inline));
   }
 }

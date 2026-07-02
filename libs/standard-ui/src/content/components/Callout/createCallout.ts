@@ -23,7 +23,11 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
 
 	const size = () => locals.size ?? defaultProps.size;
 	const length = () => locals.length ?? defaultProps.length;
-	const classList = createClassList(styles, () => ['Callout', `length-${length()}`]);
+
+	const titleSize = () => SIZE_MAP[size()].titleSize;
+	const textSize = () => SIZE_MAP[size()].textSize;
+	const padding = () => SIZE_MAP[size()].padding;
+	const gap = () => SIZE_MAP[size()].gap;
 
 	const messageProps = computedProps({
 		described: () => Boolean(props.summary),
@@ -37,53 +41,37 @@ export const createCallout = (props: CalloutProps): CalloutAPI => {
 		hasIcon,
 	} = compose(createContentMessage(messageProps));
 
+	const classList = createClassList(styles, () => ['Callout', `length-${length()}`]);
 	const $calloutRoot = computedProps({
 		classList,
 	});
 
-	const titleVariant = () => SIZE_MAP[size()].titleVariant;
-	const $calloutTitle = computedProps(
-		{
-			classList: staticClassList(styles, '-Title'),
-		},
-		{
-			variant: titleVariant,
-		},
-	);
-
-	const textVariant = () => SIZE_MAP[size()].textVariant;
-	const $calloutDescription = computedProps({
-		variant: textVariant,
-	});
-
-	const $body = computedProps({
-		variant: textVariant,
-	});
+	const displayStatic = {
+		classList: staticClassList(styles, '-Title'),
+		alignFirstLine: 'target',
+	} as const;
+	const _displayTitle = computedProps(displayStatic, { size: titleSize });
 
 	const _iconSstatic = {
 		classList: staticClassList(styles, '-Icon'),
-	};
-	const _calloutIcon = computedProps(_iconSstatic, {
-		size,
-	});
+		alignFirstLine: 'measure',
+	} as const;
+	const _icon = computedProps(_iconSstatic, { size });
 
-	const alignmentHeight = () => SIZE_MAP[size()].alignment;
-	const padding = () => SIZE_MAP[size()].padding;
-	const gap = () => SIZE_MAP[size()].gap;
+	const _textDescription = computedProps({ size: textSize });
+	const _textBody = computedProps({ size: textSize });
 
 	const hasCloseButton = () => Boolean(locals.onClose);
 
 	return exposeAPI(expose, '$root', {
 		$root: combineProps($messageRoot, $calloutRoot),
-		$title: combineProps($messageLabel, $calloutTitle),
-		$description: combineProps($messageDescription, $calloutDescription),
-		$body,
-		_icon: combineProps(_messageIcon, _calloutIcon),
+		_displayTitle: combineProps($messageLabel, _displayTitle),
+		_icon: combineProps(_messageIcon, _icon),
+		_textDescription: combineProps($messageDescription, _textDescription),
+		_textBody,
 		hasIcon,
-		alignmentHeight,
 		padding,
 		gap,
-		titleVariant,
 		hasCloseButton,
 		closeButtonSize: size,
 	});

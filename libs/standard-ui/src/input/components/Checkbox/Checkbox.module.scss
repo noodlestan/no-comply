@@ -6,10 +6,9 @@
     align-items: center;
     justify-content: center;
     pointer-events: all;
-    padding: 3px;
 
-    width: var(--__size);
-    height: var(--__size);
+    width: var(--__input-height);
+    height: var(--__input-height);
     border-radius: var(--input-border-radius);
 
     @include set-color(__input-fg, primary, fg-primary, invisible);
@@ -34,11 +33,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
-      /* for DevX sake */
       stroke-width: var(--input-checkbox-stroke);
       color: transparent;
       transition: color ease var(--animation-duration-short);
+      /* for DevX sake */
+      pointer-events: none;
 
       @include apply-color(color, __input-fg);
     }
@@ -48,31 +47,15 @@
     position: relative;
     width: 100%;
     height: 100%;
-
-    border-width: var(--input-border-width);
-    border-style: var(--input-border-style);
-    border-radius: var(--input-border-radius);
+    border-width: var(--__input-border-width, var(--input-border-width));
+    border-style: var(--__input-border-style, var(--input-border-style));
+    border-radius: var(--__input-border-radius, var(--input-border-radius));
     cursor: pointer;
+
     transition: background-color ease var(--animation-duration-short);
 
     @include apply-color(border-color, __input-border);
     @include apply-color(background-color, __input-bg);
-  }
-
-  .size-xs {
-    --__size: var(--size-xs);
-  }
-
-  .size-s {
-    --__size: var(--size-s);
-  }
-
-  .size-m {
-    --__size: var(--size-m);
-  }
-
-  .size-l {
-    --__size: var(--size-l);
   }
 
   .is-checked {

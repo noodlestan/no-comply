@@ -1,3 +1,4 @@
+import { createAlignedToFirstLineMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import {
 	type PickRequired,
@@ -22,17 +23,17 @@ export const createSizedInputBoxMixin = (props: SizedInputBoxMixinProps): SizedI
 	const size = () => locals.size ?? defaultProps.size;
 	const classList = createClassList(styles, () => [`SizedInputBox`, `size-${size()}`]);
 
-	const inputTypographyProps = computedProps({ variant: () => props.size });
-	const { $root: $inputTypographyMixinRoot } = compose(
-		createInputTypographyMixin(inputTypographyProps),
-	);
+	const typographyProps = computedProps({ size });
+	const { $root: $typographyMixinRoot } = compose(createInputTypographyMixin(typographyProps));
+
+	const { $root: $alignedRoot } = compose(createAlignedToFirstLineMixin(locals, classList));
 
 	const $root = computedProps({
 		classList,
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($inputTypographyMixinRoot, $root),
+		$root: combineProps($typographyMixinRoot, $alignedRoot, $root),
 		size,
 	});
 };

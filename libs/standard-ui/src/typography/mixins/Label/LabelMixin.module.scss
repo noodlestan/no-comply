@@ -12,28 +12,28 @@
     --__type-letter-spacing: var(--__label-letter-spacing, var(--label-base-spacing));
   }
 
-  .variant-small {
+  .size-small {
     --__label-font-size: var(--label-size-small-size);
     --__label-font-weight: var(--label-size-small-weight);
     --__label-line-height: var(--label-size-small-height);
     --__label-letter-spacing: var(--label-size-small-spacing);
   }
 
-  .variant-normal {
+  .size-normal {
     --__label-font-size: var(--label-size-normal-size);
     --__label-font-weight: var(--label-size-normal-weight);
     --__label-line-height: var(--label-size-normal-height);
     --__label-letter-spacing: var(--label-size-normal-spacing);
   }
 
-  .variant-medium {
+  .size-medium {
     --__label-font-size: var(--label-size-medium-size);
     --__label-font-weight: var(--label-size-medium-weight);
     --__label-line-height: var(--label-size-medium-height);
     --__label-letter-spacing: var(--label-size-medium-spacing);
   }
 
-  .variant-large {
+  .size-large {
     --__label-font-size: var(--label-size-large-size);
     --__label-font-weight: var(--label-size-large-weight);
     --__label-line-height: var(--label-size-large-height);
