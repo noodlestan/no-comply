@@ -1,4 +1,4 @@
-import { ActionLabel, Code, Display, Flex, Label, Text } from '@no-comply/standard-ui';
+import { ActionLabel, Display, Flex, Label, Mono, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
@@ -44,13 +44,13 @@ export const TypographyVariantsPage: Component = () => {
 				<ActionLabel size="small">Lorem ipsum dolor sit amet.</ActionLabel>
 			</Flex>
 
-			<Display level={3}>Data</Display>
+			<Display level={3}>Mono</Display>
 
 			<Flex direction="column" gap="l">
-				<Code size="large">Lorem ipsum dolor sit amet.</Code>
-				<Code size="medium">Lorem ipsum dolor sit amet.</Code>
-				<Code size="normal">Lorem ipsum dolor sit amet.</Code>
-				<Code size="small">Lorem ipsum dolor sit amet.</Code>
+				<Mono size="large">Lorem ipsum dolor sit amet.</Mono>
+				<Mono size="medium">Lorem ipsum dolor sit amet.</Mono>
+				<Mono size="normal">Lorem ipsum dolor sit amet.</Mono>
+				<Mono size="small">Lorem ipsum dolor sit amet.</Mono>
 			</Flex>
 		</ResourcesPage>
 	);

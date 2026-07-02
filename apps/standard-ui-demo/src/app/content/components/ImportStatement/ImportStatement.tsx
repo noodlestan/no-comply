@@ -1,4 +1,4 @@
-import { Code } from '@no-comply/standard-ui';
+import { Mono } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 type ImportStatementProps = {
@@ -9,5 +9,9 @@ type ImportStatementProps = {
 export const ImportStatement: Component<ImportStatementProps> = props => {
 	const statement = () => `import { ${props.name} } from '${props.package}';`;
 
-	return <Code size="small">{statement()}</Code>;
+	return (
+		<Mono tag="code" size="small">
+			{statement()}
+		</Mono>
+	);
 };

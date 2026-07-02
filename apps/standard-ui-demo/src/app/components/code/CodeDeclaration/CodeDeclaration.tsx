@@ -1,7 +1,7 @@
 import type { NoComplyEntityData } from '@no-comply/meta';
 import type { ToggleActionIcons, ToggleActionLabelsProp } from '@no-comply/solid-composables';
 import { createClassList, createIconValue } from '@no-comply/solid-primitives';
-import { Code, Flex, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
+import { Flex, Mono, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
 import {
 	PurrceptionLanguageId,
 	type TypeDeclaration,
@@ -66,13 +66,13 @@ export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
 					</Flex>
 				</Surface>
 			</Show>
-			<Code tag="div">
+			<Mono>
 				<pre data-purrception-lang={PurrceptionLanguageId}>
 					<code>
 						<SolidCodeBlock lang={PurrceptionLanguageId} nodes={[node()]} context={props.entity} />
 					</code>
 				</pre>
-			</Code>
+			</Mono>
 		</Surface>
 	);
 };

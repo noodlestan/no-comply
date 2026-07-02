@@ -1,4 +1,3 @@
-import type { ToggleActionLabelsProp } from '@no-comply/solid-composables';
 import { computedProps, shortId } from '@no-comply/solid-primitives';
 import {
 	Button,

@@ -6,7 +6,6 @@ import {
 	Canvas,
 	Checkbox,
 	CloseButton,
-	Code,
 	DataItem,
 	DataValue,
 	Display,
@@ -29,6 +28,7 @@ import {
 	MenuItemGroup,
 	MenuItemSubMenu,
 	ModalDialog,
+	Mono,
 	NavLink,
 	NumberInput,
 	RangeInput,
@@ -96,7 +96,7 @@ export const STATIC_SCOPE = {
 	// typography
 	ActionLabel,
 	Display,
-	Code,
+	Mono,
 	Label,
 	Text,
 } as const;

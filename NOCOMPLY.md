@@ -1,31 +1,4 @@
-props.aligned
-
-delete \*Aligned components, and compose
-replace variant prop with size:ContentSize
-Display: align 4 variants with ContentSize,
-Display: keep variant the exceptions (hero, tiny) as variant (was xs)
-rename Code component and Mixin to Monospace
-rename --data tokens to --monospace
-
-deletext
-
-variant: size,
-
-import type { ContentSize } from '../size';
-
-export type TextVariant = ContentSize;
-
-export type LabelVariant = ContentSize;
-
-export type ActionLabelVariant = ContentSize;
-
-export type CodeVariant = ContentSize;
-
-/\*\*
-
-- Typography options – defined by {@link @no-comply/standard-ui/typography/mixin/Display#DisplayMixinProps} – should be passed directly to the {@link component:AlignFirstLine} wrapper.
-  \*/
-  const alignedProps = useAlignFirstLine<ComposableDisplayProps>('display');
+rename Code component and Mixin to Monospace; rename --data tokens to --monospace
 
 # No Comply / Standard UI
 

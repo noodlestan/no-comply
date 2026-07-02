@@ -3,7 +3,7 @@ import {
 	createCombinedResource,
 	staticClassList,
 } from '@no-comply/solid-primitives';
-import { Code } from '@no-comply/standard-ui';
+import { Mono } from '@no-comply/standard-ui';
 import * as htmlParser from 'prettier/plugins/html';
 import * as prettier from 'prettier/standalone';
 import { createHighlighter } from 'shiki';
@@ -65,5 +65,5 @@ export const CodeRenderer: Component<CodeRendererProps> = props => {
 
 	const classList = staticClassList(styles, 'CodeRenderer');
 
-	return <Code tag="div" size="small" ref={setRef} classList={classList} />;
+	return <Mono size="small" ref={setRef} classList={classList} />;
 };
