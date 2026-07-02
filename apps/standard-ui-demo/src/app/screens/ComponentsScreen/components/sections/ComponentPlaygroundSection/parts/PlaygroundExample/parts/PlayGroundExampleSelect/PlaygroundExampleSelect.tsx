@@ -23,7 +23,7 @@ export const PlaygroundExampleSelect: Component = () => {
 
 	return (
 		<Flex direction="column" align="start" gap="xs">
-			<Label for="playground-select-example" variant="small">
+			<Label for="playground-select-example" size="small">
 				Select example
 			</Label>
 			<Select

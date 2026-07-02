@@ -27,13 +27,3 @@ export const ToggleShowDocs: Component<Props> = props => {
 		/>
 	);
 };
-
-// <button {...$}>
-// 	<AlignFirstLine height="xs" type="label" variant="small">
-// 		<Flex direction="row" gap="xs" align="start" tag="span" classList={layoutClassList}>
-// 			<Icon {..._icon} />
-// 			<LabelAligned for={id}>{_icon.label}</LabelAligned>
-// 			{/* <Checkbox id={id} checked={props.value} onValueChange={props.onValueChange} /> */}
-// 		</Flex>
-// 	</AlignFirstLine>
-// </button>

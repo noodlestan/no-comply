@@ -1,4 +1,4 @@
-import { CloseButton, Display, Flex, Surface, Text } from '@no-comply/standard-ui';
+import { CloseButton, Display, Flex, Layout, Surface, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
 type ExamplePopoverContentsProps = {
@@ -9,9 +9,9 @@ export const ExamplePopoverContents: Component<ExamplePopoverContentsProps> = pr
 	return (
 		<Surface variant="panel" padding="s" tag="section">
 			<Flex direction="row" justify="between" align="start" gap="2xl">
-				<Flex padding="s">
-					<Display variant="s">Popover Contents</Display>
-				</Flex>
+				<Layout padding="s">
+					<Display>Popover Contents</Display>
+				</Layout>
 				<CloseButton
 					size="small"
 					data-popover-focus-target

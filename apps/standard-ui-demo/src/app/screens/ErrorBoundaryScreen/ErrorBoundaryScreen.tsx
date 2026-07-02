@@ -68,7 +68,7 @@ export const ErrorScreen: ParentComponent = () => {
 							<Icon icon={icon(2)} classList={iconClassList} />
 						</div>
 					</Flex>
-					<Display variant="xl">Ouch</Display>
+					<Display level={1}>Ouch</Display>
 				</Flex>
 			</Layout>
 		</Flex>

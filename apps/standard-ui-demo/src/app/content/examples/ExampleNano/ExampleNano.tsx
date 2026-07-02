@@ -8,7 +8,7 @@ type Props = { title?: string };
 export const ExampleNano: Component<Props> = props => (
 	<>
 		<Show when={props.title}>
-			<Display variant="s">{props.title}</Display>
+			<Display>{props.title}</Display>
 		</Show>
 		<Icon size="small" icon={ClockIcon} />
 		<Icon size="small" icon={SettingsIcon} />

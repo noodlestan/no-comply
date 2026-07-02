@@ -40,7 +40,7 @@ export const ApiEntityPage: Component = () => {
 		<>
 			<Show when={!data()}>
 				<NotFoundPage undertitle={`Entity ${pkg()}:${mod()}/${type()}:${name()} does not exist.`}>
-					<Text variant="large">
+					<Text size="large">
 						<Link href={routeFor.api()}>API home</Link>
 					</Text>
 				</NotFoundPage>

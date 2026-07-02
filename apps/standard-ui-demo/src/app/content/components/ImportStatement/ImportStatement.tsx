@@ -9,5 +9,5 @@ type ImportStatementProps = {
 export const ImportStatement: Component<ImportStatementProps> = props => {
 	const statement = () => `import { ${props.name} } from '${props.package}';`;
 
-	return <Code variant="small">{statement()}</Code>;
+	return <Code size="small">{statement()}</Code>;
 };

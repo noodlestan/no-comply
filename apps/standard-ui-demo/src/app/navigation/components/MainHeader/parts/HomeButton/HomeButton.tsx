@@ -13,7 +13,7 @@ export const HomeButton: Component = () => {
 		<h1 classList={staticClassList(styles, 'HomeButton')} id={$ID_APP_TITLE}>
 			<NavLink size="medium" href={routeFor.home()} nowrap compact>
 				<Icon icon={SquareMousePointerIcon} size="medium" aria-hidden />
-				<Text tag="span" variant="medium">
+				<Text tag="span" size="medium">
 					Standard UI
 				</Text>
 			</NavLink>

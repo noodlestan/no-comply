@@ -11,7 +11,7 @@ export const ColorPopover: Component<ColorPopoverProps> = props => {
 		<Surface variant="panel" padding="s" tag="section">
 			<Flex direction="row" justify="between" align="start" gap="2xl">
 				<Flex padding="s">
-					<Display variant="s">{props.color}</Display>
+					<Display size="small">{props.color}</Display>
 				</Flex>
 				<CloseButton
 					size="small"

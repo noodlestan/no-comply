@@ -19,13 +19,13 @@ export const SplashBox: Component<Props> = props => {
 			padding="l"
 			gap="2xl"
 		>
-			<Display level={1} variant="l" id={props.labelId}>
+			<Display level={1} size="medium" id={props.labelId}>
 				Standard UI
 			</Display>
 			<Flex flex={1} classList={staticClassList(styles, '-Logo')}>
 				<IconSvg />
 			</Flex>
-			<Text variant="medium">Made in Noodlestan</Text>
+			<Text size="medium">Made in Noodlestan</Text>
 		</Flex>
 	);
 };

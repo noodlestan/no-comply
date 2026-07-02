@@ -44,7 +44,7 @@ export const ContentSizePage: Component = () => {
 				<Button size="small">small</Button>
 				<ToggleButton size="small" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="small" label="small" icon={ClockIcon} />
-				<Checkbox size="xs" checked={checkboxValue()} onValueChange={setCheckboxValue} />
+				<Checkbox size="small" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="small" value={textValue()} onValueChange={setTextValue} />
 				<SegmentedButton
 					name="small"
@@ -66,7 +66,7 @@ export const ContentSizePage: Component = () => {
 				<Button size="normal">normal</Button>
 				<ToggleButton size="normal" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="normal" label="normal" icon={ClockIcon} />
-				<Checkbox size="s" checked={checkboxValue()} onValueChange={setCheckboxValue} />
+				<Checkbox size="normal" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="normal" value={textValue()} onValueChange={setTextValue} />
 				<SegmentedButton
 					name="normal"
@@ -88,7 +88,7 @@ export const ContentSizePage: Component = () => {
 				<Button size="medium">medium</Button>
 				<ToggleButton size="medium" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="medium" label="medium" icon={ClockIcon} />
-				<Checkbox size="m" checked={checkboxValue()} onValueChange={setCheckboxValue} />
+				<Checkbox size="medium" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="medium" value={textValue()} onValueChange={setTextValue} />
 				<SegmentedButton
 					name="medium"
@@ -110,7 +110,7 @@ export const ContentSizePage: Component = () => {
 				<Button size="large">large</Button>
 				<ToggleButton size="large" variant="secondary" value={true} labels={LABELS} />
 				<IconButton size="large" label="large" icon={ClockIcon} />
-				<Checkbox size="l" checked={checkboxValue()} onValueChange={setCheckboxValue} />
+				<Checkbox size="large" checked={checkboxValue()} onValueChange={setCheckboxValue} />
 				<TextInput length="s" size="large" value={textValue()} onValueChange={setTextValue} />
 				<SegmentedButton
 					name="large"

@@ -56,7 +56,7 @@ export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
 			<Show when={props.resolve === 'show'}>
 				<Surface variant="panel" padding="s">
 					<Flex direction="row-reverse" gap="m" align="center" justify="end">
-						{resolve() ? <Text variant="small">Viewing resolved types</Text> : <span />}
+						{resolve() ? <Text size="small">Viewing resolved types</Text> : <span />}
 						<ToggleButton
 							value={resolve()}
 							labels={LABELS}

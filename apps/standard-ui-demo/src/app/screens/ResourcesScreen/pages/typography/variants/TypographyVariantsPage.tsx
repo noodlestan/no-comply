@@ -9,48 +9,48 @@ export const TypographyVariantsPage: Component = () => {
 			<Display level={3}>Display</Display>
 
 			<Flex direction="column" gap="l">
-				<Display variant="hero">Display Variant Hero</Display>
-				<Display variant="xl">Display Variant XL (Level 1)</Display>
-				<Display variant="l">Display Variant L (Level 2)</Display>
-				<Display variant="m">Display Variant M (Level 3)</Display>
-				<Display variant="s">Display Variant S (Level 4)</Display>
-				<Display variant="xs">Display Variant XS (Level 5)</Display>
+				<Display variant="huge">Display Variant Huge</Display>
+				<Display size="large">Display Variant XL (Level 1)</Display>
+				<Display size="medium">Display Variant L (Level 2)</Display>
+				<Display size="normal">Display Variant M (Level 3)</Display>
+				<Display size="small">Display Variant S (Level 4)</Display>
+				<Display variant="tiny">Display Variant XS (Level 5)</Display>
 			</Flex>
 
 			<Display level={3}>Text</Display>
 
 			<Flex direction="column" gap="l">
-				<Text variant="large">Lorem ipsum dolor sit amet.</Text>
-				<Text variant="medium">Lorem ipsum dolor sit amet.</Text>
-				<Text variant="normal">Lorem ipsum dolor sit amet.</Text>
-				<Text variant="small">Lorem ipsum dolor sit amet.</Text>
+				<Text size="large">Lorem ipsum dolor sit amet.</Text>
+				<Text size="medium">Lorem ipsum dolor sit amet.</Text>
+				<Text size="normal">Lorem ipsum dolor sit amet.</Text>
+				<Text size="small">Lorem ipsum dolor sit amet.</Text>
 			</Flex>
 
 			<Display level={3}>Label</Display>
 
 			<Flex direction="column" gap="l">
-				<Label variant="large">Lorem ipsum dolor sit amet.</Label>
-				<Label variant="medium">Lorem ipsum dolor sit amet.</Label>
-				<Label variant="normal">Lorem ipsum dolor sit amet.</Label>
-				<Label variant="small">Lorem ipsum dolor sit amet.</Label>
+				<Label size="large">Lorem ipsum dolor sit amet.</Label>
+				<Label size="medium">Lorem ipsum dolor sit amet.</Label>
+				<Label size="normal">Lorem ipsum dolor sit amet.</Label>
+				<Label size="small">Lorem ipsum dolor sit amet.</Label>
 			</Flex>
 
 			<Display level={3}>Action</Display>
 
 			<Flex direction="column" gap="l">
-				<ActionLabel variant="large">Lorem ipsum dolor sit amet.</ActionLabel>
-				<ActionLabel variant="medium">Lorem ipsum dolor sit amet.</ActionLabel>
-				<ActionLabel variant="normal">Lorem ipsum dolor sit amet.</ActionLabel>
-				<ActionLabel variant="small">Lorem ipsum dolor sit amet.</ActionLabel>
+				<ActionLabel size="large">Lorem ipsum dolor sit amet.</ActionLabel>
+				<ActionLabel size="medium">Lorem ipsum dolor sit amet.</ActionLabel>
+				<ActionLabel size="normal">Lorem ipsum dolor sit amet.</ActionLabel>
+				<ActionLabel size="small">Lorem ipsum dolor sit amet.</ActionLabel>
 			</Flex>
 
 			<Display level={3}>Data</Display>
 
 			<Flex direction="column" gap="l">
-				<Code variant="large">Lorem ipsum dolor sit amet.</Code>
-				<Code variant="medium">Lorem ipsum dolor sit amet.</Code>
-				<Code variant="normal">Lorem ipsum dolor sit amet.</Code>
-				<Code variant="small">Lorem ipsum dolor sit amet.</Code>
+				<Code size="large">Lorem ipsum dolor sit amet.</Code>
+				<Code size="medium">Lorem ipsum dolor sit amet.</Code>
+				<Code size="normal">Lorem ipsum dolor sit amet.</Code>
+				<Code size="small">Lorem ipsum dolor sit amet.</Code>
 			</Flex>
 		</ResourcesPage>
 	);

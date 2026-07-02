@@ -43,10 +43,10 @@ export const ShowSpace: Component<Props> = props => {
 			classList={classList()}
 			style={style()}
 		>
-			<Text variant="large">{props.size}</Text>
+			<Text size="large">{props.size}</Text>
 			<Flex direction="row" align="start" gap="m">
 				<div classList={staticClassList(styles, 'viz')} ref={setElementRef} />
-				<Text variant="small">{size()}</Text>
+				<Text size="small">{size()}</Text>
 			</Flex>
 		</Flex>
 	);

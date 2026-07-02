@@ -1,4 +1,3 @@
-import type { ToggleActionLabelsProp } from '@no-comply/solid-composables';
 import { computedProps, shortId } from '@no-comply/solid-primitives';
 import {
 	Checkbox,
@@ -20,26 +19,6 @@ import { type Component, createSignal } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
 
-const DISABLED_TOGGLE_LABELS: ToggleActionLabelsProp = {
-	on: 'Disabled',
-	off: 'Enabled',
-};
-
-const INVALID_TOGGLE_LABELS: ToggleActionLabelsProp = {
-	on: 'Invalid',
-	off: 'Valid',
-};
-
-const POSITIVE_TOGGLE_LABELS: ToggleActionLabelsProp = {
-	on: 'Positive',
-	off: 'Neutral',
-};
-
-const MODIFIED_TOGGLE_LABELS: ToggleActionLabelsProp = {
-	on: 'Modified',
-	off: 'Unmodified',
-};
-
 export const InteractionsInputsPage: Component = () => {
 	const [textValue, setTextValue] = createSignal('foo');
 	const [numberValue, setNumberValue] = createSignal(123.45);
@@ -47,16 +26,16 @@ export const InteractionsInputsPage: Component = () => {
 	const [selectValue, setSelectValue] = createSignal('top');
 	const [checkboxValue, setCheckboxValue] = createSignal(true);
 
-	const [disabled, setDisabled] = createSignal(false);
-	const [invalid, setInvalid] = createSignal(false);
-	const [positive, setPositive] = createSignal(false);
 	const [modified, setModified] = createSignal(false);
+	const [positive, setPositive] = createSignal(false);
+	const [invalid, setInvalid] = createSignal(false);
+	const [disabled, setDisabled] = createSignal(false);
 
 	const $ = computedProps({
-		disabled,
-		invalid,
 		positive,
 		modified,
+		invalid,
+		disabled,
 	});
 	const options = () => (
 		<>
@@ -78,37 +57,37 @@ export const InteractionsInputsPage: Component = () => {
 		<ResourcesPage title="Inputs">
 			<Surface variant="panel" role="toolbar" padding="xs" aria-labelledby={toolbarLabelId}>
 				<Flex direction="row" align="center" gap="l" wrap>
-					<Text tag="h3" variant="small" id={toolbarLabelId}>
+					<Text tag="h3" size="small" id={toolbarLabelId}>
 						Apply to all
 					</Text>
 					<Flex direction="row" gap="xs" wrap>
 						<ToggleButton
 							size="small"
 							variant="secondary"
-							value={disabled()}
-							onPress={() => setDisabled(v => !v)}
-							labels={DISABLED_TOGGLE_LABELS}
-						/>
-						<ToggleButton
-							size="small"
-							variant="secondary"
-							value={invalid()}
-							onPress={() => setInvalid(v => !v)}
-							labels={INVALID_TOGGLE_LABELS}
+							value={modified()}
+							onPress={() => setModified(v => !v)}
+							labels="Modified"
 						/>
 						<ToggleButton
 							size="small"
 							variant="secondary"
 							value={positive()}
 							onPress={() => setPositive(v => !v)}
-							labels={POSITIVE_TOGGLE_LABELS}
+							labels="Positive"
 						/>
 						<ToggleButton
 							size="small"
 							variant="secondary"
-							value={modified()}
-							onPress={() => setModified(v => !v)}
-							labels={MODIFIED_TOGGLE_LABELS}
+							value={invalid()}
+							onPress={() => setInvalid(v => !v)}
+							labels="Invalid"
+						/>
+						<ToggleButton
+							size="small"
+							variant="secondary"
+							value={disabled()}
+							onPress={() => setDisabled(v => !v)}
+							labels="Disabled"
 						/>
 					</Flex>
 				</Flex>
@@ -118,7 +97,7 @@ export const InteractionsInputsPage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="normal" icon={ClockIcon} />
-				<Checkbox size="xs" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
+				<Checkbox size="small" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
 				<TextInput
 					length="s"
 					size="small"
@@ -152,7 +131,7 @@ export const InteractionsInputsPage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="medium" icon={ClockIcon} />
-				<Checkbox size="s" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
+				<Checkbox size="normal" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
 				<TextInput
 					length="s"
 					size="normal"
@@ -186,7 +165,7 @@ export const InteractionsInputsPage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="large" icon={ClockIcon} />
-				<Checkbox size="m" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
+				<Checkbox size="medium" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
 				<TextInput
 					length="s"
 					size="medium"
@@ -220,7 +199,7 @@ export const InteractionsInputsPage: Component = () => {
 
 			<Flex direction="row" align="center" gap="l" wrap>
 				<Icon size="large" icon={ClockIcon} />
-				<Checkbox size="l" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
+				<Checkbox size="large" checked={checkboxValue()} onValueChange={setCheckboxValue} {...$} />
 				<TextInput
 					length="s"
 					size="large"

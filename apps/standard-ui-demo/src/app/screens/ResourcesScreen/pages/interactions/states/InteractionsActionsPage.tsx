@@ -18,11 +18,6 @@ import { type Component, createSignal } from 'solid-js';
 
 import { ResourcesPage } from '../../../private';
 
-const DISABLED_TOGGLE_LABELS: ToggleActionLabelsProp = {
-	on: 'Disabled',
-	off: 'Enabled',
-};
-
 export const InteractionsActionsPage: Component = () => {
 	const [disabled, setDisabled] = createSignal(false);
 
@@ -36,7 +31,7 @@ export const InteractionsActionsPage: Component = () => {
 		<ResourcesPage title="Actions and Links">
 			<Surface variant="panel" role="toolbar" padding="xs" aria-labelledby={toolbarLabelId}>
 				<Flex direction="row" align="center" gap="l" wrap>
-					<Text tag="h3" variant="small" id={toolbarLabelId}>
+					<Text tag="h3" size="small" id={toolbarLabelId}>
 						Apply to all
 					</Text>
 					<Flex direction="row" gap="xs" wrap>
@@ -45,7 +40,7 @@ export const InteractionsActionsPage: Component = () => {
 							variant="secondary"
 							value={disabled()}
 							onPress={() => setDisabled(v => !v)}
-							labels={DISABLED_TOGGLE_LABELS}
+							labels="Disabled"
 						/>
 					</Flex>
 				</Flex>

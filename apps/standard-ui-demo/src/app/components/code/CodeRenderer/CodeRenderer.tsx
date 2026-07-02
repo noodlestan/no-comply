@@ -65,5 +65,5 @@ export const CodeRenderer: Component<CodeRendererProps> = props => {
 
 	const classList = staticClassList(styles, 'CodeRenderer');
 
-	return <Code tag="div" variant="small" ref={setRef} classList={classList} />;
+	return <Code tag="div" size="small" ref={setRef} classList={classList} />;
 };

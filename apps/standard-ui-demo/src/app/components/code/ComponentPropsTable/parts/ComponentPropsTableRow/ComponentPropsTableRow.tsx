@@ -52,7 +52,7 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 		<Flex tag="article" arial-label direction="column" gap="m">
 			<Flex direction="row" gap="s" align="baseline" wrap>
 				<Flex direction="column" flex={1}>
-					<Display id={props.id} level={6} variant="xs">
+					<Display id={props.id} level={6}>
 						{props.prop.name}
 					</Display>
 				</Flex>
@@ -82,7 +82,7 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 				<Flex direction="row" align="baseline" gap="s">
 					<div>{props.prop.node.optional ? 'optional' : 'mandatory'}</div>
 					<Show when={defaultValue()}>
-						<Text variant="small">(default: {defaultValue()})</Text>
+						<Text size="small">(default: {defaultValue()})</Text>
 					</Show>
 				</Flex>
 			</Show>

@@ -1,14 +1,5 @@
-import {
-	AlignFirstLine,
-	Button,
-	Display,
-	DisplayAligned,
-	Flex,
-	Icon,
-	IconButton,
-	Surface,
-	Text,
-} from '@no-comply/standard-ui';
+import { AlignFirstLine } from '@no-comply/solid-composables';
+import { Button, Display, Flex, Icon, IconButton, Surface, Text } from '@no-comply/standard-ui';
 import SquareStackIcon from 'lucide-solid/icons/square-stack';
 import { type Component } from 'solid-js';
 
@@ -22,13 +13,15 @@ export const MediumCompositionsPage: Component = () => {
 
 			<Surface variant="card" padding="l">
 				<Flex direction="row" gap="l" align="start" justify="between">
-					<AlignFirstLine height="s" type="display" variant="m">
-						<Icon size="normal" icon={SquareStackIcon} aligned />
+					<AlignFirstLine>
+						<Icon size="normal" icon={SquareStackIcon} alignFirstLine="measure" />
 						<Flex direction="column" gap="l">
 							<Flex direction="column" gap="m">
-								<DisplayAligned>Display M (Level 3)</DisplayAligned>
-								<Display variant="xs" tag="p">
-									And Display XS
+								<Display alignFirstLine="target" size="medium">
+									Display Medium (H3)
+								</Display>
+								<Display size="small" tag="p">
+									Display Small
 								</Display>
 								<Text>
 									<LoremIpsum words={33} />
@@ -43,7 +36,7 @@ export const MediumCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="normal" icon={SquareStackIcon} label="normal" aligned />
+						<IconButton size="normal" icon={SquareStackIcon} label="normal" alignFirstLine />
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
@@ -52,12 +45,14 @@ export const MediumCompositionsPage: Component = () => {
 
 			<Surface variant="page">
 				<Flex direction="row" gap="l" align="start" justify="between">
-					<AlignFirstLine height="s" type="display" variant="s">
+					<AlignFirstLine>
 						<Flex direction="column" gap="l">
 							<Flex direction="column" gap="m">
-								<DisplayAligned>Display S (Level 4)</DisplayAligned>
-								<Text variant="medium" tag="p">
-									And Text Medium
+								<Display alignFirstLine="target" size="small">
+									Display Small (h4)
+								</Display>
+								<Text size="medium" tag="p">
+									Text Medium
 								</Text>
 								<Text>
 									<LoremIpsum words={33} />
@@ -72,7 +67,12 @@ export const MediumCompositionsPage: Component = () => {
 								</Button>
 							</Flex>
 						</Flex>
-						<IconButton size="normal" icon={SquareStackIcon} label="normal" aligned />
+						<IconButton
+							size="normal"
+							icon={SquareStackIcon}
+							label="normal"
+							alignFirstLine="measure"
+						/>
 					</AlignFirstLine>
 				</Flex>
 			</Surface>
