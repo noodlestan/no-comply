@@ -7,20 +7,20 @@ import {
 	createClassList,
 } from '@no-comply/solid-primitives';
 
-import styles from './CodeMixin.module.scss';
-import { $CODE_MIXIN } from './constants';
-import type { CodeMixinAPI, CodeMixinProps } from './types';
+import styles from './MonoMixin.module.scss';
+import { $MONO_MIXIN } from './constants';
+import type { MonoMixinAPI, MonoMixinProps } from './types';
 
-const defaultProps: PickRequired<CodeMixinProps, 'size'> = {
+const defaultProps: PickRequired<MonoMixinProps, 'size'> = {
 	size: 'normal',
 };
 
-export const createCodeMixin = (props: CodeMixinProps): CodeMixinAPI => {
-	const [locals, expose, compose] = createExposable($CODE_MIXIN, props);
+export const createMonoMixin = (props: MonoMixinProps): MonoMixinAPI => {
+	const [locals, expose, compose] = createExposable($MONO_MIXIN, props);
 
 	const size = () => locals.size ?? defaultProps.size;
 
-	const classList = createClassList(styles, () => ['Code', `size-${size()}`]);
+	const classList = createClassList(styles, () => ['Mono', `size-${size()}`]);
 
 	const { $root: $typographyMixinRoot } = compose(createTypographyMixin(locals));
 

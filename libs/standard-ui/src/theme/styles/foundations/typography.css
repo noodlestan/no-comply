@@ -68,21 +68,21 @@
     --label-size-large-size: var(--typography-step-2);
     --label-size-large-weight: 600;
 
-    /* data */
+    /* mono */
 
-    --data-base-family: 'Consolas', 'Andale Mono', monospace;
-    --data-base-size: var(--typography-step--1);
-    --data-base-weight: 300;
-    --data-base-height: 1.5;
-    --data-base-spacing: 1;
+    --mono-base-family: 'Consolas', 'Andale Mono', monospace;
+    --mono-base-size: var(--typography-step--1);
+    --mono-base-weight: 300;
+    --mono-base-height: 1.5;
+    --mono-base-spacing: 1;
 
-    --data-size-small-size: var(--typography-step--2);
-    --data-size-normal-size: var(--typography-step--1);
-    --data-size-normal-weight: 300;
-    --data-size-medium-size: var(--typography-step-0);
-    --data-size-medium-weight: 400;
-    --data-size-large-size: var(--typography-step-2);
-    --data-size-large-weight: 500;
+    --mono-size-small-size: var(--typography-step--2);
+    --mono-size-normal-size: var(--typography-step--1);
+    --mono-size-normal-weight: 300;
+    --mono-size-medium-size: var(--typography-step-0);
+    --mono-size-medium-weight: 400;
+    --mono-size-large-size: var(--typography-step-2);
+    --mono-size-large-weight: 500;
 
     /* input */
 

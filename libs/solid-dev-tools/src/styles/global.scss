@@ -18,8 +18,8 @@
     display: block;
     padding: 1px 3px;
     content: attr(data-surface);
-    font-family: var(--data-base-family);
-    font-size: var(--data-size-small-size);
+    font-family: var(--mono-base-family);
+    font-size: var(--mono-size-small-size);
     pointer-events: none;
 
     @include apply-color(color, __debug-fg);

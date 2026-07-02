@@ -2,9 +2,9 @@ import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { computedProps } from '@no-comply/solid-primitives';
 
 import { createActionLabelMixin } from '../ActionLabel';
-import { createCodeMixin } from '../Code';
 import { createDisplayMixin } from '../Display';
 import { createLabelMixin } from '../Label';
+import { createMonoMixin } from '../Mono';
 import { createTextMixin } from '../Text';
 
 import { $COMPOSABLE_TYPE_MIXIN } from './constants';
@@ -25,8 +25,8 @@ export const createComposableTypeMixin = (
 		if (locals.type === 'label') {
 			return createLabelMixin(locals);
 		}
-		if (locals.type === 'code') {
-			return createCodeMixin(locals);
+		if (locals.type === 'mono') {
+			return createMonoMixin(locals);
 		}
 		return createTextMixin(locals);
 	};
