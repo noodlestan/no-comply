@@ -1,0 +1,8 @@
+@layer composables {
+  .SizedTypography {
+    // applied to the <AlignFirstLine> wrapper
+    --__first-line-text-height: calc(var(--__type-font-size) * var(--__type-line-height));
+    // applied locally to compute the offset
+    --__first-line-element-height: var(--__first-line-text-height);
+  }
+}

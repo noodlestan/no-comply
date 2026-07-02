@@ -10,8 +10,6 @@
     text-transform: var(--__type-transform, none);
     white-space: inherit;
     text-wrap-style: var(--__type-wrap-style, inherit);
-
-    --__first-line-element-height: calc(var(--__type-font-size) * var(--__type-line-height));
   }
 
   .nowrap {

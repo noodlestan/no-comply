@@ -1,16 +1,12 @@
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps, computedProps, createClassList } from '@no-comply/solid-primitives';
-
-import { createAlignedToFirstLineMixin } from '../AlignedToFirstLine';
+import { computedProps, createClassList } from '@no-comply/solid-primitives';
 
 import styles from './TypographyMixin.module.scss';
 import { $TYPOGRAPHY_MIXIN } from './constants';
 import type { TypographyMixinAPI, TypographyMixinProps } from './types';
 
 export const createTypographyMixin = (props: TypographyMixinProps): TypographyMixinAPI => {
-	const [locals, expose, compose] = createExposable($TYPOGRAPHY_MIXIN, props);
-
-	const { $root: $alignedToFirstLine } = compose(createAlignedToFirstLineMixin(locals));
+	const [locals, expose] = createExposable($TYPOGRAPHY_MIXIN, props);
 
 	const classList = createClassList(styles, () => ({
 		Typography: true,
@@ -22,6 +18,6 @@ export const createTypographyMixin = (props: TypographyMixinProps): TypographyMi
 	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($alignedToFirstLine, $root),
+		$root,
 	});
 };
