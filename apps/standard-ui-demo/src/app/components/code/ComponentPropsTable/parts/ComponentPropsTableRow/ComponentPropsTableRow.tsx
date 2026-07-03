@@ -87,12 +87,12 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 				</Flex>
 			</Show>
 			<Show when={props.showDocs && !props.showGroups && typeRef()}>
-				<Text>
+				<Text size="small">
 					Composed from <Link href={sourceHref()}>{typeRef()}</Link>
 				</Text>
 			</Show>
 			<Show when={props.showDocs && props.prop.node.description}>
-				<CodeDocDescription node={props.prop.node} />
+				<CodeDocDescription size="small" node={props.prop.node} />
 			</Show>
 		</Flex>
 	);

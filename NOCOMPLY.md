@@ -1,5 +1,7 @@
 # No Comply / Standard UI
 
+## VisuallyHidden when={}
+
 ## PendingText
 
 <Display><PendingText>{resource()}</PendingText></Display>
@@ -360,6 +362,12 @@ onCleanup(cleanupProducer)
 
 # Standard UI Demo
 
+## Refactor all Code components and helpers into a single module
+
+## Make CodeDocDescription use markdown instead
+
+createDocBlock(node) => {tags, links, contents}
+
 ## Code blocks
 
 - use serializer + prettier + shiki (link nodes!)
@@ -463,10 +471,6 @@ in `libs/standard-ui/dist/meta.json`
 
 step 1 - decorate the links at extraction time in `extractDescription()`
 step 2 - auto link
-
-## Utility to render links in any JSDoc
-
-apps/standard-ui-demo/src/app/components/code/CodeDocDescription/CodeDocDescription.tsx
 
 ## ambient resolutions
 

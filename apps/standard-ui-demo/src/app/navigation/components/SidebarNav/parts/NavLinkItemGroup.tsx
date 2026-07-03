@@ -29,6 +29,7 @@ export const NavLinkItemGroup: Component<SidebarNavGroup> = props => {
 									onPress={handleNavLink}
 									layout="v"
 									highlight="before"
+									size="small"
 								>
 									{item.title}
 								</NavLink>

@@ -69,7 +69,7 @@ export const ComponentMainPreview: Component<Props> = props => {
 			<ComponentPlaygroundPropsProvider component={component()}>
 				<Flex direction="column" stretch="height" gap="m" classList={classList}>
 					<Flex classList={staticClassList(styles, ['-Header'])}>
-						<Display level={3} size="small">
+						<Display level={3}>
 							<Suspense fallback={'...'}>{title()}</Suspense>
 						</Display>
 					</Flex>

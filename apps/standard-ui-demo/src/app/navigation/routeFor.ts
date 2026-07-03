@@ -6,7 +6,10 @@ export const routeFor = {
 	home: (): string => url(`/`),
 	showcase: (screen: string = ''): string => url(`/app/${screen}`),
 	feature: (name: string): string => url(`/features/${name}`),
-	component: (name: string): string => url(`/features/components/${name}`),
+	component: (name: string, symbol?: string): string => {
+		const base = url(`/features/components/${name}`);
+		return symbol ? url(`${base}#${symbol}`) : url(base);
+	},
 	playground: (name: string): string => url(`/features/components/${name}/playground`),
 	resources: (name: string = ''): string => url(`/resources/${name}`),
 	api: (path?: string): string => (path ? url(`/api/${path}`) : url(`/api`)),
@@ -27,9 +30,9 @@ export const routeFor = {
 		}
 		return url(`/api/${pkg}/${module}/${t}/${name}`);
 	},
-	entitySymbol: (ent: NoComplyEntityData, symbol: string): string => {
+	entitySymbol: (ent: NoComplyEntityData, symbol?: string): string => {
 		const route = routeFor.entity(ent);
-		return url(`${route}#${symbol}`);
+		return symbol ? url(`${route}#${symbol}`) : url(route);
 	},
 	settings: (): string => url(`/settings`),
 };

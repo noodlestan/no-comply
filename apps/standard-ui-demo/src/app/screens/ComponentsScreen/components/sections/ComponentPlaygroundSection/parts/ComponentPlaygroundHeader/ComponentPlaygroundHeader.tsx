@@ -1,8 +1,8 @@
 import { VisuallyHidden } from '@no-comply/solid-composables';
-import { Display, Flex, Icon, Link, Text } from '@no-comply/standard-ui';
-import BookOpenIcon from 'lucide-solid/icons/book-open';
+import { Display, Flex, Link } from '@no-comply/standard-ui';
 import { type Component, Show } from 'solid-js';
 
+import { APILink } from '../../../../../../../components';
 import { routeFor } from '../../../../../../../navigation';
 import { $ID_PLAYGROUND_STATUS, $ID_PLAYGROUND_TITLE } from '../../../../../constants';
 import { useComponentExamples, useComponentPlaygroundProps } from '../../../../../providers';
@@ -33,11 +33,7 @@ export const ComponentPlaygroundHeader: Component = () => {
 					aria-label={`Links for ${component().name} component`}
 				>
 					<Link href={routeFor.component(component().name)}>Component page</Link>
-					<Link href={routeFor.entity(component())}>
-						<Flex tag="span" direction="row" gap="xs" align="center">
-							<Icon icon={BookOpenIcon} size="small" /> <Text size="small">API</Text>
-						</Flex>
-					</Link>
+					<APILink entity={component()} />
 				</Flex>
 			</Flex>
 
