@@ -31,7 +31,7 @@ export const entityExtractor: DirectoryEntityProcessor<
 	const imported = program.extractImportedSymbols();
 	const factory = functions[0];
 	const component = components[0];
-	const declared = program.indexDeclaredSymbols([factory, component], types);
+	const declared = program.indexDeclaredSymbols([factory, component].filter(Boolean), types);
 
 	return [
 		{
