@@ -1,11 +1,12 @@
 import type { ComponentDeclaration } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 
 export function layoutComponentDeclaration(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	declaration: ComponentDeclaration,
 ): CodeLayoutNode[] {
 	return [
@@ -16,7 +17,7 @@ export function layoutComponentDeclaration(
 		spaceToken(),
 		keywordToken('Component'),
 		symbolToken('<'),
-		...(declaration.node.props ? layoutExpression(ctx, declaration.node.props) : []),
+		...(declaration.node.props ? layoutExpression(context, declaration.node.props) : []),
 		symbolToken('>'),
 	];
 }

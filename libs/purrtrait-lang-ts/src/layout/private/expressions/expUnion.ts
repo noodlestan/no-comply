@@ -1,17 +1,18 @@
 import type { UnionTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { group, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
-export function expUnion(ctx: CodeLayoutContextValue, node: UnionTypeNode): CodeLayoutNode[] {
+export function expUnion(context: LangTsLayoutContext, node: UnionTypeNode): CodeLayoutNode[] {
 	return [
 		group(
 			eachExpression(
-				ctx,
+				context,
 				node.entries,
-				(ctx, entry) => layoutExpression(ctx, entry),
+				(context, entry) => layoutExpression(context, entry),
 				() => [spaceToken(), symbolToken('|'), spaceToken()],
 			),
 		),

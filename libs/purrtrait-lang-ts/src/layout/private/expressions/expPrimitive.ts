@@ -1,6 +1,8 @@
 import type { PrimitiveNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
-export function expPrimitive(ctx: CodeLayoutContextValue, node: PrimitiveNode): CodeLayoutNode[] {
+import type { LangTsLayoutContext } from '../../../private';
+
+export function expPrimitive(_context: LangTsLayoutContext, node: PrimitiveNode): CodeLayoutNode[] {
 	return [{ type: 'token', kind: 'identifier', value: node.primitive }];
 }

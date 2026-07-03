@@ -1,20 +1,21 @@
 import type { TypeRefNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { identifierToken, spaceToken, symbolToken, typeRefToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
-export function expTypeRef(ctx: CodeLayoutContextValue, node: TypeRefNode): CodeLayoutNode[] {
-	const nodes: CodeLayoutNode[] = [typeRefToken(ctx, node.ref)];
+export function expTypeRef(context: LangTsLayoutContext, node: TypeRefNode): CodeLayoutNode[] {
+	const nodes: CodeLayoutNode[] = [typeRefToken(context, node.ref)];
 
 	if (node.params) {
 		nodes.push(
 			symbolToken('<'),
 			...eachExpression(
-				ctx,
+				context,
 				node.params,
-				(ctx, param) => layoutExpression(ctx, param),
+				(context, param) => layoutExpression(context, param),
 				() => [symbolToken(','), spaceToken()],
 			),
 			symbolToken('>'),

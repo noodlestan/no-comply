@@ -1,7 +1,7 @@
 import type { TypeExpressionNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
-import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
+import type { LangTsLayoutContext } from '../../private';
 
 import {
 	expArray,
@@ -23,42 +23,42 @@ import {
 import { expTypeRef } from './expressions/expTypeRef';
 
 export function layoutExpression(
-	ctx: CodeLayoutContextValue | CodeLayoutWithGenericParamsContextValue,
+	context: LangTsLayoutContext,
 	exp: TypeExpressionNode,
 ): CodeLayoutNode[] {
 	switch (exp.kind) {
 		case 'ref':
-			return expTypeRef(ctx, exp);
+			return expTypeRef(context, exp);
 		case 'primitive':
-			return expPrimitive(ctx, exp);
+			return expPrimitive(context, exp);
 		case 'object':
-			return expObject(ctx, exp);
+			return expObject(context, exp);
 		case 'intersection':
-			return expIntersection(ctx, exp);
+			return expIntersection(context, exp);
 		case 'union':
-			return expUnion(ctx, exp);
+			return expUnion(context, exp);
 		case 'pick':
-			return expPick(ctx, exp);
+			return expPick(context, exp);
 		case 'omit':
-			return expOmit(ctx, exp);
+			return expOmit(context, exp);
 		case 'literal':
-			return expLiteral(ctx, exp);
+			return expLiteral(context, exp);
 		case 'array':
-			return expArray(ctx, exp);
+			return expArray(context, exp);
 		case 'tuple':
-			return expTuple(ctx, exp);
+			return expTuple(context, exp);
 		case 'template-literal':
-			return expTemplateLiteral(ctx, exp);
+			return expTemplateLiteral(context, exp);
 		case 'operator':
-			return expOperator(ctx, exp);
+			return expOperator(context, exp);
 		case 'mapped':
-			return expMapped(ctx, exp);
+			return expMapped(context, exp);
 		case 'conditional':
-			return expConditional(ctx, exp);
+			return expConditional(context, exp);
 		case 'infer':
-			return expInfer(ctx, exp);
+			return expInfer(context, exp);
 		case 'function':
-			return expFunction(ctx, exp);
+			return expFunction(context, exp);
 		default:
 			throw new Error(`Unknown kind ${(exp as TypeExpressionNode).kind} in expression`);
 	}

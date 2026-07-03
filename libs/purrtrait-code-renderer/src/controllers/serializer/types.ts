@@ -1,8 +1,8 @@
-export type CodeSerializerLinkResolver = (value: string) => string | undefined;
+import type { CodeNodeLinker } from '../../types';
 
 export type CodeSerializerOptions = {
-	linkResolver?: CodeSerializerLinkResolver;
 	columns?: number;
+	linker?: CodeNodeLinker;
 };
 
 export type CodeSerializerOutput = {
@@ -12,8 +12,8 @@ export type CodeSerializerOutput = {
 
 export type CodeSerializerAPI = {
 	serialize: (
-		ctx: import('../layout/contexts').CodeLayoutContextValue,
 		lang: string,
-		node: object,
+		node: object | object[],
+		linkerContext?: object,
 	) => CodeSerializerOutput;
 };

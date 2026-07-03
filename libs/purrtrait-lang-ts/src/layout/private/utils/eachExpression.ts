@@ -1,16 +1,18 @@
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
-type LayoutItemFunction<T> = (ctx: CodeLayoutContextValue, item: T) => CodeLayoutNode[];
+import type { LangTsLayoutContext } from '../../../private';
+
+type LayoutItemFunction<T> = (context: LangTsLayoutContext, item: T) => CodeLayoutNode[];
 type LayoutSeparatorFunction = () => CodeLayoutNode[];
 
 export function eachExpression<T>(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	items: T[] = [],
 	layoutItem: LayoutItemFunction<T>,
 	layoutSeparator?: LayoutSeparatorFunction,
 ): CodeLayoutNode[] {
 	return Object.values(items).flatMap((item, i, arr) => [
-		...layoutItem(ctx, item),
+		...layoutItem(context, item),
 		...(i < arr.length - 1 && layoutSeparator ? layoutSeparator() : []),
 	]);
 }

@@ -5,7 +5,9 @@ import type {
 	InterfaceDeclaration,
 	TypeExpressionDeclaration,
 } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
+
+import type { LangTsLayoutContext } from '../../private';
 
 import {
 	layoutComponentDeclaration,
@@ -15,19 +17,19 @@ import {
 import { layoutFunctionDeclaration } from './declarations/layoutFunctionDeclaration';
 
 export function layoutDeclaration(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	declaration: Declaration,
 ): CodeLayoutNode[] {
 	if ('kind' in declaration) {
 		switch (declaration.kind) {
 			case 'type':
-				return layoutTypeDeclaration(ctx, declaration as TypeExpressionDeclaration);
+				return layoutTypeDeclaration(context, declaration as TypeExpressionDeclaration);
 			case 'function':
-				return layoutFunctionDeclaration(ctx, declaration as FunctionDeclaration);
+				return layoutFunctionDeclaration(context, declaration as FunctionDeclaration);
 			case 'component':
-				return layoutComponentDeclaration(ctx, declaration as ComponentDeclaration);
+				return layoutComponentDeclaration(context, declaration as ComponentDeclaration);
 			case 'interface':
-				return layoutInterfaceDeclaration(ctx, declaration as InterfaceDeclaration);
+				return layoutInterfaceDeclaration(context, declaration as InterfaceDeclaration);
 		}
 	}
 	console.error(`Invalid node:`, declaration);

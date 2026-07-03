@@ -1,9 +1,13 @@
 import type { OperatorTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { keywordToken, spaceToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 
-export function expOperator(ctx: CodeLayoutContextValue, node: OperatorTypeNode): CodeLayoutNode[] {
-	return [keywordToken(node.operator), spaceToken(), ...layoutExpression(ctx, node.operand)];
+export function expOperator(
+	context: LangTsLayoutContext,
+	node: OperatorTypeNode,
+): CodeLayoutNode[] {
+	return [keywordToken(node.operator), spaceToken(), ...layoutExpression(context, node.operand)];
 }

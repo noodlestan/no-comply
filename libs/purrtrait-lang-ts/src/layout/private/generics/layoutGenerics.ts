@@ -1,12 +1,13 @@
 import type { TypeExpressionGeneric } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
 export function layoutGenerics(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	generic?: TypeExpressionGeneric[],
 ): CodeLayoutNode[] {
 	if (!generic?.length) {
@@ -17,7 +18,7 @@ export function layoutGenerics(
 		symbolToken('<'),
 
 		...eachExpression(
-			ctx,
+			context,
 			generic,
 			(_ctx, item) => [
 				identifierToken(item.name),
@@ -27,12 +28,17 @@ export function layoutGenerics(
 							spaceToken(),
 							keywordToken('extends'),
 							spaceToken(),
-							...layoutExpression(ctx, item.constraint),
+							...layoutExpression(context, item.constraint),
 						]
 					: []),
 
 				...(item.default
-					? [spaceToken(), symbolToken('='), spaceToken(), ...layoutExpression(ctx, item.default)]
+					? [
+							spaceToken(),
+							symbolToken('='),
+							spaceToken(),
+							...layoutExpression(context, item.default),
+						]
 					: []),
 			],
 			() => [symbolToken(','), spaceToken()],

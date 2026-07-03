@@ -1,9 +1,10 @@
 import type { MappedTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 
-export function expMapped(_ctx: CodeLayoutContextValue, node: MappedTypeNode): CodeLayoutNode[] {
+export function expMapped(_context: LangTsLayoutContext, node: MappedTypeNode): CodeLayoutNode[] {
 	return [
 		group([
 			symbolToken('{'),

@@ -1,13 +1,14 @@
 import type { TupleTypeElement, TupleTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { group, identifierToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
-function tupleElement(ctx: CodeLayoutContextValue, element: TupleTypeElement): CodeLayoutNode[] {
+function tupleElement(context: LangTsLayoutContext, element: TupleTypeElement): CodeLayoutNode[] {
 	if ('kind' in element) {
-		return layoutExpression(ctx, element);
+		return layoutExpression(context, element);
 	}
 
 	const tokens: CodeLayoutNode[] = [
@@ -15,16 +16,16 @@ function tupleElement(ctx: CodeLayoutContextValue, element: TupleTypeElement): C
 		element.optional ? symbolToken('?') : null,
 		symbolToken(':'),
 		symbolToken(' '),
-		...layoutExpression(ctx, element.type),
+		...layoutExpression(context, element.type),
 	].filter(Boolean) as CodeLayoutNode[];
 	return tokens;
 }
 
-export function expTuple(ctx: CodeLayoutContextValue, node: TupleTypeNode): CodeLayoutNode[] {
+export function expTuple(context: LangTsLayoutContext, node: TupleTypeNode): CodeLayoutNode[] {
 	return [
 		group([
 			symbolToken('['),
-			...eachExpression(ctx, node.elements, tupleElement, () => [
+			...eachExpression(context, node.elements, tupleElement, () => [
 				symbolToken(','),
 				symbolToken(' '),
 			]),

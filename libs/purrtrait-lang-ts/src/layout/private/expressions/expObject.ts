@@ -1,16 +1,13 @@
 import type { ObjectLiteralTypeNode } from '@purrception/lang-ts';
-import type {
-	CodeLayoutContextValue,
-	CodeLayoutGroup,
-	CodeLayoutNode,
-} from '@purrtrait/code-renderer';
+import type { CodeLayoutGroup, CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { block, group, identifierToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { appendSemicolon } from '../utils';
 
 export function expObject(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	node: ObjectLiteralTypeNode,
 ): CodeLayoutNode[] {
 	const entries: CodeLayoutGroup[] = [];
@@ -25,7 +22,7 @@ export function expObject(
 				...(member.optional ? [symbolToken('?')] : []),
 				symbolToken(':'),
 				spaceToken(),
-				group(appendSemicolon(layoutExpression(ctx, member.type))),
+				group(appendSemicolon(layoutExpression(context, member.type))),
 			]),
 		);
 	}
@@ -38,11 +35,11 @@ export function expObject(
 				identifierToken(signature.keyName),
 				symbolToken(':'),
 				spaceToken(),
-				...layoutExpression(ctx, signature.keyType),
+				...layoutExpression(context, signature.keyType),
 				symbolToken(']'),
 				symbolToken(':'),
 				spaceToken(),
-				group(appendSemicolon(layoutExpression(ctx, signature.valueType))),
+				group(appendSemicolon(layoutExpression(context, signature.valueType))),
 			]),
 		);
 	}
@@ -56,12 +53,12 @@ export function expObject(
 				spaceToken(),
 				identifierToken('in'),
 				spaceToken(),
-				...layoutExpression(ctx, signature.constraint),
+				...layoutExpression(context, signature.constraint),
 				symbolToken(']'),
 				...(signature.optional ? [symbolToken('?')] : []),
 				symbolToken(':'),
 				spaceToken(),
-				group(appendSemicolon(layoutExpression(ctx, signature.valueType))),
+				group(appendSemicolon(layoutExpression(context, signature.valueType))),
 			]),
 		);
 	}

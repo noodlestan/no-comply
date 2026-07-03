@@ -1,49 +1,28 @@
-import { computeLayout } from '../layout/compute';
-import type { CodeLayoutContextValue } from '../layout/contexts';
-import { formatLayout } from '../layout/format';
-import type { CodeLayoutLine } from '../layout/types';
+import { renderLines } from '../../private';
+import type { CodeRendererContext, CodeSnippetContext } from '../../types';
 
-import type {
-	CodeSerializerAPI,
-	CodeSerializerLinkResolver,
-	CodeSerializerOptions,
-	CodeSerializerOutput,
-} from './types';
+import { NEW_LINE, serializeLine } from './private';
+import type { CodeSerializerAPI, CodeSerializerOptions, CodeSerializerOutput } from './types';
 
-const newLine = '\n';
-
-function serializeLine(
-	line: CodeLayoutLine,
-	symbols: Map<string, string>,
-	linkResolver: CodeSerializerLinkResolver,
-): string {
-	const indent = '  '.repeat(line.indent);
-	const content = line.content
-		.map(token => {
-			const link = token.link ?? linkResolver(token.value);
-			if (link) {
-				symbols.set(token.value, link);
-			}
-			return token.value;
-		})
-		.join('');
-	return indent + content;
-}
-
-export const createCodeSerializer = (options: CodeSerializerOptions = {}): CodeSerializerAPI => {
-	const linkResolver: CodeSerializerLinkResolver = options.linkResolver ?? (() => undefined);
-
+export const createCodeSerializer = (
+	rendererContext: CodeRendererContext,
+	options?: CodeSerializerOptions,
+): CodeSerializerAPI => {
 	const serialize = (
-		ctx: CodeLayoutContextValue,
 		lang: string,
-		node: object,
+		node: object | object[],
+		linkerContext: object = {},
 	): CodeSerializerOutput => {
+		const snippetContext: CodeSnippetContext = {
+			linker: options?.linker ?? rendererContext.linker,
+			linkerContext,
+			columns: options?.columns ?? 120,
+		};
+
 		const symbols = new Map<string, string>();
 
-		const nodes = computeLayout(ctx, lang, node);
-		const lines = formatLayout(nodes, ctx.columns);
-
-		const code = lines.map(line => serializeLine(line, symbols, linkResolver)).join(newLine);
+		const lines = renderLines(rendererContext, snippetContext, lang, node);
+		const code = lines.map(line => serializeLine(line, symbols)).join(NEW_LINE);
 
 		return { code, symbols };
 	};

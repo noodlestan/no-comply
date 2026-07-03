@@ -1,11 +1,12 @@
 import type { TemplateLiteralTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { stringToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 
 export function expTemplateLiteral(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	node: TemplateLiteralTypeNode,
 ): CodeLayoutNode[] {
 	return [
@@ -13,7 +14,7 @@ export function expTemplateLiteral(
 		stringToken(node.head),
 		...node.spans.flatMap(span => [
 			symbolToken('${'),
-			...layoutExpression(ctx, span.type),
+			...layoutExpression(context, span.type),
 			symbolToken('}'),
 			stringToken(span.text),
 		]),

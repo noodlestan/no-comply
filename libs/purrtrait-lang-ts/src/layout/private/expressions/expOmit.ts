@@ -1,17 +1,18 @@
 import type { OmitTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 
-export function expOmit(ctx: CodeLayoutContextValue, node: OmitTypeNode): CodeLayoutNode[] {
+export function expOmit(context: LangTsLayoutContext, node: OmitTypeNode): CodeLayoutNode[] {
 	return [
 		keywordToken('Omit'),
 		symbolToken('<'),
-		...layoutExpression(ctx, node.source),
+		...layoutExpression(context, node.source),
 		symbolToken(','),
 		spaceToken(),
-		...layoutExpression(ctx, node.members),
+		...layoutExpression(context, node.members),
 		symbolToken('>'),
 	] as CodeLayoutNode[];
 }

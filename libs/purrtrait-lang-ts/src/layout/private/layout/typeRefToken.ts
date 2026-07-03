@@ -1,14 +1,16 @@
-import type { CodeLayoutContextValue, CodeLayoutToken } from '@purrtrait/code-renderer';
+import type { CodeLayoutToken } from '@purrtrait/code-renderer';
 
-import type { CodeLayoutWithGenericParamsContextValue } from '../../../contexts';
+import type { LangTsLayoutContext } from '../../../private';
 
 import { shouldLinkToken } from './helpers';
 
 export function typeRefToken(
-	ctx: CodeLayoutContextValue | CodeLayoutWithGenericParamsContextValue,
+	context: LangTsLayoutContext,
 	value: string,
 ): CodeLayoutToken<'type-ref'> {
-	const target = shouldLinkToken(ctx, value) ? ctx.linker(ctx, value) : undefined;
+	const target = shouldLinkToken(context, value)
+		? context.snippetContext.linker(context.snippetContext.linkerContext, value)
+		: undefined;
 
 	return { type: 'token', kind: 'type-ref', value, link: target };
 }

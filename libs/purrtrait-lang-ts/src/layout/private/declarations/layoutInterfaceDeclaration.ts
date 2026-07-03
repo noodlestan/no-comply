@@ -1,18 +1,21 @@
 import type { InterfaceDeclaration } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
-import { createCodeLayoutWithGenericParamsContext } from '../../../contexts';
+import {
+	type LangTsLayoutContext,
+	createLangTsLayoutContextWithGenericParams,
+} from '../../../private';
 import { layoutGenerics } from '../generics';
 import { block, group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { appendSemicolon, eachExpression } from '../utils';
 
 export function layoutInterfaceDeclaration(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	declaration: InterfaceDeclaration,
 ): CodeLayoutNode[] {
-	const genericCtx = createCodeLayoutWithGenericParamsContext(
-		ctx,
+	const genericCtx = createLangTsLayoutContextWithGenericParams(
+		context,
 		declaration.generic?.map(x => x.name) ?? [],
 	);
 
@@ -20,7 +23,7 @@ export function layoutInterfaceDeclaration(
 		keywordToken('interface'),
 		spaceToken(),
 		identifierToken(declaration.name),
-		...layoutGenerics(ctx, declaration.generic),
+		...layoutGenerics(context, declaration.generic),
 		...(declaration.heritage?.length ? [spaceToken(), keywordToken('extends'), spaceToken()] : []),
 		...eachExpression(
 			genericCtx,

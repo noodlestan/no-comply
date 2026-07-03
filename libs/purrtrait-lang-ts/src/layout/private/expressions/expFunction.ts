@@ -1,27 +1,31 @@
 import { type FunctionTypeNode, createPrimitiveNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { layoutGenerics } from '../generics';
 import { group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
-export function expFunction(ctx: CodeLayoutContextValue, node: FunctionTypeNode): CodeLayoutNode[] {
+export function expFunction(
+	context: LangTsLayoutContext,
+	node: FunctionTypeNode,
+): CodeLayoutNode[] {
 	return [
-		...layoutGenerics(ctx, node.generic),
+		...layoutGenerics(context, node.generic),
 
 		group([
 			symbolToken('('),
 
 			...eachExpression(
-				ctx,
+				context,
 				node.params ?? [],
 				(_ctx, param) => [
 					identifierToken(param.name),
 					...(param.optional ? [symbolToken('?')] : []),
 					symbolToken(':'),
 					spaceToken(),
-					...layoutExpression(ctx, param.type),
+					...layoutExpression(context, param.type),
 				],
 				() => [symbolToken(','), spaceToken()],
 			),
@@ -44,10 +48,10 @@ export function expFunction(ctx: CodeLayoutContextValue, node: FunctionTypeNode)
 								spaceToken(),
 								keywordToken('is'),
 								spaceToken(),
-								...layoutExpression(ctx, node.returns.asserts.type),
+								...layoutExpression(context, node.returns.asserts.type),
 							]
 						: []),
 				]
-			: layoutExpression(ctx, node.returns ? node.returns.type : createPrimitiveNode('void'))),
+			: layoutExpression(context, node.returns ? node.returns.type : createPrimitiveNode('void'))),
 	];
 }

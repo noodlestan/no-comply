@@ -1,25 +1,22 @@
 import type { Declaration, TypeExpressionNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
-import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
+import type { LangTsLayoutContext } from '../../private';
 
 import { layoutDeclaration } from './layoutDeclaration';
 import { layoutExpression } from './layoutExpression';
 
 import { typeRefToken } from '.';
 
-export function layoutCode(
-	ctx: CodeLayoutContextValue | CodeLayoutWithGenericParamsContextValue,
-	code: string | object,
-): CodeLayoutNode[] {
+export function layoutCode(context: LangTsLayoutContext, code: string | object): CodeLayoutNode[] {
 	if (typeof code === 'string') {
-		return [typeRefToken(ctx, code)];
+		return [typeRefToken(context, code)];
 	}
 	if (!('at' in code)) {
-		return layoutExpression(ctx, code as TypeExpressionNode);
+		return layoutExpression(context, code as TypeExpressionNode);
 	}
 	if ('at' in code) {
-		return layoutDeclaration(ctx, code as Declaration);
+		return layoutDeclaration(context, code as Declaration);
 	}
 
 	console.error(`Invalid code block:`, code);

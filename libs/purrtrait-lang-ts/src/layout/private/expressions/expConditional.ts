@@ -1,26 +1,27 @@
 import type { ConditionalTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
+import type { LangTsLayoutContext } from '../../../private';
 import { keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 
 export function expConditional(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	node: ConditionalTypeNode,
 ): CodeLayoutNode[] {
 	return [
-		...layoutExpression(ctx, node.checkType),
+		...layoutExpression(context, node.checkType),
 		spaceToken(),
 		keywordToken('extends'),
 		spaceToken(),
-		...layoutExpression(ctx, node.extendsType),
+		...layoutExpression(context, node.extendsType),
 		spaceToken(),
 		symbolToken('?'),
 		spaceToken(),
-		...layoutExpression(ctx, node.trueType),
+		...layoutExpression(context, node.trueType),
 		spaceToken(),
 		symbolToken(':'),
 		spaceToken(),
-		...layoutExpression(ctx, node.falseType),
+		...layoutExpression(context, node.falseType),
 	];
 }

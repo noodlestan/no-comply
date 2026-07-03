@@ -4,16 +4,19 @@ import {
 	createPrimitiveNode,
 	isFunctionTypeNode,
 } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
-import { createCodeLayoutWithGenericParamsContext } from '../../../contexts';
+import {
+	type LangTsLayoutContext,
+	createLangTsLayoutContextWithGenericParams,
+} from '../../../private';
 import { layoutGenerics } from '../generics';
 import { group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
 import { eachExpression } from '../utils';
 
 export function layoutFunctionDeclaration(
-	ctx: CodeLayoutContextValue,
+	context: LangTsLayoutContext,
 	declaration: FunctionDeclaration,
 ): CodeLayoutNode[] {
 	const node = declaration.node;
@@ -24,12 +27,12 @@ export function layoutFunctionDeclaration(
 			identifierToken(declaration.name),
 			symbolToken(':'),
 			spaceToken(),
-			...layoutExpression(ctx, node),
+			...layoutExpression(context, node),
 		];
 	}
 
-	const genericCtx = createCodeLayoutWithGenericParamsContext(
-		ctx,
+	const genericCtx = createLangTsLayoutContextWithGenericParams(
+		context,
 		node.generic?.map(x => x.name) ?? [],
 	);
 
@@ -39,13 +42,13 @@ export function layoutFunctionDeclaration(
 		keywordToken('function'),
 		spaceToken(),
 		identifierToken(declaration.name),
-		...layoutGenerics(ctx, node.generic),
+		...layoutGenerics(context, node.generic),
 		symbolToken('('),
 		group(
 			eachExpression(
-				ctx,
+				context,
 				node.params,
-				(ctx, item) => [
+				(context, item) => [
 					identifierToken(item.name),
 					symbolToken(':'),
 					spaceToken(),
