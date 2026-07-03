@@ -1,5 +1,5 @@
 import { Link } from '@no-comply/standard-ui';
-import type { CodeLayoutToken } from '@purrtrait/code-layout';
+import type { CodeLayoutToken } from '@purrtrait/code-renderer';
 import { type Component } from 'solid-js';
 
 type Props = {

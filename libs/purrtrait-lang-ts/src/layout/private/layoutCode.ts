@@ -1,5 +1,5 @@
 import type { Declaration, TypeExpressionNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import type { CodeLayoutWithGenericParamsContextValue } from '../../contexts';
 

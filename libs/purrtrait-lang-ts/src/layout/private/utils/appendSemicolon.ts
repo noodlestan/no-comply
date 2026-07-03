@@ -1,4 +1,4 @@
-import type { CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import { group, symbolToken } from '../layout';
 

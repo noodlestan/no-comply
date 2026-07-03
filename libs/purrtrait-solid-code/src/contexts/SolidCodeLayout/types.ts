@@ -2,7 +2,7 @@ import type {
 	CodeLayoutContextOptions,
 	CodeLayoutContextValue,
 	CodeLayoutToken,
-} from '@purrtrait/code-layout';
+} from '@purrtrait/code-renderer';
 import type { Component } from 'solid-js';
 
 export type CodeLinkComponent = Component<{

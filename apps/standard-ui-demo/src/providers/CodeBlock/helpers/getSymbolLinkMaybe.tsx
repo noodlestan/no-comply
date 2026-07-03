@@ -1,5 +1,5 @@
 import type { NoComplyEntityData } from '@no-comply/meta';
-import type { CodeLayoutContextValue } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue } from '@purrtrait/code-renderer';
 
 import { routeFor } from '../../../app';
 

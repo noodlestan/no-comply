@@ -1,4 +1,4 @@
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 type LayoutItemFunction<T> = (ctx: CodeLayoutContextValue, item: T) => CodeLayoutNode[];
 type LayoutSeparatorFunction = () => CodeLayoutNode[];

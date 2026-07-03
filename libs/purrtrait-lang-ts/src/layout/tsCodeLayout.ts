@@ -1,4 +1,4 @@
-import type { CodeLayoutLanguage } from '@purrtrait/code-layout';
+import type { CodeLayoutLanguage } from '@purrtrait/code-renderer';
 
 import { LanguageName, PurrceptionLanguageId } from '../constants';
 

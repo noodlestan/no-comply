@@ -1,6 +1,6 @@
-# Purrtrait / Code Layout
+# Purrtrait / Code Renderer
 
-> Purrtrait code layout: context, layout entry point, and language support registration.
+> Purrtrait code renderer: context, layout entry point, and language support registration.
 
 Part of the [Purrtrait](https://github.com/noodlestan/purrtrait) toolkit.
 

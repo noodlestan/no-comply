@@ -4,7 +4,7 @@ import {
 	createPrimitiveNode,
 	isFunctionTypeNode,
 } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import { createCodeLayoutWithGenericParamsContext } from '../../../contexts';
 import { layoutGenerics } from '../generics';

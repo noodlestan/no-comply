@@ -1,4 +1,4 @@
-import type { CodeLayoutToken } from '@purrtrait/code-layout';
+import type { CodeLayoutToken } from '@purrtrait/code-renderer';
 
 export function literalToken(value: string | number | boolean): CodeLayoutToken<'literal'> {
 	return {

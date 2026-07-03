@@ -1,5 +1,5 @@
 {
-  "name": "@purrtrait/code-layout",
+  "name": "@purrtrait/code-renderer",
   "version": "0.0.11",
   "description": "Purrtrait code layout.",
   "author": "Noodlestan Collective",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/noodlestan/no-comply.git",
-    "directory": "libs/purrtrait-code-layout"
+    "directory": "libs/purrtrait-code-renderer"
   },
   "type": "module",
   "sideEffects": false,

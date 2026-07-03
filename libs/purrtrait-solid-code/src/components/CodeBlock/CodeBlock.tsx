@@ -1,4 +1,4 @@
-import { computeLayout, formatLayout } from '@purrtrait/code-layout';
+import { computeLayout, formatLayout } from '@purrtrait/code-renderer';
 import type { Component } from 'solid-js';
 
 import { useSolidCodeLayoutContext } from '../../providers';

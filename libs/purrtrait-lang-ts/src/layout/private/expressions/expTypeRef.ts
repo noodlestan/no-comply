@@ -1,5 +1,5 @@
 import type { TypeRefNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import { identifierToken, spaceToken, symbolToken, typeRefToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';

@@ -3,7 +3,7 @@ import type {
 	CodeLayoutContextValue,
 	CodeLayoutGroup,
 	CodeLayoutNode,
-} from '@purrtrait/code-layout';
+} from '@purrtrait/code-renderer';
 
 import { block, group, identifierToken, spaceToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';

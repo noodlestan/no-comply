@@ -1,4 +1,4 @@
-import type { CodeLayoutLine, CodeLayoutToken } from '@purrtrait/code-layout';
+import type { CodeLayoutLine, CodeLayoutToken } from '@purrtrait/code-renderer';
 import { For, type JSX } from 'solid-js';
 
 import type { SolidCodeLayoutContextValue } from '../contexts';

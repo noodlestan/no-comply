@@ -1,5 +1,5 @@
 import { type FunctionTypeNode, createPrimitiveNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import { layoutGenerics } from '../generics';
 import { group, identifierToken, keywordToken, spaceToken, symbolToken } from '../layout';

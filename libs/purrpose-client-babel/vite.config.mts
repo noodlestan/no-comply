@@ -27,7 +27,7 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
-			external: ['@purrception/lang-ts', '@purrtrait/code-layout'],
+			external: ['@purrception/lang-ts', '@purrtrait/code-renderer'],
 		},
 	},
 });

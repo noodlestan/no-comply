@@ -1,5 +1,5 @@
 import type { InferTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import { identifierToken, keywordToken, spaceToken } from '../layout';
 

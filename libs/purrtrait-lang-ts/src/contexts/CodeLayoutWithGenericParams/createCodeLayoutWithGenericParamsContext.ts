@@ -1,4 +1,4 @@
-import type { CodeLayoutContextValue } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue } from '@purrtrait/code-renderer';
 
 import type { CodeLayoutWithGenericParamsContextValue } from './types';
 

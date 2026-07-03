@@ -1,5 +1,5 @@
 import type { TupleTypeElement, TupleTypeNode } from '@purrception/lang-ts';
-import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-layout';
+import type { CodeLayoutContextValue, CodeLayoutNode } from '@purrtrait/code-renderer';
 
 import { group, identifierToken, symbolToken } from '../layout';
 import { layoutExpression } from '../layoutExpression';
