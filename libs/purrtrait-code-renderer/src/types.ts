@@ -2,12 +2,12 @@ import type { CodeLayoutNode } from './structure';
 
 export type CodeNodeLinker = (linkerContext: object, value: string) => string | undefined;
 
-export type CodeRendererContext = {
+export type CodeRendererOptions = {
 	langs: CodeRendererLanguage[];
 	linker: CodeNodeLinker;
 };
 
-export type CodeSnippetContext = {
+export type CodeRendererContext = {
 	linkerContext: object;
 	columns: number;
 	linker: CodeNodeLinker;
@@ -16,5 +16,5 @@ export type CodeSnippetContext = {
 export type CodeRendererLanguage = {
 	lang: string;
 	name: string;
-	layout: (snippetContext: CodeSnippetContext, node: object | string) => CodeLayoutNode[];
+	layout: (snippetContext: CodeRendererContext, node: object | string) => CodeLayoutNode[];
 };

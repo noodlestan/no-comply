@@ -1,8 +1,5 @@
-import type { CodeNodeLinker } from '../../types';
-
 export type CodeSerializerOptions = {
 	columns?: number;
-	linker?: CodeNodeLinker;
 };
 
 export type CodeSerializerOutput = {

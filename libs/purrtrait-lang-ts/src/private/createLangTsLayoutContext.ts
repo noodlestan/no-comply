@@ -1,9 +1,9 @@
-import type { CodeSnippetContext } from '@purrtrait/code-renderer';
+import type { CodeRendererContext } from '@purrtrait/code-renderer';
 
 import type { LangTsLayoutContext } from './types';
 
 export const createLangTsLayoutContext = (
-	snippetContext: CodeSnippetContext,
+	snippetContext: CodeRendererContext,
 ): LangTsLayoutContext => {
 	return {
 		snippetContext,

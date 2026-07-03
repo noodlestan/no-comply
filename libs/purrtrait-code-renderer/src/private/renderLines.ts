@@ -1,5 +1,5 @@
 import type { CodeLayoutLine } from '../structure';
-import type { CodeRendererContext, CodeSnippetContext } from '../types';
+import type { CodeRendererContext, CodeRendererOptions } from '../types';
 
 import { computeLayout } from './computeLayout';
 import { formatLayout } from './formatLayout';
@@ -10,8 +10,8 @@ const EMPTY_LINE: CodeLayoutLine = {
 };
 
 export function renderLines(
-	renderContext: CodeRendererContext,
-	snippetContext: CodeSnippetContext,
+	renderContext: CodeRendererOptions,
+	snippetContext: CodeRendererContext,
 	lang: string,
 	node: object | object[],
 ): CodeLayoutLine[] {

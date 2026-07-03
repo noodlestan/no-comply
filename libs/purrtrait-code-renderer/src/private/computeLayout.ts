@@ -1,9 +1,9 @@
 import type { CodeLayoutNode } from '../structure';
-import type { CodeRendererContext, CodeSnippetContext } from '../types';
+import type { CodeRendererContext, CodeRendererOptions } from '../types';
 
 export function computeLayout(
-	rendererContext: CodeRendererContext,
-	snippetContext: CodeSnippetContext,
+	rendererContext: CodeRendererOptions,
+	snippetContext: CodeRendererContext,
 	lang: string,
 	node: object,
 ): CodeLayoutNode[] {

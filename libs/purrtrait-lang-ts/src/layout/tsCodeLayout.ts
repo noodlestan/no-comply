@@ -1,7 +1,7 @@
 import type {
 	CodeLayoutNode,
+	CodeRendererContext,
 	CodeRendererLanguage,
-	CodeSnippetContext,
 } from '@purrtrait/code-renderer';
 
 import { LanguageName, PurrceptionLanguageId } from '../constants';
@@ -12,7 +12,7 @@ import { layoutCode } from './private';
 export const tsCodeLayout: CodeRendererLanguage = {
 	lang: PurrceptionLanguageId,
 	name: LanguageName,
-	layout: (snippetContext: CodeSnippetContext, node: object | string): CodeLayoutNode[] => {
+	layout: (snippetContext: CodeRendererContext, node: object | string): CodeLayoutNode[] => {
 		const context = createLangTsLayoutContext(snippetContext);
 		return layoutCode(context, node);
 	},

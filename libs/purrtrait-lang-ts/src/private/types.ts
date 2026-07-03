@@ -1,6 +1,6 @@
-import type { CodeSnippetContext } from '@purrtrait/code-renderer';
+import type { CodeRendererContext } from '@purrtrait/code-renderer';
 
 export type LangTsLayoutContext = {
-	snippetContext: CodeSnippetContext;
+	snippetContext: CodeRendererContext;
 	genericParams?: Set<string>;
 };
