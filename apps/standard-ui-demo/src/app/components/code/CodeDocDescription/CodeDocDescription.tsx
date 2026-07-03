@@ -1,9 +1,8 @@
 import { type ContentSize, Flex } from '@no-comply/standard-ui';
 import type { JsDocData } from '@purrception/lang-ts';
-import { createJsDocDescription } from '@purrtrait/solid-code';
 import { type Component, type JSX, Show } from 'solid-js';
 
-import { useMeta } from '../../../../providers';
+import { useRendering } from '../../../../providers';
 
 import { CodeDocBody, CodeDocLinks, CodeDocTags } from './parts';
 
@@ -14,10 +13,11 @@ type Props = {
 };
 
 export const CodeDocDescription: Component<Props> = props => {
-	const { resolveLink } = useMeta();
-	const { links, tags, description } = createJsDocDescription(() => props.node, {
-		resolveLink,
-	});
+	const { renderJsDocDescription, getJsDocLinks, getJsDocTags } = useRendering();
+
+	const description = () => renderJsDocDescription(props.node);
+	const links = () => getJsDocLinks(props.node);
+	const tags = () => getJsDocTags(props.node);
 
 	return (
 		<Show when={description() || links().length || tags().length}>

@@ -8,6 +8,7 @@ import {
 	AppServicesProvider,
 	CodeBlockProvider,
 	MetaProvider,
+	RenderingProvider,
 	UIRootProvider,
 	useAppServices,
 } from '../providers';
@@ -58,12 +59,14 @@ const Root: ParentComponent = props => {
 		<ErrorBoundaryScreen>
 			<AppServicesProvider>
 				<MetaProvider>
-					<CodeBlockProvider link={CodeLink}>
-						<UIRootProvider defaultCtxId={APP.id}>
-							<Main>{props.children}</Main>
-							{/* <DebugDrawer /> */}
-						</UIRootProvider>
-					</CodeBlockProvider>
+					<RenderingProvider>
+						<CodeBlockProvider link={CodeLink}>
+							<UIRootProvider defaultCtxId={APP.id}>
+								<Main>{props.children}</Main>
+								{/* <DebugDrawer /> */}
+							</UIRootProvider>
+						</CodeBlockProvider>
+					</RenderingProvider>
 				</MetaProvider>
 			</AppServicesProvider>
 		</ErrorBoundaryScreen>

@@ -2,4 +2,5 @@
 export * from './AppServices';
 export * from './CodeBlock';
 export * from './Meta';
+export * from './Rendering';
 export * from './UIRoot';

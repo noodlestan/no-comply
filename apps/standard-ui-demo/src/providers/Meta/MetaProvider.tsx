@@ -12,11 +12,11 @@ import { routeFor } from '../../app';
 
 import { MetaContext } from './private';
 const extracted = [
-	...metaSolidAccessibility,
-	...metaSolidComposables,
-	...metaSolidContexts,
-	...metaSolidPrimitives,
-	...metaStandardUI,
+	...metaSolidAccessibility.entities,
+	...metaSolidComposables.entities,
+	...metaSolidContexts.entities,
+	...metaSolidPrimitives.entities,
+	...metaStandardUI.entities,
 ];
 
 export const MetaProvider: ParentComponent = props => {

@@ -1,11 +1,10 @@
 import { type ContentSize, Flex, Link, Text } from '@no-comply/standard-ui';
+import type { JsDocLinkItem } from '@purrtrait/solid-code';
 import { type Component, For, Show } from 'solid-js';
-
-import type { LinkItem } from '@purrtrait/solid-code/src/controllers/JsDoc/types';
 
 type Props = {
 	size?: ContentSize;
-	links: LinkItem[];
+	links: JsDocLinkItem[];
 };
 
 export const CodeDocLinks: Component<Props> = props => {
