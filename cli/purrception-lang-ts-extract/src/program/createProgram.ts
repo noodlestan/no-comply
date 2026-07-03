@@ -118,13 +118,8 @@ export async function createProgram(
 		return Object.fromEntries(entries);
 	}
 
-	const indexDeclaredSymbols = (
-		...args: (Declaration | undefined)[][]
-	): Record<string, Declaration> => {
-		const entries = args
-			.flat()
-			.filter(Boolean)
-			.map(symbol => [symbol?.name, symbol]);
+	const indexDeclaredSymbols = (...args: Declaration[][]): Record<string, Declaration> => {
+		const entries = args.flat().map(symbol => [symbol?.name, symbol]);
 		return Object.fromEntries(entries);
 	};
 
