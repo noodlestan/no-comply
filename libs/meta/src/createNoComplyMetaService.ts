@@ -1,8 +1,13 @@
 import type { ModuleEntityData, NoComplyEntityData } from './entities';
-import { indexEntities } from './private';
-import type { NoComplyMetaAPI } from './types';
+import { indexEntities, resolveEntityExpressionParts } from './private';
+import type { ResolvedExpression } from './private';
+import type { NoComplyMetaAPI, NoComplyMetaOptions } from './types';
 
-export function createNoComplyMetaService(entities: NoComplyEntityData[]): NoComplyMetaAPI {
+export function createNoComplyMetaService(
+	entities: NoComplyEntityData[],
+	options: NoComplyMetaOptions = {},
+): NoComplyMetaAPI {
+	const { makeEntityHref } = options;
 	const index = indexEntities(entities);
 
 	const getEntities = (): NoComplyEntityData[] => {
@@ -64,6 +69,46 @@ export function createNoComplyMetaService(entities: NoComplyEntityData[]): NoCom
 		return byType.map(byName => Object.values(byName).filter(ent => ent.module === mod)).flat();
 	};
 
+	const matchExpression = (resolved: ResolvedExpression): NoComplyEntityData | undefined => {
+		const { pkg, type, name } = resolved;
+
+		if (pkg && type) {
+			return index[pkg]?.[type]?.[name] as NoComplyEntityData | undefined;
+		}
+		if (type) {
+			return entities.find(e => e.type === type && e.name === name);
+		}
+		if (pkg) {
+			return entities.find(e => e.package === pkg && e.name === name);
+		}
+		return entities.find(e => e.name === name);
+	};
+
+	const resolveEntityExpression = (expression: string): NoComplyEntityData | undefined => {
+		const resolved = resolveEntityExpressionParts(expression);
+		const entity = matchExpression(resolved);
+
+		if (!entity) {
+			console.warn(`Could not resolve link for "${expression}"`);
+			return undefined;
+		}
+
+		return entity;
+	};
+
+	const resolveLink = (text: string): [displayName: string, href: string] | undefined => {
+		if (!makeEntityHref) {
+			return [text, text];
+		}
+		const [entityNameExpression, symbol] = text.split('#');
+		const entity = resolveEntityExpression(entityNameExpression as string);
+		if (!entity) {
+			return undefined;
+		}
+		const href = makeEntityHref(entity, symbol || undefined);
+		return [symbol ?? entity.name, href];
+	};
+
 	return {
 		getEntities,
 		getEntityMaybe,
@@ -75,5 +120,7 @@ export function createNoComplyMetaService(entities: NoComplyEntityData[]): NoCom
 		getModuleMaybe,
 		getModuleSubModuleNames,
 		getModuleEntities,
+		resolveEntityExpression: resolveEntityExpression,
+		resolveLink,
 	};
 }
