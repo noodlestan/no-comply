@@ -8,7 +8,7 @@ type AlignedToFirstLineProp = AlignedToFirstLineTargetProp | AlignedToFirstLineM
 
 /**
  * Do not compose this type. Compose {@link AlignedToFirstLine#AlignedToFirstLineTargetProps} or {@link AlignedToFirstLine#AlignedToFirstLineMeasureProps} instead,
- * depending on whether.
+ * depending on the composer being a text component (target) or another type of component (measure) such as icons and form controls.
  *
  * @link SizedTypographyMixin#SizedTypographyMixinProps Target example (SizedTypography)
  * @link mixin:SizedIcon#SizedIconMixinProps Measured example (SizedIcon)
