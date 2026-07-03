@@ -1,4 +1,4 @@
-import { writeFile } from 'fs/promises';
+import { stat, writeFile } from 'fs/promises';
 import path from 'path';
 
 import { extractEntitiesFromFileSystem } from '@purrception/source-fs';
@@ -21,6 +21,10 @@ export async function extract(): Promise<void> {
 	});
 	const entities = extracted.map(({ entity: e }) => e);
 
-	console.info(path.resolve('./meta.json'));
 	await writeFile('./meta.json', JSON.stringify({ entities }, null, 2));
+	const fileStats = await stat('./dist/meta.json');
+	const fileSizeInBytes = fileStats.size;
+	console.info(
+		`Wrote : ${path.resolve('./dist/meta.json')} (entities: ${entities.length} size: ${fileSizeInBytes} bytes)`,
+	);
 }

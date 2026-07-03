@@ -1,4 +1,4 @@
-import { writeFile } from 'fs/promises';
+import { stat, writeFile } from 'fs/promises';
 import path from 'path';
 
 import {
@@ -22,8 +22,12 @@ async function main() {
 	});
 	const entities = extracted.map(({ entity: e }) => e);
 
-	console.info(path.resolve('./dist/meta.json'));
-	await writeFile('./dist/meta.json', JSON.stringify(entities, null, 2));
+	await writeFile('./dist/meta.json', JSON.stringify({ entities }, null, 2));
+	const fileStats = await stat('./dist/meta.json');
+	const fileSizeInBytes = fileStats.size;
+	console.info(
+		`Wrote : ${path.resolve('./dist/meta.json')} (entities: ${entities.length} size: ${fileSizeInBytes} bytes)`,
+	);
 }
 
 main().catch(error => {
