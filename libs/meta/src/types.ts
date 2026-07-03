@@ -1,3 +1,5 @@
+import type { EntityDataBase } from '@purrception/primitives';
+
 import type { ModuleEntityData, NoComplyEntityData } from './entities';
 
 export type NoComplyMetaOptions = {
@@ -12,6 +14,7 @@ export type NoComplyMetaAPI = {
 		name: string,
 	): T | undefined;
 	getEntity<T extends NoComplyEntityData>(pkg: string, type: string, name: string): T;
+	resolveSymbolEntity: (entity: EntityDataBase, token: string) => NoComplyEntityData | undefined;
 	getPackageNames: () => string[];
 	hasPackage: (pkg: string) => boolean;
 	getPackageModuleNames: (pkg: string) => string[];

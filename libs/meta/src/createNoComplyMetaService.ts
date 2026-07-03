@@ -1,5 +1,12 @@
+import type { EntityDataBase } from '@purrception/primitives';
+
 import type { ModuleEntityData, NoComplyEntityData } from './entities';
-import { indexEntities, resolveEntityExpressionParts } from './private';
+import {
+	indexEntities,
+	matchEntityByImport,
+	resolveEntityExpressionParts,
+	resolveSymbolImport,
+} from './private';
 import type { ResolvedExpression } from './private';
 import type { NoComplyMetaAPI, NoComplyMetaOptions } from './types';
 
@@ -28,6 +35,37 @@ export function createNoComplyMetaService(
 			throw new Error(`Unknown entity ${pkg}/${name} of type ${type}.`);
 		}
 		return entity as T;
+	};
+
+	const resolveSymbolEntity = (
+		e: EntityDataBase,
+		token: string,
+	): NoComplyEntityData | undefined => {
+		const entity = e as NoComplyEntityData;
+		const result = resolveSymbolImport(entity, token);
+
+		if (result.status === 'local') {
+			return entity;
+		}
+
+		if (result.status === 'unknown') {
+			console.warn(`Unresolved ${result.errorId} (unknown symbol).`);
+			return undefined;
+		}
+
+		const targetEntity = matchEntityByImport(
+			entity,
+			result.symbol,
+			result.isLocalPackage,
+			getEntities,
+		);
+
+		if (!targetEntity) {
+			console.warn(`Unresolved ${result.errorId} (no entity matched).`);
+			return undefined;
+		}
+
+		return targetEntity;
 	};
 
 	const getPackageNames = () => {
@@ -113,14 +151,15 @@ export function createNoComplyMetaService(
 		getEntities,
 		getEntityMaybe,
 		getEntity,
-		hasPackage,
+		resolveSymbolEntity,
 		getPackageNames,
+		hasPackage,
 		getPackageModuleNames,
 		packageHasModule,
 		getModuleMaybe,
 		getModuleSubModuleNames,
 		getModuleEntities,
-		resolveEntityExpression: resolveEntityExpression,
+		resolveEntityExpression,
 		resolveLink,
 	};
 }
