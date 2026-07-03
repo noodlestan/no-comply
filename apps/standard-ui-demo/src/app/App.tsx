@@ -6,7 +6,6 @@ import { type Component, type ParentComponent, Show } from 'solid-js';
 
 import {
 	AppServicesProvider,
-	CodeBlockProvider,
 	MetaProvider,
 	RenderingProvider,
 	UIRootProvider,
@@ -59,13 +58,11 @@ const Root: ParentComponent = props => {
 		<ErrorBoundaryScreen>
 			<AppServicesProvider>
 				<MetaProvider>
-					<RenderingProvider>
-						<CodeBlockProvider link={CodeLink}>
-							<UIRootProvider defaultCtxId={APP.id}>
-								<Main>{props.children}</Main>
-								{/* <DebugDrawer /> */}
-							</UIRootProvider>
-						</CodeBlockProvider>
+					<RenderingProvider link={CodeLink}>
+						<UIRootProvider defaultCtxId={APP.id}>
+							<Main>{props.children}</Main>
+							{/* <DebugDrawer /> */}
+						</UIRootProvider>
 					</RenderingProvider>
 				</MetaProvider>
 			</AppServicesProvider>

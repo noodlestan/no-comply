@@ -482,8 +482,8 @@ http://localhost:3000/api/@no-comply/solid-contexts/icons#IconComponent
 Unresolved token "JSX.Element" in entity "module:icons" (unknown symbol).
 
 http://localhost:3000/features/components/Button#main
-Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
-Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+Unresolved token "typeof Dynamic" in entity "component:Button" (unknown symbol). resolveSymbolEntity.tsx:19:11
+Unresolved token "KeyboardEvent" in entity "component:Button" (unknown symbol). resolveSymbolEntity.tsx:19:11
 Unresolved token "MouseEvent" in entity "component:Button" (unknown symbol).
 
 package in a new package `purrception-ambient-solidjs`
@@ -543,7 +543,7 @@ Unresolved token "unknown[]" in entity "module:icons" (unknown symbol).
 Unresolved token "A" in entity "module:icons" (unknown symbol).
 
 http://localhost:3000/features/components/Button#main
-Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). getSymbolEntityMaybe.tsx:19:11
+Unresolved token "ComponentProps" in entity "component:Button" (unknown symbol). resolveSymbolEntity.tsx:19:11
 
 ## Optimize meta.json file size
 

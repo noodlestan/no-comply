@@ -1,20 +1,22 @@
 import { staticClassList } from '@no-comply/solid-primitives';
-import { Mono } from '@no-comply/standard-ui';
-import { type CodeBlockProps, CodeBlock as SolidCodeBlock } from '@purrtrait/solid-code';
-import type { Component } from 'solid-js';
+import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
+import { type Component } from 'solid-js';
+
+import { CodeBlock } from '../CodeBlock';
 
 import styles from './CodeInline.module.scss';
 
-export const CodeInline: Component<CodeBlockProps> = props => {
+type Props = {
+	lang: string;
+	nodes: object[];
+	context?: object;
+	columns?: number;
+};
+
+export const CodeInline: Component<Props> = props => {
 	return (
 		<div style={{ margin: 0 }} classList={staticClassList(styles, 'CodeInline')}>
-			<Mono>
-				<pre data-purrception-lang={props.lang}>
-					<code>
-						<SolidCodeBlock {...props} />
-					</code>
-				</pre>
-			</Mono>
+			<CodeBlock nodes={props.nodes} lang={PurrceptionLanguageId} context={props.context} />
 		</div>
 	);
 };

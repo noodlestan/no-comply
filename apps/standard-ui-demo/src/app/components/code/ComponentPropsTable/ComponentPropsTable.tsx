@@ -12,7 +12,7 @@ import {
 } from '@purrception/lang-ts';
 import { type Component, For, Show, createMemo } from 'solid-js';
 
-import { getSymbolEntityMaybe } from '../../../../providers';
+import { useMeta } from '../../../../providers';
 import { CodeDocDescription } from '../CodeDocDescription';
 
 import { ComponentPropsTableGroup } from './parts';
@@ -20,8 +20,10 @@ import type { Props } from './parts';
 import type { ComponentPropsGroup } from './types';
 
 export const ComponentPropsTable: Component<Props> = props => {
+	const { resolveSymbolEntity } = useMeta();
+
 	const componentProps = () => {
-		const context = createResolveTypeContext(getSymbolEntityMaybe, props.component);
+		const context = createResolveTypeContext(resolveSymbolEntity, props.component);
 		return resolveExpression(
 			context,
 			resolveComponentProps(props.component),

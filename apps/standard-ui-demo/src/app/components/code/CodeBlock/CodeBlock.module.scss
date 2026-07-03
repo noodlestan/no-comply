@@ -1,11 +1,9 @@
 @layer app {
   .CodeBlock {
-    border: blue;
     pre {
-      border: red;
       margin: 0;
       padding: 0;
-      white-space: normal;
+      white-space: pre;
       overflow: auto;
     }
   }
