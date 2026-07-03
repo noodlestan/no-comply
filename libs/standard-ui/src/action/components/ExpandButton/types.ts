@@ -3,8 +3,8 @@ import type { ExpandActionAPI, ExpandActionProps } from '@no-comply/solid-compos
 import type { IconButtonProps } from '../IconButton';
 
 /**
- * Builds on {@link component:IconButtonProps} by hiding the `label` and `icon` props,
- * on {@link component:ExpandActionProps} by making the `icons` prop optional.
+ * Builds on {@link IconButtonProps} by hiding the `label` and `icon` props,
+ * on {@link ExpandActionProps} by making the `icons` prop optional.
  */
 export type ExpandButtonProps = Omit<IconButtonProps, 'label' | 'icon'> &
 	Omit<ExpandActionProps, 'icons'> & {
@@ -13,7 +13,7 @@ export type ExpandButtonProps = Omit<IconButtonProps, 'label' | 'icon'> &
 
 export type ExpandButtonAPI = {
 	/**
-	 * Props for the underlying {@link component:IconButton}.
+	 * Props for the underlying {@link IconButton}.
 	 */
 	_iconButton: IconButtonProps & ExpandActionAPI['_icon'];
 };

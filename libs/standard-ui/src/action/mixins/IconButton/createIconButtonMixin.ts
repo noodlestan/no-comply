@@ -6,7 +6,7 @@ import { $ICON_BUTTON_MIXIN, ICON_BUTTOM_MAP_SIZE_TO_ICON_SIZE } from './constan
 import type { IconButtonMixinAPI, IconButtonMixinProps } from './types';
 
 /**
- * Applies styles for all icon buttons, handling the `size` and `rounded` props, and exposing the `size` prop for the composed {@link component:Icon}
+ * Applies styles for all icon buttons, handling the `size` and `rounded` props, and exposing the `size` prop for the composed {@link Icon}
  */
 export const createIconButtonMixin = (props: IconButtonMixinProps): IconButtonMixinAPI => {
 	const [locals, expose] = createExposable($ICON_BUTTON_MIXIN, props);

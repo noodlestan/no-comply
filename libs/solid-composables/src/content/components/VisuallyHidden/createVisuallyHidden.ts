@@ -10,6 +10,9 @@ const defaultProps: PickRequired<VisuallyHiddenProps, 'tag'> = {
 	tag: 'div',
 };
 
+/**
+ * Composes this CSS classes from {@link mixin:VisuallyHidden} on to a `$root` element with optional role and tag.
+ */
 export const createVisuallyHidden = (props: VisuallyHiddenProps): VisuallyHiddenAPI => {
 	const [locals, expose, compose] = createExposable($VISUALLY_HIDDEN, props);
 

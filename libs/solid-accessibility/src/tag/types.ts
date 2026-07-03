@@ -28,7 +28,7 @@ export type FocusableTagName = BlockTagName | RegionTagName;
 
 export type ScrollableTagName = BlockTagName | RegionTagName;
 
-export type LayoutTagName = BlockTagName | RegionTagName | 'span';
+export type LayoutTagName = BlockTagName | RegionTagName | 'p' | 'span';
 
 export type FieldsetTagName = 'fieldset' | BlockTagName;
 
