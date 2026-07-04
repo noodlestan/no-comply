@@ -1,4 +1,4 @@
-# Purrtrait / Renderers / SolidJS
+# Purrtrait / Solid Code
 
 > SolidJS renderers for Purrtrait code blocks.
 

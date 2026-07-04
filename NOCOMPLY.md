@@ -362,19 +362,142 @@ onCleanup(cleanupProducer)
 
 # Standard UI Demo
 
-## Fix Resolve
+## Extract SyntaxHighlighter to its own package
 
-## Mod
+$SCOPE:
 
-## Refactor all Code components and helpers into a single module
+- apps/standard-ui-demo/src/services/SyntaxHighlighter (extract from here)
+- libs/purrtrait-shiki-service/src/services/SyntaxhHighlighter (into this new package)
+- apps/standard-ui-demo/src/providers/Rendering/private/createRenderingContext.ts (refactored consumer)
 
-## Make CodeDocDescription use markdown instead
+Goal: extract SyntaxHighlighter service to a new package
 
-createDocBlock(node) => {tags, links, contents}
+apps/standard-ui-demo/src/services/SyntaxHighlighter/\*
 
-## Code blocks
+becomes
 
-WIP map Purrception lang to shiki/prettier
+libs/purrtrait-shiki-service/src/services/SyntaxHighlighter/
+
+base the project scaffold in libs/purrtrait-solid-code
+
+include solid prettier standalone (s) and shiki (s) deps as peer deps
+
+barrel files in all indexes with barrel file comment pattern
+
+note `npm install` is required after new project added to create symlinks in monorepo
+
+## PurrtraitProvider
+
+$SCOPE apps/standard-ui-demo ($PROJECT)
+
+Provider for purrtrait resources
+
+Use cases: during app setup load language definitions from purrception packages in order setup the syntax highlighter service
+
+the provider exposes a contextAPI with getPurrceptionLang('') =>
+
+Create the provider in $PROJECT/src/providers similar to Rendering sibling (same naming conventions, but obviously much simpler - just one service)
+
+Add the provider to the app in
+
+Add a test case in apps/standard-ui-demo/src/app/screens/ComponentsScreen/pages/ComponentsIndexPage
+
+```
+const { getPurrceptionLang } = usePurrtraitProvider();
+console.info(getPurrceptionLang);
+```
+
+## Externalise Syntax Highlighter config
+
+Scope apps/standard-ui-demo and
+
+- configure it with all the purrception languages
+- inject the parsers via config
+
+this config should be entirely externalized, but defaults should be kept in LANG_DEFAULTS object
+
+apps/standard-ui-demo/src/services/SyntaxHighlighter/private/constants.ts
+
+## CodeBlock lang mapping
+
+Scope: apps/standard-ui-demo
+
+apps/standard-ui-demo/src/app/components/code/CodeBlock/CodeBlock.tsx is the proxy for all rendering components (siblings in the same folder such as code declaration)
+
+currently receives lang typicallt set to {PurrceptionLanguageId} but this is useless because CodeBlock is always forwarding "javascript" to the <CodeRenderer> which is yet another proxy to the raw <CodeBlock> in purrtrait/solid-code
+
+we need to remove this prop from the app's CodeBlock and all upstream invocations in the app scope
+
+CodeBoock should use PurrtraitProvider to resolve node.lang to CodeBlock lang
+
+const { getPurrceptionLang } = usePurrtraitProvider();
+
+not refined:
+
+- question what to do in cases where we are rendering an array nodes? idea
+- idea: validate in the renderer that all nodes have the same lang
+
+## Refactor all Code components and helpers into a couple of submodules
+
+$SCOPE: apps/standard-ui-demo ($PROJECT)
+
+paths:
+
+- $PROJECT/src/app/components/code/\* (refactor from here)
+- $PROJECT/src/modules/code/components (refactor to)
+- $PROJECT/src/modules/props/components (refactor to)
+
+all the components in src/app/components/code go to modules/code except for ComponentPropsTable which goes to modules/prop
+
+scaffold barrel files with barrel file comments
+
+udpate consumers with new paths pointing at (relative path to root ../..)/modules/(code|props)
+
+apps/standard-ui-demo/src/app/components/code/ComponentPropsTable
+
+## Render CodeDocDescription description object as mardown
+
+$SCOPE: apps/standard-ui-demo ($PROJECT)
+
+create a markdown service in a new module
+
+$PROJECT/src/modules/markdown/services/MarkdownRenderer
+
+(inspiation: libs/purrtrait-shiki-service/src/services/SyntaxhHighlighter)
+
+this is where we will consume the new dependencies (from unified.js)
+
+REFINEMENT NEEDED - markdown => JSX pipeline can be assmebled in a number of ways even just using unified.js libs
+
+let's research alternatives and show how consuming them looks like (like refoo (parses to AST) => rebar (transformations has a community of plugins) => rebar (down to JSX)) think remark, rehype, etc..
+
+IMPORTANT: are there sync/async variants?
+
+service options accept linkComponent
+
+expose a single render(markdown) => JSX.Elelment method
+
+method should do regular markdown with component replacement - for now we replace only a => linkComponent
+
+method should expose a resource just like @purrtrait/solid-code/src/services/SyntaxHighlighter service
+
+2. expose the render() API to RenderingProviderAPI as renderMarkdown apps/standard-ui-demo/src/providers/Rendering/private/createRenderingContext.ts
+
+() and create the instance in createRenderingProvider
+
+3. create a <CodeMarkdownBlock> in the new module
+
+$PROJECT/src/modules/markdown/components
+
+Miniminal viable implmentation!!! 2 dom nodes 1 prop
+
+4. consume
+
+finally in apps/standard-ui-demo/src/app/components/code/CodeDocDescription/parts/CodeDocBody/CodeDocBody.tsx we can
+
+const (renderMarkdown ) = useRendering()
+
+const contents = () => renderMarkdown()
 
 ## Examples
 
