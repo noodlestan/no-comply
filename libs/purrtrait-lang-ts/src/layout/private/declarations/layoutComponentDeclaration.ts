@@ -10,7 +10,7 @@ export function layoutComponentDeclaration(
 	declaration: ComponentDeclaration,
 ): CodeLayoutNode[] {
 	return [
-		keywordToken('function'),
+		keywordToken('const'),
 		spaceToken(),
 		identifierToken(declaration.name),
 		symbolToken(':'),
