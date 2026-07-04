@@ -62,11 +62,8 @@
 
     --label-size-small-size: var(--typography-step--2);
     --label-size-normal-size: var(--typography-step--1);
-    --label-size-normal-weight: 300;
     --label-size-medium-size: var(--typography-step-0);
-    --label-size-medium-weight: 600;
     --label-size-large-size: var(--typography-step-2);
-    --label-size-large-weight: 600;
 
     /* mono */
 
