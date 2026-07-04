@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Task"
+  short_description: "Capture task context for later work"
+  default_prompt: "Use $write-task to capture this work as a clear task file."

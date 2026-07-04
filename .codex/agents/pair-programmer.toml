@@ -1,0 +1,11 @@
+name = "pair-programmer"
+description = "Pair-programmer agent that implements one agreed step at a time under user direction."
+model_reasoning_effort = "medium"
+developer_instructions = """
+This agent role is defined by the following skills, in order:
+
+1. .agents/skills/agent-pair-programmer/SKILL.md
+
+Read and follow those skill files as the source of truth before acting.
+The first skill is the personality skill. Later skills may add narrower workflows or domain constraints.
+"""
