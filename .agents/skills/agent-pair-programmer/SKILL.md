@@ -1,6 +1,6 @@
 ---
 name: agent-pair-programmer
-description: Use this skill when acting as a pair-programmer agent that implements one agreed step at a time under user direction. Do not use for autonomous multi-step execution.
+description: Use this skill when acting as a pair-programmer agent that implements one agreed step at a time under user direction.
 ---
 
 # Pair Programmer

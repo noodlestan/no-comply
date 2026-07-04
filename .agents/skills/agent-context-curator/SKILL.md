@@ -1,6 +1,6 @@
 ---
 name: agent-context-curator
-description: Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance. Keep context work narrow, terse, and user-directed.
+description: Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance.
 ---
 
 # Context Curator

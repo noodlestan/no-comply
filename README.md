@@ -13,6 +13,63 @@ We are an open collective of people dedicated to the design and software crafts:
 
 If would like to share your ideas, report a bug, ask for improvements - or simply say hi! 👋 - don't hesitate to join us on [Noodlestan's Discord](https://discord.gg/b8DkbJSF9z) or to drop us a line at `hello@noodlestan.org`.
 
+## Getting started
+
+First make sure you are using the correct node version by running `nvm use`.
+
+Install dependencies with `npm install` and buid all libraries with `npm run ci`.
+
+In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev` to launch a development server.
+
+## In this repository
+
+### Packages
+
+### @no-comply - SolidJS UI System.
+
+Libraries
+
+- @no-comply/solid-primitives - Types and prop helpers
+- @no-comply/solid-accessibility - Types, and role controllers
+- @no-comply/solid-contexts, Contexts, services and providers for building apps
+- @no-comply/solid-composables - Controllers, mixins and unstyled components
+- @no-comply/standard-ui — Themeable component library
+
+Support:
+
+- @no-comply/standard-ui-demo — Demo application and documentation
+- @no-comply/build-tools — Esbuild-based build system (tools/build)
+- @no-comply/meta — Purrception types, services, helpers
+- @no-comply/meta-extract — (CLI) orchestrate extraction
+
+### @purrception - Extract docs and structured metadata from codebases
+
+- @purrception/primitives — Core types
+- @purrception/lang-ts — Lightweight TS AST definitions
+- @purrception/lang-ts-extract — (CLI) extract TS AST from source
+- @purrception/source-fs — (CLI) file-system traversal
+
+### @purrtrait - Render codebase related docs and metadata
+
+- @purtrait/code-layout — Code layout models
+- @purtrait/lang-ts — @purrception/lang-ts support
+- @purtrait/client-tsx — In-browser TS/TSX parsing
+- @purtrait/solid-code — SolidJS code renderers
+- @purtrait/view-tsx — Editable TSX code models
+
+### @purrpose - Single-purpose utilities (e.g. in-browser compilation)
+
+- @purrpose/client-babel — In-browser JSX/TSX compiler
+- @purrpose/client-babel-preset-solidjs — SolidJS preset for above
+
+The `cli/` vs `libs/` directory split reflects consumption environment — `cli/` packages target Node.js, `libs/` packages are agnostic or client-side.
+
+### Docs Extraction System
+
+The `@no-comply` libraries have a `npm run extract` that exercises the `@purrception` pipeline to extract structured metadata and docs contents from source code into `dist/`.
+
+The demo app (`apps/standard-ui-demo`) consumes this extracted metadata and uses `@purrception` libraries to render documentation and interactive component playgrounds for `@no-comply` packages.
+
 ## Development
 
 System requirements:
@@ -22,43 +79,29 @@ System requirements:
 
 We recommended using [VS Code](https://code.visualstudio.com/) with the following extensions: [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx), [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode), [SpellRight](https://marketplace.visualstudio.com/items?itemName=ban.spellright)
 
-### Getting started
+### Commands
 
-First make sure you are using the correct node version by running `nvm use`.
+- `npm run dev` - Turbo dev (all packages in watch mode)
+- `npm run build` - Turbo build
+- `npm run lint` - Turbo lint (eslint + prettier + tsc --noEmit)
+- `npm run lint:fix` - Turbo lint with auto-fix
+- `npm run test` - Turbo test
+- `npm run extract` - Turbo extract (meta/docs extraction)
+- `npm run ci` - Turbo CI (clean → typecheck → build → test)
 
-Install dependencies with `npm install`.
-
-In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev` to launch a development server.
-
-### In this repository
-
-Apps:
-
-- [Standard UI Demo](https://github.com/noodlestan/no-comply/blob/apps/standard-ui-demo/README.md) - Demo application built with [Standard UI](https://standard-ui.noodlestan.org/).
-
-Libraries:
-
-- [Solid Contexts](https://github.com/noodlestan/no-comply/blob/libs/solid-contexts/README.md) - Context-aware application services, and controllers.
-- [Solid Primitives](https://github.com/noodlestan/no-comply/blob/libs/solid-primitives/README.md) - Core types and utils.
-- [Solid Accessibility](https://github.com/noodlestan/no-comply/blob/libs/solid-accessibility/README.md) - Aria types, primitives, and utils.
-- [Solid Composables](https://github.com/noodlestan/no-comply/blob/libs/solid-composables/README.md) - Composable components, controllers, and mixins.
-- [Solid Dev](https://github.com/noodlestan/no-comply/blob/libs/solid-dev-tools/README.md) - Instrumentation and debug tools.
-- [Standard UI](https://github.com/noodlestan/no-comply/blob/libs/standard-ui/README.md) - Themeable component library.
+Pre-commit hooks (via lefthook) run `lint` then `ci` sequentially.
 
 ### Stack
 
-This project is built targets [Solid JS](https://www.solidjs.com/) ([docs](https://docs.solidjs.com/)) applications and component libraries.
+The `@no-comply` UI libraries depend only on [Solid JS](https://docs.solidjs.com/) and a few [Solid Primitives](https://primitives.solidjs.community/).
 
-It depends only on SolidJS core and a few [Solid Primitives](https://primitives.solidjs.community/).
+The `@purrtrait` and `@purrception`libraries depend heavily on [Typscript](https://www.typescriptlang.org/play/?#code/PTAEElQMXA5ARCAVCsDCAlAovcAhAGS1CQAkBBFMrbCAZVFgHlR4m0BVAWS1iUvBNYoISVLgGAdSx464JMXJ4mHKqWJIGABXIY6NUOS2QAUCZChSAUwBOVgOQBnUAEMAdqCsAPFwFsADgA2VqAA9gBmoAAuABYuUaAAnqEArqAAxu6u6TEAllYAbiEA7rmxoGUAXGa5AaE2CVGJ-iEA3tApbulRuaFuAFKO8KHp8PEuADQdXT19BLkA1lbwVumBLjbxvR4AvqDhNqG+oPYAAv4pNjbpVv6zbsDrbgDmALRRjvYA3Ca1-vWNZwHI4nJotRzpGy5O7fGp1BqgVomACQ3iim26KwhULu2wmKLRGKiWg2fiQLmejnxqK86Jc3QwViilzcjnJz2phPpUXZVIJtKJSCsAXWUSsvPxe2Bx3sADpgP4oQV4g4ft5-gjwp1uttPALuVBtfdBsN0gAKNyhAAmVkq0x1c0Wy1W6029wAlHbDTNtiaRmMoi5ESj0n1HAkAFZDEagAC80UcsueTP6dFNaCOvisbg+5DcVt5FutIRczg+stgxfdsvCuXzZvLuUcqdN7tcjhRyIAPgnZS2Rp2e50bbW3FYrT8Q2GEjbsdD7nG9XTMVY57i+mao62fsjQ6zGsKgireYuud0hSLjxTHJvo+l3Tu9+HQP5Sb4T-Gz8S34WtyMH1O+6gHYzI2Ky7KnvqDJMiybIUre26Ac+gaUpBy48teCH-pOyIgSywbIsis6QvOeKdmKl5ihKnavps77XtSuEwWBcEcuRDEojsPw7CYQA).
 
-Documentation is built on top of [Astro](https://docs.astro.build) / [Starlight](https://starlight.astro.build/).
+The demo application uses [Prettier](https://prettier.io/), [Shiki](https://shiki.style/) and [Babel](https://babeljs.io/)
 
-### Tools
+Libraries in `cli/` depend on [Node.js](https://nodejs.org/en) and Node packages such as `chokidar`.
 
-- [Vite](https://vitejs.dev/) and [Vitest](https://vitest.dev/guide/)
-- [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config) - our style guide (ESLint + Prettier)
-- [Turborepo](https://turborepo.com/) - manages build tasks
-- [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) - manages the git hooks
+**Development tools:** [Vite](https://vitejs.dev/) and [Vitest](https://vitest.dev/guide/), [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config) - our style guide (ESLint + Prettier), [Turborepo](https://turborepo.com/) to manage build tasks and [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) to manage the git hooks.
 
 ### Committing
 
