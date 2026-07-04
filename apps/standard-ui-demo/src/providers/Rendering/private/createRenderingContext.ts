@@ -1,12 +1,13 @@
 import {
 	createCodeLayout,
-	createCodeRendererContext,
+	createCodeRendererOptions,
 	createCodeSerializer,
 } from '@purrtrait/code-renderer';
 import { tsCodeLayout } from '@purrtrait/lang-ts';
 import type { CodeLinkComponent } from '@purrtrait/solid-code';
 import { createJsDocBlockRenderer, createJsDocLinkResolver } from '@purrtrait/solid-code';
 
+import { createSyntaxHighlighter } from '../../../services';
 import { useMeta } from '../../Meta';
 import type { RenderingContext } from '../types';
 
@@ -18,13 +19,15 @@ export function createRenderingContext(codeLinkComponent: CodeLinkComponent): Re
 	const linkResolver = createJsDocLinkResolver({ resolveLink });
 	const jsDocBlockRenderer = createJsDocBlockRenderer({ linkResolver });
 
-	const codeRendererContext = createCodeRendererContext({
+	const codeRendererOptions = createCodeRendererOptions({
 		langs: [tsCodeLayout],
 		linker: getSymbolLinkMaybe,
 	});
 
-	const codeLayout = createCodeLayout(codeRendererContext);
-	const codeSerializer = createCodeSerializer(codeRendererContext);
+	const codeLayout = createCodeLayout(codeRendererOptions);
+	const codeSerializer = createCodeSerializer(codeRendererOptions);
+
+	const syntaxHighlighter = createSyntaxHighlighter({});
 
 	return {
 		resolveLink: linkResolver.resolveLink,
@@ -33,6 +36,7 @@ export function createRenderingContext(codeLinkComponent: CodeLinkComponent): Re
 		getJsDocTags: jsDocBlockRenderer.tags,
 		renderCodeLayout: codeLayout.render,
 		serializeCode: codeSerializer.serialize,
+		createSyntaxHighlighterResource: syntaxHighlighter.createSyntaxHighlighterResource,
 		codeLinkComponent,
 	};
 }

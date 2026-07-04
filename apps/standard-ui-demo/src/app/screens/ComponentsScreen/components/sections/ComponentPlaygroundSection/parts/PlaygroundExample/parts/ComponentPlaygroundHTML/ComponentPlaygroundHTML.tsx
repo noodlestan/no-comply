@@ -34,7 +34,7 @@ export const ComponentPlaygroundHTML: Component<Props> = props => {
 						onContentsChanged={setCode}
 					/>
 				</VisuallyHidden>
-				<CodeRenderer code={cleanedCode()} lang="javascript" />
+				<CodeRenderer code={cleanedCode()} lang="html" />
 			</Flex>
 		</Suspense>
 	);

@@ -370,7 +370,7 @@ createDocBlock(node) => {tags, links, contents}
 
 ## Code blocks
 
-- use serializer + prettier + shiki (link nodes!)
+WIP map Purrception lang to shiki/prettier
 
 ## Examples
 

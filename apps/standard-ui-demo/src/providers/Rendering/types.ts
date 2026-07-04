@@ -5,6 +5,8 @@ import type {
 	JsDocLinkResolverAPI,
 } from '@purrtrait/solid-code';
 
+import type { SyntaxHighlighterAPI } from '../../services';
+
 export type RenderingContext = {
 	resolveLink: JsDocLinkResolverAPI['resolveLink'];
 	renderJsDocDescription: JsDocBlockRendererAPI['description'];
@@ -13,4 +15,5 @@ export type RenderingContext = {
 	renderCodeLayout: CodeLayoutAPI['render'];
 	serializeCode: CodeSerializerAPI['serialize'];
 	codeLinkComponent: CodeLinkComponent;
+	createSyntaxHighlighterResource: SyntaxHighlighterAPI['createSyntaxHighlighterResource'];
 };

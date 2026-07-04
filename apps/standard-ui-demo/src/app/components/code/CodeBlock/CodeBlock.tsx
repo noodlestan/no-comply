@@ -1,9 +1,8 @@
 import { staticClassList } from '@no-comply/solid-primitives';
-import { Mono } from '@no-comply/standard-ui';
-import { CodeBlock as SolidCodeBlock } from '@purrtrait/solid-code';
 import { type Component } from 'solid-js';
 
 import { useRendering } from '../../../../providers';
+import { CodeRenderer } from '../CodeRenderer';
 
 import styles from './CodeBlock.module.scss';
 
@@ -15,26 +14,13 @@ type Props = {
 };
 
 export const CodeBlock: Component<Props> = props => {
-	const { renderCodeLayout, codeLinkComponent: codeLink } = useRendering();
-	const options = {
-		linkComponent: codeLink,
-	};
+	const { serializeCode } = useRendering();
+
+	const serialized = () => serializeCode(props.lang, props.nodes, props.context || {});
 
 	return (
 		<div style={{ margin: 0 }} classList={staticClassList(styles, 'CodeBlock')}>
-			<Mono>
-				<pre data-purrception-lang={props.lang}>
-					<code>
-						<SolidCodeBlock
-							lang={props.lang}
-							nodes={props.nodes}
-							linkerContext={props.context || {}}
-							render={renderCodeLayout}
-							options={options}
-						/>
-					</code>
-				</pre>
-			</Mono>
+			<CodeRenderer code={serialized().code} lang={'javascript'} />
 		</div>
 	);
 };
