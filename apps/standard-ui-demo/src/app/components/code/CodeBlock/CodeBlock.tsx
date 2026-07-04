@@ -8,12 +8,13 @@ import { CodeRenderer } from '../CodeRenderer';
 import styles from './CodeBlock.module.scss';
 
 type Props = {
-	size: ContentSize;
-	inline?: boolean;
 	lang: string;
 	nodes: object[];
 	context?: object;
 	columns?: number;
+	size?: ContentSize;
+	padding?: boolean;
+	inline?: boolean;
 };
 
 export const CodeBlock: Component<Props> = props => {
@@ -23,6 +24,7 @@ export const CodeBlock: Component<Props> = props => {
 
 	const classList = createClassList(styles, () => ({
 		CodeBlock: true,
+		padding: Boolean(props.padding),
 		inline: Boolean(props.inline),
 	}));
 

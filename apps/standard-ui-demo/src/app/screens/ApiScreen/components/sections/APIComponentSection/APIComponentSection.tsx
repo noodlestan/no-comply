@@ -15,7 +15,13 @@ export const APIComponentSection: Component<Props> = props => {
 	return (
 		<DocsSection title="Function">
 			<DocsItem gap="m">
-				<CodeBlock lang={PurrceptionLanguageId} nodes={[component()]} context={props.ent} />
+				<CodeBlock
+					lang={PurrceptionLanguageId}
+					nodes={[component()]}
+					context={props.ent}
+					padding
+					inline
+				/>
 				<CodeDocDescription node={resolveComponentDeclaration(props.ent)} />
 			</DocsItem>
 		</DocsSection>

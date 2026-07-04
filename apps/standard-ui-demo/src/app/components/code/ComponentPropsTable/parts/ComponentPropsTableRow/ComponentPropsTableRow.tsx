@@ -75,11 +75,11 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 				<Flex direction="row" align="baseline" gap="s">
 					<VisuallyHidden>Prop type:</VisuallyHidden>
 					<CodeBlock
-						size="small"
-						inline
 						lang={PurrceptionLanguageId}
 						nodes={[props.prop.node.type as object]}
 						context={props.component}
+						size="small"
+						inline
 					/>
 				</Flex>
 				<Flex direction="row" align="baseline" gap="s">

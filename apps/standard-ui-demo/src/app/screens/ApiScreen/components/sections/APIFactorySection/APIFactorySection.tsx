@@ -21,6 +21,8 @@ export const APIFactorySection: Component<Props> = props => {
 						lang={PurrceptionLanguageId}
 						nodes={[factory() as FunctionDeclaration]}
 						context={props.ent}
+						padding
+						inline
 					/>
 					<CodeDocDescription node={factory() as FunctionDeclaration} />
 				</DocsItem>

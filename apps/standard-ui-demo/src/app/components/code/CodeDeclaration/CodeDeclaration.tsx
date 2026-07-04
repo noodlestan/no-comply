@@ -1,6 +1,6 @@
 import type { NoComplyEntityData } from '@no-comply/meta';
 import type { ToggleActionIcons, ToggleActionLabelsProp } from '@no-comply/solid-composables';
-import { createClassList, createIconValue } from '@no-comply/solid-primitives';
+import { createIconValue } from '@no-comply/solid-primitives';
 import { Flex, Surface, Text, ToggleButton } from '@no-comply/standard-ui';
 import {
 	PurrceptionLanguageId,
@@ -14,8 +14,6 @@ import { type Component, Show, createEffect, createSignal } from 'solid-js';
 
 import { useMeta } from '../../../../providers';
 import { CodeBlock } from '../CodeBlock';
-
-import styles from './CodeDeclaration.module.scss';
 
 type CodeDeclarationProps = {
 	type: TypeDeclaration;
@@ -34,8 +32,6 @@ const ICONS: ToggleActionIcons = {
 };
 
 export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
-	const classList = createClassList(styles, () => ['CodeDeclaration']);
-
 	const { resolveSymbolEntity } = useMeta();
 
 	const [resolve, setResolve] = createSignal(false);
@@ -54,7 +50,7 @@ export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
 	};
 
 	return (
-		<Surface variant="card" padding="xs" classList={classList()}>
+		<Surface variant="card" padding="xs">
 			<Show when={props.resolve === 'show'}>
 				<Surface variant="panel" padding="s">
 					<Flex direction="row-reverse" gap="m" align="center" justify="end">
@@ -68,7 +64,7 @@ export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
 					</Flex>
 				</Surface>
 			</Show>
-			<CodeBlock nodes={[node()]} lang={PurrceptionLanguageId} context={props.entity} />
+			<CodeBlock nodes={[node()]} lang={PurrceptionLanguageId} context={props.entity} padding />
 		</Surface>
 	);
 };

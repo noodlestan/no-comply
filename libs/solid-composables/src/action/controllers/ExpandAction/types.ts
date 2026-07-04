@@ -16,7 +16,13 @@ export type ExpandActionLabels = {
 };
 
 export type ExpandActionIcons = {
+	/**
+	 * @noresolve
+	 */
 	expanded: IconValue;
+	/**
+	 * @noresolve
+	 */
 	collapsed: IconValue;
 };
 

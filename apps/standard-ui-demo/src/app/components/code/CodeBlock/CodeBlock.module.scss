@@ -7,6 +7,12 @@
       overflow: auto;
     }
 
+    &.padding {
+      pre {
+        padding: var(--space-pad-1);
+      }
+    }
+
     &.inline {
       pre {
         white-space: normal;

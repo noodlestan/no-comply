@@ -8,10 +8,10 @@ import { useRendering } from '../../../../providers';
 import styles from './CodeRenderer.module.scss';
 
 type CodeRendererProps = {
-	size: ContentSize;
 	code: string;
 	lang: string;
 	symbols?: ReadonlyMap<string, string>;
+	size?: ContentSize;
 	class?: string;
 };
 

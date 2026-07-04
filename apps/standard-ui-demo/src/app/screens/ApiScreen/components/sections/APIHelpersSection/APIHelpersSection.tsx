@@ -19,7 +19,13 @@ export const APIHelpersSection: Component<Props> = props => {
 				<For each={helpers()}>
 					{helper => (
 						<DocsSection title={helper.name} level={4}>
-							<CodeBlock lang={PurrceptionLanguageId} nodes={[helper]} context={props.ent} />
+							<CodeBlock
+								lang={PurrceptionLanguageId}
+								nodes={[helper]}
+								context={props.ent}
+								padding
+								inline
+							/>
 						</DocsSection>
 					)}
 				</For>

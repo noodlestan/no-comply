@@ -25,7 +25,13 @@ export const APIFactoriesSection: Component<Props> = props => {
 				<For each={factories()}>
 					{factory => (
 						<DocsSection title={factory.name} level={4}>
-							<CodeBlock lang={PurrceptionLanguageId} nodes={[factory]} context={props.ent} />
+							<CodeBlock
+								lang={PurrceptionLanguageId}
+								nodes={[factory]}
+								context={props.ent}
+								padding
+								inline
+							/>
 						</DocsSection>
 					)}
 				</For>
