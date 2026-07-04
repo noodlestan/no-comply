@@ -12,6 +12,10 @@ Use this skill when creating, editing, or planning repository context files, age
 
 Use this skill when acting as a pair-programmer agent that implements one agreed step at a time under user direction.
 
+## task-writer
+
+Generic task writing rules; prefer specialized task-writing skills.
+
 ---
 
 # How to update this file

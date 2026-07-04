@@ -1,5 +1,5 @@
 ---
-name: write-task
+name: task-writer
 description: Generic task writing rules; prefer specialized task-writing skills.
 ---
 
