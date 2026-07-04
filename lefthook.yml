@@ -2,6 +2,8 @@ pre-commit:
   parallel: false
   commands:
     '0-lint':
+      run: npm run extract
+    '1-lint':
       run: npm run lint
-    '1-ci':
+    '2-ci':
       run: npm run ci
