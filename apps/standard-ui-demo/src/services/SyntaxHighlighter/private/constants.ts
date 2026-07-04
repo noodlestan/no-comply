@@ -10,7 +10,7 @@ export const DEFAULT_OPTIONS: Record<SyntaxHighlighterLang, SyntaxHighlighterLan
 			parser: 'html',
 			plugins: [htmlParser],
 			options: {
-				printWidth: 40,
+				printWidth: 80,
 				htmlWhitespaceSensitivity: 'ignore',
 				proseWrap: 'always',
 			},
@@ -24,7 +24,7 @@ export const DEFAULT_OPTIONS: Record<SyntaxHighlighterLang, SyntaxHighlighterLan
 			parser: 'babel-ts',
 			plugins: [babelParser, estreeParser],
 			options: {
-				printWidth: 40,
+				printWidth: 80,
 				proseWrap: 'always',
 			},
 		},
@@ -37,7 +37,7 @@ export const DEFAULT_OPTIONS: Record<SyntaxHighlighterLang, SyntaxHighlighterLan
 			parser: 'json',
 			plugins: [babelParser, estreeParser],
 			options: {
-				printWidth: 40,
+				printWidth: 80,
 			},
 		},
 		shiki: {

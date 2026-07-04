@@ -3,7 +3,6 @@ export * from './APILink';
 export * from './CodeBlock';
 export * from './CodeDeclaration';
 export * from './CodeDocDescription';
-export * from './CodeInline';
 export * from './CodeLink';
 export * from './CodeRenderer';
 export * from './CodeSymbolLink';

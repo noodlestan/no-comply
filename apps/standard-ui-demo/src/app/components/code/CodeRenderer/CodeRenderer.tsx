@@ -1,6 +1,6 @@
 // CodeRenderer.tsx
 import { staticClassList } from '@no-comply/solid-primitives';
-import { Mono } from '@no-comply/standard-ui';
+import { type ContentSize, Mono } from '@no-comply/standard-ui';
 import { type Component, createEffect, createSignal } from 'solid-js';
 
 import { useRendering } from '../../../../providers';
@@ -8,6 +8,7 @@ import { useRendering } from '../../../../providers';
 import styles from './CodeRenderer.module.scss';
 
 type CodeRendererProps = {
+	size: ContentSize;
 	code: string;
 	lang: string;
 	symbols?: ReadonlyMap<string, string>;
@@ -34,5 +35,5 @@ export const CodeRenderer: Component<CodeRendererProps> = props => {
 
 	const classList = staticClassList(styles, 'CodeRenderer');
 
-	return <Mono ref={setRef} classList={classList} />;
+	return <Mono size={props.size} ref={setRef} classList={classList} />;
 };

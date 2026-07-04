@@ -10,10 +10,15 @@ export const formatCode = async (
 	if (!prettierOptions) {
 		return code;
 	}
-
-	return await prettier.format(code, {
-		parser: prettierOptions.parser,
-		plugins: prettierOptions.plugins,
-		...prettierOptions.options,
-	});
+	try {
+		return await prettier.format(code, {
+			parser: prettierOptions.parser,
+			plugins: prettierOptions.plugins,
+			...prettierOptions.options,
+		});
+	} catch (error) {
+		const message = error instanceof Error ? error.message : String(error);
+		console.warn(`Prettier parser ${prettierOptions.parser} error ${message}`);
+		return code;
+	}
 };

@@ -6,5 +6,11 @@
       white-space: pre;
       overflow: auto;
     }
+
+    &.inline {
+      pre {
+        white-space: normal;
+      }
+    }
   }
 }

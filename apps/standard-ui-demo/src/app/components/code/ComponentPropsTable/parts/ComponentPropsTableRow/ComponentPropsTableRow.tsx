@@ -1,12 +1,13 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
+import { VisuallyHidden } from '@no-comply/solid-composables';
 import { Display, Flex, Link, Text, TextInput } from '@no-comply/standard-ui';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, type JSX, type Resource, Show } from 'solid-js';
 
 import { routeFor } from '../../../../../navigation';
+import { CodeBlock } from '../../../CodeBlock';
 import { CodeDocDescription } from '../../../CodeDocDescription';
-import { CodeInline } from '../../../CodeInline';
 import type { ComponentProp, ComponentPropsGroup } from '../../types';
 
 type Props = {
@@ -72,8 +73,10 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 			</Flex>
 			<Show when={props.showDocs}>
 				<Flex direction="row" align="baseline" gap="s">
-					<Text>type:</Text>
-					<CodeInline
+					<VisuallyHidden>Prop type:</VisuallyHidden>
+					<CodeBlock
+						size="small"
+						inline
 						lang={PurrceptionLanguageId}
 						nodes={[props.prop.node.type as object]}
 						context={props.component}

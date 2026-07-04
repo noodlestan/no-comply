@@ -22,8 +22,8 @@ export const SignupForm: Component<Props> = props => {
 		try {
 			await mockSubmit(signupData() as SignupData);
 			props.onComplete();
-		} catch (err) {
-			setSubmitError(err as Error);
+		} catch (error) {
+			setSubmitError(error as Error);
 			setIsSubmitting(false);
 		}
 	};
