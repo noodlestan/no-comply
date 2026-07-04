@@ -42,9 +42,9 @@ export function createCompiler(opts: CompilerOptions = {}): CompilerAPI {
 				throw new Error('Babel transform returned empty output');
 			}
 			return result.code;
-		} catch (err) {
-			errorMessage(options.debug, 'COMPILE_ERROR:', err, { code });
-			throw err;
+		} catch (error) {
+			errorMessage(options.debug, 'COMPILE_ERROR:', error, { code });
+			throw error;
 		}
 	}
 
@@ -58,9 +58,9 @@ export function createCompiler(opts: CompilerOptions = {}): CompilerAPI {
 			// eslint-disable-next-line no-new-func
 			const fn = new Function(...args, code);
 			return fn.call(options.execute.thisArg, ...Object.values(scope));
-		} catch (err) {
-			errorMessage(options.debug, 'EXECUTE_ERROR:', err, { code, scope });
-			throw err;
+		} catch (error) {
+			errorMessage(options.debug, 'EXECUTE_ERROR:', error, { code, scope });
+			throw error;
 		}
 	}
 
