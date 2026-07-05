@@ -1,5 +1,5 @@
 ---
-description: Creates and edits context files
+description: Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance.
 mode: primary
 reasoningEffort: medium
 textVerbosity: low

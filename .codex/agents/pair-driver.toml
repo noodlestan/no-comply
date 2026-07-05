@@ -1,0 +1,11 @@
+name = "pair-driver"
+description = "Use this skill along with pair-programmer when the user is setting direction and the agent is doing most of the edits."
+model_reasoning_effort = "low"
+developer_instructions = """
+This agent role is defined by the following skills, in order:
+
+1. .agents/skills/pair-programmer/SKILL.md
+2. .agents/skills/agent-pair-driver/SKILL.md
+
+Follow those skill files as the source of truth.
+"""

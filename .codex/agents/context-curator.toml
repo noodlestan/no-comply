@@ -1,5 +1,5 @@
 name = "context-curator"
-description = "Context-curator agent that creates and improves repository context files with narrow, user-directed scope."
+description = "Agent focused on editing, or planning repository context files, agent instructions, skills, processes, or technical guidance."
 model_reasoning_effort = "medium"
 developer_instructions = """
 This agent role is defined by the following skills, in order:
@@ -9,3 +9,6 @@ This agent role is defined by the following skills, in order:
 Read and follow those skill files as the source of truth before acting.
 The first skill is the personality skill. Later skills may add narrower workflows or domain constraints.
 """
+
+
+

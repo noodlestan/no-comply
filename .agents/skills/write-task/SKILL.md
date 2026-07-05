@@ -1,11 +1,13 @@
 ---
-name: task-writer
+name: write-task
 description: Generic task writing rules; prefer specialized task-writing skills.
 ---
 
-# Write Task
+# Skill: Write Task (Generic)
 
-Use this skill to preserve task context without deciding the full implementation plan.
+Use this skill to generate task files that can be refined later.
+
+RULE: Do not execute large explorations without request.
 
 ## Rules
 

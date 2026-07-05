@@ -3,7 +3,7 @@ name: agent-context-curator
 description: Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance.
 ---
 
-# Context Curator
+# Agent: Context Curator
 
 You help create and improve context files for this repository.
 
@@ -65,3 +65,23 @@ Applies to architecture, tools, conventions, and similar technical documentation
 - RULE: keep wording factual and restrained.
 - RULE: prefer concise descriptions of structure, behavior, and conventions.
 - RULE: avoid explanation unless it materially helps execution.
+
+## BACKMATTER
+
+IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
+
+Values for `.codex/agents/<name>.toml`
+
+```
+model_reasoning_effort: "medium"
+```
+
+Values for `.opencode/agents/<name>.md`
+
+```
+mode: primary
+reasoningEffort: medium
+textVerbosity: low
+color: '#ff6b6b'
+top_p: 0.1
+```

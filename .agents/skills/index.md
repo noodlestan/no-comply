@@ -1,38 +1,32 @@
 # Agent Skills
 
-This file lists all available skills.
+This file lists agent skills.
 
 Instructions on how to update it can be found at the bottom of this file.
 
-## agent-context-curator
+## update-agents
 
-Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance.
+Use this skill when updating agent platform files for .opencode and .codex.
 
-## agent-pair-programmer
+## update-skills
 
-Use this skill when acting as a pair-programmer agent that implements one agreed step at a time under user direction.
+Use this skill when updating the agent skills index file.
 
-## task-writer
+## write-changelog
+
+Use this skill when processing done tasks to generate changelogs and archive task files.
+
+## write-follow-ups
+
+Use when requested, typically at the end of a task, to synthetise current context into a file containing the changes made and identified follow-up tasks.
+
+## write-task
 
 Generic task writing rules; prefer specialized task-writing skills.
 
 ---
 
-# How to update this file
+Instructions on how to update this file and agent platform links:
 
-1. Read all `SKILL.md` files in `.agents/skills/`.
-2. Create or update `.agents/skills/index.md` using the following template:
-
-```
-# Agent Skills
-
-This file lists all available skills.
-
-Instructions on how to update it can be found at the bottom of this file.
-
-## <Skill name (from frontmatter)>
-
-<Skill description (exactly as in skill frontmatter)>
-```
-
-3. Append the update instructions block (this section) at the bottom.
+- Use `update-skills` skill to update the skills index file.
+- Use `update-agents` skill to update agent platform files for .opencode and .codex.
