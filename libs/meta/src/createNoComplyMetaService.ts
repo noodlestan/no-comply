@@ -2,13 +2,15 @@ import type { EntityDataBase } from '@purrception/primitives';
 
 import type { ModuleEntityData, NoComplyEntityData } from './entities';
 import {
+	buildSearchEntityRecords,
 	indexEntities,
 	matchEntityByImport,
 	resolveEntityExpressionParts,
 	resolveSymbolImport,
+	searchEntityRecords,
 } from './private';
 import type { ResolvedExpression } from './private';
-import type { NoComplyMetaAPI, NoComplyMetaOptions } from './types';
+import type { NoComplyMetaAPI, NoComplyMetaOptions, SearchEntityResult } from './types';
 
 export function createNoComplyMetaService(
 	entities: NoComplyEntityData[],
@@ -16,9 +18,14 @@ export function createNoComplyMetaService(
 ): NoComplyMetaAPI {
 	const { makeEntityHref } = options;
 	const index = indexEntities(entities);
+	const searchRecords = buildSearchEntityRecords(entities);
 
 	const getEntities = (): NoComplyEntityData[] => {
 		return [...entities];
+	};
+
+	const searchEntities = (terms: string): SearchEntityResult[] => {
+		return searchEntityRecords(searchRecords, terms);
 	};
 
 	const getEntityMaybe = <T extends NoComplyEntityData>(
@@ -149,6 +156,7 @@ export function createNoComplyMetaService(
 
 	return {
 		getEntities,
+		searchEntities,
 		getEntityMaybe,
 		getEntity,
 		resolveSymbolEntity,

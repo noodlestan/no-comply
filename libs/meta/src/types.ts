@@ -1,6 +1,20 @@
-import type { EntityDataBase } from '@purrception/primitives';
+import type { DeclaredSymbol, EntityDataBase } from '@purrception/primitives';
 
 import type { ModuleEntityData, NoComplyEntityData } from './entities';
+
+export type SearchSymbolResult = {
+	symbol: DeclaredSymbol;
+	matchedName: boolean;
+	matchedDescription: boolean;
+	description?: string;
+	score: number;
+};
+
+export type SearchEntityResult = {
+	entity: NoComplyEntityData;
+	symbols: SearchSymbolResult[];
+	score: number;
+};
 
 export type NoComplyMetaOptions = {
 	makeEntityHref?: (entity: NoComplyEntityData, symbol?: string) => string;
@@ -8,6 +22,7 @@ export type NoComplyMetaOptions = {
 
 export type NoComplyMetaAPI = {
 	getEntities(): NoComplyEntityData[];
+	searchEntities: (terms: string) => SearchEntityResult[];
 	getEntityMaybe<T extends NoComplyEntityData>(
 		pkg: string,
 		type: string,
