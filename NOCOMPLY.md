@@ -580,6 +580,67 @@ add serialize() function to use with syntax highlighters
 
 # Purrception
 
+## Context abstraction
+
+there should be a
+
+type BaseContext = {
+type: string
+value: string
+\_parent: () => BaseContext | undefined // if any
+\_baseContext: () => BaseContext // the identity as object
+\_id: () => string // the identiy as string "directory-context:/sources/src/file.ts"
+\_hierarchy: () => // serialized context identities all the way to root "[filesystem-context:/sources/][directory-context:/sources/src/file.ts]
+}
+
+createBaseContext(value, parent?: BaseContext) encapsualtes the serialiazble identify
+
+so that all of these can extend it
+
+- ProgramFilesContext in cli/purrception-lang-ts-extract/src/program/types.ts
+- EntityExtractContext in libs/purrception-primitives/src/types.ts
+- DirectoryExtractContext and FilesystemExtractContext in cli/purrception-source-fs/src/contexts/types.ts
+
+wht type 'program-files', 'entity-extract', 'directory-extract', 'filesystem-extract'
+
+all constructors for these contexts call createBaseContext(value, parent)
+
+value will be something like the value of the local `path` or `filename` context variable (most likely in most cases) but maybe something like thing `id`
+
+this will make all context creators explicit
+
+and allow loggers and events to attach a serialized context identity to the warning
+
+## Add context to extraction pipeline to collect warnings in meta-extract
+
+no current use case identified
+
+but diring implementation there were some cases left behind maybe with console.warn or throw new error that can just become a call to context.warnings
+
+add in lib/purrception-primitives/src/context/types a
+
+`type ExtractContext = { getWarnings: () => ExtractWarning[]; addWarning: (warning: ExtractWarning) => void)}`
+
+and `createExtractContext();` // no prams later (parentContext: something - I am sure there is a ProgramContext attached to a DirectoryExtractContext attached to a ...) identify these during exploration to generate another task
+
+create it on the that before handing over
+
+## Add a context to extraction pipeline to collect warnings in meta-extract
+
+this should not only be sent to context.warnings but also stored in type DeclaredSymbol: { \_warnings: DeclarationWarnings[] }
+
+in the helper, before sending to create the \_warnings property and
+
+consumers - check meta/src/entities for entity
+
+check type DeclaredSymbol
+
+## Add options: validations[] to extract entry point .. validations
+
+warning such as "WARNING: adding @noresolve to interface declartions, or top level object literals or intersection types will cause composing members to expand correctly. Members of the tagged interface "
+
+## Add a context to extraction pipeline to collect warnings in meta-extract
+
 ## Fix: module without name
 
 in `libs/standard-ui/dist/meta.json`
