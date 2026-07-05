@@ -5,9 +5,6 @@ import type { LayoutOverflow, LayoutPaddingProps, LayoutStretch } from '../../ty
 export type LayoutMixinProps = LayoutPaddingProps & {
 	stretch?: ResponsiveProp<LayoutStretch>;
 	uncontained?: ResponsiveProp<boolean>;
-	/**
-	 * @noresolve
-	 */
 	overflow?: ResponsiveProp<LayoutOverflow>;
 };
 

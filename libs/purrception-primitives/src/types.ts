@@ -17,7 +17,7 @@ export type DeclaredSymbol = {
 	lang: string;
 	name: string;
 	private: boolean;
-} & DocsData;
+};
 
 export type LanguageDeclaredSymbol<L extends string> = DeclaredSymbol & {
 	lang: L;
@@ -35,7 +35,6 @@ export type EntityDataBase = EntityDataBasePartial &
 			imported: Record<string, ImportedSymbol>;
 			declared: Record<string, DeclaredSymbol>;
 		};
-		// [key: string]: unknown;
 	};
 
 export type EntityExtractContext<T extends object> = {

@@ -36,11 +36,14 @@ export const APITypesSection: Component<Props> = props => {
 			<Show when={publicTypes().length}>
 				<DocsSection title="Types">
 					<For each={publicTypes()}>
-						{type => (
-							<DocsSection title={type.name + (type.private ? ' (private)' : '')} level={4}>
+						{declaration => (
+							<DocsSection
+								title={declaration.name + (declaration.private ? ' (private)' : '')}
+								level={4}
+							>
 								<DocsItem gap="m">
-									<CodeDocDescription node={type}>
-										<CodeDeclaration type={type} entity={props.ent} resolve="show" />
+									<CodeDocDescription node={declaration.node}>
+										<CodeDeclaration type={declaration} entity={props.ent} resolve="show" />
 									</CodeDocDescription>
 								</DocsItem>
 							</DocsSection>
@@ -51,15 +54,15 @@ export const APITypesSection: Component<Props> = props => {
 			<Show when={privateTypes().length}>
 				<DocsSection title="Private Types">
 					<For each={privateTypes()}>
-						{type => (
+						{declaration => (
 							<DocsSection
-								label={type.name}
-								title={type.name + (type.private ? ' (private)' : '')}
+								label={declaration.name}
+								title={declaration.name + (declaration.private ? ' (private)' : '')}
 								level={4}
 							>
 								<DocsItem gap="m">
-									<CodeDocDescription node={type}>
-										<CodeDeclaration type={type} entity={props.ent} resolve="show" />
+									<CodeDocDescription node={declaration.node}>
+										<CodeDeclaration type={declaration} entity={props.ent} resolve="show" />
 									</CodeDocDescription>
 								</DocsItem>
 							</DocsSection>

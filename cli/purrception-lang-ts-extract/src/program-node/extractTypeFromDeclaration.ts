@@ -30,16 +30,19 @@ export function extractTypeFromDeclaration(
 	}
 
 	const base = extractTypeExpression(declaration);
+	const node = {
+		...base,
+		description,
+		templateTags,
+		tags,
+	};
 	const type: TypeExpressionDeclaration = {
 		at: programFile.filepath,
 		name,
 		lang: PurrceptionLanguageId,
 		kind: 'type',
 		private: !isExportedDeclaration(programFile, declaration),
-		node: base,
-		description,
-		templateTags,
-		tags,
+		node,
 	};
 	return type;
 }

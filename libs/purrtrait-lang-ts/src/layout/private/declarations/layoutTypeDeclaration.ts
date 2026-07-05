@@ -13,19 +13,21 @@ export function layoutTypeDeclaration(
 	context: LangTsLayoutContext,
 	declaration: TypeExpressionDeclaration,
 ): CodeLayoutNode[] {
+	const { name, node } = declaration;
+
 	const genericCtx = createLangTsLayoutContextWithGenericParams(
 		context,
-		declaration.node.generic?.map(x => x.name) ?? [],
+		node.generic?.map(x => x.name) ?? [],
 	);
 
 	return [
 		keywordToken('type'),
 		spaceToken(),
-		identifierToken(declaration.name),
-		...layoutGenerics(context, declaration.node.generic),
+		identifierToken(name),
+		...layoutGenerics(context, node.generic),
 		spaceToken(),
 		symbolToken('='),
 		spaceToken(),
-		...layoutExpression(genericCtx, declaration.node),
+		...layoutExpression(genericCtx, node),
 	] as CodeLayoutNode[];
 }

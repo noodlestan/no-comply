@@ -1,4 +1,8 @@
-import { type ComponentEntityData, resolveComponentFactoryDeclaration } from '@no-comply/meta';
+import {
+	type ComponentEntityData,
+	resolveComponentDeclaration,
+	resolveComponentFactoryDeclaration,
+} from '@no-comply/meta';
 import type { FunctionDeclaration } from '@purrception/lang-ts';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, Show } from 'solid-js';
@@ -12,6 +16,7 @@ type Props = {
 
 export const APIFactorySection: Component<Props> = props => {
 	const factory = () => resolveComponentFactoryDeclaration(props.ent);
+	const node = () => resolveComponentDeclaration(props.ent).node;
 
 	return (
 		<Show when={factory()}>
@@ -24,7 +29,7 @@ export const APIFactorySection: Component<Props> = props => {
 						padding
 						inline
 					/>
-					<CodeDocDescription node={factory() as FunctionDeclaration} />
+					<CodeDocDescription node={node()} />
 				</DocsItem>
 			</DocsSection>
 		</Show>

@@ -14,28 +14,30 @@ export function layoutInterfaceDeclaration(
 	context: LangTsLayoutContext,
 	declaration: InterfaceDeclaration,
 ): CodeLayoutNode[] {
+	const { name, node } = declaration;
+
 	const genericCtx = createLangTsLayoutContextWithGenericParams(
 		context,
-		declaration.generic?.map(x => x.name) ?? [],
+		node.generic?.map(x => x.name) ?? [],
 	);
 
 	return [
 		keywordToken('interface'),
 		spaceToken(),
-		identifierToken(declaration.name),
-		...layoutGenerics(context, declaration.generic),
-		...(declaration.heritage?.length ? [spaceToken(), keywordToken('extends'), spaceToken()] : []),
+		identifierToken(name),
+		...layoutGenerics(context, node.generic),
+		...(node.heritage?.length ? [spaceToken(), keywordToken('extends'), spaceToken()] : []),
 		...eachExpression(
 			genericCtx,
-			declaration.heritage,
+			node.heritage,
 			(genericCtx, heritage) => layoutExpression(genericCtx, heritage),
 			() => [symbolToken(','), spaceToken()],
 		),
-		...(declaration.heritage ? [spaceToken()] : []),
+		...(node.heritage ? [spaceToken()] : []),
 		symbolToken('{'),
 		spaceToken(),
 		block(
-			Object.entries(declaration.members).map(([key, member], i, arr) => {
+			Object.entries(node.members).map(([key, member], i, arr) => {
 				return group([
 					identifierToken(key),
 					...(member.optional ? [symbolToken('?')] : []),

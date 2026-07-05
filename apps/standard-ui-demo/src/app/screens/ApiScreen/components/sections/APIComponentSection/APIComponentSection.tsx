@@ -11,6 +11,7 @@ type Props = {
 
 export const APIComponentSection: Component<Props> = props => {
 	const component = () => resolveComponentDeclaration(props.ent);
+	const node = () => resolveComponentDeclaration(props.ent).node;
 
 	return (
 		<DocsSection title="Function">
@@ -22,7 +23,7 @@ export const APIComponentSection: Component<Props> = props => {
 					padding
 					inline
 				/>
-				<CodeDocDescription node={resolveComponentDeclaration(props.ent)} />
+				<CodeDocDescription node={node()} />
 			</DocsItem>
 		</DocsSection>
 	);

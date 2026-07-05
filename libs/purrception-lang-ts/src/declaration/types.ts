@@ -14,22 +14,26 @@ export type FunctionLikeDeclaration = ts.FunctionDeclaration | ts.VariableStatem
 
 export type DeclarationKind = 'type' | 'interface' | 'function' | 'component';
 
-export type DeclarationBase<K extends DeclarationKind> =
-	LanguageDeclaredSymbol<'@purrception/lang-ts'> &
-		JsDocData & {
-			kind: K;
-			private?: boolean;
-		};
+export type DeclarationBranded = LanguageDeclaredSymbol<'@purrception/lang-ts'>;
+
+export type DeclarationBase<K extends DeclarationKind> = DeclarationBranded & {
+	kind: K;
+	private?: boolean;
+};
 
 export type TypeExpressionDeclaration<K extends TypeExpressionNode = TypeExpressionNode> =
 	DeclarationBase<'type'> & {
 		node: K;
 	};
 
-export type InterfaceDeclaration = DeclarationBase<'interface'> & {
+export type InterfaceTypeNode = JsDocData & {
 	generic?: TypeExpressionGeneric[];
 	heritage?: TypeExpressionNode[];
 	members: Record<string, ObjectLiteralTypeMember>;
+};
+
+export type InterfaceDeclaration = DeclarationBase<'interface'> & {
+	node: InterfaceTypeNode;
 };
 
 export type FunctionDeclaration = DeclarationBase<'function'> & {
@@ -47,3 +51,5 @@ export type Declaration =
 	| ComponentDeclaration;
 
 export type TypeDeclaration = TypeExpressionDeclaration | InterfaceDeclaration;
+
+export type DeclaredSymbolTypes = Declaration;

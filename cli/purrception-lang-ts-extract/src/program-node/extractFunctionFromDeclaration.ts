@@ -89,7 +89,7 @@ export function extractFunctionFromDeclaration(
 	}
 	const jsDoc = extractFunctionJsDoc(declaration);
 
-	const { description, templateTags, tags } = jsDoc;
+	const { description, templateTags, tags, paramTags, returnsTag } = jsDoc;
 
 	const [decl, init] = getVariableFunctionDeclaration(declaration);
 
@@ -110,6 +110,12 @@ export function extractFunctionFromDeclaration(
 		generic,
 		params,
 		returns,
+		description,
+		templateTags,
+		tags,
+		// WIP These need to merged into params and returns structures? at extact time?
+		paramTags,
+		returnsTag,
 	};
 
 	return {
@@ -119,8 +125,5 @@ export function extractFunctionFromDeclaration(
 		kind: 'function',
 		private: !isExportedDeclaration(programFile, signatureNode),
 		node,
-		description,
-		templateTags,
-		tags,
 	};
 }

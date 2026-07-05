@@ -41,18 +41,11 @@ export function resolveInterfaceDeclaration(
 	context: ResolveTypeContext,
 	declaration: InterfaceDeclaration,
 ): TypeExpressionDeclaration<ObjectLiteralTypeNode> {
-	const {
-		at,
-		name,
-		generic,
-		members = {},
-		heritage = [],
-		description,
-		templateTags,
-		tags,
-	} = declaration;
+	const { at, name, node } = declaration;
+	const { generic, members = {}, heritage = [], ...rest } = node;
 
 	const object: ObjectLiteralTypeNode = {
+		...rest,
 		kind: 'object',
 		generic,
 		members: {},
@@ -98,8 +91,5 @@ export function resolveInterfaceDeclaration(
 		kind: 'type',
 		private: declaration.private,
 		node: object,
-		description,
-		templateTags,
-		tags,
 	};
 }

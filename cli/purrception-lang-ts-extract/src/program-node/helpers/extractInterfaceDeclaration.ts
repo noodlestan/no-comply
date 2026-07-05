@@ -26,8 +26,10 @@ export function extractInterfaceDeclaration(
 		lang: PurrceptionLanguageId,
 		kind: 'interface',
 		private: !isExportedDeclaration(programFile, declaration),
-		generic,
-		heritage: extended,
-		members: object.members,
+		node: {
+			generic,
+			heritage: extended,
+			members: object.members,
+		},
 	};
 }
