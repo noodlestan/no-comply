@@ -13,15 +13,16 @@ import { type Component, For, Show } from 'solid-js';
 import { CodeDeclaration, CodeDocDescription } from '../../../../../components';
 import { DocsItem, DocsSection } from '../../../../../content';
 
+/* prettier-ignore */
 type Props = {
 	ent:
-		| ComponentEntityData
-		| ContextEntityData
-		| ControllerEntityData
-		| MixinEntityData
-		| ModuleEntityData
-		| ProviderEntityData
-		| ServiceEntityData;
+	| ComponentEntityData
+	| ContextEntityData
+	| ControllerEntityData
+	| MixinEntityData
+	| ModuleEntityData
+	| ProviderEntityData
+	| ServiceEntityData;
 };
 
 export const APITypesSection: Component<Props> = props => {
@@ -38,8 +39,9 @@ export const APITypesSection: Component<Props> = props => {
 						{type => (
 							<DocsSection title={type.name + (type.private ? ' (private)' : '')} level={4}>
 								<DocsItem gap="m">
-									<CodeDocDescription node={type} />
-									<CodeDeclaration type={type} entity={props.ent} resolve="show" />
+									<CodeDocDescription node={type}>
+										<CodeDeclaration type={type} entity={props.ent} resolve="show" />
+									</CodeDocDescription>
 								</DocsItem>
 							</DocsSection>
 						)}
@@ -56,8 +58,9 @@ export const APITypesSection: Component<Props> = props => {
 								level={4}
 							>
 								<DocsItem gap="m">
-									<CodeDocDescription node={type} />
-									<CodeDeclaration type={type} entity={props.ent} resolve="show" />
+									<CodeDocDescription node={type}>
+										<CodeDeclaration type={type} entity={props.ent} resolve="show" />
+									</CodeDocDescription>
 								</DocsItem>
 							</DocsSection>
 						)}
