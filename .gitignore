@@ -26,6 +26,7 @@ node_modules/
 
 # Runtime data
 pids
+.temp
 *.pid
 *.seed
 *.pid.lock
