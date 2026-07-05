@@ -4,6 +4,7 @@ import {
 	isLiteralTypeNode,
 	isObjectLiteralTypeNode,
 } from '../../../node';
+import { hasTag } from '../../helpers';
 import type { ResolveTypeContext } from '../../types';
 import { normalizeUnion } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
@@ -19,17 +20,34 @@ export function resolvePick(context: ResolveTypeContext, exp: PickTypeNode): Typ
 
 		for (const entry of normalizedMembers.entries) {
 			if (isLiteralTypeNode(entry) && typeof entry.value === 'string') {
-				const member = baseMembers[entry.value];
+				const pickKey = entry.value;
+				const member = baseMembers[pickKey];
 				if (!member) {
 					continue;
 				}
 
+				if (hasTag(member, 'noresolve')) {
+					// console.log('NO RESOLVE', member);
+					members[pickKey] = member;
+					continue;
+				}
+
 				const node = resolveExpression(context, member.type);
-				members[entry.value] = {
+
+				if (hasTag(node, 'noresolve')) {
+					// console.log('NO RESOLVE member resolve type', member);
+					members[pickKey] = {
+						...member,
+						tags: { ...(member.tags || {}), noresolve: '' },
+					};
+					continue;
+				}
+
+				members[pickKey] = {
 					...member,
 					type: {
 						...node,
-						_source: node._source || member._source || node._source || exp._source,
+						_source: member._source || node._source || exp._source,
 					},
 				};
 			}

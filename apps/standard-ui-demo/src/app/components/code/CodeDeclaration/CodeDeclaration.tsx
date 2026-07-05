@@ -49,6 +49,11 @@ export const CodeDeclaration: Component<CodeDeclarationProps> = props => {
 		setResolve(r => !r);
 	};
 
+	// createEffect(() => {
+	// 	console.log('----->', props.type)
+	// 	console.log('<-----', node())
+	// })
+
 	return (
 		<Surface variant="card" padding="xs">
 			<Show when={props.resolve === 'show'}>

@@ -22,6 +22,11 @@ export const CodeBlock: Component<Props> = props => {
 
 	const serialized = () => serializeCode(props.lang, props.nodes, props.context || {});
 
+	// createEffect(() => {
+	// 	console.log(props.nodes);
+	// 	console.log(serialized());
+	// });
+
 	const classList = createClassList(styles, () => ({
 		CodeBlock: true,
 		padding: Boolean(props.padding),

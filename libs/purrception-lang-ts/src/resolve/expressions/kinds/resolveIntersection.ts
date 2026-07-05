@@ -3,6 +3,7 @@ import {
 	type ObjectLiteralTypeMember,
 	type ObjectLiteralTypeNode,
 } from '../../../node';
+import { hasTag } from '../../helpers';
 import type { ResolveTypeContext } from '../../types';
 import { normalizeObjectLiteral } from '../normalize';
 import { resolveExpression } from '../resolveExpression';
@@ -15,7 +16,23 @@ function mergeMembers(
 	for (const key in source.members) {
 		const member = source.members[key] as ObjectLiteralTypeMember;
 
+		if (hasTag(member, 'noresolve')) {
+			// console.log('NO RESOLVE', member);
+			target.members[key] = member;
+			continue;
+		}
+
 		const node = resolveExpression(context, member.type);
+
+		if (hasTag(node, 'noresolve')) {
+			// console.log('NO RESOLVE member resolve type', member);
+			target.members[key] = {
+				...member,
+				tags: { ...(member.tags || {}), noresolve: '' },
+			};
+			continue;
+		}
+
 		target.members[key] = {
 			...member,
 			type: { ...node, _source: node._source || source._source },

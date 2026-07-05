@@ -14,8 +14,14 @@ export type PropsWithComponent<P extends AnyProps, Q extends Partial<P> = P> = Q
 	component: Component<P>;
 };
 
+/**
+ * @noresolve
+ */
 export type ResponsiveValue<T, B extends string = string> = Partial<Record<B | '_', T>>;
 
+/**
+ * @noresolve
+ */
 export type ResponsiveProp<T, B extends string = string> = T | ResponsiveValue<T, B>;
 
 type UnwrapResponsiveProp<T> = T extends ResponsiveProp<infer X> ? X : T;
@@ -29,6 +35,9 @@ export type AxisShorthandPropValues<T> =
 	| readonly [T | undefined]
 	| readonly [T | undefined, T | undefined];
 
+/**
+ * @foo
+ */
 export type AxisShorthandProp<T> = T | AxisShorthandPropValues<T>;
 
 export type AxisShorthandResolved<T> = readonly [
@@ -43,6 +52,9 @@ export type AxisShorthandSplit<T> = readonly [
 	Accessor<T | undefined>, // inline
 ];
 
+/**
+ * @noresolve
+ */
 export type SideShorthandPropValues<T> =
 	| readonly []
 	| readonly [T | undefined]

@@ -1,3 +1,6 @@
+/**
+ * @noresolve
+ */
 export type PressableTagName = 'button' | 'a' | 'div';
 
 export type CheckboxTagName = 'input' | 'button' | 'div';

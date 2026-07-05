@@ -38,15 +38,17 @@ export function resolveTypeRefNode(
 	}
 
 	const nestedContext = context.createChildContext(targetEntity, targetType, node.params);
-	const declaration = resolveTypeDeclaration(nestedContext, type);
+	const resolvedDeclaration = resolveTypeDeclaration(nestedContext, type);
+
+	const resolvedNode = resolvedDeclaration.node;
 
 	if (node.member) {
-		const resolvedMember = resolveNodeMember(declaration.node, node.member);
+		const resolvedMember = resolveNodeMember(resolvedNode, node.member);
 		if (!resolvedMember) {
 			return node;
 		}
 		return resolvedMember;
 	}
 
-	return declaration.node;
+	return resolvedNode;
 }

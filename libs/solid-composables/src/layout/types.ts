@@ -14,12 +14,33 @@ export type LayoutGapProps<T extends string = string> = {
 };
 
 export type LayoutPaddingProps<T extends string = string> = {
+	/**
+	 * @noresolve
+	 */
 	padding?: SideShorthandProp<ResponsiveProp<T>>;
+	/**
+	 * @noresolve
+	 */
 	paddingBlock?: ResponsiveProp<T>;
+	/**
+	 * @noresolve
+	 */
 	paddingBlockStart?: ResponsiveProp<T>;
+	/**
+	 * @noresolve
+	 */
 	paddingBlockEnd?: ResponsiveProp<T>;
+	/**
+	 * @noresolve
+	 */
 	paddingInline?: ResponsiveProp<T>;
+	/**
+	 * @noresolve
+	 */
 	paddingInlineStart?: ResponsiveProp<T>;
+	/**
+	 * @noresolve
+	 */
 	paddingInlineEnd?: ResponsiveProp<T>;
 };
 
