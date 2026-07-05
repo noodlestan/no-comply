@@ -5,13 +5,7 @@ import type { IconActionProps } from '../IconAction';
 
 export type ToggleActionProps = {
 	value: boolean;
-	/**
-	 * @noresolve
-	 */
 	labels: ToggleActionLabelsProp;
-	/**
-	 * @noresolve
-	 */
 	icons: ToggleActionIcons;
 };
 
