@@ -1,6 +1,6 @@
 import { type ContentSize, Flex } from '@no-comply/standard-ui';
 import type { JsDocData } from '@purrception/lang-ts';
-import { type Component, type JSX, Show, children } from 'solid-js';
+import { type Component, type JSX, Show, children as childrenMemo } from 'solid-js';
 
 import { useRendering } from '../../../../providers';
 
@@ -20,7 +20,7 @@ export const CodeDocDescription: Component<Props> = props => {
 	const links = () => getJsDocLinks(props.node);
 	const tags = () => getJsDocTags(props.node);
 
-	const c = children(() => props.children);
+	const children = childrenMemo(() => props.children);
 
 	const show = () => description() || links().length || tags().length;
 
@@ -30,12 +30,12 @@ export const CodeDocDescription: Component<Props> = props => {
 				<Flex direction="column" gap="s">
 					<Show when={props.title}>{props.title}</Show>
 					<CodeDocTags size={props.size} tags={tags()} />
-					{props.children}
+					{children()}
 					<CodeDocBody size={props.size} description={description()} />
 					<CodeDocLinks size={props.size} links={links()} />
 				</Flex>
 			</Show>
-			<Show when={!show()}>{c()}</Show>
+			<Show when={!show()}>{children()}</Show>
 		</>
 	);
 };
