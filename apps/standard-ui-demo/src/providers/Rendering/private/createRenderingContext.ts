@@ -1,3 +1,4 @@
+import { createSyntaxHighlighter } from '@purrpose/solid-shiki-service';
 import {
 	createCodeLayout,
 	createCodeRendererOptions,
@@ -7,7 +8,6 @@ import { tsCodeLayout } from '@purrtrait/lang-ts';
 import type { CodeLinkComponent } from '@purrtrait/solid-code';
 import { createJsDocBlockRenderer, createJsDocLinkResolver } from '@purrtrait/solid-code';
 
-import { createSyntaxHighlighter } from '../../../services';
 import { useMeta } from '../../Meta';
 import type { RenderingContext } from '../types';
 
