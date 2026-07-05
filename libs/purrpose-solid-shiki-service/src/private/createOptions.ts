@@ -1,34 +1,44 @@
 import type {
-	SyntaxHighlighterLang,
 	SyntaxHighlighterLangOptions,
+	SyntaxHighlighterLangOptionsPartial,
 	SyntaxHighlighterOptions,
 	SyntaxHighlighterOptionsPartial,
 } from '../types';
 
-import { DEFAULT_OPTIONS } from './constants';
+import { DEFAULT_LANGS } from './constants';
 import { mergeLangOptions } from './mergeLangOptions';
 
 export const createOptions = (
 	partialOptions: SyntaxHighlighterOptionsPartial = {},
+	externalLangs?: Record<string, SyntaxHighlighterLangOptionsPartial>,
 ): SyntaxHighlighterOptions => {
 	const theme = partialOptions.theme ?? 'github-dark-dimmed';
 
-	const langKeys = Object.keys(DEFAULT_OPTIONS) as SyntaxHighlighterLang[];
+	const merged: Record<string, SyntaxHighlighterLangOptions> = {};
 
-	const langEntries = langKeys.map(lang => {
-		const partialLangOptions = partialOptions.langs?.[lang];
-		const mergedLangOptions = mergeLangOptions(DEFAULT_OPTIONS[lang], partialLangOptions);
+	for (const [lang, defaultOptions] of Object.entries(DEFAULT_LANGS)) {
+		const partialOverride = partialOptions.langs?.[lang];
+		merged[lang] = mergeLangOptions(defaultOptions, partialOverride);
+	}
 
-		return [lang, mergedLangOptions] as const;
-	});
-
-	const langs = Object.fromEntries(langEntries) as Record<
-		SyntaxHighlighterLang,
-		SyntaxHighlighterLangOptions
-	>;
+	if (externalLangs) {
+		for (const [lang, externalOptions] of Object.entries(externalLangs)) {
+			if (lang in DEFAULT_LANGS) {
+				merged[lang] = mergeLangOptions(
+					merged[lang] as SyntaxHighlighterLangOptions,
+					externalOptions,
+				);
+			} else {
+				merged[lang] = mergeLangOptions(
+					{} as unknown as SyntaxHighlighterLangOptions,
+					externalOptions,
+				);
+			}
+		}
+	}
 
 	return {
 		theme,
-		langs,
+		langs: merged,
 	};
 };

@@ -4,7 +4,7 @@ import type { Accessor, Resource } from 'solid-js';
 
 export type SyntaxHighlighterSymbolMap = ReadonlyMap<string, string>;
 
-export type SyntaxHighlighterLang = 'html' | 'javascript' | 'json';
+export type SyntaxHighlighterLang = string;
 
 export type SyntaxHighlighterLangOptions = {
 	prettier: {

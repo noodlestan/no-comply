@@ -4,7 +4,7 @@ import * as htmlParser from 'prettier/plugins/html';
 
 import type { SyntaxHighlighterLang, SyntaxHighlighterLangOptions } from '../types';
 
-export const DEFAULT_OPTIONS: Record<SyntaxHighlighterLang, SyntaxHighlighterLangOptions> = {
+export const DEFAULT_LANGS: Record<SyntaxHighlighterLang, SyntaxHighlighterLangOptions> = {
 	html: {
 		prettier: {
 			parser: 'html',

@@ -6,7 +6,7 @@ import type { SyntaxHighlighterLang, SyntaxHighlighterLangOptions } from '../typ
 export const getLoadedShikiLangs = (
 	langs: Record<SyntaxHighlighterLang, SyntaxHighlighterLangOptions>,
 ): BundledLanguage[] => {
-	const langKeys = Object.keys(langs) as SyntaxHighlighterLang[];
+	const langKeys = Object.keys(langs) as BundledLanguage[];
 
 	const shikiLangValues = Object.values(langs).map(langOptions => langOptions.shiki.lang);
 
