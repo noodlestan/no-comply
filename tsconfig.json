@@ -28,6 +28,6 @@
     "skipLibCheck": true, // problems in vitest, @vitest/utils, svgo
     "noEmit": true
   },
-  "include": ["apps/", "cli/", "libs/", "tools/"],
+  "include": ["apps/", "no-comply/", "purrception/", "purrtrait/", "purrpose/"],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }

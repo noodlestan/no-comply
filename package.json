@@ -8,9 +8,13 @@
   "packageManager": "npm@10.2.3",
   "workspaces": [
     "apps/*",
-    "cli/*",
-    "libs/*",
-    "tools/*"
+    "no-comply/libs/*",
+    "no-comply/cli/*",
+    "no-comply/tools/*",
+    "purrception/libs/*",
+    "purrception/cli/*",
+    "purrtrait/libs/*",
+    "purrpose/libs/*"
   ],
   "engines": {
     "node": "24.15.0"

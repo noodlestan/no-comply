@@ -1,0 +1,55 @@
+{
+  "name": "@no-comply/my-bin",
+  "version": "0.0.1",
+  "description": "Workspace tools.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "no-comply/cli/mybin"
+  },
+  "type": "module",
+  "module": "dist/esm/index.mjs",
+  "main": "dist/cjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "types": "./dist/esm/index.d.ts",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE-MIT"
+  ],
+  "bin": {
+    "mybin": "node dist/esm/index.mjs"
+  },
+  "scripts": {
+    "dev": "no-comply-watch",
+    "build:clean": "rm -rf dist",
+    "build:types:esm": "tsc --project tsconfig.esm.json",
+    "build:types:cjs": "tsc --project tsconfig.cjs.json",
+    "build": "no-comply-build",
+    "test": "echo none yet",
+    "test:watch": "vitest",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
+    "run": "node dist/esm/index.mjs",
+    "ci": "npm run build:clean && npm run build && npm run test"
+  },
+  "dependencies": {
+    "@purrception/primitives": "0.0.11",
+    "@purrception/source-fs": "0.0.11",
+    "@purrception/lang-ts-extract": "0.0.11"
+  },
+  "peerDependencies": {
+    "tsx": "4.22.4"
+  },
+  "devDependencies": {
+    "@no-comply/build-tools": "0.0.11",
+    "@types/node": "25.9.3"
+  }
+}

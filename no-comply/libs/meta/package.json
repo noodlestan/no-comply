@@ -1,0 +1,42 @@
+{
+  "name": "@no-comply/meta",
+  "version": "0.0.11",
+  "description": "Purrception types, services, and helpers for the [no-comply] project.",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "no-comply/libs/meta"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./src/index.ts",
+  "files": [
+    "src",
+    "scss",
+    "LICENSE-MIT"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
+    "build:clean": "rm -rf dist",
+    "build": "vite build",
+    "ci": "npm run build:clean && tsc --noEmit && npm run build"
+  },
+  "dependencies": {
+    "@purrception/lang-ts": "0.0.11"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.9.5"
+  },
+  "devDependencies": {
+    "vite": "^8.0.16",
+    "vite-plugin-solid": "^2.11.12",
+    "vite-plugin-solid-svg": "^0.8.1",
+    "vite-plugin-top-level-await": "^1.6.0",
+    "vitest": "^4.1.8"
+  }
+}

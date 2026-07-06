@@ -38,7 +38,7 @@ Libraries
 Support:
 
 - @no-comply/standard-ui-demo — Demo application and documentation
-- @no-comply/build-tools — Esbuild-based build system (tools/build)
+- @no-comply/build-tools — Esbuild-based build system (no-comply/tools/build)
 - @no-comply/meta — Purrception types, services, helpers
 - @no-comply/meta-extract — (CLI) orchestrate extraction
 
@@ -62,7 +62,7 @@ Support:
 - @purrpose/client-babel — In-browser JSX/TSX compiler
 - @purrpose/client-babel-preset-solidjs — SolidJS preset for above
 
-The `cli/` vs `libs/` directory split reflects consumption environment — `cli/` packages target Node.js, `libs/` packages are agnostic or client-side.
+Packages are grouped by namespace (`no-comply/`, `purrception/`, `purrtrait/`, `purrpose/`) with a `cli/` vs `libs/` split within each namespace — `cli/` packages target Node.js, `libs/` packages are agnostic or client-side.
 
 ### Docs Extraction System
 
@@ -99,7 +99,7 @@ The `@purrtrait` and `@purrception`libraries depend heavily on [Typscript](https
 
 The demo application uses [Prettier](https://prettier.io/), [Shiki](https://shiki.style/) and [Babel](https://babeljs.io/)
 
-Libraries in `cli/` depend on [Node.js](https://nodejs.org/en) and Node packages such as `chokidar`.
+CLI libraries (in `no-comply/cli/`, `purrception/cli/`) depend on [Node.js](https://nodejs.org/en) and Node packages such as `chokidar`.
 
 **Development tools:** [Vite](https://vitejs.dev/) and [Vitest](https://vitest.dev/guide/), [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config) - our style guide (ESLint + Prettier), [Turborepo](https://turborepo.com/) to manage build tasks and [Lefthook](https://evilmartians.com/chronicles/lefthook-knock-your-teams-code-back-into-shape) to manage the git hooks.
 
