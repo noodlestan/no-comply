@@ -1,7 +1,7 @@
 {
-  "name": "@no-comply/build-tools",
+  "name": "build-tools",
   "version": "0.0.11",
-  "description": "Internal tools used to build [no-comply] packages.",
+  "description": "Internal tools used to build packages in this monorepo.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,

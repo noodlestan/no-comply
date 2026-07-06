@@ -1,6 +1,6 @@
-# No Comply / Build Tools
+# Build Tools
 
-> A small opninionssated wrapper around `esbuild` used by [no comply] projects
+> A small opinionated wrapper around `esbuild` used by packages in this monorepo.
 
 ## Development
 

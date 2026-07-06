@@ -10,7 +10,7 @@
     "apps/*",
     "no-comply/libs/*",
     "no-comply/cli/*",
-    "no-comply/tools/*",
+    "tools/*",
     "purrception/libs/*",
     "purrception/cli/*",
     "purrtrait/libs/*",

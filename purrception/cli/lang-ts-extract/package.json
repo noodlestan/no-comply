@@ -45,7 +45,7 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@no-comply/build-tools": "0.0.11",
+    "build-tools": "0.0.11",
     "@types/node": "^25.9.3"
   }
 }

@@ -49,7 +49,7 @@
     "tsx": "4.22.4"
   },
   "devDependencies": {
-    "@no-comply/build-tools": "0.0.11",
+    "build-tools": "0.0.11",
     "@types/node": "25.9.3"
   }
 }

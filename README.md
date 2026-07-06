@@ -38,7 +38,7 @@ Libraries
 Support:
 
 - @no-comply/standard-ui-demo — Demo application and documentation
-- @no-comply/build-tools — Esbuild-based build system (no-comply/tools/build)
+- build-tools — Esbuild-based build system (tools/build)
 - @no-comply/meta — Purrception types, services, helpers
 - @no-comply/meta-extract — (CLI) orchestrate extraction
 
