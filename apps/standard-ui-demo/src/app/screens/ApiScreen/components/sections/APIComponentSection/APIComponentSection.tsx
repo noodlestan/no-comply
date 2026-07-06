@@ -2,7 +2,7 @@ import { type ComponentEntityData, resolveComponentDeclaration } from '@no-compl
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component } from 'solid-js';
 
-import { CodeBlock, CodeDocDescription } from '../../../../../components';
+import { CodeBlock, CodeDocDescription } from '../../../../../../modules/code/components';
 import { DocsItem, DocsSection } from '../../../../../content';
 
 type Props = {

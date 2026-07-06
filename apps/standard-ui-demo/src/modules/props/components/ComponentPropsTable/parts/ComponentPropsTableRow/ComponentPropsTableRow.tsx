@@ -5,9 +5,9 @@ import { Display, Flex, Link, Text, TextInput } from '@no-comply/standard-ui';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, type JSX, type Resource, Show } from 'solid-js';
 
-import { routeFor } from '../../../../../navigation';
-import { CodeBlock } from '../../../CodeBlock';
-import { CodeDocDescription } from '../../../CodeDocDescription';
+import { routeFor } from '../../../../../../app/navigation';
+import { CodeBlock } from '../../../../../code/components/CodeBlock';
+import { CodeDocDescription } from '../../../../../code/components/CodeDocDescription';
 import type { ComponentProp, ComponentPropsGroup } from '../../types';
 
 type Props = {

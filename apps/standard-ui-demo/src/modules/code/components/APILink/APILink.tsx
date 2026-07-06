@@ -3,7 +3,7 @@ import { Flex, Icon, Link, Text } from '@no-comply/standard-ui';
 import BookOpenIcon from 'lucide-solid/icons/book-open';
 import type { Component } from 'solid-js';
 
-import { routeFor } from '../../../navigation';
+import { routeFor } from '../../../../app/navigation';
 
 type Props = {
 	mode?: 'inline' | 'block';

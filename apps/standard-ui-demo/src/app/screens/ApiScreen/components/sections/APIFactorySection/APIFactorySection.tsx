@@ -7,7 +7,7 @@ import type { FunctionDeclaration } from '@purrception/lang-ts';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, Show } from 'solid-js';
 
-import { CodeBlock, CodeDocDescription } from '../../../../../components';
+import { CodeBlock, CodeDocDescription } from '../../../../../../modules/code/components';
 import { DocsItem, DocsSection } from '../../../../../content';
 
 type Props = {

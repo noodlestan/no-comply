@@ -3,7 +3,7 @@ import { VisuallyHidden } from '@no-comply/solid-composables';
 import { Display, Divider, Flex, Link } from '@no-comply/standard-ui';
 import { type Component, For, type JSX, type Resource, Show } from 'solid-js';
 
-import { routeFor } from '../../../../../navigation';
+import { routeFor } from '../../../../../../app/navigation';
 import type { ComponentProp, ComponentPropsGroup } from '../../types';
 import { ComponentPropsTableRow } from '../ComponentPropsTableRow';
 

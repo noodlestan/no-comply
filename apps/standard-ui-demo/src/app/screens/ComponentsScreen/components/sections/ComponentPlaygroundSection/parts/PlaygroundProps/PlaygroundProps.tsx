@@ -9,7 +9,7 @@ import { Flex, Layout, Scrollable, Surface } from '@no-comply/standard-ui';
 import { type TSXView, viewTargetProps } from '@purrtrait/view-tsx';
 import { type Component, createSignal, mergeProps } from 'solid-js';
 
-import { ComponentPropsTable } from '../../../../../../../components';
+import { ComponentPropsTable } from '../../../../../../../../modules/props/components';
 import { $ID_PLAYGROUND_PROPS_TITLE } from '../../../../../constants';
 import { useComponentPlayground, useComponentPlaygroundProps } from '../../../../../providers';
 

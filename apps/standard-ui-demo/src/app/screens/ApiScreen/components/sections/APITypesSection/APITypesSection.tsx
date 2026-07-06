@@ -10,7 +10,7 @@ import {
 } from '@no-comply/meta';
 import { type Component, For, Show } from 'solid-js';
 
-import { CodeDeclaration, CodeDocDescription } from '../../../../../components';
+import { CodeDeclaration, CodeDocDescription } from '../../../../../../modules/code/components';
 import { DocsItem, DocsSection } from '../../../../../content';
 
 /* prettier-ignore */

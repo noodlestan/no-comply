@@ -8,7 +8,7 @@ import {
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, For, Show } from 'solid-js';
 
-import { CodeBlock } from '../../../../../components';
+import { CodeBlock } from '../../../../../../modules/code/components';
 import { DocsSection } from '../../../../../content';
 
 type Props = {

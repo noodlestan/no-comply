@@ -10,8 +10,8 @@ import type { JsDocData } from '@purrception/lang-ts';
 import { useParams } from '@solidjs/router';
 import { type Component, Show } from 'solid-js';
 
+import { APILink, CodeDocDescription } from '../../../../../modules/code/components';
 import { useMeta } from '../../../../../providers';
-import { APILink, CodeDocDescription } from '../../../../components';
 import { ComponentMeta } from '../../../../content';
 import { BasePage, NotFoundPage } from '../../../../templates';
 import { ComponentExamplesProvider } from '../../providers';

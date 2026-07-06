@@ -4,6 +4,7 @@ import { Flex, SkipLink } from '@no-comply/standard-ui';
 import { Router } from '@solidjs/router';
 import { type Component, type ParentComponent, Show } from 'solid-js';
 
+import { CodeLink } from '../modules/code/components';
 import {
 	AppServicesProvider,
 	MetaProvider,
@@ -13,7 +14,7 @@ import {
 } from '../providers';
 
 import styles from './App.module.scss';
-import { AppSplash, CodeLink } from './components';
+import { AppSplash } from './components';
 import { APP } from './constants';
 import { Routes } from './navigation';
 import { ErrorBoundaryScreen } from './screens';

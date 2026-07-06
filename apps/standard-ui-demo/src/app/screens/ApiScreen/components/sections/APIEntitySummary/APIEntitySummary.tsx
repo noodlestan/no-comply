@@ -2,7 +2,7 @@ import { type NoComplyEntityData } from '@no-comply/meta';
 import { Link, Text } from '@no-comply/standard-ui';
 import { type Component } from 'solid-js';
 
-import { CodeDocDescription } from '../../../../../components';
+import { CodeDocDescription } from '../../../../../../modules/code/components';
 import { DocsItem, DocsSection } from '../../../../../content';
 import { routeFor } from '../../../../../navigation';
 

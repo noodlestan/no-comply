@@ -13,7 +13,7 @@ import {
 import { type Component, For, Show, createMemo } from 'solid-js';
 
 import { useMeta } from '../../../../providers';
-import { CodeDocDescription } from '../CodeDocDescription';
+import { CodeDocDescription } from '../../../code/components/CodeDocDescription';
 
 import { ComponentPropsTableGroup } from './parts';
 import type { Props } from './parts';

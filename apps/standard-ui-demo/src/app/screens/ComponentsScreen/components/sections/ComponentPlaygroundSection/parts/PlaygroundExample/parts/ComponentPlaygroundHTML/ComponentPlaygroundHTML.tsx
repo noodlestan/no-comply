@@ -5,7 +5,7 @@ import type { TSXView } from '@purrtrait/view-tsx';
 import { type Component, Suspense, createSignal } from 'solid-js';
 
 import type { CompilerAPI } from '../../../../../../../../../../modules/TSXCompilerModule';
-import { CodeRenderer } from '../../../../../../../../../components';
+import { CodeRenderer } from '../../../../../../../../../../modules/code/components';
 import { cleanupRenderedHtml } from '../../../../../../../../../helpers';
 import { type ExamplePropsOverrides } from '../../../../../../../providers';
 import { RenderExample } from '../../../../../../RenderExample';

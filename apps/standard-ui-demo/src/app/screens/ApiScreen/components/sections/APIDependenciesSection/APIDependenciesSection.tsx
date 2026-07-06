@@ -9,7 +9,7 @@ import type {
 } from '@no-comply/meta';
 import { type Component, For, Show } from 'solid-js';
 
-import { CodeSymbolLink } from '../../../../../components';
+import { CodeSymbolLink } from '../../../../../../modules/code/components';
 import { DocsSection } from '../../../../../content';
 
 type Props = {

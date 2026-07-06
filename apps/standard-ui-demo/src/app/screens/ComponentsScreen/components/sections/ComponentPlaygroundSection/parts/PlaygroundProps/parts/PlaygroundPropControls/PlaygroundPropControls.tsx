@@ -1,6 +1,6 @@
 import { type Component } from 'solid-js';
 
-import type { ComponentProp } from '../../../../../../../../../components';
+import type { ComponentProp } from '../../../../../../../../../../modules/props/components';
 import { PlaygroundResetButton } from '../../../PlaygroundResetButton';
 
 type Props = {

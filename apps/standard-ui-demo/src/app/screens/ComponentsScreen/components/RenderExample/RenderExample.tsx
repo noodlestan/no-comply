@@ -5,7 +5,7 @@ import { type TSXView } from '@purrtrait/view-tsx';
 import { type Component, type JSX, Show } from 'solid-js';
 
 import type { CompilerAPI } from '../../../../../modules/TSXCompilerModule';
-import { JSXRenderer } from '../../../../components';
+import { JSXRenderer } from '../../../../../modules/code/components';
 import { createRenderExample } from '../../../../controllers';
 import { type ExamplePropsOverrides } from '../../providers';
 
