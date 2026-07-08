@@ -1,20 +1,6 @@
 # Component Task Template
 
-Use this template to produce a concrete component task grounded in repo conventions.
-
-- RULE: Fill out every section that applies. Leave N/A sections as `—` (em-dash) rather than deleting them.
-- RULE: Tables with wider than 80 characters are forbidden.
-- RULE: Diagrams are forbidden.
-- RULE: Only one code snippet is allowed (and mandatory): `## Example Usage`.
-- RULE: Any other code snippets are forbidden.
-
-## Task Outline
-
-Use the Default Task Outline
-
-Template:
-
----
+Change the `h1` title to maytch
 
 ## Metadata
 
@@ -26,21 +12,11 @@ template: `.agents/skills/write-no-comply-composable-task/no-comply-composable-t
 
 ## Summary
 
-## Table of Changes
+One setence, heavy on why, optimize for humans.
 
-List entiies to be added or modified and whether they are being created or modified.
+## Changes
 
-Include the a link to the specification attachment file if it exists.
-
-Include a status word a terse
-
-Example:
-
-- ADD `component:standard-ui:badge` [spec](spec-path)
-- ADD `mixin:standard-ui:badge` - no spec
-- MODIFY `mixin:standard-ui:content-color` refining (change color options)
-- ADD `mixin:composable:badge` - speculative
-- REFACTOR `<scope>` so that ...
+Summary of changes created by the task skill using the `rehash` skill along with the local "Rules for Synthesising" and "Rules for Presenting"
 
 ## Links
 

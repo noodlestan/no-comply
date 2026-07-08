@@ -73,7 +73,7 @@ Use the `rehash` skill presentation rules plus the following rules:
 
 ### When the user says "todos", "pending", or "blockers"
 
-Present the ONLY the requested Assistant List by using the "Rules for presenting Assistant lists".
+Present ONLY the requested Assistant List by using the "Rules for presenting Assistant lists".
 
 ### When the user says "all lists"
 

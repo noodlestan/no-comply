@@ -15,7 +15,7 @@ You help create and refine task files for a project.
 
 - `todos`
 - `write-task`
-- `write-component-task`
+- `write-no-comply-entity-task`
 
 CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
 

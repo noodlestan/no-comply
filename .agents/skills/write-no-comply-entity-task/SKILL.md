@@ -37,18 +37,120 @@ Read also:
   - `no-comply/knowledge/glossary.md`
   - `no-comply/knowledge/packages.md`
 
-## Before you start
+## Definitions
 
-This is an iterative process with small iterations and regular
+**Entity task scope** - can include specicificationss for new entities or for modifying entities (components, mixins, controllers, ...) as well as for non-entities (shared types, helpers, global constants...).
+
+The main Attributes of the scope items, useful for summarising the status of the refinement and task-wrting process are:
+
+**Main attributes of entities scope:**
+
+- type: `Add`, `Remove`, `Refactor`, `Modify`
+- id: Example `component:standard-ui:badge`
+- description: in case of modifications, chose most important ones
+- breaking: in case of modifications
+- impact: in case of modifications
+
+**Main attributes of non-entities scope:**
+
+- type: `Add`, `Remove`, `Refactor`, `Modify`
+- what: resource in package/module
+- description: `prop of ...`
+- breaking: in case of modifications
+- impact: in case of modifications
 
 - RULE: use the `todos` skill to keep track of the three Assistant Lists: TODOS, PENDING and BLOCKERS!
-- RULE: use the `rehash` skill to aggressively summarise your responses when you report back findings and progress.
+
+## Workflow
+
+This is a 7 step iterative process with small sub-iterations and regular context dump.
+
+1. Component classification
+2. API Design
+3. Decomposition
+4. Deduplication
+5. Abstraction
+6. Summarise changes
+7. Generate the component specification files:
+8. Generate the component task draft
+
+Expect to return from step 6 back to any previous step several times.
+
+Expect to create unfinished artefacts (task files and specification attachments) and keep track of unrefined.
+
+Details of each step after the Rules section.
+
+## Rules
+
+### Rules for synthesising the entity task scope
+
+1. Build a table with the entities in scope, and with columns
+
+- type: (Add, Remove, Refactor, Modify)
+- id: Example `component:standard-ui:badge`
+- description: in case of modifications, chose the most important ones
+- status: is it confirmed scope? being refined? a spec draft exists? closed scope?
+
+Main attributes of non-entities scope:
+
+- type: `Add`, `Remove`, `Refactor`, `Modify`
+- what: resource in package/module
+- description: `prop of ...`
+- status: is it confirmed scope? being refined? a spec draft exists? closed scope?
+
+### Rules for presenting the entity task scope summary
+
+1. Include a link to the specification attachment file if it exists.
+2. Otherwise, include a micro status expression. Example: (refining, speculative, problematic)
+3. For modifications include a micro summary. Example "(change color options)".
+
+Full Example:
+
+**Entities**
+
+- Add `component:standard-ui:badge` - [spec](relative/spec-filename)
+- Add `mixin:standard-ui:badge` - refining
+- Modify `mixin:standard-ui:content-color` refining (change color options)
+- Add `mixin:composable:badge` - speculative
+- REFACTOR `<scope>` so that ...
+
+**Other Changes**
+
+Include only changes to non-entities
+
+- Refactor method `getFoo()` of `SomethingAPI` to use an index a optimise responsiveness
+- (BREAKING) Change method `getBar()` of `SomethingAPI` to return `boolean` (easy fix downstream)
+- Add `<scope>` so that ...
+
+### Rules for working with Entity Specicication Templates
+
+- RULE: Fill out every section that applies to the change type and entity type.
+- RULE: Tables with wider than 80 characters are forbidden.
+- RULE: Diagrams are forbidden.
+- RULE: Only one code snippet is allowed (and mandatory): `## Example Usage`.
+- RULE: Any other code snippets are forbidden.
+- RULE: Don't include details already expressed in the specs.
+
+### Rules for working with Entity Task Template
+
+- RULE: Fill out every section that applies to the entity.
+- RULE: If a section does not apply to an entity, remove it.
+- RULE: Tables wider than 80 characters are forbidden.
+- RULE: Diagrams are forbidden.
+- RULE: Only two code snippets are allowed:
+  - `## Example Usage` (mandatory for all entities)
+  - `## Renders` (mandatory for components)
+- RULE: Any other code snippets are forbidden.
+- RULE: identify the specification variant for this entity (modifications or new entities)
+- RULE: ask the user if unsure about the specification variant to apply to this entity
 
 ## Steps
 
 ### 1. Component classification
 
-Record what kind of component is being requested:
+Start by identifying what kind of entity or entities are being requested.
+
+The following taxonomy is usfull to gather context, but note that it does not map directly to no-comply entity concepts.
 
 - `primitive` — a low-level element with no composition (e.g. a styled HTML element)
 - `composed` — built by composing existing components / mixins / controllers
@@ -64,6 +166,8 @@ Record what kind of component is being requested:
 ### 2. API Design
 
 Capture every applicable fact below. These facts inform the spec but do **not** appear verbatim in the task — they are used to populate the template sections.
+
+- RULE: Do not use the specification template format yet. It is too early for a detailed specification as the next steps are likely to overturn many decisions.
 
 **Identity:**
 
@@ -121,10 +225,48 @@ Identify if the component, some of its parts, and the other entities already ide
 
 It is also very likely that some of these composables should be stripped of `standard-ui` bindings and styiling and result in the creation of new enititis in `solid-composables`
 
-### 6. Generate the component task draft
+### 6. Summarise Scope
 
-Use the `no-comply-entity-task-template.md` Template to structure the task file for the main entity.
+1. Focus back on the scope.
+2. Apply the `rehash` skill rules plus the "Rules for synthesising the entity task scope" to generate a summary.
+3. Apply the `rehash` skill rules plus the "Rules for presenting the entity task scope summary" to present it.
+4. Ask for user review.
 
-### 7. Generate the component specs
+- RULE: Expect iteration and going back to previous steps.
+- RULE: Do no insist on approval, focus on assisting with refining.
 
-For each entity identified, use the `no-comply-entity-spec-template.md` Template to structure the entity specification.
+### 7. Generate the component specification files:
+
+For each entity identified, chose the appropriate specification template
+
+- Add: `no-comply-new-entity-spec-template.md`
+- Modify: `no-comply-mod-entity-spec-template.md`
+- Remove: `no-comply-mod-entity-spec-template.md`
+- Refactor: `no-comply-mod-entity-spec-template.md`
+
+Apply the rules
+
+### 8. Generate the component task draft
+
+1. Use the `no-comply-entity-task-template.md` Template and the "Rules for working with Entity Task Template" to structure the task file for the main entity.
+2. Use the `rehash` skill to summarise the latest iteration.
+
+## User Commands
+
+### Rehash
+
+When the user says "rehash"
+
+1. use the `rehash` skill to aggressively summarise the current step status (and only the current step).
+2. present the summary and an orientation "Currently on step 2/7 | 2 specifications closed".
+
+### Rehash Step
+
+When the user says "rehash `<step>`"
+
+1. use the `rehash` skill to aggressively summarise the context of the requested step (and only the current step).
+2. present the summary and an orientation "Currently on step 2/7 | 2 specifications closed".
+
+### Rehash Scope
+
+When the user says "rehash scope" execute Step "### 6. Summarise Scope" but stay on current step.
