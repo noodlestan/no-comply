@@ -1,5 +1,8 @@
 # No Comply New Entity Specification Template
 
+> Template for new entities.
+> Rules for content and template usage in `SKILL.md` §"Rules for Writing Content for Entity Specifications" and §"Rules for Creating Entity Specifications from Template".
+
 Change the h1 title to the match the following pattern:
 
 `# ADD|REMOVE|MODIFY mixin:solid-composables:badge`
@@ -40,7 +43,13 @@ Factory: `createBadgeMixin`
 CSS Module?: YES/NO
 Id: `component:standard-ui-badge`
 
-## Accessibility
+## Responsibility
+
+One-line statement of what this entity does. Example: "Apply `size` and `scale` defaults, map props to size tokens, and expose `size()` and `scale()` accessors."
+
+## Accessibility (if applicable)
+
+> Note: Remove this entire section if the entity has no accessibility responsibilities.
 
 **Role:**
 

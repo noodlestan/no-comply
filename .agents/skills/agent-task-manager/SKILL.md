@@ -26,9 +26,11 @@ Read `.agents/domains/tasks/index.md`, if not yet in context, as it contains def
 ## Rules for applying Task Writing Skill
 
 - RULE: follow the **Steps** in the active task writing skill.
+- RULE: follow the **Content Eligibility Rules** defined in `.agents/domains/tasks/index.md`. Implementation details, code snippets, and raw convention extracts are STRICTLY DISALLOWED in task and spec files.
 
 ## Rules For Exploration
 
+- RULE: Exploration follows **Task Exploration Mode** limits (defined in `.agents/domains/tasks/index.md`): read API contracts (types, props, exports) from known target files only. Do not follow imports, glob, or grep without permission.
 - RULE: context gathered during exploration should be categorised as **Findings**.
 - RULE: decisions made should be categorised according to the active **Specification**/**Outline**.
 - RULE: prepare to write down a structured **Findings** file alongside the task file.

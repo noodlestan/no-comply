@@ -80,7 +80,11 @@ Expect to create unfinished artefacts (task files and specification attachments)
 
 Details of each step after the Rules section.
 
-## Rules
+## Rules for Exploration
+
+- RULE: exploration within this skill is limited to **Task Exploration Mode** (defined in `.agents/domains/tasks/index.md`): reading API contracts (types, props, exports) from known target files such as `types.ts` is allowed. YOU are NOT ALLOWED to follow imports, glob, or grep without permission.
+
+## Rules for creating Summaries
 
 ### Rules for synthesising the entity task scope
 
@@ -122,27 +126,51 @@ Include only changes to non-entities
 - (BREAKING) Change method `getBar()` of `SomethingAPI` to return `boolean` (easy fix downstream)
 - Add `<scope>` so that ...
 
-### Rules for working with Entity Specicication Templates
+## Rules for Writing Content for Entity Tasks and Specifications
 
-- RULE: Fill out every section that applies to the change type and entity type.
-- RULE: Tables with wider than 80 characters are forbidden.
-- RULE: Diagrams are forbidden.
-- RULE: Only one code snippet is allowed (and mandatory): `## Example Usage`.
-- RULE: Any other code snippets are forbidden.
-- RULE: Don't include details already expressed in the specs.
+- RULE: follow the rules defined in `.agents/domains/tasks/index.md` under section "## Content Eligibility Rules" and remember: Implementation details, code snippets, and raw convention extracts are STRICTLY DISALLOWED in task and spec files.
 
-### Rules for working with Entity Task Template
+### Rules for Writing Content for Entity Tasks
+
+Follow all the rules ion `.agents/domains/tasks/index.md` Section "## Content Eligibility Rules" and Section "### Content Rules for Task Files" plus the following rules:
+
+- RULE: Include only specification decisions — no implementation details.
+- RULE: Use `## Unrefined` for open questions and deferred decisions.
+- RULE: Use `## Follow ups` for items not in scope but actionable.
+- RULE: Do not include tables or diagrams unless requested.
+
+### Rules for Creating Entity Task Files from Template
 
 - RULE: Fill out every section that applies to the entity.
-- RULE: If a section does not apply to an entity, remove it.
-- RULE: Tables wider than 80 characters are forbidden.
-- RULE: Diagrams are forbidden.
-- RULE: Only two code snippets are allowed:
+- RULE: If a section does not apply, remove it.
+- RULE: Only two code snippets allowed:
   - `## Example Usage` (mandatory for all entities)
   - `## Renders` (mandatory for components)
 - RULE: Any other code snippets are forbidden.
-- RULE: identify the specification variant for this entity (modifications or new entities)
-- RULE: ask the user if unsure about the specification variant to apply to this entity
+- RULE: Identify the specification variant (new / modify / remove / refactor) and ask the user if unsure.
+
+### Rules for Writing Content for Entity Specifications
+
+Follow all the rules ion `.agents/domains/tasks/index.md` Section "## Content Eligibility Rules" and Section "### Content Rules for Specification Files" plus the following rules:
+
+- RULE: Include only API contracts (props, types, composition, exposed API).
+- RULE: Do not include implementation details (token values, SCSS internals, layout mechanics).
+- RULE: Only one code snippet allowed (mandatory): `## Example Usage`.
+- RULE: Any other code snippets are forbidden.
+- RULE: Do not include tables or diagrams.
+- RULE: Do not repeat details already expressed in the task file.
+
+### Rules for Creating Entity Specification Files from Template
+
+- RULE: Select the appropriate template:
+  - Add: `no-comply-new-entity-spec-template.md`
+  - Modify: `no-comply-mod-entity-spec-template.md`
+  - Remove: `no-comply-mod-entity-spec-template.md` — but simple removals (no impact, no migration) may be inlined in the task file instead
+  - Refactor: `no-comply-mod-entity-spec-template.md`
+- RULE: Fill out every section that applies to the entity.
+- RULE: If a section does not apply, remove it.
+- RULE: Only one code snippet allowed (mandatory): `## Example Usage`.
+- RULE: Any other code snippets are forbidden.
 
 ## Steps
 
@@ -234,6 +262,7 @@ It is also very likely that some of these composables should be stripped of `sta
 
 - RULE: Expect iteration and going back to previous steps.
 - RULE: Do no insist on approval, focus on assisting with refining.
+- RULE: When the user observerves and request a change (such as moving a prop or a composition from one enity to another), update all revelant specs, APIs, composition summaries, and responsibility sections.
 
 ### 7. Generate the component specification files:
 
@@ -241,14 +270,17 @@ For each entity identified, chose the appropriate specification template
 
 - Add: `no-comply-new-entity-spec-template.md`
 - Modify: `no-comply-mod-entity-spec-template.md`
-- Remove: `no-comply-mod-entity-spec-template.md`
+- Remove: `no-comply-mod-entity-spec-template.md` — but simple removals (no impact, no migration) may be inlined in the task file's `## Changes / ### Entities` instead
 - Refactor: `no-comply-mod-entity-spec-template.md`
 
-Apply the rules
+- RULE: do not create a specification file if the change can be expressed in the "### Scope" section of the task with a single line. Example: "Remove `standard:mixin:content-color` (not used anymore)"
+- RULE: Do not inline removals that have migration impact, dependents, or breaking changes — those require a full spec.
+
+Apply the "Rules for Creating Entity Specifications from Template".
 
 ### 8. Generate the component task draft
 
-1. Use the `no-comply-entity-task-template.md` Template and the "Rules for working with Entity Task Template" to structure the task file for the main entity.
+1. Use the `no-comply-entity-task-template.md` Template and follow the "Rules for Creating Entity Tasks from Template".
 2. Use the `rehash` skill to summarise the latest iteration.
 
 ## User Commands

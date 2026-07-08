@@ -15,18 +15,12 @@ Besides these there are 2 special types of files which work as templates for
 
 - **Context Summary:** An extreme summarisation of a specific scope within the current session context. As defined by `rehash` skill and other skils that extend it. (#hoist)
 - **Template:** A file used by a skill to generate other files. Example: `.agents/skills/write-component-task/component-task-template.md` (#hoist)
-- **Specification:** A structured file following a template defined by the active writing skill for capturing technical details of the task. (#hoist)
 
 ## Rules For Working with Templates
 
 - RULE: always follow the **Template:** for the file type being edited.
 - CRITICAL RULE: if you can not identify the **Template:** unambigiously, STOP ask the user.
 - RULE: do not attempt to localte **Template File** on your own.
-
-## Rules For Working with Specifications
-
-- RULE: do not use tables unless requested.
-- RULE: do not use diagrams unless requested.
 
 ## Rules For Writing Context Files
 

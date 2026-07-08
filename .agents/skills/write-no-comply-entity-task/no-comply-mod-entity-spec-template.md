@@ -1,25 +1,7 @@
 # No Comply New Entity Specification Template
 
-Use this template to produce a modificiations specification attachment for an entity task file.
-
-- RULE: Fill out every section that applies to the entity.
-- RULE: If a section does not apply to an entity, remove it.
-- RULE: Tables wider than 80 characters are forbidden.
-- RULE: Diagrams are forbidden.
-- RULE: Only two code snippets are allowed:
-  - `## Example Usage` (mandatory for all entities)
-  - `## Renders` (mandatory for components)
-- RULE: Any other code snippets are forbidden.
-
-IMPORTANT NOTE: The template below is still wip and contains examples of sections for both
-
-- modification specs (marked as ``)
-- for additions (marked as `(for new entities)`)
-
-- RULE: identify the specification variant for this entity (modifications or new entities)
-- RULE: ask the user if unsure about the specification variant to apply to this entity
-
-Template:
+> Template for Modifications / Removals / Refactors.
+> Rules for content and template usage in `SKILL.md` §"Rules for Writing Content for Entity Specifications" and §"Rules for Creating Entity Specifications from Template".
 
 ---
 
@@ -63,6 +45,10 @@ Factory: `createBadgeMixin`
 CSS Module?: YES/NO
 Id: `component:standard-ui-badge`
 
+## Responsibility
+
+One-line statement of what changed for this entity. Example: "No longer maps prop `foo` to styles. Now reads palette from CSS variable instead."
+
 ## Impact
 
 Examples:
@@ -75,7 +61,9 @@ This mixin is currently used in ... and a refactoring task is required to adapt 
 
 Agressive bullet point summary (max 5)
 
-### Accessibility
+### Accessibility (if applicable)
+
+> Note: Remove this entire sub-section if no accessibility traits are being modified.
 
 Include bullet points categorised by **Role**, **Keyboard**, **Attributes**, **Live**, **Focus** if any of these accessiblity traits is being modified.
 
