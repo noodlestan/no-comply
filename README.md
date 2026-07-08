@@ -23,44 +23,44 @@ In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev
 
 ## In this repository
 
-### Packages
+### Namespaces
 
 ### @no-comply - SolidJS UI System.
 
 Libraries
 
-- @no-comply/solid-primitives - Types and prop helpers
-- @no-comply/solid-accessibility - Types, and role controllers
-- @no-comply/solid-contexts, Contexts, services and providers for building apps
-- @no-comply/solid-composables - Controllers, mixins and unstyled components
-- @no-comply/standard-ui — Themeable component library
+- `@no-comply/solid-primitives` - Types and prop helpers.
+- `@no-comply/solid-accessibility` - Types, and role controllers.
+- `@no-comply/solid-contexts` - Contexts, services and providers for building apps.
+- `@no-comply/solid-composables` - Controllers, mixins and unstyled components.
+- `@no-comply/standard-ui` - Themeable component library.
 
 Support:
 
-- @no-comply/standard-ui-demo — Demo application and documentation
-- build-tools — Esbuild-based build system (tools/build)
-- @no-comply/meta — Purrception types, services, helpers
-- @no-comply/meta-extract — (CLI) orchestrate extraction
+- `@no-comply/standard-ui-demo` - Demo application and documentation.
+- `build-tools` - Esbuild-based build system (tools/build).
+- `@no-comply/meta` - Purrception types, services, helpers.
+- `@no-comply/meta-extract` - (CLI) orchestrate extraction.
 
 ### @purrception - Extract docs and structured metadata from codebases
 
-- @purrception/primitives — Core types
-- @purrception/lang-ts — Lightweight TS AST definitions
-- @purrception/lang-ts-extract — (CLI) extract TS AST from source
-- @purrception/source-fs — (CLI) file-system traversal
+- `@purrception/primitives` - Core types.
+- `@purrception/lang-ts` - Lightweight TS AST definitions.
+- `@purrception/lang-ts-extract` - (CLI) extract TS AST from source.
+- `@purrception/source-fs` - (CLI) file-system traversal.
 
 ### @purrtrait - Render codebase related docs and metadata
 
-- @purtrait/code-layout — Code layout models
-- @purtrait/lang-ts — @purrception/lang-ts support
-- @purtrait/client-tsx — In-browser TS/TSX parsing
-- @purtrait/solid-code — SolidJS code renderers
-- @purtrait/view-tsx — Editable TSX code models
+- `@purtrait/code-layout` - Code layout models.
+- `@purtrait/lang-ts` - @purrception/lang-ts support.
+- `@purtrait/client-tsx` - In-browser TS/TSX parsing.
+- `@purtrait/solid-code` - SolidJS code renderers.
+- `@purtrait/view-tsx` - Editable TSX code models.
 
 ### @purrpose - Single-purpose utilities (e.g. in-browser compilation)
 
-- @purrpose/client-babel — In-browser JSX/TSX compiler
-- @purrpose/client-babel-preset-solidjs — SolidJS preset for above
+- `@purrpose/client-babel` - In-browser JSX/TSX compiler.
+- `@purrpose/client-babel-preset-solidjs` - SolidJS preset for above.
 
 Packages are grouped by namespace (`no-comply/`, `purrception/`, `purrtrait/`, `purrpose/`) with a `cli/` vs `libs/` split within each namespace — `cli/` packages target Node.js, `libs/` packages are agnostic or client-side.
 
@@ -81,13 +81,15 @@ We recommended using [VS Code](https://code.visualstudio.com/) with the followin
 
 ### Commands
 
-- `npm run dev` - Turbo dev (all packages in watch mode)
-- `npm run build` - Turbo build
-- `npm run lint` - Turbo lint (eslint + prettier + tsc --noEmit)
-- `npm run lint:fix` - Turbo lint with auto-fix
-- `npm run test` - Turbo test
-- `npm run extract` - Turbo extract (meta/docs extraction)
-- `npm run ci` - Turbo CI (clean → typecheck → build → test)
+All these commands can be run from the root of the repository (via Turbo tool, respects depency graph), or from any package directory.
+
+- `npm run dev` - Run in watch. Serve development server when in an application directory.
+- `npm run build` - Build library/application.
+- `npm run lint` - Check formatting (ESLint + Prettier) and typecheck (`tsc --noEmit`).
+- `npm run lint:fix` - Check formatting only and fix issues.
+- `npm run test` - Run tests
+- `npm run extract` - Extract meta/docs extraction
+- `npm run ci` - Clean, typecheck, build, test
 
 Pre-commit hooks (via lefthook) run `lint` then `ci` sequentially.
 
@@ -119,5 +121,5 @@ Published under a [MIT license](https://noodlestan.mit-license.org/).
 
 This project contains code based on the following open-source projects:
 
-- [SolidJS](https://github.com/solidjs/solid) – Copyright (c) 2016-2025 Ryan Carniato – Licensed under the MIT License.
-- [solid-i18next](https://github.com/noodlestan/solid-i18next) – Copyright (c) 2021-2023 Martynas Barzda – Licensed under the MIT License.
+- [SolidJS](https://github.com/solidjs/solid) - Copyright (c) 2016-2025 Ryan Carniato - Licensed under the MIT License.
+- [solid-i18next](https://github.com/noodlestan/solid-i18next) - Copyright (c) 2021-2023 Martynas Barzda - Licensed under the MIT License.

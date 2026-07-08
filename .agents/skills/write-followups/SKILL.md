@@ -1,15 +1,29 @@
 ---
-name: write-follow-ups
+name: write-followups
 description: Use when requested, typically at the end of a task, to synthetise current context into a file containing the changes made and identified follow-up tasks.
 ---
 
 # Skill: Write Follow Ups
 
+## Allowed Agent Modes
+
+CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+
+- `pair-driver`
+- `task-manager`
+
+CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
+
 ## Before you start
 
-- RULE: use `git diff` (or alternative if already staged or commited) for SOURCE OF TRUTH OF CHANGES.
-- RULE: make sure names of artefacts (functions, types, APIs) and files created or modified match the `diff` because names might have drifted from the original plan.
+- Identify the task file and concrete task file the follow stem from.
+- If no task or no task present in context, or if context references more than one task file, prompt for confirmation before continuing.
+
+## Gathering Context
+
 - RULE: work mainly from context and use terminal tools to grep if needed.
+- RULE: use `git diff` (or alternative if already staged or committed) for SOURCE OF TRUTH OF CHANGES.
+- RULE: make sure names of artefacts (functions, types, APIs) and files created or modified match the `diff` because names might have drifted from the original plan.
 
 ## Where to save the follow ups
 
@@ -31,13 +45,13 @@ Ask for confirmation if unsure.
 ### What NOT to include
 
 - RULE: Never include instructions from the task ("Base the new package scaffold on ...")
-- RULE: Never include mandatory details such as `udpated imports` or `update barrel files`
+- RULE: Never include mandatory details such as `updated imports` or `update barrel files`
 
 ### What to include
 
 #### Cross-cutting changes
 
-Include short notes about changes with transveral scope (many modules or many packages)
+Include short notes about changes with transversal scope (many modules or many packages)
 
 - RULE: Only if these changes are hard to squeeze into table format.
 - RULE: Not more than 1 pragraph, 5 bullet points.
@@ -58,14 +72,16 @@ Include short notes about changes with transveral scope (many modules or many pa
 
 #### Example Changes Summary
 
-Given this completed work:
+Given the following example completed work (input) The agent should generate the table of changes presented below (output).
+
+Input:
 
 - Extract `apps/standard-ui-demo/src/services/SyntaxHighlighter` into `libs/purrpose-solid-shiki-service/`.
 - Create new package scaffold.
 - Update imports in the demo app.
 - Delete old service directory.
 
-Generate the follow table of changes
+Output:
 
 ```md
 | package                       | feature             | change  | summary                                                                 |
@@ -78,14 +94,14 @@ Generate the follow table of changes
 
 ## Follow up Tasks
 
-Suggest potentiall follow up tasks in bullet point format to the user.
+Suggest potential follow up tasks in bullet point format to the user.
 
-If the user accepts them and/or provides instructions for more tasks, add them all under this tile.
+If the user accepts them and/or provides instructions for more tasks, add them all under this title.
 
 These are NOT full task outlines. Ignore `task-writer` skill instructions if these have been read before. Those instructions apply only to task in their own files.
 
-- RULE: Don't gnerate full task outlines, just a task seed.
-- RULE: DO NOT peform extra explorations, work from context only.
+- RULE: Don't generate full task outlines, just a task seed.
+- RULE: DO NOT perform extra explorations, work from context only.
 - RULE: Prefer `relative/path/to-file.ts` and formatted `symbol` names to code snippets.
 - RULE: Follow up tasks must be shorter than 25 lines non-empty lines.
 

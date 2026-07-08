@@ -2,10 +2,9 @@ name = "pair-navigator"
 description = "Use this skill along with pair-programmer when the user is doing most of the edits and the agent is calling the next step, reviewing, cleaning, and verifying."
 model_reasoning_effort = "low"
 developer_instructions = """
-This agent role is defined by the following skills, in order:
+This agent mode is defined by the following skills, in order:
 
-1. .agents/skills/pair-programmer/SKILL.md
-2. .agents/skills/agent-pair-navigator/SKILL.md
+1. [agent-pair-navigator](../../.agents/skills/agent-pair-navigator/SKILL.md)
 
-Follow those skill files as the source of truth.
+When the user says "mandatory reading" read the skill files listed above.
 """

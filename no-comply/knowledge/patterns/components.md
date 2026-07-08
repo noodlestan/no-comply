@@ -22,11 +22,11 @@ Components use `createExposable` / `exposeAPI` from `@no-comply/solid-contexts` 
 - **Rationale:** Minimal component with only 18 lines of TSX. Imports a single mixin (`DividerMixin`) and uses `Dynamic` to render a void element. No sub-components, no SCSS, no event handling.
 - **Props:** Inherits from `DividerMixinProps` (with `role` forced to `'presentation'`). No custom props.
 - **Structure:**
-    - `Divider.tsx` (18 lines) -- splits props, calls `createDivider()`, renders `<Dynamic {...$} />`
-    - `types.ts` -- defines `DividerProps` (aliased from mixin) and `DividerAPI`
-    - `constants.ts` -- defines prop keys and component identifier
-    - `createDivider.ts` -- composes `DividerMixin`, sets `role: 'presentation'`
-    - `index.ts` -- re-exports
+  - `Divider.tsx` (18 lines) -- splits props, calls `createDivider()`, renders `<Dynamic {...$} />`
+  - `types.ts` -- defines `DividerProps` (aliased from mixin) and `DividerAPI`
+  - `constants.ts` -- defines prop keys and component identifier
+  - `createDivider.ts` -- composes `DividerMixin`, sets `role: 'presentation'`
+  - `index.ts` -- re-exports
 - **Imports:** `@no-comply/solid-primitives`, `solid-js`, `solid-js/web`, local `./constants`, `./createDivider`, `./types`
 
 ---
@@ -37,12 +37,12 @@ Components use `createExposable` / `exposeAPI` from `@no-comply/solid-contexts` 
 - **Rationale:** Uses a **context provider** (`FieldContextProvider`) and a **render prop** pattern (`children({ field })`) for composition. Integrates with sibling `FieldLabel` component. 35-line TSX + 46-line `createField.ts` with SCSS module. Moderate complexity due to the context/render-prop architecture.
 - **Props:** `HeadlessFieldProps` + `size?: ContentSize`, plus `label: JSX.Element` and `children: RenderProp<{ field: FieldAPI }>`
 - **Structure:**
-    - `Field.tsx` (35 lines) -- splits props, creates field via `createField`, wraps in `FieldContextProvider > Flex > FieldLabel + children`
-    - `types.ts` -- `FieldProps` and `FieldAPI` (exposes `$root`, `_fieldLabel`, `hasFeedback`)
-    - `constants.ts` -- prop keys
-    - `createField.ts` -- composes `createHeadlessField` + `createFieldMixin`, computes size classList, builds `_fieldLabel` with size prop
-    - `Field.module.scss` -- styling
-    - `index.ts` -- re-exports
+  - `Field.tsx` (35 lines) -- splits props, creates field via `createField`, wraps in `FieldContextProvider > Flex > FieldLabel + children`
+  - `types.ts` -- `FieldProps` and `FieldAPI` (exposes `$root`, `_fieldLabel`, `hasFeedback`)
+  - `constants.ts` -- prop keys
+  - `createField.ts` -- composes `createHeadlessField` + `createFieldMixin`, computes size classList, builds `_fieldLabel` with size prop
+  - `Field.module.scss` -- styling
+  - `index.ts` -- re-exports
 - **Imports:** `@no-comply/solid-composables`, `@no-comply/solid-contexts`, `@no-comply/solid-primitives`, `solid-js`, `Flex`, `FieldLabel`, SCSS module
 - **Key characteristic:** Context provider pattern for coordinating with child inputs
 
@@ -54,11 +54,11 @@ Components use `createExposable` / `exposeAPI` from `@no-comply/solid-contexts` 
 - **Rationale:** Part of a sub-component ecosystem (`MenuItemAction`, `MenuItemGroup`, `MenuItemSubMenu`) with shared context. Wraps content in `MenuContextProvider`, composes `Surface` as visual base, renders a dynamic label. The abstraction level is high -- the Menu component itself is only 30 lines, but it provides the context infrastructure for multiple sibling sub-components. Uses `createHeadlessMenu` + `createMenuMixin`.
 - **Props:** `HeadlessMenuProps` + `MenuMixinProps`
 - **Structure:**
-    - `Menu.tsx` (30 lines) -- splits props, calls `createMenu()`, renders `MenuContextProvider > Surface > (label + children)`
-    - `types.ts` -- `MenuProps` and `MenuAPI` (exposes `_surface`, `$label`, `contextValue`; omits `$root` in favor of `_surface`)
-    - `constants.ts` -- prop keys
-    - `createMenu.ts` -- composes `createHeadlessMenu` + `createMenuMixin`, builds `_surface` with `tag: 'div'`, `variant: 'menu'`, `padding: 'xs'`
-    - `index.ts` -- re-exports
+  - `Menu.tsx` (30 lines) -- splits props, calls `createMenu()`, renders `MenuContextProvider > Surface > (label + children)`
+  - `types.ts` -- `MenuProps` and `MenuAPI` (exposes `_surface`, `$label`, `contextValue`; omits `$root` in favor of `_surface`)
+  - `constants.ts` -- prop keys
+  - `createMenu.ts` -- composes `createHeadlessMenu` + `createMenuMixin`, builds `_surface` with `tag: 'div'`, `variant: 'menu'`, `padding: 'xs'`
+  - `index.ts` -- re-exports
 - **Imports:** `@no-comply/solid-composables`, `@no-comply/solid-contexts`, `@no-comply/solid-primitives`, `solid-js`, `solid-js/web`, `Surface`, local mixin
 - **Related sub-components:** `MenuItemAction`, `MenuItemGroup`, `MenuItemSubMenu` -- each with their own create/types/constants pattern
 - **Key characteristics:** Context provider for coordinated child components; surface composition; dynamic label rendering

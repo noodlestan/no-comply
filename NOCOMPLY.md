@@ -1,4 +1,11 @@
-# No Comply / Standard UI
+# MONOREPO
+
+- `cli` - a module meant to be used in Node.js environments.
+- `lib` - a library that can be used in both Node.js and the browser.
+
+not true, should we have: `server`, `shared`, and `client` (not withstanding many client libraries still being executable in Node.js as long as some APIs are loaded or shimmed).
+
+# No Comply / Standard U
 
 ## VisuallyHidden when={}
 

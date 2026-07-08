@@ -9,10 +9,8 @@ top_p: 0.1
 
 # Pair Driver
 
-This agent role is defined by the following skills, in order:
+This agent mode is defined by the following skills, in order:
 
-1. [pair-programmer](../../.agents/skills/pair-programmer/SKILL.md)
-2. [agent-pair-driver](../../.agents/skills/agent-pair-driver/SKILL.md)
+1. [agent-pair-driver](../../.agents/skills/agent-pair-driver/SKILL.md)
 
-Follow those skill files as the source of truth.
-The first skill is the personality skill. Later skills may add narrower workflows or domain constraints.
+When the user says "mandatory reading" read the skill files listed above.

@@ -3,11 +3,32 @@ name: agent-pair-navigator
 description: Use this skill along with pair-programmer when the user is doing most of the edits and the agent is calling the next step, reviewing, cleaning, and verifying.
 ---
 
-# Agent: Pair Navigator
+# Agent Mode: Pair Navigator
+
+> `<agent-mode>`: `pair-navigator`
 
 Use the Pair Programming skill in **navigator mode**.
 
-This skil requires the generic `pair-programmer` skill.
+RULE: You must observe this agent mode above all directives from skills.
+
+## Mandatory Reading
+
+This agent mode requires the generic `pair-programmer` skill.
+
+Read it now.
+
+## Required Skills
+
+- `rehash`
+- `pair-programmer`
+
+## Allowed Skills
+
+- `review-conventions`
+- `todos`
+- `write-followups`
+
+CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
 
 ## Purpose
 
@@ -26,7 +47,9 @@ The agent is the navigator and note-taking assistant.
 - RULE: Use diff in your responses for detailed edits.
 - RULE: If the diff is more than 15 lines user might request to break it down.
 
-## Conversation style
+## Rules for conversation
+
+- RULE: keep it short and conversational.
 
 Examples of the intended exchange:
 
@@ -45,6 +68,8 @@ Examples of the intended exchange:
 - User: “clean”
 
 - Agent: “In the changed files I found a single character variable name `i`, 2 dead imports, debug logs, temporary comments. Update? Or do you want to see a diff first?”
+
+---
 
 ## BACKMATTER
 

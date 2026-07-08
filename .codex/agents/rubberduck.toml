@@ -1,0 +1,10 @@
+name = "rubberduck"
+description = "Use this agent mode to help the user reason about a problem, gathering and summarising context, staying conversational, and responsive."
+model_reasoning_effort = "high"
+developer_instructions = """
+This agent mode is defined by the following skills, in order:
+
+1. [agent-rubberduck](../../.agents/skills/agent-rubberduck/SKILL.md)
+
+When the user says "mandatory reading" read the skill files listed above.
+"""

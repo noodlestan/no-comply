@@ -1,9 +1,17 @@
 ---
 name: draft-conventions
-description: Use when the user wants to capture conventions that surfaced during a task, review, or correction session, and turn them into a proposal for updating the repository conventions documentation.
+description: Use when the user wants to capture convention proposals that surfaced from friction experienced during a task, review, or correction session.
 ---
 
 # Skill: Identify Conventions
+
+## Allowed Agent Modes
+
+CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+
+- `agent-knowledge-curator`
+
+CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
 
 ## Purpose
 
@@ -13,20 +21,22 @@ Goal: Generate a **conventions update proposal**
 
 The artifact should read like a practical internal note for maintainers reviewing convention changes.
 
-## Where to save it
+## Rules to save convention drafts
 
 Save the proposal next to the current task file unless the user asked for a different location.
 
 Example: `<task-id>__conventions.md`
 
-## Before you start
+## Steps
+
+### Before you start
 
 - RULE: treat the current repository conventions files as the baseline.
 - RULE: the purpose is to capture **deltas** — newly identified rules, rule changes, rule clarifications, and missing exceptions.
 - RULE: work primarily from the task context, user corrections, and code review feedback.
 - RULE: use the codebase only to verify that a proposed convention is real, repeated, or at least consistent with surrounding code.
 
-## First step – identify the scope buckets
+### 1. identify the scope buckets
 
 The output groups items by scope such as:
 
@@ -36,16 +46,16 @@ The output groups items by scope such as:
 - Entity types: `Components`, `Services`, `Context`, `Routing`
 - Support tasks: `Tooling`, `Testing`, `Documentation`
 
-Buckets are created at the root of the repo in `conventions/<bucket>.md`.
+Buckets are created in knowledge directories, under `knowledge/conventions/<bucket>.md`.
 
-Before continuing, agents MUST iead the relevant files in order to:
+RULE: Before continuing, agents MUST ask the user whate are the relevant knowledged files.
 
 - identify the target **section** within the `<bucket>`.
 - identify existing rules within the **section** that might overlap.
-- identify an exixting rule within the target **section** that should be modified.
+- identify an existing rule within the target **section** that should be modified.
 - identify existing redundant or conflicting rules in adjacent sections.
 
-## Proposals structure
+### 2. Structure the proposals
 
 Organize the proposals by **scope** and **convention section**.
 
@@ -63,9 +73,9 @@ Examples
 
 The proposal is a staging artifact for future documentation work, so every entry should make it obvious **where** the rule belongs and **what kind of change** is being proposed.
 
-## What to capture
+### 4. Capture the proposal details and context
 
-Changes that surfaced during the task, such as:
+Capture only changes that surfaced during the task, such as:
 
 - A new undocumented rule the user had to explain.
 - A missing exception to an existing rule.
@@ -75,33 +85,15 @@ Changes that surfaced during the task, such as:
 - A framework-specific pitfall that deserves an explicit convention.
 - a code shape restriction that is important for readability, evaluation safety, or architecture consistency
 
-## What NOT to capture
+Do not include:
 
 - RULE: do not list examples or file references. One is enough.
-- RULE: do not include details form the task or other session context.
+- RULE: do not include details from the task or other session context.
 - RULE: do not write a full clean conventions file.
 - RULE: do not include generic style-guide advice.
 - RULE: do not include implementation steps, migration plans, or task checklists.
 - RULE: do not include speculative “maybe we should” ideas unless brainstorming was requested by the user.
 - RULE: do not flatten different ideas into one item - prefer 2 half-formed discoveries that can later be refined.
-
-## Proposal writing rules
-
-- RULE: prefer the shortest format that captures the rule correctly (see examples below).
-- RULE: if the proposal targets an existing rule, capture whether to **reword**, **clarify**, **split**, **relax** the existing rule.
-- RULE: preserve strong modality when it exists — `Always`, `Never`, `MUST NOT`, `allowed only if`, etc.
-- RULE: if a rule is justified by a concrete derailment, bug, or review correction, keep a short reference to that context.
-- RULE: do not spend effort polishing prose that the user will likely rewrite when merging into the real conventions file.
-
-## How to treat existing conventions
-
-When the task touches an already documented convention:
-
-- identify whether the proposal
-- identify whether the proposal is to **add**, **reword**, **clarify**, **split**, **remove**, or **add an exception**
-- keep the delta explicit rather than silently rewriting the whole rule
-- preserve existing section names if they are still good enough
-- if the current section name is misleading, propose a better one as part of the entry
 
 ## Choosing the right level of detail
 
@@ -151,7 +143,7 @@ Make it explicit that `../../modules/sub-module` is allowed if (and only if) `mo
 
 Use this format when technical background is required to clarify the intent of the rule.
 
-USe this format if examples are required to illustrate nuanced application guidelines.
+Use this format if examples are required to illustrate nuanced application guidelines.
 
 ````markdown
 ## SolidJS / JSX

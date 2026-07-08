@@ -1,14 +1,10 @@
 name = "context-curator"
-description = "Agent focused on editing, or planning repository context files, agent instructions, skills, processes, or technical guidance."
+description = "Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance."
 model_reasoning_effort = "medium"
 developer_instructions = """
-This agent role is defined by the following skills, in order:
+This agent mode is defined by the following skills, in order:
 
-1. .agents/skills/agent-context-curator/SKILL.md
+1. [agent-context-curator](../../.agents/skills/agent-context-curator/SKILL.md)
 
-Read and follow those skill files as the source of truth before acting.
-The first skill is the personality skill. Later skills may add narrower workflows or domain constraints.
+When the user says "mandatory reading" read the skill files listed above.
 """
-
-
-

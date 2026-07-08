@@ -1,0 +1,10 @@
+name = "backlog-manager"
+description = "Use this skill to update tasks statuses, analyse dependencies, and keep backlog tidy."
+model_reasoning_effort = "medium"
+developer_instructions = """
+This agent mode is defined by the following skills, in order:
+
+1. [agent-backlog-manager](../../.agents/skills/agent-backlog-manager/SKILL.md)
+
+When the user says "mandatory reading" read the skill files listed above.
+"""

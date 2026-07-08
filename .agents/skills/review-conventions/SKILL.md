@@ -5,6 +5,15 @@ description: Use when the user wants to review convention proposals captured dur
 
 # Skill: Review Conventions
 
+## Allowed Agent Modes
+
+CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+
+- `agent-pair-navigator`
+- `agent-pair-driver`
+
+CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
+
 ## Purpose
 
 Use this skill to review **proposed convention changes** from convention proposals.
@@ -69,7 +78,7 @@ Capture convention changes that surfaced during the task, such as:
 ## Proposal writing rules
 
 - RULE: every item must be classified within h2/h3 section levels.
-- RULE: rule MUST NOT include exception (add separate rule isntead).
+- RULE: rule MUST NOT include exception (add separate rule instead).
 - RULE: prefer the shortest format that captures the rule correctly.
 - RULE: if a rule is already crisp and unambiguous, write it directly as a proposed rule.
 - RULE: preserve strong modality when it exists — `Always`, `Never`, `MUST NOT`, `allowed only if`, etc.
@@ -92,7 +101,7 @@ Existing convention rules are the source of truth.
 
 Convention rules should be stable and slowly curated with small increments.
 
-// WIP - this section is not finished
+<!-- TODO: this section is not finished -->
 
 ## Verification expectations
 

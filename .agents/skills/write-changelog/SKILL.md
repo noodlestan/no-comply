@@ -5,7 +5,21 @@ description: Use this skill when processing done tasks to generate changelogs an
 
 # Skill: Write Changelog
 
+Use this skill to generate CHANGELOG entries and update CHANGELOG files.
+
 Based on [Common Changelog](https://common-changelog.org/) conventions.
+
+## Allowed Agent Modes
+
+CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+
+- `backlog-manager`
+
+CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
+
+## Mandatory Reading
+
+Read `.agents/domains/changelog/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
 
 ## Changelog Outline
 

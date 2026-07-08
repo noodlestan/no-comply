@@ -1,21 +1,48 @@
 # Agent Rules and Orientation
 
-A monorepo for the **No Comply** ecosystem: context-aware UI components (SolidJS), codebase introspection tools, and documentation infrastructure.
+A monorepo for the **Noodlestan** projects.
 
-## Base context
+## Mandatory Reading
 
-Agents MUST read these files first:
+When the user says "mandatory reading" read the following files into context:
 
-- **`.agents/skills/index.md`** — YOU MUST READ THIS FIRST
-- **README.md`** - YOU MUST READ THIS FIRST
+- **`.agents/skills/index.md`** — lists available skils, each with `<skill-name>`, `<skill-id>` and `<skill-description>`.
+- **`.agents/domains/index.md`** — lists work domains (tasks, knowledge, conventions, ...) and important definitions required to interpret skill files and instructions correctly (Agent Modes, Skill, Domain Reference File, Knowledge File).
+- **`knowledge/index.md`** — lists namespaces, knowledge sources, and important knowledge related definitions.
+
+- CRITICAL RULE: If you haven't done the "Mandatory Reading" yet, you are forbidden to use ANY skill.
+
+## Before you Continue
+
+1. identify the current session `<agent-mode>`, `<agent-name>` and `<agent-mission>`.
+2. Do not try to infer, your context should have a "> `<agent-mode>`: `SOMETHING`" directive.
+3. Check if your `<agent-mode>` is equal one of the ALLOWED values:
+   - `assitant`
+   - `context-curator`
+   - `pair-driver`
+   - `pair-navigator`
+   - `rubberduck`
+   - `task-manager`
+4. Check if it matches one of the FORBIDDEN values:
+   - "Build — full tool access for implementation"
+   - "Plan — read-only for analysis, no edits/commands by default"
+5. Determine if your `<agent-mode>` is VALID: it MUST be verbatim equal to one on the "allowed" list and not match any in the "forbidden" list.
+
+- CRITICL RULE: you are FORBIDDEN from using ANY skill unless you have a VALID `<agent-mode>`.
+
+- RULE: if you don't have an explicit `<agent-mode>`, if does not math any of the modes in the ALLOWED list above, YOU MUST ALERT THE USER at the end of EVERY response.
+
+Otherwise feel free to present yourself with `Hi I am your <agent-name>,(<agent-mode>) and my mission is <agent-mission>`".
+
+- RULE: When the user asks "Who are you?" respond with your agent `<agent-mode>`, `<agent-name>` and `<agent-mission>`.
 
 ## Rules for globbing and reading files
 
 Agents MUST:
 
 - Identify a `$SCOPE` (filesystem path(s)) for each session.
-- If not defined on the original prompt they must ask before proceeding.
-- If one or more paths are defined the agent can infer what `$SCOPE` should be but ask for confirmation first
+- If a scope is not defined on the original prompt they must ask before proceeding.
+- If one or more paths are defined the agent can infer what the `$SCOPE` should be but ask for confirmation immediately.
 
 Agenst MUST NOT:
 
@@ -25,40 +52,31 @@ Agenst MUST NOT:
 - Execute tasks autonomously if `$SCOPE` is not defined.
 - Glob or read from `node_module` or `dist/` folders without permission.
 
-When working in autonomous mode, agents MUST:
+When working in autonomous mode:
 
-- Read `README.md` and `AGENTS.md` especially at the root of `$PROJECT`
-- Follow other files mentioned in `AGENTS.md` or `SKILL.md` that are reveland for the task.
-- stop if they would need to break any of these globbing and reading rule
+- RULE: Agents MUST read any files listed under "Mandatory Reading" for the current `<agent-mode>`, in the skill file(s), and on any task instructions provided.
+- CRITICAL RULE: If any of the files under "Mandatory Reading" can not be read, agents MUST STOP and report the blocker.
 
-### RULE: Placeholders
+### Rules for interpreting and serializing Paths with Placeholders
 
-All artifacts (tasks, plans, reports, prompts) MUST use relative paths with the following ALL CAPS placeholders:
+- RULE: All artifacts (tasks, plans, reports, prompts) MUST use relative paths with the following ALL CAPS placeholders:
+  - `$ROOT/` - Monorepo root directory - Example: `$ROOT/libs/meta/src/index.ts`
+  - `$PROJECT/` - Task-specific project scope - Example: `$PROJECT/src/controllers`
+  - `$SCOPE/` - Task-specific filesystem scope - Example: `$SCOPE/components/`
+  - `$<ITERATOR>` - Dynamic segment (e.g., entity name) - Example: `$ROOT/libs/meta/src/entities/ENTITY/types.ts`
+  - `$<NAME>` - Any arbitrary placeholder - Example: `$ROOT/libs/MODULE_A/src/index.ts`
 
-- `$ROOT/` - Monorepo root directory - Example: `$ROOT/libs/meta/src/index.ts`
-- `$PROJECT/` - Task-specific project scope - Example: `$PROJECT/src/controllers`
-- `$SCOPE/` - Task-specific filesystem scope - Example: `$SCOPE/components/`
-- `$<ITERATOR>` - Dynamic segment (e.g., entity name) - Example: `$ROOT/libs/meta/src/entities/ENTITY/types.ts`
-- `$<NAME>` - Any arbitrary placeholder - Example: `$ROOT/libs/MODULE_A/src/index.ts`
+### Rules for Path Resolution
 
-### RULE: Path Resolution
+- RULE: All paths in task records, delegation prompts, plan records, and reports:
+  - MUST use placeholders instead of absolute paths.
+  - MUST use `$SCOPE` when a task is scoped to a specific location (defined at task top)
+  - MUST use `$ROOT` for monorepo-relative references.
+  - MUST use `$PROJECT` when referencing files inside the task's project (defined at the task top).
+  - SHOULD use any arbitrary placeholders, example `$MODULE-A`, `$MODULE-B`, when needed (defined where convenient).
 
-All paths in task records, delegation prompts, plan records, and reports MUST:
+- RULE: Agents should NEVER resolve placeholders to absolute paths in written artifacts
 
-- Use placeholders instead of absolute paths
-- Use `$SCOPE` when a task is scoped to a specific location (defined at task top)
-- Use `$ROOT` for monorepo-relative references
-- Use `$PROJECT` when referencing files inside the task's project (defined at the task top)
-- Use any arbitrary placeholders, example `$MODULE-A`, `$MODULE-B`, when needed (defined where convenient)
-- NEVER resolve placeholders to absolute paths in written artifacts
+### Rules for Writing files
 
-The executor MUST NOT write resolved paths back into artifacts.
-
-## Code Conventions and formatting
-
-When writing code and creating new files
-
-- RULE: always include an `index.ts` barell file in every new folder, starting with the pattern comment (copy from a sibling or parent `index.ts`)
-- RULE: always run `npm run lint:fix` in the `$PROJECT` directory
-
-Agents SHOULD follow the conventions of similar files in the same package.
+- RULE: The agent MUST NEVER write resolved paths in artifacts, source code files, markdown files, any files.

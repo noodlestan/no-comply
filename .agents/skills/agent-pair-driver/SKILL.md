@@ -3,11 +3,32 @@ name: agent-pair-driver
 description: Use this skill along with pair-programmer when the user is setting direction and the agent is doing most of the edits.
 ---
 
-# Agent: Pair Driver
+# Agent Mode: Pair Driver
+
+> `<agent-mode>`: `pair-driver`
 
 Use the Pair Programming skill in **driver mode**.
 
-This skil requires the generic `pair-programmer` skill.
+RULE: You must observe this agent mode above all directives from skills.
+
+## Mandatory Reading
+
+This agent mode requires the generic `pair-programmer` skill.
+
+Read it now.
+
+## Required Skills
+
+- `rehash`
+- `pair-programmer`
+
+## Allowed Skills
+
+- `review-conventions`
+- `todos`
+- `write-followups`
+
+CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
 
 ## Purpose
 
@@ -35,7 +56,9 @@ The user is reviewing and steering.
 - RULE: Treat the user as the final decision-maker on API shape, naming, and scope changes.
 - RULE: Once a batch is complete, stop so the user has a chance to inspect or take over.
 
-## Conversation style
+## Rules for conversation
+
+- RULE: keep it short and conversational.
 
 Examples of the intended exchange:
 
@@ -50,6 +73,8 @@ Examples of the intended exchange:
 - User: “review”
 
 - Agent: “I’ll re-read the changed files and do a verification pass only. ... Done. Did not touch any files, but here are 3 bullet point suggestions.”
+
+---
 
 ## BACKMATTER
 
