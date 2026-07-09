@@ -1,4 +1,4 @@
-import { stat, writeFile } from 'fs/promises';
+import { mkdir, stat, writeFile } from 'fs/promises';
 import path from 'path';
 
 import {
@@ -22,6 +22,7 @@ async function main() {
 	});
 	const entities = extracted.map(({ entity: e }) => e);
 
+	await mkdir('./dist', { recursive: true });
 	await writeFile('./dist/meta.json', JSON.stringify({ entities }, null, 2));
 	const fileStats = await stat('./dist/meta.json');
 	const fileSizeInBytes = fileStats.size;

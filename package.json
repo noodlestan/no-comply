@@ -21,13 +21,14 @@
   },
   "scripts": {
     "dev": "turbo run dev --ui tui",
+    "clean": "turbo run build:clean",
+    "build": "turbo run build",
+    "build:meta": "turbo run build:meta",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test",
-    "build": "turbo run build",
     "extract": "turbo run extract",
-    "ci": "turbo run ci",
-    "clean": "turbo run build:clean"
+    "ci": "turbo run ci"
   },
   "devDependencies": {
     "@noodlestan/eslint-config": "0.0.7",

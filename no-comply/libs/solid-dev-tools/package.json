@@ -26,7 +26,8 @@
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "build:clean": "rm -rf dist",
     "build": "vite build",
-    "ci": "npm run build:clean && tsc --noEmit && npm run build"
+    "test": "echo none yet",
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
     "@no-comply/solid-contexts": "0.0.11",

@@ -38,7 +38,7 @@
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "run": "node dist/esm/index.mjs",
-    "ci": "npm run build:clean && npm run build && npm run test"
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
     "@purrception/primitives": "0.0.11",

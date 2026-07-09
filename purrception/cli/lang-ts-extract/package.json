@@ -37,7 +37,7 @@
     "test:watch": "vitest",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . -c --write && eslint . --fix",
-    "ci": "npm run build:clean && npm run build && npm run test"
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
     "@purrception/primitives": "0.0.11",
