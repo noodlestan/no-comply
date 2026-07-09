@@ -1,6 +1,8 @@
-# Purrpose / Client Babel / SolidJS Preset
+# @purrpose/client-babel-preset-solidjs
 
 > SolidJS JSX transform preset for `@purrpose/client-babel`.
+
+This package is part of the [@purrpose](../../README.md) toolkit.
 
 This package provides a Babel preset configuration that enables `@purrpose/client-babel` to compile SolidJS TSX/JSX components directly in the browser.
 
@@ -43,7 +45,7 @@ Typical use cases include:
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
+Make sure you read the [@purrpose README](../../README.md) first.
 
 ### Build Targets
 

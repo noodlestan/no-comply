@@ -1,6 +1,6 @@
-# @no-comply/standard-ui
+# @no-comply/meta-extract
 
-> Themeable component library built with [@no-comply](https://no-comply.noodlestan.org/), [SolidJS](https://www.solidjs.com/) and modern CSS.
+> Purrception extraction tools for the [no-comply] project.
 
 This package is part of the [@no-comply](../../README.md) project.
 

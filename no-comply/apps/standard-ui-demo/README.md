@@ -1,10 +1,12 @@
-# Standard UI Demo
+# @no-comply/standard-ui-demo
 
-> Demo application built with [Standard UI](https://standard-ui.noodlestan.org/).
+> Demo application built with [Standard UI](../../libs/standard-ui/README.md).
+
+This package is part of the [@no-comply](../../README.md) project.
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/designer/blob/main/README.md) first.
+Make sure you read the [@no-comply README](../../README.md) first.
 
 ### Scripts
 
@@ -14,6 +16,6 @@ Make sure you [README](https://github.com/noodlestan/designer/blob/main/README.m
 
 ## MIT License
 
-Copyright (c) 2024-2025 [Noodlestan](https://noodlestan.org/).
+Copyright (c) 2025 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).

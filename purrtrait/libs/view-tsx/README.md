@@ -1,6 +1,8 @@
-# Purrtrait / View TSX
+# @purrtrait/view-tsx
 
 > Absractions for modelling editable TSX code.
+
+This package is part of the [@purrtrait](../../README.md) toolkit.
 
 This package provides high level abstractions for modelling editable TSX code.
 
@@ -308,7 +310,7 @@ const targetProps = viewTargetProps(view, '0', ([, node]) => {
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
+Make sure you read the [namespace README](../../README.md) first.
 
 ### Build Targets
 

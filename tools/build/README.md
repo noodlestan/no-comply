@@ -4,7 +4,7 @@
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/main/README.md) first.
+Make sure you read the [namespace README](../../README.md) first.
 
 ## Usage
 

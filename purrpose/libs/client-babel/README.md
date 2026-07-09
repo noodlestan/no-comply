@@ -1,6 +1,8 @@
-# Purrpose / Client Babel
+# @purrpose/client-babel
 
 > In-browser JSX/TSX compiler for playgrounds and documentation tools.
+
+This package is part of the [@purrpose](../../README.md) toolkit.
 
 This package is designed for **interactive component environments**: documentation sandboxes, visual editors, and runtime JSX evaluation in the browser.
 
@@ -206,7 +208,7 @@ As a last resort:
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
+Make sure you read the [@purrpose README](../../README.md) first.
 
 ### Build Targets
 

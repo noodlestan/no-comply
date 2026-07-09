@@ -1,14 +1,14 @@
-# Purrtrait / Languages / TypeScript
+# @purrtrait/lang-ts
 
 > Purrtrait support for TypeScript.
 
-Part of the [Purrtrait](https://github.com/noodlestan/purrtrait) toolkit.
+This package is part of the [@purrtrait](../../README.md) toolkit.
 
 Adds support for TypeScript via [@purrception/lang-ts](https://purrception.noodlestan.org/api/@purrception/lang-ts) lightweight AST.
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
+Make sure you read the [@purrtrait README](../../README.md) first.
 
 ### Build Targets
 
@@ -22,6 +22,6 @@ This library is packaged for use in bundlers such as Vite and Astro. The main en
 
 ## MIT License
 
-Copyright (c) 2024-2025 [Noodlestan](https://noodlestan.org/).
+Copyright (c) 2026 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).

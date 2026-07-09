@@ -1,16 +1,16 @@
-# @purrtrait/solid-code
+# @purrpose/solid-shiki-service
 
-> SolidJS renderers for Purrtrait code blocks.
+> Shiki syntax highlighting service for SolidJS.
 
-This package is part of the [@purrtrait](../../README.md) toolkit.
+This package is part of the [@purrpose](../../README.md) toolkit.
 
 ## Development
 
-Make sure you read the [namespace README](../../README.md) first.
+Make sure you read the [@purrpose README](../../README.md) first.
 
 ### Build Targets
 
-This library is packaged for use in bundlers such as Vite and Astro. The main entry point is the Typescript source code.
+This library is distributed as ESM and intended to be processed by a bundler such as Vite or Astro. The main entry point is the Typescript source code.
 
 ### Scripts
 

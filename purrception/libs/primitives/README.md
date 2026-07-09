@@ -1,103 +1,25 @@
-# Purrception
+# @purrception/primitives
 
-**Purrception is a layered, extensible entity extraction system** designed to power codebase introspection, metadata extraction, and documentation tooling.
+> Purrception core types for modelling entities.
 
-It is deeply type-aware, and highly customizable.
+This package is part of the [@purrception](../../README.md) toolkit.
 
-## Layer Overview
+## Development
 
-| Package                        | Responsibility                                                                      |
-| ------------------------------ | ----------------------------------------------------------------------------------- |
-| `@purrception/primitives`      | Minimal shared types                                                                |
-| `@purrception/source-fs`       | Traversing, watching, and batching tools for extracting entities from file systems. |
-| `@purrception/lang-ts`         | Lightweight Typescript AST                                                          |
-| `@purrception/lang-ts-extract` | Extract lightweight Typescript AST from source code                                 |
+Make sure you read the [@purrception README](../../README.md) first.
 
-**Note:** Purrception is entity agnostic. An example implementation for SolidJS-aware extractors and codebase rules can be found in `@no-comply/meta`
+### Build Targets
 
-## `@purrception/primitives`
+This library is packaged for use in bundlers such as Vite and Astro. The main entry point is the Typescript source code.
 
-Defines shared, minimal types for extractors.
+### Scripts
 
-### Models
+- **$** `npm run dev` - uses `Vite` to (re)build on changes
+- **$** `npm run build` - uses `Vite` to do produce a dry build in `dist/`.
+- **$** `npm run lint` / `npm run lint:fix` - uses [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config).
 
-No logic or assumptions — purely structural.
+## MIT License
 
-- `EntityDataBase` – base entity shape (`type`, `name`, extensible)
-- `EntityExtractContext<T>` – context wrapper
-- `EntityExtractResult<T>` – output of a processor
+Copyright (c) 2026 [Noodlestan](https://noodlestan.org/).
 
-## `@purrception/source-fs`
-
-Filesystem-driven discovery and orchestration.
-
-Knows how to walk the filesystem — not what to extract.
-
-### Contracts
-
-- `DirectoryExtractorFactory<T>`
-- `DirectoryEntityProcessor<T>`
-- `EntityExtractorFiles`
-- `EntityMetaMatcher<P extends EntityDataBase>`
-- `EntityFileResolver<F extends EntityExtractorFiles, P extends EntityDataBase>`
-- `EntityExtractorOptions<P extends EntityDataBase, F extends EntityExtractorFiles>`
-
-### Implements
-
-- `createDirectoryExtractContext`
-- `extractEntitiesFromFileSystem`
-- Root traversal (`processPaths`, `processRootDir`)
-- FS watchers (`createDebouncedWatcher`, `splitContextsToUpdate`, etc.)
-
-## `@purrception/lang-ts-extract`
-
-TypeScript-level AST parsing and type modeling.
-
-Generates lightweight and portable trees.
-
-### Contracts
-
-- `TypeExpressionNode`
-- `FunctionDeclaration`
-- `ComponentDeclaration`
-- `TypeExpressionDeclaration`
-
-### Extractors
-
-- `extractFunctionsFromFile`
-- `extractTypesFromFile`
-- `extractComponentsFromFile`
-
-### JSDoc
-
-- `extractNodeJsDoc`
-- `extractFunctionJsDoc`
-- `hasJsDocIgnore`
-
-### Helpers
-
-- Inference utilities like `isComponentType`, `isJSXReturnType`, etc.
-- Deep AST analysis tools (`extractMappedTypeNode`, `extractFunctionReturns`, etc.)
-
-## `@no-comply/meta`
-
-Userland package for defining SolidJS-aware entity models and extractors based on project conventions.
-
-### Entities
-
-- `Component`
-- `Context`
-- `Controller`
-- `Mixin`
-- `Module`
-- `Provider`
-- `Service`
-
-#### Helpers
-
-- `findComponentFile`
-- `findFactoryFile`
-- `findProviderFile`
-- `findTypesFile`
-- `findHelperFiles`
-- `findHookFiles`
+Published under a [MIT license](https://noodlestan.mit-license.org/).

@@ -1,17 +1,19 @@
-# [No Comply]
-
-> Context-aware UI system built with [SolidJS](https://www.solidjs.com/) and modern CSS.
-
-- [[No Comply] Docs](https://no-comply.noodlestan.org/)
-- [Standard UI Demo](https://standard-ui.noodlestan.org/)
-
-## Noodlestan 🐘 Collective
+# Noodlestan 🐘 Collective
 
 We are an open collective of people dedicated to the design and software crafts: UX, design, code, web, 3d, audio, the works. Learn more about us and our projects at [Noodlestan.org](https://noodlestan.org/).
 
 **👐 Your contribution is welcome! 👐**
 
 If would like to share your ideas, report a bug, ask for improvements - or simply say hi! 👋 - don't hesitate to join us on [Noodlestan's Discord](https://discord.gg/b8DkbJSF9z) or to drop us a line at `hello@noodlestan.org`.
+
+## Projects in this monorepo
+
+This monorepo holds the codebase for several related projects:
+
+- [@no-comply](./no-comply/README.md) – a context-aware UI system built with SolidJS and modern CSS.
+- [@purrception](./purrception/README.md) – extract docs and structured metadata from codebases.
+- [@purrtrait](./purrtrait/README.md) – render codebase related docs and metadata.
+- [@purrpose](./purrpose/README.md) – Single-purpose utilities (e.g. in-browser compilation).
 
 ## Getting started
 
@@ -20,55 +22,6 @@ First make sure you are using the correct node version by running `nvm use`.
 Install dependencies with `npm install` and buid all libraries with `npm run ci`.
 
 In the Standard UI Sandbox application `apps/standard-ui-demo/` run `npm run dev` to launch a development server.
-
-## In this repository
-
-### Namespaces
-
-### @no-comply - SolidJS UI System.
-
-Libraries
-
-- `@no-comply/solid-primitives` - Types and prop helpers.
-- `@no-comply/solid-accessibility` - Types, and role controllers.
-- `@no-comply/solid-contexts` - Contexts, services and providers for building apps.
-- `@no-comply/solid-composables` - Controllers, mixins and unstyled components.
-- `@no-comply/standard-ui` - Themeable component library.
-
-Support:
-
-- `@no-comply/standard-ui-demo` - Demo application and documentation.
-- `build-tools` - Esbuild-based build system (tools/build).
-- `@no-comply/meta` - Purrception types, services, helpers.
-- `@no-comply/meta-extract` - (CLI) orchestrate extraction.
-
-### @purrception - Extract docs and structured metadata from codebases
-
-- `@purrception/primitives` - Core types.
-- `@purrception/lang-ts` - Lightweight TS AST definitions.
-- `@purrception/lang-ts-extract` - (CLI) extract TS AST from source.
-- `@purrception/source-fs` - (CLI) file-system traversal.
-
-### @purrtrait - Render codebase related docs and metadata
-
-- `@purtrait/code-layout` - Code layout models.
-- `@purtrait/lang-ts` - @purrception/lang-ts support.
-- `@purtrait/client-tsx` - In-browser TS/TSX parsing.
-- `@purtrait/solid-code` - SolidJS code renderers.
-- `@purtrait/view-tsx` - Editable TSX code models.
-
-### @purrpose - Single-purpose utilities (e.g. in-browser compilation)
-
-- `@purrpose/client-babel` - In-browser JSX/TSX compiler.
-- `@purrpose/client-babel-preset-solidjs` - SolidJS preset for above.
-
-Packages are grouped by namespace (`no-comply/`, `purrception/`, `purrtrait/`, `purrpose/`) with a `cli/` vs `libs/` split within each namespace — `cli/` packages target Node.js, `libs/` packages are agnostic or client-side.
-
-### Docs Extraction System
-
-The `@no-comply` libraries have a `npm run extract` that exercises the `@purrception` pipeline to extract structured metadata and docs contents from source code into `dist/`.
-
-The demo app (`apps/standard-ui-demo`) consumes this extracted metadata and uses `@purrception` libraries to render documentation and interactive component playgrounds for `@no-comply` packages.
 
 ## Development
 
@@ -93,6 +46,12 @@ All these commands can be run from the root of the repository (via Turbo tool, r
 
 Pre-commit hooks (via lefthook) run `lint` then `ci` sequentially.
 
+### Docs Extraction System
+
+The `@no-comply` libraries have a `npm run extract` command that exercises the `@purrception` pipeline to extract structured metadata and docs contents from source code into `dist/`.
+
+The demo app (`apps/standard-ui-demo`) consumes this extracted metadata and uses `@purrception` libraries to render documentation and interactive component playgrounds for `@no-comply` packages.
+
 ### Stack
 
 The `@no-comply` UI libraries depend only on [Solid JS](https://docs.solidjs.com/) and a few [Solid Primitives](https://primitives.solidjs.community/).
@@ -109,12 +68,6 @@ CLI libraries (in `no-comply/cli/`, `purrception/cli/`) depend on [Node.js](http
 
 Make sure the `pre-commit` hook was executed. It runs automatically before every commit and lints all code. Under the hood it runs `npm run lint` and `npm run ci`. Run these to inspect error details.
 
-## MIT License
-
-Copyright (c) 2024-2025 [Noodlestan](https://noodlestan.org/).
-
-Published under a [MIT license](https://noodlestan.mit-license.org/).
-
 ---
 
 ### Acknowledgements
@@ -123,3 +76,11 @@ This project contains code based on the following open-source projects:
 
 - [SolidJS](https://github.com/solidjs/solid) - Copyright (c) 2016-2025 Ryan Carniato - Licensed under the MIT License.
 - [solid-i18next](https://github.com/noodlestan/solid-i18next) - Copyright (c) 2021-2023 Martynas Barzda - Licensed under the MIT License.
+
+---
+
+## MIT License
+
+Copyright (c) 2025 [Noodlestan](https://noodlestan.org/).
+
+Published under a [MIT license](https://noodlestan.mit-license.org/).

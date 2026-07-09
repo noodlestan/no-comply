@@ -1,6 +1,8 @@
-# Purrtrait / Client Typescript
+# @purrtrait/client-tsx
 
 > In-browser TypeScript/TSX parsing and AST utilities.
+
+This package is part of the [@purrtrait](../../README.md) toolkit.
 
 This package provides low-level utilities for parsing, inspecting,
 and serializing TypeScript and TSX code in the browser.
@@ -150,7 +152,7 @@ type TSXNode = TSXElementNode | TSXHandlerNode | TSXExpressionNode;
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/README.md) first.
+Make sure you read the [@purrtrait README](../../README.md) first.
 
 ### Build Targets
 

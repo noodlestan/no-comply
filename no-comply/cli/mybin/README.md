@@ -1,10 +1,10 @@
-# No Comply / My Bin
+# @no-comply/mybin
 
-> A CLI for managing development workspaces [no comply]
+> A CLI for managing development workspaces.
 
 ## Development
 
-Make sure you [README](https://github.com/noodlestan/no-comply/blob/main/README.md) first.
+Make sure you read the [@no-comply README](../../README.md) first.
 
 ## Usage
 

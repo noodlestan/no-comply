@@ -1,12 +1,14 @@
-# @no-comply/standard-ui
+# @purrception/lang-ts-extract
 
-> Themeable component library built with [@no-comply](https://no-comply.noodlestan.org/), [SolidJS](https://www.solidjs.com/) and modern CSS.
+> Purrception extractor for the Typescript Language.
 
-This package is part of the [@no-comply](../../README.md) project.
+Generates lightweight and portable AST trees for declarations and JsDoc annotation.
+
+This package is part of the [@purrception](../../README.md) toolkit.
 
 ## Development
 
-Make sure you read the [@no-comply README](../../README.md) first.
+Make sure you read the [@purrception README](../../README.md) first.
 
 ### Build Targets
 
@@ -20,6 +22,6 @@ This library is packaged for use in bundlers such as Vite and Astro. The main en
 
 ## MIT License
 
-Copyright (c) 2025 [Noodlestan](https://noodlestan.org/).
+Copyright (c) 2026 [Noodlestan](https://noodlestan.org/).
 
 Published under a [MIT license](https://noodlestan.mit-license.org/).
