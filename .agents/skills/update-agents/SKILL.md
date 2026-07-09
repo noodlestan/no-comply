@@ -11,7 +11,7 @@ Use this skill to update the `.agents/skills/agents.md` so that it lists all ava
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `assistant`
 
@@ -30,7 +30,7 @@ The instructions for each step are provided below
 2. Filter out skills that DO NOT start with `agent-` as they are just regular skills.
 3. Generate a table with the following columns:
 
-- `<agent-mode>` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
+- `$AGENT_MODE` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
 - `<agent-name>` - the skill file's h1 heading `# Agent Mode: <agent-name>`.
 - `<agent-mission>` - the `description` field of the skill file's frontmatter.
 
@@ -47,13 +47,13 @@ Agent modes are pre-loaded into an agent session, and although they are technica
 
 Instructions on how to update this index can be found at the bottom of this file.
 
-## User Commands
+## Commands
 
 When the user says "list agents" present this list.
 
 ## <agent-name>
 
-ID: `<agent-mode>`
+ID: `$AGENT_MODE`
 
 Mission: <agent-mission>
 
@@ -91,22 +91,22 @@ top_p: 0.1
 
 This agent mode is defined by the following skills, in order:
 
-1. [agent-<agent-mode>](../../.agents/skills/agent-<agent-mode>/SKILL.md)
+1. [agent-$AGENT_MODE](../../.agents/skills/agent-$AGENT_MODE/SKILL.md)
 
-When the user says "mandatory reading" read the skill files listed above.
+When the user says Mandatory Reading read the skill files listed above.
 ```
 
 ### Template for Codex agent files
 
 ```
-name = "<agent-mode>"
+name = "$AGENT_MODE"
 description = "<agent-mission>"
 model_reasoning_effort = "medium"
 developer_instructions = """
 This agent mode is defined by the following skills, in order:
 
-1. [agent-<agent-mode>](../../.agents/skills/agent-<agent-mode>/SKILL.md)
+1. [agent-$AGENT_MODE](../../.agents/skills/agent-$AGENT_MODE/SKILL.md)
 
-When the user says "mandatory reading" read the skill files listed above.
+When the user says Mandatory Reading read the skill files listed above.
 """
 ```

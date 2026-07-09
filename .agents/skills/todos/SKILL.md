@@ -5,19 +5,23 @@ description: Use to keep track of todos (micro tasks), questions, and blockers w
 
 # Skill: Todo
 
-This skill manages 3 SEPARATE lists::
+The purpose of this skill is to keep track of short-lived session work items by maintaining separate lists of micro tasks, open questions, and blockers, and to help the agent present, update, prioritise, and rehash those lists with low overhead communication.
 
-- TODOS: micro lists
-- PENDING: questions,
+## Managed lists
+
+This skill manages 3 SEPARATE lists:
+
+- TODOS: micro tasks
+- PENDING: questions
 - BLOCKERS: with cause
 
 ## Definitions
 
-The **TODO** list holds micro tasks, stated as shortly as possible.
+The **TODO** list keeps track of micro tasks, stated as shortly as possible.
 
-The **PENDING** list holds doubts, ambiguity, uncertainity, or contradictions, always stated as a question.
+The **PENDING** list keeps track of doubts, ambiguity, uncertainity, or contradictions, always stated as a question.
 
-The **BLOCKERS** list holds impediments and their known (or unknown) cause.
+The **BLOCKERS** list keeps track of impediments and their known (or unknown) cause.
 
 An **Assistant List** is one of the TODO, PENDING, or BLOCKERS lists.
 
@@ -69,59 +73,69 @@ Use the `rehash` skill presentation rules plus the following rules:
   - "Blocked by: .... (and 1 more blocker)"
 - RULE: If the list hasn't been prioritised, or looks stale, suggest to update it.
 
-## User Commands
+## Commands
 
-### When the user says "todos", "pending", or "blockers"
+### Command: Show Assistant List
 
-Present ONLY the requested Assistant List by using the "Rules for presenting Assistant lists".
+When the user says `todos`, `pending`, or `blockers`, present ONLY the requested Assistant List by using the "Rules for presenting Assistant lists".
 
-### When the user says "all lists"
+### Command: all lists
 
-Present the 3 by using the "Rules for presenting Assistant lists".
+When the user says `all lists` present the 3 by using the "Rules for presenting Assistant lists".
 
-### When the user says "rehash"
+### Command: rehash
 
-Use the `rehash` skill plus the reashing RULES in this file, to present a summary of all lists.
-
-If any other command in this file say "Rehash!", you know what to do.
-
-### When the user says "rehash"
-
-Use the `rehash` skill plus the reashing RULES in this file, to present a summary of all lists.
+When the user says `rehash` use the `rehash` skill plus the reashing RULES in this file, to present a summary of all lists.
 
 If any other command in this file say "Rehash!", you know what to do.
 
-### When the user says "flush todos"
+### Command: rehash
 
-1. Remove completed items from the **TODO** list.
-2. Rehash!
+When the user says `rehash` use the `rehash` skill plus the reashing RULES in this file, to present a summary of all lists.
 
-### When the user says "todo: `<micro task>`" or "pending: `<question>`" or "pending: `<question>`"
+If any other command in this file say "Rehash!", you know what to do.
+
+### Command: flush todos
+
+When the user says `flush todos` execute the following steps:
+
+1. remove completed items from the **TODO** list.
+2. use the `rehash` skill to respond.
+
+### Command: add to list
+
+When the user says `todo: <micro task>` or `pending: <question>` or `blocker: <blocker>` execute the following steps:
 
 1. identify which **Assistant List** the wants to update
 2. apply the the `## Rules for writing items to Assistant Lists` to the user input.
 3. add to the corresponding **Assistant List**.
 4. respond only with the new item as added to the list
-5. Rehash!
+5. use the `rehash` skill to respond.
 
-### When the user says "add to todos"
+###
+
+When the user says `add to todos` execute the following steps:
 
 1. identify which **Assistant List** the wants to update
 2. infer from the most recent exchanges what `micro task`, `question` ot `blocker` the user is referring to.
 3. check the list for potential duplicates, and if you find similar items, don't merge the new one, report back to the user.
 4. generate a short description according to the `## Rules for writing items to Assistant Lists`
 5. add to the **TOOO** list and respond only with the new todo item.
-6. Rehash!
+6. use the `rehash` skill to respond.
 
-### When the user says "do todos" or "do it"
+### Command: Do It
+
+When the user says `do todos` or `do it` execute the following steps:
 
 1. Check if the recent exchanges include operations with the **Assistant Lists**.
 2. If there is recent activity, take the first item and do it.
 3. If unclear whether the user is reffering to the **TODO** list, STOP and ask the user what to do.
 4. Otherwise, do the first item and report back.
-5. Rehash!
+5. use the `rehash` skill to respond.
 
-### When the user says "reset"
+### Command: Reset
+
+When the user says `reset` execute the following steps:
 
 1. Present all lists in full.
 2. Ask for confirmation and highlight risks, suggest ways to confirm that the items are no longer valuable.

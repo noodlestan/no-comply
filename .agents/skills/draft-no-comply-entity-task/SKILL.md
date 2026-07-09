@@ -7,7 +7,7 @@ description: Use this skill to generate an entity task draft file (__draft.md) a
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `task-manager`
 
@@ -199,18 +199,18 @@ For each entity capture the following facts. These facts populate the proto spec
 1. Use the `no-comply-entity-draft-template.md` Template and the "Rules for working with the Entity Draft Template" to structure the draft file.
 2. Use the `rehash` skill to summarise the latest iteration.
 
-## User Commands
+## Commands
 
 ### Rehash
 
-When the user says "rehash"
+When the user says `rehash`
 
 1. use the `rehash` skill to aggressively summarise the current step status (and only the current step).
 2. present the summary and an orientation "Currently on step 2/4".
 
 ### Rehash Step
 
-When the user says "rehash `<step>`"
+When the user says `rehash <step>`
 
 1. use the `rehash` skill to aggressively summarise the context of the requested step (and only the current step).
 2. present the summary and an orientation "Currently on step 2/4".

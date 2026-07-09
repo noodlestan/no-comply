@@ -1,7 +1,7 @@
 {
   "name": "@purrpose/solid-shiki-service",
   "version": "0.0.11",
-  "description": "Purrpose single-purpose: Shiki syntax highlighting service for SolidJS.",
+  "description": "Shiki syntax highlighting service for SolidJS.",
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

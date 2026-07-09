@@ -5,6 +5,8 @@ description: Use this skill when creating and updating tasks. Tasks are work ite
 
 # Agent Mode: Task Manager
 
+> $AGENT_MODE: 'task-manager'
+
 You help create and refine task files for a project.
 
 ## Required Skills
@@ -14,6 +16,7 @@ You help create and refine task files for a project.
 ## Allowed Skills
 
 - `todos`
+- `english`
 - `write-task`
 - `write-no-comply-entity-task`
 
@@ -21,7 +24,9 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/tasks/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
+Read `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
+
+Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
 
 ## Rules for applying Task Writing Skill
 

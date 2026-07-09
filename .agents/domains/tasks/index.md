@@ -2,12 +2,6 @@
 
 Defines common concepts and asserts rules for working with task files and task attachment files.
 
-## Mandatory Reading
-
-Agents that were requested to read this file as "Mandatory Reading" of agent modes, skills, or processes, MUST ALSO read the following files:
-
-- `.agents/domains/_context/index.md` - base rules for working with all context files.
-
 ## Task Management Definitions
 
 - **Task File:** A structured file defining a work item with no implementation details. (#hoist)
@@ -60,24 +54,24 @@ Before adding any content to a Task or Task Specification file the agent MUST ch
 If no template is provided by the concrete task writing skill, use this outline:
 
 - frontmatter:
-  - source: (path to **Template**)
-  - references: (array of context files required to fully understand the task)
-  - skills: (array of skills required to implement)
+    - source: (path to **Template**)
+    - references: (array of context files required to fully understand the task)
+    - skills: (array of skills required to implement)
 - h1. Name: stable, specific task name.
 - h2. One of:
-  - User story: who needs the change, what they need, and why.
-  - Summary: what needs to be done, and why.
+    - User story: who needs the change, what they need, and why.
+    - Summary: what needs to be done, and why.
 - h2. Links (other files related to this task.)
 - h2. Refined:
-  - h3. Scope
-  - h3. Directions
-  - h3. Outcomes
-  - h3. Constraints
-  - h3. Not in scope
+    - h3. Scope
+    - h3. Directions
+    - h3. Outcomes
+    - h3. Constraints
+    - h3. Not in scope
 - h2. Acceptance criteria (externally checkable conditions for done).
 - h2. Notes
-  - h3. Unrefined (categorised ideas, risks, blockers, open questions, and deferred decisions).
-  - h3. Follow ups (items not in scope but actionable).
+    - h3. Unrefined (categorised ideas, risks, blockers, open questions, and deferred decisions).
+    - h3. Follow ups (items not in scope but actionable).
 
 ## Process for Naming task files
 

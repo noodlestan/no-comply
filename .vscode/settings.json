@@ -83,5 +83,13 @@
     "typescriptreact"
   ],
   "svg.preview.background": "transparent",
-  "editor.inlineSuggest.experimental.emptyResponseInformation": false
+  "editor.inlineSuggest.experimental.emptyResponseInformation": false,
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#1063a2",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#0c498a",
+    "titleBar.inactiveForeground": "#cccccc",
+    "sideBar.background": "#000001",
+    "sideBar.foreground": "#ced2df"
+  }
 }

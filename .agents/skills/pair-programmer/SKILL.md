@@ -7,7 +7,7 @@ description: Common pair programming rules; prefer specialized skills `agent-pai
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `agent-pair-navigator`
 - `agent-pair-driver`
@@ -21,6 +21,10 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 ## Allowed Skills
 
 - `todos`
+
+## Mandatory Reading
+
+Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
 
 ## Purpose
 
@@ -40,16 +44,16 @@ Both when driving and navigating the agent is always the note taking assistant.
 
 Both when driving and navigating the user is always the lead developer.
 
-## User Commands
+## Commands
 
 The user will typically be requesting these specific actions:
 
-- If the user says **next** present the one smallest next step that can be manually verified.
-- If the user says **review**, inspect the changed files first and report.
+- If the user says `next` present the one smallest next step that can be manually verified.
+- If the user says `review`, inspect the changed files first and report.
 - When discussing review findings DO NOT make any further edits until review is settled.
-- When the user says **build**, run `npm run lint:fix` in the scope package only.
-- If the user says **clean** or **tidy up** focus on conventions and suggest changes.
-- When the user says **format**, run `npm run lint:fix` in the scope package only.
+- When the user says `build`, run `npm run lint:fix` in the scope package only.
+- If the user says `clean` or `tidy up` focus on conventions and suggest changes.
+- When the user says `format`, run `npm run lint:fix` in the scope package only.
 
 Requests for offloading context:
 

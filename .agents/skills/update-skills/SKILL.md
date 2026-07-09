@@ -9,7 +9,7 @@ Use this skill to update the skills index file at `.agents/skills/index.md` so t
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `assistant`
 
@@ -38,17 +38,17 @@ Instructions on how to update it can be found at the bottom of this file.
 
 ## Rules for allowing and forbidding skills
 
-- RULE: You need to know in which agent `<agent-mode>` you are currently operating. If you don't have an explicit `<agent-mode>` in context then ALL SKILLS ARE FORBIDDEN.
-- CRITICAL RULE: When you encounter a rule that states you are only allowed to proceed if you are in mode `<agent-mode>`, you must ask yourself again "What is my `<agent-mode>`?" and only proceed if your agent mode matches the rule.
+- RULE: You need to know in which agent `$AGENT_MODE` you are currently operating. If you don't have an explicit `$AGENT_MODE` in context then ALL SKILLS ARE FORBIDDEN.
+- CRITICAL RULE: When you encounter a rule that states you are only allowed to proceed if you are in mode `$AGENT_MODE`, you must ask yourself again "What is my `$AGENT_MODE`?" and only proceed if your agent mode matches the rule.
 
 ## Explicitly Forbidden Agent Modes
 
-If your context `<agent-mode>` is set to one of the following modes you are FORBIDDEN to use ANY skills
+If your context `$AGENT_MODE` is set to one of the following modes you are FORBIDDEN to use ANY skills
 
 - `Plan` (OpenCode built-in)
 - `Build` (OpenCode built-in)
 
-## User Commands
+## Commands
 
 When the user says "list skills" present this list grouped by "Allowed" and "Forbidden" depending on which are currently allowed or forbidden by the context instructions.
 

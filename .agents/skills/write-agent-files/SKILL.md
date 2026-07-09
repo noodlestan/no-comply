@@ -11,16 +11,15 @@ This is a generic task writing skill, prefer specialized skills.
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `context-curator`
-- `knowledge-curator`
 
 CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
 
 ## Mandatory Reading
 
-Read `.agents/domains/_context/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
+Read `.agents/domains/_context/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
 ## Rules for exploration
 

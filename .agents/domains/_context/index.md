@@ -14,13 +14,7 @@ Defines common concepts and asserts rules for working with all context files.
 Besides these there are 2 special types of files which work as templates for
 
 - **Context Summary:** An extreme summarisation of a specific scope within the current session context. As defined by `rehash` skill and other skils that extend it. (#hoist)
-- **Template:** A file used by a skill to generate other files. Example: `.agents/skills/write-component-task/component-task-template.md` (#hoist)
-
-## Rules For Working with Templates
-
-- RULE: always follow the **Template:** for the file type being edited.
-- CRITICAL RULE: if you can not identify the **Template:** unambigiously, STOP ask the user.
-- RULE: do not attempt to localte **Template File** on your own.
+- **Template:** A file used by a skill to generate other files. Example: `.agents/skills/write-component-task/component-task-template.md`. (#hoist)
 
 ## Rules For Writing Context Files
 
@@ -34,7 +28,7 @@ Applies to skills, agent definitions, processes, templates and other agent-facin
 
 ## Rules for Working With Context Files Templates
 
-- RULE: Obey any active template exactly when a template is prescribed by the concrete task writing skill, or otherwise provided by the user.
+- RULE: Obey any active template exactly when a template is prescribed by the skill or otherwise provided by the user.
 - RULE: Use headings, short paragraphs, and terse bullet points.
 - RULE: Do not include tables or diagrams.
 - RULE: Use tables only if prescribed by the template.

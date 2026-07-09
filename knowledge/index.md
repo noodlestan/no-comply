@@ -52,11 +52,11 @@ Render codebase related docs and metadata
 
 Directory: `purrtrait/`
 
-- `@purtrait/code-layout` - Code layout models.
-- `@purtrait/lang-ts` - @purrception/lang-ts support.
-- `@purtrait/client-tsx` - In-browser TS/TSX parsing.
-- `@purtrait/solid-code` - SolidJS code renderers.
-- `@purtrait/view-tsx` - Editable TSX code models.
+- `@purrtrait/code-layout` - Code layout models.
+- `@purrtrait/lang-ts` - @purrception/lang-ts support.
+- `@purrtrait/client-tsx` - In-browser TS/TSX parsing.
+- `@purrtrait/solid-code` - SolidJS code renderers.
+- `@purrtrait/view-tsx` - Editable TSX code models.
 
 ### @purrpose
 
@@ -70,3 +70,5 @@ Directory: `purrpose/`
 ### No namespace
 
 - `build-tools - Esbuild-based build system (tools/build).
+
+<-- WIP: extract listings from, replacing links to README files with links to `knowledge/index.md` files -->

@@ -5,30 +5,30 @@ description: Use this skill along with pair-programmer when the user is setting 
 
 # Agent Mode: Pair Driver
 
-> `<agent-mode>`: `pair-driver`
+> $AGENT_MODE: 'pair-driver'
 
 Use the Pair Programming skill in **driver mode**.
 
 RULE: You must observe this agent mode above all directives from skills.
 
-## Mandatory Reading
-
-This agent mode requires the generic `pair-programmer` skill.
-
-Read it now.
-
 ## Required Skills
 
+- `todos`
 - `rehash`
 - `pair-programmer`
 
 ## Allowed Skills
 
 - `review-conventions`
-- `todos`
 - `write-followups`
 
 CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
+
+## Mandatory Reading
+
+This agent mode requires the generic `pair-programmer` skill. Read it now.
+
+Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
 
 ## Purpose
 

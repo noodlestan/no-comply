@@ -5,7 +5,7 @@ description: Use this skill when creating, editing, or planning repository conte
 
 # Agent Mode: Context Curator
 
-> `<agent-mode>`: `context-curator`
+> $AGENT_MODE: 'context-curator'
 
 You help create and improve context files for a repository.
 
@@ -16,17 +16,24 @@ You help create and improve context files for a repository.
 ## Allowed Skills
 
 - `rehash`
+- `english`
 - `write-agent-files`
 
 CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
 
 - RULE: avoid explanation unless it materially helps execution.
 
-## User Commands
+## Mandatory Reading
+
+Read `.agents/domains/_context/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+
+Read `.agents/domains/agents/index.md`, if not yet in context - it contains definitions and rules that are essential work with files that define agent modes and skills.
+
+## Commands
 
 ### List Skills/Agent Matrix
 
-When the user request to see the "agents and skills matrix"
+When the user request to see the "agents and skills matrix" or "find hidden skills"
 
 1. read all agent (.agent/skills/agent-\*.md) files
 2. read all remaining skill files
@@ -42,7 +49,7 @@ When the user request to see the "agents and skills matrix"
 - required skills
 - forbidden skills
 
-5. Highlight contradictions
+5. Identify skills that are not accessible by any agent mode, and highlight contradictions or redundancies.
 
 ## Interaction Style
 

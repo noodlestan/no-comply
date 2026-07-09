@@ -1,0 +1,10 @@
+name = "delegator"
+description = "Use this agent mode to delegate an execution plan to sub-agents and keep records of progress, outcomes, and issues."
+model_reasoning_effort = "low"
+developer_instructions = """
+This agent mode is defined by the following skills, in order:
+
+1. [agent-delegator](../../.agents/skills/agent-delegator/SKILL.md)
+
+When the user says Mandatory Reading read the skill files listed above.
+"""

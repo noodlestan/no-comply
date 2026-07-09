@@ -4,7 +4,7 @@ Change the `h1` title to maytch
 
 ## Metadata
 
-template: `.agents/skills/write-no-comply-composable-task/no-comply-composable-task-template.md`
+Template: `.agents/skills/write-no-comply-composable-task/no-comply-composable-task-template.md`
 
 ### Skills required:
 
@@ -12,7 +12,7 @@ template: `.agents/skills/write-no-comply-composable-task/no-comply-composable-t
 
 ## Summary
 
-One setence, heavy on why, optimize for humans.
+One sentence, heavy on why, optimize for humans.
 
 ## Changes
 
@@ -28,9 +28,26 @@ Summary of changes created by the task skill using the `rehash` skill along with
 
 ### Scope
 
-List entiies to be added and modified and how they relate to each other and other parts of the system.
+- RULE: Follow the "## Rules for creating Summaries" in the writing skill: `.agents/skills/write-no-comply-entity-task/SKILL.md`
+- RULE: in the other `**Other Changes**` sub-section, include only changes to non-entities.
 
-Optimize for humans.
+**Full Example for a Scope Section:**
+
+```
+**Entities**
+
+- Add `component:standard-ui:badge` - [spec](relative/spec-filename)
+- Add `mixin:standard-ui:badge` - refining
+- Modify `mixin:standard-ui:content-color` refining (change color options)
+- Add `mixin:composable:badge` - speculative
+- REFACTOR `<scope>` so that ...
+
+**Other Changes**
+
+- Refactor method `getFoo()` of `SomethingAPI` to use an index a optimise responsiveness
+- (BREAKING) Change method `getBar()` of `SomethingAPI` to return `boolean` (easy fix downstream)
+- Add `<scope>` so that ...
+```
 
 ### BREAKING CHANGES
 

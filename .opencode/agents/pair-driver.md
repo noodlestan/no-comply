@@ -13,4 +13,4 @@ This agent mode is defined by the following skills, in order:
 
 1. [agent-pair-driver](../../.agents/skills/agent-pair-driver/SKILL.md)
 
-When the user says "mandatory reading" read the skill files listed above.
+When the user says Mandatory Reading read the skill files listed above.

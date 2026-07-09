@@ -7,11 +7,15 @@ description: Use when the user wants to capture convention proposals that surfac
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `agent-knowledge-curator`
 
 CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
+
+## Mandatory Reading
+
+Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
 
 ## Purpose
 

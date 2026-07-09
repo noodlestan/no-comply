@@ -7,7 +7,7 @@ description: Task-writing skill specialised in generating tasks and specs for de
 
 ## Allowed Agent Modes
 
-CRITICAL RULE: If your context `<agent-mode>` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
+CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
 - `task-manager`
 
@@ -26,7 +26,7 @@ Read it and follow every rule in `write-task` unless explicitly overriden here.
 
 ## Mandatory Reading
 
-Read `.agents/domains/tasks/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
+Read `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
 Read also:
 
@@ -34,6 +34,7 @@ Read also:
   - `.agents/skills/write-no-comply-entity-task/no-comply-entity-task-template.md`
   - `.agents/skills/write-no-comply-entity-task/no-comply-entity-spec-template.md`
 - Knowledge files:
+  - `no-comply/knowledge/index.md`
   - `no-comply/knowledge/glossary.md`
   - `no-comply/knowledge/packages.md`
 
@@ -283,9 +284,9 @@ Apply the "Rules for Creating Entity Specifications from Template".
 1. Use the `no-comply-entity-task-template.md` Template and follow the "Rules for Creating Entity Tasks from Template".
 2. Use the `rehash` skill to summarise the latest iteration.
 
-## User Commands
+## Commands
 
-### Rehash
+### Command: Rehash
 
 When the user says "rehash"
 

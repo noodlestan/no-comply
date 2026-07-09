@@ -5,13 +5,15 @@ description: Use to summarise the current context to tl;dr level and critical in
 
 # Skill: Rehash
 
+The purpose of this skill is to summarise a specific subset of the current session context into a terse, information-dense status update focused on actionable items, outstanding questions, and critical constraints.
+
 ## Allowed Agent Modes
 
 ALL
 
 ## Rehashing Definitions
 
-The **Context Summary:** is an extreme summarisation of a specific scope within the **current session context**. The shape of the summary and the rules to synthesise and present it are defined by this skill and other skils that extend it.
+A **Context Summary:** is an extreme summarisation of a specific scope within the **current session context**. The shape of the summary and the rules to synthesise and present it are defined by this skill and other skils that extend it.
 
 A **Rehashing Skill** is a skill that extends this skill with rules to synthesise and present summaries of specific types of session context. 2. If a **Rehashing skills** is present, merge the "Rules for synthesising `<context scope>`" and "Rules for presenting `<context scope>` summaries" with all the RULES stated here.
 

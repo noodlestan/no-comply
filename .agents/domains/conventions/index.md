@@ -4,13 +4,13 @@ Defines common concepts and asserts rules for working with conventions files. A 
 
 ## Mandatory Reading
 
-Agents that were requested to read this file as "Mandatory Reading" of agent modes, skills, or processes, MUST ALSO read the following files:
+Agents that were requested to read this file as Mandatory Reading of agent modes, skills, or processes, MUST ALSO read the following files:
 
 - `.agents/domains/knowledge/index.md` - base rules for working with all knowledge files.
 
 ## Definitions
 
-- **Conventions File**: rule heavy directives applied when planning, writing code, documentation, and other artefacs, and submitting work for review (#hoist).
+- **Conventions File**: rule heavy directives applied when planning, writing code, documentation, and other artefacs, and submitting work for review. (#hoist).
 - **Conventions Draft**: a proposal to add or modify existing conventions that surfaced from friction experienced during a task, review, or correction session,
 
 ## Rules for writing Conventions Drafts

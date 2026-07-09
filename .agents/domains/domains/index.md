@@ -4,7 +4,7 @@ Defines common concepts and asserts rules for working with domain context files 
 
 ## Mandatory Reading
 
-Agents that were requested to read this file as "Mandatory Reading" of agent modes, skills, or processes, MUST ALSO read the following files:
+Agents that were requested to read this file through a `::MANDATORY-READING` directive MUST ALSO read the following files:
 
 - `.agents/domains/_context/index.md` - base rules for working with all context files.
 
@@ -14,5 +14,4 @@ Agents that were requested to read this file as "Mandatory Reading" of agent mod
 
 ## Rules for reading Domain Files
 
-- IMPORTANT RULE: Agents MUST NOT read domain reference files unless listed under "Mandatory Reading" sections or requested to do so by the user or the instructions in a skill or task. (#hoist).
-- RULE: Agents MUST ALWAYS read the domain reference files prescribed under "Mandatory Reading" sections. (#hoist).
+- IMPORTANT RULE: Agents MUST NOT read domain reference files unless listed under `## Mandatory Reading` sections or requested to do so by the user or a `::MANDATORY-READING` directive. (#hoist).

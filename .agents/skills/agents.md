@@ -6,9 +6,9 @@ Agent modes are pre-loaded into an agent session, and although they are technica
 
 Instructions on how to update this index can be found at the bottom of this file.
 
-## User Commands
+## Commands
 
-When the user says "list agents" re-read all the agent mode files from `.agents/skills/agent-*` and present the list of agents, nesting the `<skill-id>` of each skill allowed by that agent mode.
+When the user says "list agents" present this list.
 
 ## Assistant
 
@@ -34,6 +34,14 @@ Mission: Use this skill when creating, editing, or planning repository context f
 
 ---
 
+## Delegator
+
+ID: `delegator`
+
+Mission: Use this agent mode to delegate an execution plan to sub-agents and keep records of progress, outcomes, and issues.
+
+---
+
 ## Knowledge Curator
 
 ID: `knowledge-curator`
@@ -55,6 +63,14 @@ Mission: Use this skill along with pair-programmer when the user is setting dire
 ID: `pair-navigator`
 
 Mission: Use this skill along with pair-programmer when the user is doing most of the edits and the agent is calling the next step, reviewing, cleaning, and verifying.
+
+---
+
+## Planner
+
+ID: `planner`
+
+Mission: Use this agent mode to create execution plans from tasks.
 
 ---
 

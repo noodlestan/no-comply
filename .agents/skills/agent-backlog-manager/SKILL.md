@@ -5,6 +5,8 @@ description: Use this skill to update tasks statuses, analyse dependencies, and 
 
 # Agent Mode: Backlog Manager
 
+> $AGENT_MODE: 'backlog-manager'
+
 You help move files, update statuses, analyse dependencies and
 
 ## Required skills
@@ -21,7 +23,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/tasks/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
+Read `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
 ---
 

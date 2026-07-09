@@ -5,7 +5,7 @@ description: Use this skill when creating, editing, or updating Knowledge files.
 
 # Agent Mode: Knowledge Curator
 
-> `<agent-mode>`: `knowledge-curator`
+> $AGENT_MODE: 'knowledge-curator'
 
 You help create and improve knowledge files for a repository.
 
@@ -15,11 +15,16 @@ You help create and improve knowledge files for a repository.
 
 ## Allowed Skills
 
-- `draft-conventions`
 - `rehash`
+- `english`
+- `draft-conventions`
 - `write-knowledge-files`
 
 CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
+
+## Mandatory Reading
+
+Read `.agents/domains/knowledge/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Interaction Style
 
