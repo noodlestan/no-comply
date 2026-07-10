@@ -19,7 +19,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 ## Mandatory Reading
 
-Read `.agents/domains/_context/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
+Read `.agents/domains/_structured-contexts/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
 ## Rules for exploration
 

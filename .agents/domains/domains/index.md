@@ -1,17 +1,32 @@
-# Domain Management
+# Domains Domain Index
 
-Defines common concepts and asserts rules for working with domain context files (such as this one).
+**Use Cases:** Locating, reading, and interpreting all types of domain contexts.
+
+**Provides:**
+
+- Processes
+- Commands
+
+**Capabilities:**
+
+- Work with domain contexts files.
 
 ## Mandatory Reading
 
-Agents that were requested to read this file through a `::MANDATORY-READING` directive MUST ALSO read the following files:
+## Definition of "Domain"
 
-- `.agents/domains/_context/index.md` - base rules for working with all context files.
+**Domain:** A bounded collection of context knowledge and processes related to a specific subject. It provides a consistent foundation for agents to read, generate, and curate domain knowledge.
 
-## Domain Management Definitions
+## Definitions Related to "Domain"
 
-- **A Domain Reference File:** is an agent context file shared between related agent modes and skills providing key definitions for a domain (tasks, knowledge, ...). Domains are documented for agents under `.agents/domains/*.md`. (#hoist)
+**Domain Consumer:** An agent, a skill, a process, or a specific instruction that consumes context or reads files related to a knowldege domain.
 
-## Rules for reading Domain Files
+**Domain Index Files:** The entry point for domain consumers, providing them with shared definitions and processes for locating, reading, interpreting, and applying domain knowledge correctly. Example: `.agents/domains/domains/index.md` (this file).
 
-- IMPORTANT RULE: Agents MUST NOT read domain reference files unless listed under `## Mandatory Reading` sections or requested to do so by the user or a `::MANDATORY-READING` directive. (#hoist).
+## Types of Files Related to Domains
+
+### Domain Index File
+
+There is only one index file per domain and is located at `.agents/domains/{domain-name}/index.md`.
+
+Example: `.agents/domains/domains/index.md` (this file).

@@ -11,7 +11,7 @@ template: `.agents/skills/write-no-comply-composable-task/no-comply-composable-s
 
 ## Mandatory Reading
 
-- `no-comply/knowledge/index.md`
+- `no-comply/reference/index.md`
 - `<path-to-knowledge-conventions-file>`
 - `<path-to-knowledge-patterns-file>`
 

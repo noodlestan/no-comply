@@ -15,14 +15,14 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 ## Required skills
 
-This skill is a specialization of the `write-task` skill.
+This skill is a specialization of the **write-task** skill.
 
 Read it and follow every rule in `write-task` unless explicitly overriden here.
 
 ## Allowed Skills
 
 - `rehash`
-- `todos`
+- `parking-lot`
 
 ## Mandatory Reading
 
@@ -33,10 +33,10 @@ Read also:
 - Template files:
   - `.agents/skills/write-no-comply-entity-task/no-comply-entity-task-template.md`
   - `.agents/skills/write-no-comply-entity-task/no-comply-entity-spec-template.md`
-- Knowledge files:
-  - `no-comply/knowledge/index.md`
-  - `no-comply/knowledge/glossary.md`
-  - `no-comply/knowledge/packages.md`
+- reference files:
+  - `no-comply/reference/index.md`
+  - `no-comply/reference/glossary.md`
+  - `no-comply/reference/packages.md`
 
 ## Definitions
 
@@ -60,7 +60,7 @@ The main Attributes of the scope items, useful for summarising the status of the
 - breaking: in case of modifications
 - impact: in case of modifications
 
-- RULE: use the `todos` skill to keep track of the three Assistant Lists: TODOS, PENDING and BLOCKERS!
+- RULE: use the **parking-lot** skill to keep track of the three Assistant Lists: TODOS, PENDING and BLOCKERS!
 
 ## Workflow
 
@@ -139,16 +139,6 @@ Follow all the rules ion `.agents/domains/tasks/index.md` Section "## Content El
 - RULE: Use `## Unrefined` for open questions and deferred decisions.
 - RULE: Use `## Follow ups` for items not in scope but actionable.
 - RULE: Do not include tables or diagrams unless requested.
-
-### Rules for Creating Entity Task Files from Template
-
-- RULE: Fill out every section that applies to the entity.
-- RULE: If a section does not apply, remove it.
-- RULE: Only two code snippets allowed:
-  - `## Example Usage` (mandatory for all entities)
-  - `## Renders` (mandatory for components)
-- RULE: Any other code snippets are forbidden.
-- RULE: Identify the specification variant (new / modify / remove / refactor) and ask the user if unsure.
 
 ### Rules for Writing Content for Entity Specifications
 
@@ -257,15 +247,15 @@ It is also very likely that some of these composables should be stripped of `sta
 ### 6. Summarise Scope
 
 1. Focus back on the scope.
-2. Apply the `rehash` skill rules plus the "Rules for synthesising the entity task scope" to generate a summary.
-3. Apply the `rehash` skill rules plus the "Rules for presenting the entity task scope summary" to present it.
+2. Apply the **rehash** skill rules plus the "Rules for synthesising the entity task scope" to generate a summary.
+3. Apply the **rehash** skill rules plus the "Rules for presenting the entity task scope summary" to present it.
 4. Ask for user review.
 
 - RULE: Expect iteration and going back to previous steps.
 - RULE: Do no insist on approval, focus on assisting with refining.
 - RULE: When the user observerves and request a change (such as moving a prop or a composition from one enity to another), update all revelant specs, APIs, composition summaries, and responsibility sections.
 
-### 7. Generate the component specification files:
+### 7. Generate the Component Specification Files:
 
 For each entity identified, chose the appropriate specification template
 
@@ -279,10 +269,10 @@ For each entity identified, chose the appropriate specification template
 
 Apply the "Rules for Creating Entity Specifications from Template".
 
-### 8. Generate the component task draft
+### 8. Generate the Component Task File
 
-1. Use the `no-comply-entity-task-template.md` Template and follow the "Rules for Creating Entity Tasks from Template".
-2. Use the `rehash` skill to summarise the latest iteration.
+1. Use the **render-template** skill with the `no-comply-entity-task-template.md` to render the Task File.
+2. Use the **rehash** skill to summarise the task.
 
 ## Commands
 
@@ -290,14 +280,14 @@ Apply the "Rules for Creating Entity Specifications from Template".
 
 When the user says "rehash"
 
-1. use the `rehash` skill to aggressively summarise the current step status (and only the current step).
+1. use the **rehash** skill to aggressively summarise the current step status (and only the current step).
 2. present the summary and an orientation "Currently on step 2/7 | 2 specifications closed".
 
 ### Rehash Step
 
 When the user says "rehash `<step>`"
 
-1. use the `rehash` skill to aggressively summarise the context of the requested step (and only the current step).
+1. use the **rehash** skill to aggressively summarise the context of the requested step (and only the current step).
 2. present the summary and an orientation "Currently on step 2/7 | 2 specifications closed".
 
 ### Rehash Scope

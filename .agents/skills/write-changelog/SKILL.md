@@ -19,7 +19,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 ## Mandatory Reading
 
-Read `.agents/domains/changelog/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
+Read `.agents/domains/changelogs/index.md`, if not yet in context, as it contains definitions and rules that are essential to interpret the instructions on this file.
 
 ## Changelog Outline
 

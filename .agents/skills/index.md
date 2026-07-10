@@ -90,7 +90,7 @@ Description: Use when the user wants to review convention proposals captured dur
 
 ## Todo
 
-ID: `todos`
+ID: `parking-lot`
 
 Description: Use to keep track of todos (micro tasks), questions, and blockers within the current session.
 
@@ -178,4 +178,4 @@ Description: Generic task writing rules; prefer specialized task-writing skills.
 
 # How to update this file and agent platform Links
 
-- Use `update-skills` skill to update this index file.
+- Use **update-skills** skill to update this index file.

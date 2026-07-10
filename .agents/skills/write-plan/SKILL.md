@@ -18,14 +18,14 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 ## Allowed Skills
 
 - `rehash`
-- `todos`
+- `parking-lot`
 - `english`
 
 ## Mandatory Reading
 
-Read `.agents/domains/plans/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+Read `.agents/domains/plans/producer.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+Read `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 Read also **Plan Template** — `.agents/domains/plans/plan_template.md`
 
@@ -40,7 +40,7 @@ This is a workflow with 6 steps
 5. Write plan file
 6. Prompt generation
 
-You may be given a `<plan-id>.md` file along with the user request. In that case you MUST:
+You may be given a `{plan.id}.md` file along with the user request. In that case you MUST:
 
 - RULE: read the existing plan file and prepare to analyse and/or improve it as per user request.
 - RULE: Treat the existing plan file as authoritative source of truth for status of execution.
@@ -49,13 +49,13 @@ You may be given a `<plan-id>.md` file along with the user request. In that case
 
 Load the plan file. If it does not exist:
 
-- Create it in the required location using the **Plan Template**.
-- Confirm location with the user if unsure.
+1. Use the **render-template** skill with the **Plan Template** to render a draft of the plan file with high-level information only.
+2. Confirm location with the user if unsure.
 
 ### Step 2: Validate plan (if one was loaded)
 
 - RULE: Ensure all referenced `<task.id>.md` files already exist.
-- RULE: Ensure all referenced `<plan-id>__instruct__*.md` files already exist.
+- RULE: Ensure all referenced `{plan.id}__instruct__*.md` files already exist.
 - CRITICAL RULE if files recorded in the plan do not exist anymore, stop and ALERT THE USER.
 
 ### Step 3: Add Tasks
@@ -64,7 +64,7 @@ Work with the user to inspect candidate `<task.id>.md` in order to create a viab
 
 The user will suggest task files, your goal is to analyse them and check the quality of the task and the specification attachments.
 
-- RULE: if a task contains broken links to specification attachments or knowledge files STOP, ALERT THE USER, REJECT THE TASK
+- RULE: if a task contains broken links to specification attachments or reference files STOP, ALERT THE USER, REJECT THE TASK
 
 ### Step 4: Grouping
 
@@ -83,7 +83,7 @@ Read all tasks and specification attachments, and without reading any else (no g
 
 ### Step 5: Write plan file
 
-1. Create the plan file using the Plan Template and save it to `<plan-id>.md`
+1. Create the plan file using the Plan Template and save it to `{plan.id}.md`
 2. Include all the tasks bundled in the plan
 3. Include all the commits with their message, and compact summary of changes.
 
@@ -97,26 +97,28 @@ Starting with the first commit:
 
 1. Generate a prompt, best-effort, by converting all definitions in the related spec files to instructions.
 2. Analyse the work, and generate instructions for implementing the task.
-3. Spin an agent with the prompt and CRITICAL INSTRUCTION to not execute and just interprete and summarise contradictions, ambiguity, omissions or obvious errors. The agents CAN read the files targeted by the instructions, but are FORBIDDEN from globbing and grepping to find solutions. The goal is to acquire feedback from the agent about the quality of the instructions.
+3. Use the **render-template** skill with the `.agents/domains/plans/instruct_template.md` to render the prompt file.
+
+4. Spin an agent with the prompt and CRITICAL INSTRUCTION to not execute and just interprete and summarise contradictions, ambiguity, omissions or obvious errors. The agents CAN read the files targeted by the instructions, but are FORBIDDEN from globbing and grepping to find solutions. The goal is to acquire feedback from the agent about the quality of the instructions.
 
 HEADS UP: The tasks and specs DO NOT prescribe implementation details so a lot questions will only surface now
 
-4. Present the agent feedback to the user, you will think with the user for a while to collect patterns and conventions from knowledge sources and decide on implementation details to update the plan and try again.
-5. Ask questions, use the `todos` skill to manage a micro list of todos, questions, and eventual blockers for this particular step
-6. Iterate
+5. Present the agent feedback to the user, you will think with the user for a while to collect patterns and conventions from knowledge sources and decide on implementation details to update the plan and try again.
+6. Ask questions, use the **parking-lot** skill to manage a micro list of todos, questions, and eventual blockers for this particular step
+7. Iterate
 
 Note: Prepare to offload the prompt at any time, even if the planning is not yet completed, and move on to the next commit.
 
-7. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `<plan-id>__instruct__<commit-kebab-name>.md`
+8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `{plan.id}__instruct__<commit-kebab-name>.md`
 
-8. Verify the generated prompt file follows all the `DIRECTIVE: ` in the template and make sure it includes all mandatory sections, such as `## How to Report Back to the Delegator`.
+9. Verify the generated prompt file follows all the `TEMPLATE DIRECTIVE:` included in the template.
 
-9. update the `<plan-id>.md` file with the status of the commit.
+10. update the `{plan.id}.md` file with the status of the commit.
 
-10. move on to the next commit.
+11. move on to the next commit.
 
 ## Commands
 
-When the user says "add to follow ups", add a note under "## Follow Ups" in the `<plan-id>.md` file.
+When the user says "add to follow ups", add a note under "## Follow Ups" in the `{plan.id}.md` file.
 
 When the user responds with "not in scope" it means the previous response from the agent contained a suggestion or concern that is not relevant for the current plan. Try to forget it and not repeat the same question or concern again.

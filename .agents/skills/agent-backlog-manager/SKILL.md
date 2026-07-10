@@ -15,7 +15,7 @@ You help move files, update statuses, analyse dependencies and
 
 ## Allowed Skills
 
-- `todos`
+- `parking-lot`
 - `write-task`
 - `write-changelog`
 
@@ -23,7 +23,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
+READ `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
 ---
 
@@ -31,13 +31,13 @@ Read `.agents/domains/tasks/index.md`, if not yet in context – it contains def
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "medium"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

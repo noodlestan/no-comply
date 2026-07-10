@@ -9,13 +9,15 @@ description: Use when the user wants to capture convention proposals that surfac
 
 CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following **Agent Modes** you are NOT ALLOWED to use this skill:
 
-- `agent-knowledge-curator`
+- `agent-reference-curator`
 
 CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
 
 ## Mandatory Reading
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+Read `reference/index.md` at the root of the repository, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
+
+Read `.agents/domains/references/producer.md`, if not yet in context – it describes rules, processes, to generate and curate reference files.
 
 ## Purpose
 
@@ -29,7 +31,7 @@ The artifact should read like a practical internal note for maintainers reviewin
 
 Save the proposal next to the current task file unless the user asked for a different location.
 
-Example: `<task-id>__conventions.md`
+Example: `{task.id}/task__conventions.md`
 
 ## Steps
 
@@ -40,7 +42,7 @@ Example: `<task-id>__conventions.md`
 - RULE: work primarily from the task context, user corrections, and code review feedback.
 - RULE: use the codebase only to verify that a proposed convention is real, repeated, or at least consistent with surrounding code.
 
-### 1. identify the scope buckets
+### 1. identify the scope categories
 
 The output groups items by scope such as:
 
@@ -50,11 +52,11 @@ The output groups items by scope such as:
 - Entity types: `Components`, `Services`, `Context`, `Routing`
 - Support tasks: `Tooling`, `Testing`, `Documentation`
 
-Buckets are created in knowledge directories, under `knowledge/conventions/<bucket>.md`.
+Categories are created in `reference/conventions` directories, under `reference/conventions/{bucket}.md`.
 
-RULE: Before continuing, agents MUST ask the user whate are the relevant knowledged files.
+RULE: Before continuing, agents MUST ask the user what are the relevant knowledged files.
 
-- identify the target **section** within the `<bucket>`.
+- identify the target **section** within the `{category}`.
 - identify existing rules within the **section** that might overlap.
 - identify an existing rule within the target **section** that should be modified.
 - identify existing redundant or conflicting rules in adjacent sections.
@@ -65,9 +67,9 @@ Organize the proposals by **scope** and **convention section**.
 
 Each item should target a conventions location in the form
 
-- `<bucket> / Section / SubSection`.
+- `{Category} / Section / SubSection`.
 
-Examples
+Examples:
 
 - `Typescript / Code Conventions / Strict Code`
 - `Global / File Conventions`
@@ -140,7 +142,7 @@ Update **Restricted imports** rule to allow importing from root modules.
 
 Make it explicit that `../../modules/sub-module` is allowed if (and only if) `module` has no barrel export and a `README.md` that explains why.
 
-**Why?** - Lack of clarity caused task `<task-id>` to derail because of ambiguity.
+**Why?** - Lack of clarity caused the task `{task.id}` to derail because of ambiguity.
 ```
 
 ### Long example

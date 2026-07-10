@@ -21,7 +21,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 Read `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+Read `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ## Default Steps
 

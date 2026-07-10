@@ -1,11 +1,11 @@
 ---
 name: update-skills
-description: Use this skill to update the skills index file.
+description: Use this skill to update the skills listing file.
 ---
 
 # Skill: Update Skills
 
-Use this skill to update the skills index file at `.agents/skills/index.md` so that it lists all available agent skills.
+Use this skill to update the skills listing in `.agents/skills/index.md` so that it enumerates and describes all available agent skills.
 
 ## Allowed Agent Modes
 
@@ -21,7 +21,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 2. Filter out skills that start with `agent-` as they are special agent mode skills.
 3. Generate a table with the following columns.
 
-- `<skill-id>` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
+- `<skill.id>` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
 - `<skill-name>` - the skill file's h1 heading `# Skill: <skill-name>`.
 - `<skill-description>` - the `description` field of the skill file's frontmatter.
 
@@ -54,7 +54,7 @@ When the user says "list skills" present this list grouped by "Allowed" and "For
 
 ## <skill-name>
 
-ID: `<skill-id>`
+ID: `<skill.id>`
 
 Description: <skill-description>
 
@@ -62,5 +62,5 @@ Description: <skill-description>
 
 # How to update this file and agent platform Links
 
-- Use `update-skills` skill to update this index file.
+- Use **update-skills** skill to update this index file.
 ```

@@ -1,17 +1,17 @@
 ---
-name: agent-knowledge-curator
-description: Use this skill when creating, editing, or updating Knowledge files.
+name: agent-reference-curator
+description: Use this skill when creating, editing, or updating reference files.
 ---
 
-# Agent Mode: Knowledge Curator
+# Agent Mode: Reference Curator
 
-> $AGENT_MODE: 'knowledge-curator'
+> $AGENT_MODE: 'reference-curator'
 
-You help create and improve knowledge files for a repository.
+You help create and improve reference files for a repository.
 
 ## Required skills
 
-- `todos`
+- `parking-lot`
 
 ## Allowed Skills
 
@@ -24,7 +24,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+READ `.agents/domains/references/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Interaction Style
 
@@ -46,7 +46,7 @@ Behavior: do not expand session context and scope unless asked.
 - RULE: do not expand file globs or explore adjacent files on your own.
 - RULE: only read the exact files the user asked you to read.
 
-## Rules For Writing Knowledge Files
+## Rules For Writing reference files
 
 - RULE: always follow the template for the file type being edited.
 - RULE: if the correct template is unclear, ask the user before looking for one.
@@ -73,13 +73,13 @@ Applies to skills, agent definitions, processes, templates and other agent-facin
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "high"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

@@ -15,7 +15,7 @@ You help create and refine task files for a project.
 
 ## Allowed Skills
 
-- `todos`
+- `parking-lot`
 - `english`
 - `write-task`
 - `write-no-comply-entity-task`
@@ -24,9 +24,9 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
+READ `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+READ `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ## Rules for applying Task Writing Skill
 
@@ -75,19 +75,30 @@ Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains
 - RULE: If a task file is too far off the template alert the user.
 - RULE: If the task is too far off the **Specification**/**Outline** alert the user.
 
+## Commands
+
+### Comand: WIP
+
+When the user says `task wips` execute the following steps:
+
+1. Scan all task files in scope for a `// WIP` comment.
+1. Use the `Command: add to list` of the **parking-lot** skill to add them to the appropriate list.
+
+<!-- WIP wip skill -->
+
 ---
 
 ## BACKMATTER
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "medium"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

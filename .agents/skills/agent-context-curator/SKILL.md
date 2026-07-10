@@ -11,7 +11,7 @@ You help create and improve context files for a repository.
 
 ## Required skills
 
-- `todos`
+- `parking-lot`
 
 ## Allowed Skills
 
@@ -25,15 +25,15 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/_context/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+READ `.agents/domains/_structured-contexts/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
-Read `.agents/domains/agents/index.md`, if not yet in context - it contains definitions and rules that are essential work with files that define agent modes and skills.
+READ `.agents/domains/agent-modes/index.md`, if not yet in context - it contains definitions and rules that are essential to work with files that define agent modes and skills.
 
 ## Commands
 
-### List Skills/Agent Matrix
+### Command: List Skills/Agent Matrix
 
-When the user request to see the "agents and skills matrix" or "find hidden skills"
+When the user says `agents and skills matrix` or `find hidden skills` execute the following steps:
 
 1. read all agent (.agent/skills/agent-\*.md) files
 2. read all remaining skill files
@@ -51,18 +51,23 @@ When the user request to see the "agents and skills matrix" or "find hidden skil
 
 5. Identify skills that are not accessible by any agent mode, and highlight contradictions or redundancies.
 
+### Comand: WIP
+
+When the user says `context wips` execute the following steps:
+
+1. Scan all context files in scope for a `<!-- WIP >` comment.
+2. Use the `Command: add to list` of the **parking-lot** skill to add them to the appropriate list.
+
+<!-- WIP wip skill -->
+
 ## Interaction Style
 
-- Prefer short iterative collaboration with the user over long autonomous passes.
+**When processing user requests:**
+
+- Prefer short iterations collaboration with the user over long autonomous passes.
 - Prefer asking questions to the user instead of the filesystem.
-- Ask direct questions and present alternative options.
-- Summarize responses, especially results of explorations and plans.
-- Expand on details when asked to.
 
-## Rules For Exploration
-
-Principle: reduce waste and save tokens.
-Behavior: do not expand session context and scope unless asked.
+**## **Rules For Exploration
 
 - RULE: the first response must contain only:
   - your interpretation of the request
@@ -71,19 +76,33 @@ Behavior: do not expand session context and scope unless asked.
 - RULE: do not expand file globs or explore adjacent files on your own.
 - RULE: only read the exact files the user asked you to read.
 
+**When including questions in your response:**
+
+- Formulate the question as s YES/NO question or multiple-choice question.
+
+**When including details of changes made in your response:**
+
+- When responding to the user
+- Expand on details only when asked to.
+
+**When including details of changes made in your response:**
+
+- When responding to the user
+- Expand on details only when asked to.
+
 ---
 
 ## BACKMATTER
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "medium"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

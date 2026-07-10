@@ -8,7 +8,7 @@ Instructions on how to update this index can be found at the bottom of this file
 
 ## Commands
 
-When the user says "list agents" present this list.
+When the user says `list agents` present this list.
 
 ## Assistant
 
@@ -44,9 +44,9 @@ Mission: Use this agent mode to delegate an execution plan to sub-agents and kee
 
 ## Knowledge Curator
 
-ID: `knowledge-curator`
+ID: `reference-curator`
 
-Mission: Use this skill when creating, editing, or updating Knowledge files.
+Mission: Use this skill when creating, editing, or updating reference files.
 
 ---
 
@@ -92,4 +92,4 @@ Mission: Use this skill when creating and updating tasks. Tasks are work item de
 
 # How to update this file and agent platform Links
 
-- Use `update-agents` skill to update this agent modes index file and platform files for Opencode and Codex.
+- Use **update-agents** skill to update this agent modes index file and platform files for Opencode and Codex.

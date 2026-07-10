@@ -16,7 +16,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 ## Mandatory Reading
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+Read `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ## Before you start
 
@@ -31,13 +31,13 @@ Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains
 
 ## Where to save the follow ups
 
-Generate `<task-id>___follow-ups.md` as a sibling to the current `<task-id>.md` file.
+Save it to `{task.id}/task__follow-ups.md` file.
 
 Ask for confirmation if unsure.
 
 ## Follow Ups Outline
 
-- h1. Follow ups for `<task-id>`
+- h1. Follow ups for `{task.id}`
 - h2. Changes Summary
 - h2. Follow up Tasks
 
@@ -102,7 +102,7 @@ Suggest potential follow up tasks in bullet point format to the user.
 
 If the user accepts them and/or provides instructions for more tasks, add them all under this title.
 
-These are NOT full task outlines. Ignore `task-writer` skill instructions if these have been read before. Those instructions apply only to task in their own files.
+These are NOT full task outlines. Ignore **task-writer** skill instructions if these have been read before. Those instructions apply only to task in their own files.
 
 - RULE: Don't generate full task outlines, just a task seed.
 - RULE: DO NOT perform extra explorations, work from context only.

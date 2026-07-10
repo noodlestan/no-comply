@@ -15,14 +15,14 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 ## Required skills
 
-This skill is a specialization of the `write-task` skill.
+This skill is a specialization of the **write-task** skill.
 
 Read it and follow every rule in `write-task` unless explicitly overriden here.
 
 ## Allowed Skills
 
 - `rehash`
-- `todos`
+- `parking-lot`
 
 ## Mandatory Reading
 
@@ -32,15 +32,15 @@ Read also:
 
 - Template file:
   - `.agents/skills/draft-no-comply-entity-task/no-comply-entity-draft-template.md`
-- Knowledge files:
-  - `no-comply/knowledge/glossary.md`
-  - `no-comply/knowledge/packages.md`
+- reference files:
+  - `no-comply/reference/glossary.md`
+  - `no-comply/reference/packages.md`
 
 ## Definitions
 
 **Entity task scope** - can include specicificationss for new entities or for modifying entities (components, mixins, controllers, ...) as well as for non-entities (shared types, helpers, global constants...).
 
-**Entity draft** - one `<task-id>__draft.md` file containing a proto specification for each entity in scope. Less detailed than a full task+specs output, sufficient for early review and backlog placement.
+**Entity draft** - one `{task.id}/task__draft.md` file containing a proto specification for each entity in scope. Less detailed than a full task+specs output, sufficient for early review and backlog placement.
 
 **Main attributes of entities scope:**
 
@@ -58,9 +58,9 @@ Read also:
 - breaking: in case of modifications
 - impact: in case of modifications
 
-- RULE: use the `todos` skill to keep track of the three Assistant Lists: TODOS, PENDING and BLOCKERS!
+- RULE: use the **parking-lot** skill to keep track of the three Assistant Lists: TODOS, PENDING and BLOCKERS!
 
-## Workflow
+## Drafting Workflow
 
 This is a 4 step iterative process. Expect to return from step 3 back to any previous step.
 
@@ -69,13 +69,25 @@ This is a 4 step iterative process. Expect to return from step 3 back to any pre
 3. Summarise scope
 4. Generate the entity draft
 
-Expect to create one artefact per task: the `<task-id>__draft.md` file covering all entities in scope. No specification attachments are produced.
+Expect to create one artefact per task: the `{task.id}/task__draft.md` file covering all entities in scope. No specification attachments are produced.
 
 Details of each step after the Rules section.
 
 ## Rules
 
-### Rules for synthesising the entity task scope
+### Rules for working with the Entity Draft Template
+
+- RULE: Fill out every section that applies.
+- RULE: If a section does not apply to an entity, remove it.
+- RULE: Do not use tables.
+- RULE: Do not use diagrams.
+- RULE: Only one code snippet is allowed per entity: `## Example Usage`.
+- RULE: Any other code snippets are forbidden.
+- RULE: Keep each entity proto spec to at most 10 bullet points plus the example.
+
+## Processes
+
+### Process for Synthesising the Entity Task Scope
 
 1. Build a list of the entities in scope with columns:
 
@@ -90,13 +102,14 @@ Main attributes of non-entities scope:
 - description: `prop of ...`
 - status: is it confirmed scope? being refined? a draft exists? closed scope?
 
-### Rules for presenting the entity task scope summary
+### Process for Presenting the Entity Task Scope Summary
 
 1. Include a link to the draft file if it exists.
 2. For modifications include a micro summary. Example "(change color options)".
 
 Full Example:
 
+```
 **Entities**
 
 - Add `component:standard-ui:badge` - [draft](relative/draft-filename)
@@ -110,17 +123,8 @@ Include only changes to non-entities
 
 - Refactor method `getFoo()` of `SomethingAPI` to use an index
 - (BREAKING) Change method `getBar()` of `SomethingAPI` to return `boolean`
-- Add `<scope>` so that ...
-
-### Rules for working with the Entity Draft Template
-
-- RULE: Fill out every section that applies.
-- RULE: If a section does not apply to an entity, remove it.
-- RULE: Do not use tables.
-- RULE: Do not use diagrams.
-- RULE: Only one code snippet is allowed per entity: `## Example Usage`.
-- RULE: Any other code snippets are forbidden.
-- RULE: Keep each entity proto spec to at most 10 bullet points plus the example.
+- Add `{entitiy.id | method | ...}` so that ...
+```
 
 ## Steps
 
@@ -187,8 +191,8 @@ For each entity capture the following facts. These facts populate the proto spec
 ### 3. Summarise Scope
 
 1. Focus back on the scope.
-2. Apply the `rehash` skill rules plus the "Rules for synthesising the entity task scope" to generate a summary.
-3. Apply the `rehash` skill rules plus the "Rules for presenting the entity task scope summary" to present it.
+2. Use the **rehash** skill extend with the **Process for Synthesising the Entity Task Scope** to generate a summary.
+3. Use the **rehash** skill extend with the **Process for Presenting the Entity Task Scope Summary** to present it.
 4. Ask for user review.
 
 - RULE: Expect iteration and going back to previous steps.
@@ -197,24 +201,40 @@ For each entity capture the following facts. These facts populate the proto spec
 ### 4. Generate the entity draft
 
 1. Use the `no-comply-entity-draft-template.md` Template and the "Rules for working with the Entity Draft Template" to structure the draft file.
-2. Use the `rehash` skill to summarise the latest iteration.
+2. Use the **rehash** skill to summarise the latest iteration.
 
 ## Commands
 
-### Rehash
+### Command: Rehash
+
+**Triggers:**
 
 When the user says `rehash`
 
-1. use the `rehash` skill to aggressively summarise the current step status (and only the current step).
+**Process:**
+
+1. use the **rehash** skill to summarise the current step status (and only the current step).
 2. present the summary and an orientation "Currently on step 2/4".
 
-### Rehash Step
+### Command: Rehash {step}
 
-When the user says `rehash <step>`
+**Triggers:**
 
-1. use the `rehash` skill to aggressively summarise the context of the requested step (and only the current step).
-2. present the summary and an orientation "Currently on step 2/4".
+- When the user says `rehash {step}`.
 
-### Rehash Scope
+**Process:**
 
-When the user says "rehash scope" execute Step "### 3. Summarise Scope" but stay on current step.
+1. Identify the current step of the **Drafting Worklow**.
+2. Use the **rehash** skill to summarise the current step
+3. present the summary and an orientation "Currently on step 2/4".
+
+### Command: Rehash Scope
+
+**Triggers:**
+
+- When the user says `rehash scope`.
+
+**Process:**
+
+1. Execute Step **3. Summarise Scope** of **Drafting Worklow**.
+2. Stay on current step.

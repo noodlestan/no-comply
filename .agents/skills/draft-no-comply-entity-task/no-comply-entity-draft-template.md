@@ -1,4 +1,6 @@
-# <Task Name>
+# {task.ame}
+
+DIRECTIVE: replace the H1 by `# {task.name}`
 
 ## Metadata
 
@@ -6,7 +8,7 @@ template: `.agents/skills/draft-no-comply-entity-task/no-comply-entity-draft-tem
 
 ### Skills required:
 
-- `skill-id` — and why.
+- `skill.id` — and why.
 
 ## Summary
 
@@ -14,11 +16,11 @@ One sentence, heavy on why, optimise for humans.
 
 ## Changes
 
-Summary of entities in scope synthesised by the `rehash` skill along with the "Rules for Synthesising" and "Rules for Presenting".
+Summary of entities in scope synthesised by the **rehash** skill along with the "Rules for Synthesising" and "Rules for Presenting".
 
 ## Entities
 
-### Add `<entity-id>`
+### Add `{entity.id}`
 
 **Why:** This new entity will allow ...
 
@@ -48,7 +50,7 @@ Structure pseudo code:
 
 ---
 
-### Modify `<entity-id>`
+### Modify `{entity.id}`
 
 **Why:** Adding/modifying ... will allow ...
 
@@ -69,7 +71,7 @@ Structure pseudo code:
 
 ---
 
-### Remove `<entity-id>`
+### Remove `{entity.id}`
 
 **Why:** Replaced by ...
 

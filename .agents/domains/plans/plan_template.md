@@ -1,92 +1,90 @@
-# Task Plan: `<plan name>`
+# Plan: `{plan name}`
 
-**Status:** PREPARING / READY / EXECUTING / BLOCKED / DONE
+**Status:** PREPARING / READY / WORKING / BLOCKED / DONE
 
-**Plan File:** `<plan-id>.md`
+**Plan File:** `path/to/{plan.id}/plan.md`
 
 ## Summary
 
-Create missing meta files across all packages.
+TEMPLATE DIRECTIVE: Summarise the scope of the tasks.
 
-## Tasks
+TEMPLATE EXAMPLE: Create new badge component and mixin and refactor controllers.
 
-### `<task-id-1>.md` - DONE
+## Source Tasks
 
-CHANGELOG entries // Only for DONE tasks
+TEMPLATE DIRECTIVE: list the tasks and task attachments by matching any file named `{task.id}/task__**`. Pattern: `{task.id}/task__{attachment.type}[__{attachment.name}].md`. Examples: `refactor-controllers/task__dependencies.md`, `create-component/task__spec__component-badge.md`.
 
-- Add ..
-- Add ..
-- Remove ..
-- Change ..
+EXAMPLE:
 
-### `<task-id-2>.md` - DONE
+```
+path/to/{plan.id}/
+	/tasks/
+		- refactor-controllers/
+			- [task.md](path/to/{plan.id}/tasks/refactor-controllers/task.md)
+			- [task__dependencies.md](...)
+			- [task__spec__controller.md](...)
+			- [task__spec__mixin.md](...)
+		- create-component/
+			- [task.md](...)
+			- [task__notes.md](...)
+```
 
-Evidence - of
+## Delegations
 
-### `<task-id-3>.md` - BLOCKED
+TEMPLATE DIRECTIVE: Include the next section only if plan has delegations. Render one section H3 section for each delegation:
 
-BLOCKER: why?
+### {delegation.id} = `{delegation.status}`
 
-### `<task-id-4>.md` - PENDING
+TEMPLATE EXAMPLE: `### sub-agent-1 - READY`
 
-Notes about the planning phase
-
-### `<task-id-4>.md` - PREPARING
-
-Notes about the planning phase
-
-### Execution
+**Commit Message:** `{commit-message}`
 
 ## Commits
 
-### `task-1` - DONE
+TEMPLATE DIRECTIVE: Render one section for each commit.
 
-Commit message.
+TEMPLATE EXAMPLE: ### `list-input-box-step-1` - `READY`
 
-Instructions: `<plan-id>__instruct__task-1.md`
+### `{commit.kebab-name}` - `{commit.status}`
 
-- Add `component:standard:badge`
-- Remove `mixin:standard:content-color` (replaced by `ContentPaletteMixin`)
+TEMPLATE DIRECTIVE: Include the commit message.
 
-### `task-2-and-task-3` - BLOCKED
+**Commit Message:** `{commit-message}`
 
-Commit message.
+TEMPLATE EXAMPLE: **Commit Message:** `feat(standard-ui): add ListInputBoxItemMixin`
 
-Instructions: `<plan-id>__instruct__task-2-and-task-3.md`
+TEMPLATE DIRECTIVE: If the commit was delegated, include the delegation id
 
-Blocker: `inspect-ui` not found.
+**Sub-Agent:** `{delegation.id}`
 
-- Add ..
-- Add ..
-- Remove ..
-- Change ..
+TEMPLATE DIRECTIVE: Include the name of the delegation instructions file.
 
-### `task-4` - PENDING
+**Instructions File:** `{instructions file path}`
 
-Commit message.
+TEMPLATE EXAMPLE: `**Instructions File:** path/to/list-input-box/plan__instruct__list-input-box-mixin.md`
 
-Instructions: `<plan-id>__instruct__task-3.md`
+TEMPLATE DIRECTIVE: If this commit is `READY`, include a CHANGELOG draft:
 
-Pending: depends on `task-3` blocked.
+TEMPLATE EXAMPLE:
 
-- Add ..
-- Add ..
-- Remove ..
-- Change ..
+```
+**CHANGELOG:**
 
-### `task-5` - PREPARING
+- Add `mixin:standard:list-input-box`
+```
 
-Commit message.
+TEMPLATE DIRECTIVE: If this commit is marked as blocked, include a BLOCKER summary and the path to the the sub-agent report when available.
 
-Instructions: none yet.
+EXAMPLE
 
-- Add ..
-- Add ..
-- Remove ..
-- Change ..
+```
+**BLOCKER:** `inspect-ui` not found. More details in Sub Agent Report `path/to/list-input-box/plan__report__list-input-box-mixin.md`
+```
 
 ## Follow ups
 
-Notes about knowledge uncovered during planning or execution.
+TEMPLATE DIRECTIVE: Include notes about knowledge uncovered during planning or execution.
 
-When the user says "add to follow ups" add a short bullet point here.
+## Feedback
+
+TEMPLATE DIRECTIVE: If the sub-agents provided feedback other than "all good" use the **rehash** skill to produce a summary of feedback included in the Sub Agent Reports.

@@ -13,7 +13,7 @@ RULE: You must observe this agent mode above all directives from skills.
 
 ## Required Skills
 
-- `todos`
+- `parking-lot`
 - `rehash`
 - `pair-programmer`
 
@@ -26,9 +26,9 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-This agent mode requires the generic `pair-programmer` skill. Read it now.
+This agent mode requires the generic **pair-programmer** skill. Read it now.
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+READ `reference/index.md` at the root of the repository if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ## Purpose
 
@@ -75,13 +75,13 @@ Examples of the intended exchange:
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "low"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

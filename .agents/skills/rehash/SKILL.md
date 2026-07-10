@@ -1,6 +1,6 @@
 ---
 name: rehash
-description: Use to summarise the current context to tl;dr level and critical info only.
+description: Use to summarise subsets of the session context to micro summary level, prioritising the most important information.
 ---
 
 # Skill: Rehash
@@ -13,40 +13,58 @@ ALL
 
 ## Rehashing Definitions
 
-A **Context Summary:** is an extreme summarisation of a specific scope within the **current session context**. The shape of the summary and the rules to synthesise and present it are defined by this skill and other skils that extend it.
+A **Context Summary:** is an extreme summarisation of a specific scope within the **current session context** or a file. The shape of the summary and the rules to synthesise and present it are defined by this skill and other skills that extend it.
 
-A **Rehashing Skill** is a skill that extends this skill with rules to synthesise and present summaries of specific types of session context. 2. If a **Rehashing skills** is present, merge the "Rules for synthesising `<context scope>`" and "Rules for presenting `<context scope>` summaries" with all the RULES stated here.
+A **Rehashing Skill** is a skill that extends this skill with processes for synthesising and presenting summaries of specific types of context.
 
-## Rules for synthesising session context
+## Processes
 
-Use the rules below, merged with rules of an active **Rehashing Skill**, allowing it to expand and override.
+### Process for Synthesising Session Context
+
+1. If a `focus`
+1. Scan the input scope
 
 Goal: generate a terse, information dense, actionable response to the user.
 
-- CRITICAL RULE: this skill can only be applied to a subset of the session context.
-- RULE: summaries of session context should be focused on status and actionable items.
 - RULE: summaries of session context should be focused on status and actionable items.
 - RULE: summaries should include the most important outstanding questions.
 
-## Rules for presenting context summaries
+### Process for Presenting Context Summaries
 
-- RULE: if it can be expressed in no more than two short sentences and/or questions, use this format.
-- RULE: if it can be better expressed in bullet points, present no more than 10.
-- RULE: if the items dispense categorising present them as a flat list.
-- RULE: if the items are of different nature, group in more that 3 categories.
-- RULE: always use `backticks` for symbols or an occasional `short/relative/file-path`.
-- RULE: DO NOT include tables or diagrams in summary responses.
-- RULE: reveal details only when requested by the user.
+1. If it can be expressed in no more than two short sentences and/or questions, use this format.
+2. If it can be better expressed in bullet points, present no more than 7.
+3. If the items dispense categorising present them as a flat list.
+4. If the items are of different nature, group in NO MORE THAN 3 categories.
+5. always use `backticks` for symbols or an occasional `short/relative/file-path`.
+6. DO NOT include tables or diagrams in summaries.
+7. reveal details only when requested by the user.
+8. Append `#REHASH#` to the end of the summary.
 
 ## Comamnds
 
-### When the user says "rehash", "status" or "summary"
+### Command: `Rehash (input scope, [summary goal])`
 
-1. Infer from the recent exchanges if the user is referring to a specific **Rehashing skills**.
-2. If a **Rehashing skills** is present, merge the "## Rules for synthesising `<context scope>`" and "## Rules for presenting `<context scope>` summaries" with all the RULES stated here.
+**Triggers:**
+
+- When the user says `use **rehash** with {input scope} to {summary goal}`.
+- When the user says `use **rehash** to {present | summarise} {input scope}`.
+- When the user says `rehash {input scope}`.
+- When the user says `rehash`, `status` or `summary`.
+
+**Process:**
+
+Execute the following steps one by one:
+
+1. Identify the `input scope` to summarise.
+2. Identify the `summary goal`, i.e., the focus point of this summary or how the summary will be used.
+3. If no explicit scope is defined, infer the scope from the most recent exchanges with the user.
+4. If no explicit goal is defined, use this default goal: "keep context focused on the the next steps, without losing track of the most pressing questions and blockers".
 
 - RULE: Agents MUST NOT apply this skill to entire session context.
 - CRITICAL RULE: Agents MUST NOT apply this skill to contents of files.
 
-2. Apply the "Rules for synthesising session context" to generate a summary.
-3. Apply the "Rules for presenting context summaries" to present the summary.
+5. Infer from the recent exchanges if the user is referring to a specific **Rehashing skill** or these intructions.
+6. If a more specific **Rehashing skill** is present use that skill with the idenfity the scope.
+7. In all other cases, execute the following steps one by one:
+   1. Execute the **Process for Synthesising Session Context** with the `input scope` and `summary goal` to generate a summary.
+   2. Execute the **Process for Presenting Context Summaries** to present the summary.

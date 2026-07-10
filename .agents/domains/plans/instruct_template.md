@@ -1,10 +1,10 @@
 # Implementation Instructions
 
-**Plan:** `<plan-id>`
+**Plan:** `{plan.id}`
 
 **Id:** `<commit-kebab-name>`
 
-You are sub-agent executing a task autonomously on request by a delegator agent.
+You are sub-agent WORKING a task autonomously on request by a delegator agent.
 
 These are your instructions. They include a section at the end on how to report back to delegator.
 
@@ -12,52 +12,52 @@ These are your instructions. They include a section at the end on how to report 
 
 ## Goals
 
-DIRECTIVE: Describe the goal(s) of the changes.
+TEMPLATE DIRECTIVE: Describe the goal(s) of the changes.
 
-DIRECTIVE: This section is mandatory.
+TEMPLATE DIRECTIVE: This section is mandatory.
 
 ## Mandatory Reading
 
-DIRECTIVE: This section is mandatory.
+TEMPLATE DIRECTIVE: This section is mandatory.
 
-DIRECTIVE: Include links to documentation and knowledge files (patterns and conventions) the sub-agent needs to read before making changes.
+TEMPLATE DIRECTIVE: Include links to documentation and reference files (patterns and conventions) the sub-agent needs to read before making changes.
 
-DIRECTIVE: Include only references relevant to all the steps.
+TEMPLATE DIRECTIVE: Include only references relevant to all the steps.
 
-EXAMPLE: - required skill: `path/to/skill.md`
+TEMPLATE EXAMPLE: - required skill: `path/to/{skill.id}/SKILL.md`
 
-EXAMPLE: - patterns: `path/to/knowledge/patterns.md`
+TEMPLATE EXAMPLE: - patterns: `path/to/reference/patterns.md`
 
-EXAMPLE: - patterns: `path/to/knowledge/patterns.md`
+TEMPLATE EXAMPLE: - conventions: `path/to/reference/conventions.md`
 
 - RULE: You MUST follow any links under `## Mandatory Reading` sections found in the listed files.
 - RULE: If you are unable to read a file linked under `## Mandatory Reading` you must stop and REPORT A BLOCKER.
 
 ## Changes
 
-DIRECTIVE: This section is mandatory.
+TEMPLATE DIRECTIVE: This section is mandatory.
 
-DIRECTIVE: Summary of changes, grouped by steps.
+TEMPLATE DIRECTIVE: Summary of changes, grouped by steps.
 
 ## Rules
 
-DIRECTIVE: This section is mandatory.
+TEMPLATE DIRECTIVE: This section is mandatory.
 
 - RULE: If a command reports errors, attempt to fix them.
 - RULE: If the errors persist, inspect the cause before continuing.
 - RULE: If still unable to fix it, STOP and report back following the "## Rules to Report".
 
-## Steps
+## Workflow
 
-DIRECTIVE: Include this section only if this is a multi step prompt.
+TEMPLATE DIRECTIVE: Include this section only if this is a multi step prompt.
 
 You are going to perform a series of steps and check status after each one.
 
-DIRECTIVE: Include a list of step names
+TEMPLATE DIRECTIVE: Include a list of step names
 
-DIRECTIVE: Example: Step 1. Add new method to Service
+TEMPLATE DIRECTIVE: Example: Step 1. Add new method to Service
 
-DIRECTIVE: Example: Step 2. Consume new API
+TEMPLATE DIRECTIVE: Example: Step 2. Consume new API
 
 Execute all the steps autonomously, one by one, including running the **validation commands** plus any _validation command_ found at the end of the current step.
 
@@ -65,62 +65,65 @@ Execute all the steps autonomously, one by one, including running the **validati
 
 ## Step Validation commands
 
-DIRECTIVE: Include this section only if this is a multi step prompt.
+TEMPLATE DIRECTIVE: Include this section only if this is a multi step prompt.
 
 - RULE: After each step, execute the following validation commands:
 
-DIRECTIVE: Include tools for the sub-agent to validate the changes made
+TEMPLATE DIRECTIVE: Include tools for the sub-agent to validate the changes made
 
-EXAMPLE: - Execute `npm run lint` in `<package-name>` to validate format and typecheck
+TEMPLATE EXAMPLE: - Execute `npm run lint` in `{package.name | "repository root"}` to validate format and typecheck
 
-EXAMPLE: - Execute `npm run lint:fix` in `<package-name>` to fix formatting issues
+TEMPLATE EXAMPLE: - Execute `npm run lint:fix` in `{package.name | "repository root"}` to fix formatting issues
 
-EXAMPLE: - Execute `npm run build` in `<package-name>` to build
+TEMPLATE EXAMPLE: - Execute `npm run build` in `{package.name | "repository root"}` to build
 
-## Step `<n>` — `<title>`
+## Steps
 
-DIRECTIVE: Include a section like this for each step of the prompt or remove the `### Step heading` if this is a single step prompt.
+TEMPLATE DIRECTIVE: Include only if this is a multi-step prompt
 
-DIRECTIVE: Include goal of the step, preparatory instructions, detailed execution instructions with unambiguous file paths and clearly identified `symbols`, finalizing instructions.
+## Step `{n / total}` — `{title}`
 
-DIRECTIVE: Structure freely with headings. Include code samples and links to docs, patterns, and conventions that are specific to this step.
+TEMPLATE DIRECTIVE: Include a section like this for each step of the prompt or remove the `### Step heading` if this is a single step prompt.
 
-DIRECTIVE: Include any extra validation commands that is required to finish this step under a **Extra validation commands:** heading.
+TEMPLATE DIRECTIVE: Include goal of the step, preparatory instructions, detailed execution instructions with unambiguous file paths and clearly identified `symbols`, finalizing instructions.
+
+TEMPLATE DIRECTIVE: Structure freely with headings. Include code samples and links to docs, patterns, and conventions that are specific to this step.
+
+TEMPLATE DIRECTIVE: Include any extra validation commands that is required to finish this step under a **Extra validation commands:** heading.
 
 ## Final Verification
 
-DIRECTIVE: This section is mandatory.
+TEMPLATE DIRECTIVE: This section is mandatory.
 
-DIRECTIVE: Describe how to confirm the change is correct.
+TEMPLATE DIRECTIVE: Describe how to confirm the change is correct.
 
 **Sanity check**
 
-DIRECTIVE: Include a custom instruction, built from the goals, for the sub-agent to do a quick sanity check.
+TEMPLATE DIRECTIVE: Include a custom instruction, built from the goals, for the sub-agent to do a quick sanity check.
 
 **Verification steps**
 
-DIRECTIVE: Include all the steps
+TEMPLATE DIRECTIVE: Include all the steps
 
-EXAMPLE: - Execute `npm run build` in `<package-name>` to pre-build that package.
+TEMPLATE EXAMPLE: - Execute `npm run build` in `{package.name | "repository root"}` to pre-build that package.
 
-EXAMPLE: - Execute `npm run extact` in the monorepo root.
+TEMPLATE EXAMPLE: - Execute `npm run extact` in the repository root.
 
-EXAMPLE: - Execute `npm run lint` in the monorepo root.
+TEMPLATE EXAMPLE: - Execute `npm run lint` in the repository root.
 
-EXAMPLE: - Execute `npm run ci` in the monorepo root.
+TEMPLATE EXAMPLE: - Execute `npm run ci` in the repository root.
 
 ## How to Report Back to the Delegator
 
-DIRECTIVE: This section is mandatory.
+TEMPLATE DIRECTIVE: This section is mandatory.
 
 1. Summarise the current context, asking:
 
-- are you reporting success with a commit request or a blocker?
+- are you reporting success or a blocker?
 
 2. Gather the evidence of changes made and outcomes achieved, or the blocker error details.
-
-3. Read and `.agents/domains/plans/report_template.md` follow the directives there.
-
-4. Generate the reponse and send it back to the delegator.
+3. If your prompt included a `DIRECTIVE FEEDBACK:`
+4. Use the **render-template** skill with the `.agents/domains/plans/report_template.md` to render your feedback.
+5. Generate the reponse and send it back to the delegator.
 
 Thank you for your service.

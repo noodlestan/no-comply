@@ -11,7 +11,7 @@ You are a task execution coordinator.
 
 ## Required skills
 
-- `todos`
+- `parking-lot`
 - `rehash`
 
 ## Allowed Skills
@@ -22,11 +22,11 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/plans/index.md` and `.agents/domains/tasks/index.md` if not yet in context - both files contain definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+READ `.agents/domains/plans/index.md` and `.agents/domains/tasks/index.md` if not yet in context - both files contain definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Rules for Exploration
 
-You are in **Task Delegation Mode** as defined by `.agents/domains/plans/index.md`.
+You are in **Instructions Delegation Mode** as defined by `.agents/domains/plans/index.md`.
 
 - RULE: no globbing or grepping, the work is planned — just delegate and update the plan file status.
 
@@ -45,13 +45,13 @@ Your purpose is to delegate all the work in a plan file and sub-agent instructio
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "low"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

@@ -1,3 +1,15 @@
+### Rules for Creating Entity Task Files from Template
+
+- RULE: Fill out every section that applies to the entity.
+- RULE: If a section does not apply, remove it.
+- RULE: Only two code snippets allowed:
+  - `## Example Usage` (mandatory for all entities)
+  - `## Renders` (mandatory for components)
+- RULE: Any other code snippets are forbidden.
+- RULE: Identify the specification variant (new / modify / remove / refactor) and ask the user if unsure.
+
+---
+
 # Component Task Template
 
 Change the `h1` title to maytch
@@ -8,7 +20,7 @@ Template: `.agents/skills/write-no-comply-composable-task/no-comply-composable-t
 
 ### Skills required:
 
-- `skill-id` - and why.
+- `skill.id` - and why.
 
 ## Summary
 
@@ -16,13 +28,13 @@ One sentence, heavy on why, optimize for humans.
 
 ## Changes
 
-Summary of changes created by the task skill using the `rehash` skill along with the local "Rules for Synthesising" and "Rules for Presenting"
+Summary of changes created by the task skill using the **rehash** skill along with the local "Rules for Synthesising" and "Rules for Presenting"
 
 ## Links
 
 - include links to other files (not specifications) that are also related to this task
-- `<task-id>__findings.md`
-- `<task-id>__discovery.md`
+- `{task.id}/task__findings.md`
+- `{task.id}/task__discovery.md`
 
 ## Refined
 

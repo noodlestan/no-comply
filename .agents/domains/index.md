@@ -1,75 +1,45 @@
-# Reference
+# Reference Index
 
-This file lists work domains (tasks, knowledge, conventions, ...) and important definitions required to interpret skill files and instructions correctly (Agent Modes, Skill, Domain Reference File, Knowledge File).
-
-## Definitions
-
-- **Context Summary:** An extreme summarisation of a specific scope within the current session context. As defined by `rehash` skill and other skils that extend it. (#hoisted from Context Management)
-- **Template:** A file used by a skill to generate other files. Example: `.agents/skills/write-component-task/component-task-template.md`. (#hoisted from Context Management)
-- **Agent Mode:** A special set of instructions included in the system prompt via a special skill file. Available agent modes are listed in `.agents/skills/agents.md`. The value of the current session agent mode is declared as $AGENT_MODE in the agent mode skill. (#hoisted from Agent Context Management)
-- **Skill:** A regular skill to be invoked by agent modes or referenced in other skills or task instructions. Available skills are listed in `.agents/skills/agents.md`. (#hoisted from Agent Context Management)
-- **Conventions File**: rule heavy directives applied when planning, writing code, documentation, and other artefacs, and submitting work for review. (#hoisted from Conventions Management)
-- **A Domain Reference File:** is an agent context file shared between related agent modes and skills providing key definitions for a domain (tasks, knowledge, ...). Domains are documented for agents under `.agents/domains/*.md`. (#hoisted from Domain Management)
-- **Knowledge File:** Any markdown file inside a `knowledge/` directory and it contains information about the repository, its structure, its patterns, its conventions, and its processes. They are intended to be read by agents and humans alike. (#hoisted from Knowledge Management)
-- **Knowledge Directory:** Any `knowledge/` directory, starting from the root of the repository, in namespace directories, in packages, or deeper in module directories. (#hoisted from Knowledge Management)
-- **Task File:** A structured file defining a work item with no implementation details. (#hoisted from Task Management)
-- **Task Attachment:** A file named similar to the task with content not permitted in the task file, such as implementation details or code snippets. (#hoisted from Task Management)
-- **Task Specification:** A structured attachment file following a template defined by the active writing skill for capturing technical details of the task. (#hoisted from Task Management)
-- **Plan File:** A structured, high level, implementation plan with source task files attached as links, defining the plan to delegate the task to sub-agents - detailed in attached implementation instrctions files - and tracking execution status and outcomes. (#hoisted from Plan Management/Execution)
-- **Implementation Instruction Files:** Files attached to a plan file, containing a self-contained sub-agent prompt with detailed instructions and knowledge references, that equips the sub-agent to execute specific changes in the code base and prepare a commit request. (#hoisted from Plan Management/Execution)
+This file lists work domains and important definitions required to interpret skill files and instructions correctly.
 
 ## Domains
 
-### [Context Management](_context/index.md)
+- [\_structured-contexts](/.agents/domains/_structured-contexts/index.md) - Processes and commands for locating, reading, and interpreting all types of structured contexts.
+- [agent-modes](/.agents/domains/agent-modes/index.md) - Processes and commands for working with agents and their modes during a session.
+- [backlogs](/.agents/domains/backlogs/index.md) - Processes and commands for locating tasks in filesystem based backlogs and transitioning task state.
+- [changelogs](/.agents/domains/changelogs/index.md) - Processes and commands for generating changelog entry candidates.
+- [conventions](/.agents/domains/conventions/index.md) - Processes and commands for locating and reading convention sources and interpreting and applying their rules.
+- [domains](/.agents/domains/domains/index.md) - Processes and commands for locating, reading, and interpreting all types of domain contexts.
+- [plans](/.agents/domains/plans/index.md) - Processes and commands for reading and interpreting plans and interacting with plan attachments.
+- [references](/.agents/domains/references/index.md) - Processes and commands for locating and reading reference sources, and interpreting and applying their knowledge and rules.
+- [tasks](/.agents/domains/tasks/index.md) - Processes and commands for reading and interpreting tasks and interacting with task attachments.
+- [templates](/.agents/domains/templates/index.md) - Processes and commands for rendering content using templates.
 
-Defines common concepts and asserts rules for working with all context files.
+## Definitions
 
-### [Agent Context Management](agents/index.md)
+- **Agent Mode:** A special set of instructions included in the system prompt. Available agent modes are listed in `.agents/skills/agent-modes.md`. The value of the current session agent mode is declared as $AGENT_MODE in the agent mode skill. (#hoisted from `agent-modes`)
+- **Skill:** A Structured Context File defining reusable commands that can be be invoked by users and agents, or directly from other skills or task instructions. Available skills are listed in `.agents/skills/agents-modes.md`. (#hoisted from `agent-modes`)
+- **Reference:** A data source that provides information about the repository and the codebase, its structure, patterns, conventions, or processes. They are intended to be read by humans and agents alike. (#hoisted from `references`)
+- **Reference File:** Markdown files inside of `reference/` directories that contain information about the repository and the codebase, its structure, patterns, conventions, and processes. They are intended to be read by humans and agents alike. (#hoisted from `references`)
+- **References Directory:** Any `reference/` directory in the repository. Thse directories can exist at root of the repository, in namespace directories, in packages directories, or deeper in module directories. (#hoisted from `references`)
+- **Plan:** A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents. (#hoisted from `plans`)
+- **Plan File:** A structured file outlining the plan, tracking source task attachments, implementation instruction attachments, execution status, and outcomes. (#hoisted from `plans`)
+- **Implementation Instruction:** Self-contained sub-agent instructions and knowledge references that equip the sub-agent to execute specific changes and operations in the codebase. (#hoisted from `plans`)
+- **Implementation Instruction Files:** Files attached to a plan file, containing the Implementation Instruction prompt and other supporting instructions required for the sub-agent to execute the assigned operations and report back to the requesting agent. (#hoisted from `plans`)
+- **Task File:** A structured file defining a work item with no implementation details. (#hoisted from `tasks`)
+- **Task Attachment:** A file named similar to the task with content not permitted in the task file, such as implementation details or code snippets. (#hoisted from `tasks`)
+- **Task Specification:** A structured attachment file following a template defined by the active writing skill for capturing technical details of the task. (#hoisted from `tasks`)
+- **Conventions File:** A type of Reference File that contains rules and directives applied when planning, writing code, documentation, and other artefacs, and submitting work for review. (#hoisted from `conventions`)
+- **A Domain Reference File:** is an agent context file shared between related agent modes and skills providing key definitions for a domain (tasks, knowledge, ...). Existng Domains are indexed for discovery by agents at `.agents/domains/index.md`. (#hoisted from `update-domains`)
 
-Defines common concepts and asserts rules for working with specific agent context files: CONTEXT.md, Agent Mode files and Skill files.
+## Rules for `reading references`
 
-### [Backlog Management](backlog/index.md)
+- IMPORTANT RULE: Agents MUST NOT read reference files unless listed under Mandatory Reading sections or requested to do so by the instructions or by the user. (#hoisted from `references`)
+- RULE: Agents MUST ALWAYS read the reference files prescribed under Mandatory Reading sections. (#hoisted from `references`)
+- RULE: Agents MUST NOT read `README.md` files as a source of knowledge. (#hoisted from `references`)
+- RULE: Agents MUST NOT `glob` to find reference files on their own initiative. (#hoisted from `references`)
+- RULE: Agents MUST NOT `grep` to bulk read reference files on their own initiative. (#hoisted from `references`)
 
-Defines common concepts and rules for working with task context files within a filesystem based backlog.
+## How to update this file and agent platform Links
 
-### [Changelog Management](changelog/index.md)
-
-Defines common concepts and rules for working with task context files within a filesystem based backlog.
-
-### [Conventions Management](conventions/index.md)
-
-Defines common concepts and asserts rules for working with conventions files. A secial type of knowledge files that prescribes RULE based instructions to coding tasks.
-
-### [Domain Management](domains/index.md)
-
-Defines common concepts and asserts rules for working with domain context files (such as this one).
-
-#### Rules for reading Domain Files
-
-- IMPORTANT RULE: Agents MUST NOT read domain reference files unless listed under `## Mandatory Reading` sections or requested to do so by the user or a `::MANDATORY-READING` directive.
-
-### [Knowledge Management](knowledge/index.md)
-
-Defines common concepts and asserts rules for working with knowledge context files.
-
-#### Rules for reading Knowledge Files
-
-- IMPORTANT RULE: Agents MUST NOT read knowledge files unless listed under Mandatory Reading sections or requested to do so by the instructions or by the user.
-- RULE: Agents MUST ALWAYS read the knowledge files prescribed under Mandatory Reading sections.
-- RULE: Agents MUST NOT read `README.md` files as a source of knowledge.
-- RULE: Agents MUST NOT `glob` to find knowledge files on their own initiative.
-- RULE: Agents MUST NOT `grep` to bulk read knowledge files on their own initiative.
-
-### [Plan Management/Execution](plans/index.md)
-
-Defines common concepts and asserts rules for working with plan files and executing tasks in parallel.
-
-### [Task Management](tasks/index.md)
-
-Defines common concepts and asserts rules for working with task files and task attachment files.
-
----
-
-# How to update this file and agent platform Links
-
-- Use `update-domains` skill to update this index file.
+- Use **update-domains** skill to update this index file.

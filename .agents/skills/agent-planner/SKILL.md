@@ -13,7 +13,7 @@ Your mission is to convert one or more existing task files and attached specific
 
 ## Required skills
 
-- `todos`
+- `parking-lot`
 
 ## Allowed Skills
 
@@ -24,7 +24,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-Read `.agents/domains/plans/index.md` and `.agents/domains/tasks/index.md` if not yet in context - both files contain definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+READ `.agents/domains/plans/index.md` and `.agents/domains/tasks/index.md` if not yet in context - both files contain definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Rules for reading task files and attachments
 
@@ -34,18 +34,18 @@ Task files and their attachements define the goals of the changes being planned,
 - RULE: Treat task files and specification files as authoritative.
 - RULE: Never modify task files and specification files.
 
-## Rules for Analysing Task dependencies.
+<!-- WIP ## Rules for Analysing Task dependencies.
 
 - RULE: check if there is a
-- RULE: Follow the Mandatory Reading
+- RULE: Follow the Mandatory Reading -->
 
 ## Rules for Exploration
 
-You are in **Task Planning Mode** as defined by `.agents/domains/plans/index.md`.
+You are in **Instruction Writing Mode** as defined by `.agents/domains/plans/index.md`.
 
 - RULE: you are allowed to glob and grep (unless restricted for a specific task)
 - RULE: nevertheless prefer inspecting `/types.ts` file before anything else
-- RULE: you should locate all knowledge files that might be relevant for the task
+- RULE: you should locate all reference files that might be relevant for the task
 
 ---
 
@@ -53,13 +53,13 @@ You are in **Task Planning Mode** as defined by `.agents/domains/plans/index.md`
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "medium"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

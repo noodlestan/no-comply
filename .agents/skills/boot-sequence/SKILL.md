@@ -7,6 +7,8 @@ description: Use at the beggining of each session to preload the required contex
 
 The purpose of this skill is to populate the session with context files containing definitions, rules, and instructions required for the agent to operate safely and correctly under its current `$AGENT_MODE`.
 
+IMPORTANT: when agents finish processing this file, they MUST execute the `::boot` command to ensure that all the required context files are read into the session context.
+
 ## Allowed Agent Modes
 
 ALL
@@ -17,7 +19,7 @@ ALL
 
 **## Mandatory Reading:** Special sections of context files that require the agent to read more files to acquire knowledge.
 
-**Mandatory Reading Directive:** an instruction to read a specific file and all the files listed under its "## Mandatory Reading" section. Example: `- ::MANDATORY-READING: .agents/domains/tasks/index.md`
+**Mandatory Reading TEMPLATE DIRECTIVE:** an instruction to read a specific file and all the files listed under its "## Mandatory Reading" section. Example: `- ::MANDATORY-READING: .agents/domains/tasks/index.md`
 
 **Bookshelf List:** A list of files that were read into context as Mandatory Reading and their sources.
 
@@ -27,9 +29,11 @@ ALL
 
 The `$AGENT_MODE` session variable is set by an Agent Mode skill file.
 
-You should identify your agent mode by scanning the most recent context for `"This agent mode is defined by the following skills`.
+You should identify your agent mode by scanning the most recent context.
 
-Note that the user can switch
+If you can't immediately identify the agent mode, scan the context for `> $AGENT_MODE: '{agent-mode}'` and use the most recent declaration.
+
+Note that the user can switch between agent modes several times during a session. Make sure you capture the most recent activation.
 
 - CRITICAL RULE: If the agent can not retrieve the explicit value of `$AGENT_MODE` from the current session (without inference) then the agent is FORBIDDEN from using any other skill.
 - CRITICAL RULE: If the agent did not yet execute the `::boot` command from this skill then the agent is FORBIDDEN from using any other skill.
@@ -45,70 +49,50 @@ Note that the user can switch
 
 1. Identify the file being read.
 2. If you haven't yet read this file, read it now.
-3. if the file contains a `## Mandatory Reading` apply the "Process for reading Mandatory Reading Sections" to read linked files as well.
+3. if the file contains a `## Mandatory Reading` apply the **Process for Reading Mandatory Reading Sections** to read linked files as well.
 4. If instructed to ignore if the file was read before, read the the file regardless of it having been read before.
 
-- CRITICAL RULE: if you are unable to read the file, report the error to the user and ALERT them that the mandatory file `<target>` requested by `<source>` is not readable.
+- CRITICAL RULE: if you are unable to read the file, report the error to the user and ALERT them that the mandatory file `{target}` requested by `{source}` is not readable.
 
 3. If the file being read is not yet in the **Bookshelf List**, add it to the list, including the file name, title, source of the read request and the file size.
 
 ### Process for Reading Mandatory Reading Sections
 
-When a file contains a `## Mandatory Reading` section, execute the following steps:
+With the context files being read, execute the following steps:
 
-1. Identify all the files listed in the "Mandatory Reading" section.
-2. Apply the "Process for Reading Mandatory Files" to read them into the session context.
+1. Identify all the files listed in their "Mandatory Reading" sections.
+2. Execute the **Process for Reading Mandatory Files** with the identified files, one by one, to read them into the session context.
 
-### Process for Reading Mandatory Reading Directives
-
-Example:
-
-```
-3. when the task type is of type "bug" ::MANDATORY-READING: .agents/domains/tasks/index.md  .agents/domains/plans/index.md`
-```
-
-When an instruction being executed contains `::MANDATORY-READING`, execute the following steps:
-
-1. Identify all the files listed after the directive placholder.
-2. Apply the "Process for Reading Mandatory Files" to each file, one by one, to read them into the session context.
-
-### Agent Mode
-
-### Paths with Placeholders
+## Paths with Placeholders
 
 This project uses placeholders in context and instruction files.
 
 | Placeholder   | Meaning                                | Example usage                                    |
 | ------------- | -------------------------------------- | ------------------------------------------------ |
-| `$ROOT`       | Monorepo root directory                | `$ROOT/libs/meta/src/index.ts`                   |
 | `$PROJECT`    | Task-specific project scope            | `$PROJECT/src/controllers`                       |
 | `$SCOPE`      | Task-specific filesystem scope         | `$SCOPE/components/`                             |
-| `$<ITERATOR>` | Dynamic segment such as an entity name | `$ROOT/libs/meta/src/entities/<entity>/types.ts` |
-| `$<NAME>`     | Arbitrary placeholder                  | `$ROOT/libs/<module-a>/src/index.ts`             |
+| `${ITERATOR}` | Dynamic segment such as an entity name | `$ROOT/libs/meta/src/entities/{entity}/types.ts` |
+| `${NAME}`     | Arbitrary placeholder                  | `$ROOT/libs/{module-a}/src/index.ts`             |
 
-- RULE: if a path does not start with a placeholder, the agent should infer that the path is relative to the root of the monorepo.
+## Global Context Files
 
-## Mandatory Reading:
-
-1. Read `.agents/domains/index.md` - this file lists work domains (tasks, knowledge, conventions, ...) and important definitions required to interpret skill files and instructions correctly (Agent Modes, Skill, Domain Reference File, Knowledge File).
-
-2. Read Instructions for Current Agent Mode: `.agents/skills/agent-{AGENT_MODE}/SKILL.md`, where `{AGENT_MODE}` is the verbatim value of the `$AGENT_MODE` session variable. This file lists specific instructions required for this session.
-
-3. Read the Skills Index: `.agents/skills/index.md`. This file lists available skils, each with `<skill-name>`, `<skill-id>` and `<skill-description>`.
-
-4. Read the Knowledge Discovery Index: `knowledge/index.md`. This file lists namespaces, knowledge sources, and important knowledge related definitions.
+1. The Instructions for Current Agent Mode: `.agents/skills/agent-{AGENT_MODE}/SKILL.md`, where `{AGENT_MODE}` is the verbatim value of the `$AGENT_MODE` session variable. This file lists specific instructions required for this session.
 
 ## Commands
 
-This file defines 5 user commands:
+These commands can be used to identify and switch the current operation modes.
 
 ### Command: `::identify`
 
 The purpose of this command is to ensure that the `$AGENT_MODE` is already known by the agent.
 
-When the user says `::identify`:
+**Triggers:**
 
-1. Scan the most refent context for an `$AGENT_MODE` declaration matching this pattern: `$AGENT_MODE: '$AGENT_MODE'`.
+- When the user says `::identify`.
+
+**Steps:**
+
+1. Scan the most recent context for an `$AGENT_MODE` declaration matching this pattern: `$AGENT_MODE: '$AGENT_MODE'`.
 
 IMPORTANT NOTE: the user can switch $AGENT_MODE several times during a session. Make sure you capture the most recent activation.
 
@@ -130,11 +114,15 @@ IMPORTANT NOTE: the user can switch $AGENT_MODE several times during a session. 
 
 The purpose of this command is to ensure that the critical context files are read into the session context.
 
-When the user says `::autoexec`:
+**Triggers:**
+
+- When the user says `::autoexec`.
+
+**Steps:**
 
 1. Execute all the steps from the `::identify` command.
 
-- RULE: if a previous execution of the `::identify` command failed to successfully identify the `::$`, repeat the command now.
+- RULE: if a previous execution of the `::identify` command failed to successfully identify the `$AGENT_MODE` value, repeat the command now.
 
 2. Re-read your agent file from `.agents/skills/agent-{$AGENT_MODE}/SKILL.md`
 3. Read all the files listed on the `## Files to Read on Every Session Start` section at the top of this file.
@@ -144,116 +132,84 @@ When the user says `::autoexec`:
 
 The purpose of this command is to ensure that the context files required by the current Agent Mode are read into the session context.
 
-IMPORTANT NOTE: the Bookfshelf List may contain files that weren't actually read. Don't rely on the fact that the file is already referenced in this list to by pass its reading.
+IMPORTANT NOTE: the Bookfshelf List may contain files that weren't actually read. Don't rely on the fact that the file is already referenced in this list to bypass its reading.
 
-When the user says `::mandatory`:
+**Triggers:**
 
-1. Present the **Bookshelf list** to the user in table format.
-2. Apply the "Process for Reading Mandatory Files" to each file to ensure it is actually read into context.
+- When the user says `::mandatory`.
+
+**Steps:**
+
+1. Scan the context for context files containing a `## Mandatory Reading` section.
+2. Execute the **Process for Reading Mandatory Files** with the identified files, one by one, to ensure it is read into context.
+3. Present the **Bookshelf List** to the user in table format.
 
 ### Command: `::boot`
 
-The purpose of this command is to execute all commands required for starting a session in one go.
+The purpose of this command is to refresh critical and essential context in long running sessions.
 
-When the user says `::boot`:
+**Triggers:**
 
-1. Execute all the steps from the `::autoexec` command.
-2. Execute all the steps from the `::mandatory` command.
+- When the user says `::boot`.
+- When the user says `::reboot`.
 
-- RULE: if a previous execution of the `::autoexec` or `::mandatory` commands failed, repeat them anyway.
+**Steps:**
+
+1. Identify if a previous execution of the `::autoexec` or `::mandatory` commands failed.
+2. If these command previously failed to execute their processes, and the user said `reboot`, disregard that fact and continue with the next steps.
+3. Identify all files listed under the **Global Context Files** Section above.
+4. Execute the **Process for Reading Mandatory Files** to each file to ensure it is read into the session context.
+5. Execute all the steps from the `::autoexec` command.
+6. Execute all the steps from the `::mandatory` command (disregarding if files were previously read).
 
 ### Command: `::switch`
 
 The purpose of this command is to switch to another mode manually.
 
-When the user says `::switch: <agent-mode>`:
+**Triggers:**
 
-1. Read the `.agents/skills/agent-<agent-mode>.md` file
+- When the user says `::switch: {agent-mode}`.
+
+**Steps:**
+
+1. Read the `.agents/skills/agent-{agent-mode}.md` file.
 2. Execute `::boot`
 
-### Command: `::reboot`
-
-The purpose of this command is to refresh critical and essential context in long running sessions.
-
-When the user says `::reboot`:
-
-1. Execute all the steps from the `::autoexec` command.
-2. Execute all the steps from the `::mandatory` command (disregarding if files were previously read).
-
-- RULE: if a previous execution of the `::autoexec` or `::mandatory` commands failed, repeat them anyway.
-
-### Command: `::agents`
-
-When the user says `::agents`:
-
-1. read the `.agents/skills/agents.md` file
-2. present the list of agent modes to the user.
-
-### Command: `::skills`
-
-When the user says `::skills`:
-
-1. read the `.agents/skills/index.md` file
-2. group the skills listed by "Allowed" or "Not Allowed" depending on which mode the `$AGENT_MODE` is currently active and what skills are allowed in the `# Agent: $AGENT_MODE` file.
-3. present the list of allowed skills with their names and purposes.
-4. present the list of disallowed skills as names only.
-
-### Command: `::bookshelf`
-
-When the user says `::bookshelf`:
-
-If you have initiliased the **Bookshelf list** present it.
-
-If don't have a **Bookshelf list** to present, execute the following steps:
-
-1. Alert the user that Bookshelf is empty.
-2. Scan the context for files loaded through `## Mandatory Reading` directives.
-3. Present the file name, terse description, and source file (if available)
-
-### Command: `::commands`
-
-The purpose of this command is to list commands loaded into context via skills:
-
-When the user says `::commands`:
-
-1. Scan the context for commands. Example. `### Command: <name>` or `When the user says <command>`.
-2. Present the list of commands and their source file.
-
-### Command: `::templates`
+### Command: `::reflect`
 
 The purpose of this command is to list available templates:
 
-When the user says `::templates`:
+**Triggers:**
 
-1. Scan the context for templates. Example. `# Component Task Template`
-2. Present the list of commands and their source file.
+- When the user says `::reflect`.
 
-## Rules for globbing and reading files
+**Steps:**
 
-- RULE: Identify a `$SCOPE` (filesystem path(s)) for each session.
-- RULE: If a scope is not defined on the original prompt they must ask before proceeding.
-- RULE: If one or more paths are defined the agent can infer what the `$AGENT_MODE` should be but ask for confirmation immediately.
+1. READ: `.agents/skills/boot-sequence/extra-commands.md`
+2. If the user command was `::reflect` list all the commands in that file and their purpose.
+3. Otherwise, execute the command declared on that file that matches the user input.
 
-### Restrictions
+## Global Triggers
 
-Agenst MUST NOT:
+All Agents must register the following triggers at the beginning of the session:
 
-- RULE: Read outside of `$SCOPE` without requesting permission.
-- RULE: Expand `$SCOPE` autonomously to read files outside of current scope.
-- RULE: Execute tasks autonomously if `$SCOPE` is not defined.
-- RULE: Glob or read from `node_module` or `dist/` folders without permission.
+### Reading Sections
 
-### Rules for Path Resolution
+**Triggers:**
 
-- RULE: All paths in task records, delegation prompts, plan records, and reports:
-  - MUST use placeholders instead of absolute paths.
-  - MUST use `$SCOPE` when a task is scoped to a specific location (defined at task top)
-  - MUST use `$ROOT` for monorepo-relative references.
-  - MUST use `$PROJECT` when referencing files inside the task's project (defined at the task top).
-  - SHOULD use any arbitrary placeholders, example `$MODULE-A`, `$MODULE-B`, when needed (defined where convenient).
+- When ANY file being read contains a `## Mandatory Reading` section.
 
-- RULE: Agents should NEVER resolve placeholders to absolute paths in written artifacts
+**Steps:**
 
-### Rules for Writing files
+1. Execute the **Process for Reading Mandatory Reading Sections** to read all files listed in the section.
 
-- RULE: The agent MUST NEVER write resolved paths in artifacts, source code files, markdown files, any files.
+### Reading Directives
+
+**Triggers:**
+
+- When ANY instructions contain a `::MANDATORY-READING` directive.
+
+**Steps:**
+
+1. Identify all the files listed after the directive placeholder. Example: "3. when the task type is of type "bug": **::MANDATORY-READING** `file-1.md` and `path/to/file-2.md`."
+2. Execute the **Process for Reading Mandatory Files** with the identified files, one by one, to read them into the session context.

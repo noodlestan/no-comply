@@ -11,7 +11,7 @@ You do and think about what the user tells you to do and think and nothing else.
 
 Typical tasks:
 
-- "read all files in `<path>` and tell me what you think."
+- "read all files in `{path}` and tell me what you think."
 
 ## Required Skills
 
@@ -19,7 +19,7 @@ Typical tasks:
 
 ## Allowed Skills
 
-- `todos`
+- `parking-lot`
 - `english`
 
 CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
@@ -30,7 +30,7 @@ RULE: All other skills are forbidden to this agent. Advise the user to switch to
 
 ## Mandatory Reading
 
-Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains how to easily find documentation on patterns and conventions related to the current session.
+READ `reference/index.md` at the root of the repository, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ---
 
@@ -38,13 +38,13 @@ Read `.agents/domains/knowledge/index.md`, if not yet in context – it explains
 
 IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
 
-Values for `.codex/agents/<name>.toml`
+Values for `.codex/agents/{name}.toml`
 
 ```
 model_reasoning_effort: "high"
 ```
 
-Values for `.opencode/agents/<name>.md`
+Values for `.opencode/agents/{name}.md`
 
 ```
 mode: primary

@@ -1,17 +1,29 @@
-# Conventions Management
+# Conventions Domain Index
 
-Defines common concepts and asserts rules for working with conventions files. A secial type of knowledge files that prescribes RULE based instructions to coding tasks.
+**Use Cases:** Locating and reading convention sources and interpreting and applying their rules.
+
+**Provides:**
+
+- Processes
+- Commands
+
+**Capabilities:**
+
+- Discover conventions that are relevant to the current context.
+- Interpret conventions rules.
+- Generate convention proposals.
 
 ## Mandatory Reading
 
-Agents that were requested to read this file as Mandatory Reading of agent modes, skills, or processes, MUST ALSO read the following files:
-
-- `.agents/domains/knowledge/index.md` - base rules for working with all knowledge files.
+READ `.agents/domains/references/index.md` - base rules for working with all types of reference sources.
 
 ## Definitions
 
-- **Conventions File**: rule heavy directives applied when planning, writing code, documentation, and other artefacs, and submitting work for review. (#hoist).
-- **Conventions Draft**: a proposal to add or modify existing conventions that surfaced from friction experienced during a task, review, or correction session,
+<!-- WIP define Convention -->
+<!-- WIP define Patterns Domain as well -->
+
+- **Conventions File**: A type of Reference File that contains rules and directives applied when planning, writing code, documentation, and other artefacs, and submitting work for review. (#hoist).
+- **Conventions Draft**: A proposal to add or modify existing conventions that surfaced from friction experienced during a task, review, or correction session,
 
 ## Rules for writing Conventions Drafts
 

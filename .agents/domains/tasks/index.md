@@ -1,11 +1,25 @@
-# Task Management
+# Tasks Domain Index
 
-Defines common concepts and asserts rules for working with task files and task attachment files.
+**Use Cases:** Reading and interpreting tasks and interacting with task attachments.
 
-## Task Management Definitions
+**Provides:**
+
+- Processes
+- Commands
+
+**Capabilities:**
+
+- Work with task files to generate plans.
+- Attach reports to task files.
+
+## Definition of "Task"
+
+**Task:** A structured definition of a work item describing the goal, scope, requirements, constraints, and expected outcome, without implementation details.
+
+## Definitions Related to "Task"
 
 - **Task File:** A structured file defining a work item with no implementation details. (#hoist)
-- **Task Writing Skill:** A task writing skill active in the current session. Example: `write-task` (generic) or `write-<concrete>-task`.
+- **Task Writing Skill:** A task writing skill active in the current session. Example: `write-task` (generic) or `write-{specific}-task`.
 - **Task Outline:** The structure of the task file.
 - **Task Template:** A file prescribing an outline, formatting rules, forbidden certain types of content, and providing example content.
 - **Steps:** Structured workflow for writing and updating tasks prescribed by the task writing skill.
@@ -17,6 +31,12 @@ Defines common concepts and asserts rules for working with task files and task a
 - **Task Thinking Mode:** A mode where analysis of use cases, contracts, and API design is allowed whereas planning of implementation details is NOT allowed.
 - **Task Exploration Mode:** A mode where the agent gathers context about existing entities, APIs, and conventions. Limited to reading API contracts (types, props, exports) from target files.
 
+<!-- WIP hoist less rules, expose more process and commands -->
+
+<!-- WIP Conventions for Task relared files -->
+
+<!-- WIP types of tasks files -->
+
 ## CRITICAL Rules for reading existing task files
 
 - RULE: When the agent reads a task file and it MUST identify it's the task **Template** used to create it and read the template title.
@@ -27,7 +47,7 @@ Defines common concepts and asserts rules for working with task files and task a
 
 Before adding any content to a Task or Task Specification file the agent MUST check if the content is allowed according to the following rules:
 
-- RULE: details extracted from knowledge pattern and convention files are STRICTLY DISALLOWED. Example: "create barrel file" (the knowledge files will be read at planning/implementation time).
+- RULE: details extracted from knowledge pattern and convention files are STRICTLY DISALLOWED. Example: "create barrel file" (the reference files will be read at planning/implementation time).
 - RULE: implementation details and code snippets are STRICTLY DISALLOWED. Example: "The CSS for the `.classname` should set `--__display: flex`"
 - RULE: tables are NOT ALLOWED unless prescribed by the template.
 - RULE: diagrams are NOT ALLOWED unless prescribed by the template.
@@ -42,7 +62,7 @@ Before adding any content to a Task or Task Specification file the agent MUST ch
 
 ### Offloading Disallowed Content
 
-- RULE: If the implementation details already in context are valuable, the agent SHOULD create a `<task-id>__plan-notes.md` attachment file and drop that content there.
+- RULE: If the implementation details already in context are valuable, the agent SHOULD create a `{task.id}/task__plan-notes.md` attachment file and drop that content there.
 
 ## CRITICAL Rules for reading Specification files
 
@@ -54,24 +74,24 @@ Before adding any content to a Task or Task Specification file the agent MUST ch
 If no template is provided by the concrete task writing skill, use this outline:
 
 - frontmatter:
-    - source: (path to **Template**)
-    - references: (array of context files required to fully understand the task)
-    - skills: (array of skills required to implement)
+  - source: (path to **Template**)
+  - references: (array of context files required to fully understand the task)
+  - skills: (array of skills required to implement)
 - h1. Name: stable, specific task name.
 - h2. One of:
-    - User story: who needs the change, what they need, and why.
-    - Summary: what needs to be done, and why.
+  - User story: who needs the change, what they need, and why.
+  - Summary: what needs to be done, and why.
 - h2. Links (other files related to this task.)
 - h2. Refined:
-    - h3. Scope
-    - h3. Directions
-    - h3. Outcomes
-    - h3. Constraints
-    - h3. Not in scope
+  - h3. Scope
+  - h3. Directions
+  - h3. Outcomes
+  - h3. Constraints
+  - h3. Not in scope
 - h2. Acceptance criteria (externally checkable conditions for done).
 - h2. Notes
-    - h3. Unrefined (categorised ideas, risks, blockers, open questions, and deferred decisions).
-    - h3. Follow ups (items not in scope but actionable).
+  - h3. Unrefined (categorised ideas, risks, blockers, open questions, and deferred decisions).
+  - h3. Follow ups (items not in scope but actionable).
 
 ## Process for Naming task files
 
@@ -82,17 +102,17 @@ If no template is provided by the concrete task writing skill, use this outline:
 
 ### Example of Task File naming
 
-Given a task name of "Refactor Code Submodules" in the "Demo Application" project, generate `demo-app-code-submodules-refactor.md`.
+Given a task name of "Refactor Code Submodules" in the "Demo Application" project, generate `demo-app-code-submodules-refactor.md` at `path`.
 
 Should result in
 
 - Task ID: `demo-app-code-submodules-refactor`
-- Task file name: `path/<task-id>.md`
+- Task file name: `path/demo-app-code-submodules-refactor/task_{task.id}.md`
 - Task title: "Demo App: Extract Code components to a single module"
 
 ## Process for naming Task Attachment files
 
-- RULE: task attachments are named after the task file and suffixed with the `___<attachment type>`.
+- RULE: task attachments are named after the task file and suffixed with the `___{attachment.type}`.
 
 - RULE: example attachment types are single words such as: `spec`, `findings`, `audit`, `progress`, `plan`, `report`, `followup`.
 
@@ -101,3 +121,5 @@ Should result in
 - `demo-app-code-submodules-refactor__findings.md`
 - `demo-app-code-submodules-refactor__plan.md`
 - `demo-app-code-submodules-refactor__followup.md`
+
+<!-- WIP wire tasks process in skills and agents -->
