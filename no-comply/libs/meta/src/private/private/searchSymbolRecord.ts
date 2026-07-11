@@ -36,6 +36,7 @@ export function searchSymbolRecords(
 			description: record.description,
 			matchedName,
 			matchedDescription,
+			tags: record.tags,
 			score,
 		};
 		return [symbolResult, score];

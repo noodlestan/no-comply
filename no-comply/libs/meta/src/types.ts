@@ -1,4 +1,4 @@
-import type { DeclaredSymbol, EntityDataBase } from '@purrception/primitives';
+import type { DeclaredSymbol, DocsTags, EntityDataBase } from '@purrception/primitives';
 
 import type { ModuleEntityData, NoComplyEntityData } from './entities';
 
@@ -7,6 +7,7 @@ export type SearchSymbolResult = {
 	matchedName: boolean;
 	matchedDescription: boolean;
 	description?: string;
+	tags?: DocsTags;
 	score: number;
 };
 
