@@ -6,4 +6,5 @@ export * from './CodeDocDescription';
 export * from './CodeLink';
 export * from './CodeRenderer';
 export * from './CodeSymbolLink';
+export * from './JSDocTagsList';
 export * from './JSXRenderer';
