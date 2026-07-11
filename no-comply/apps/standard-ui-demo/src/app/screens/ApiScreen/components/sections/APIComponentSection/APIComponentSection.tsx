@@ -1,4 +1,5 @@
 import { type ComponentEntityData, resolveComponentDeclaration } from '@no-comply/meta';
+import type { ComponentDeclaration } from '@purrception/lang-ts';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component } from 'solid-js';
 
@@ -16,13 +17,14 @@ export const APIComponentSection: Component<Props> = props => {
 	return (
 		<DocsSection title="Function">
 			<DocsItem gap="m">
-				<CodeBlock
-					lang={PurrceptionLanguageId}
-					nodes={[component()]}
-					context={props.ent}
-					padding
-					inline
-				/>
+				<CodeDocDescription node={node() as ComponentDeclaration['node']}>
+					<CodeBlock
+						lang={PurrceptionLanguageId}
+						nodes={[component() as ComponentDeclaration]}
+						context={props.ent}
+						padding
+					/>
+				</CodeDocDescription>
 				<CodeDocDescription node={node()} />
 			</DocsItem>
 		</DocsSection>

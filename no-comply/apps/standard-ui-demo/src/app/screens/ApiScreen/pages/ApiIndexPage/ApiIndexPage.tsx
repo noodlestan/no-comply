@@ -1,14 +1,16 @@
 import type { SearchEntityResult } from '@no-comply/meta';
-import { Flex, Text } from '@no-comply/standard-ui';
+import { Flex } from '@no-comply/standard-ui';
 import { Show, createMemo, createSignal } from 'solid-js';
 import type { Component } from 'solid-js';
 
 import { useMeta } from '../../../../../providers';
-import { DocsItem, DocsSection } from '../../../../content';
+import { DocsSection } from '../../../../content';
 import { BasePage } from '../../../../templates';
 
 import { APISearchField } from './fields';
 import { ApiIndexListSection, ApiSearchResults } from './parts';
+import { ApiSearchHint } from './parts/ApiSearchHint';
+import { ApiSearchNoResults } from './parts/ApiSearchNoResults';
 
 const MIN_SEARCH_LENGTH = 2;
 
@@ -37,21 +39,19 @@ export const ApiIndexPage: Component = () => {
 	return (
 		<BasePage title="API">
 			<DocsSection title="Search">
-				<Flex direction="column" gap="s" justify="start">
+				<Flex direction="column" gap="m" justify="start">
 					<Flex direction="row">
 						<APISearchField value={terms()} onValueChange={setTerms} />
 					</Flex>
 					<Show when={showHint()}>
-						<Text size="small">Type one more character...</Text>
+						<ApiSearchHint />
 					</Show>
 				</Flex>
 				<Show when={showResults()}>
 					<ApiSearchResults results={results()} terms={terms() as string} />
 				</Show>
 				<Show when={showNoResults()}>
-					<DocsItem>
-						<Text size="large">No results for {terms()}</Text>
-					</DocsItem>
+					<ApiSearchNoResults terms={terms() as string} />
 				</Show>
 			</DocsSection>
 			<Show when={showIndex()}>

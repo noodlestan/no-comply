@@ -24,7 +24,6 @@ export const APIHelpersSection: Component<Props> = props => {
 								nodes={[helper]}
 								context={props.ent}
 								padding
-								inline
 							/>
 						</DocsSection>
 					)}

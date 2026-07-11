@@ -19,13 +19,7 @@ export const APIhooksSection: Component<Props> = props => {
 				<For each={hooks()}>
 					{hook => (
 						<DocsSection title={hook.name} level={4}>
-							<CodeBlock
-								lang={PurrceptionLanguageId}
-								nodes={[hook]}
-								context={props.ent}
-								padding
-								inline
-							/>
+							<CodeBlock lang={PurrceptionLanguageId} nodes={[hook]} context={props.ent} padding />
 						</DocsSection>
 					)}
 				</For>

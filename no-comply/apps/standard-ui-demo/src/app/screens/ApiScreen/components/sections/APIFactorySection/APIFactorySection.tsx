@@ -1,8 +1,4 @@
-import {
-	type ComponentEntityData,
-	resolveComponentDeclaration,
-	resolveComponentFactoryDeclaration,
-} from '@no-comply/meta';
+import { type ComponentEntityData, resolveComponentFactoryDeclaration } from '@no-comply/meta';
 import type { FunctionDeclaration } from '@purrception/lang-ts';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, Show } from 'solid-js';
@@ -16,20 +12,20 @@ type Props = {
 
 export const APIFactorySection: Component<Props> = props => {
 	const factory = () => resolveComponentFactoryDeclaration(props.ent);
-	const node = () => resolveComponentDeclaration(props.ent).node;
+	const node = () => factory()?.node;
 
 	return (
 		<Show when={factory()}>
 			<DocsSection title="Factory">
 				<DocsItem gap="m">
-					<CodeBlock
-						lang={PurrceptionLanguageId}
-						nodes={[factory() as FunctionDeclaration]}
-						context={props.ent}
-						padding
-						inline
-					/>
-					<CodeDocDescription node={node()} />
+					<CodeDocDescription node={node() as FunctionDeclaration['node']}>
+						<CodeBlock
+							lang={PurrceptionLanguageId}
+							nodes={[factory() as FunctionDeclaration]}
+							context={props.ent}
+							padding
+						/>
+					</CodeDocDescription>
 				</DocsItem>
 			</DocsSection>
 		</Show>

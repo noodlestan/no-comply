@@ -30,7 +30,6 @@ export const APIFactoriesSection: Component<Props> = props => {
 								nodes={[factory]}
 								context={props.ent}
 								padding
-								inline
 							/>
 						</DocsSection>
 					)}

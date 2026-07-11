@@ -4,7 +4,7 @@ import { For, Show } from 'solid-js';
 import type { Component } from 'solid-js';
 
 import { DocsItem } from '../../../../../../content';
-import { ApiSearchResultsEntry } from '../ApiSearchResultsEntry';
+import { ApiSearchResultsEntity } from '../ApiSearchResultsEntity';
 
 type Props = {
 	results: SearchEntityResult[];
@@ -14,15 +14,15 @@ type Props = {
 export const ApiSearchResults: Component<Props> = props => {
 	return (
 		<DocsItem
-			gap="l"
+			gap="2xl"
 			title={
 				<Text size="large">
 					{props.results.length} <Show when={props.results.length === 1}>result</Show>
-					<Show when={props.results.length > 1}>results</Show> for {props.terms}
+					<Show when={props.results.length > 1}>results</Show> for "{props.terms}"
 				</Text>
 			}
 		>
-			<For each={props.results}>{result => <ApiSearchResultsEntry result={result} />}</For>
+			<For each={props.results}>{result => <ApiSearchResultsEntity result={result} />}</For>
 		</DocsItem>
 	);
 };
