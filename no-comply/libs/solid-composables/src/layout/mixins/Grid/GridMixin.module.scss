@@ -12,6 +12,14 @@
     grid-auto-flow: row;
   }
 
+  .rows {
+    grid-template-rows: var(--__grid-rows);
+  }
+
+  .columns {
+    grid-template-columns: var(--__grid-columns);
+  }
+
   @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
     @include variant-classes('gap', $NC_LAYOUT_GAP_VARIANTS, $bp) using ($key, $value) {
       gap: $value;

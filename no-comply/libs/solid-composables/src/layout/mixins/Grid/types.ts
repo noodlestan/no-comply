@@ -1,10 +1,10 @@
-import { type ClassList, type ResponsiveProp } from '@no-comply/solid-primitives';
+import { type ClassList, type ResponsiveProp, type Styles } from '@no-comply/solid-primitives';
 
 import type { GridAlign, GridFlow, LayoutGapProps } from '../../types';
 
 export type GridMixinProps = LayoutGapProps & {
-	columns?: ResponsiveProp<string | number>;
-	rows?: ResponsiveProp<string | number>;
+	columns?: string | number;
+	rows?: string | number;
 	areas?: ResponsiveProp<string>;
 	flow?: ResponsiveProp<GridFlow>;
 	justifyItems?: ResponsiveProp<GridAlign>;
@@ -19,5 +19,6 @@ export type GridMixinProps = LayoutGapProps & {
 export type GridMixinAPI = {
 	$root: {
 		classList: ClassList;
+		style: Styles;
 	};
 };
