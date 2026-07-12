@@ -1,6 +1,16 @@
-# Reference Index
+# Domains Listing
 
-This file lists work domains and important definitions required to interpret skill files and instructions correctly.
+This file lists the available work domains and indexes each domain's primary definitions, concepts, and commands.
+
+**IMPORTANT:** The concepts referenced by this index are essential for understanding and applying instructions correctly.
+
+**RULE:** Agents MUST use the commands listed below as the primary source of truth for exploring context, locating knowledge, and executing authoritative processes.
+
+The commands provide capabilities such as:
+
+- Specialized knowledge-discovery processes that replace ineffective filesystem scans and codebase inference. Example: `Locate conventions applicable to this {scope}`.
+- High-level commands that encapsulate recurring cross-domain agent tasks, replacing ad hoc instruction sequences. Example: `Write conventions proposal for {situation}`. or `Report issue in instructions {prompt context}`.
+- Standardized processes and commands for interacting with structured context resources (e.g.: backlogs, tasks, plans) in a systematic, consistent, and reliable manner. Example: `Move {task} to done`.
 
 ## Domains
 
@@ -17,13 +27,13 @@ This file lists work domains and important definitions required to interpret ski
 
 ## Definitions
 
-- **Agent Mode:** A special set of instructions included in the system prompt. Available agent modes are listed in `.agents/skills/agent-modes.md`. The value of the current session agent mode is declared as $AGENT_MODE in the agent mode skill. (#hoisted from `agent-modes`)
+- **Agent Mode:** A special set of instructions included in the system prompt. Available agent modes are listed in `.agents/skills/agents-modes.md`. The value of the current session agent mode is declared as $AGENT_MODE in the agent mode skill. (#hoisted from `agent-modes`)
 - **Skill:** A Structured Context File defining reusable commands that can be be invoked by users and agents, or directly from other skills or task instructions. Available skills are listed in `.agents/skills/agents-modes.md`. (#hoisted from `agent-modes`)
 - **Reference:** A data source that provides information about the repository and the codebase, its structure, patterns, conventions, or processes. They are intended to be read by humans and agents alike. (#hoisted from `references`)
 - **Reference File:** Markdown files inside of `reference/` directories that contain information about the repository and the codebase, its structure, patterns, conventions, and processes. They are intended to be read by humans and agents alike. (#hoisted from `references`)
 - **References Directory:** Any `reference/` directory in the repository. Thse directories can exist at root of the repository, in namespace directories, in packages directories, or deeper in module directories. (#hoisted from `references`)
 - **Plan:** A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents. (#hoisted from `plans`)
-- **Plan File:** A structured file outlining the plan, tracking source task attachments, implementation instruction attachments, execution status, and outcomes. (#hoisted from `plans`)
+- **Plan File:** A structured file outlining the plan, the commit strategy, and the eventual delegation. Plan files also track source task attachments, implementation instruction attachments, execution status, and capture outcomes and feedback. (#hoisted from `plans`)
 - **Implementation Instruction:** Self-contained sub-agent instructions and knowledge references that equip the sub-agent to execute specific changes and operations in the codebase. (#hoisted from `plans`)
 - **Implementation Instruction Files:** Files attached to a plan file, containing the Implementation Instruction prompt and other supporting instructions required for the sub-agent to execute the assigned operations and report back to the requesting agent. (#hoisted from `plans`)
 - **Task File:** A structured file defining a work item with no implementation details. (#hoisted from `tasks`)

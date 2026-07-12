@@ -1,6 +1,15 @@
 ---
 name: agent-reference-curator
 description: Use this skill when creating, editing, or updating reference files.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: high
+    textVerbosity: medium
+    color: '#5c208c'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "high"
 ---
 
 # Agent Mode: Reference Curator
@@ -67,24 +76,4 @@ Applies to skills, agent definitions, processes, templates and other agent-facin
 - RULE: prefer concise descriptions of structure, behavior, and conventions.
 - RULE: avoid explanation unless they materially help execution.
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "high"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: high
-textVerbosity: medium
-color: '#5c208c'
-top_p: 0.1
-```

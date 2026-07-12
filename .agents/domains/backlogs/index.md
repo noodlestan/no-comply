@@ -12,10 +12,6 @@
 - Locate files in backlogs.
 - Move tasks between backlog states.
 
-## Mandatory Reading
-
-READ `.agents/domains/_structured-contexts/index.md` - base rules for working with all context files.
-
 ## Definition of "Backlog"
 
 <!-- // WIP -->

@@ -37,7 +37,9 @@
 
 <!-- WIP types of tasks files -->
 
-## CRITICAL Rules for reading existing task files
+## Process for Reading Task Files
+
+With the
 
 - RULE: When the agent reads a task file and it MUST identify it's the task **Template** used to create it and read the template title.
 - RULE: If the agent reads a task file and can't identify the **Template**, the agent MUST STOP AND ALERT THE USER!
@@ -73,11 +75,11 @@ Before adding any content to a Task or Task Specification file the agent MUST ch
 
 If no template is provided by the concrete task writing skill, use this outline:
 
-- frontmatter:
-  - source: (path to **Template**)
-  - references: (array of context files required to fully understand the task)
-  - skills: (array of skills required to implement)
 - h1. Name: stable, specific task name.
+- h2. Matadata
+  - template: (path to **Template** used)
+- h2. Skills required
+- h2. Mandatory Reading
 - h2. One of:
   - User story: who needs the change, what they need, and why.
   - Summary: what needs to be done, and why.
@@ -93,33 +95,66 @@ If no template is provided by the concrete task writing skill, use this outline:
   - h3. Unrefined (categorised ideas, risks, blockers, open questions, and deferred decisions).
   - h3. Follow ups (items not in scope but actionable).
 
-## Process for Naming task files
+## Types of Files Related to Tasks
 
-1. Identify the task name and generate a kebab case identifier.
-2. Prefer rewording to hoist scope to the beginning of the identifier.
-3. Identify the project(s) in scope and use it to prefix the task identifier.
-4. Reword the task title to include the scope.
+### Task File
 
-### Example of Task File naming
+The `task.id` can be read from the plan file name using this pattern: `path/{task.id}/task.md`.
 
-Given a task name of "Refactor Code Submodules" in the "Demo Application" project, generate `demo-app-code-submodules-refactor.md` at `path`.
+The Template `.agents/domains/tasks/task_template.md` defines the structure of a task file in an arbitrary location.
 
-Should result in
+### Task Specification File
 
-- Task ID: `demo-app-code-submodules-refactor`
-- Task file name: `path/demo-app-code-submodules-refactor/task_{task.id}.md`
-- Task title: "Demo App: Extract Code components to a single module"
+The specification files are located in the same directory as the Task File and are named after the `task.id` and `spec.id` using the following pattern:
 
-## Process for naming Task Attachment files
+**Implementation Instructions file pattern:** `{task.id}/task__spec__{spec.id}.md`
 
-- RULE: task attachments are named after the task file and suffixed with the `___{attachment.type}`.
+The Template `.agents/domains/plans/spe_template.md` defines the structure for specifications.
 
-- RULE: example attachment types are single words such as: `spec`, `findings`, `audit`, `progress`, `plan`, `report`, `followup`.
+### Other Task Attachments
 
-### Examples of Task Attachment file names
+Arbitrary files may be created along side a task file to serve
 
-- `demo-app-code-submodules-refactor__findings.md`
-- `demo-app-code-submodules-refactor__plan.md`
-- `demo-app-code-submodules-refactor__followup.md`
+Examples:
 
-<!-- WIP wire tasks process in skills and agents -->
+- `/task__dependencies.md`, `create-component/task__spec__component-badge.md`.
+- `{task.id}/task__findings.md`
+- `{task.id}/task__discovery.md`
+
+**Implementation Instructions file pattern:** `{plan.id}/plan__report__{delegation.id}.md`
+
+These files contain the Sub Agent Report verbatim, detailing the outcome of the sub-agent process.
+
+The Template `.agents/domains/plans/report_template.md` defines the structure of the sub-agent response and it is referenced from the Implementations Instruction to be processed by the sub-agent at reporting time.
+
+## Commands
+
+### Command: Read Task(s) (file(s))
+
+**Goal:** Read a task file and identify the most relevant information
+
+**Triggers:**
+
+- When the instructions say `read-task-from {path}`
+- When the instructions say `read-tasks-from {directory | glob}`
+- When the user says `read task {file}`
+- When the user says `read tasks {files | pattern}`
+
+1. Identify the task(s) filename, path or glob, from the inputs.
+2. Use the most recent context if unable to identify task path(s).
+3. Execute the **Process for Reading task Files** with each identified File
+
+### Command: List Tasks From (path(s))
+
+**Goal:** Read al task files from a specific directory or glob pattern.
+
+**Triggers:**
+
+- When the instructions say `list-tasks-from {directory}`.
+- When the instructions say `list-tasks-from {directory | glob}`.
+- When the user says `list tasks {directory}`.
+- When the user says `list tasks in {directory | glob}`.
+
+1. Identify the path(s) directorie from the inputs.
+2. List all task files matching `{task.id}/task.md` under the identified path(s).
+3. Respond only with the

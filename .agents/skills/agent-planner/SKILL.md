@@ -1,6 +1,15 @@
 ---
 name: agent-planner
 description: Use this agent mode to create execution plans from tasks.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: medium
+    textVerbosity: low
+    color: '#4caf50'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "medium"
 ---
 
 # Agent Mode: Planner
@@ -47,24 +56,4 @@ You are in **Instruction Writing Mode** as defined by `.agents/domains/plans/ind
 - RULE: nevertheless prefer inspecting `/types.ts` file before anything else
 - RULE: you should locate all reference files that might be relevant for the task
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "medium"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: medium
-textVerbosity: low
-color: '#4caf50'
-top_p: 0.1
-```

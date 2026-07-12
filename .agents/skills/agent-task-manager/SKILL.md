@@ -1,6 +1,15 @@
 ---
 name: agent-task-manager
 description: Use this skill when creating and updating tasks. Tasks are work item definitions, not plans.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: medium
+    textVerbosity: low
+    color: '#ff6b6b'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "medium"
 ---
 
 # Agent Mode: Task Manager
@@ -86,24 +95,4 @@ When the user says `task wips` execute the following steps:
 
 <!-- WIP wip skill -->
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "medium"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: medium
-textVerbosity: low
-color: '#ff6b6b'
-top_p: 0.1
-```

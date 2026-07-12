@@ -6,42 +6,30 @@
 
 ## Summary
 
-TEMPLATE DIRECTIVE: Summarise the scope of the tasks.
+TEMPLATE DIRECTIVE: Summarise the goal and scope of the plan.
 
 TEMPLATE EXAMPLE: Create new badge component and mixin and refactor controllers.
 
 ## Source Tasks
 
-TEMPLATE DIRECTIVE: list the tasks and task attachments by matching any file named `{task.id}/task__**`. Pattern: `{task.id}/task__{attachment.type}[__{attachment.name}].md`. Examples: `refactor-controllers/task__dependencies.md`, `create-component/task__spec__component-badge.md`.
+TEMPLATE DIRECTIVE: list the tasks and task attachments as markdown links relative to the repository root.
 
 EXAMPLE:
 
 ```
-path/to/{plan.id}/
-	/tasks/
-		- refactor-controllers/
-			- [task.md](path/to/{plan.id}/tasks/refactor-controllers/task.md)
-			- [task__dependencies.md](...)
-			- [task__spec__controller.md](...)
-			- [task__spec__mixin.md](...)
-		- create-component/
-			- [task.md](...)
-			- [task__notes.md](...)
+- [Demo App: Refactor Controllers](path/to/refactor-controllers/task.md)
+  - [Dependencies](path/to/refactor-controllers/task__dependencies.md)
+  - [Notes](path/to/refactor-controllers/task__notes.md)
+- [Standard UI: Create Badge Component](path/to/standard-ui-create-badge-component/task.md)
+  - [Spec: Controller](path/to/tandard-ui-create-badge-component/task__speck__controller.md)
+  - [Spec: Mixin](path/to/tandard-ui-create-badge-component/task__speck__mixin.md)
 ```
 
-## Delegations
-
-TEMPLATE DIRECTIVE: Include the next section only if plan has delegations. Render one section H3 section for each delegation:
-
-### {delegation.id} = `{delegation.status}`
-
-TEMPLATE EXAMPLE: `### sub-agent-1 - READY`
-
-**Commit Message:** `{commit-message}`
+## Mandatory Reading
 
 ## Commits
 
-TEMPLATE DIRECTIVE: Render one section for each commit.
+TEMPLATE DIRECTIVE: Render one section for each planned commit.
 
 TEMPLATE EXAMPLE: ### `list-input-box-step-1` - `READY`
 
@@ -49,17 +37,17 @@ TEMPLATE EXAMPLE: ### `list-input-box-step-1` - `READY`
 
 TEMPLATE DIRECTIVE: Include the commit message.
 
-**Commit Message:** `{commit-message}`
-
 TEMPLATE EXAMPLE: **Commit Message:** `feat(standard-ui): add ListInputBoxItemMixin`
+
+**Commit Message:** `{commit.message}`
+
+TEMPLATE DIRECTIVE: Include the file name of the delegation instructions file.
+
+**Instructions File:** `{instructions file path}`
 
 TEMPLATE DIRECTIVE: If the commit was delegated, include the delegation id
 
 **Sub-Agent:** `{delegation.id}`
-
-TEMPLATE DIRECTIVE: Include the name of the delegation instructions file.
-
-**Instructions File:** `{instructions file path}`
 
 TEMPLATE EXAMPLE: `**Instructions File:** path/to/list-input-box/plan__instruct__list-input-box-mixin.md`
 
@@ -71,6 +59,8 @@ TEMPLATE EXAMPLE:
 **CHANGELOG:**
 
 - Add `mixin:standard:list-input-box`
+- Remove `mixin:standard:list-input-box`
+- Refactor
 ```
 
 TEMPLATE DIRECTIVE: If this commit is marked as blocked, include a BLOCKER summary and the path to the the sub-agent report when available.

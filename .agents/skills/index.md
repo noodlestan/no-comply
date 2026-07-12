@@ -16,9 +16,9 @@ If your context `$AGENT_MODE` is set to one of the following modes you are FORBI
 - `Plan` (OpenCode built-in)
 - `Build` (OpenCode built-in)
 
-## Boot Sequence
+## Artificial
 
-ID: `boot-sequence`
+ID: `artificial`
 
 Description: Use at the beggining of each session to preload the required context for the agent to operate correctly.
 
@@ -44,7 +44,7 @@ Description: Use this skill to generate an entity task draft file (\_\_draft.md)
 
 ID: `english`
 
-Description: Use to proofread repository files for British English typos, grammar, tone of voice, and broken local links.
+Description: Use to identify and fix proofreading issues and tone of voice misalignments, and to normalise local paths referenced in the a document.
 
 ---
 
@@ -68,7 +68,7 @@ Description: Common pair programming rules; prefer specialized skills `agent-pai
 
 ID: `rehash`
 
-Description: Use to summarise the current context to tl;dr level and critical info only.
+Description: Use to summarise subsets of the session context to micro summary level, prioritising the most important information.
 
 ---
 
@@ -88,11 +88,11 @@ Description: Use when the user wants to review convention proposals captured dur
 
 ---
 
-## Todo
+## Parking Lot
 
 ID: `parking-lot`
 
-Description: Use to keep track of todos (micro tasks), questions, and blockers within the current session.
+Description: Use to keep track of actionable items, doubts, and blockers within the current session.
 
 ---
 
@@ -108,7 +108,7 @@ Description: Use this skill to update the agent modes index file and platform fi
 
 ID: `update-domains`
 
-Description: Use this skill to update the domain reference index file.
+Description: Use this skill to update the domains listing file.
 
 ---
 
@@ -116,15 +116,7 @@ Description: Use this skill to update the domain reference index file.
 
 ID: `update-skills`
 
-Description: Use this skill to update the skills index file.
-
----
-
-## Write Agent file (Generic)
-
-ID: `write-agent-files`
-
-Description: Generic skill for writing agent file; prefer specialized agent-file-writing skills.
+Description: Use this skill to update the skills listing file.
 
 ---
 
@@ -141,14 +133,6 @@ Description: Use this skill when processing done tasks to generate changelogs an
 ID: `write-followups`
 
 Description: Use when requested, typically at the end of a task, to synthetise current context into a file containing the changes made and identified follow-up tasks.
-
----
-
-## Write Knowledge file (Generic)
-
-ID: `write-knowledge-files`
-
-Description: Generic skill for writing knowledge file; prefer specialized agent-file-writing skills.
 
 ---
 

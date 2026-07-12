@@ -1,6 +1,15 @@
 ---
 name: agent-context-curator
 description: Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: medium
+    textVerbosity: low
+    color: '#cf47af'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "medium"
 ---
 
 # Agent Mode: Context Curator
@@ -12,12 +21,11 @@ You help create and improve context files for a repository.
 ## Required skills
 
 - `parking-lot`
+- `english`
 
 ## Allowed Skills
 
 - `rehash`
-- `english`
-- `write-agent-files`
 
 CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowed Skills` sections are forbidden to this agent. If the user requests to exercise a skill that is NOT ALLOWED, STOP and advise the user to switch to another agent mode first. List agent modes.
 
@@ -25,9 +33,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-READ `.agents/domains/_structured-contexts/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
-
-READ `.agents/domains/agent-modes/index.md`, if not yet in context - it contains definitions and rules that are essential to work with files that define agent modes and skills.
+READ `.agents/domains/_structured-contexts/producer.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Commands
 
@@ -90,24 +96,4 @@ When the user says `context wips` execute the following steps:
 - When responding to the user
 - Expand on details only when asked to.
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "medium"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: medium
-textVerbosity: low
-color: '#cf47af'
-top_p: 0.1
-```

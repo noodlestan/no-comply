@@ -13,9 +13,11 @@
 - Maintain conventions for contexts files.
 - Review contexts files consistency with conventions.
 
+<!-- context file processes and templates -->
+
 ## Rules For Writing Rules in Structured Context Files
 
-- RULE: Always attempt to group rules under a `## Rules for ...` heading.
+- RULE: Group rules under a `## Rules for ...` heading.
 - RULE: state rules explicitly.
 - RULE: use terse, direct, imperative language.
 - RULE: include only enforceable instructions.

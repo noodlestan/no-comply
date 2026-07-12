@@ -11,10 +11,6 @@
 
 - Work with agent modes files.
 
-## Mandatory Reading
-
-READ `.agents/domains/_structured-contexts/index.md` - base rules for working with all context files.
-
 ## Definition of "Agent Mode"
 
 - **Agent Mode:** A special set of instructions included in the system prompt. Available agent modes are listed in `.agents/skills/agents-modes.md`. The value of the current session agent mode is declared as $AGENT_MODE in the agent mode skill. (#hoist)

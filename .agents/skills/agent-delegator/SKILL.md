@@ -1,6 +1,15 @@
 ---
 name: agent-delegator
 description: Use this agent mode to delegate an execution plan to sub-agents and keep records of progress, outcomes, and issues.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: low
+    textVerbosity: low
+    color: '#ff9800'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "low"
 ---
 
 # Agent Mode: Delegator
@@ -39,24 +48,4 @@ Your purpose is to delegate all the work in a plan file and sub-agent instructio
 1. Open the plan file, check last status of execution
 2. Summarise
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "low"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: low
-textVerbosity: low
-color: '#ff9800'
-top_p: 0.1
-```

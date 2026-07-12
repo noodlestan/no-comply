@@ -21,6 +21,8 @@
 
 **Context File:** A file that contains structured context of a top-level resource type. The template and filename pattern(s) for each context type are defined in its Domain Index File. Examples: `AGENTS.md` for root file, `.agents/skills/{skill.id}/SKILL.md` for skill files as, and `{task.id}/task__spec__{name}.md` for task specification files.
 
+<!-- structured contexts rules: convert to processes and use in curator agent modes -->
+
 ## Rules For Writing Context Files
 
 Applies to skills, agent definitions, processes, templates and other agent-facing instruction files.

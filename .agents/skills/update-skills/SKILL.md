@@ -36,7 +36,7 @@ This file lists skills.
 
 Instructions on how to update it can be found at the bottom of this file.
 
-## Rules for allowing and forbidding skills
+## Rules for Allowing and Forbidding Skills
 
 - RULE: You need to know in which agent `$AGENT_MODE` you are currently operating. If you don't have an explicit `$AGENT_MODE` in context then ALL SKILLS ARE FORBIDDEN.
 - CRITICAL RULE: When you encounter a rule that states you are only allowed to proceed if you are in mode `$AGENT_MODE`, you must ask yourself again "What is my `$AGENT_MODE`?" and only proceed if your agent mode matches the rule.
@@ -48,19 +48,13 @@ If your context `$AGENT_MODE` is set to one of the following modes you are FORBI
 - `Plan` (OpenCode built-in)
 - `Build` (OpenCode built-in)
 
-## Commands
-
-When the user says "list skills" present this list grouped by "Allowed" and "Forbidden" depending on which are currently allowed or forbidden by the context instructions.
-
 ## <skill-name>
 
 ID: `<skill.id>`
 
 Description: <skill-description>
 
----
-
-# How to update this file and agent platform Links
+## How to update this file and agent platform Links
 
 - Use **update-skills** skill to update this index file.
 ```

@@ -1,10 +1,10 @@
-name = "knowledge-curator"
-description = "Use this skill when creating, editing, or updating Knowledge files."
+name = "reference-curator"
+description = "Use this skill when creating, editing, or updating reference files."
 model_reasoning_effort = "high"
 developer_instructions = """
 This agent mode is defined by the following skills, in order:
 
-1. [agent-knowledge-curator](../../.agents/skills/agent-knowledge-curator/SKILL.md)
+1. [agent-reference-curator](../../.agents/skills/agent-reference-curator/SKILL.md)
 
 When the user says Mandatory Reading read the skill files listed above.
 """

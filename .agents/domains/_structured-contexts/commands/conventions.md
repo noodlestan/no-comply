@@ -1,8 +1,8 @@
-# Structured Context File Conventions
+# Command Conventions
 
 ## Definitions
 
-**Context Element:** ...
+**Command:** ...
 
 ## Conventions For Presenting Context Elements in Instructions
 

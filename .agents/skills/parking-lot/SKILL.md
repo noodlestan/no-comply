@@ -152,7 +152,7 @@ When the user says `do todos` or `do it` execute the following steps:
 
 1. Check if the recent exchanges include operations with the **Parking Lot**.
 2. If there is recent activity, take the first item and do it.
-3. If unclear whether the user is reffering to the **TODO** list, STOP and ask the user what to do.
+3. If unclear whether the user is referring to the **TODO** list, STOP and ask the user what to do.
 4. Otherwise, do the first item and report back.
 5. use the **rehash** skill to respond.
 

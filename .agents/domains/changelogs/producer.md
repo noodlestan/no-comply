@@ -14,7 +14,8 @@
 
 ## Mandatory Reading
 
-READ `.agents/domains/_structured-contexts/index.md` - base rules for working with all context files.
+READ `.agents/domains/tasks/index.md` - base rules for working with all context files.
+READ `.agents/domains/plans/index.md` - base rules for working with all context files.
 
 ## Definition of "Backlog"
 

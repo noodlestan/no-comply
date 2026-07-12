@@ -83,6 +83,6 @@ When all commits are completed:
 
 ## Commands
 
-When the user says "add to follow ups", add a note under "## Follow Ups" in the `{plan.id}.md` file.
+When the user says "add to follow ups", add a note under "## Follow Ups" in the `{plan.id}/plan.md` file.
 
 When the user responds with "not in scope" it means the previous response from the agent contained a suggestion or concern that is not relevant for the current plan. Try to forget it and not repeat the same question or concern again.

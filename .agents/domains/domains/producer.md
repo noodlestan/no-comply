@@ -14,7 +14,7 @@
 
 ## Mandatory Reading
 
-READ `.agents/domains/_structured-contexts/index.md` - base rules for working with all context files.
+READ `.agents/domains/_structured-contexts/producer.md` - base rules for working with all context files.
 
 ## Definitions
 

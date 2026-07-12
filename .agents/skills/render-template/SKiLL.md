@@ -41,19 +41,24 @@ With the provided template file or name, execute the following steps:
 - CRITICAL RULE: if you can not identify the **Template:** unambigiously, STOP ask the user.
 - RULE: do not attempt to localte **Template File** on your own.
 
+**Steps:**
+
+With the provided `input scope` and the validated `template file`, execute the following steps:
+
 1. Identify all lines starting with `TEMPLATE DIRECTIVE:` or `EXAMPLE:` as a template rendering instruction.
-2. Follow `TEMPLATE DIRECTIVE: <rendering instruction>` literally thinking how it applies to the content being rendered in the file.
-3. Replace `EXAMPLE: <rendering example>` with actual
-4. Replace all placeholders that use angle brackets `<placeholders>` or `$DOLLAR` syntax with the data from the context. Examples: `{plan.id}`, `$SCOPE`, or `<step N> — <step title>`.
+2. Follow `TEMPLATE DIRECTIVE: {rendering instructions}` literally thinking how it applies to the content being rendered in the file.
+3. Replace `EXAMPLE: {rendering example}` with the corresponding data from the contex.
+4. Replace all placeholders that use brackets `{placeholders}` syntax with the data from the context. Examples: `{plan.id}`, or `<step N> — <step title>`.
+5. Replace all placeholders that use `$DOLLAR` syntax with the data from the context. Examples: `$SCOPE`.
 
 - RULE: treat every line starting with `::COMMAND:` as a pre-rendered instruction for the sub-agent and include it verbatim in the output.
-- RULE: treat all headings as pre-rendered for the sub-agent, unless they contain a `<placeholder>`.
+- RULE: treat all headings as pre-rendered for the sub-agent, unless they contain a `{placeholder}`.
 - RULE: treat all other lines, including lines starting with `- RULE:` as pre-rendered for the sub-agent and include them verbatim in the output.
 
 - IMPORTANT RULE: Do not leave any `TEMPLATE DIRECTIVE:` or `EXAMPLE:` lines in the final prompt. This applies to all the content in front of TEMPLATE DIRECTIVE: and EXAMPLE: not just to the directive markers.
 
-5. Check rendered files against these rules.
-6. Check if file file contains all mandatory sections as per template directives.
+6. Check rendered files against these rules.
+7. Check if file file contains all mandatory sections as per template directives.
 
 ## Commands
 
@@ -61,29 +66,14 @@ With the provided template file or name, execute the following steps:
 
 **Triggers:**
 
-- when the instructions contain `use the **render-template** skill with the <template file or name> to render <input scope>`.
-- when the instructions contain `use template <template file or name> to render <input scope>`.
-- when the instructions contain `render <input scope> using the <template file or name> template`.
+- when the instructions contain `use the **render-template** skill with the {template file or name} to render {input scope}`.
+- when the instructions contain `use template {template file or name} to render {input scope}>`.
+- when the instructions contain `render {input scope} using the {template file or name} template`.
 
 **Process:**
 
-1. Apply the **Process for Reading the Template File** with the provided template file or name to validate the template.
-
-1. Follow the "Process for Rendering Files using Templates" to render the identified content using the selected template
-1. In case of ambiguity, contradictions, or omissions, report the issue to the user
-1. Present the rendered content for review and wait for confirmation
-1. Infer or ask for the save location and save it
-
-<!-- WIP Apply the **Proces-->
-<!-- WIP Follow all the **Rules-->
-<!-- WIP define infer "from the most recent exchanges with the user" "recent context"-->
-<!-- WIP define alert the user -->
-<!-- WIP define stop and ask -->
-
-<!-- WIP 1. If unable to resolve a template file name, ALERT the user and ASK for an explicit template name or template file name.
-1. If working in autonomous mode and unable to ASK a human, Agents must execute the `PROTOCOL HALT` and STOP PROCESSING INSTRUCTIONS. -->
-
-Process for Alerting the User
-Process for Asking the User
-
-Protocol for Halting Execution and Reporting Failure
+1. Apply the **Process for Reading the Template File** with the provided `template file or name` to locate and validate the template.
+2. Follow the **Process for Rendering Files using Templates** to render the `input scope` using the validated template.
+3. In case of ambiguity, contradictions, or omissions, report the issue to the user.
+4. Present the rendered content for review and wait for confirmation.
+5. Infer or ask for the save location and save it.

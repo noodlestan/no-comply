@@ -15,6 +15,8 @@
 3. Write the the JSON data to `opencode.json` file at the root of the repository.
 4. Display it to the user.
 
+<!-- reference: https://opencode.ubitools.com/config/#format -->
+
 ## Opencode Config
 
 ```.json
@@ -22,22 +24,10 @@
   "$schema": "https://opencode.ai/config.json",
   "agent": {
     "build": {
-      "mode": "primary",
-      "prompt": "{file:.agents/skills/agent-builder/SKILL.md}",
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
+      "disable": true
     },
     "plan": {
-      "mode": "primary",
-      "prompt": "{file:.agents/skills/agent-planner/SKILL.md}",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
+      "disable": true
     }
   }
 }

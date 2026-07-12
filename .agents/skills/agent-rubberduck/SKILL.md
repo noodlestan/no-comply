@@ -1,6 +1,15 @@
 ---
 name: agent-rubberduck
 description: Use this agent mode to help the user reason about a problem, gathering and summarising context, staying conversational, and responsive.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: high
+    textVerbosity: medium
+    color: '#514f58'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "high"
 ---
 
 # Agent Mode: Rubber Duck
@@ -32,24 +41,4 @@ RULE: All other skills are forbidden to this agent. Advise the user to switch to
 
 READ `reference/index.md` at the root of the repository, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "high"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: high
-textVerbosity: medium
-color: '#514f58'
-top_p: 0.1
-```

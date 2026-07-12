@@ -1,17 +1,30 @@
 # Agent Rules and Orientation
 
-A monorepo for the **Noodlestan** projects.
+Welcome to the nocomply repository.
+
+## Rules
+
+**Triggers:**
+
+- Before processing the first user request
+
+**Steps:**
+
+- Execute the **::boot** command of the **artificial** skill.
+- Execute the **::identify** command of the **artificial** skill.
 
 ## Mandatory Reading
 
-::MANDATORY-READING – Agents must read the contents of the skill file `.agents/skills/boot-sequence/SKILL.md`
+::MANDATORY-READING – Agents must read the contents of the skill file `.agents/skills/artificial/SKILL.md`
 
-## Commands:
+## Commands
 
-- RULE: Agents must execute these commands when the user invokes them:
+- When the user says `::identify` execute the **::identify** command of the **artificial** skill.
+- When the user says `::autoexec` execute the **::autoexec** command of the **artificial** skill.
+- When the user says `::mantadory` execute the **::mantadory** command of the **artificial** skill.
+- When the user says `::boot` execute the **::boot** command of the **artificial** skill.
+- When the user says `::reflect` execute the **::reflect** command of the **artificial** skill.
 
-- When the user says `::identify` execute the **::identify** command of the **boot-sequence** skill.
-- When the user says `::autoexec` execute the **::autoexec** command of the **boot-sequence** skill.
-- When the user says `::mantadory` execute the **::mantadory** command of the **boot-sequence** skill.
-- When the user says `::boot` execute the **::boot** command of the **boot-sequence** skill.
-- When the user says `::reboot` execute the **::reboot** command of the **boot-sequence** skill.
+## Before you continue
+
+IMPORTANT: Execute the **::boot** command of the **artificial** skill.

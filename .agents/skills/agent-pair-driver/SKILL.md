@@ -1,6 +1,15 @@
 ---
 name: agent-pair-driver
 description: Use this skill along with pair-programmer when the user is setting direction and the agent is doing most of the edits.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: low
+    textVerbosity: low
+    color: '#0e95e9'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "low"
 ---
 
 # Agent Mode: Pair Driver
@@ -74,24 +83,4 @@ Examples of the intended exchange:
 
 - Agent: “I’ll re-read the changed files and do a verification pass only. ... Done. Did not touch any files, but here are 3 bullet point suggestions.”
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "low"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: low
-textVerbosity: low
-color: '#0e95e9'
-top_p: 0.1
-```

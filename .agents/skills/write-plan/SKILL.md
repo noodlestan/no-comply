@@ -40,7 +40,7 @@ This is a workflow with 6 steps
 5. Write plan file
 6. Prompt generation
 
-You may be given a `{plan.id}.md` file along with the user request. In that case you MUST:
+You may be given a `{plan.id}/plan.md` file along with the user request. In that case you MUST:
 
 - RULE: read the existing plan file and prepare to analyse and/or improve it as per user request.
 - RULE: Treat the existing plan file as authoritative source of truth for status of execution.
@@ -68,7 +68,7 @@ The user will suggest task files, your goal is to analyse them and check the qua
 
 ### Step 4: Grouping
 
-Goal: produce a draft of the plan + TODO list of questions and blockers.
+**Goal:** produce a draft of the plan, commit strategy, and TODO list of questions and blockers.
 
 - RULE: If there is already evidence of progress in the plan file agents MUST confirm the state by comparing expected outcomes.
 
@@ -81,18 +81,17 @@ Read all tasks and specification attachments, and without reading any else (no g
 5. Write the commit message for each proposed commit, and terse description based on the most information dense summaries from the task file(s) or specifications, that identify the work being bundled (example `Add ComponentMixin in color module`)
 6. Present to the user for review
 
-### Step 5: Write plan file
+### Step 5: Write the plan file
 
-1. Create the plan file using the Plan Template and save it to `{plan.id}.md`
+1. Create the plan file using the Plan Template and save it to `{plan.id}/plan.md`
 2. Include all the tasks bundled in the plan
 3. Include all the commits with their message, and compact summary of changes.
 
 ### Step 6: Prompt Generation
 
-For each commit prepare a prompt file.
+This is where the planning work happens and the prompt files are generated, including all instructions necessary to . The instructions must be plucked from the task files and specifications files according to items bundled for each commit.
 
-This is where the planning work happens. The Prompt file contains all instructions necessary to execute the commit. The instructions must be plucked from the task files and specifications files according to items bundled for each commit.
-
+For each commit peprate a prompt file.
 Starting with the first commit:
 
 1. Generate a prompt, best-effort, by converting all definitions in the related spec files to instructions.
@@ -109,16 +108,34 @@ HEADS UP: The tasks and specs DO NOT prescribe implementation details so a lot q
 
 Note: Prepare to offload the prompt at any time, even if the planning is not yet completed, and move on to the next commit.
 
-8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `{plan.id}__instruct__<commit-kebab-name>.md`
-
+8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `{plan.id}/plan__instruct__<commit-kebab-name>.md`
 9. Verify the generated prompt file follows all the `TEMPLATE DIRECTIVE:` included in the template.
-
-10. update the `{plan.id}.md` file with the status of the commit.
-
+10. update the `{plan.id}/plan.md` file with the status of the commit.
 11. move on to the next commit.
 
 ## Commands
 
-When the user says "add to follow ups", add a note under "## Follow Ups" in the `{plan.id}.md` file.
+<!-- WIP exctractable generic commands (write-task, context-curator, etc...) -->
+
+### Command: Add to Follow Ups
+
+**Triggers:**
+
+- When the user says "add to follow ups"
+
+**Process:**
+
+1. add a note under "## Follow Ups" in the `{plan.id}/plan.md` file.
 
 When the user responds with "not in scope" it means the previous response from the agent contained a suggestion or concern that is not relevant for the current plan. Try to forget it and not repeat the same question or concern again.
+
+### Command: Not In Scope
+
+**Triggers:**
+
+- When the user responds with in "not in scope" to a suggestion or concern raised by the agent.
+
+**Process:**
+
+1. Take note that the previous response from the agent contained a suggestion or concern that is not relevant for the current plan.
+2. Try to forget it and DO NOT repeat the same question or concern again.

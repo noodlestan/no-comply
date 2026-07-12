@@ -1,4 +1,4 @@
-# Boot Sequence Additional Commands
+# Artificial Additional Commands
 
 ## Commands
 
@@ -21,18 +21,6 @@ When the user says `::skills`:
 2. group the skills listed by "Allowed" or "Not Allowed" depending on which mode the `$AGENT_MODE` is currently active and what skills are allowed in the `# Agent: $AGENT_MODE` file.
 3. present the list of allowed skills with their names and purposes.
 4. present the list of disallowed skills as names only.
-
-### Command: `::bookshelf`
-
-When the user says `::bookshelf`:
-
-If you have initiliased the **Bookshelf list** present it.
-
-If don't have a **Bookshelf list** to present, execute the following steps:
-
-1. Alert the user that Bookshelf is empty.
-2. Scan the context for files loaded through `## Mandatory Reading` directives.
-3. Present the file name, terse description, and source file (if available)
 
 ### Command: `::commands`
 

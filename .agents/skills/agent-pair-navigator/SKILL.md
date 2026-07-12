@@ -1,6 +1,15 @@
 ---
 name: agent-pair-navigator
 description: Use this skill along with pair-programmer when the user is doing most of the edits and the agent is calling the next step, reviewing, cleaning, and verifying.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: low
+    textVerbosity: low
+    color: '#e93d0e'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "low"
 ---
 
 # Agent Mode: Pair Navigator
@@ -69,24 +78,4 @@ Examples of the intended exchange:
 
 - Agent: “In the changed files I found a single character variable name `i`, 2 dead imports, debug logs, temporary comments. Update? Or do you want to see a diff first?”
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "low"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: low
-textVerbosity: low
-color: '#e93d0e'
-top_p: 0.1
-```

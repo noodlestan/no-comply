@@ -1,13 +1,13 @@
 ---
 name: update-agents
-description: Use this skill to update the agent modes index file and platform files for Opencode and Codex.
+description: Use this skill to update the agent modes index file, Codex agent files, and the opencode.json configuration.
 ---
 
 # Skill: Update Agents
 
 Updates **Agent Mode** index file and Agent Platform Files.
 
-Use this skill to update the `.agents/skills/agents-modes.md` so that it lists all available agent skills, the platform agent files at `.codex/agents/` and the `opencode.json` configuration at the root of the repository.
+Use this skill to update the `.agents/skills/agents-modes.md` so that it lists all available agent skills, the Codex agent files at `.codex/agents/`, and the `opencode.json` configuration at the root of the repository.
 
 ## Allowed Agent Modes
 
@@ -28,6 +28,10 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 - `agent.id` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
 - `agent.name` - extracted from the skill file's H1 heading `# Agent Mode: {agent-name}`.
 - `agent.mission` - the `description` field of the skill file's frontmatter.
+- `agent.codex` - the `metadata.codex` object from the skill file's frontmatter.
+- `agent.opencode` - the `metadata.opencode` object from the skill file's frontmatter.
+
+4. Do not present the agent mode table to the user, its purpose is to render files using templates.
 
 ### Process for Updating the Agent Mode Index
 
@@ -62,44 +66,19 @@ ID: `$AGENT_MODE`
 
 Mission: <agent-mission>
 
----
-
 # How to update this file and agent platform Links
 
 - Use **update-agents** skill to update this agent modes index file and platform files for Opencode and Codex.
 ```
 
-### Process for Updating Platform files
+### Process for Updating Codex agent files
 
-Platform files are short markdown files that allow platforms such as `codex` or `opencode` to automatically recognise the agent modes.
+With the provided agent mode:
 
-1. Read all files matching `.agents/skills/agent-{name}/SKILL.md`.
-2. Ignore platform agent files declared as `.codex/agents/{name}.toml` and `.opencode/agents/{name}.md`.
-3. For each agent skill in the source of truth generate 2 new files using the Codex and Opencode templates below.
-4. The values declared in the `## BACKMATTER` section of each source of truth agent skill file must be copied to the respective Codex `toml` and Opencode `md` files.
-5. Save the platform tiles to `.codex/agents/{name}.toml` and `.opencode/agents/{name}.md`.
-6. Delete platform agent files in both `.opencode/agents` and `.codex/agents` that do not correspond to an entry in the source fo truth.
-
-#### Template for Opencode Agent file
-
-```
----
-description: <agent-mission>
-mode: primary
-reasoningEffort: medium
-textVerbosity: low
-color: '#ff6b6b'
-top_p: 0.1
----
-
-# <agent-name>
-
-This agent mode is defined by the following skills, in order:
-
-1. [agent-$AGENT_MODE](../../.agents/skills/agent-$AGENT_MODE/SKILL.md)
-
-When the user says Mandatory Reading read the skill files listed above.
-```
+1. Identify the `metadata.codex` values from the agent skill file's frontmatter.
+2. Generate the Codex `.toml` file using the template below.
+3. Save to `.codex/agents/{name}.toml`.
+4. Delete orphaned `.codex/agents/` files that do not correspond to an entry in the agent mode table.
 
 #### Template for Codex agent files
 
@@ -118,8 +97,10 @@ When the user says Mandatory Reading read the skill files listed above.
 
 ### Process for Updating Opencode Configuration
 
-1. Read the `.agents/skills/agents-modes.md` file and extract the list of agent modes.
-2. Use the `.agents/skills/update-agents/opencode-config.md` instructions with the available agent mode to generate a fresh `opencode.json` configuration file.
+With the provided table of agent modes:
+
+1. Use the `.agents/skills/update-agents/opencode-config.md` instructions with the agent modes table to generate a fresh `opencode.json` configuration file at the repository root.
+2. For each agent mode, merge the `agent.opencode` values from the table into the corresponding agent entry in `opencode.json`.
 
 ## Commands
 
@@ -131,6 +112,7 @@ When the user says Mandatory Reading read the skill files listed above.
 
 **Process:**
 
-1. Execute the **Process for Updating the Agent Mode Index**.
-2. Execute the **Process for Updating Platform files**.
-3. Execute the **Process for Updating Opencode Configuration**.
+1. Execute the **Process for Listing Available Modes** to generate a table of agent modes.
+2. With the table of agent modes, execute the **Process for Updating the Agent Mode Index** to generate the index file.
+3. With each agent mode in the table, execute the **Process for Updating Codex agent files**.
+4. With all agents modes in the table, execute the **Process for Updating Opencode Configuration**.

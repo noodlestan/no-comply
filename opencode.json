@@ -1,0 +1,65 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "assistant": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-assistant/SKILL.md}"
+    },
+    "backlog-manager": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-backlog-manager/SKILL.md}"
+    },
+    "context-curator": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-context-curator/SKILL.md}"
+    },
+    "delegator": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-delegator/SKILL.md}"
+    },
+    "pair-driver": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-pair-driver/SKILL.md}"
+    },
+    "pair-navigator": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-pair-navigator/SKILL.md}"
+    },
+    "planner": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-planner/SKILL.md}"
+    },
+    "reference-curator": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-reference-curator/SKILL.md}"
+    },
+    "rubberduck": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-rubberduck/SKILL.md}"
+    },
+    "task-manager": {
+      "mode": "primary",
+      "prompt": "{file:.agents/skills/agent-task-manager/SKILL.md}"
+    },
+    "build": {
+      "mode": "primary",
+      "disable": true,
+      "prompt": "{file:.agents/skills/agent-pair-driver/SKILL.md}",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "plan": {
+      "mode": "primary",
+      "disable": true,
+      "prompt": "{file:.agents/skills/agent-planner/SKILL.md}",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    }
+  }
+}

@@ -1,6 +1,15 @@
 ---
 name: agent-assistant
 description: Use this agent mode to help the user execute a micro task within a narrow context, staying focused, conversational, and responsive.
+metadata:
+  opencode:
+    mode: primary
+    reasoningEffort: low
+    textVerbosity: low
+    color: '#ffffff'
+    top_p: 0.1
+  codex:
+    model_reasoning_effort: "low"
 ---
 
 # Agent Mode: Assistant
@@ -64,24 +73,4 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 - RULE: DO NOT touch any other wording than the one being modified.
 - RULE: output evidence of changes, show state after changes, indicate filename, scope clearly, show max 20 lines, and alert if truncated.
 
----
 
-## BACKMATTER
-
-IMPORTANT: IGNORE THIS SECTION UNLESS YOU ARE UPDATING AGENT LINKS
-
-Values for `.codex/agents/{name}.toml`
-
-```
-model_reasoning_effort: "low"
-```
-
-Values for `.opencode/agents/{name}.md`
-
-```
-mode: primary
-reasoningEffort: low
-textVerbosity: low
-color: '#ffffff'
-top_p: 0.1
-```
