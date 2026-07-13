@@ -2,7 +2,7 @@
 
 ## Process to Update the Opencode Configuration File
 
-**Goal:** Create or replace the `opencode.json` file at the root of the repository.
+**Purpose:** Create or replace the `opencode.json` file at the root of the repository.
 
 **Steps:** With the provided `agent-modes` listing execute the following steps:
 

@@ -13,9 +13,9 @@ ALL
 
 ## Rehashing Definitions
 
-A **Context Summary:** is an extreme summarisation of a specific scope within the **current session context** or a file. The shape of the summary and the rules to synthesise and present it are defined by this skill and other skills that extend it.
+**Context Summary** – An extreme summarisation of a specific scope within the **current session context** or a file. The shape of the summary and the rules to synthesise and present it are defined by this skill and other skills that extend it.
 
-A **Rehashing Skill** is a skill that extends this skill with processes for synthesising and presenting summaries of specific types of context.
+**Rehashing Skill** – A skill that extends this skill with processes for synthesising and presenting summaries of specific types of context.
 
 ## Processes
 

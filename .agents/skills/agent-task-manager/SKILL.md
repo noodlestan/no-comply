@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#ff6b6b'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "medium"
+    model_reasoning_effort: 'medium'
 ---
 
 # Agent Mode: Task Manager
@@ -94,5 +108,3 @@ When the user says `task wips` execute the following steps:
 1. Use the `Command: add to list` of the **parking-lot** skill to add them to the appropriate list.
 
 <!-- WIP wip skill -->
-
-

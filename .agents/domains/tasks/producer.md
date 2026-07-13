@@ -1,89 +1,90 @@
-# Tasks Management
+# Tasks Producer API
 
-**Use Cases:** Generating tasks and specifications for deferred planning and processing outcomes and feedback.
+**Use Cases:** Creating, writing, and curating task records, their specifications, attachments, and related content following domain rules and constraints.
 
 **Provides:**
 
+- Definitions
+- Structures
+- Files
 - Processes
-- Commands
 
 **Capabilities:**
 
-- Generate task drafts
-- Generate tasks and specifications
+- Understand what a task is and its related concepts, including producer-specific roles.
+- Work with the task record structure and its fields.
+- Identify and locate task files, attachments, and specification files.
+- Generate task titles and IDs from summaries.
+- Name and organise task attachment files.
+- Read and validate task files and specification attachments.
+- Write task files and specification files following content rules and constraints.
 
 ## Mandatory Reading
 
-READ `.agents/domains/tasks/producer.md` - definitions and rules for working with all task files.
+## API
 
-## Processes
+### Definitions
 
-### Process for Generating Task Titles
+---
 
-With the provided task summary, execute the following steps, checking the result against each step's expected result for the following Input Example: "extract all the calculations in the code submodules of the demo app to private functions".
+| Type       | Name | Definition                                                                                                     | Path                 | Status |
+| ---------- | ---- | -------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| Definition | Task | A structured domain record, defining a work item, goal, scope, requirements, constraints, and expected outcome. | definitions/index.md | ✅     |
 
-1. Identify the task Gooal and scope, classify it, and use less specific wording, and less details, in order to compact the title. Expected Result: `Refactor Code Submodules Calculations in Demo App`.
-2. Reword to hoist scope to the beginning of the identifier. Expected Result: `Refactor Code Submodules Calculations in Demo App`.
-3. Identify the project in scope and use it to prefix the task identifier. Expected Result: `Demo App: Refactor Code Submodules Calculations`.
+---
 
-### Process for Generating Task IDs
+| Type       | Name                        | Definition                                                                                                                   | Path                 | Status |
+| ---------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| Definition | Definitions Related to Task | Task Template, Task Draft, Task Attachment, Task Specification — extended concepts for task records and their attachments. | definitions/index.md | ✅     |
 
-**Before you Start:**
+---
 
-1. With the provided task title, check if its raw, or already the result of executing the process for generating task titles.
-2. If the title is still too long, too specific, or not scoped to a project, follow the **Process for Generating Task Titles** with the raw title, to normalise it.
+| Type       | Name                  | Definition                                                                                           | Path                 | Status |
+| ---------- | --------------------- | ---------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| Definition | Task Writing Skill    | A task writing skill active in the current session.                                                  | definitions/index.md | ✅     |
+| Definition | Task Findings         | Context gathered during task writing explorations, such as existing conventions, patterns, and APIs. | definitions/index.md | ✅     |
+| Definition | Notes Section         | The only section of the task where content other than specification is allowed.                      | definitions/index.md | ✅     |
+| Definition | Task Thinking Mode    | A mode where analysis of use cases, contracts, and API design is allowed.                            | definitions/index.md | ✅     |
+| Definition | Task Exploration Mode | A mode where the agent gathers context about existing entities, APIs, and conventions.               | definitions/index.md | ✅     |
 
-With the normalised task title, execute the following steps, checking the result against each step's expected result for the following Input Example: "given a task name `Demo App: Refactor Code Submodules Calculations`.
+---
 
-1. Generate a kebab case identifier. Expected Result: `demo-app-refactor-submodules-calculations`.
-2. Prefer rewording to hoist scope to the beginning of the identifier. Expected Result: `demo-app-code-submodules-refactor-calculations`.
+### Structures
 
-### Process for Naming Task Attachment Files
+---
 
-- RULE: task attachments are named after the task file and suffixed with the `__{attachment.type}`.
+| Type       | Name        | Fields                                                                                                                               | Path                     | Status |
+| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | ------ |
+| Structure  | Task Record | id, title, metadata.template, required-skills, mandatory-reading, summary, summary.scope, summary.dependencies, specifications, attachments | structures/task_structure.md | ✅     |
 
-Example attachment types are single words such as: `spec`, `findings`, `audit`, `progress`, `plan`, `report`, `followup`.
+---
 
-#### Examples of Task Attachment file names
+### Files
 
-- `task__discovery.md`
-- `task__findings.md`
-- `task__plan.md`
-- `task__followup.md`
+---
 
-## Commands
+| Type | Name                     | Purpose                                                               | Path          | Status |
+| ---- | ------------------------ | --------------------------------------------------------------------- | ------------- | ------ |
+| File | Task File                | Contains a task record, identified by the pattern `path/{task.id}/task.md`. | files/index.md | ✅     |
+| File | Task Attachments         | Arbitrary files created alongside a task file to capture related content. | files/index.md | ✅     |
+| File | Task Specification File  | Specification files named after `task.id` and `spec.id` using the pattern `{task.id}/task__spec__{spec.id}.md`. | files/index.md | ✅     |
 
-### Generate Task Title and Id (summary)
+---
 
-**Triggers:**
+### Processes
 
-- When the instructions says `generate-task-id for {summary}`.
-- When the user says `task id for {summary}`.
-- When the user says `task id for tasks`
-- When the user says `task id for all tasks in ...`
+---
 
-**Process:**
+| Type      | Name                                     | Purpose                                                              | Input        | Output         | Path                 | Status |
+| --------- | ---------------------------------------- | -------------------------------------------------------------------- | ------------ | -------------- | -------------------- | ------ |
+| Process   | Process for Generating Task Titles       | Compact a task summary into a stable, scoped task title.             | task summary | task title     | processes/index.md   | ✅     |
+| Process   | Process for Generating Task IDs          | Generate a kebab-case task identifier from a normalised title.       | task title   | task id        | processes/index.md   | ✅     |
+| Process   | Process for Inferring Task IDs           | Infer task IDs from context.                                         | —            | —              | processes/index.md   | 🚧     |
+| Process   | Process for Naming Task Attachment Files | Name attachment files after the task file with a `__{type}` suffix.  | attachment type | attachment filename | processes/index.md | ✅     |
+| Process   | Process for Reading Task Files           | Read and validate a task file against its template.                  | task file    | task record    | processes/index.md   | ✅     |
+| Process   | Process for Reading Specification Attachments | Read and validate a task specification attachment against its template. | spec attachment | spec content | processes/index.md   | ✅     |
+| Process   | Process for Writing Task Files           | Rules and constraints for adding content to task and spec files.     | task content | validated task content | processes/index.md | ✅     |
+| Process   | Content Rules for Task Files             | Allowed content types in task files: acceptance criteria, API decisions, contracts, notes. | — | rules | processes/index.md   | ✅     |
+| Process   | Content Rules for Specification Files    | Allowed content types in spec files: design rationale, conventions, contracts, styling. | — | rules | processes/index.md   | ✅     |
 
-1. Identify the summary of the task(s) from the input.
-2. Use the most recent context if unable to identify the task(s).
-3. If the agent is unable to identify the tasks with confidence, it must ALERT the user and skip the next steps.
-4. Follow the **Process for Generating Task Titles** with the identified `summary` to generate a `task.title`.
-5. Follow the **Process for Generating Task IDs** with the identified `title` to generate the `task.id`.
-
-## Commands
-
-### Command Creat: Task in (path)
-
-**Triggers:**
-
-- When the instructions says `create-task-file in {path}`.
-- When the user says `save task in {path}`.
-
-**Process:**
-
-1. Identify the task that the instructions are referring to.
-2. Extract the summary from the task.
-3. If the task does not have a `task.title` yet, execute the **Process for Generating Task Titles** with the provided `summary`.
-4. If the task does not have a `task.id` yet, execute the **Process for Generating Task IDs** with the provided `summary`.
-5. Generate the file path for the task, relative to the repository root.
-6. Present the task Title and and ASK for confirmation.
+---

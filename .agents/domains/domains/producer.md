@@ -1,39 +1,47 @@
-# Domains Management
+# Domains Producer API
 
-**Use Cases:** Generating, validating, and improving domain related files.
+**Use Cases:** Creating, curating, and managing domain knowledge files and API surfaces.
 
 **Provides:**
 
+- Definitions
+- File Types
 - Processes
-- Commands
 - Templates
 
 **Capabilities:**
 
-- Generating domain listings.
+- Understanding domain concepts and terminology
+- Creating and structuring domain API files
+- Extracting domain API trees from source files
+- Generating consumer and producer API surfaces
+- Applying domain templates
 
 ## Mandatory Reading
 
-READ `.agents/domains/_structured-contexts/producer.md` - base rules for working with all context files.
+READ `.agents/domains/domains/definitions/index.md` - Domain definitions and terminology.
+READ `.agents/domains/domains/processes/index.md` - Domain processes and extraction workflows.
 
-## Definitions
+## API
 
-## Definition of "Domain"
+### Definitions
 
-**Domain:** A bounded collection of context knowledge and processes related to a specific subject. It provides a consistent foundation for agents to read, generate, and curate domain knowledge.
+| Type | Name | Definition | Path | Status |
+| ---- | ---- | ---------- | ---- | ------ |
+| Definition | Domain | A bounded collection of context knowledge and processes related to a specific subject | definitions/index.md | 🚧 |
 
-## Definitions Related to "Domain"
+### Files
 
-**Domain Producer:** An agent, a skill, a process, or a specific instruction that generates context and write files related to a knowledge domain.
+| Type | Name | Purpose | Pattern | Template | Path | Status |
+| ---- | ---- | ------- | ------- | -------- | ---- | ------ |
+| File | Domain Producer API Files | Auto-generated files declaring definitions, processes and commands for agents that generate content | .agents/domains/{domain-name}/producer.md | - | files/index.md | 🚧 |
+| File | Domain Consumer API Files | Auto-generated files declaring definitions, processes and commands for agents that read content | .agents/domains/{domain-name}/curator.md | - | files/index.md | 🟥 |
 
-**Domain Producer Files:** The entry point for domain producers, providing them with shared definitions and processes for generating content, naming files, using templates, and maintaining domain knowledge consistently. Example: `.agents/domains/domains/producer.md` (this file).
+### Processes
 
-**Domain Consumer:** An agent, a skill, a process, or a specific instruction that consumes context or reads files related to a knowldege domain.
-
-**Domain Index Files:** The entry point for domain consumers, providing them with shared definitions and processes for locating, reading, interpreting, and applying domain knowledge correctly. Example: `.agents/domains/domains/index.md` (this file).
-
-**Domain Record:** A structured representation of a domain entity or one of its constituent elements. Examples of top-level entities include Task, Plan, Delegation. Examples of constituent elements include Specifications, Commits, Feedback.
-
-**Record Structure:** The definition of a domain record and its shape and rules. Example: A task has an id, name, summary, scope, specifications, and follow ups.
-
-**Record File:** A file that contains structured context of a top-level resource type. The template and filename pattern(s) for each context type are defined in its Domain Index File. Examples: `AGENTS.md` for root file, `.agents/skills/{skill.id}/SKILL.md` for skill files, and `{task.id}/task__spec__{name}.md` for task specification files.
+| Type | Name | Purpose | Input | Output | Path | Status |
+| ---- | ---- | ------- | ----- | ------ | ---- | ------ |
+| Process | Process for Extracting Domain API Tree From Files | Extract and classify the document tree for the domain API | files | domain API tree | processes/index.md | 🟥 |
+| Process | Process for Generating the Domain Listing | Generate a table with domain listing entries | - | domain-listing | processes/index.md | 🚧 |
+| Process | Process for Extracting Domain API From Files | Generate the domain API documentation from a classified tree | domain API tree | domain API documentation | processes/index.md | ✅ |
+| Process | Process for Extracting Domain API | Scan domain files and extract the domain API | domain | domain API documentation | processes/index.md | ✅ |

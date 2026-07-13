@@ -19,7 +19,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 Read `.agents/domains/plans/index.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
-Read also the **Plan Template** from `.agents/domains/plans/plan_template.md`.
+Read also the **Plan Template** from `.agents/domains/plans/templates/plan__template.md`.
 
 ## Before you start
 

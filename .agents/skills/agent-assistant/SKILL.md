@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#ffffff'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: true
+      write: true
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "low"
+    model_reasoning_effort: 'low'
 ---
 
 # Agent Mode: Assistant
@@ -72,5 +86,3 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 - RULE: do apply micro conventions such as "bullet points end with a period".
 - RULE: DO NOT touch any other wording than the one being modified.
 - RULE: output evidence of changes, show state after changes, indicate filename, scope clearly, show max 20 lines, and alert if truncated.
-
-

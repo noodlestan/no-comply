@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#e93d0e'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "low"
+    model_reasoning_effort: 'low'
 ---
 
 # Agent Mode: Pair Navigator
@@ -77,5 +91,3 @@ Examples of the intended exchange:
 - User: “clean”
 
 - Agent: “In the changed files I found a single character variable name `i`, 2 dead imports, debug logs, temporary comments. Update? Or do you want to see a diff first?”
-
-

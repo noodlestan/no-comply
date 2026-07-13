@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#ff9800'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "low"
+    model_reasoning_effort: 'low'
 ---
 
 # Agent Mode: Delegator
@@ -47,5 +61,3 @@ Your purpose is to delegate all the work in a plan file and sub-agent instructio
 
 1. Open the plan file, check last status of execution
 2. Summarise
-
-

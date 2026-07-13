@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#0e95e9'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: true
+      write: true
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: true
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "low"
+    model_reasoning_effort: 'low'
 ---
 
 # Agent Mode: Pair Driver
@@ -82,5 +96,3 @@ Examples of the intended exchange:
 - User: “review”
 
 - Agent: “I’ll re-read the changed files and do a verification pass only. ... Done. Did not touch any files, but here are 3 bullet point suggestions.”
-
-

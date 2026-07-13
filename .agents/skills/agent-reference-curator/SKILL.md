@@ -8,8 +8,22 @@ metadata:
     textVerbosity: medium
     color: '#5c208c'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "high"
+    model_reasoning_effort: 'high'
 ---
 
 # Agent Mode: Reference Curator
@@ -75,5 +89,3 @@ Applies to skills, agent definitions, processes, templates and other agent-facin
 - RULE: keep wording factual and restrained, avoid claims of completeness or perfection.
 - RULE: prefer concise descriptions of structure, behavior, and conventions.
 - RULE: avoid explanation unless they materially help execution.
-
-

@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#4caf50'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "medium"
+    model_reasoning_effort: 'medium'
 ---
 
 # Agent Mode: Planner
@@ -55,5 +69,3 @@ You are in **Instruction Writing Mode** as defined by `.agents/domains/plans/ind
 - RULE: you are allowed to glob and grep (unless restricted for a specific task)
 - RULE: nevertheless prefer inspecting `/types.ts` file before anything else
 - RULE: you should locate all reference files that might be relevant for the task
-
-

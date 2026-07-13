@@ -5,7 +5,7 @@ description: Use this skill to update the domains listing file.
 
 # Skill: Update Domains
 
-Use this skill to update the domains listing in `.agents/domains/index.md` so that it enumerates and describes the available domains and imported (hoisted) rules.
+Use this skill to update the domains listing in `.agents/domains/index.md` so that it enumerates and describes the available domains and their hoisted content.
 
 ## Allowed Agent Modes
 
@@ -15,34 +15,28 @@ CRITICAL RULE: If your context `$AGENT_MODE` is NOT set to one of the following 
 
 CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the user to switch to another agent mode first. List agent modes.
 
-## Rules for reading Domain Files
-
-<!-- WIP no-rules -->
-
-- IMPORTANT RULE: Agents MUST NOT read domain reference files unless listed under `## Mandatory Reading` sections or requested to do so by the user or a `::MANDATORY-READING` directive. (#hoist).
-
 ## Commands
 
-### Command: Update Domains Index
+### Command: Update Domains Listing
 
 **Triggers:**
 
-- when the user says `update domains index`
-- when the user says `update domains`
+- when the user says `update domains listing`.
+- when the user says `update domains`.
 
 **Process:**
 
-BEFORE ANY STEP: Load the `.agents/domains/domains/processes/index.md` to
+BEFORE ANY STEP: Load the `.agents/domains/domains/definitions/index.md` to understand the basic concepts.
+BEFORE ANY STEP: Load the `.agents/domains/domains/processes/index.md` to understand the required procedures.
 
-1. Execute the **Process for Listing Domain Index Files**.
-2. Merge all hoisted definitions into a single list replacing "(#hoist)" with "(#hoisted from `<domain>`)".
-3. Use the **render-template** skill with `.agents/skills/update-domains/domain-index-template.md` below to present all hoisted definitions, all domains, and each domain's descriptions, and hoisted rules.
-
-- **A Domain Reference File:** is an agent context file shared between related agent modes and skills providing key definitions for a domain (tasks, knowledge, ...). Existing Domains are indexed for discovery by agents at `.agents/domains/index.md`. (#hoist)
+1. Execute the **Process for Generating the Domain Listing** to generate the `domain-listing` table.
+   - CATCH: if no _api.md files found, then THROW ERROR to user and STOP processing.
+2. Use the **render-template** skill with the `.agents/domains/domains/templates/domains-listing__template.md` template to present the generated table.
+   - CATCH: if template missing, then THROW ERROR to user and STOP processing.
 
 ### Command: Update Domain (domain)
 
-**Purpose:** Given a domain name, generate the `consumer.md` and `producer.md` files by extracting tagged content from the domain's `_api.md` file.
+**Purpose:** Given a domain name, generate the `consumer.md` and `producer.md` API files, and the `_api.md` table of contents, by extracting tagged content from the domain's directory.
 
 **Inputs:**
 
@@ -50,29 +44,41 @@ BEFORE ANY STEP: Load the `.agents/domains/domains/processes/index.md` to
 
 **Triggers:**
 
-- When the instructions say `With the {domain}, use the **Update Domain** command to generate consumer and producer files`.
+- When the instructions say `With the {domain} domain, use the **Update Domain** command to generate consumer and producer files`.
 - When the user says `update domain {domain}`.
+- When the user says `update domain {domain} api`.
+
+**Note:** This process uses a template located at `.agents/domains/domains/templates/domains-listing__template.md`, i.e., in the meta-domain's templates directory. This is not related to the `{domain}` being procesed.
 
 **Process:**
 
-1. Identify the `domain` to process.
+1. Identify the `domain` to process from the command input.
 2. If no explicit domain is defined, infer the domain scope from the most recent context.
-3. Execiuute the ...
-4. With the consumer scope, use the **render-template** skill with `.agents/domains/domains/templates/domain-consumer_template.md` to render the `{domain}/consumer.md` file.
-5. With the producer scope, use the **render-template** skill with `.agents/domains/domains/templates/domain-producer_template.md` to render the `{domain}/producer.md` file.
+3. With the identified `domain`, execute the **Process for Extracting Domain API** to extract the `domain API documentation` and its `table-of-contents`, `consumer-api-docs`, and `producer-api-docs`.
+   - CATCH: if `_config.md` missing, then THROW ERROR to user and STOP processing.
+4. With the input `domain`, the `scope: consumer`, and the extracted `consumer-api-docs` as `api-docs`, use the **render-template** skill with the `.agents/domains/domains/templates/domain-scope__template.md` template to render the consumer api docs to `{domain}/consumer.md` file.
+   - CATCH: if template missing, then THROW ERROR to user and STOP processing.
+5. With the input `domain`, the `scope: producer`, and the extracted `producer-api-docs` as `api-docs`, use the **render-template** skill with the `.agents/domains/domains/templates/domain-scope__template.md` template to render the producer api docs to `{domain}/producer.md` file.
+6. With the input `domain` and the extracted `table-of-contents` in the extracted documentation, use the **render-template** skill with the `.agents/domains/domains/templates/domain-table-of-contents__template.md` template to render table of contents to the `{domain}/_api.md` file.
+   - CATCH: if template missing, then THROW ERROR to user and STOP processing.
+7. Respond with generated API summaries for both scopes.
+
+**NOTE:** Items without explicit tags (`#hoist`, `#all`, `#consumer`, `#producer`) will not appear in consumer or producer scopes. Ensure source files have appropriate tags before running this command.
 
 ### Command: Update All Domains
 
-**Purpose:** Update the domains index and then generate consumer.md and producer.md files for all domains.
+**Purpose:** Update the domains index file and then generate consumer.md and producer.md files for all domains.
 
 **Triggers:**
 
 - When the user says `update all domains`.
+- When the user says `update domains apis`.
 
 **Process:**
 
-1. Execute the **Update Domains Index** command.
+1. Execute the **Update Domains Listing** command.
 2. List all domain directories under `.agents/domains/`.
+   - CATCH: if no domain directories found, then THROW ERROR to user and STOP processing.
 3. For each domain directory, execute the **Update Domain** command with the domain name.
 
 - RULE: Process all domains even if some fail; report failures at the end.

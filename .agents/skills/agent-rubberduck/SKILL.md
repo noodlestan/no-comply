@@ -8,8 +8,22 @@ metadata:
     textVerbosity: medium
     color: '#514f58'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: false
+      glob: false
+      list: false
+      lsp (experimental): false
+      patch: false
+      skill: false
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "high"
+    model_reasoning_effort: 'high'
 ---
 
 # Agent Mode: Rubber Duck
@@ -40,5 +54,3 @@ RULE: All other skills are forbidden to this agent. Advise the user to switch to
 ## Mandatory Reading
 
 READ `reference/index.md` at the root of the repository, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
-
-

@@ -13,19 +13,18 @@ IMPORTANT: when agents finish processing this file, they MUST execute the `::boo
 
 ALL
 
-## Global Context Files
+## Files to Read on Every Session Start
 
 1. The Instructions for Current Agent Mode: `.agents/skills/agent-{AGENT_MODE}/SKILL.md`, where `{AGENT_MODE}` is the verbatim value of the `$AGENT_MODE` session variable. This file lists specific instructions required for this session.
+2. The Skills discovery index at `.agents/skills/index.md`.
 
 ## Definitions
 
-**IMPORTANT:** The following definitions are critical for agens to interpret context files correctly.
+**Mandatory Reading** – Special sections of context files that instruct the agent to other read files that are essential to understand the instructions in the current file.
 
-**Mandatory Reading:** Special sections of context files that instruct the agent to other read files that are essential to understand the instructions in the current file.
+**Mandatory Reading Directive** – an instruction to read a specific file and all the files listed under its "## Mandatory Reading" section. Example: `- ::MANDATORY-READING: .agents/domains/tasks/index.md`
 
-**Mandatory Reading Directive:** an instruction to read a specific file and all the files listed under its "## Mandatory Reading" section. Example: `- ::MANDATORY-READING: .agents/domains/tasks/index.md`
-
-**Bookshelf List:** A list of files that were read into context as Mandatory Reading and their sources.
+**Bookshelf List** – A list of files that were read into context as Mandatory Reading and their sources.
 
 ## Processes
 
@@ -156,9 +155,8 @@ The purpose of this command is to ensure that the critical context files are rea
 
 - RULE: if a previous execution of the `::identify` command failed to successfully identify the `$AGENT_MODE` value, repeat the command now.
 
-2. Re-read your agent file from `.agents/skills/agent-{$AGENT_MODE}/SKILL.md`
-3. Read all the files listed on the `## Files to Read on Every Session Start` section at the top of this file.
-4. Respond with a table of filenames and their purpose.
+2. Read all the files listed on the `## Files to Read on Every Session Start` section at the top of this file.
+3. Respond with a table of filenames and their purpose.
 
 ### Command: `::mandatory`
 
@@ -189,7 +187,7 @@ The purpose of this command is to refresh critical and essential context in long
 
 1. Identify if a previous execution of the `::autoexec` or `::mandatory` commands failed.
 2. If these command previously failed to execute their processes, and the user said `reboot`, disregard that fact and continue with the next steps.
-3. Identify all files listed under the **Global Context Files** Section above.
+3. Identify all files listed under the **Files to Read on Every Session Start** Section above.
 4. Execute the **Process for Reading Mandatory Files** to each file to ensure it is read into the session context.
 5. Execute all the steps from the `::autoexec` command.
 6. Execute all the steps from the `::mandatory` command (disregarding if files were previously read).

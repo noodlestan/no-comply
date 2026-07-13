@@ -27,7 +27,7 @@ Read `.agents/domains/plans/producer.md`, if not yet in context - it contains de
 
 Read `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
-Read also **Plan Template** — `.agents/domains/plans/plan_template.md`
+Read also **Plan Template** — `.agents/domains/plans/templates/plan__template.md`
 
 ## Steps
 
@@ -96,7 +96,7 @@ Starting with the first commit:
 
 1. Generate a prompt, best-effort, by converting all definitions in the related spec files to instructions.
 2. Analyse the work, and generate instructions for implementing the task.
-3. Use the **render-template** skill with the `.agents/domains/plans/instruct_template.md` to render the prompt file.
+3. Use the **render-template** skill with the `.agents/domains/plans/templates/instruct__template.md` to render the prompt file.
 
 4. Spin an agent with the prompt and CRITICAL INSTRUCTION to not execute and just interprete and summarise contradictions, ambiguity, omissions or obvious errors. The agents CAN read the files targeted by the instructions, but are FORBIDDEN from globbing and grepping to find solutions. The goal is to acquire feedback from the agent about the quality of the instructions.
 
@@ -108,7 +108,7 @@ HEADS UP: The tasks and specs DO NOT prescribe implementation details so a lot q
 
 Note: Prepare to offload the prompt at any time, even if the planning is not yet completed, and move on to the next commit.
 
-8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `{plan.id}/plan__instruct__<commit-kebab-name>.md`
+8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `{plan.id}/plan__instruct__<commit.id>.md`
 9. Verify the generated prompt file follows all the `TEMPLATE DIRECTIVE:` included in the template.
 10. update the `{plan.id}/plan.md` file with the status of the commit.
 11. move on to the next commit.

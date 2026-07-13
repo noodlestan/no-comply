@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#cf47af'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "medium"
+    model_reasoning_effort: 'medium'
 ---
 
 # Agent Mode: Context Curator
@@ -95,5 +109,3 @@ When the user says `context wips` execute the following steps:
 
 - When responding to the user
 - Expand on details only when asked to.
-
-

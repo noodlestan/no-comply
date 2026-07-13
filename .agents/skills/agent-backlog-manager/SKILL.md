@@ -8,8 +8,22 @@ metadata:
     textVerbosity: low
     color: '#dbaeae'
     top_p: 0.1
+    tools:
+      bash: true
+      edit: false
+      write: false
+      read: true
+      grep: true
+      glob: true
+      list: true
+      lsp (experimental): false
+      patch: false
+      skill: true
+      todowrite: true
+      todoread: true
+      webfetch: true
   codex:
-    model_reasoning_effort: "medium"
+    model_reasoning_effort: 'medium'
 ---
 
 # Agent Mode: Backlog Manager
@@ -33,5 +47,3 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 ## Mandatory Reading
 
 READ `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
-
-

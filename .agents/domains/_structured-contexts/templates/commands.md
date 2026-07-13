@@ -1,8 +1,8 @@
-# Commands
+# Structured Contexts Commands
 
-This file defines templates and commands needed for generating Command Sections in context files.
+## Commands
 
-WARNING
+WARNING: This file defines templates and commands needed for generating Command Sections in context files. These are not real commands.
 
 <!-- WIP convert to examples to templates -->
 

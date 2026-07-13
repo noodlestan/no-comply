@@ -26,8 +26,11 @@ With the provided template file or name, execute the following steps:
 1. If still unable to resolve a concrete template file name, follow the "Process for Alerting the User" with the details of the failed resolution.
 1. If no template file name was resolved, follow the "Process for Asking the User" with the details of the failed resolution and ASK for an explicit template name or template file name.
 1. Read the template file and validate its structure and instructions.
+   - CATCH: if file missing, then THROW ERROR to user and STOP processing.
 1. If the template headings structure is not hierarchical and cohesive follow the "Protocol for Halting Execution and Reporting Failure"
+   - CATCH: if headings not hierarchical, then THROW ERROR to user and STOP processing.
 1. If the template contains ambiguous or contradicting directives follow the "Protocol for Halting Execution and Reporting Failure"
+   - CATCH: if directives ambiguous or contradicting, then THROW ERROR to user and STOP processing.
 
 - RULE: if any step in this process produced a "Halting Execution"
 
@@ -58,7 +61,9 @@ With the provided `input scope` and the validated `template file`, execute the f
 - IMPORTANT RULE: Do not leave any `TEMPLATE DIRECTIVE:` or `EXAMPLE:` lines in the final prompt. This applies to all the content in front of TEMPLATE DIRECTIVE: and EXAMPLE: not just to the directive markers.
 
 6. Check rendered files against these rules.
+   - CATCH: if rules violated, then THROW ERROR to user and STOP processing.
 7. Check if file file contains all mandatory sections as per template directives.
+   - CATCH: if mandatory sections missing, then THROW ERROR to user and STOP processing.
 
 ## Commands
 
@@ -73,7 +78,9 @@ With the provided `input scope` and the validated `template file`, execute the f
 **Process:**
 
 1. Apply the **Process for Reading the Template File** with the provided `template file or name` to locate and validate the template.
+   - CATCH: if template cannot be resolved, then THROW ERROR to user and STOP processing.
 2. Follow the **Process for Rendering Files using Templates** to render the `input scope` using the validated template.
+   - CATCH: if rendering fails, then THROW ERROR to user and STOP processing.
 3. In case of ambiguity, contradictions, or omissions, report the issue to the user.
 4. Present the rendered content for review and wait for confirmation.
 5. Infer or ask for the save location and save it.

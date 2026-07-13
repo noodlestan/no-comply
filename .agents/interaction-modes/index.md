@@ -9,7 +9,7 @@ This file defines Interaction Modes that an agent can adopt to modify its behavi
 
 ## Definitions
 
-**Interaction Mode:** provides reusable behavioural triggers and rules that influence how the agent performs operations.
+**Interaction Mode** – provides reusable behavioural triggers and rules that influence how the agent performs operations.
 
 Interaction Modes define behaviours such as:
 
@@ -22,11 +22,11 @@ Interaction Modes define behaviours such as:
 - how to ask questions and resolve ambiguities
 - how to produce and format responses
 
-**Interaction Hook:** Describes an agent recurring process (Example: "When preparing response"). The hooks can be referenced with epecific contexts to narrown down application of the Interaction Mode (Example: "When preparing response after exploration tasks").
+**Interaction Hook** – Describes an agent recurring process (Example: "When preparing response"). The hooks can be referenced with epecific contexts to narrown down application of the Interaction Mode (Example: "When preparing response after exploration tasks").
 
-**Active Interaction Modes Table:** A runtime table recording every Interaction Mode currently adopted by the agent, together with its source and requester. Columns: `mode` (the Interaction Mode name), `source` (the File where the Interaction Mode is declared), `requester` (the instruction or user request that activated the Interaction Mode).
+**Active Interaction Modes Table** – A runtime table recording every Interaction Mode currently adopted by the agent, together with its source and requester. Columns: `mode` (the Interaction Mode name), `source` (the File where the Interaction Mode is declared), `requester` (the instruction or user request that activated the Interaction Mode).
 
-**Interaction Mode Index:**A table built on request displaying every Interaction Mode currently known by the agent, together with its source.
+**Interaction Mode Index** – A table built on request displaying every Interaction Mode currently known by the agent, together with its source.
 
 ## Processes
 

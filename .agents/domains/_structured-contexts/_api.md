@@ -1,54 +1,43 @@
-# Structured Contexts API
+# Structured Contexts Domain API
 
-**Use Cases:** Generating, validating, and improving structured context files. (#producer)
-**Use Cases:** Locating, reading, and interpreting all types of structured contexts. (#consumer)
+## Summary
 
-**Provides:**
+The Structured Contexts API provides foundational definitions and formatting procedures for working with structured, reusable context in agent systems. Consumers can read definitions of context files and artificial procedures, and apply formatting procedures to render references to skills, processes, commands, and templates. Producers can read all consumer capabilities and additionally define new artificial procedures (commands, processes, templates, formatters) and generate formatted references for domain-specific artifacts.
 
-- Definitions (#producer) (#consumer)
-- Processes (#producer) (#consumer)
-- Commands (#producer) (#consumer)
-- Templates (#producer)
+## Hoisted
 
-**Capabilities:**
+No items.
 
-- Work with structured record files. (#consumer)
-- Maintain conventions for contexts files. (#producer)
-- Review contexts files consistency with conventions. (#producer)
+## All
 
-## Mandatory Reading
+These items are published in both the consumer and producer API surfaces.
 
-READ `.agents/domains/_structured-contexts/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates. (#producer) (#consumer)
+### Formatters
 
-## Definitions
+| Type | Name | Purpose | Input | Output | Path | Status |
+| ---- | ---- | ------- | ----- | ------ | ---- | ------ |
+| Formatter | Formatter for Skill References | A formatted skill invocation reference. | summary | validated entity | formatters/references.md | ✅ |
+| Formatter | Formatter for Process References | A formatted process invocation reference. | process | formatted reference | formatters/references.md | ✅ |
+| Formatter | Formatter for Command References | A formatted command invocation reference. | summary | validated entity | formatters/references.md | ✅ |
+| Formatter | Formatter for Template References | A formatted template invocation reference. | summary | validated entity | formatters/references.md | ✅ |
 
-### Definition of "Context File" (#producer) (#consumer)
+## Consumer
 
-**Context File:** A file that contains structured, reusable context such as Skills, Agent Mode files, and files under the .agents/domains/ directory. Context Files define instructions, processes, conventions, templates, and other knowledge required to locate, validate, generate, and interpret resources within their domain.
+These items are published in the consumer scope only.
 
-### Definition of "Artificial Procedure"
+### Definitions
 
-**Artificial Procedure:** A reusable set of instructions in a context file that provides a way to reuse the instructions in different contexts. A procedure is one of: `Command`, `Process`, `Template` of `Formatter` (#producer)
+| Type | Name | Definition | Path | Status |
+| ---- | ---- | ---------- | ---- | ------ |
+| Definition | Context File | A file that contains structured, reusable context such as Skills, Agent Mode files, and files under the `.agents/domains/` directory. | definitions/index.md | ✅ |
 
-**Artificial Command:** A reusable instruction that directs an agent to perform a specific action. Example invocation: "With the collected notes, use the **Write Task** command to prepare a task draft." (#producer)
+## Producer
 
-**Artificial Process:** A reusable sequence of steps for performing a task or reaching a result. Example invocation: "With the delegation reports, execute the **Process for Consolidating Feedback** to generate the plan feedback summary.". (#producer)
+These items are published in the producer scope only.
 
-**Artificial Template:** A reusable document structure containing fixed content and directives for generating output. Example invocation: "Use the **Plan Template** template to generate the plan outline.". (#producer)
+### Definitions
 
-**Artificial Formatter:** A reusable routine that renders structured input into a canonical textual representation. Example invocation: "Render each required skill id and purpose using the **Skill Reference Formatter**." (#producer)
-
-## Delegated Formatters (#consumer) (#producer)
-
-**Triggers:**
-
-- When the instructions contain **Use the Formatter for Skill References**
-- When the instructions contain **Use the Formatter for Process References**
-- When the instructions contain **Use the Formatter for Command References**
-- When the instructions contain **Use the Formatter for Template References**
-
-**Process:**
-
-1. Load the reference formatters from `.agents/domains/_structured-contexts/formatters/references.md`.
-2. Identify the corresponding instructions in the file, under the formatter's H3 Section.
-3. Delegate the input to the corresponding formatter to yield
+| Type | Name | Definition | Path | Status |
+| ---- | ---- | ---------- | ---- | ------ |
+| Definition | Artificial Procedure | A reusable set of instructions in a context file that provides a way to reuse the instructions in different contexts. A procedure is one of: `Command`, `Process`, `Template` of `Formatter` | definitions/index.md | ✅ |
+| Definition | Definitions related to Structured Contexts | Artificial Command, Artificial Process, Artificial Template, Artificial Formatter | definitions/index.md | ✅ |

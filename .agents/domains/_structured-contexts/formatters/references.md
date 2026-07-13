@@ -1,12 +1,14 @@
+# Structured Contexts Formatters
+
 ## Formatters for Artificial References
 
 This file declares procedures to format references to commands, processes, and templates.
 
 <!-- WIP create tools to replace formatters -->
 
-### Formatter for Skill References
+### Formatter for Skill References (#all)
 
-**Generates:** A formatted tkill invocationref erence.
+**Generates:** A formatted skill invocation reference.
 
 **Inputs:**
 
@@ -35,9 +37,9 @@ With the provided `skill` and `outcome`, execute the following actions:
 - Incorrect (wrong wording): `Apply the **write-task** skill to generate the task draft.`
 - Incorrect (missing outcome): `Use the **write-task** skill.`
 
-### Formatter for Process References
+### Formatter for Process References (#all)
 
-**Generates:** A formatted trocess invocationr eference.
+**Generates:** A formatted process invocation reference.
 
 **Inputs:**
 
@@ -63,9 +65,9 @@ With the provided `process`, `context`, and `outcome`, execute the following act
 - Correct: `Execute the **Process for Adding Items to Parking Lot** with the generated items to keep track of purpose.`
 - Correct: `With the generated items, execute the **Process for Adding Items to Parking Lot** to keep track of purpose.`
 
-### Formatter for Command References
+### Formatter for Command References (#all)
 
-**Generates:** A formatted tommand invocationr eference.
+**Generates:** A formatted command invocation reference.
 
 **Inputs:**
 
@@ -93,7 +95,7 @@ With the provided command id, optional skill, context, and outcome, execute the 
 - Correct: `Use the **delegator-feedback** of the **feedback** skill command to consolidate the execution feedback.`
 - Correct: `With the reports, use the **delegator-feedback** of the **feedback** skill command to consolidate the execution feedback.`
 
-### Formatter for Template References
+### Formatter for Template References (#all)
 
 **Generates:** A formatted template invocation reference.
 
