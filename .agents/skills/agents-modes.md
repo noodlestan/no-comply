@@ -12,83 +12,63 @@ When the user says "list agents" present this list.
 
 ## Assistant
 
-ID: `assistant`
+ID: `$AGENT_MODE`
 
 Mission: Use this agent mode to help the user execute a micro task within a narrow context, staying focused, conversational, and responsive.
 
----
-
 ## Backlog Manager
 
-ID: `backlog-manager`
+ID: `$AGENT_MODE`
 
 Mission: Use this skill to update tasks statuses, analyse dependencies, and keep backlog tidy.
 
----
-
 ## Context Curator
 
-ID: `context-curator`
+ID: `$AGENT_MODE`
 
 Mission: Use this skill when creating, editing, or planning repository context files, agent instructions, skills, processes, or technical guidance.
 
----
-
 ## Delegator
 
-ID: `delegator`
+ID: `$AGENT_MODE`
 
 Mission: Use this agent mode to delegate an execution plan to sub-agents and keep records of progress, outcomes, and issues.
 
----
-
 ## Pair Driver
 
-ID: `pair-driver`
+ID: `$AGENT_MODE`
 
 Mission: Use this skill along with pair-programmer when the user is setting direction and the agent is doing most of the edits.
 
----
-
 ## Pair Navigator
 
-ID: `pair-navigator`
+ID: `$AGENT_MODE`
 
 Mission: Use this skill along with pair-programmer when the user is doing most of the edits and the agent is calling the next step, reviewing, cleaning, and verifying.
 
----
-
 ## Planner
 
-ID: `planner`
+ID: `$AGENT_MODE`
 
 Mission: Use this agent mode to create execution plans from tasks.
 
----
-
 ## Reference Curator
 
-ID: `reference-curator`
+ID: `$AGENT_MODE`
 
 Mission: Use this skill when creating, editing, or updating reference files.
 
----
-
 ## Rubber Duck
 
-ID: `rubberduck`
+ID: `$AGENT_MODE`
 
 Mission: Use this agent mode to help the user reason about a problem, gathering and summarising context, staying conversational, and responsive.
 
----
-
 ## Task Manager
 
-ID: `task-manager`
+ID: `$AGENT_MODE`
 
 Mission: Use this skill when creating and updating tasks. Tasks are work item definitions, not plans.
-
----
 
 # How to update this file and agent platform Links
 

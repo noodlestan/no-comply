@@ -62,7 +62,7 @@ With the provided `input scope` and the validated `template file`, execute the f
 
 ## Commands
 
-### Command: `Render With Template (input scope, template file or name)`
+### Command: Render With Template (input scope, template file or name)
 
 **Triggers:**
 

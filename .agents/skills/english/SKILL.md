@@ -47,10 +47,10 @@ An **Unresolved Editing Issue** is an issue flagged by the proofreading, polishi
 2. If no explicit file targets provided, infer the target file(s) from the most recent exchanges with the user.
 3. If no explicit or inferable file scope exists, ask the user which file(s) to scan.
 4. Expand patterns such as globs and wildcards to a flat file list.
-5. If the pattern expansion results in an error, ALERT the user and STOP.
+5. If the pattern expansion results in an error, ALERT the user and STOP processing any other instructions.
 6. Resolve all paths to a path relative to the repository root.
 7. Check that all selected files exist.
-8. If some of the selected files are not pressent in the filesystem ALERT the user and STOP.
+8. If some of the selected files are not pressent in the filesystem ALERT the user and STOP processing any other instructions.
 
 ### Process for Proofreading and Typo Scanning
 
@@ -75,7 +75,7 @@ For each File Selected for Editing execute the following steps:
 
 1. Use the rules in the tone of voice file to identify misalignments in the content of the files in scope.
 
-- RULE: tone of voice MUST be supplied by the user; if missing, ASK the user for one and STOP.
+- RULE: tone of voice MUST be supplied by the user; if missing, ASK the user for one and WAIT before processing any other instructions.
 
 2. Identify discrepancies between the content and the rules in the provided tone of voice.
 3. For each issue identified, generate an Edit Suggestion the issue while preserving the intent expressed in the content.

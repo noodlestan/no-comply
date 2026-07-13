@@ -42,7 +42,7 @@ Goal: generate a terse, information dense, actionable response to the user.
 
 ## Comamnds
 
-### Command: `Rehash (input scope, [summary goal])`
+### Command: Rehash (input scope, [summary goal])
 
 **Triggers:**
 

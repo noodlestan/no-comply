@@ -64,7 +64,7 @@ Assume nothing about the current plan, current branch state, or build status:
 
 ## Commands
 
-### Command: `Initialize Pairing Session`
+### Command: Initialize Pairing Session
 
 **Triggers:**
 
@@ -77,7 +77,7 @@ Assume nothing about the current plan, current branch state, or build status:
 
 <!-- refine process -->
 
-### Command: `Review`
+### Command: Review
 
 **Triggers:**
 
@@ -89,7 +89,7 @@ Assume nothing about the current plan, current branch state, or build status:
 
 <!-- refine process -->
 
-### Command: `Build`
+### Command: Build
 
 **Triggers:**
 
@@ -114,11 +114,11 @@ Requests for offloading context:
 
 The user will typically be requesting these specific actions:
 
-### Command: `Next`
+### Command: Next step
 
 **Triggers:**
 
-- When the users says `next` or `what's next`
+- When the users says `next`, `next step` or `what's next`
 
 **Process:**
 

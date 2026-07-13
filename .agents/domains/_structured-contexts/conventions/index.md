@@ -1,32 +1,6 @@
 # Structured Context File Conventions
 
-## Definitions
-
-**Context Element:** ...
-
-## Conventions For Presenting Context Elements in Instructions
-
-### Convention: How to Present Definitions
-
-**Rules**
-
-- RULE: Present definitions only under `## Definitions` sections.
-- RULE: Present one definition per paragraph.
-- RULE: Separate definitions with an empty line.
-- RULE: Start each definition with the defined term in bold, including the trailing colon.
-- RULE: Do not present definitions as bullet points.
-- RULE: Keep each definition under 300 characters.
-
-**Examples**
-
-- Correct: `**Domain Producer Files:** The entry point for all files produced by a domain.`
-- Incorrect (bullet point): `- **Domain Producer Files:** The entry point for all files produced by a domain.`
-- Incorrect (missing bold): `Domain Producer Files: The entry point for all files produced by a domain.`
-- Incorrect (missing colon): `**Domain Producer Files** The entry point for all files produced by a domain.`
-
-## Conventions For Referencing Context Elements in Instructions
-
-### Convention: How to Reference a Skill
+## Convention: How to Reference a Skill
 
 **Rules**
 
@@ -43,7 +17,7 @@
 - Incorrect (wrong wording): `Apply the **write-task** skill to...`
 - Incorrect (wrong order): `With version A of the draft, use the **write-task** skill to...`
 
-### Convention: How to Reference a Process
+## Convention: How to Reference a Process
 
 **Rules**
 

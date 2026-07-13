@@ -3,42 +3,82 @@
   "agent": {
     "assistant": {
       "mode": "primary",
+      "reasoningEffort": "low",
+      "textVerbosity": "low",
+      "color": "#ffffff",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-assistant/SKILL.md}"
     },
     "backlog-manager": {
       "mode": "primary",
+      "reasoningEffort": "low",
+      "textVerbosity": "low",
+      "color": "#dbaeae",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-backlog-manager/SKILL.md}"
     },
     "context-curator": {
       "mode": "primary",
+      "reasoningEffort": "medium",
+      "textVerbosity": "low",
+      "color": "#cf47af",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-context-curator/SKILL.md}"
     },
     "delegator": {
       "mode": "primary",
+      "reasoningEffort": "low",
+      "textVerbosity": "low",
+      "color": "#ff9800",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-delegator/SKILL.md}"
     },
     "pair-driver": {
       "mode": "primary",
+      "reasoningEffort": "low",
+      "textVerbosity": "low",
+      "color": "#0e95e9",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-pair-driver/SKILL.md}"
     },
     "pair-navigator": {
       "mode": "primary",
+      "reasoningEffort": "low",
+      "textVerbosity": "low",
+      "color": "#e93d0e",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-pair-navigator/SKILL.md}"
     },
     "planner": {
       "mode": "primary",
+      "reasoningEffort": "medium",
+      "textVerbosity": "low",
+      "color": "#4caf50",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-planner/SKILL.md}"
     },
     "reference-curator": {
       "mode": "primary",
+      "reasoningEffort": "high",
+      "textVerbosity": "medium",
+      "color": "#5c208c",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-reference-curator/SKILL.md}"
     },
     "rubberduck": {
       "mode": "primary",
+      "reasoningEffort": "high",
+      "textVerbosity": "medium",
+      "color": "#514f58",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-rubberduck/SKILL.md}"
     },
     "task-manager": {
       "mode": "primary",
+      "reasoningEffort": "medium",
+      "textVerbosity": "low",
+      "color": "#ff6b6b",
+      "top_p": 0.1,
       "prompt": "{file:.agents/skills/agent-task-manager/SKILL.md}"
     },
     "build": {

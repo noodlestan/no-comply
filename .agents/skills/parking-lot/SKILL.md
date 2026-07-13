@@ -69,7 +69,7 @@ Use the **Process for Presenting Context Summaries** of the **rehash** skill wit
 
 ## Commands
 
-### Command: `Show Parking Lot (column)`
+### Command: Show Parking Lot Column (column)
 
 **Triggers:**
 
@@ -80,7 +80,7 @@ Use the **Process for Presenting Context Summaries** of the **rehash** skill wit
 1. Identify the `column` from the input.
 1. Use the **Process for Presenting the Parking Lot** to present the identified `column`.
 
-### Command: `Show Parking Log`
+### Command: Show Parking Lot
 
 **Triggers:**
 
@@ -91,7 +91,7 @@ Use the **Process for Presenting Context Summaries** of the **rehash** skill wit
 
 1. Use the **Process for Presenting the Parking Lot** to present all columns.
 
-### Command: `Rehash Parking Lot`
+### Command: Rehash Parking Lot
 
 **Triggers:**
 
@@ -101,7 +101,7 @@ Use the **Process for Presenting Context Summaries** of the **rehash** skill wit
 
 1. Use the **rehash** skill plus the reashing RULES in this file, to present a summary of all columns.
 
-### Command: `Rehash Parking Lot Column (column)`
+### Command: Rehash Parking Lot Column (column)
 
 **Triggers:**
 
@@ -113,7 +113,7 @@ Use the **Process for Presenting Context Summaries** of the **rehash** skill wit
 
 If any other command in this file say "Rehash!", you know what to do.
 
-### Command: `Flush Todos`
+### Command: Flush Todos
 
 **Triggers:**
 
@@ -124,7 +124,7 @@ If any other command in this file say "Rehash!", you know what to do.
 1. Remove completed items from the **TODO** list.
 2. Use the **rehash** skill with the contents of the **TODO** list only to respond.
 
-### Command: `Add to Parking Lot Column (item, column) `
+### Command: Add to Parking Lot Column (item, column)
 
 **Triggers:**
 
@@ -139,7 +139,7 @@ If any other command in this file say "Rehash!", you know what to do.
 4. Use the **rehash** skill with the contents of the updated column and present to the user.
 5. Use the **rehash** skill with .
 
-### Command: `Add to Parking Lot (context)`
+### Command: Add to Parking Lot (context)
 
 When the user says `hold on to {context}`, `add {context} to parking lot` execute the following steps:
 

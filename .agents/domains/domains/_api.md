@@ -1,28 +1,18 @@
-# Domains Management
+# Domains API
 
-**Use Cases:** Generating, validating, and improving domain related files.
-
-**Provides:**
-
-- Processes
-- Commands
-- Templates
-
-**Capabilities:**
-
-- Generating domain listings.
-
-## Mandatory Reading
+## Mandatory Reading (#all)
 
 READ `.agents/domains/_structured-contexts/producer.md` - base rules for working with all context files.
 
 ## Definitions
 
-## Definition of "Domain"
+### Definition of "Domain" (#consumer) (#producer)
 
 **Domain:** A bounded collection of context knowledge and processes related to a specific subject. It provides a consistent foundation for agents to read, generate, and curate domain knowledge.
 
-## Definitions Related to "Domain"
+### Definitions Related to "Domain" (#producer)
+
+**Domain API Outline:** A structured representation of a domain API for a given scope, consisting of the extracted API `surface` and a generated `summary`.
 
 **Domain Producer:** An agent, a skill, a process, or a specific instruction that generates context and write files related to a knowledge domain.
 
@@ -37,3 +27,31 @@ READ `.agents/domains/_structured-contexts/producer.md` - base rules for working
 **Record Structure:** The definition of a domain record and its shape and rules. Example: A task has an id, name, summary, scope, specifications, and follow ups.
 
 **Record File:** A file that contains structured context of a top-level resource type. The template and filename pattern(s) for each context type are defined in its Domain Index File. Examples: `AGENTS.md` for root file, `.agents/skills/{skill.id}/SKILL.md` for skill files, and `{task.id}/task__spec__{name}.md` for task specification files.
+
+## Types of Files Related to Domains (#consumer) (#producer)
+
+Each domain exposes up to 3 files at its root:
+
+### Domain Index File
+
+These files declare definitions, processes and commands for all agents working with data of this domain.
+
+There is only one index file per domain and is located at `.agents/domains/{domain-name}/index.md`.
+
+Example: `.agents/domains/domains/index.md` (this file).
+
+### Domain Producer File
+
+These files declare definitions, processes and commands for all agents that generate records pertaining to this domain.
+
+There is only one producer file per domain and is located at `.agents/domains/{domain-name}/producer.md`.
+
+Example: `.agents/domains/domains/producer.md` (this file).
+
+### Domain Consumer File
+
+These files declare definitions, processes and commands for all agents that read structured records from this domain.
+
+There is only one curator file per domain and is located at `.agents/domains/{domain-name}/curator.md`.
+
+Example: `.agents/domains/domains/curator.md` (this file).
