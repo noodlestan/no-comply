@@ -2,7 +2,7 @@
 
 ## Definition of "Task" (#hoist)
 
-**Task** – A structured domain record, defining a work item, goal, scope, requirements, constraints, and expected outcome. Follows the Task Record Structure defined in `.agents/domains/tasks/task_structure.md`.
+**Task** – A structured domain record, defining a work item, goal, scope, requirements, constraints, and expected outcome.
 
 ## Definitions Related to "Task" (#all)
 

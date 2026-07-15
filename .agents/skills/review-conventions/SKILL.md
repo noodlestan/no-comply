@@ -24,7 +24,7 @@ Use this skill to review **proposed convention changes** from convention proposa
 
 This skill drafts the final convention and typically works off a **proposal artifact** a note containing candidate convention additions, removals, rewordings, or clarifications.
 
-## Before you start
+## Before executing
 
 - RULE: use the codebase only to verify that a proposed convention is real, repeated, or at least consistent with surrounding code.
 - RULE: do not silently upgrade a one-off preference into a repository convention unless the user clearly framed it that way.

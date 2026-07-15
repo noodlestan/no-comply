@@ -18,7 +18,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 Read `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
-## Before you start
+## Before executing
 
 - Identify the task file and concrete task file the follow stem from.
 - If no task or no task present in context, or if context references more than one task file, prompt for confirmation before continuing.

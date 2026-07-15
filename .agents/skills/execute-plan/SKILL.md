@@ -21,7 +21,7 @@ Read `.agents/domains/plans/index.md`, if not yet in context - it contains defin
 
 Read also the **Plan Template** from `.agents/domains/plans/templates/plan__template.md`.
 
-## Before you start
+## Before executing
 
 - RULE: Ensure all referenced `task-{task.id}/task.md` files exist.
 - RULE: Validate each task checking if aLL links in the task file to specifications files can be resolved to a file. Pattern: "`task-{task.id}/specifications/{specification.id}.md`.

@@ -12,7 +12,7 @@ With the provided task summary, execute the following steps, checking the result
 
 ### Process for Generating Task IDs (#all)
 
-**Before you Start:**
+**Before executing:**
 
 1. With the provided task title, check if its raw, or already the result of executing the process for generating task titles.
 2. If the title is still too long, too specific, or not scoped to a project, follow the **Process for Generating Task Titles** with the raw title, to normalise it.

@@ -1,4 +1,4 @@
-# Structured Contexts Formatters
+# Artificial Formatters
 
 ## Formatters for Artificial References
 

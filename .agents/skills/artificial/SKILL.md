@@ -45,7 +45,7 @@ ALL
 
 ### Process for Reading Mandatory Files
 
-**Before you start:** If you haven't yet initialized the **Bookshelf List**, create a table with 4 columns:
+**Before executing:** If you haven't yet initialized the **Bookshelf List**, create a table with 4 columns:
 
 - "file name" - of the file being read.
 - "title" - of the file being read.

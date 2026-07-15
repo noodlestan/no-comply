@@ -1,8 +1,16 @@
-# Plan: {plan name}
+# Plan Template
 
-**Status:** PREPARING / READY / WORKING / BLOCKED / DONE
+<!-- WIP convert to diretives -->
 
-**Plan ID:** `{plan.id}`
+TEMPLATE DIRECTIVE: Change the `h1` title to `# Plan: {plan.title}`
+
+**ID:** `{plan.id}`
+
+**Status:** `{plan.status}`
+
+**Template:** `{plan.template}`
+
+**Skill:** `{plan.skill-id}`
 
 ## Summary
 
@@ -65,7 +73,7 @@ TEMPLATE EXAMPLE:
 
 TEMPLATE DIRECTIVE: If this commit is marked as blocked, include a BLOCKER summary and the path to the the sub-agent report when available.
 
-EXAMPLE
+TEMPLATE EXAMPLE:
 
 ```
 **BLOCKER:** `inspect-ui` not found. More details in Sub Agent Report `path/to/list-input-box/plan__report__list-input-box-mixin.md`

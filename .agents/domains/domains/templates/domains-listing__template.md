@@ -2,7 +2,7 @@
 
 TEMPLATE DIRECTIVE: Replace the H1 by `# Domains Listing`
 
-This file lists the available work domains and indexes each domain's primary definitions, concepts, and commands.
+This file lists the available work domains and makes their primary resources (definitions, structures, commands, processes, templates, files, ...) available to all agents.
 
 **IMPORTANT:** The concepts referenced by this index are essential for understanding and applying instructions correctly.
 
@@ -15,107 +15,79 @@ This file lists the available work domains and indexes each domain's primary def
 
 ## Domains
 
-TEMPLATE DIRECTIVE: Include a bullet point per domain using this pattern `- [{domain name}](.agents/domains/{domain name}/) - {domain.description}`
+TEMPLATE DIRECTIVE: Include a bullet point per domain using this pattern `- [{domain.name}](.agents/domains/{domain.id}/) - {domain.description}`
 
 TEMPLATE EXAMPLE: - [Plans](/.agents/domains/plans/index.md) - Defining, structuring, and tracking implementation plans with delegatable instructions.
 
-## Definitions
+## Resources
 
-TEMPLATE DIRECTIVE: List items of type `Definition` hoisted from all domains, using the table format with columns: Type, Name, Definition, Source.
+TEMPLATE DIRECTIVE: In each of the following sections (differente types of primitives), follow the directives in the section to build a table of `domain.hoisted` content (items).
 
-| Type | Name | Definition | Source |
-| ---- | ---- | ---------- | ------ |
-| {item.type} | {item.name} | {item.definition} | .agents/domains/{domain}/{item.file-path} |
+TEMPLATE DIRECTIVE: (applies to all items rendered in any of the below tables) Check if the item as a `(#broken)` or `(#wip)` tag. If it does set the `item.emoji` to 🟥 or 🚧 respectively. If it doesn't, set it to ✅.
 
-TEMPLATE EXAMPLE:
+### Definitions
 
-| Type | Name | Definition | Source |
-| ---- | ---- | ---------- | ------ |
-| Definition | Plan | A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents. | .agents/domains/plans/definitions/index.md |
+TEMPLATE DIRECTIVE: List items of type `Definition` hoisted from all domains, using the following table format and the example below it as a reference.
 
-## Structures
+| Type        | Name        | Definition        | Source             | Status  |
+| ----------- | ----------- | ----------------- | ------------------ | ------- |
+| {item.type} | {item.name} | {item.definition} | {item.source-path} | {emoji} |
 
-TEMPLATE DIRECTIVE: List items of type `Structure` hoisted from all domains, using the table format with columns: Type, Name, Fields, Source.
+TEMPLATE EXAMPLE: | Definition | Plan | A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents. | `definitions/index.md` | ✅ |
 
-| Type | Name | Fields | Source |
-| ---- | ---- | ------ | ------ |
-| {item.type} | {item.name} | {item.fields} | .agents/domains/{domain}/{item.file-path} |
+### Structures
 
-TEMPLATE EXAMPLE:
+TEMPLATE DIRECTIVE: List items of type `Structure` hoisted from all domains, using the following table format and the example below it as a reference.
 
-| Type | Name | Fields | Source |
-| ---- | ---- | ------ | ------ |
-| Structure | Plan Record Fields | id, status, tasks, summary | .agents/domains/plans/structures/plan_structure.md |
+| Type        | Name        | Purpose        | Fields              | Source             | Status  |
+| ----------- | ----------- | -------------- | ------------------- | ------------------ | ------- |
+| {item.type} | {item.name} | {item.purpose} | {infer item fields} | {item.source-path} | {emoji} |
 
-## Commands
+TEMPLATE EXAMPLE: | Structure | Plan Record Fields | id, status, tasks, summary | `structures/plan__structure.md` | ✅ |
 
-TEMPLATE DIRECTIVE: List items of type `Command` hoisted from all domains, using the table format with columns: Type, Name, Purpose, Input, Output, Source.
+### Commands
 
-| Type | Name | Purpose | Input | Output | Source |
-| ---- | ---- | ------- | ----- | ------ | ------ |
-| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.output} | .agents/domains/{domain}/{item.file-path} |
+| Type        | Name        | Purpose        | Input        | Triggers           | Source             | Status  |
+| ----------- | ----------- | -------------- | ------------ | ------------------ | ------------------ | ------- |
+| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.triggers[0]} | {item.source-path} | {emoji} |
 
-TEMPLATE EXAMPLE:
+TEMPLATE EXAMPLE: | Command | Update Domain (domain) | Generate `consumer.md` and `producer.md` API files, and the `_api.md` table of contents. | `domain` | `update domain {domain}`| `commands/update-domain.md` | ✅ |
 
-| Type | Name | Purpose | Input | Output | Source |
-| ---- | ---- | ------- | ----- | ------ | ------ |
-| Command | Read Task(s) | Read a task file and identify relevant information | task id | task data | .agents/domains/tasks/commands/index.md |
+### Processes
 
-## Processes
+TEMPLATE DIRECTIVE: List items of type `Process` hoisted from all domains, using the following table format and the example below it as a reference.
 
-TEMPLATE DIRECTIVE: List items of type `Process` hoisted from all domains, using the table format with columns: Type, Name, Purpose, Input, Output, Source.
+| Type        | Name        | Purpose        | Input        | Output        | Source             | Status  |
+| ----------- | ----------- | -------------- | ------------ | ------------- | ------------------ | ------- |
+| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.output} | {item.source-path} | {emoji} |
 
-| Type | Name | Purpose | Input | Output | Source |
-| ---- | ---- | ------- | ----- | ------ | ------ |
-| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.output} | .agents/domains/{domain}/{item.file-path} |
+TEMPLATE EXAMPLE: | Process | Process for Generating Task Titles | Standardises task titles | `title` or `context` | `title` (standardized) | `processes/index.md` | ✅ |
 
-TEMPLATE EXAMPLE:
+### Files
 
-| Type | Name | Purpose | Input | Output | Source |
-| ---- | ---- | ------- | ----- | ------ | ------ |
-| Process | Process for Extracting Domain API | Given a domain, scan the domain files and extract the domain API | domain | domain API documentation | .agents/domains/domains/processes/index.md |
+| Type        | Name        | Purpose        | Pattern               | Template        | Source             | Status  |
+| ----------- | ----------- | -------------- | --------------------- | --------------- | ------------------ | ------- |
+| {item.type} | {item.name} | {item.purpose} | {item.naming-pattern} | {item.template} | {item.source-path} | {emoji} |
 
-## Templates
+TEMPLATE EXAMPLE: | File | Plan File | A structured file outlining the plan, identifying the source tasks and specs | `path/plan-{plan.id}/plan.md` | `.agents/domains/plans/templates/plan__template.md` | `files/index.md` | ✅ |
 
-TEMPLATE DIRECTIVE: List items of type `Template` hoisted from all domains, using the table format with columns: Type, Name, Purpose, Input, File, Source.
+### Templates
 
-| Type | Name | Purpose | Input | File | Source |
-| ---- | ---- | ------- | ----- | ---- | ------ |
-| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.file} | .agents/domains/{domain}/{item.file-path} |
+TEMPLATE DIRECTIVE: List items of type `Template` hoisted from all domains, using the following table format and the example below it as a reference.
 
-TEMPLATE EXAMPLE:
+| Type        | Name        | Purpose        | Input        | File        | Source             | Status  |
+| ----------- | ----------- | -------------- | ------------ | ----------- | ------------------ | ------- |
+| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.file} | {item.source-path} | {emoji} |
 
-| Type | Name | Purpose | Input | File | Source |
-| ---- | ---- | ------- | ----- | ---- | ------ |
-| Template | Plan Template | Defines the structure of a plan file | plan data | .agents/domains/plans/templates/plan__template.md | .agents/domains/plans/files/index.md |
+TEMPLATE EXAMPLE: | Template | Plan Template | Defines the structure of a plan file | plan data | `.agents/domains/plans/templates/plan__template.md` | `files/index.md` | ✅ |
 
-## Formatters
+### Other
 
-TEMPLATE DIRECTIVE: List items of type `Formatter` hoisted from all domains, using the table format with columns: Type, Name, Purpose, Input, Output, Source.
+TEMPLATE DIRECTIVE: List items of type `Other` hoisted from all domains, using the following table format and the example below it as a reference.
 
-| Type | Name | Purpose | Input | Output | Source |
-| ---- | ---- | ------- | ----- | ------ | ------ |
-| {item.type} | {item.name} | {item.purpose} | {item.input} | {item.output} | .agents/domains/{domain}/{item.file-path} |
-
-TEMPLATE EXAMPLE:
-
-| Type | Name | Purpose | Input | Output | Source |
-| ---- | ---- | ------- | ----- | ------ | ------ |
-| Formatter | Skill References | Format references to skills | skill id and outcome | formatted skill reference | .agents/domains/_structured-contexts/formatters/references.md |
-
-## Other
-
-TEMPLATE DIRECTIVE: List items of type `Other` hoisted from all domains, using the table format with columns: Type, Name, Purpose, Description, Source.
-
-| Type | Name | Purpose | Description | Source |
-| ---- | ---- | ------- | ----------- | ------ |
-| {item.type} | {item.name} | {item.purpose} | {item.description} | .agents/domains/{domain}/{item.file-path} |
-
-TEMPLATE EXAMPLE:
-
-| Type | Name | Purpose | Description | Source |
-| ---- | ---- | ------- | ----------- | ------ |
-| Status | Plan Status | Current state of the plan | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | .agents/domains/plans/structures/plan_structure.md |
+| Type        | Name        | Purpose              | Description              | Source             | Status  |
+| ----------- | ----------- | -------------------- | ------------------------ | ------------------ | ------- |
+| {item.type} | {item.name} | {infer item.purpose} | {infer item.description} | {item.source-path} | {emoji} |
 
 ## How to update this file
 

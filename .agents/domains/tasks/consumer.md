@@ -26,14 +26,14 @@
 
 ---
 
-| Type       | Name | Definition                                                                                                     | Path                 | Status |
-| ---------- | ---- | -------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| Type       | Name | Definition                                                                                                      | Path                 | Status |
+| ---------- | ---- | --------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
 | Definition | Task | A structured domain record, defining a work item, goal, scope, requirements, constraints, and expected outcome. | definitions/index.md | ✅     |
 
 ---
 
-| Type       | Name                        | Definition                                                                                                                   | Path                 | Status |
-| ---------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| Type       | Name                        | Definition                                                                                                                 | Path                 | Status |
+| ---------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
 | Definition | Definitions Related to Task | Task Template, Task Draft, Task Attachment, Task Specification — extended concepts for task records and their attachments. | definitions/index.md | ✅     |
 
 ---
@@ -42,9 +42,9 @@
 
 ---
 
-| Type       | Name        | Fields                                                                                                                               | Path                     | Status |
-| ---------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | ------ |
-| Structure  | Task Record | id, title, metadata.template, required-skills, mandatory-reading, summary, summary.scope, summary.dependencies, specifications, attachments | structures/task_structure.md | ✅     |
+| Type      | Name        | Fields                                                                                                                                      | Path                            | Status |
+| --------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------ |
+| Structure | Task Record | id, title, metadata.template, required-skills, mandatory-reading, summary, summary.scope, summary.dependencies, specifications, attachments | structures/task\_\_structure.md | ✅     |
 
 ---
 
@@ -52,11 +52,11 @@
 
 ---
 
-| Type | Name                     | Purpose                                                               | Path          | Status |
-| ---- | ------------------------ | --------------------------------------------------------------------- | ------------- | ------ |
-| File | Task File                | Contains a task record, identified by the pattern `path/{task.id}/task.md`. | files/index.md | ✅     |
-| File | Task Attachments         | Arbitrary files created alongside a task file to capture related content. | files/index.md | ✅     |
-| File | Task Specification File  | Specification files named after `task.id` and `spec.id` using the pattern `{task.id}/task__spec__{spec.id}.md`. | files/index.md | ✅     |
+| Type | Name                    | Purpose                                                                                                         | Path           | Status |
+| ---- | ----------------------- | --------------------------------------------------------------------------------------------------------------- | -------------- | ------ |
+| File | Task File               | Contains a task record, identified by the pattern `path/{task.id}/task.md`.                                     | files/index.md | ✅     |
+| File | Task Attachments        | Arbitrary files created alongside a task file to capture related content.                                       | files/index.md | ✅     |
+| File | Task Specification File | Specification files named after `task.id` and `spec.id` using the pattern `{task.id}/task__spec__{spec.id}.md`. | files/index.md | ✅     |
 
 ---
 
@@ -64,13 +64,13 @@
 
 ---
 
-| Type      | Name                                     | Purpose                                                              | Input        | Output         | Path                 | Status |
-| --------- | ---------------------------------------- | -------------------------------------------------------------------- | ------------ | -------------- | -------------------- | ------ |
-| Process   | Process for Generating Task Titles       | Compact a task summary into a stable, scoped task title.             | task summary | task title     | processes/index.md   | ✅     |
-| Process   | Process for Generating Task IDs          | Generate a kebab-case task identifier from a normalised title.       | task title   | task id        | processes/index.md   | ✅     |
-| Process   | Process for Inferring Task IDs           | Infer task IDs from context.                                         | —            | —              | processes/index.md   | 🚧     |
-| Process   | Process for Naming Task Attachment Files | Name attachment files after the task file with a `__{type}` suffix.  | attachment type | attachment filename | processes/index.md | ✅     |
-| Process   | Process for Reading Task Files           | Read and validate a task file against its template.                  | task file    | task record    | processes/index.md   | ✅     |
-| Process   | Process for Reading Specification Attachments | Read and validate a task specification attachment against its template. | spec attachment | spec content | processes/index.md   | ✅     |
+| Type    | Name                                          | Purpose                                                                 | Input           | Output              | Path               | Status |
+| ------- | --------------------------------------------- | ----------------------------------------------------------------------- | --------------- | ------------------- | ------------------ | ------ |
+| Process | Process for Generating Task Titles            | Compact a task summary into a stable, scoped task title.                | task summary    | task title          | processes/index.md | ✅     |
+| Process | Process for Generating Task IDs               | Generate a kebab-case task identifier from a normalised title.          | task title      | task id             | processes/index.md | ✅     |
+| Process | Process for Inferring Task IDs                | Infer task IDs from context.                                            | —               | —                   | processes/index.md | 🚧     |
+| Process | Process for Naming Task Attachment Files      | Name attachment files after the task file with a `__{type}` suffix.     | attachment type | attachment filename | processes/index.md | ✅     |
+| Process | Process for Reading Task Files                | Read and validate a task file against its template.                     | task file       | task record         | processes/index.md | ✅     |
+| Process | Process for Reading Specification Attachments | Read and validate a task specification attachment against its template. | spec attachment | spec content        | processes/index.md | ✅     |
 
 ---

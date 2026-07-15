@@ -89,7 +89,7 @@ For each File Selected for Editing execute the following steps:
 
 <!-- WIP Split into Process for Classifying Path Expressions and Process for Normalising Path Expressions -->
 
-**Before you start:**
+**Before executing:**
 
 1. Read the contents of `.gitinore` in the repository root.
 2. Identify root directory names by listing directories at root of the repository.

@@ -1,10 +1,16 @@
 # Task Template
 
+<!-- WIP convert to diretives -->
+
 TEMPLATE DIRECTIVE: Change the `h1` title to `# Task: {task.title}`
 
-## Metadata
+**ID:** `{task.id}`
 
-Template: `.agents/domains/tasks/templates/task__template.md`
+**Status:** `{task.status}`
+
+**Template:** `{task.template}`
+
+**Skill:** `{task.skill-id}`
 
 ### Skills required:
 
@@ -12,7 +18,9 @@ Template: `.agents/domains/tasks/templates/task__template.md`
 
 ## Summary
 
-One sentence, heavy on why, optimize for humans.
+TEMPLATE DIRECTIVE: Summarise the goal and scope of the task.
+
+TEMPLATE EXAMPLE: Create new badge component and mixin and refactor controllers.
 
 ### Specifications
 
@@ -75,8 +83,6 @@ Examples:
 Notes about items that are prone to be infered as in scope for this task, explaining why
 
 ## Acceptance criteria (externally checkable conditions for done).
-
-<!-- // WIP -->
 
 - All new entities listed in demo-app API docs.
 - All new component entities previewable in demo-app component page and sandbox.

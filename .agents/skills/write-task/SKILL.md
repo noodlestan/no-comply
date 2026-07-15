@@ -27,7 +27,7 @@ Read `.agents/domains/references/index.md`, if not yet in context – it describ
 
 These are the default steps for a task writing session:
 
-- Before you start
+- Before executing
 - Plan exploration
 - Explore
 - Summarise Findings
@@ -36,7 +36,7 @@ These are the default steps for a task writing session:
 - Write Task
 - Offload context
 
-## Before you start
+## Before executing
 
 1. Identify the concrete task writing skill being used. Example: `write-component-task`.
 2. If no concrete skill is loaded, identify the nature of the task and read the skill list to identify a more concrete skill. Example: `write-component-task`.

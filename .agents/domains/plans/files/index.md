@@ -4,38 +4,40 @@
 
 ### Plan File (#all)
 
-**Plan File** – A structured file outlining the plan, identifying the source tasks and specs, describing the high-level commit strategy, and an eventual delegation sequence. Plan files do not contain implementation instructions, these are generated in implementation instruction attachments. Plans also track execution status, and capture outcomes and feedback. (#hoist)
+**Purpose:** Contains high-level elements of plan record, as defined by `.agents/domains/plans/task_structure.md`, but no implementation instructions (instructions are generated in implementation instruction files).
 
-**ID** – The `plan.id` can be inferred from the plan file name using this pattern: `path/{plan.id}/plan.md`.
+**Naming Pattern:** `{any path}/plan-{plan.id}/plan.md`.
 
-**Template** – `.agents/domains/plans/templates/plan__template.md` defines the structure of a plan file in an arbitrary location.
+**Template:** `.agents/domains/plans/templates/plan__template.md` defines the presentation of a plan file.
+
+**Location:** Plan files can be located anywhere in the filesystem.
 
 ### Implementation Instructions File (#all)
 
-**Purpose** – Files attached to a plan file, containing the Implementation Instruction prompt and other supporting instructions required for the sub-agent to execute the assigned operations and report back to the requesting agent.
+**Purpose:** Files attached to a plan file, containing the Implementation Instruction prompt and other supporting instructions required for the sub-agent to execute the assigned operations and report back to the requesting agent.
 
-**Location** – Located in the same directory as the Plan File and are named after the `plan.id` and `commit.id` using the following pattern:
-
-**Naming Pattern** – `plan-{plan.id}/instructions/{commit.id}.md`
+**Naming Pattern:** `plan-{plan.id}/instructions/{commit.id}.md`
 
 **Template**` – .agents/domains/plans/templates/instruct__template.md` defines the structure for implementation instructions.
+
+**Location:** Located in a `instructions/` sub-directory next to the plan file.
 
 ### Sub Agent Delegation File (#producer)
 
 **Purpose**: Contain the Sub Agent Prompt verbatim, including the bundled implmentation structures, commit blueprints, and validation and feedback instructions.
 
-**Location** – Located in the same directory as the Plan File.
+**Naming Pattern:** `plan-{plan.id}/delegations/{delegation.id}.md`
 
-**Naming Pattern** – `plan-{plan.id}/delegations/{delegation.id}.md`
+**Template:** `.agents/domains/plans/templates/delegation__template.md`.
 
-The Template `.agents/domains/plans/templates/delegation__template.md` defines the structure of the sub-agent response and it is referenced from the Implementation Instructions to be processed by the sub-agent at reporting time.
+**Location:** Located in a `instructions/` sub-directory next to the plan file.
 
 ### Sub Agent Report File (#producer)
 
 **Purpose**: Contain the Sub Agent Report verbatim, detailing the outcome of the sub-agent process.
 
-**Location** – Located in the same directory as the Plan File.
+**Naming Pattern:** `plan-{plan.id}/delegations/{delegation.id}__report.md`
 
-**Naming Pattern** – `plan-{plan.id}/{delegation.id}__report.md`
+**Template:** `.agents/domains/plans/templates/report__template.md`.
 
-The Template `.agents/domains/plans/templates/report__template.md` defines the structure of the sub-agent response and it is referenced from the Implementation Instructions to be processed by the sub-agent at reporting time.
+**Location:** Located in a `instructions/` sub-directory next to the plan file.

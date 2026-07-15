@@ -1,24 +1,40 @@
 # Task Related Files
 
-## Main Files
+## Files
 
 ### Task File (#all)
 
-**Task File:** – Contains a task record, as defined by the task structure `.agents/domains/tasks/task_structure.md`. The `task.id` can be read from the file path using the pattern: `path/{task.id}/task.md`. Example: `refining/milestone-1/update-docs/task.md` where the `task.id` is `update-docs`.
+**Purpose:** Contains a task record, as defined by `.agents/domains/tasks/task_structure.md`.
 
-## Other Files
+**Naming Pattern:** `{any path}/task-{task.id}/task.md`.
 
-### Task Attachments (#all)
+**Template:** `.agents/domains/tasks/templates/plan__template.md`.
 
-Arbitrary files may be created along side a task file to capture related content without overloading the task entry point.
-
-Examples:
-
-- `task-{task.id}/attachments/findings.md`
-- `task-{task.id}/attachments/discovery.md`
+**Location:** Plan files can be located anywhere in the filesystem.
 
 ### Task Specification File (#all)
 
-The specification files are located in the same directory as the task file they belong to and are named after the `task.id` and `spec.id` using the following pattern: `task-{task.id}/task__spec__{spec.id}.md`
+**Purpose:** Contains a specification attached to a task, describing a single implementation objective or requirement.
 
-- `task-{task.id}/specificataons/api-changes.md`
+**Naming Pattern:** `{any path}/task-{task.id}/specifications/{spec.id}.md`.
+
+**Template:** `.agents/domains/tasks/templates/specification__template.md`.
+
+**Location:** Located in a `speficiations/` sub-directory next to the task file.
+
+### Task Attachment File (#all)
+
+**Purpose:** Contains arbitrary supporting content related to a task, generated during task writing, backlog management tasks, or planning, execution phases. Allows consumers of the Task File not be overloaded by unrefined notes.
+
+**Naming Pattern:** `{any path}/task-{task.id}/attachments/{attachment.name}.md`
+
+**Template:** None or arbitrary.
+
+<!-- WIP define task attachment templates -->
+
+**Location:** Located in a `attahcments/` sub-directory next to the task file.
+
+**Examples:**
+
+- `task-{task.id}/attachments/findings.md`
+- `task-{task.id}/attachments/discovery.md`

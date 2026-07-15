@@ -162,7 +162,7 @@ With the provided `domain API tree`, execute the following steps:
 
 - `domain API documentation`
 
-**Before you start:** Agents must follow this process – and the nested processes – step by step. Yes it is quite involved but also fun and rewarding. Trust the process, this process, and don't attempt to locate pre-generated files to infer.
+**Before executing:** Agents must follow this process – and the nested processes – step by step. Yes it is quite involved but also fun and rewarding. Trust the process, this process, and don't attempt to locate pre-generated files to infer.
 
 **Process:**
 
@@ -183,7 +183,7 @@ With the provided `domain`, execute the following steps:
 
 **Outputs:**
 
-- `domain-listing` – a table with domain listing entries containing `name` (of the domain), `file name`, `description`, and `hoisted` content.
+- `domain-listing` – a table with domain listing entries containing `domain.id`, `domain.name`, `domain.description`, `domain.file-path`, and `domain.hoisted` content.
 
 **Process:**
 
@@ -191,10 +191,11 @@ With the provided `domain`, execute the following steps:
    - CATCH: if no `_api.md` files dound, you probably used a misbehaving `glob`, try again with `ls .agents/domains/**/_api.md`.
    - CATCH: if no `_api.m` files found, then THROW ERROR to user and STOP processing.
 2. With each domain:
-   1. Identify the domain name from the file path.
-   2. Read the `## Summary` section to extract the domain description.
-   3. Read the `## Hoisted` section to extract hoisted items.
-   4. Generate a `domain list item.description` from the summary using this pattern `{domain.provides} for {domain.use-case}` and adjust the result for correct grammar, punctuation, and capitalisation.
-   5. Capture the `hoisted` content and `domain list item`.
+   1. Store the file path (relative to repository root) as `domain.file-path`.
+   2. Identify the `domain.id` from the file path.
+   3. Identify the `domain.name` ine the H1: `{domain.name} Domain API`.
+   4. Read the `## Summary` section to extract the `domain.provides` and `domain.use-cases`.
+   5. Read the `## Hoisted` section to extract the `domain.hoisted` items.
+   6. Generate a `domain.description` from the summary using this pattern `{domain.provides} for {domain.use-case}` and adjust the result for correct grammar, punctuation, and capitalisation.
 3. Generate a table with one row for each `domain` and the following columns: `file name` (relative to repository root), `description`, and `hoisted` content.
 4. Yield the table rows as `domain-listing`.

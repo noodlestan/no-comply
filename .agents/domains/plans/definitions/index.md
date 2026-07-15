@@ -4,7 +4,7 @@
 
 ### Definition of "Plan" (#hoist)
 
-**Plan** – A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents. (#hoist)
+**Plan** – A structured, detailed implementation plan, identifying the source tasks and specifications, describing the commit strategy, and an eventual delegation workflow. Plans also track execution status, and capture outcomes and feedback. (#hoist)
 
 ### Definitions Related to "Plan" (#all)
 

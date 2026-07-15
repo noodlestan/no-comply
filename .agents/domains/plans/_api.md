@@ -16,9 +16,9 @@ These items published to the domain listing (making them immediately discoverabl
 
 ### Structures
 
-| Type      | Name                 | Fields                     | Path                         | Status |
-| --------- | -------------------- | -------------------------- | ---------------------------- | ------ |
-| Structure | Plan Record Identity | id, status, tasks, summary | structures/plan_structure.md | ✅     |
+| Type      | Name                 | Fields                     | Path                            | Status |
+| --------- | -------------------- | -------------------------- | ------------------------------- | ------ |
+| Structure | Plan Record Identity | id, status, tasks, summary | structures/plan\_\_structure.md | ✅     |
 
 ## All
 
@@ -39,10 +39,10 @@ These items are published in both the consumer and producer API surfaces.
 
 ### Structures
 
-| Type      | Name                 | Fields                                           | Path                         | Status |
-| --------- | -------------------- | ------------------------------------------------ | ---------------------------- | ------ |
-| Structure | Plan Record Extended | follow-ups, feedback                             | structures/plan_structure.md | ✅     |
-| Structure | Plan Record Status   | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | structures/plan_structure.md | ✅     |
+| Type      | Name                 | Fields                                           | Path                            | Status |
+| --------- | -------------------- | ------------------------------------------------ | ------------------------------- | ------ |
+| Structure | Plan Record Extended | follow-ups, feedback                             | structures/plan\_\_structure.md | ✅     |
+| Structure | Plan Record Status   | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | structures/plan\_\_structure.md | ✅     |
 
 ## Consumer
 
@@ -50,9 +50,9 @@ These items are published in the consumer scope only.
 
 ### Structures
 
-| Type      | Name                            | Fields               | Path                         | Status |
-| --------- | ------------------------------- | -------------------- | ---------------------------- | ------ |
-| Structure | Plan Record Extended (consumer) | follow-ups, feedback | structures/plan_structure.md | ✅     |
+| Type      | Name                            | Fields               | Path                            | Status |
+| --------- | ------------------------------- | -------------------- | ------------------------------- | ------ |
+| Structure | Plan Record Extended (consumer) | follow-ups, feedback | structures/plan\_\_structure.md | ✅     |
 
 ## Producer
 
@@ -67,10 +67,10 @@ These items are published in the producer scope only.
 
 ### Structures
 
-| Type      | Name                            | Fields                          | Path                         | Status |
-| --------- | ------------------------------- | ------------------------------- | ---------------------------- | ------ |
-| Structure | Plan Record Details             | checklist, commits, delegations | structures/plan_structure.md | ✅     |
-| Structure | Plan Record Extended (producer) | follow-ups, feedback            | structures/plan_structure.md | ✅     |
+| Type      | Name                            | Fields                          | Path                            | Status |
+| --------- | ------------------------------- | ------------------------------- | ------------------------------- | ------ |
+| Structure | Plan Record Details             | checklist, commits, delegations | structures/plan\_\_structure.md | ✅     |
+| Structure | Plan Record Extended (producer) | follow-ups, feedback            | structures/plan\_\_structure.md | ✅     |
 
 ## How to update this file
 

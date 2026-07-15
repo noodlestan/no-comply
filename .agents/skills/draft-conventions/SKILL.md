@@ -35,7 +35,7 @@ Example: `task-{task.id}/attachments/convention-draft-{draft.id}.md`
 
 ## Steps
 
-### Before you start
+### Before executing
 
 - RULE: treat the current repository conventions files as the baseline.
 - RULE: the purpose is to capture **deltas** — newly identified rules, rule changes, rule clarifications, and missing exceptions.

@@ -20,7 +20,7 @@ READ `.agents/domains/plans/definitions/index.md` - Essential definitions for wo
 
 READ `.agents/domains/plans/files/index.md` - File structures and naming patterns for plan-related files.
 
-READ `.agents/domains/plans/structures/plan_structure.md` - Plan record structure and status definitions.
+READ `.agents/domains/plans/structures/plan__structure.md` - Plan record structure and status definitions.
 
 ## API
 
@@ -50,10 +50,10 @@ READ `.agents/domains/plans/structures/plan_structure.md` - Plan record structur
 
 ---
 
-| Type      | Name                 | Fields                                           | Path                         | Status |
-| --------- | -------------------- | ------------------------------------------------ | ---------------------------- | ------ |
-| Structure | Plan Record Identity | id, status, tasks, summary                       | structures/plan_structure.md | ✅     |
-| Structure | Plan Record Extended | follow-ups, feedback                             | structures/plan_structure.md | ✅     |
-| Structure | Plan Record Status   | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | structures/plan_structure.md | ✅     |
+| Type      | Name                 | Fields                                           | Path                            | Status |
+| --------- | -------------------- | ------------------------------------------------ | ------------------------------- | ------ |
+| Structure | Plan Record Identity | id, status, tasks, summary                       | structures/plan\_\_structure.md | ✅     |
+| Structure | Plan Record Extended | follow-ups, feedback                             | structures/plan\_\_structure.md | ✅     |
+| Structure | Plan Record Status   | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | structures/plan\_\_structure.md | ✅     |
 
 ---

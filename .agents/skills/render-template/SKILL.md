@@ -36,7 +36,7 @@ With the provided template file or name, execute the following steps:
 
 ## Process for Rendering Files using Templates
 
-**Before you start:**
+**Before executing:**
 
 - RULE: always follow the **Template:** for the file type being edited.
 - CRITICAL RULE: if you can not identify the **Template:** unambigiously, STOP ask the user.

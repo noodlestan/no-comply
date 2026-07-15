@@ -1,6 +1,10 @@
-# Structured Contexts Definitions
+# Artificials Definitions
 
 ## Definitions
+
+### Definition of: "Artificial" (#all)
+
+**Artificial** – Standardised instructions classified per type or agent supporting resource (such as templates)
 
 ### Definition of: "Context File" (#consumer)
 
@@ -10,7 +14,7 @@
 
 **Artificial Procedure** – A reusable set of instructions in a context file that provides a way to reuse the instructions in different contexts. A procedure is one of: `Command`, `Process`, `Template` of `Formatter`
 
-### Definitions related to Structured Contexts (#producer)
+### Definitions related to Artificials (#producer)
 
 **Artificial Command** – A reusable instruction that directs an agent to perform a specific action. Example invocation: "With the collected notes, use the **Write Task** command to prepare a task draft."
 

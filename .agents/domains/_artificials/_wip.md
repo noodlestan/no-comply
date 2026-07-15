@@ -1,10 +1,10 @@
-# Structured Contexts WIP
+# Artificials WIP
 
 <!--WIP rename to _artificials -->
 
-## Structured Contexts Consumer
+## Artificials Consumer
 
-**Use Cases:** Locating, reading, and interpreting all types of structured contexts.
+**Use Cases:** Locating, reading, and interpreting all types of Artificials.
 
 **Provides:**
 
@@ -19,9 +19,9 @@
 
 ### Mandatory Reading
 
-READ `.agents/domains/_structured-contexts/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
+READ `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
 
-## Structured Contexts Producer
+## Artificials Producer
 
 **Use Cases:** Generating, validating, and improving structured context files.
 
@@ -38,7 +38,7 @@ READ `.agents/domains/_structured-contexts/formatters/references.md` - declares 
 
 ### Mandatory Reading
 
-READ `.agents/domains/_structured-contexts/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
+READ `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
 
 ## Delegated Formatters
 
@@ -51,6 +51,6 @@ READ `.agents/domains/_structured-contexts/formatters/references.md` - declares 
 
 **Process:**
 
-1. Load the reference formatters from `.agents/domains/_structured-contexts/formatters/references.md`.
+1. Load the reference formatters from `.agents/domains/_artificials/formatters/references.md`.
 2. Identify the corresponding instructions in the file, under the formatter's H3 Section.
 3. Delegate the input to the corresponding formatter to yield a formatted reference.

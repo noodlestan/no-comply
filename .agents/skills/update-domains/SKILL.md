@@ -1,11 +1,11 @@
 ---
 name: update-domains
-description: Use this skill to update the domains listing file.
+description: Use this skill to update the domains api documentation and domains listing file.
 ---
 
 # Skill: Update Domains
 
-Use this skill to update the domains listing in `.agents/domains/index.md` so that it enumerates and describes the available domains and their hoisted content.
+Use this skill to update the domains listing in `.agents/domains/index.md` so that it enumerates and describes the available domains and their discoverable content.
 
 ## Allowed Agent Modes
 
@@ -19,20 +19,24 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 ### Command: Update Domains Listing
 
+**Purpose:** Updates the domain listing, at `.agents/domains/index.md`, listing all domains and their discoverable resources (definitions, structures, commands, processes, templates, files, ...)
+
 **Triggers:**
 
 - when the user says `update domains listing`.
 - when the user says `update domains`.
 
+**Before executing:**
+
+- Load the `.agents/domains/domains/definitions/index.md` to understand the basic concepts.
+- Load the `.agents/domains/domains/processes/index.md` to understand the required procedures.
+
 **Process:**
 
-BEFORE ANY STEP: Load the `.agents/domains/domains/definitions/index.md` to understand the basic concepts.
-BEFORE ANY STEP: Load the `.agents/domains/domains/processes/index.md` to understand the required procedures.
-
 1. Execute the **Process for Generating the Domain Listing** to generate the `domain-listing` table.
-   - CATCH: if no _api.md files found, then THROW ERROR to user and STOP processing.
 2. Use the **render-template** skill with the `.agents/domains/domains/templates/domains-listing__template.md` template to present the generated table.
    - CATCH: if template missing, then THROW ERROR to user and STOP processing.
+3. Save in `.agents/domains/index.md`.
 
 ### Command: Update Domain (domain)
 
@@ -44,9 +48,9 @@ BEFORE ANY STEP: Load the `.agents/domains/domains/processes/index.md` to unders
 
 **Triggers:**
 
-- When the instructions say `With the {domain} domain, use the **Update Domain** command to generate consumer and producer files`.
 - When the user says `update domain {domain}`.
 - When the user says `update domain {domain} api`.
+- When the instructions say `With the {domain} domain, use the **Update Domain** command to generate consumer and producer files`.
 
 **Note:** This process uses a template located at `.agents/domains/domains/templates/domains-listing__template.md`, i.e., in the meta-domain's templates directory. This is not related to the `{domain}` being procesed.
 
