@@ -28,10 +28,10 @@
     @include def-color-level(bg-disabled, 700);
     @include def-color-level(bg-saturated, 800);
 
-    @include def-color-level(bg-stage, 850);
     @include def-color-level(bg-0, 1000);
     @include def-color-level(bg-1, 950);
     @include def-color-level(bg-2, 900);
+    @include def-color-level(bg-stage, 850);
     @include def-color-level(bg-3, 800);
     @include def-color-level(bg-4, 700);
 
