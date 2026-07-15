@@ -14,10 +14,11 @@ Arbitrary files may be created along side a task file to capture related content
 
 Examples:
 
-- `{task.id}/task__findings.md`
-- `{task.id}/task__discovery.md`
-- `{task.id}/task__spec__api-changes.md`
+- `task-{task.id}/attachments/findings.md`
+- `task-{task.id}/attachments/discovery.md`
 
 ### Task Specification File (#all)
 
-The specification files are located in the same directory as the task file they belong to and are named after the `task.id` and `spec.id` using the following pattern: `{task.id}/task__spec__{spec.id}.md`
+The specification files are located in the same directory as the task file they belong to and are named after the `task.id` and `spec.id` using the following pattern: `task-{task.id}/task__spec__{spec.id}.md`
+
+- `task-{task.id}/specificataons/api-changes.md`

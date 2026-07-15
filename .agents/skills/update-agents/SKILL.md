@@ -60,11 +60,11 @@ Instructions on how to update this index can be found at the bottom of this file
 
 When the user says "list agents" present this list.
 
-## <agent-name>
+## {agent.name}
 
-ID: `$AGENT_MODE`
+ID: `{agent.id}`
 
-Mission: <agent-mission>
+Mission: {agent.mission}
 
 # How to update this file and agent platform Links
 
@@ -84,7 +84,7 @@ With the provided agent mode:
 
 ```
 name = "$AGENT_MODE"
-description = "<agent-mission>"
+description = "{agent-mission}"
 model_reasoning_effort = "medium"
 developer_instructions = """
 This agent mode is defined by the following skills, in order:

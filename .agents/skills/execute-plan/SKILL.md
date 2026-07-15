@@ -23,8 +23,10 @@ Read also the **Plan Template** from `.agents/domains/plans/templates/plan__temp
 
 ## Before you start
 
-- RULE: Ensure all referenced `<task.id>.md` files already exist.
-- RULE: Ensure all referenced Implementation Instructions files (`{plan.id}__instruct__*.md`) exist.
+- RULE: Ensure all referenced `task-{task.id}/task.md` files exist.
+- RULE: Validate each task checking if aLL links in the task file to specifications files can be resolved to a file. Pattern: "`task-{task.id}/specifications/{specification.id}.md`.
+- RULE: Ensure that ALL links in the plan file that link to instruction files (`./plan-{plan.id}/instructions/{instruction.id}.md`) can be resolved to
+- RULE: Ensure that ALL links in the plan file that link to delegation files (`./plan-{plan.id}/delegations/{delegation.id}.md`) can be resolved to
 
 <!-- WIP -->
 
@@ -39,7 +41,7 @@ Mark plan as WORKING as per Plan Record rules.
 For each commit:
 
 - Launch a sub-agent
-- Pass the commit delegation prompt as stored in `{plan.id}__instruct__task-1.md`
+- Pass the commit delegation prompt as stored in `plan-{plan.id}/instructions/{instruction.id}.md`
 - Do not modify prompts
 
 #### Sub-agent interaction
@@ -83,6 +85,6 @@ When all commits are completed:
 
 ## Commands
 
-When the user says "add to follow ups", add a note under "## Follow Ups" in the `{plan.id}/plan.md` file.
+When the user says "add to follow ups", add a note under "## Follow Ups" in the `plan-{plan.id}/plan.md` file.
 
 When the user responds with "not in scope" it means the previous response from the agent contained a suggestion or concern that is not relevant for the current plan. Try to forget it and not repeat the same question or concern again.

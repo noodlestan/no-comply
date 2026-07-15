@@ -40,7 +40,7 @@ Read also:
 
 **Entity task scope** - can include specicificationss for new entities or for modifying entities (components, mixins, controllers, ...) as well as for non-entities (shared types, helpers, global constants...).
 
-**Entity draft** - one `{task.id}/task__draft.md` file containing a proto specification for each entity in scope. Less detailed than a full task+specs output, sufficient for early review and backlog placement.
+**Entity draft** - one `draft-{draft.id}/draft.md` file containing a proto specification for each entity in scope. Less detailed than a full task+specs output, sufficient for early review and backlog placement.
 
 **Main attributes of entities scope:**
 
@@ -68,8 +68,6 @@ This is a 4 step iterative process. Expect to return from step 3 back to any pre
 2. Proto API design
 3. Summarise scope
 4. Generate the entity draft
-
-Expect to create one artefact per task: the `{task.id}/task__draft.md` file covering all entities in scope. No specification attachments are produced.
 
 Details of each step after the Rules section.
 
@@ -190,10 +188,11 @@ For each entity capture the following facts. These facts populate the proto spec
 
 ### 3. Summarise Scope
 
-1. Focus back on the scope.
-2. Use the **rehash** skill extend with the **Process for Synthesising the Entity Task Scope** to generate a summary.
-3. Use the **rehash** skill extend with the **Process for Presenting the Entity Task Scope Summary** to present it.
-4. Ask for user review.
+1. Focus back on the scope and execute the following steps:
+   1. From the current iteration, extract: entities identified, changes proposed, and `status` of each.
+   2. Build a list of entities with columns: `type` (Add/Remove/Refactor/Modify), id, and `status` (confirmed/refining/draft exists/closed).
+   3. Present the summary as a bullet list, linking to draft files where they exist, and using micro status expressions otherwise.
+   4. Ask for user review.
 
 - RULE: Expect iteration and going back to previous steps.
 - RULE: Do no insist on approval, focus on assisting with refining.
@@ -201,40 +200,4 @@ For each entity capture the following facts. These facts populate the proto spec
 ### 4. Generate the entity draft
 
 1. Use the `no-comply-entity-draft-template.md` Template and the "Rules for working with the Entity Draft Template" to structure the draft file.
-2. Use the **rehash** skill to summarise the latest iteration.
-
-## Commands
-
-### Command: Rehash
-
-**Triggers:**
-
-When the user says `rehash`
-
-**Process:**
-
-1. use the **rehash** skill to summarise the current step status (and only the current step).
-2. present the summary and an orientation "Currently on step 2/4".
-
-### Command: Rehash {step}
-
-**Triggers:**
-
-- When the user says `rehash {step}`.
-
-**Process:**
-
-1. Identify the current step of the **Drafting Worklow**.
-2. Use the **rehash** skill to summarise the current step
-3. present the summary and an orientation "Currently on step 2/4".
-
-### Command: Rehash Scope
-
-**Triggers:**
-
-- When the user says `rehash scope`.
-
-**Process:**
-
-1. Execute Step **3. Summarise Scope** of **Drafting Worklow**.
-2. Stay on current step.
+2. Execute the **Process for Presenting the Entity Task Scope Summary** to summarise the latest iteration.

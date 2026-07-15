@@ -21,9 +21,9 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 2. Filter out skills that start with `agent-` as they are special agent mode skills.
 3. Generate a table with the following columns.
 
-- `<skill.id>` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
-- `<skill-name>` - the skill file's h1 heading `# Skill: <skill-name>`.
-- `<skill-description>` - the `description` field of the skill file's frontmatter.
+- `{skill.id}` - the `name` field of the skill file's frontmatter stripped of the `agent-` prefix.
+- `{skill.name}` - the skill file's h1 heading `# Skill: {skill.name}`.
+- `{skill.description}` - the `description` field of the skill file's frontmatter.
 
 4. Create or update `.agents/skills/index.md` using the following template.
 
@@ -43,16 +43,16 @@ Instructions on how to update it can be found at the bottom of this file.
 
 ## Explicitly Forbidden Agent Modes
 
-If your context `$AGENT_MODE` is set to one of the following modes you are FORBIDDEN to use ANY skills
+If your context `$AGENT_MODE` is set to one of the following modes you are FORBIDDEN to use ANY skills:
 
 - `Plan` (OpenCode built-in)
 - `Build` (OpenCode built-in)
 
-## <skill-name>
+## {skill.name}
 
-ID: `<skill.id>`
+ID: `{skill.id}`
 
-Description: <skill-description>
+Description: {skill.description}`
 
 ## How to update this file and agent platform Links
 

@@ -21,7 +21,6 @@ Read it and follow every rule in `write-task` unless explicitly overriden here.
 
 ## Allowed Skills
 
-- `rehash`
 - `parking-lot`
 
 ## Mandatory Reading
@@ -85,9 +84,9 @@ Details of each step after the Rules section.
 
 - RULE: exploration within this skill is limited to **Task Exploration Mode** (defined in `.agents/domains/tasks/index.md`): reading API contracts (types, props, exports) from known target files such as `types.ts` is allowed. YOU are NOT ALLOWED to follow imports, glob, or grep without permission.
 
-## Rules for creating Summaries
+## Processes for Creating Summaries
 
-### Rules for synthesising the entity task scope
+### Process for Synthesising the Entity Task Scope
 
 1. Build a table with the entities in scope, and with columns
 
@@ -103,7 +102,7 @@ Main attributes of non-entities scope:
 - description: `prop of ...`
 - status: is it confirmed scope? being refined? a spec draft exists? closed scope?
 
-### Rules for presenting the entity task scope summary
+### Process for Presenting the Entity Task Scope Summary
 
 1. Include a link to the specification attachment file if it exists.
 2. Otherwise, include a micro status expression. Example: (refining, speculative, problematic)
@@ -117,7 +116,7 @@ Full Example:
 - Add `mixin:standard-ui:badge` - refining
 - Modify `mixin:standard-ui:content-color` refining (change color options)
 - Add `mixin:composable:badge` - speculative
-- REFACTOR `<scope>` so that ...
+- REFACTOR `{scope}` so that ...
 
 **Other Changes**
 
@@ -125,7 +124,7 @@ Include only changes to non-entities
 
 - Refactor method `getFoo()` of `SomethingAPI` to use an index a optimise responsiveness
 - (BREAKING) Change method `getBar()` of `SomethingAPI` to return `boolean` (easy fix downstream)
-- Add `<scope>` so that ...
+- Add `{scope}` so that ...
 
 ## Rules for Writing Content for Entity Tasks and Specifications
 
@@ -247,8 +246,8 @@ It is also very likely that some of these composables should be stripped of `sta
 ### 6. Summarise Scope
 
 1. Focus back on the scope.
-2. Apply the **rehash** skill rules plus the "Rules for synthesising the entity task scope" to generate a summary.
-3. Apply the **rehash** skill rules plus the "Rules for presenting the entity task scope summary" to present it.
+2. Execute the **Process for Synthesising the Entity Task Scope** to generate a summary.
+3. Execute the **Process for Presenting the Entity Task Scope Summary** to present it.
 4. Ask for user review.
 
 - RULE: Expect iteration and going back to previous steps.
@@ -272,24 +271,4 @@ Apply the "Rules for Creating Entity Specifications from Template".
 ### 8. Generate the Component Task File
 
 1. Use the **render-template** skill with the `no-comply-entity-task-template.md` to render the Task File.
-2. Use the **rehash** skill to summarise the task.
-
-## Commands
-
-### Command: Rehash
-
-When the user says "rehash"
-
-1. use the **rehash** skill to aggressively summarise the current step status (and only the current step).
-2. present the summary and an orientation "Currently on step 2/7 | 2 specifications closed".
-
-### Rehash Step
-
-When the user says "rehash `<step>`"
-
-1. use the **rehash** skill to aggressively summarise the context of the requested step (and only the current step).
-2. present the summary and an orientation "Currently on step 2/7 | 2 specifications closed".
-
-### Rehash Scope
-
-When the user says "rehash scope" execute Step "### 6. Summarise Scope" but stay on current step.
+2. Execute the **Process for Presenting the Entity Task Scope Summary** to summarise the task.

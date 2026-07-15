@@ -88,7 +88,7 @@ TEMPLATE DIRECTIVE: If the section `type` is `File`, use the following table:
 | ----------- | ----------- | -------------- | -------------- | --------------- | ------------------ | ------- |
 | {item.type} | {item.name} | {item.purpose} | {item.pattern} | {item.template} | {item.source-path} | {emoji} |
 
-TEMPLATE EXAMPLE: | File | Plan File | A structured file outlining the plan, identifying the source tasks and specs | path/{plan.id}/plan.md | .agents/domains/plans/templates/plan\_\_template.md | files/index.md | ✅ |
+TEMPLATE EXAMPLE: | File | Plan File | A structured file outlining the plan, identifying the source tasks and specs | path/plan-{plan.id}/plan.md | .agents/domains/plans/templates/plan\_\_template.md | files/index.md | ✅ |
 
 ---
 

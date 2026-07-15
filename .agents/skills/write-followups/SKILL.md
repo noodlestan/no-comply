@@ -31,15 +31,9 @@ Read `.agents/domains/references/index.md`, if not yet in context – it describ
 
 ## Where to save the follow ups
 
-Save it to `{task.id}/task__follow-ups.md` file.
+Add them to the `task-{task.id}/task.md` file under the `## Notes / ### Follow Ups`.
 
 Ask for confirmation if unsure.
-
-## Follow Ups Outline
-
-- h1. Follow ups for `{task.id}`
-- h2. Changes Summary
-- h2. Follow up Tasks
 
 ## Changes Summary
 

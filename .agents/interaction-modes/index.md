@@ -1,9 +1,6 @@
 # Interaction Modes
 
-<!-- WIP add IMPORTANT rule to not adopt now -->
-<!-- WIP move modes to other files (grouped by profile) (#hoist) -->
-<!-- WIP skill to update-interaction-modes -->
-<!-- WIP add IMPORTANT rule to not adopt now -->
+<!-- WIP move to a tool -->
 
 This file defines Interaction Modes that an agent can adopt to modify its behaviour while processing requests.
 
@@ -24,7 +21,7 @@ Interaction Modes define behaviours such as:
 
 **Interaction Hook** – Describes an agent recurring process (Example: "When preparing response"). The hooks can be referenced with epecific contexts to narrown down application of the Interaction Mode (Example: "When preparing response after exploration tasks").
 
-**Active Interaction Modes Table** – A runtime table recording every Interaction Mode currently adopted by the agent, together with its source and requester. Columns: `mode` (the Interaction Mode name), `source` (the File where the Interaction Mode is declared), `requester` (the instruction or user request that activated the Interaction Mode).
+**Interaction Modes Table** – A runtime table recording every Interaction Mode currently adopted by the agent, together with its source and requester. Columns: `mode` (the Interaction Mode name), `source` (the File where the Interaction Mode is declared), `requester` (the instruction or user request that activated the Interaction Mode), and `active` (set to `true` when mode adopted, set to `false` when dropped.)
 
 **Interaction Mode Index** – A table built on request displaying every Interaction Mode currently known by the agent, together with its source.
 
@@ -33,18 +30,16 @@ Interaction Modes define behaviours such as:
 ### Process for Adopting Interaction Mode
 
 1. Identify the interaction-mode requested for adoption.
-2. Identify the source file where the interaction-mode is declared.
+2. Identify the `source` file where the interaction-mode is declared.
 3. Identify the requester (the user or the agent instruction) and the command or instruction that requested the interaction mode.
-4. Initialize the Active Interaction Modes Table if it has not yet been created.
-5. If the interaction mode is not already present in the table, add a new entry containing: `mode`, `source`, `requester`.
+4. Initialize the Interaction Modes Table if it has not yet been created.
+5. If the interaction mode is not already present in the table, add a new entry containing: `{mode}`, `{source}`, `{requester}` and `true`.
 
-### Process for Droping Interaction Mode
+### Process for Dropping Interaction Mode
 
 1. Identify the interaction-mode to be dropped.
 2. If the interaction-mode is unknown, ALERT the USER.
-3. Remove the interaction-mode from the Active Interaction Modes Table.
-4. Identify the most specific rehash (or summary) skill (or command) from the most recent exchanges.
-5. Use that skill to present the changes.
+3. Set the value of `active` to `false` in the corresponding row of the Interaction Modes Table.
 
 ## Interaction Modes
 
@@ -56,7 +51,7 @@ Interaction Modes define behaviours such as:
 
 **Process:**
 
-1. If the `Short Iterations` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the Interaction Modes Table contains a row for `Short Iterations` with `active` currently set to `true`nd its value for `active` is `true`, execute the following steps:
    1. Infer the smallest possible step that can produce actionable findings.
    2. Present your intention before continuing.
 
@@ -68,7 +63,7 @@ Interaction Modes define behaviours such as:
 
 **Process:**
 
-1. If the `Controlled Exploration` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the Interaction Modes Table contains a row for `Controlled Exploration` with `active` currently set to `true` execute the following steps:
    1. The first response must contain:
       - your interpretation of the request.
       - your strategy to execute it.
@@ -87,7 +82,7 @@ Interaction Modes define behaviours such as:
 
 **Process:**
 
-1. If the `Direct Questions` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the Interaction Modes Table contains a row for `Direct Questions` with `active` currently set to `true` execute the following steps:
    1. If the response contains more than one question, pick the most valuable and present only that one.
    2. Formulate the question as s YES/NO question or multiple-choice question.
    3. Inform that the question presented is question `{3}/{total}`.
@@ -103,7 +98,7 @@ Interaction Modes define behaviours such as:
 
 **Process:**
 
-1. If the `Best Effort` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the Interaction Modes Table contains a row for `Best Effort` with `active` currently set to `true` execute the following steps:
    1. Inform the user that you are going to try your best.
    2. Attempt to answer the question yourself by scanning backwards from the most recent context for potential answers.
    3. Try to identify sources of information that could potentially anwser the question.
@@ -124,7 +119,7 @@ Interaction Modes define behaviours such as:
 
 **Process:**
 
-1. If the `No Nonsense` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the Interaction Modes Table contains a row for `No Nonsense` with `active` currently set to `true` execute the following steps:
    1. If the answer is clear and obvious, state it as clearly as short as possible.
    2. If the question can have multiple correct answers, don't try to chose: present as bullet points.
    3. In all other cases, refuse to answer the question, politely.
@@ -134,32 +129,34 @@ Interaction Modes define behaviours such as:
 
 **Triggers:**
 
-- When your response includes details of changes to files.
+- When the agent is preparing the response to the user AND the response includes details of changes made to files during its last iteration.
 
 **Process:**
 
-1. If the `Summarised Changes` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the Interaction Modes Table contains a row for `Summarised Changes` with `active` currently set to `true` execute the following steps:
    1. Identify the changed files and nature of the changes.
-   2. If the changes consisted of bulk operations, condense the response to groups and counts.
-   3. Identify the most specific rehash (or summary) skill (or command) from the most recent exchanges.
-   4. Use that skill to present the changes.
+   2. Classify each change with the shortest possible label: "typo", "broken link", "formatted", "completed", "corrected", "dropped", or "disambiguated". Include the shortest quote that differentiates it from other rows.
+   3. Build a table with 2 columns: `file(s)` and `changes`. One row per bulk operation.
+   4. If the table exceeds 15 rows, extract lower-value items into a single summary paragraph below the table. Example: "And also 23 typos fixed across 7 files, and formatting issues in 9 files."
    5. Append `::summarised-changes` to the response.
 
 ### Interaction Mode: Terse Analyst
 
 **Triggers:**
 
-- When responding to the user
+- When the agent is preparing the response to the user AND the response is an answer to a direct user question.
 
 **Process:**
 
-1. If the `Terse Analyst` mode is on the Active Interaction Modes Table, execute the following steps:
-   1. Identfiy the new findings and questions generated.
-   2. Identify the evidence that supports it.
-   3. Group findings by "facts", "...", and "...".
-   4. Identify the most specific rehash (or summary) skill (or command) from the most recent exchanges.
-   5. Use that skill to present the findings and compacted evidence.
-   6. Append `::terse-analyst` to the response.
+1. If the Interaction Modes Table contains a row for `Terse Analyst` with `active` currently set to `true` execute the following steps:
+   1. Identify the current problem statement.
+   2. From the most recent exchange, extract new information, open questions, and key findings.
+   3. Select a primary analytical framework suited to the context (e.g. RAID, 5 Whys, SWOT, Cynefin) and optionally up to 2 secondary frameworks if multiple analytical angles were used.
+   4. Apply the primary framework to the new information and findings.
+   5. If secondary frameworks were selected, produce one sentence of additional insight per framework.
+   6. Present the primary analysis in compact form using tables where they improve clarity.
+   7. Present secondary insights as one sentence each.
+   8. Append `::terse-analyst` to the response.
 
 **Rules:**
 
@@ -175,7 +172,7 @@ Interaction Modes define behaviours such as:
 
 **Process:**
 
-1. If the `Enthusiastic` mode is on the Active Interaction Modes Table, execute the following steps:
+1. If the `Enthusiastic` mode is on the Interaction Modes Table, execute the following steps:
    1. Prepend your reponse with an exclamation. Example: "Yesss sir!!"
    2. Add emojis to the content of the response!
    3. Append your reponse with an an inspirational quote relevant to the context.
@@ -191,7 +188,8 @@ Interaction Modes define behaviours such as:
 
 **Process**:
 
-- Excute the **Process for Adopting Interaction Mode** with the identified `mode`.
+1. Execute the **Process for Adopting Interaction Mode** with the identified `mode`.
+2. Respond with the updated Interaction Mode Table.
 
 ### Command: Drop Interaction Mode (mode)
 
@@ -201,11 +199,12 @@ Interaction Modes define behaviours such as:
 
 **Process**:
 
-- Excute the **Process for Droping Interaction Mode** with the identified `mode`.
+1. Execute the **Process for Dropping Interaction Mode** with the identified `mode`.
+2. Respond with the updated Interaction Mode Table.
 
 ### Command: Reinforce Interaction Mode (mode)
 
-Use this command when the agent is not behaving according to an Interaction Mode currently recorded as active in the Active Interaction Modes Table.
+**Purpose:** Reinforce the interaction mode behaviours when the agent is NOT behaving according to a mode that is currently recorded as active in the Interaction Modes Table.
 
 **Triggers:**
 
@@ -213,11 +212,14 @@ Use this command when the agent is not behaving according to an Interaction Mode
 
 **Process**:
 
-- Excute the **Process for Adopting Interaction Mode** with the identified `mode`.
+1. Execute the **Process for Adopting Interaction Mode** with the identified `mode`.
+2. Generate a table with the columns `count` and `learning`.
+3. Add up to 7 rows to the table with difference sentences explaining what you will do different from now to make sure you START behaving according to the adopted `mode`.
+4. Respond with the generated table of learnings and the updated Interaction Mode Table.
 
 ### Command: Forget Interaction Mode (mode)
 
-Use this command when the agent is exhibiting behaviours of an Interaction Mode currently NOT recorded as active in the Active Interaction Modes Table.
+**Purpose:** Forget the interaction mode behaviours When the agent is exhibiting behaviours of a mode that is currently NOT recorded as active in the Interaction Modes Table.
 
 **Triggers:**
 
@@ -225,4 +227,7 @@ Use this command when the agent is exhibiting behaviours of an Interaction Mode 
 
 **Process**:
 
-- Excute the **Process for Adopting Interaction Mode** with the identified `mode`.
+1. Execute the **Process for Dropping Interaction Mode** with the identified `mode`.
+2. Generate a table with the columns `count` and `learning`.
+3. Add up to 7 rows to the table with difference sentences explaining what you will do different from now to make sure you STOP behaving according to the dropped `mode`.
+4. Respond with the generated table of learnings and the updated Interaction Mode Table.

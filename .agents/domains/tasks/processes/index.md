@@ -33,7 +33,7 @@ Before adding any content to a Task or Task Specification file the agent MUST ch
 - RULE: tables are NOT ALLOWED unless prescribed by the template.
 - RULE: diagrams are NOT ALLOWED unless prescribed by the template.
 
-- RULE: If the implementation details already in context are valuable, the agent SHOULD create a `{task.id}/task__plan-notes.md` attachment file and drop that content there.
+- RULE: If the implementation details already in context are valuable, the agent SHOULD create a `task-{task.id}/plan/attachments/notes.md` attachment file and drop that content there.
 
 #### Content Rules for Task Files (#producer)
 

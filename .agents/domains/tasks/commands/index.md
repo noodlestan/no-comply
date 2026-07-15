@@ -63,13 +63,14 @@
 
 1. Identify the path(s) directorie from the inputs.
 2. Glob for files matching `**/task.md` under the identified path(s) to identify all task directories.
-3. With each task directory, identify the `task.id` from the last segment of the path. Example: `path/to/{task.id}/task.md`.
+3. With each task directory, identify the `task.id` from the last `task-{task.id}` segment of the path. Example: `path/to/task-{task.id}/task.md`.
 4. Glob all task directories with a single `{...path directories...}/**` pattern to locate all task files and sub-drectories under each task directory.
 5. With each file, classify files according to:
 
-- the `main file` - `{task.id}/task.md`
-- the `attachments` - `{task.id}/task__.md`
-- eventual `directories` - `{task.id}/{task-directory}/`
+- the `main file` - `task-{task.id}/task.md`
+- the `specifications` - `task-{task.id}/specifications/{specification.id}.md`
+- the `attachments` - `task-{task.id}/attachments/*`
+- eventual `directories` - `task-{task.id}/{task-directory}/`
 - other `unclassified` files - everything else.
 
 5. Generate a table with one row for each `task.id` and columns `main file`, `attachments`, `directories` and `unclassified`.

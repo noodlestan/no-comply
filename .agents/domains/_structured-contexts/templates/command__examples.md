@@ -1,4 +1,4 @@
-# Structured Contexts Commands
+# Artificial Commands
 
 ## Commands
 

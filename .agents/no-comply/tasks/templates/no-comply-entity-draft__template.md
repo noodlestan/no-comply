@@ -4,9 +4,9 @@ DIRECTIVE: replace the H1 by `# {task.name}`
 
 ## Metadata
 
-template: `.agents/skills/draft-no-comply-entity-task/no-comply-entity-draft-template.md`
+template: `.agents/no-comply/tasks/templates/no-comply-entity-draft__template.md`
 
-### Skills required:
+### Skills required
 
 - `skill.id` — and why.
 
@@ -16,7 +16,7 @@ One sentence, heavy on why, optimise for humans.
 
 ## Changes
 
-Summary of entities in scope synthesised by the **rehash** skill along with the "Rules for Synthesising" and "Rules for Presenting".
+Summary of entities in scope synthesised.
 
 ## Entities
 

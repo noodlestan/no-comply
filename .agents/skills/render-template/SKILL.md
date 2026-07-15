@@ -22,17 +22,15 @@ ALL
 With the provided template file or name, execute the following steps:
 
 1. If the provided input us a template name (not a file name with path), infer the template file name from the most recent exchanges with the user.
-1. If unable to infer a template file name, from context, use the `::templates` skill to list templates and locate the resolved file name.
-1. If still unable to resolve a concrete template file name, follow the "Process for Alerting the User" with the details of the failed resolution.
-1. If no template file name was resolved, follow the "Process for Asking the User" with the details of the failed resolution and ASK for an explicit template name or template file name.
-1. Read the template file and validate its structure and instructions.
+2. If unable to infer a template file name, from context, use the `::templates` skill to list templates and locate the resolved file name.
+3. If still unable to resolve a concrete template file name, follow the "Process for Alerting the User" with the details of the failed resolution.
+4. If no template file name was resolved, follow the "Process for Asking the User" with the details of the failed resolution and ASK for an explicit template name or template file name.
+5. Read the template file and validate its structure and instructions.
    - CATCH: if file missing, then THROW ERROR to user and STOP processing.
-1. If the template headings structure is not hierarchical and cohesive follow the "Protocol for Halting Execution and Reporting Failure"
-   - CATCH: if headings not hierarchical, then THROW ERROR to user and STOP processing.
-1. If the template contains ambiguous or contradicting directives follow the "Protocol for Halting Execution and Reporting Failure"
-   - CATCH: if directives ambiguous or contradicting, then THROW ERROR to user and STOP processing.
-
-- RULE: if any step in this process produced a "Halting Execution"
+6. Check if the template headings structure is hierarchical and cohesive.
+   - CATCH: if template outline is not hierarchical, then THROW ERROR to user and STOP processing.
+7. Check the template for ambiguous or contradicting instructions.
+   - CATCH: if directives is ambiguous or contradicting, then THROW ERROR to user and STOP processing.
 
 <!-- WIP Process for Validating a Template -->
 
@@ -51,7 +49,7 @@ With the provided `input scope` and the validated `template file`, execute the f
 1. Identify all lines starting with `TEMPLATE DIRECTIVE:` or `EXAMPLE:` as a template rendering instruction.
 2. Follow `TEMPLATE DIRECTIVE: {rendering instructions}` literally thinking how it applies to the content being rendered in the file.
 3. Replace `EXAMPLE: {rendering example}` with the corresponding data from the contex.
-4. Replace all placeholders that use brackets `{placeholders}` syntax with the data from the context. Examples: `{plan.id}`, or `<step N> — <step title>`.
+4. Replace all placeholders that use brackets `{placeholders}` syntax with the data from the context. Examples: `{plan.id}`, `## Step {n / total}`.
 5. Replace all placeholders that use `$DOLLAR` syntax with the data from the context. Examples: `$SCOPE`.
 
 - RULE: treat every line starting with `::COMMAND:` as a pre-rendered instruction for the sub-agent and include it verbatim in the output.

@@ -2,7 +2,7 @@
 
 **Plan:** `{plan.id}`
 
-**commit.Id:** `<commit.id>`
+**commit.Id:** `{commit.id}`
 
 These are your instructions. They include a section at the end on how to report back to requester.
 

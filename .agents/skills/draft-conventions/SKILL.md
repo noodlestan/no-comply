@@ -31,7 +31,7 @@ The artifact should read like a practical internal note for maintainers reviewin
 
 Save the proposal next to the current task file unless the user asked for a different location.
 
-Example: `{task.id}/task__conventions.md`
+Example: `task-{task.id}/attachments/convention-draft-{draft.id}.md`
 
 ## Steps
 

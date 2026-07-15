@@ -22,4 +22,6 @@
 
 **Record Structure:** The definition of a domain record and its shape and rules. Example: A task has an id, name, summary, scope, specifications, and follow ups.
 
-**Record File:** A file that contains structured context of a top-level resource type. The template and filename pattern(s) for each context type are defined in its Domain Index File. Examples: `AGENTS.md` for root file, `.agents/skills/{skill.id}/SKILL.md` for skill files, and `{task.id}/task__spec__{name}.md` for task specification files.
+**Record File:** A file that represents a Domain Record. The filename pattern(s) and template to generate each type of record file are defined by the domain. Examples: `.agents/skills/{skill.id}/SKILL.md` and `task-{task.id}/task.md` for task files. (#hoist)
+
+**Attachment File:** A file that represents a Domain Record attached to another Domain Record. The filename pattern(s) and template to generate each type of attachment file are defined by the domain. Example: `task-{task.id}/specification/{specification.id}.md` for task specification files. (#hoist)

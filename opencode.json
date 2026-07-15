@@ -82,24 +82,10 @@
       "prompt": "{file:.agents/skills/agent-task-manager/SKILL.md}"
     },
     "build": {
-      "mode": "primary",
-      "disable": true,
-      "prompt": "{file:.agents/skills/agent-pair-driver/SKILL.md}",
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
+      "disable": true
     },
     "plan": {
-      "mode": "primary",
-      "disable": true,
-      "prompt": "{file:.agents/skills/agent-planner/SKILL.md}",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
+      "disable": true
     }
   }
 }

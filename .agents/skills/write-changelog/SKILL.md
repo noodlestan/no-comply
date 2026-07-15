@@ -24,7 +24,7 @@ Read `.agents/domains/changelogs/index.md`, if not yet in context, as it contain
 ## Changelog Outline
 
 h1. CHANGELOG
-h2. `<Release Title>`
+h2. `{Release Title}`
 h3. Added|Refactored|...
 
 - item

@@ -40,7 +40,7 @@ This is a workflow with 6 steps
 5. Write plan file
 6. Prompt generation
 
-You may be given a `{plan.id}/plan.md` file along with the user request. In that case you MUST:
+You may be given a `plan-{plan.id}/plan.md` file along with the user request. In that case you MUST:
 
 - RULE: read the existing plan file and prepare to analyse and/or improve it as per user request.
 - RULE: Treat the existing plan file as authoritative source of truth for status of execution.
@@ -54,13 +54,14 @@ Load the plan file. If it does not exist:
 
 ### Step 2: Validate plan (if one was loaded)
 
-- RULE: Ensure all referenced `<task.id>.md` files already exist.
-- RULE: Ensure all referenced `{plan.id}__instruct__*.md` files already exist.
+- RULE: Ensure all referenced `task-{task.id}/task.md` files exist.
+- RULE: Validate each task checking if ALL links in the task file to specifications files can be resolved to a file. Pattern: "`./task-{task.id}/specifications/{spec.id}.md`.
+- RULE: Ensure that ALL links in the plan file to instruction files (`./plan-{plan.id}/instructions/{instruct.id}.md`) can be resolved to a file
 - CRITICAL RULE if files recorded in the plan do not exist anymore, stop and ALERT THE USER.
 
 ### Step 3: Add Tasks
 
-Work with the user to inspect candidate `<task.id>.md` in order to create a viable batch of work.
+Work with the user to inspect candidate `task-{task.id}/task.md` files in order to create a viable batch of work.
 
 The user will suggest task files, your goal is to analyse them and check the quality of the task and the specification attachments.
 
@@ -83,7 +84,7 @@ Read all tasks and specification attachments, and without reading any else (no g
 
 ### Step 5: Write the plan file
 
-1. Create the plan file using the Plan Template and save it to `{plan.id}/plan.md`
+1. Create the plan file using the Plan Template and save it to `plan-{plan.id}/plan.md`
 2. Include all the tasks bundled in the plan
 3. Include all the commits with their message, and compact summary of changes.
 
@@ -108,9 +109,9 @@ HEADS UP: The tasks and specs DO NOT prescribe implementation details so a lot q
 
 Note: Prepare to offload the prompt at any time, even if the planning is not yet completed, and move on to the next commit.
 
-8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `{plan.id}/plan__instruct__<commit.id>.md`
+8. When you are done with a commit or the user says "we will do this later", create the prompt file and save it `plan-{plan.id}/instructions/{commit.id}.md`
 9. Verify the generated prompt file follows all the `TEMPLATE DIRECTIVE:` included in the template.
-10. update the `{plan.id}/plan.md` file with the status of the commit.
+10. update the `plan-{plan.id}/plan.md` file with the status of the commit.
 11. move on to the next commit.
 
 ## Commands
@@ -125,7 +126,7 @@ Note: Prepare to offload the prompt at any time, even if the planning is not yet
 
 **Process:**
 
-1. add a note under "## Follow Ups" in the `{plan.id}/plan.md` file.
+1. add a note under "## Follow Ups" in the `plan-{plan.id}/plan.md` file.
 
 When the user responds with "not in scope" it means the previous response from the agent contained a suggestion or concern that is not relevant for the current plan. Try to forget it and not repeat the same question or concern again.
 

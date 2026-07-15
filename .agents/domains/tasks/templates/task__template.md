@@ -1,34 +1,18 @@
-### Rules for Creating Entity Task Files from Template
+# Task Template
 
-- RULE: Fill out every section that applies to the entity.
-- RULE: If a section does not apply, remove it.
-- RULE: Only two code snippets allowed:
-  - `## Example Usage` (mandatory for all entities)
-  - `## Renders` (mandatory for components)
-- RULE: Any other code snippets are forbidden.
-- RULE: Identify the specification variant (new / modify / remove / refactor) and ask the user if unsure.
-
----
-
-# Component Task Template
-
-Change the `h1` title to maytch
+TEMPLATE DIRECTIVE: Change the `h1` title to `# Task: {task.title}`
 
 ## Metadata
 
-Template: `.agents/skills/write-no-comply-entity-task/no-comply-entity-task-template.md`
+Template: `.agents/domains/tasks/templates/task__template.md`
 
 ### Skills required:
 
-- `{skill.id}` - {skill.purpose}
+- `skill.id` - `skill.purpose`
 
 ## Summary
 
 One sentence, heavy on why, optimize for humans.
-
-### Changes
-
-Summary of changes.
 
 ### Specifications
 
@@ -64,7 +48,7 @@ TEMPLATE-EXAMPLES: - `task-{task.id}/attachments/findings.md`
 
 - Refactor method `getFoo()` of `SomethingAPI` to use an index a optimise responsiveness
 - (BREAKING) Change method `getBar()` of `SomethingAPI` to return `boolean` (easy fix downstream)
-- Add `<scope>` so that ...
+- Add `{scope}` so that ...
 ```
 
 ### BREAKING CHANGES

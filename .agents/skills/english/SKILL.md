@@ -104,7 +104,7 @@ For each File Selected for Editing, execute the following steps on its contents:
 6. Identify JsDoc links expressed in this format `{@link path expression}` and mark them as `JsDoc`.
 7. Identify path expressions inside backticks and mark them as `Quoted`. Example: "Create the `controllers/` directory".
 8. Identify unquoted path expressions and mark them as `Unqouted`. Example: "Delete the src/index.ts file".
-9. Identify path expressions with placeholders and mark them as `Placeholder`. Examples: `{plan.id}.ts` and `<module>/index.ts`.
+9. Identify path expressions with placeholders and mark them as `Placeholder`. Examples: `{plan.path}/plan-{plan.id}/plan.md` and `{module}/index.ts`.
 10. Identify path expressions that start with a root directory name and mark them as `Absolute`.
 11. Identify filename path expressions (no trailing slashes) and mark them as `Filename Only`. Example: "Delete the `index.ts` file".
 12. Identify path expressions that are relative to the current file and mark them as `Relative`. Examples: `./types.ts`, `../partials`.

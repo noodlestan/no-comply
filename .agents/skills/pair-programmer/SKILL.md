@@ -110,7 +110,7 @@ Assume nothing about the current plan, current branch state, or build status:
 
 Requests for offloading context:
 
-- Update task files such as `{task.id}/task__blockers.md` with short summaries.
+- Create and update task files such as `task-{task.id}/attachments/blockers.md` with short summaries.
 
 The user will typically be requesting these specific actions:
 

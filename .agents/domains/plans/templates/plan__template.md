@@ -1,8 +1,8 @@
-# Plan: `{plan name}`
+# Plan: {plan name}
 
 **Status:** PREPARING / READY / WORKING / BLOCKED / DONE
 
-**Plan File:** `path/to/{plan.id}/plan.md`
+**Plan ID:** `{plan.id}`
 
 ## Summary
 

@@ -1,10 +1,10 @@
 # Sub-Agent REPORT (#producer)
 
-**Id:** `<delegation.id>`
-
 **Plan:** `{plan.id}`
 
-**Outcome:** `commit-request` | `blocker`
+**Id:** `{delegation.id}`
+
+**Outcome:** `COMPLETED` | `BLOCKER`
 
 ## Evidence
 

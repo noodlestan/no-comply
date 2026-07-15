@@ -7,17 +7,19 @@
 
 ## Metadata
 
-template: `.agents/skills/write-no-comply-entity-task/no-comply-mod-entity-spec-template.md`
+template: `.agents/no-comply/tasks/templates/no-comply-mod-entity-spec__template.md`
 
 ## Mandatory Reading
 
-- `no-comply/reference/index.md`
+- `no-comply/knowledge/index.md`
 - `{path-to-knowledge-conventions-file}`
 - `{path-to-knowledge-patterns-file}`
 
 ## Why
 
-Adding the new prop `foo` in the `BarMixin` will allow composing ... in ...
+TEMPLATE-DIRECTIVE: Explain why this is being introduced. Not what it does, or how it does it, not even what the main responsibility of the entity, rather how it's use, or event better, where it is planned to be use.
+
+EXAMPLE: Adding the new `wrap` prop will allow the `Button` component and any other composing entities to use this mixin in fluid layouts.
 
 ## Example Usage (component)
 
@@ -47,19 +49,31 @@ Id: `component:standard-ui-badge`
 
 ## Responsibility
 
-One-line statement of what changed for this entity. Example: "No longer maps prop `foo` to styles. Now reads palette from CSS variable instead."
+TEMPLATE-DIRECTIVE: One-line statement of responsibilities modified.
+
+TEMPLATE-DIRECTIVE: Include only when the main responsibilities of the entity are changing.
+
+TEMPLATE-DIRECTIVE: Do not include if only implementation is changing.
+
+TEMPLATE-DIRECTIVE: Do not include if the change is limited in comparsion to scope of entity, even if the API is changing.
+
+TEMPLATE-EXAMPLE: "No longer maps prop `color` to CSS classes, now reads palette directly from CSS variable instead."
 
 ## Impact
 
-Examples:
+TEMPLATE-EXAMPLE: This mixin is currently not used anywhere. This is not a breaking change, nothing to update.
 
-This mixin is currently not used anywhere. This is not a breaking change, nothing to update.
-
-This mixin is currently used in ... and a refactoring task is required to adapt the new APIS.
+TEMPLATE-EXAMPLE: This mixin is currently used in ... and a refactoring task is required to adapt the new APIS.
 
 ## Changes
 
-Agressive bullet point summary (max 5)
+TEMPLATE DIRECTIVE: List all changes. Include changes to API, structure, behaviour, or implementation. Summarise items to fit one one line.
+
+TEMPLATE DIRECTIVE: For small changes, use bullet point items.
+
+TEMPLATE DIRECTIVE: Use nested h3 sections if compexity of the changes requires several specifications per change.
+
+TEMPLATE DIRECTIVE: Use table format if changes are mostly similar in verb, subject, detail.
 
 ### Accessibility (if applicable)
 

@@ -28,10 +28,10 @@ READ `.agents/domains/plans/structures/plan_structure.md` - Plan record structur
 
 ---
 
-| Type | Name | Definition | Path | Status |
-| ---- | ---- | ---------- | ---- | ------ |
-| Definition | Plan | A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents. | definitions/index.md | ✅ |
-| Definition | Definitions Related to "Plan" | Implementation Instructions, Delegation Prompt, Sub Agent Blocker, Sub Agent Report, Instruction Writing Mode, Plan Execution Mode, Instructions Delegation Mode | definitions/index.md | ✅ |
+| Type       | Name                          | Definition                                                                                                                                                       | Path                 | Status |
+| ---------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------ |
+| Definition | Plan                          | A structured, high-level, implementation plan with delegatable, self-contained, detailed instructions for sub-agents.                                            | definitions/index.md | ✅     |
+| Definition | Definitions Related to "Plan" | Implementation Instructions, Delegation Prompt, Sub Agent Blocker, Sub Agent Report, Instruction Writing Mode, Plan Execution Mode, Instructions Delegation Mode | definitions/index.md | ✅     |
 
 ---
 
@@ -39,10 +39,10 @@ READ `.agents/domains/plans/structures/plan_structure.md` - Plan record structur
 
 ---
 
-| Type | Name | Purpose | Pattern | Template | Path | Status |
-| ---- | ---- | ------- | ------- | -------- | ---- | ------ |
-| File | Plan File | A structured file outlining the plan, identifying the source tasks and specs, describing the high-level commit strategy, and an eventual delegation sequence. | path/{plan.id}/plan.md | .agents/domains/plans/templates/plan__template.md | files/index.md | ✅ |
-| File | Implementation Instructions File | Files attached to a plan file, containing the Implementation Instruction prompt and other supporting instructions required for the sub-agent to execute the assigned operations. | {plan.id}/plan__instruct__{commit.id}.md | .agents/domains/plans/templates/instruct__template.md | files/index.md | ✅ |
+| Type | Name                             | Purpose                                                                                                                                                                          | Pattern                                  | Template                                                | Path           | Status |
+| ---- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------- | -------------- | ------ |
+| File | Plan File                        | A structured file outlining the plan, identifying the source tasks and specs, describing the high-level commit strategy, and an eventual delegation sequence.                    | path/plan-{plan.id}/plan.md              | .agents/domains/plans/templates/plan\_\_template.md     | files/index.md | ✅     |
+| File | Implementation Instructions File | Files attached to a plan file, containing the Implementation Instruction prompt and other supporting instructions required for the sub-agent to execute the assigned operations. | {plan.id}/plan**instruct**{commit.id}.md | .agents/domains/plans/templates/instruct\_\_template.md | files/index.md | ✅     |
 
 ---
 
@@ -50,10 +50,10 @@ READ `.agents/domains/plans/structures/plan_structure.md` - Plan record structur
 
 ---
 
-| Type | Name | Fields | Path | Status |
-| ---- | ---- | ------ | ---- | ------ |
-| Structure | Plan Record Identity | id, status, tasks, summary | structures/plan_structure.md | ✅ |
-| Structure | Plan Record Extended | follow-ups, feedback | structures/plan_structure.md | ✅ |
-| Structure | Plan Record Status | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | structures/plan_structure.md | ✅ |
+| Type      | Name                 | Fields                                           | Path                         | Status |
+| --------- | -------------------- | ------------------------------------------------ | ---------------------------- | ------ |
+| Structure | Plan Record Identity | id, status, tasks, summary                       | structures/plan_structure.md | ✅     |
+| Structure | Plan Record Extended | follow-ups, feedback                             | structures/plan_structure.md | ✅     |
+| Structure | Plan Record Status   | PREPARING, READY, WORKING, BLOCKED, REVIEW, DONE | structures/plan_structure.md | ✅     |
 
 ---

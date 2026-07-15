@@ -3,23 +3,27 @@
 > Template for new entities.
 > Rules for content and template usage in `SKILL.md` §"Rules for Writing Content for Entity Specifications" and §"Rules for Creating Entity Specifications from Template".
 
-Change the h1 title to the match the following pattern:
+TEMPLATE-DIRECTIVE: One-line statement of what this entity does. Not how it does it or what it composes.
 
-`# ADD|REMOVE|MODIFY mixin:solid-composables:badge`
+TEMPLATE-DIRECTIVE: Change the h1 title to the match the following pattern: `# ADD|REMOVE|MODIFY mixin:solid-composables:badge`
 
 ## Metadata
 
-template: `.agents/skills/write-no-comply-entity-task/no-comply-new-entity-spec-template.md`
+template: `.agents/no-comply/tasks/templates/no-comply-new-entity-spec__template.md`
 
 ## Mandatory Reading
 
+**Example:**
+
 - `no-comply/reference/index.md`
-- `{path-to-knowledge-conventions-file}`
-- `{path-to-knowledge-patterns-file}`
+- `{path-to-reference-conventions-file}`
+- `{path-to-reference-patterns-file}`
 
 ## Why
 
-This new mixin will allow composing ... in ...
+TEMPLATE-DIRECTIVE: Explain why this is being introduced. Not what it does, or how it does it, not even what the main responsibility of the entity, rather how it's use, or event better, where it is planned to be use.
+
+EXAMPLE: Needed as composable part of the new `Badge` component.
 
 ## Example Usage (component)
 
@@ -40,12 +44,22 @@ Package: `@solid-composables`
 Module: `content`
 Name: `BadgeMixin`
 Factory: `createBadgeMixin`
-CSS Module?: YES/NO
+CSS Module?: `BadgeMixin.module.css` (include only if mixin with css module)
 Id: `component:standard-ui-badge`
 
 ## Responsibility
 
-One-line statement of what this entity does. Example: "Apply `size` and `scale` defaults, map props to size tokens, and expose `size()` and `scale()` accessors."
+TEMPLATE-DIRECTIVE: One-line statement of what this entity does. Not how it does it or what it composes.
+
+TEMPLATE-EXAMPLE: "Ths mixin provides a way for composers to control text wrapping modes with granularity".
+
+TEMPLATE-DIRECTIVE: Include the name of another entity when the main responsibility is related to the other entity (extending it, costumising it, rendering it, ...).
+
+TEMPLATE-EXAMPLE: "Ths mixin extends `SizedAction` with explicit control over aspect-ratio.
+
+TEMPLATE-DIRECTIVE: When the main responsibility is composing a number of other composables, summarise them without naming them.
+
+TEMPLATE-EXAMPLE: "Ths mixin composes typography, size, color and spacing mixins, synchronising them to provide a single entry point to coordinated styles".
 
 ## Accessibility (if applicable)
 
