@@ -20,13 +20,18 @@ Choose the approriate example:
 
 - When the instructions say `Use the **Simple Command** command to {purpose of invocation}`.
 
-**Process:**
+**Before Executing:**
 
-1. Execute the **Process 1 Name** to generate a {output of process 1 classified as per use in Simple Command}.
-2. With {output of process 1}, execute the **Process 2 Name** to generate a {output of process 2 classified as per use in Simple Command}.
+1. Read the `path/to/samples.md` file and identify all `simple examples`.
+   - CATCH: if the file can't be read, then `{error-handling}`.
+
+**Procedure:**
+
+With the `simple examples`, execute the following instructions:
+
+1. Execute the **Process 1 Name** to generate a {output of process 1}.
+2. With {`output of process 1`}, execute the **Process 2 Name** to generate a {output of process 2}.
 3. ... further processing instructions
-
-- RULE: eventual imperative rule to check, validate, ensure...
 
 ### Example: Command with Inputs (summary)
 
@@ -40,13 +45,13 @@ Choose the approriate example:
 
 - When the instructions say `With the {identifier for inputs}, use the **Command with Inputs** command to {purpose of invocation}`.
 
-**Process:**
+**Procedure:**
 
 1. Identify the `summary` to process.
 2. If no explicit summary is defined, infer the entity scope from the most recent context and summarise it now.
 3. If unable to determine an entity scope with confidence, ALERT the user and STOP processing any further instructions.
-4. With the identified summary, execute the **Process 1 Name** to generate a {output of process 1 classified as per use in Simple Command}.
-5. With {output of process 1}, execute the **Process 2 Name** to generate a {output of process 2 classified as per use in Simple Command}.
+4. With the identified summary, execute the **Process 1 Name** to generate a {output of process 1}.
+5. With {output of process 1}, execute the **Process 2 Name** to generate a {output of process 2}.
 6. ... further processing instructions
 
 - RULE: eventual imperative rule to check, validate, ensure...
@@ -67,12 +72,12 @@ Choose the approriate example:
 
 - When the instructions say `With the {identifier for inputs}, use the **Command with Inputs and Outputs** to generate a {identified for outputs in this context}`.
 
-**Process:**
+**Procedure:**
 
 1. Identify the `summary` to process.
 2. If no explicit summary is defined, infer the entity scope from the most recent context and summarise it now.
 3. If unable to determine an entity scope with confidence, ALERT the user and STOP processing any further instructions.
-4. With the identified summary, execute the **Process 1 Name** to generate a {output of process 1 classified as per use in Simple Command}.
+4. With the identified summary, execute the **Process 1 Name** to generate a {output of process 1}.
 5. ... further processing instructions
 
 - RULE: eventual imperative rule to check, validate, ensure...

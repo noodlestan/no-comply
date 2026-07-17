@@ -10,4 +10,4 @@
 
 **Conventions Draft** – A proposal to add or modify existing conventions that surfaced from friction experienced during a task, review, or correction session. (#hoist)
 
-**Convention Adoption** - An observation of the state of adption of a convention, or conventions scope, to the code base.
+**Convention Adoption** - An observation of the state of adption of a convention, or conventions scope, to the code base. (#curator)

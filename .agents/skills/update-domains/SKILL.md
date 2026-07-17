@@ -33,7 +33,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 
 **Process:**
 
-1. Execute the **Process for Generating the Domain Listing** to generate the `domain-listing` table.
+1. Execute the **Process for Generating the Domain Listing** to generate the `%resource-map` and the `%domain-listing` table.
 2. Use the **render-template** skill with the `.agents/domains/domains/templates/domains-listing__template.md` template to present the generated table.
    - CATCH: if template missing, then THROW ERROR to user and STOP processing.
 3. Save in `.agents/domains/index.md`.
@@ -52,7 +52,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 - When the user says `update domain {domain} api`.
 - When the instructions say `With the {domain} domain, use the **Update Domain** command to generate consumer and producer files`.
 
-**Note:** This process uses a template located at `.agents/domains/domains/templates/domains-listing__template.md`, i.e., in the meta-domain's templates directory. This is not related to the `{domain}` being procesed.
+**Note:** This process uses templates located at `.agents/domains/domains/templates/`, i.e., in the meta-domain's templates directory. This is not related to the `{domain}` being procesed.
 
 **Process:**
 

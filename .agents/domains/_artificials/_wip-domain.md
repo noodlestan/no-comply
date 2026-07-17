@@ -1,7 +1,5 @@
 # Artificials WIP
 
-<!--WIP rename to _artificials -->
-
 ## Artificials Consumer
 
 **Use Cases:** Locating, reading, and interpreting all types of Artificials.
@@ -40,14 +38,7 @@ READ `.agents/domains/_artificials/formatters/references.md` - declares processe
 
 READ `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
 
-## Delegated Formatters
-
-**Triggers:**
-
-- When the instructions contain **Use the Formatter for Skill References**
-- When the instructions contain **Use the Formatter for Process References**
-- When the instructions contain **Use the Formatter for Command References**
-- When the instructions contain **Use the Formatter for Template References**
+## Delegation
 
 **Process:**
 

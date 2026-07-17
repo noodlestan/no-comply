@@ -8,6 +8,8 @@ READ `.agents/domains/domains/definitions/index.md` for the essential definition
 
 **Domain API documentation** — a structured representation of a domain API containing: `table-of-contents`, `consumer-api-docs`, and `producer-api-docs`.
 
+**Domain API Tree** — a classified hierarchical representation of the domain documentation collected by merging all scannable files and identifying resources.
+
 **API table of contents** — a summary of all declared symbols with their name, type, tags, source-path, and contents.
 
 **consumer API surface documentation** — the API for `consumer` agents, together with its `summary`.
@@ -44,7 +46,7 @@ READ `.agents/domains/domains/definitions/index.md` for the essential definition
 
 **Output:**
 
-- `domain API tree` — a classified representation of the domain documentation.
+- `domain-api-tree`: As defined by **domain API Tree**.
 
 **Process:**
 
@@ -116,25 +118,25 @@ With the provided `files`, execute the following steps:
 
 7. Discard any branches under root without any tags.
 8. Preserve the original document structure and ordering.
-9. Yield the `domain API tree`.
+9. Yield the `domain-api-tree`.
 
 ---
 
 ### Process for Extracting Domain API From Files
 
-**Purpose:** Given a classified domain API tree, generate the domain API documentation.
+**Purpose:** Given a classified domain-api-tree, generate the domain API documentation.
 
 **Inputs:**
 
-- `domain API tree`
+- `domain-api-tree`: As defined by **domain API Tree**.
 
 **Output:**
 
-- `domain API documentation`
+- `domain-api-documentation`: As defined by **domain API documentation**.
 
 **Process:**
 
-With the provided `domain API tree`, execute the following steps:
+With the provided `domain-api-tree`, execute the following steps:
 
 1. Generate the `API table of contents` from the declared API items.
 2. Generate the `consumer API surface documentation` by including nodes classified with `(#hoist)`, `(#all)`, `(#consumer)`, or `(#keep)`.
@@ -145,8 +147,8 @@ With the provided `domain API tree`, execute the following steps:
 7. Combine the `producer API surface documentation` and generated `producer API summary` into the `producer API outline`.
 8. Strip all scope tags from the generated surface documentation.
 9. Preserve the original document structure and ordering.
-10. Combine the `API table of contents`, `producer API` and `consumer API` to form the `domain API documentation`.
-11. Yield the `domain API documentation`.
+10. Combine the `API table of contents`, `producer API` and `consumer API` to form the `domain-api-documentation`.
+11. Yield the `domain-api-documentation`.
 
 ---
 
@@ -160,7 +162,7 @@ With the provided `domain API tree`, execute the following steps:
 
 **Output:**
 
-- `domain API documentation`
+- `domain-api-documentation`: As defined by **domain API documentation**.
 
 **Before executing:** Agents must follow this process – and the nested processes – step by step. Yes it is quite involved but also fun and rewarding. Trust the process, this process, and don't attempt to locate pre-generated files to infer.
 
@@ -173,17 +175,22 @@ With the provided `domain`, execute the following steps:
 2. For each `dirname` in `directories-to-scan`, list all nested `.md` files, using `ls -al .agents/domains/{domain}/{dirname}/**/*.md`.
    - CATCH: if no .md files found, then THROW ERROR to user and STOP processing.
 3. Exclude any files or directories whose name starts with `_`.
-4. With the identified files, execute the **Process for Extracting Domain API Tree From Files** to generate the `domain API tree`.
-5. With the `domain API tree`, execute the **Process for Extracting Domain API From Files** to generate the `domain API documentation`.
-6. Yield the `domain API documentation`.
+4. With the identified files, execute the **Process for Extracting Domain API Tree From Files** to generate the `domain-api-tree`.
+5. With the `domain-api-tree`, execute the **Process for Extracting Domain API From Files** to generate the `domain-api-documentation`.
+6. Yield the `domain-api-documentation`.
 
 ---
 
 ### Process for Generating the Domain Listing
 
+**Purpose:** make essential resources discoverable by all agents.
+
 **Outputs:**
 
-- `domain-listing` – a table with domain listing entries containing `domain.id`, `domain.name`, `domain.description`, `domain.file-path`, and `domain.hoisted` content.
+<!-- WIP ue domain structure -->
+
+- `%domain-listing` – a table with `domain` listing entries, each one containing `id`, `name`, `description`, `file-path`, and `hoisted` content.
+- `%resource-map` – a table with 2 columns, mapping resource types to their domain. Columns: `resource-type`, `domain-name`.
 
 **Process:**
 
@@ -198,4 +205,7 @@ With the provided `domain`, execute the following steps:
    5. Read the `## Hoisted` section to extract the `domain.hoisted` items.
    6. Generate a `domain.description` from the summary using this pattern `{domain.provides} for {domain.use-case}` and adjust the result for correct grammar, punctuation, and capitalisation.
 3. Generate a table with one row for each `domain` and the following columns: `file name` (relative to repository root), `description`, and `hoisted` content.
-4. Yield the table rows as `domain-listing`.
+4. For each `domain`
+   1. For each item in `hoisted`,
+      1. If the item type is `Structure`, add a row to `%resource-map` with `type = {item.name}`, and the domain name.
+5. Rreturn the `%resource-map` as is, and the table rows as `%domain-listing`.

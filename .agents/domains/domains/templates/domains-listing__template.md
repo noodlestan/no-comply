@@ -2,6 +2,10 @@
 
 TEMPLATE DIRECTIVE: Replace the H1 by `# Domains Listing`
 
+TEMPLATE INPUT: `%resource-map` – a table with `domain` listing entries, each one containing `id`, `name`, `description`, `file-path`, and `hoisted` content.
+
+TEMPLATE INPUT: `%domain-listing` – a table with 2 columns, mapping resource types to their domain. Columns: `resource-type`, `domain-name`.
+
 This file lists the available work domains and makes their primary resources (definitions, structures, commands, processes, templates, files, ...) available to all agents.
 
 **IMPORTANT:** The concepts referenced by this index are essential for understanding and applying instructions correctly.
@@ -21,7 +25,7 @@ TEMPLATE EXAMPLE: - [Plans](/.agents/domains/plans/index.md) - Defining, structu
 
 ## Resources
 
-TEMPLATE DIRECTIVE: In each of the following sections (differente types of primitives), follow the directives in the section to build a table of `domain.hoisted` content (items).
+TEMPLATE DIRECTIVE: In each of the following sections (differente types of resources), follow the directives in the section to build a table of `domain.hoisted` content (items).
 
 TEMPLATE DIRECTIVE: (applies to all items rendered in any of the below tables) Check if the item as a `(#broken)` or `(#wip)` tag. If it does set the `item.emoji` to 🟥 or 🚧 respectively. If it doesn't, set it to ✅.
 
