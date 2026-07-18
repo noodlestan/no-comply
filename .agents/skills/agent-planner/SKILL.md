@@ -47,7 +47,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-READ `.agents/domains/plans/index.md` and `.agents/domains/tasks/index.md` if not yet in context - both files contain definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+READ: `.agents/domains/plans/index.md` and `.agents/domains/tasks/index.md` if not yet in context - both files contain definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Rules for reading task files and attachments
 

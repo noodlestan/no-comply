@@ -53,4 +53,4 @@ RULE: All other skills are forbidden to this agent. Advise the user to switch to
 
 ## Mandatory Reading
 
-READ `reference/index.md` at the root of the repository, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
+READ: `reference/index.md` at the root of the repository, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.

@@ -1,8 +1,12 @@
 # Artificial Grammar
 
+<!-- WIP add Validate field to constructs (extra rules, oriented for validation) -->
+
 ## Vocabulary
 
 **Artificial Grammar** – The combination of artificial vocabulary, syntax, and semantics that defines how artificial language should be written and interpreted.
+
+**Artificial Vocabulary** – The standardized set of terms used to describe artificial language constructs and their interpretation in a particular context.
 
 **Artificial Syntax** – The rules and notation for expressing artificial language elements and combining them into declarations, instructions, and other language constructs.
 
@@ -10,21 +14,23 @@
 
 **Artificial Schema** – The defined shape of an artificial structure, including its fields and the semantics associated with each field.
 
-**Artificial Structure** – A named definition that specifies the schema and semantics of an artificial resource.
+**Artificial Construct** – WIP
 
-**Artificial Resource** – An instance of an artificial structure that can be referenced by its name.
+**Block Construct** – A language construct whose syntax spans multiple lines, including headings, content blocks, and nested structures.
+
+**Inline Construct** – A language construct expressed within a single line or as an embedded element within another construct.
 
 **Artificial Declaration** – A resource definition that introduces a name and its content, interpreted as WIP
 
 **Vocabulary Declaration** – A declaration of a term related to its declaration context, along with its definition and optional examples. Example: "**Artificial Operation** – A transformation applied to ..."
 
-**Artificial Vocabulary** – The standardized set of terms used to describe artificial language constructs and their interpretation in a particular context.
+**Natural Language** – Human-readable text used to express meaning and intent within artificial constructs or to articulate the role and relationship of other constructs such as Symbols, and operations.
 
-**Artificial Operation** – A transformation applied to context values. Examples: "aggregate", "classify", "filter", "sort", "group", "validate", "summarise".
+**NaturalName** – A human-readable identifier used to name constructs, declarations, and other language elements.
 
-**Inline Example** – An example embedded within another construct. Example: "Examples: "classify", "filter", "sort".".
+**Artificial Operation** – A transformation construct applied to context values. Examples: "aggregate", "classify", "filter", "sort", "group", "validate", "summarise".
 
-**Artificial Instruction** – An imperative construct that specifies operations to be interpreted according to the artificial semantics.
+**Artificial Instruction** – An imperative construct that describes context values and operations to be performed.
 
 **Meta-Syntax** – The notation used to describe artificial syntax, including placeholders, replaceable syntax elements, and combination rules. Used in this file within Syntax code blocks.
 
@@ -36,7 +42,7 @@
 
 **Purpose:** Provide a construct for expressing human-readable meaning and intent within constructs.
 
-**Description:** A NaturalExpression is a sequence of natural language elements used to identify, describe, combine, or qualify values and meaning. It provides the semantic text layer of the language and may contain embedded constructs such as Symbols, Names, and other expressions.
+**Description:** A NaturalExpression is a sequence of natural language elements used to identify, describe, combine, or qualify values and meaning. It provides the semantic text layer of the language and may contain embedded constructs such as ContextSymbol, NaturalName, and other expressions.
 
 **Rules:**
 
@@ -59,17 +65,269 @@
 Generate a summary of the API documentation including available endpoints, parameters, and examples.
 ```
 
-#### Content
+#### ExampleInline
 
-**Purpose:** Provide a construct for including additional material within other constructs.
+**Purpose:** Provide a way to illustrate concepts and instructions next to the source.
 
-**Description:** Content represents material associated with a construct that is not interpreted as a Field, Declaration, or Expression. It may contain natural language, document structures, structured data, or other content elements.
+**Description:** An ExampleInline can be _Suffix_ (at the end of an instruction) or _Nested_ (within the instruction text) and can be _Singular_ or _Plural_.
+
+**Schema:**
+
+```
+ExampleInline {
+	position: <suffix | nested>
+	examples: <NaturalExpression>[]
+}
+```
+
+**Syntax:**
+
+Syntax of _Suffix_, _Singular_:
+
+- Prefixed with ` Example:`.
+- Example text quoted with `"..."`.
+- Finished with a dot.
+
+```art
+<ExampleInline:Suffix:Singular> =
+	<NaturalExpression>. Example: "<NaturalExpression (example text)>"
+```
+
+Syntax of _Suffix_, _Plural_:
+
+- Prefixed with ` Examples:`.
+- Each example text quoted with `"..."`.
+- Examples separated by `, `.
+- Finished with a dot.
+
+```art
+<ExampleInline:Suffix:Plural> =
+	<NaturalExpression>. Examples: "<NaturalExpression (example text)>"[, "<NaturalExpression (example text)>" ...]
+```
+
+Syntax of _Nested_, _Singular_:
+
+- Prefixed by `Example:`.
+- Example text quoted with `"..."`.
+- Enclosed in brackets `(...)`.
+
+```art
+<ExampleInline:Nested:Singular> =
+	<NaturalExpression> (Example: "<NaturalExpression (example text)>") <NaturalExpression>
+```
+
+Syntax of _Nested_, _Plural_:
+
+- Prefixed by `Examples:`.
+- Examples text quoted with `"..."`.
+- Each example separated by `, `.
+- Enclosed in brackets `(...)`.
+
+```art
+<ExampleInline:Nested:Plural> =
+	<NaturalExpression> (Examples: "<NaturalExpression: Example>"[, "<NaturalExpression: Example 2>" ...]) <NaturalExpression>
+```
+
+**Examples:**
+
+Example of _Suffix_, _Singular_:
+
+```
+Current Status. Example: "READY".
+```
+
+Example of _Suffix_, _Plural_:
+
+```
+Resource Category. Examples: "Conventions", "Patterns", "References"
+```
+
+Example of _Nested_, _Plural_ and _Singular_:
+
+```md
+If the `%resource.type` is a record (Examples: "Task" and "Plan") or a knowledge resource (Example: "Patterns"), then...
+```
+
+#### Identifier
+
+**Purpose:** Provide a canonical lexical representation for names used by artificial language constructs.
+
+**Description:** An Identifier is a structural element used to represent a stable and unambiguous name within the context. Identifiers are used by constructs that require explicit references, such as Tags and ContextSymbols.
 
 **Rules:**
 
-- Content MAY contain one or more content elements.
-- Content MUST NOT be interpreted as a named property unless defined by the enclosing construct.
-- The interpretation of Content is determined by the enclosing construct.
+- An Identifier MUST use kebab-case notation.
+- An Identifier MUST contain only lowercase letters, numbers, and hyphens.
+- An Identifier MUST NOT contain whitespace or any other characters.
+
+**Syntax:**
+
+```art
+<Identifier> =
+	<kebab-case-name>
+```
+
+**Examples:**
+
+Examples of Valid identifiers:
+
+- `api-documentation`
+- `table-of-contents`
+- `maximum-results`
+- `search-terms`
+
+Invalid identifiers:
+
+- `API_Documentation`
+- `table Of Contents`
+
+#### NaturalName
+
+**Purpose:** Provide a human-readable naming representation for artificial language constructs.
+
+**Description:** A NaturalName is a structural element used to represent a human-readable identifier within the context. NaturalNames are used by constructs that require natural language naming, such as a SectionBlock.
+
+**Rules:**
+
+- A NaturalName MUST start with a word.
+- A NaturalName MAY contain words, hyphens, and numbers.
+- A NaturalName MUST NOT contain only words, hyphens, and numbers.
+- A NaturalName MUST NOT contain verbs.
+- A NaturalName MUST NOT have more than 5 words.
+
+**Syntax:**
+
+```art
+<NaturalName> =
+	<natural-name>
+```
+
+**Example:**
+
+```md
+Artificial Language
+```
+
+#### Tag
+
+**Purpose:** Attach metadata to declarations and definitions to enable identification, classification, filtering, grouping, and other operations.
+
+**Description:** Tags are inline markers that attach to definitions or SectionBlock headings. Multiple tags are space-separated. The values and meaning of tags are usually defined via VocabularyDeclaration.
+
+**Syntax:**
+
+```art
+<Tag> =
+	(#<identifier>)
+```
+
+Multiple tags:
+
+```art
+<Tags> =
+	 <Tag> <Tag>
+```
+
+TaggedSectionBlock:
+
+```art
+### <section-block-header> <Tag> [<Tag> ...]
+```
+
+Tagged definitions:
+
+```art
+### Process: Rendering Table of Contents
+
+<Vocabulary> <Tag> [<Tag> ...]
+```
+
+**Rules:**
+
+- A Tag MUST appear only after the SectionBlock name or at the end of Vocabulary.
+- A Tag MUST NOT appear on a FieldBlock, an ExampleBlock, or any other content.
+- A Tag name MUST be kebab case.
+- A Tag MUST be prefixed with `#` and enclosed in parentheses.
+- Multiple tags MUST be space-separated.
+
+**Examples:**
+
+Example of a tagged SectionBlock:
+
+```md
+### Process: Writing Conventions (#producer) (#wip)
+```
+
+Example of tagged Vocabulary:
+
+```md
+**Convention Adoption** – An observation of the state of adoption of a convention. (#curator)
+```
+
+Example of Vocabulary defining tag values:
+
+```md
+**(#wip)** – Classifies items as work in progress.
+```
+
+<!-- WIP add TagReference , that enclosed in backticks and without the parenthesis. Syntax: art block: <TagReference> = `#<identifier>` Purpose: reference tags in instructions. Examples: example of referencing a tag in a filter operation md block:  "1. With each `%construct` tagged with `#hoist`, ... -->
+
+#### VocabularyDeclaration
+
+**Purpose:** Provide a controlled way to declare terms within a context, along with their definition, and optional examples.
+
+**Description:** Vocabulary entries are single-term declarations that define terminology relevant to their declaration scope. They are not advertised for discovery outside their scope.
+
+**Schema:**
+
+The declared term, definition, and optional example are identified as properties of the definition.
+
+```art
+VocabularyDeclaration {
+	term: <NaturalName>
+	definition: <NaturalExpression>
+	examples?: <ExampleInline:Suffix>
+}
+```
+
+**Syntax:**
+
+```art
+<VocabularyDeclaration> =
+	**<NaturalName (term)>** – <NaturalExpression (definition)>. <ExampleInline:Suffix>.
+```
+
+**Example:**
+
+Given the following VocabularyDeclaration:
+
+```md
+**Interaction Mode** – Provides reusable behavioural triggers and rules that influence how the agent performs operations. Example: "Interaction Mode: No Nonsense".
+```
+
+The identified vocabulary contains:
+
+```yaml
+term: Interaction Mode
+definition: Provides reusable behavioural triggers and rules that influence how the agent performs operations.
+examples:
+	- "Interaction Mode: No Nonsense".
+```
+
+### Structural
+
+#### NaturalBlock
+
+**Purpose:** Provide a construct for including additional material within other constructs.
+
+**Description:** NaturalBlock represents content associated with a construct through the construct's syntax rules. Example: The content of a SectionBlock, or of a FieldBlock.
+
+**Rules:**
+
+- A NaturalBlock MAY contain one or more content elements.
+- A NaturalBlock MUST NOT be interpreted as a named property unless defined by the enclosing construct.
+- The interpretation of a NaturalBlock is determined by the enclosing construct.
+<!-- refine content rules -->
 
 **Syntax:**
 
@@ -81,13 +339,13 @@ Generate a summary of the API documentation including available endpoints, param
 	| <table>
 	| <other-content-element>
 
-<Content> =
-	<content-element> ...
+<NaturalBlock> =
+	<content-element> [<content-element> ...]
 ```
 
 **Examples:**
 
-Example of paragraph content:
+Example of `<paragraph>` content, followed by `<bullet-list>` content:
 
 ```md
 This section describes the available authentication methods.
@@ -96,6 +354,161 @@ This section describes the available authentication methods.
 - Update resources.
 - Delete resources.
 ```
+
+#### ExampleBlock
+
+**Purpose:** Provide a standalone example of an input value being interpreted ... WIP to ... or of an output being generated to define expectations and verify generated outputs.
+
+**Description:** A ExampleBlock provides an example associated with a preceding construct or an explicitly identified context value. When no target is specified, the example applies to the immediately preceding eligible construct. When a target is specified using `of`, the example applies to the identified expression.
+
+**Syntax:**
+
+````art
+Example[ of <NaturalExpression>]:
+
+```<example-block-language>
+<example-block-content>
+```
+````
+
+**Rules:**
+
+- A ExampleBlock with `of <NaturalExpression>` applies only to the value that should be interpreted from the specified expression.
+- An ExampleBlock without `of <NaturalExpression>` MAY ONLY follow a VocabularyDeclaration or a Directive.
+- An ExampleBlock without `of <NaturalExpression>` applies to the immediately preceding eligible construct.
+- An ExampleBlock MUST NOT appear between list items.
+- An ExampleBlock MUST NOT appear after lists without using `of <NaturalExpression>`.
+
+**Examples:**
+
+Example of illustrating the preceding VocabularyDeclaration without `of <NaturalExpression>`.
+
+````md
+**Formatter Function:** – A formatter is a function that serialises data for presentation.
+
+Example:
+
+```javascript
+function formatRow(row) {
+  return row.cells.join(', ');
+}
+```
+````
+
+Example of illustrating a ContextValue using `of <NaturalExpression>`.
+
+````md
+**Inputs:**
+
+- `%table-of-contents` – The table of contents extracted from the documentation source.
+- `%search-terms` – The terms used to filter relevant entries.
+
+Example of `%table-of-contents`:
+
+```md
+| Name           | Description               |
+| -------------- | ------------------------- |
+| Authentication | User authentication flows |
+| Permissions    | Access control rules      |
+| API Reference  | Available API endpoints   |
+```
+````
+
+#### SectionBlock
+
+**Purpose:** Represent a named structural section of a document.
+
+**Description:** A SectionBlock is a structural construct consisting of a heading and its associated content. A SectionBlock MAY define an optional type, a name, tags, and arbitrary content. The interpretation of the content is determined by the enclosing grammar or construct.
+
+<!-- refine content rules -->
+
+**Schema:**
+
+```
+SectionBlock {
+    type?: <NaturalName>
+    name: <NaturalName>
+    tags?: <Tag>[]
+    content: <NaturalBlock>
+}
+```
+
+**Syntax:**
+
+```art
+<syntax-block-header> =
+    ### [<NaturalName (section-block.type)>: ]<NaturalName (section-block.name)>
+
+<SectionBlock> =
+    <syntax-block-header>
+    <NaturalBlock>
+```
+
+**Rules:**
+
+- A SectionBlock MUST define a name.
+- A SectionBlock MAY define a type.
+- A SectionBlock MAY define one or more tags.
+- A SectionBlock MAY contain arbitrary content.
+
+#### FieldBlock
+
+**Purpose:** Represent a named property within a SectionBlock.
+
+**Description:** A FieldBlock associates a name with a value within a SectionBlock. The value of the FieldBlock is the NaturalBlock that follows the field identifier, up to the next FieldBlock or InlineDeclaration. A FieldBlock can also be expressed on a single paragraph using the `<field-inline>` syntax.
+
+<!-- refine content rules -->
+
+**Schema:**
+
+```art
+FieldBlock {
+    name: <NaturalName>
+    value: <NaturalBlock>
+}
+```
+
+**Syntax:**
+
+```art
+<field-block> =
+	**<NaturalName (field.name)>:**
+		<NaturalBlock>
+
+<field-inline> =
+	**<NaturalName (field.name)>:** <NaturalExpression>
+
+<FieldBlock> =
+	<field-block> | <field-inline>
+```
+
+**Rules:**
+
+- A FieldBlock MUST define a name.
+- A FieldBlock MUST define a value.
+- A field-inline value MUST be defined on the same line as the FieldBlock name.
+- NaturalBlock appearing on following lines after a field-inline MUST NOT be interpreted as part of the FieldBlock value.
+- A field-block value consists of all following content until the next FieldBlock, InlineDeclaration, or the end of the enclosing SectionBlock.
+- A field-block MAY contain arbitrary content including procedure blocks, example blocks, directives, and raw Markdown content.
+
+**Examples:**
+
+Example of FieldBlock inline.
+
+```md
+**Status:** IN-PROGRESS
+```
+
+Example of FieldBlock.
+
+```md
+**Inputs:**
+
+- `%task` – The task to modify.
+- `%specification` – The specification to integrate into the task.
+```
+
+### Context
 
 #### ContextValue
 
@@ -164,443 +577,6 @@ ContextValue performing an operation:
 ```md
 ... the `%filtered-feedback` grouped by `%target`...
 ```
-
-### Examples
-
-#### ExampleBlock
-
-**Purpose:** Provide a standalone example of an input value being interpreted ... WIP to ... or of an output being generated to define expectations and verify generated outputs.
-
-**Description:** A ExampleBlock provides an example associated with a preceding construct or an explicitly identified context value. When no target is specified, the example applies to the immediately preceding eligible construct. When a target is specified using `of`, the example applies to the identified expression.
-
-**Syntax:**
-
-````art
-Example[ of <NaturalExpression>]:
-
-```<block-language>
-<block-content>
-```
-````
-
-**Rules:**
-
-- A BlockExample with `of <NaturalExpression>` applies only to the value that should be interpreted from the specified expression.
-- An ExampleBlock without `of <NaturalExpression>` MAY ONLY follow a VocabularyDeclaration or a Directive.
-- An ExampleBlock without `of <NaturalExpression>` applies to the immediately preceding eligible construct.
-- An ExampleBlock MUST NOT appear between list items.
-- An ExampleBlock MUST NOT appear after lists without using `of <NaturalExpression>`.
-
-**Examples:**
-
-Example of illustrating the preceding VocabularyDeclaration without `of <NaturalExpression>`.
-
-````md
-**Formatter Function:** – A formatter is a function that serialises data for presentation.
-
-Example:
-
-```javascript
-function formatRow(row) {
-  return row.cells.join(', ');
-}
-```
-````
-
-Example of illustrating a ContextValue using `of <NaturalExpression>`.
-
-````md
-**Inputs:**
-
-- `%table-of-contents` – The table of contents extracted from the documentation source.
-- `%search-terms` – The terms used to filter relevant entries.
-
-Example of `%table-of-contents`:
-
-```md
-| Name           | Description               |
-| -------------- | ------------------------- |
-| Authentication | User authentication flows |
-| Permissions    | Access control rules      |
-| API Reference  | Available API endpoints   |
-```
-````
-
-#### ExampleInline
-
-**Purpose:** Provide a way to illustrate concepts and instructions next to the source.
-
-**Description:** An ExampleInline can be _Suffix_ (at the end of an instruction) or _Nested_ (within the instruction text) and can be _Singular_ or _Plural_.
-
-**Syntax:**
-
-Syntax of _Suffix_, _Singular_:
-
-- Prefixed with ` Example:`.
-- Example text quoted with `"..."`.
-- Finished with a dot.
-
-```art
-<ExampleInline:Suffix:Singular> =
-	<NaturalExpression>. Example: "<NaturalExpression (example text)>"
-```
-
-Syntax of _Suffix_, _Plural_:
-
-- Prefixed with ` Examples:`.
-- Each example text quoted with `"..."`.
-- Examples separated by `, `.
-- Finished with a dot.
-
-```art
-<ExampleInline:Suffix:Plural> =
-	<NaturalExpression>. Examples: "<NaturalExpression (example text)>"[, "<NaturalExpression (example text)>" ...]
-```
-
-Syntax of _Nested_, _Singular_:
-
-- Prefixed by `Example:`.
-- Example text quoted with `"..."`.
-- Enclosed in brackets `(...)`.
-
-```art
-<ExampleInline:Nested:Singular> =
-	<NaturalExpression> (Example: "<NaturalExpression (example text)>") <NaturalExpression>
-```
-
-Syntax of _Nested_, _Plural_:
-
-- Prefixed by `Examples:`.
-- Examples text quoted with `"..."`.
-- Each example separated by `, `.
-- Enclosed in brackets `(...)`.
-
-```art
-<ExampleInline:Nested:Plural> =
-	<NaturalExpression> (Examples: "<NaturalExpression: Example>"[, "<NaturalExpression: Example 2>" ...]) <NaturalExpression>
-```
-
-**Syntax:**
-
-```art
-ExampleInline {
-	position: <Suffix | Nested>
-	examples: (example text)[]
-}
-```
-
-**Examples:**
-
-Example of _Suffix_, _Singular_:
-
-```
-Current Status. Example: "READY".
-```
-
-Example of _Suffix_, _Plural_:
-
-```
-Resource Category. Examples: "Conventions", "Patterns", "References"
-```
-
-Example of _Nested_, _Plural_ and _Singular_:
-
-```md
-If the `%resource.type` is a record (Examples: "Task" and "Plan") or a knowledge resource (Example: "Patterns"), then...
-```
-
-### Structural
-
-#### Identifier
-
-**Purpose:** Provide a canonical lexical representation for names used by artificial language constructs.
-
-**Description:** An Identifier is a structural element used to represent a stable and unambiguous name within the context. Identifiers are used by constructs that require explicit references, such as Tags and ContextSymbols.
-
-**Rules:**
-
-- An Identifier MUST use kebab-case notation.
-- An Identifier MUST contain only lowercase letters, numbers, and hyphens.
-- An Identifier MUST NOT contain whitespace or any other characters.
-
-**Syntax:**
-
-```art
-<Identifier> =
-	<kebab-case-name>
-```
-
-**Examples:**
-
-Examples of Valid identifiers:
-
-- `api-documentation`
-- `table-of-contents`
-- `maximum-results`
-- `search-terms`
-
-Invalid identifiers:
-
-- `API_Documentation`
-- `table Of Contents`
-
-#### Block
-
-**Purpose:** Represent a named structural section of a document.
-
-**Description:** A Block is a structural construct consisting of a heading and its associated content. A Block MAY define an optional type, a name, tags, and arbitrary content. The interpretation of the content is determined by the enclosing grammar or construct.
-
-**Schema:**
-
-```
-Block {
-    type?: <Name>
-    name: <Name>
-    tags?: <Tag>[]
-    content: <Content>
-}
-```
-
-**Syntax:**
-
-```art
-<block-header> =
-    ### [<Name (block.type)>: ]<Name (block.name)>
-
-<Block> =
-    <block-header>
-    <Content>
-```
-
-**Rules:**
-
-- A Block MUST define a name.
-- A Block MAY define a type.
-- A Block MAY define one or more tags.
-- A Block MAY contain arbitrary content.
-
-#### Field
-
-**Purpose:** Represent a named property within a Block.
-
-**Description:** A `Field` associates a name with a value within a Block. A Field value is either an inline expression that should be interpreted as a ContextValue or a content block associated with the field. The interpretation of a Field is determined by its name and the semantics of the enclosing construct.
-
-**Schema:**
-
-```art
-Field {
-    name: <Identifier>
-    value: <ContextValue> | <Content>
-}
-```
-
-**Syntax:**
-
-```art
-<block-field> =
-	**<Identifier (field.name)>**:
-		<Content>
-
-<inline-field> =
-	**<Identifier (field.name)>**: <ContextValue>
-
-<Field> =
-	<block-field> | <inline-field>
-```
-
-**Rules:**
-
-- A Field MUST define a name.
-- A Field MUST define a value.
-- An expression-field value MUST be defined on the same line as the Field name.
-  Content appearing on following lines after an expression-field MUST NOT be interpreted as part of the Field value.
-- A content-field value consists of all following content until the next Field, InlineDeclaration, or the end of the enclosing Block.
-- A content-field MAY contain arbitrary content including procedure blocks, example blocks, directives, and raw Markdown content.
-
-**Examples:**
-
-Example of inline Field.
-
-```md
-**Status:** IN-PROGRESS
-```
-
-Example of block Field.
-
-```md
-**Inputs:**
-
-- `%task` – The task to modify.
-- `%specification` – The specification to integrate into the task.
-```
-
-#### Tag
-
-**Purpose:** Attach metadata to declarations and definitions to enable identification, classification, filtering, grouping, and other operations.
-
-**Description:** Tags are inline markers that attach to definitions or declaration block headings. Multiple tags are space-separated. The values and meaning of tags are usually defined via `<Vocabulary>`.
-
-**Syntax:**
-
-```art
-<Tag> =
-	(#<identifier>)
-```
-
-Multiple tags:
-
-```art
-<Tags> =
-	 <Tag> <Tag>
-```
-
-Tagged BlockDeclaration:
-
-```art
-### <Heading: Block Name> <Tag>[ <Tag> ...]
-```
-
-Tagged definitions:
-
-```art
-### Process: Rendering Table of Contents
-
-<Vocabulary> <Tag>[ <Tag>]...
-```
-
-**Rules:**
-
-- A Tag MUST appear only after the Block Declaration name or at the end of Vocabulary.
-- A Tag MUST NOT appear on a Field, an ExampleBlock, or any other content.
-- A Tag name MUST be kebab case.
-- A Tag MUST be prefixed with `#` and enclosed in parentheses.
-- Multiple tags MUST be space-separated.
-
-**Examples:**
-
-Example of a tagged declaration block:
-
-```md
-### Process: Writing Conventions (#producer) (#wip)
-```
-
-Example of tagged Vocabulary:
-
-```md
-**Convention Adoption** – An observation of the state of adoption of a convention. (#curator)
-```
-
-Example of Vocabulary defining tag values:
-
-```md
-**(#wip)** – Classifies items as work in progress.
-```
-
-### Declarations
-
-#### BlockDeclaration
-
-**Purpose:** Classify a Block as a named resource intended to be interpreted as a resource with properties defined by Fields.
-
-**Description:** A BlockDeclaration is a Block interpreted as a resource declaration. It extends the Block structure by interpreting its content as declaration members, including Fields, InlineDeclarations, and Content. The resource type and purpose of the declaration are determined by the semantics of the enclosing context.
-
-**Schema:**
-
-```
-BlockDeclaration {
-	type?: <Name>
-	name: <Name>
-	<field-name>: <field-value>
-	...
-}	content?: <Content>
-```
-
-**Syntax:**
-
-```art
-<declaration-content> =
-    {<Field> | <InlineDeclaration> | <Content>}
-
-<BlockDeclaration> =
-    <block-header>
-    <declaration-content>
-```
-
-**Rules:**
-
-- A BlockDeclaration MUST be interpreted from a Block.
-- A BlockDeclaration MUST define a name.
-- A BlockDeclaration MAY define a type.
-- A BlockDeclaration MAY contain Fields, InlineDeclarations, and arbitrary Content.
-- Fields within a BlockDeclaration MUST be interpreted as properties of the declared resource.
-- InlineDeclarations define nested declared resources.
-- Content represents additional content associated with the declaration.
-- The final meaning of a BlockDeclaration is determined during interpretation.
-
-**Example:**
-
-Given the following `<BlockDeclaration>`:
-
-```md
-### Project: Artificial Language
-
-**Status**: IN-PROGRESS
-
-**Summary**: A controlled language for expressing, interpreting, and generating instructions within an artificial system.
-```
-
-The extracted declaration contains:
-
-```yaml
-type: Project
-name: Artificial Language
-status: IN-PROGRESS
-summary: A controlled language for expressing, interpreting, and generating instructions within an artificial system.
-```
-
-#### VocabularyDeclaration
-
-**Purpose:** Provide a controlled way to declare terms within a context, along with their definition, and optional examples.
-
-**Description:** Vocabulary entries are single-term declarations that define terminology relevant to their declaration scope. They are not advertised for discovery outside their scope.
-
-**Schema:**
-
-The declared term, definition, and optional example are identified as properties of the definition.
-
-```art
-VocabularyDeclaration {
-	term: <Name>
-	definition: <NaturalExpression>
-	examples?: <ExampleInline:Suffix>
-}
-```
-
-**Syntax:**
-
-```art
-<VocabularyDeclaration> =
-	**<Name (term)>** – <NaturalExpression (definition)>. <ExampleInline:Suffix>.
-```
-
-**Example:**
-
-Given the following `<VocabularyDeclaration>`:
-
-```md
-**Interaction Mode** – Provides reusable behavioural triggers and rules that influence how the agent performs operations. Example: "Interaction Mode: No Nonsense".
-```
-
-The identified vocabulary contains:
-
-```yaml
-term: Interaction Mode
-definition: Provides reusable behavioural triggers and rules that influence how the agent performs operations.
-examples:
-	- "Interaction Mode: No Nonsense".
-```
-
-### Context
 
 #### ContextSymbol
 

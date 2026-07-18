@@ -2,7 +2,7 @@
 
 ## Mandatory Reading
 
-READ `.agents/domains/domains/definitions/index.md` for the essential definitions.
+READ: `.agents/domains/domains/definitions/index.md` for the essential definitions.
 
 ## Private Definitions
 

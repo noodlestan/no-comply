@@ -17,7 +17,7 @@
 
 ### Mandatory Reading
 
-READ `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
+READ: `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
 
 ## Artificials Producer
 
@@ -36,7 +36,7 @@ READ `.agents/domains/_artificials/formatters/references.md` - declares processe
 
 ### Mandatory Reading
 
-READ `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
+READ: `.agents/domains/_artificials/formatters/references.md` - declares processes to format references to artificial procedures such as commands, processes, and templates.
 
 ## Delegation
 

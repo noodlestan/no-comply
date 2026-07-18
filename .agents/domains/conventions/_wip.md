@@ -31,4 +31,4 @@
 
 ## Mandatory Reading
 
-READ `.agents/domains/references/producer.md` - base rules for working with all types of reference files.
+READ: `.agents/domains/references/producer.md` - base rules for working with all types of reference files.

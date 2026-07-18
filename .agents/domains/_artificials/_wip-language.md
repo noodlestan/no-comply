@@ -240,7 +240,7 @@ Rules:
 Language
 ├── Grammar
 │   └── ...
-├── Definition Fields
+├── Primitive Fields
 │   ├── Purpose
 │   ├── Description
 │   ├── Syntax

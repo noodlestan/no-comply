@@ -32,4 +32,4 @@
 
 ### Mandatory Reading
 
-READ `.agents/domains/tasks/index.md` - base rules for working with task.
+READ: `.agents/domains/tasks/index.md` - base rules for working with task.

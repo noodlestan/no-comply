@@ -51,7 +51,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 This agent mode requires the generic **pair-programmer** skill. Read it now.
 
-READ `reference/index.md` at the root of the repository if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
+READ: `reference/index.md` at the root of the repository if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ## Purpose
 

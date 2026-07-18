@@ -16,7 +16,7 @@
 
 ### Mandatory Reading
 
-READ `.agents/domains/tasks/producer.md` - definitions and rules for working with tasks.
+READ: `.agents/domains/tasks/producer.md` - definitions and rules for working with tasks.
 
 ## Plans Consumer
 
@@ -34,7 +34,7 @@ READ `.agents/domains/tasks/producer.md` - definitions and rules for working wit
 
 ### Mandatory Reading
 
-READ `.agents/domains/tasks/index.md` - definitions and rules for working with all task files.
+READ: `.agents/domains/tasks/index.md` - definitions and rules for working with all task files.
 
 ## NEXt
 
