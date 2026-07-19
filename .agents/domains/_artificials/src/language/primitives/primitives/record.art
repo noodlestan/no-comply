@@ -1,0 +1,35 @@
+# Module
+
+## Uses
+
+::FROM: `.agents/domains/_artificials/language/_grammar/index.md` – NaturalExpression, Identifier, NaturalName
+
+## Types
+
+### RecordAttributes
+
+**name:** RecordAttributes
+
+**purpose:** Defines the attributes of a Record as a mapping from attribute name to attribute type.
+
+```ts
+type Map = {
+  key:
+};
+```
+
+### Primitive: Record
+
+**Purpose:** Defines structured values with named attributes.
+
+**Params:**
+
+- `attributes` - RecordAttribute[]
+
+**Schema:**
+
+```ts
+type Map = {
+  entries: Record<K, V>;
+};
+```

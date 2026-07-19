@@ -236,6 +236,8 @@ Rules:
 
 <!-- WIP -->
 
+## Diagram
+
 ```
 Language
 ├── Grammar

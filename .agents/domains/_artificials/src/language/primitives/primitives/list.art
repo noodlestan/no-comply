@@ -1,0 +1,21 @@
+# Module
+
+## Uses
+
+::FROM: `language/grammar/index.md` – NaturalExpression, Identifier, NaturalName
+
+## Declares
+
+### Primitive: List (T)
+
+**Purpose:** Defines ordered collections of values.
+
+**Shape:** T
+
+**Schema:**
+
+```ts
+type List = {
+  values: T[];
+};
+```

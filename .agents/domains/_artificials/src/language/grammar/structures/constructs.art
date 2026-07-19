@@ -1,14 +1,14 @@
-# Artificial Structures
+# Module
 
-## Definitions
+## Declares
 
-## Value Types
+### Structure: Grammar Construct
 
-### Value Type: Grammar Construct
+**Purpose:** Represents the meta-model used to describe interpreter-defined primitive value types.
 
 **Primitive:** Record
 
-**Fields:**
+**Shape**
 
 - `id` - kebab case identifier. Example: `example-inline".
 - `name` - canonical name. Example: "ExampleInline".
@@ -19,11 +19,3 @@
 - `rules` - Rules for generating the construct.
 - `syntax` - Construct syntax in a `art` code block.
 - `examples` - Example of applying the construct and its variants according to context.
-
-### Structure: Grammar
-
-> Identifying fields
-
-- `id` - kebab case identification of the grammar. Example: "artificial".
-- `name` - canonical name. Example: "artificial".
-- `constructs` - flat list of constructors classified with category

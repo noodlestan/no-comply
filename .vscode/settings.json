@@ -91,5 +91,8 @@
     "titleBar.inactiveForeground": "#cccccc",
     "sideBar.background": "#000001",
     "sideBar.foreground": "#ced2df"
+  },
+  "files.associations": {
+    "*.art": "markdown"
   }
 }

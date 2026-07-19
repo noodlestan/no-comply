@@ -1,0 +1,7 @@
+# Module: Artificial Language
+
+## Uses
+
+::FROM: `./grammar/index.art` – Artificial Syntax, Artificial Semantics
+
+::FROM: `./primitives/index.art` – Record, List, Map, Enum, Identifier, Name, Expression, Text, Boolean, Number, Value Type: Primitive

@@ -1,0 +1,24 @@
+# Module
+
+## Uses
+
+::FROM: `language/grammar/index.md` – NaturalExpression, Identifier, NaturalName
+
+## Declares
+
+### Primitive: Map (K, V)
+
+**Purpose:** Defines key/value collections.
+
+**Shape**
+
+- `of` - K
+- `to` - V
+
+**Schema:**
+
+```ts
+type Map = {
+  values: Record<K, V>;
+};
+```
