@@ -6,11 +6,11 @@
 
 ## Declares
 
-### Primitive: List (T)
+### Primitive: List
 
 **Purpose:** Defines ordered collections of values.
 
-**Shape:** T
+**Param:** T
 
 **Schema:**
 

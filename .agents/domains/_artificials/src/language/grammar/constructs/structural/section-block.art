@@ -1,0 +1,46 @@
+# Module
+
+## Uses
+
+<!-- ::FROM `language/grammar/index.art` - NaturalName, Tag, NaturalBlock -->
+
+## Declares
+
+### Construct: SectionBlock
+
+**Category:** Structural
+
+**Purpose:** Represent a named structural section of a document.
+
+**Description:** A SectionBlock is a structural construct consisting of a heading and its associated content. A SectionBlock MAY define an optional type, a name, tags, and arbitrary content. The interpretation of the content is determined by the enclosing grammar or construct.
+
+<!-- refine content rules -->
+
+**Schema:**
+
+```
+SectionBlock {
+    type?: <NaturalName>
+    name: <NaturalName>
+    tags?: <Tag>[]
+    content: <NaturalBlock>
+}
+```
+
+**Syntax:**
+
+```art
+<syntax-block-header> =
+    ### [<NaturalName (section-block.type)>: ]<NaturalName (section-block.name)>
+
+<SectionBlock> =
+    <syntax-block-header>
+    <NaturalBlock>
+```
+
+**Rules:**
+
+- A SectionBlock MUST define a name.
+- A SectionBlock MAY define a type.
+- A SectionBlock MAY define one or more tags.
+- A SectionBlock MAY contain arbitrary content.

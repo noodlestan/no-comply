@@ -1,0 +1,35 @@
+# Module
+
+## Uses
+
+::FROM: `../_types.art` - Resource Location
+
+## Declares
+
+### Routine: Locate Resource In File
+
+**Purpose:** Find the line range of a named resource in a file.
+
+**Description:** Searches the Declares section of a module for a sub-SectionBlock matching the resource name and returns its location.
+
+**Inputs:**
+
+- `%contents` - The file contents.
+- `%resource-name` - The name to locate.
+
+**Outputs:**
+
+- `%resource-location` - Type: Resource Location, or NOTHING
+
+**Procedure:**
+
+1. Identify as `%declares-section` the SectionBlock named "Declares" in `%contents`.
+2. If no `%declares-section` found, return NOTHING.
+3. With each sub-SectionBlock in `%declares-section`:
+   1. If the heading contains `%resource-name`:
+      1. Prepare `%resource-location` record with:
+         - `anchor` set to "Declares".
+         - `position` set to "at line {`%line`}".
+         - `target-resource` set to `%resource-name`.
+      2. Return `%resource-location`.
+4. Return NOTHING.

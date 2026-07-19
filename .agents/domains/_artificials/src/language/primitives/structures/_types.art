@@ -6,6 +6,8 @@
 
 ::FROM `language/primitives/index.art` - List, Record, Enum
 
+## Declares
+
 ### Type: PrimitiveName
 
 **Primitive:** Identifier
@@ -65,7 +67,7 @@
 
 **Primitive:** Record
 
-**Attributes:**
+**Shape:**
 
 - `name` - NaturalName
 - `type` - Primitive

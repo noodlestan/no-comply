@@ -2,12 +2,10 @@
 
 ## Exposes
 
-::FROM: `languages/structures/index.art` – Primitive, PrimitiveName, PrimitiveParams, PrimitiveParam, PrimitiveAttributes, PrimitivePresentation, PrimitiveDescription, PrimitivePurpose, PrimitiveInterpretation
-
 ::FROM: `./record.art` – Record
 
 ::FROM: `./list.art` – List
 
-::FROM: `./map.art` – Map
-
 ::FROM: `./enum.art` – Enum
+
+::FROM: `./scalar.art` – Scalar

@@ -1,0 +1,35 @@
+# Module
+
+## Uses
+
+<!-- WIP: will import primitives when available -->
+
+## Declares
+
+### Type: Resource Location
+
+**Purpose:** Describes where to place a resource in a file.
+
+**Primitive:** Record
+
+**Shape:**
+
+- `anchor` - NaturalName (e.g., "Declares", "Uses")
+- `position` - NaturalExpression (e.g., "after the X resource", "before the Y resource", "at line 5")
+- `target-resource` - NaturalName (the resource to anchor to)
+
+### Type: Resource Extraction Result
+
+**Purpose:** Describes what happened during a resource extraction.
+
+**Primitive:** Record
+
+**Shape:**
+
+- `source-file` - NaturalName
+- `target-file` - NaturalName
+- `resource-name` - NaturalName
+- `resource-type` - NaturalName
+- `source-line` - Number
+- `target-line` - Number
+- `references-updated` - Boolean

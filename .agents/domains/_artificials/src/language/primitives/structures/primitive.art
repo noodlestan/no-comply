@@ -6,21 +6,9 @@
 
 ::FROM `language/primitives/index.art` - List, Record
 
-::FROM `language/primitives/structures/_types.art`
+::FROM `./_types.art` - PrimitiveName, PrimitiveStatus, PrimitivePurpose, PrimitiveDescription, PrimitiveSchema, PrimitiveParams, PrimitiveParam, PrimitiveArt, PrimitiveDeclaration, PrimitiveGeneration, PrimitiveConsumption, PrimitiveDiscovery
 
-- PrimitiveName,
-- PrimitiveStatus,
-- PrimitivePurpose,
-- PrimitiveSchema,
-- PrimitiveParams,
-- PrimitiveParam,
-- PrimitiveArt,
-- PrimitiveDeclaration,
-- PrimitiveGeneration,
-- PrimitiveConsumption,
-- PrimitiveDiscovery,
-
-::END
+## Declares
 
 ### Primitive: Overload
 

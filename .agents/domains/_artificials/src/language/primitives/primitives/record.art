@@ -4,13 +4,11 @@
 
 ::FROM: `.agents/domains/_artificials/language/_grammar/index.md` – NaturalExpression, Identifier, NaturalName
 
-## Types
+## Declares
 
-### RecordAttributes
+### Type: RecordAttributes
 
-**name:** RecordAttributes
-
-**purpose:** Defines the attributes of a Record as a mapping from attribute name to attribute type.
+**Purpose:** Defines the attributes of a Record as a mapping from attribute name to attribute type.
 
 ```ts
 type Map = {
@@ -22,7 +20,7 @@ type Map = {
 
 **Purpose:** Defines structured values with named attributes.
 
-**Params:**
+**Param:**
 
 - `attributes` - RecordAttribute[]
 
@@ -33,3 +31,13 @@ type Map = {
   entries: Record<K, V>;
 };
 ```
+
+#### Art
+
+#### Declaration
+
+#### Generation
+
+#### Consumption
+
+#### Discovery

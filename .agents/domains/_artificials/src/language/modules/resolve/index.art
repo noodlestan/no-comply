@@ -1,0 +1,10 @@
+# Module
+
+## Uses
+
+::FROM: `./_types.art` - Module Uses Table, Module Uses Table Entry, Module Declares Table, Module Declares Table Entry
+
+## Exposes
+
+::FROM: `./resolve-module-uses.art` - Resolve Module Uses
+::FROM: `./resolve-module-declares.art` - Resolve Module Declares

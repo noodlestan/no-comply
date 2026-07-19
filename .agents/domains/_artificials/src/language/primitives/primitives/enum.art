@@ -6,9 +6,11 @@
 
 ## Declares
 
-### Primitive: EnumValue
+### Type: EnumValue
 
-**Purpose:** Defines an allowed value for an Enum.
+**name:** EnumValue
+
+**purpose:** Defines an allowed value for an Enum.
 
 **Schema:**
 
@@ -19,11 +21,15 @@ EnumValue {
 }
 ```
 
-### Primitive: Enum (values)
+### Primitive: Enum
 
 **Purpose:** Defines values from a fixed set.
 
 **Description:** A primitive that holds a list of EnumValue.
+
+**Params:**
+
+- `values` - EnumValue[]
 
 **Schema:**
 
@@ -32,8 +38,6 @@ type Enum = {
   values: EnumValue[];
 };
 ```
-
-**Param**: EnumValue[]
 
 #### Art: Inline
 

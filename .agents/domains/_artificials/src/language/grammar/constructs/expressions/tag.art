@@ -1,0 +1,73 @@
+# Module
+
+## Uses
+
+<!-- ::FROM `language/grammar/index.art` - Identifier -->
+
+## Declares
+
+### Construct: Tag
+
+**Category:** Expressions
+
+**Purpose:** Attach metadata to declarations and definitions to enable identification, classification, filtering, grouping, and other operations.
+
+**Description:** Tags are inline markers that attach to definitions or SectionBlock headings. Multiple tags are space-separated. The values and meaning of tags are usually defined via VocabularyDeclaration.
+
+**Syntax:**
+
+```art
+<Tag> =
+	(#<identifier>)
+```
+
+Multiple tags:
+
+```art
+<Tags> =
+	 <Tag> <Tag>
+```
+
+TaggedSectionBlock:
+
+```art
+### <section-block-header> <Tag> [<Tag> ...]
+```
+
+Tagged definitions:
+
+```art
+### Process: Rendering Table of Contents
+
+<Vocabulary> <Tag> [<Tag> ...]
+```
+
+**Rules:**
+
+- A Tag MUST appear only after the SectionBlock name or at the end of Vocabulary.
+- A Tag MUST NOT appear on a FieldBlock, an ExampleBlock, or any other content.
+- A Tag name MUST be kebab case.
+- A Tag MUST be prefixed with `#` and enclosed in parentheses.
+- Multiple tags MUST be space-separated.
+
+**Examples:**
+
+Example of a tagged SectionBlock:
+
+```md
+### Process: Writing Conventions (#producer) (#wip)
+```
+
+Example of tagged Vocabulary:
+
+```md
+**Convention Adoption** – An observation of the state of adoption of a convention. (#curator)
+```
+
+Example of Vocabulary defining tag values:
+
+```md
+**(#wip)** – Classifies items as work in progress.
+```
+
+<!-- WIP add TagReference , that enclosed in backticks and without the parenthesis. Syntax: art block: <TagReference> = `#<identifier>` Purpose: reference tags in instructions. Examples: example of referencing a tag in a filter operation md block:  "1. With each `%construct` tagged with `#hoist`, ... -->

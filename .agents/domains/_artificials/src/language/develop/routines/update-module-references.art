@@ -1,0 +1,48 @@
+# Module
+
+## Uses
+
+<!-- WIP: will import primitives when available -->
+
+## Declares
+
+### Routine: Update Module References
+
+**Purpose:** Add a ::FROM directive to a module's Uses section.
+
+**Description:** After extracting a resource to another file, this routine updates the source module to reference the new location via a ::FROM directive.
+
+**Inputs:**
+
+- `%contents` - The file contents.
+- `%target-file` - The file containing the extracted resource.
+- `%resource-name` - The name of the extracted resource.
+
+**Outputs:**
+
+- `%updated-contents` - The file contents with updated references.
+
+**Procedure:**
+
+1. Identify as `%uses-section` the SectionBlock named "Uses" in `%contents`.
+2. Prepare `%new-directive` with format "::FROM: `{%target-file}` - {`%resource-name`}".
+3. If no `%uses-section` found:
+   1. Identify as `%module-heading` the first line of `%contents`.
+   2. Prepare `%updated-contents` with:
+      - `%module-heading`
+      - empty line
+      - "## Uses"
+      - empty line
+      - `%new-directive`
+      - empty line
+      - Rest of `%contents` after `%module-heading`.
+   3. Return `%updated-contents`.
+4. Check if a ::FROM directive for `%target-file` already exists in `%uses-section`:
+   1. If exists:
+      1. Identify the existing directive.
+      2. If `%resource-name` is not already listed in the directive:
+         - Append ", {`%resource-name`}" to the existing directive.
+      3. Return `%contents` unchanged.
+   2. If not exists:
+      1. Append `%new-directive` to `%uses-section`.
+      2. Return `%contents` with the updated Uses section.
