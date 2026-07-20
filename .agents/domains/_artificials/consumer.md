@@ -13,7 +13,7 @@
 
 ## Mandatory Reading
 
-READ: `definitions/index.md` - Essential definitions for understanding context files.
+::READ `definitions/index.md` - Essential definitions for understanding context files.
 
 ## API
 

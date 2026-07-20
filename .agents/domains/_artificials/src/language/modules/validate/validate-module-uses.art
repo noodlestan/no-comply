@@ -2,12 +2,10 @@
 
 **Purpose:** Validate that all entries in a module's Uses section are exposed or declared by the referenced files.
 
-<!-- WIP Uses SectionBlock, ::FROM  -->
-
 ## Uses
 
-::FROM: `./_types.art` - Module Validation Rule Breach
-::FROM: `../resolve/resolve-module-uses.art` - Resolve Module Uses
+::READ (Type: Module Validation Rule Breach) `./_types.art`.
+::READ (Procedure: Resolve Module Uses) `../resolve/resolve-module-uses.art`.
 
 ## Declares
 
@@ -29,13 +27,13 @@
 1. Prepare an empty `%breaches` list.
 2. Identify as `%uses-section` the SectionBlock named "Uses" in `%contents`.
 3. If no `%uses-section` found, return NOTHING.
-4. Extract all `::FROM` directives from the `%uses-section` into `%from-directives`.
+4. Extract all `::READ` directives from the `%uses-section` into `%from-directives`.
 5. If `%from-directives` is empty:
    1. Prepare a `%breach` record with:
       - `filename` set to `%source`.
       - `line` set to line number of `%uses-section`.
       - `rule-id` set to `module:uses:has-entries`.
-      - `description` set to "No ::FROM directives".
+      - `description` set to "No ::READ directives".
    2. Append `%breach` to `%breaches`.
 6. If `%breaches` is empty, return NOTHING.
 7. Otherwise, return `%breaches`.
@@ -59,7 +57,7 @@
 2. Execute the **Routine: Resolve Module Uses** with `%contents` and `%source` to produce `%module-uses`.
 3. With each `%entry` in `%module-uses`:
    1. If `%entry.target-file` does not exist:
-      1. Identify the `%line` number of the `::FROM` directive referencing `%entry.target-file` in `%contents`.
+      1. Identify the `%line` number of the `::READ` directive referencing `%entry.target-file` in `%contents`.
       2. Prepare a `%breach` record with:
          - `filename` set to `%source`.
          - `line` set to the identified `%line`.

@@ -2,11 +2,11 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - ContextSymbol, ContextAlias, ContextValue -->
+::READ (Construct: ContextSymbol) FROM `./context-symbol.art`.
+::READ (Construct: ContextAlias) FROM `./context-alias.art`.
+::READ (Construct: ContextValue) FROM `./context-value.art`.
 
-## Declares
-
-### Construct: Contextualise
+## Construct: Contextualise
 
 **Category:** Context
 
@@ -18,7 +18,7 @@
 
 ```art
 <Contextualise> =
-	With <ContextSymbol | ContextAlias | ContextValue>, ...
+    With <ContextSymbol | ContextAlias | ContextValue>, ...
 ```
 
 **Examples:**

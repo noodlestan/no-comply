@@ -2,11 +2,9 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - Identifier -->
+::READ (Construct: Identifier) FROM `./identifier.art`.
 
-## Declares
-
-### Construct: Tag
+## Construct: Tag
 
 **Category:** Expressions
 
@@ -18,14 +16,14 @@
 
 ```art
 <Tag> =
-	(#<identifier>)
+    (#<Identifier>)
 ```
 
 Multiple tags:
 
 ```art
 <Tags> =
-	 <Tag> <Tag>
+    <Tag> [<Tag> ...]
 ```
 
 TaggedSectionBlock:

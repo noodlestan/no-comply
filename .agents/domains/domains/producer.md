@@ -19,8 +19,8 @@
 
 ## Mandatory Reading
 
-READ: `.agents/domains/domains/definitions/index.md` - Domain definitions and terminology.
-READ: `.agents/domains/domains/processes/index.md` - Domain processes and extraction workflows.
+::READ `.agents/domains/domains/definitions/index.md` - Domain definitions and terminology.
+::READ `.agents/domains/domains/processes/index.md` - Domain processes and extraction workflows.
 
 ## API
 

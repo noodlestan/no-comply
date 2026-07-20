@@ -43,7 +43,7 @@ An **Unresolved Editing Issue** is an issue flagged by the proofreading, polishi
 
 ### Process for Selecting Files for Review
 
-1. If the user explicitly provides file targets such as file names, directories, or globs, scan only those files.
+1. If the user explicitly provides file targets such as filenames, directories, or globs, scan only those files.
 2. If no explicit file targets provided, infer the target file(s) from the most recent exchanges with the user.
 3. If no explicit or inferable file scope exists, ask the user which file(s) to scan.
 4. Expand patterns such as globs and wildcards to a flat file list.
@@ -89,7 +89,7 @@ For each File Selected for Editing execute the following steps:
 
 <!-- WIP Split into Process for Classifying Path Expressions and Process for Normalising Path Expressions -->
 
-**Before executing:**
+**Before Executing:**
 
 1. Read the contents of `.gitinore` in the repository root.
 2. Identify root directory names by listing directories at root of the repository.
@@ -176,7 +176,7 @@ For each File Selected for Editing:
 - RULE: The agent is only allowed to update files when the user accepts all or some suggestions or requests specific edits.
 
 1. Update the files applying the accepted suggestions or requested edits.
-2. Respond only with a list of the changed files (file names only, relative to the repository root).
+2. Respond only with a list of the changed files (filenames only, relative to the repository root).
 
 - RULE: When listing updated files the agent MUST NOT summarise what was changed or include parts of the file in the response.
 
@@ -190,7 +190,7 @@ Goal: detect typos, spelling mistakes, punctuation mistakes, grammar issues, and
 
 - When the user says `proofread` or `typos`.
 
-**Steps:**
+**Procedure:**
 
 1. Execute the **Process for Selecting Files for Review** to identify files in scope.
 2. Execute the **Process for Proofreading and Typo Scanning** to identify issues and generate suggestions.
@@ -210,7 +210,7 @@ Goal: run typo/grammar corrections and also check tone of voice against a user-s
 
 - When the user says `polish`.
 
-**Steps:**
+**Procedure:**
 
 1. Execute the **Process for Selecting Files for Review** to identify files in scope.
 2. Execute the **Process for Proofreading and Typo Scanning** to identify issues and generate suggestions.
@@ -231,7 +231,7 @@ Goal: normalise paths referenced in files to paths relative to the root of respo
 
 - When the user says `normalise paths` or `broken paths`.
 
-**Steps:**
+**Procedure:**
 
 1. Execute the **Process for Selecting Files for Review** to identify files Sn Fcope.
 2. Execute the **Process for Identifying Relevant Path Expressions** to identify path expressions in the file.

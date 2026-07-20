@@ -16,7 +16,7 @@
 
 ### Mandatory Reading
 
-READ: `.agents/domains/_artificials/producer.md` - base rules for working with all context files.
+::READ `.agents/domains/_artificials/producer.md` - base rules for working with all context files.
 
 ## Domains Consumer
 

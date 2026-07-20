@@ -17,17 +17,17 @@
 
 ## Mandatory Reading
 
-READ: `.agents/domains/plans/definitions/index.md` - Essential definitions for working with plans.
+::READ `.agents/domains/plans/definitions/index.md` - Essential definitions for working with plans.
 
-READ: `.agents/domains/plans/files/index.md` - File structures and naming patterns for plan-related files.
+::READ `.agents/domains/plans/files/index.md` - File structures and naming patterns for plan-related files.
 
-READ: `.agents/domains/plans/structures/plan__structure.md` - Plan record structure and status definitions.
+::READ `.agents/domains/plans/structures/plan__structure.md` - Plan record structure and status definitions.
 
-READ: `.agents/domains/plans/templates/plan__template.md` - Template for creating plan files.
+::READ `.agents/domains/plans/templates/plan__template.md` - Template for creating plan files.
 
-READ: `.agents/domains/plans/templates/instruct__template.md` - Template for creating implementation instructions.
+::READ `.agents/domains/plans/templates/instruct__template.md` - Template for creating implementation instructions.
 
-READ: `.agents/domains/plans/templates/report__template.md` - Template for creating sub-agent reports.
+::READ `.agents/domains/plans/templates/report__template.md` - Template for creating sub-agent reports.
 
 ## API
 

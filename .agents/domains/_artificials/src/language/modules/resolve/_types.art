@@ -2,7 +2,7 @@
 
 ## Uses
 
-<!-- WIP: will import primitives when available -->
+::READ (Construct: Tag) FROM `../../grammar/index__producer.md`.
 
 ## Declares
 
@@ -16,7 +16,7 @@
 
 - `source` - NaturalName
 - `target-file` - NaturalName
-- `resource` - NaturalName
+- `ref` - NaturalName
 
 ### Type: Module Uses Table
 
@@ -25,23 +25,3 @@
 **Primitive:** List
 
 **Shape:** Module Uses Table Entry
-
-### Type: Module Declares Table Entry
-
-**Purpose:** Defines a single entry in a module declares table.
-
-**Primitive:** Record
-
-**Shape:**
-
-- `type` - NaturalName
-- `name` - NaturalName
-- `exposed` - Boolean
-
-### Type: Module Declares Table
-
-**Purpose:** Defines a table of all resources a module declares or exposes.
-
-**Primitive:** List
-
-**Shape:** Module Declares Table Entry

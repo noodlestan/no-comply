@@ -2,11 +2,9 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - Identifier -->
+::READ (Construct: Identifier) FROM `../expressions/identifier.art`.
 
-## Declares
-
-### Construct: ContextSymbol
+## Construct: ContextSymbol
 
 **Category:** Context
 
@@ -29,30 +27,31 @@ Expressions enclosed in backticks and starting with a percentage sign.
 
 
 <symbol-reference> =
-	{PERCENT}<identifier>
+    {PERCENT}<Identifier>
 
 <symbol-index-access> =
-	{SQUARE_OPEN}<symbol-reference>{SQUARE_CLOSE}
+    {SQUARE_OPEN}<symbol-reference>{SQUARE_CLOSE}
 
 <symbol-member-access> =
-	{DOT}<identifier>
+    {DOT}<Identifier>
 
 <symbol-access> =
-	<symbol-member-access>
-	| <symbol-index-access>
+    <symbol-member-access> | <symbol-index-access>
 
 <ContextSymbol> =
-	{BACKTICK}<symbol-reference>[<symbol-access> ...]{BACKTICK}
+    {BACKTICK}<symbol-reference>[<symbol-access> ...]{BACKTICK}
 ```
 
 **Rules:**
 
 - A ContextSymbol MUST start with `%`.
-- A ContextSymbol MUST contain one or more kebab-case identifiers separated by `.`.
-- A ContextSymbol MAY include index access after an identifier.
+- A ContextSymbol MUST contain one or more kebab-case Identifiers separated by `.`.
+- A ContextSymbol MAY include index access after an Identifier.
 
 **Example:**
 
 ```md
 Match the `%search-terms` against the `%well-known` list of resource types.
+With each `%spec` in `%task.specificions`.
+Identify the `%task.specificions.[%first].name` as `%name`.
 ```

@@ -1,12 +1,6 @@
 # Module
 
-## Uses
-
-<!-- ::FROM `language/grammar/index.art` -->
-
-## Declares
-
-### Construct: NaturalBlock
+## Construct: NaturalBlock
 
 **Category:** Structural
 
@@ -25,14 +19,14 @@
 
 ```art
 <content-element> =
-	<paragraph>
-	| <bullet-list>
-	| <numbered-list>
-	| <table>
-	| <other-content-element>
+    <paragraph>
+    | <bullet-list>
+    | <numbered-list>
+    | <table>
+    | <other-content-element>
 
 <NaturalBlock> =
-	<content-element> [<content-element> ...]
+    <content-element> [<content-element> ...]
 ```
 
 **Examples:**

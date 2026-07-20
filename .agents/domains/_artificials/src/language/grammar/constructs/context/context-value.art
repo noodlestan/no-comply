@@ -2,11 +2,9 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - NaturalExpression -->
+::READ (Construct: NaturalExpression) FROM `../expressions/natural-expression.art`.
 
-## Declares
-
-### Construct: ContextValue
+## Construct: ContextValue
 
 **Category:** Context
 
@@ -20,7 +18,7 @@ A ContextValue is expressed as a natural language expression but may contain sym
 
 ```art
 <ContextValue> =
-	<NaturalExpression>
+    <NaturalExpression>
 ```
 
 **Rules:**

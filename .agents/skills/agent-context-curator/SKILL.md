@@ -47,7 +47,7 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-READ: `.agents/domains/_artificials/producer.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
+::READ `.agents/domains/_artificials/producer.md`, if not yet in context - it contains definitions and rules that are essential to interpreting the instructions on this file without ambiguity.
 
 ## Commands
 

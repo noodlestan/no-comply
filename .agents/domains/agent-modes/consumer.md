@@ -14,7 +14,7 @@
 
 ## Mandatory Reading
 
-READ: `definitions/index.md` - Essential definitions for agent modes and skills.
+::READ `definitions/index.md` - Essential definitions for agent modes and skills.
 
 ## API
 

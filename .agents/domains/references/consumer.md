@@ -14,7 +14,7 @@
 
 ## Mandatory Reading
 
-READ: `definitions/index.md` - Essential definitions for references, reference files, and directories.
+::READ `definitions/index.md` - Essential definitions for references, reference files, and directories.
 
 ## API
 

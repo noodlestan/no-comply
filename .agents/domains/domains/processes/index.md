@@ -2,7 +2,7 @@
 
 ## Mandatory Reading
 
-READ: `.agents/domains/domains/definitions/index.md` for the essential definitions.
+::READ `.agents/domains/domains/definitions/index.md` for the essential definitions.
 
 ## Private Definitions
 
@@ -164,7 +164,7 @@ With the provided `domain-api-tree`, execute the following steps:
 
 - `domain-api-documentation`: As defined by **domain API documentation**.
 
-**Before executing:** Agents must follow this process – and the nested processes – step by step. Yes it is quite involved but also fun and rewarding. Trust the process, this process, and don't attempt to locate pre-generated files to infer.
+**Before Executing:** Agents must follow this process – and the nested processes – step by step. Yes it is quite involved but also fun and rewarding. Trust the process, this process, and don't attempt to locate pre-generated files to infer.
 
 **Process:**
 
@@ -204,7 +204,7 @@ With the provided `domain`, execute the following steps:
    4. Read the `## Summary` section to extract the `domain.provides` and `domain.use-cases`.
    5. Read the `## Hoisted` section to extract the `domain.hoisted` items.
    6. Generate a `domain.description` from the summary using this pattern `{domain.provides} for {domain.use-case}` and adjust the result for correct grammar, punctuation, and capitalisation.
-3. Generate a table with one row for each `domain` and the following columns: `file name` (relative to repository root), `description`, and `hoisted` content.
+3. Generate a table with one row for each `domain` and the following columns: `filename` (relative to repository root), `description`, and `hoisted` content.
 4. For each `domain`
    1. For each item in `hoisted`,
       1. If the item type is `Structure`, add a row to `%resource-map` with `type = {item.name}`, and the domain name.

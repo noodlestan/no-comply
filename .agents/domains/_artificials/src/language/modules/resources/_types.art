@@ -1,0 +1,20 @@
+# Module
+
+## Uses
+
+::READ (Record) FROM `../../primitives/record.art`
+
+## Declares
+
+### Type: Resource Record
+
+**Purpose:** Defines a resource with its source file, type, name, and exposure status.
+
+**Primitive:** Record
+
+**Shape:**
+
+- `source` - NaturalName
+- `type` - NaturalName
+- `name` - NaturalName
+- `exposed` - Boolean

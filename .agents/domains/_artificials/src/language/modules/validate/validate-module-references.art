@@ -4,8 +4,8 @@
 
 ## Uses
 
-::FROM: `./_types.art` - Module Validation Rule Breach
-::FROM: `../resolve/resolve-module-uses.art` - Resolve Module Uses
+::READ (Module Validation Rule Breach) FROM `./_types.art`.
+::READ (Resolve Module Uses) FROM `../resolve/resolve-module-uses.art`.
 
 ## Rules
 

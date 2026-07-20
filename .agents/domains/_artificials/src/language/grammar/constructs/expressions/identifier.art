@@ -1,12 +1,6 @@
 # Module
 
-## Uses
-
-<!-- ::FROM `language/grammar/index.art` -->
-
-## Declares
-
-### Construct: Identifier
+## Construct: Identifier
 
 **Category:** Expressions
 
@@ -24,7 +18,7 @@
 
 ```art
 <Identifier> =
-	<kebab-case-name>
+    <kebab-case-name>
 ```
 
 **Examples:**

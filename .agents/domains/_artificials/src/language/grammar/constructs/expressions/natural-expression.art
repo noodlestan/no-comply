@@ -1,12 +1,6 @@
 # Module
 
-## Uses
-
-<!-- ::FROM `language/grammar/index.art` -->
-
-## Declares
-
-### Construct: NaturalExpression
+## Construct: NaturalExpression
 
 **Category:** Expressions
 
@@ -26,7 +20,7 @@
 
 ```art
 <NaturalExpression> =
-	<natural-language-text>
+    <natural-language-text>
 ```
 
 **Example:**

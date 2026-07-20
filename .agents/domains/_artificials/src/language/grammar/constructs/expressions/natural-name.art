@@ -1,12 +1,6 @@
 # Module
 
-## Uses
-
-<!-- ::FROM `language/grammar/index.art` -->
-
-## Declares
-
-### Construct: NaturalName
+## Construct: NaturalName
 
 **Category:** Expressions
 
@@ -26,7 +20,7 @@
 
 ```art
 <NaturalName> =
-	<natural-name>
+    <natural-name>
 ```
 
 **Example:**

@@ -14,7 +14,7 @@
 
 ## Mandatory Reading
 
-READ: `definitions/index.md` - Essential definitions for understanding context files and artificial procedures.
+::READ `definitions/index.md` - Essential definitions for understanding context files and artificial procedures.
 
 ## API
 

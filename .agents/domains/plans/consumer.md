@@ -16,11 +16,11 @@
 
 ## Mandatory Reading
 
-READ: `.agents/domains/plans/definitions/index.md` - Essential definitions for working with plans.
+::READ `.agents/domains/plans/definitions/index.md` - Essential definitions for working with plans.
 
-READ: `.agents/domains/plans/files/index.md` - File structures and naming patterns for plan-related files.
+::READ `.agents/domains/plans/files/index.md` - File structures and naming patterns for plan-related files.
 
-READ: `.agents/domains/plans/structures/plan__structure.md` - Plan record structure and status definitions.
+::READ `.agents/domains/plans/structures/plan__structure.md` - Plan record structure and status definitions.
 
 ## API
 

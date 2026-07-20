@@ -26,7 +26,7 @@ CRITICAL RULE: If you are NOT ALLOWED to use this skill, STOP and advise the use
 - when the user says `update domains listing`.
 - when the user says `update domains`.
 
-**Before executing:**
+**Before Executing:**
 
 - Load the `.agents/domains/domains/definitions/index.md` to understand the basic concepts.
 - Load the `.agents/domains/domains/processes/index.md` to understand the required procedures.

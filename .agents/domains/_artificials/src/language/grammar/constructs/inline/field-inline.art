@@ -2,11 +2,10 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - NaturalName, NaturalExpression -->
+::READ (Construct: NaturalExpression) FROM `../expressions/natural-expression.art`.
+::READ (Construct: NaturalExpression) FROM `../expressions/natural-name.art`.
 
-## Declares
-
-### Construct: FieldInline
+## Construct: FieldInline
 
 **Category:** Inline
 

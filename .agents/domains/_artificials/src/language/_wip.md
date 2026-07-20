@@ -18,22 +18,20 @@ Language
     └── Structure
 ```
 
-### Routines
-
-#### Processes
+### Routine
 
 **Syntax:**
 
 ```
-Process for {Infinitive Verb} {Target|Outcome}
+Routine: {Infinitive Verb} {Target|Outcome}
 ```
 
 **Examples:**
 
-- Process for Generating Task Titles
-- Process for Writing Task Files
-- Process for Reading References Files
-- Process for Extracting Domain API
+- Routine: Generating Task Titles
+- Routine: Writing Task Files
+- Routine: Reading References Files
+- Routine: Extracting Domain API
 
 Rules:
 
@@ -42,7 +40,7 @@ Rules:
 - Use title case for the rest.
 - Target or Outcome should be specific and descriptive.
 
-#### Commands
+### Command
 
 **Syntax:**
 
@@ -63,7 +61,7 @@ Rules:
 - Parameters in parentheses, kebab-case, comma-separated.
 - Parameters are optional if the command has no inputs.
 
-##### Command Parameters
+#### Command Parameters
 
 **Syntax:**
 
@@ -84,10 +82,10 @@ Rules:
 - Comma-separated when multiple.
 - Use descriptive names that match the input type.
 
-#### Templates
+### Template
 
 <!-- WIP -->
 
-#### Files
+### File
 
 <!-- WIP -->

@@ -49,7 +49,7 @@ TEMPLATE EXAMPLE: **Commit Message:** `feat(standard-ui): add ListInputBoxItemMi
 
 **Commit Message:** `{commit.message}`
 
-TEMPLATE DIRECTIVE: Include the file name of the delegation instructions file.
+TEMPLATE DIRECTIVE: Include the filename of the delegation instructions file.
 
 **Instructions File:** `{instructions file path}`
 

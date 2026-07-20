@@ -47,9 +47,9 @@ CRITICAL RULE: Skills NOT listed in this file `## Required skills` or `## Allowe
 
 ## Mandatory Reading
 
-READ: `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
+::READ `.agents/domains/tasks/index.md`, if not yet in context – it contains definitions and rules that are essential to interpret the instructions on this file.
 
-READ: `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
+::READ `.agents/domains/references/index.md`, if not yet in context – it describes how to locate documentation on patterns and conventions related to the current session.
 
 ## Rules for applying Task Writing Skill
 

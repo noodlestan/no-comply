@@ -7,7 +7,22 @@
       "textVerbosity": "low",
       "color": "#ffffff",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-assistant/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-assistant/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": true,
+        "write": true,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "backlog-manager": {
       "mode": "primary",
@@ -15,7 +30,22 @@
       "textVerbosity": "low",
       "color": "#dbaeae",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-backlog-manager/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-backlog-manager/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "context-curator": {
       "mode": "primary",
@@ -23,7 +53,22 @@
       "textVerbosity": "low",
       "color": "#cf47af",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-context-curator/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-context-curator/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "delegator": {
       "mode": "primary",
@@ -31,7 +76,22 @@
       "textVerbosity": "low",
       "color": "#ff9800",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-delegator/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-delegator/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "pair-driver": {
       "mode": "primary",
@@ -39,7 +99,22 @@
       "textVerbosity": "low",
       "color": "#0e95e9",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-pair-driver/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-pair-driver/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": true,
+        "write": true,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": true,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "pair-navigator": {
       "mode": "primary",
@@ -47,7 +122,22 @@
       "textVerbosity": "low",
       "color": "#e93d0e",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-pair-navigator/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-pair-navigator/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "planner": {
       "mode": "primary",
@@ -55,7 +145,22 @@
       "textVerbosity": "low",
       "color": "#4caf50",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-planner/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-planner/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "reference-curator": {
       "mode": "primary",
@@ -63,7 +168,22 @@
       "textVerbosity": "medium",
       "color": "#5c208c",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-reference-curator/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-reference-curator/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "rubberduck": {
       "mode": "primary",
@@ -71,7 +191,22 @@
       "textVerbosity": "medium",
       "color": "#514f58",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-rubberduck/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-rubberduck/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": false,
+        "glob": false,
+        "list": false,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": false,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "task-manager": {
       "mode": "primary",
@@ -79,7 +214,22 @@
       "textVerbosity": "low",
       "color": "#ff6b6b",
       "top_p": 0.1,
-      "prompt": "{file:.agents/skills/agent-task-manager/SKILL.md}"
+      "prompt": "{file:.agents/skills/agent-task-manager/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": false,
+        "write": false,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
     },
     "build": {
       "disable": true

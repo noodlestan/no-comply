@@ -2,11 +2,11 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - NaturalName, NaturalExpression, ExampleInline -->
+::READ (Construct: NaturalExpression) FROM `../expressions/natural-expression.art`.
+::READ (Construct: NaturalName) FROM `../expressions/natural-name.art`.
+::READ (ExampleInline) FROM `./example-inline.art`.
 
-## Declares
-
-### Construct: VocabularyDeclaration
+## Construct: VocabularyDeclaration
 
 **Category:** Inline
 
@@ -20,9 +20,9 @@ The declared term, definition, and optional example are identified as properties
 
 ```art
 VocabularyDeclaration {
-	term: <NaturalName>
-	definition: <NaturalExpression>
-	examples?: <ExampleInline:Suffix>
+    term: <NaturalName>
+    definition: <NaturalExpression>
+    examples?: <ExampleInline:Suffix>
 }
 ```
 
@@ -30,7 +30,7 @@ VocabularyDeclaration {
 
 ```art
 <VocabularyDeclaration> =
-	**<NaturalName (term)>** – <NaturalExpression (definition)>. <ExampleInline:Suffix>.
+    **<NaturalName (term)>** – <NaturalExpression (definition)>. <ExampleInline:Suffix>.
 ```
 
 **Example:**
@@ -47,5 +47,5 @@ The identified vocabulary contains:
 term: Interaction Mode
 definition: Provides reusable behavioural triggers and rules that influence how the agent performs operations.
 examples:
-	- "Interaction Mode: No Nonsense".
+    - "Interaction Mode: No Nonsense".
 ```

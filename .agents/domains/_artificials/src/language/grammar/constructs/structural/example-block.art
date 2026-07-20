@@ -2,22 +2,21 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - NaturalExpression -->
+::READ (Construct: Tag) FROM `../expressions/tag.art`.
+::READ (Construct: NaturalExpression) FROM `../expressions/natural-expression.art`.
 
-## Declares
-
-### Construct: ExampleBlock
+## Construct: ExampleBlock
 
 **Category:** Structural
 
-**Purpose:** Provide a standalone example of an input value being interpreted ... WIP to ... or of an output being generated to define expectations and verify generated outputs.
+**Purpose:** Provide a standalone example of an input value being interpreted or of an output being generated to define expectations and verify generated outputs.
 
-**Description:** A ExampleBlock provides an example associated with a preceding construct or an explicitly identified context value. When no target is specified, the example applies to the immediately preceding eligible construct. When a target is specified using `of`, the example applies to the identified expression.
+**Description:** An ExampleBlock provides an example associated with a preceding construct or an explicitly identified context value. When no target is specified, the example applies to the immediately preceding eligible construct. When a target is specified using `of`, the example applies to value identified by the natural expression.
 
 **Syntax:**
 
 ````art
-Example[ of <NaturalExpression>]:
+Example[ of <NaturalExpression>]: [<Tag> ...]
 
 ```<example-block-language>
 <example-block-content>
@@ -26,9 +25,10 @@ Example[ of <NaturalExpression>]:
 
 **Rules:**
 
-- A ExampleBlock with `of <NaturalExpression>` applies only to the value that should be interpreted from the specified expression.
+- An ExampleBlock with `of <NaturalExpression>` applies only to the value that should be interpreted from the specified expression.
 - An ExampleBlock without `of <NaturalExpression>` MAY ONLY follow a VocabularyDeclaration or a Directive.
 - An ExampleBlock without `of <NaturalExpression>` applies to the immediately preceding eligible construct.
+- An ExampleBlock MAY be tagged with one or more Tag.
 - An ExampleBlock MUST NOT appear between list items.
 - An ExampleBlock MUST NOT appear after lists without using `of <NaturalExpression>`.
 

@@ -21,10 +21,10 @@ ALL
 
 With the provided template file or name, execute the following steps:
 
-1. If the provided input us a template name (not a file name with path), infer the template file name from the most recent exchanges with the user.
-2. If unable to infer a template file name, from context, use the `::templates` skill to list templates and locate the resolved file name.
-3. If still unable to resolve a concrete template file name, follow the "Process for Alerting the User" with the details of the failed resolution.
-4. If no template file name was resolved, follow the "Process for Asking the User" with the details of the failed resolution and ASK for an explicit template name or template file name.
+1. If the provided input us a template name (not a filename with path), infer the template filename from the most recent exchanges with the user.
+2. If unable to infer a template filename, from context, use the `::templates` skill to list templates and locate the resolved filename.
+3. If still unable to resolve a concrete template filename, follow the "Process for Alerting the User" with the details of the failed resolution.
+4. If no template filename was resolved, follow the "Process for Asking the User" with the details of the failed resolution and ASK for an explicit template name or template filename.
 5. Read the template file and validate its structure and instructions.
    - CATCH: if file missing, then THROW ERROR to user and STOP processing.
 6. Check if the template headings structure is hierarchical and cohesive.
@@ -36,13 +36,13 @@ With the provided template file or name, execute the following steps:
 
 ## Process for Rendering Files using Templates
 
-**Before executing:**
+**Before Executing:**
 
 - RULE: always follow the **Template:** for the file type being edited.
 - CRITICAL RULE: if you can not identify the **Template:** unambigiously, STOP ask the user.
 - RULE: do not attempt to localte **Template File** on your own.
 
-**Steps:**
+**Procedure:**
 
 With the provided `input scope` and the validated `template file`, execute the following steps:
 

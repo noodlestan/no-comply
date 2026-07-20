@@ -2,7 +2,7 @@
 
 ## Uses
 
-::FROM: `./_types.art` - Module Declares Table, Module Declares Table Entry
+::READ (Resource Record) FROM `../resources/_types.art`.
 
 ## Declares
 
@@ -19,34 +19,26 @@
 
 **Outputs:**
 
-- `%module-declares` - Type: Module Declares Table
+- `%declared-resources` - List (Type: Resource Record)
 
 **Procedure:**
 
-1. Prepare an empty `%declares` list.
+1. Prepare an empty `%declared-resources` list.
 2. Identify as `%declares-section` the SectionBlock named "Declares" in `%contents`.
 3. Identify as `%exposes-section` the SectionBlock named "Exposes" in `%contents`.
 4. If no `%declares-section` found AND no `%exposes-section` found,
-   1. Return the empty `%declares` as `%module-declares`.
+   1. Return the empty `%declared-resources`.
 5. Else
    1. If `%declares-section` found:
       1. Extract all sub-SectionBlocks from `%declares-section` into `%items`.
       2. With each `%item` in `%items`:
-         1. Extract the `%type` from the heading pattern `### {type}: {name}`.
-         2. Extract the `%name` from the heading pattern `### {type}: {name}`.
-         3. Prepare an `%entry` record with:
-            - `type` set to `%type`.
-            - `name` set to `%name`.
-            - `exposed` set to `false`.
-         4. Append `%entry` to `%declares`.
+         1. Extract the `%type` and `%name` from the heading pattern `### {type}: {name}`.
+         2. Prepare an `%entry` record with [`%source`, `%type`, `%name`, false].
+         3. Append `%entry` to `%declared-resources`.
    2. If `%exposes-section` found:
       1. Extract all sub-SectionBlocks from `%exposes-section` into `%items`.
       2. With each `%item` in `%items`:
-         1. Extract the `%type` from the heading pattern `### {type}: {name}`.
-         2. Extract the `%name` from the heading pattern `### {type}: {name}`.
-         3. Prepare an `%entry` record with:
-            - `type` set to `%type`.
-            - `name` set to `%name`.
-            - `exposed` set to `true`.
-         4. Append `%entry` to `%declares`.
-   3. Return `%declares` as `%module-declares`.
+         1. Extract the `%type` and `%name` from the heading pattern `### {type}: {name}`.
+         2. Prepare an `%entry` record with [`%source`, `%type`, `%name`, true].
+         3. Append `%entry` to `%declared-resources`.
+   3. Return `%declared-resources`.

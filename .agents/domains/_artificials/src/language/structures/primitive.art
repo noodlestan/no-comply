@@ -1,0 +1,74 @@
+# Module
+
+## Uses
+
+::READ (Identifier, NaturalName, NaturalExpression, ExampleBlock) `language/grammar/index.art`.
+
+::READ (List, Record) FROM `language/primitives/index.art`.
+
+::READ FROM `./_types.art`
+
+- PrimitiveName,
+- PrimitiveStatus,
+- PrimitivePurpose,
+- PrimitiveDescription,
+- PrimitiveSchema,
+- PrimitiveParams,
+- PrimitiveParam,
+- PrimitiveArt,
+- PrimitiveDeclaration,
+- PrimitiveGeneration,
+- PrimitiveInterpretation,
+- PrimitiveDiscovery
+
+::END READ
+
+## Primitive: Overload
+
+### Art
+
+### Declaration
+
+### Generation
+
+### Consumption
+
+### Discovery
+
+## Structure: Primitive
+
+**id**: primitive
+
+**Name**: Primitive
+
+**Kind**: Structure
+
+**Purpose:** Represents the meta-model used to describe interpreter-defined primitive value types.
+
+**Composes:** Structure: Resource
+
+**Primitive:** Record
+
+**Shape:**
+
+- `name` - PrimitiveName
+- `status` - PrimitiveStatus
+- `purpose` - PrimitivePurpose
+- `schema` - PrimitiveSchema
+- `valueType` - WIP
+- `value` - WIP
+- `art` - Overload (PrimitiveArt)
+- `declaration` - Overload (PrimitiveDeclaration)
+- `generation` - Overload (PrimitiveGeneration)
+- `interpretaion` - Overload (PrimitiveInterpretation)
+- `discovery` - Overload (PrimitiveDiscovery)
+
+### Art
+
+### Declaration
+
+### Generation
+
+### Consumption
+
+### Discovery

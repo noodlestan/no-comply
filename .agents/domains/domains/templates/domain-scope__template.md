@@ -24,7 +24,7 @@ TEMPLATE EXAMPLE: - Work with domain contexts files.
 
 TEMPLATE DIRECTIVE: For each mandatory reading in scope surface documentation, generate a mandatory reading entry formatted according to the following example.
 
-TEMPLATE EXAMPLE: READ `{mandatory-reading.filepath}` - {mandatory-reading.purpose}.
+TEMPLATE EXAMPLE: ::READ `{mandatory-reading.filepath}` - {mandatory-reading.purpose}.
 
 ## API
 

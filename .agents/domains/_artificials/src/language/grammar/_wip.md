@@ -43,12 +43,14 @@ Grammar
 │   │   ├── ContextValue
 │   │   ├── ContextSymbol
 │   │   ├── ContextAlias
-│   │   ├── Contextualise
+│   │   └── Contextualise
+│   │
+│   ├── Procedural
 │   │   ├── Procedure (WIP)
 │   │   ├── Procedure Block (WIP)
 │   │   └── Workflow (WIP)
 │   │
-│   ├── Directive (WIP)
+│   ├── Directives (WIP)
 │   │   ├── Mandatory Reading Directive
 │   │   ├── Template Directive
 │   │   ├── Format Directive
@@ -65,7 +67,7 @@ Grammar
 │       ├── Catch Statement
 │       └── Execute Statement
 │
-├── Semantics
+├── Semantics (WIP)
 │   ├── Interpretation and Resolution
 │   ├── Routine Invocation
 │   ├── Procedure Inputs

@@ -2,11 +2,9 @@
 
 ## Uses
 
-<!-- ::FROM `language/grammar/index.art` - NaturalExpression -->
+::READ (Construct: NaturalExpression) FROM `../expressions/identifier.art`.
 
-## Declares
-
-### Construct: ExampleInline
+## Construct: ExampleInline
 
 **Category:** Inline
 
@@ -18,8 +16,8 @@
 
 ```
 ExampleInline {
-	position: <suffix | nested>
-	examples: <NaturalExpression>[]
+    position: <suffix | nested>
+    examples: <NaturalExpression>[]
 }
 ```
 
@@ -33,7 +31,7 @@ Syntax of _Suffix_, _Singular_:
 
 ```art
 <ExampleInline:Suffix:Singular> =
-	<NaturalExpression>. Example: "<NaturalExpression (example text)>"
+    <NaturalExpression>. Example: "<NaturalExpression (example text)>"
 ```
 
 Syntax of _Suffix_, _Plural_:
@@ -45,7 +43,7 @@ Syntax of _Suffix_, _Plural_:
 
 ```art
 <ExampleInline:Suffix:Plural> =
-	<NaturalExpression>. Examples: "<NaturalExpression (example text)>"[, "<NaturalExpression (example text)>" ...]
+    <NaturalExpression>. Examples: "<NaturalExpression (example text)>"[, "<NaturalExpression (example text)>" ...]
 ```
 
 Syntax of _Nested_, _Singular_:
@@ -56,7 +54,7 @@ Syntax of _Nested_, _Singular_:
 
 ```art
 <ExampleInline:Nested:Singular> =
-	<NaturalExpression> (Example: "<NaturalExpression (example text)>") <NaturalExpression>
+    <NaturalExpression> (Example: "<NaturalExpression (example text)>") <NaturalExpression>
 ```
 
 Syntax of _Nested_, _Plural_:
@@ -68,7 +66,7 @@ Syntax of _Nested_, _Plural_:
 
 ```art
 <ExampleInline:Nested:Plural> =
-	<NaturalExpression> (Examples: "<NaturalExpression: Example>"[, "<NaturalExpression: Example 2>" ...]) <NaturalExpression>
+    <NaturalExpression> (Examples: "<NaturalExpression: Example>"[, "<NaturalExpression: Example 2>" ...]) <NaturalExpression>
 ```
 
 **Examples:**

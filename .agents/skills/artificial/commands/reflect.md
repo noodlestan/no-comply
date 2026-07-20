@@ -4,6 +4,8 @@
 
 ### Command: `::agents`
 
+**Purpose:** List agent modes.
+
 **Trigger:**
 
 - when the user says `::agents`.
@@ -24,7 +26,7 @@ When the user says `::skills`:
 
 ### Command: `::commands`
 
-The purpose of this command is to list commands loaded into context via skills:
+**Purpose:** List commands loaded into context via skills.
 
 When the user says `::commands`:
 
@@ -33,7 +35,7 @@ When the user says `::commands`:
 
 ### Command: `::templates`
 
-The purpose of this command is to list available templates:
+**Purpose:** List available templates.
 
 When the user says `::templates`:
 
@@ -42,7 +44,7 @@ When the user says `::templates`:
 
 ### Command: `::interactions`
 
-The purpose of this command is to list available interaction modes:
+**Purpose:** List available interaction modes.
 
 When the user says `::interactions`:
 

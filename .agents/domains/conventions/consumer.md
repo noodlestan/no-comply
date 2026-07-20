@@ -14,7 +14,7 @@
 
 ## Mandatory Reading
 
-READ: `definitions/index.md` - Essential definitions for conventions files and drafts.
+::READ `definitions/index.md` - Essential definitions for conventions files and drafts.
 
 ## API
 
