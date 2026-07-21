@@ -166,7 +166,7 @@ Define reusable procedures in `_architect/` as `.art` routine files.
 
 Routines should be idempotent and describe desired state rather than conditional steps.
 
-#### Updating \_guide and \_wip files
+#### Updating `_guide.md` and `_wip.md` files
 
 Keep documentation in sync with the system.
 
@@ -251,13 +251,13 @@ The `_wip.md` files are useful for tracking pending work. The `_guide.md` files 
 
 #### Feedback about Art
 
-{short paragraph about your experience working with Art files and the \_architect domain meta structures, types, routines}
+{short paragraph about your experience working with Art files and the `_architect` layer, its domain, meta structures, types, routines, ...}
 
 **Major doubts:** {your major questions}
 
 #### Feedback about the Project
 
-{short paragraph about your experience working with the project, \_wip, \_guide, knowledge and artefacts}
+{short paragraph about your experience working with the project, `_wip.md`, `_guide.md`, knowledge, and artefacts}
 
 **Major doubts:** {your major questions}
 ```

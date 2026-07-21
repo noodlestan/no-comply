@@ -1,5 +1,7 @@
 # Architect Domain
 
+We are modelling an architecture domain (for now, for small monorepos, later for other and bigger architectural components).
+
 ## Types
 
 Types are defined in `_architect/types/`.
@@ -67,16 +69,6 @@ Fields are inherited from Structure
 - `composes` – Another Structure
 - `primitive` – PrimitiveName
 - `shape` – One of WIP (primitive types)
-
-## Templates
-
-Templates are defined in `_domain/templates/`.
-
-| Template         | File                    | Renders                        |
-| ---------------- | ----------------------- | ------------------------------ |
-| Namespace README | `namespace-readme.tart` | `README.md` at namespace root  |
-| CLI README       | `cli-readme.tart`       | `README.md` inside CLI package |
-| Lib README       | `lib-readme.tart`       | `README.md` inside lib package |
 
 ## Declaring Records
 

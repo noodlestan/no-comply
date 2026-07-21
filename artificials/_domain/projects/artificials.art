@@ -2,9 +2,9 @@
 
 ## Project: Artificials
 
-**Purpose:** Tools for working with Art files.
+**Purpose:** Generate and manage (Art)ificial Driven Development environments.
 
-**Description:** Art Language and modules implementation. The (reactive) pipeline flows from bundler to compiler to validator to parse to source.
+**Description:** A collection of tools and resources to generate and manage agent instructions. Includes a the Art Language, and a (reactive) pipeline for bundling, compiling, validating, parsing, and location sources.
 
 **Version:** 0.0.1
 

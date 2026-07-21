@@ -10,22 +10,25 @@ Everything here is machine-readable. The README, package manifests, and director
 
 ```
 artificials/
-├── _architect/          # Meta-model: structures, types, conventions
-│   ├── structures/      # Structure definitions (Project, Namespace, Package, Package Tool)
-│   ├── types/           # Type definitions (Bin, License, Package Tool File)
-│   ├── _guide.md        # Architect conventions and diagrams
-│   └── _wip.md          # Pending work
+├── _art/                  # Art language guide and use cases
+│   └── _guide.md          # What Art is, file types, conventions
 │
-├── _domain/             # Records: instances of structures
-│   ├── projects/        # Project records
-│   ├── namespaces/      # Namespace records
-│   ├── packages/        # Package records (libs + CLIs)
-│   ├── tools/           # Tool records (file generators)
-│   ├── templates/       # Tart templates for generating files
-│   ├── _guide.md        # This file
-│   └── _wip.md          # Pending work
+├── _architect/            # Meta-model: structures, types, conventions
+│   ├── structures/        # Structure definitions (Project, Namespace, Package, Package Tool)
+│   ├── types/             # Type definitions (Bin, License, Package Tool File)
+│   ├── _guide.md          # Architect conventions and diagrams
+│   └── _wip.md            # Pending work
 │
-└── README.md            # Generated from namespace-readme.tart + records
+├── _domain/               # Records: instances of structures
+│   ├── projects/          # Project records
+│   ├── namespaces/        # Namespace records
+│   ├── packages/          # Package records (libs + CLIs)
+│   ├── tools/             # Tool records (file generators)
+│   ├── templates/         # Tart templates for generating files
+│   ├── _guide.md          # This file
+│   └── _wip.md            # Pending work
+│
+└── README.md              # Generated from namespace-readme.tart + records
 ```
 
 ## The Meta-Model
