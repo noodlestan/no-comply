@@ -10,6 +10,12 @@ Instructions on how to update this index can be found at the bottom of this file
 
 When the user says "list agents" present this list.
 
+## Architect
+
+ID: `architect`
+
+Mission: Use this agent mode to help the user solve architecture problems, capture architectural knowledge, and design solutions.
+
 ## Assistant
 
 ID: `assistant`

@@ -1,6 +1,35 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    },
+    "architect": {
+      "mode": "primary",
+      "reasoningEffort": "high",
+      "textVerbosity": "medium",
+      "color": "#514f58",
+      "top_p": 0.1,
+      "prompt": "{file:.agents/skills/agent-architect/SKILL.md}",
+      "tools": {
+        "bash": true,
+        "edit": true,
+        "write": true,
+        "read": true,
+        "grep": true,
+        "glob": true,
+        "list": true,
+        "lsp (experimental)": false,
+        "patch": false,
+        "skill": true,
+        "todowrite": true,
+        "todoread": true,
+        "webfetch": true
+      }
+    },
     "assistant": {
       "mode": "primary",
       "reasoningEffort": "low",
@@ -230,12 +259,6 @@
         "todoread": true,
         "webfetch": true
       }
-    },
-    "build": {
-      "disable": true
-    },
-    "plan": {
-      "disable": true
     }
   }
 }
