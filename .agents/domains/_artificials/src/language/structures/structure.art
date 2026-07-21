@@ -25,7 +25,7 @@
 - `.agents/domains/_artificials/structures/command__structure.md`
 - `.agents/domains/tasks/structures/task__structure.md`
 
-**Composes:** Structure: Resource
+**Composes:** Structure: Base
 
 **Primitive**: Record
 

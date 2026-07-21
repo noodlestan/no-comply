@@ -1,0 +1,12 @@
+# Module
+
+## Type: Package Tool File
+
+**Purpose:** Describes a template-to-target file mapping for a tool.
+
+**Primitive:** Record
+
+**Shape:**
+
+- `template` - Path to the source template file. Example: `_domain/templates/cli-readme.tart`.
+- `target` - Path to the output file. Example: `README.md`.

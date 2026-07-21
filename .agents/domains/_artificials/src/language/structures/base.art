@@ -1,28 +1,6 @@
 # Module
 
-## Structure: StructureField
-
-**Id:** structure-field
-
-**Primitive**: Record
-
-**description:** A named element within a structure, with a description and optional group membership.
-
-**status:** wip
-
-**fields:**
-
-- `id` – kebab case representation of the field name.
-- `name` – The human-readable field name.
-- `description` – A short description of the field.
-
-**examples:**
-
-- This file: `id` field in Structure: Structure
-- This file: `description` field in Structure: Structure
-- `.agents/domains/_artificials/structures/command__structure.md`: `triggers` field in Structure: Command
-
-## Structure: Resource (Abstract)
+## Structure: Base (Abstract)
 
 **Id**: `resource`
 

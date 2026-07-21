@@ -1,0 +1,11 @@
+# Module
+
+## Tool: Lib README
+
+**Purpose:** Generates a library package README.md from template.
+
+**Files:**
+
+- `template`:
+  - `template`: _domain/templates/lib-readme.tart
+  - `target`: {namespace.path}{package.path}/README.md

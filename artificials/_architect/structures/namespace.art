@@ -1,0 +1,13 @@
+# Module
+
+## Structure: Namespace
+
+**Purpose:** Represents the grouping of packages under a shared identity and license.
+
+**Shape**
+
+- `description` - What the namespace defines.
+- `path` - Where the namespace sits relative to the project.
+- `packages` - List (Structure: Package)
+- `scripts` - List (Type: Bin).
+- `tools` - List (Structure: Package Tool).

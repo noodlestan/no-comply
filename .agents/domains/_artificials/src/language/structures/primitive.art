@@ -23,18 +23,6 @@
 
 ::END READ
 
-## Primitive: Overload
-
-### Art
-
-### Declaration
-
-### Generation
-
-### Consumption
-
-### Discovery
-
 ## Structure: Primitive
 
 **id**: primitive
@@ -45,7 +33,7 @@
 
 **Purpose:** Represents the meta-model used to describe interpreter-defined primitive value types.
 
-**Composes:** Structure: Resource
+**Composes:** Structure: Base
 
 **Primitive:** Record
 
@@ -62,13 +50,3 @@
 - `generation` - Overload (PrimitiveGeneration)
 - `interpretaion` - Overload (PrimitiveInterpretation)
 - `discovery` - Overload (PrimitiveDiscovery)
-
-### Art
-
-### Declaration
-
-### Generation
-
-### Consumption
-
-### Discovery

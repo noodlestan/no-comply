@@ -1,0 +1,12 @@
+# Module
+
+## Type: Bin
+
+**Purpose:** Describes a named executable command with its purpose.
+
+**Primitive:** Record
+
+**Shape:**
+
+- `command` - NaturalExpression (e.g., `npm run build`, `tsc`, `esbuild`).
+- `purpose` - NaturalExpression (e.g., "Build the package for production").

@@ -1,0 +1,14 @@
+# Module
+
+## Structure: Project
+
+**Purpose:** Represents a runnable or publishable unit within a namespace.
+
+**Shape**
+
+- `version` - Semver version string. Example: `0.0.1`.
+- `namespaces` - List (Structure: Namespace)
+- `packageFile` - Path to the package manifest. Example: `package.json`.
+- `scripts` - List (Type: Bin).
+- `tools` - List (Structure: Package Tool).
+- `license` - Type: License.

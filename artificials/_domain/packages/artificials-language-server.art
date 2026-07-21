@@ -1,0 +1,15 @@
+# Module
+
+## Package: Artificials Language Server
+
+**Purpose:** Language server (WIP).
+
+**Description:** LSP server for art and context files.
+
+**Path:** cli/language-server/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**PackageFile:** package.json

@@ -1,0 +1,15 @@
+# Module
+
+## Package: Artificials Validator
+
+**Purpose:** Validates parsed modules.
+
+**Description:** Validates parsed modules against structural and semantic rules.
+
+**Path:** libs/validator/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**PackageFile:** package.json

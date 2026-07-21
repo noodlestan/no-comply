@@ -9,7 +9,7 @@ metadata:
     color: '#514f58'
     top_p: 0.1
     tools:
-      bash: true
+      bash: false
       edit: false
       write: false
       read: true

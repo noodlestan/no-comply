@@ -1,0 +1,15 @@
+# Module
+
+## Package: Artificials Bin
+
+**Purpose:** Static entry point to parser, validator, compiler, bundler, watcher.
+
+**Description:** CLI binary that exposes all core pipeline commands.
+
+**Path:** cli/bin/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**PackageFile:** package.json

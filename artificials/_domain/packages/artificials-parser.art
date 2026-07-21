@@ -1,0 +1,15 @@
+# Module
+
+## Package: Artificials Parser
+
+**Purpose:** Parses Art modules (.art) and markdown files (.md).
+
+**Description:** Parses context files and art modules into structured representations.
+
+**Path:** libs/parser/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**PackageFile:** package.json

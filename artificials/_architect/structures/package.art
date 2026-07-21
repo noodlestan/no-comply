@@ -1,0 +1,14 @@
+# Module
+
+## Structure: Package
+
+**Purpose:** Represents a publishable library or CLI within a namespace.
+
+**Shape**
+
+- `version` - Semver version string. Example: `0.0.1`.
+- `language` - Primary language or runtime. Example: `typescript`.
+- `path` - Where the package sits relative to its namespace.
+- `packageFile` - Path to the package manifest. Example: `package.json`.
+- `scripts` - List (Type: Bin).
+- `tools` - List (Structure: Package Tool).

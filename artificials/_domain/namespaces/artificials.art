@@ -1,0 +1,28 @@
+# Module
+
+## Namespace: Artificials
+
+**Purpose:** Tools for working with Art files.
+
+**Description:** Art Language and modules implementation. The (reactive) pipeline flows from bundler to compiler to validator to parse to source.
+
+**Path:** artificials/
+
+**Packages:**
+
+- Package: Artificials Primitives
+- Package: Artificials Parser
+- Package: Artificials Validator
+- Package: Artificials Program
+- Package: Artificials Bundler
+- Package: Artificials Watcher
+- Package: Artificials Bin
+- Package: Artificials Tools
+- Package: Artificials Language Server
+- Package: Artificials Ldev Server
+
+**Scripts:**
+
+- `build`:
+  - `command`: npm run build
+  - `purpose`: Build the CLI binary.

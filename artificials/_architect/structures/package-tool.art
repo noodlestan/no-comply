@@ -1,0 +1,9 @@
+# Module
+
+## Structure: Package Tool
+
+**Purpose:** Represents a tool that generates files from templates.
+
+**Shape**
+
+- `files` - List (Type: Package Tool File).
