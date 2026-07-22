@@ -1,0 +1,23 @@
+# Module
+
+## Package: Artificials Ldev Server
+
+**Purpose:** Language server (WIP).
+
+**Description:** Development language server for art and context files.
+
+**Path:** cli/dev-server/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**Tools:**
+
+- Package Tool: Cli README
+- Package Tool: Cli Package Json
+- Package Tool: Cli Tsconfig
+- Package Tool: License
+- Package Tool: Dotfiles
+
+**PackageFile:** package.json

@@ -1,20 +1,6 @@
-# Artificials
+MIT License
 
-> Tools for working with Art files.
-
-Art Language and modules implementation. The (reactive) pipeline flows from bundler to compiler to validator to parse to source.
-
-## Namespaces
-
-- [Art JS](./art-js/README.md) – Tools for working with Art files.
-
-## Scripts
-
-- **$** `npm run build` – Bundle all packages for production.
-
-## MIT License https://noodlestan.mit-license.org/
-
-Copyright (c) 2026 Noodlestan https://noodlestan.org/
+Copyright (c) 2024 Noodlestan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

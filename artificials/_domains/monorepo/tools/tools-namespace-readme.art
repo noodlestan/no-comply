@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: Tools Namespace Readme
+
+**Purpose:** Generates README.md for the tools namespace.
+
+**Files:**
+
+- `README.md`:
+  - `template`: ./tools-namespace-readme.tart
+  - `target`: README.md

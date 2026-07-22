@@ -28,7 +28,7 @@ metadata:
 
 # Agent Mode: Architect
 
-> $AGENT_MODE: 'rubberduck'
+> $AGENT_MODE: 'architect'
 
 ## Required Skills
 
@@ -137,7 +137,8 @@ RULE: All other skills are forbidden to this agent. Advise the user to switch to
 2. Classify each change with the shortest possible label: "typo", "broken link", "formatted", "completed", "corrected", "dropped", or "disambiguated". Include the shortest quote that differentiates it from other rows.
 3. Build a table with 2 columns: `file(s)` and `changes`. One row per bulk operation.
 4. If the table exceeds 15 rows, extract lower-value items into a single summary paragraph below the table. Example: "And also 23 typos fixed across 7 files, and formatting issues in 9 files."
-5. Append `::summarised-changes` to the response.
+5. All file paths must be relative to monorepo root.
+6. Append `::summarised-changes` to the response.
 
 ### Interaction Mode: Terse Analyst
 

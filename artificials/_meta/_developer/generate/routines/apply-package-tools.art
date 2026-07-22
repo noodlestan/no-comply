@@ -1,0 +1,21 @@
+# Module
+
+## Routine: Apply Package Tools
+
+**Purpose:** Resolve project+namespace+package tools and apply them.
+
+**Inputs:**
+
+- `%project`: Structure: Project
+- `%namespace`: Structure: Namespace
+- `%package`: Structure: Package
+
+**Outputs:**
+
+- `%files-created`: List of generated file paths
+
+**Procedure:**
+
+1. Combine `%project.tools`, `%namespace.tools`, and `%package.tools` into `%tools`.
+2. With `%tools`, `%project`, `%namespace`, and `%package` execute **Routine: Apply Tools** to capture `%files-created`.
+3. Return `%files-created`.

@@ -1,0 +1,18 @@
+# Module
+
+## Routine: Apply Project Tools
+
+**Purpose:** Resolve project-level tools and apply them.
+
+**Inputs:**
+
+- `%project`: Structure: Project
+
+**Outputs:**
+
+- `%files-created`: List of generated file paths
+
+**Procedure:**
+
+1. With `%project.tools`, `%project` execute **Routine: Apply Tools** to capture `%files-created`.
+2. Return `%files-created`.

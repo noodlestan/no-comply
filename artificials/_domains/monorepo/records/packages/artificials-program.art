@@ -1,0 +1,24 @@
+# Module
+
+## Package: Artificials Program
+
+**Purpose:** Compiles an Art program.
+
+**Description:** Represents a reactive program with dependency and program graphs.
+
+**Path:** libs/program/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**Tools:**
+
+- Package Tool: Lib README
+- Package Tool: Lib Package Json
+- Package Tool: Lib Tsconfig
+- Package Tool: Lib Vite
+- Package Tool: License
+- Package Tool: Dotfiles
+
+**PackageFile:** package.json

@@ -1,0 +1,20 @@
+{
+  "name": "{{%package.name}}",
+  "version": "{{%package.version}}",
+  "description": "{{%package.description}}",
+  "author": "Noodlestan Collective",
+  "license": "MIT",
+  "private": true,
+::TEMPLATE if `%package.bin`
+  "bin": {
+::TEMPLATE for each `%entry` in `%package.bin`
+    "{{%entry.command}}": "{{%entry.path}}",
+::END
+  },
+::END
+  "scripts": {
+::TEMPLATE for each `%script` in `%package.scripts`
+    "{{%script.name}}": "{{%script.command}}",
+::END
+  }
+}

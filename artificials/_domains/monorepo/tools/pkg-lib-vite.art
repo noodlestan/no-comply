@@ -1,0 +1,14 @@
+# Module
+
+## Package Tool: Lib Vite
+
+**Purpose:** Generates vite.config.mts and vitest.config.mts for a library package.
+
+**Files:**
+
+- `vite.config.mts`:
+  - `template`: ./pkg-lib-vite.tart
+  - `target`: vite.config.mts
+- `vitest.config.mts`:
+  - `template`: ./pkg-lib-vitest.tart
+  - `target`: vitest.config.mts

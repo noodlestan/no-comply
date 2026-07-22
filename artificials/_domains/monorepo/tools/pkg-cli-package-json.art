@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: Cli Package Json
+
+**Purpose:** Generates package.json for a CLI package.
+
+**Files:**
+
+- `package.json`:
+  - `template`: ./pkg-cli-package-json.tart
+  - `target`: package.json

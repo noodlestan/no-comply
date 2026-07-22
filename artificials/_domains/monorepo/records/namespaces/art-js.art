@@ -1,0 +1,23 @@
+# Module
+
+## Namespace: Art JS
+
+**Purpose:** Tools for working with Art files.
+
+**Description:** Art Language and modules implementation. The (reactive) pipeline flows from bundler to compiler to validator to parse to source.
+
+**Path:** art-js/
+
+**Packages:**
+
+- Package: Artificials Build
+
+**Tools:**
+
+- Tool: Namespace README
+
+**Scripts:**
+
+- `build`:
+  - `command`: npm run build
+  - `purpose`: Build the CLI binary.

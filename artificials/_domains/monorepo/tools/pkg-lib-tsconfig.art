@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: Lib Tsconfig
+
+**Purpose:** Generates tsconfig.json for a library package.
+
+**Files:**
+
+- `tsconfig.json`:
+  - `template`: ./pkg-lib-tsconfig.tart
+  - `target`: tsconfig.json

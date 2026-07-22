@@ -1,0 +1,23 @@
+# Module
+
+## Package: Artificials Tools
+
+**Purpose:** Agent entry points.
+
+**Description:** Deterministic operations for agents to work with art and context files.
+
+**Path:** cli/tools/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**Tools:**
+
+- Package Tool: Cli README
+- Package Tool: Cli Package Json
+- Package Tool: Cli Tsconfig
+- Package Tool: License
+- Package Tool: Dotfiles
+
+**PackageFile:** package.json

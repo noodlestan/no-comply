@@ -1,0 +1,31 @@
+# Artificial System
+
+## Use Cases
+
+### Agent Instruction Modelling and Generation
+
+Define agent instructions that model an entire domain. Art files capture the structures, types, and routines that an agent needs to understand and operate within a domain.
+
+Then the Art bundler bundles thoses instructions according to context use cases so that each agent gets presented a tailored view of context files and instructions.
+
+Different agents need different sets of instructions, different views of the same processes, different level of detail per domain.
+
+- **Domain Consumers** read domain records and execute some routines in the domain — instructions are compact and tailored for interpretation and non-destructive generations.
+- **Domain Producers** produce and validate resources in the domain — instructions are detailed and cover a bigger surface of the domain.
+- **Domain Architect** continously model the domain capabilities with new structures and processes – instructions merely synthesised for discoverability of the source Art files.
+
+```
+Domain: Structures +  Routines + Views → Bundling → Domain Facades (per use case).
+```
+
+Example: Planner needs to everything about planning, and a little about coding. Delegator needs to know a bit about planning. Builder needs to know a little about plans (especially how to follow plan instructions) and a lot about knowledge resources to interpret (and improve) references (architecture decisions, patterns, and conventions).
+
+### Declarative Source Code Generation
+
+Think Terraform for software (or knowledge management) projects.
+
+Define your project's structure in `.art` files — packages, tools, scripts, licenses — and the define the procedures to generates everything else: READMEs, package.json, directory scaffolding, CI configs.
+
+```
+Domain: Project records → Toolchain → Generated files
+```

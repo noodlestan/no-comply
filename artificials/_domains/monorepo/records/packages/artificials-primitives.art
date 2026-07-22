@@ -1,0 +1,24 @@
+# Module
+
+## Package: Artificials Primitives
+
+**Purpose:** Shared types and helpers.
+
+**Description:** Core types and utility functions used across all artificials packages.
+
+**Path:** libs/primitives/
+
+**Version:** 0.0.1
+
+**Language:** typescript
+
+**Tools:**
+
+- Package Tool: Lib README
+- Package Tool: Lib Package Json
+- Package Tool: Lib Tsconfig
+- Package Tool: Lib Vite
+- Package Tool: License
+- Package Tool: Dotfiles
+
+**PackageFile:** package.json

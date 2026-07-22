@@ -1,0 +1,14 @@
+# Module
+
+## Package Tool: Dotfiles
+
+**Purpose:** Generates .npmignore and .prettierignore for a package.
+
+**Files:**
+
+- `.npmignore`:
+  - `template`: ./pkg-dotfiles-npmignore.tart
+  - `target`: .npmignore
+- `.prettierignore`:
+  - `template`: ./pkg-dotfiles-prettierignore.tart
+  - `target`: .prettierignore

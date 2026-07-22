@@ -1,0 +1,17 @@
+# Module
+
+## Package Tool: Cli Tsconfig
+
+**Purpose:** Generates tsconfig.json, tsconfig.cjs.json, and tsconfig.esm.json for a CLI package.
+
+**Files:**
+
+- `tsconfig.json`:
+  - `template`: ./pkg-cli-tsconfig.tart
+  - `target`: tsconfig.json
+- `tsconfig.cjs.json`:
+  - `template`: ./pkg-cli-tsconfig-cjs.tart
+  - `target`: tsconfig.cjs.json
+- `tsconfig.esm.json`:
+  - `template`: ./pkg-cli-tsconfig-esm.tart
+  - `target`: tsconfig.esm.json

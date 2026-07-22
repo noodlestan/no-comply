@@ -1,18 +1,38 @@
-# Artificials
+# Module
 
-> Tools for working with Art files.
+## Project: Artificials
 
-Art Language and modules implementation. The (reactive) pipeline flows from bundler to compiler to validator to parse to source.
+**Purpose:** Generate and manage (Art)ificial Driven Development environments.
 
-## Namespaces
+**Description:** A collection of tools and resources to generate and manage agent instructions. Includes a the Art Language, and a (reactive) pipeline for bundling, compiling, validating, parsing, and location sources.
 
-- [Art JS](./art-js/README.md) – Tools for working with Art files.
+**Version:** 0.0.1
 
-## Scripts
+**Namespaces:**
 
-- **$** `npm run build` – Bundle all packages for production.
+- Namespace: Art JS
 
-## MIT License https://noodlestan.mit-license.org/
+**Tools:**
+
+- Tool: Project README
+
+**PackageFile:** package.json
+
+**Scripts:**
+
+- `build`:
+  - `command`: npm run build
+  - `purpose`: Bundle all packages for production.
+
+**License.Short**
+
+Copyright (c) 2026 [Noodlestan](https://noodlestan.org/).
+
+Published under a [MIT license](https://noodlestan.mit-license.org/).
+
+**License.Long**
+
+MIT License https://noodlestan.mit-license.org/
 
 Copyright (c) 2026 Noodlestan https://noodlestan.org/
 

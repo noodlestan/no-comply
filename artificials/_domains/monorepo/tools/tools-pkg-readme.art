@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: Tools Pkg Readme
+
+**Purpose:** Generates README.md for a tools package.
+
+**Files:**
+
+- `README.md`:
+  - `template`: ./tools-pkg-readme.tart
+  - `target`: README.md

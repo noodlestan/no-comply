@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: Lib Package Json
+
+**Purpose:** Generates package.json for a library package.
+
+**Files:**
+
+- `package.json`:
+  - `template`: ./pkg-lib-package-json.tart
+  - `target`: package.json

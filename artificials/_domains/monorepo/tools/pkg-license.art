@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: License
+
+**Purpose:** Generates LICENSE-MIT for a package.
+
+**Files:**
+
+- `LICENSE-MIT`:
+  - `template`: ./pkg-license.tart
+  - `target`: LICENSE-MIT

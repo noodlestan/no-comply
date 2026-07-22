@@ -1,0 +1,11 @@
+# Module
+
+## Package Tool: Tools Package Json
+
+**Purpose:** Generates package.json for a tools package.
+
+**Files:**
+
+- `package.json`:
+  - `template`: ./tools-package-json.tart
+  - `target`: package.json

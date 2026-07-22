@@ -1,0 +1,23 @@
+# Module
+
+## Routine: Apply Tools
+
+**Purpose:** Apply a list of tools to generate files.
+
+**Inputs:**
+
+- `%tools`: List (Structure: Package Tool)
+- `%project`: Structure: Project
+- `%namespace`?: Structure: Namespace
+- `%package`?: Structure: Package
+
+**Outputs:**
+
+- `%files-created`: List of generated file paths
+
+**Procedure:**
+
+1. With each `%tool` in `%tools`:
+   1. With `%tool`, `%project`, `%namespace`, and `%package` execute **Routine: Apply Tool** to capture `%tool-files`.
+   2. Append `%tool-files` to `%files-created`.
+2. Return `%files-created`.

@@ -1,13 +1,14 @@
 # Architect Session: Deep Planning for Artificials
 
-> WIP: Add summary fof "table of contents (h2 only)"
-
 ## Mandatory Reading
 
-::READ `artificials/_domain/_guide.md` to learn about the domain layout and how records work.
-::READ `artificials/_architect/_guide.md` to learn about the data structures (types, shapes, conventions).
-::READ `artificials/_architect/_wip.md` to learn about pending meta work (developer routines).
-::READ `artificials/_domain/_wip.md` to learn about pending domain work.
+::READ `artificials/_domains/monorepo/_guide.md` to learn about the project domain (tools for Working with Art).
+::READ `artificials/_meta/_architect/_guide.md` to learn about the Art resources (structures, types, shapes, routines, conventions).
+::READ `artificials/_meta/_architect/_wip.md` to learn about pending meta work (typically more structures and routines).
+::READ `artificials/_domains/monorepo/_wip.md` to learn about pending project work (typically more architecture decisions, more records and scaffolding).
+::READ `artificials/_meta/_developer/_guide.md` to learn about the meta automation tools (typically routines).
+::READ `artificials/__architect_history.md` to learn about previous architect feedback (used during handoff to summarise).
+::READ `artificials/_meta/_developer/_wip.md` to learn about pending meta automation work (typically more routines).
 
 ## Scope
 
@@ -19,7 +20,7 @@
 
 ### Meta Context
 
-**$SCOPE:** `artificials/_architect`
+**$SCOPE:** `artificials/_meta`
 **Layer:** Meta: Art files for modelling and automating monorepos
 **Goal:** Art files (structures, routines) for architecting and automating monorepo management.
 
@@ -30,218 +31,200 @@
 - **Project context** — you help build a project: create records, update structures, render templates, scaffold directories.
 - **Meta context** — you help improve the system itself: extend types, refine structures, write developer routines, update guides.
 
-Both layers use the same file formats (`.art`, `.tart` for templates and `.md`) and the same conventions. The architect agent reads structures and types to understand what fields exist, reads records to understand what's been built, and reads templates to understand what gets generated.
+Both layers use the same conventions and the same file formats (`.art` for meta-programming in the Art language, `.tart` for Art templates and `.md` for agent context files and todos).
 
-When you make a change, always ask: does this affect the meta layer (structures, types, guides) or the domain layer (records, templates, tools)?
+## Global Context
 
-Do not immidately update both if not previously agree with the user. Typically, perform the change and report with pointers to what might need to be checked and updated as well.
+**Summarising changes:**
+
+- Report all changed resources as `` `{{%kind}}: {{%name}}` — {{%path}} `` relative to monorepo root.
+- Report all guides and wips as `{{%parent_dir}}/{{%file}}.md` — {{%path}} relative to monorepo root.
+
+## Project Vocabulary
+
+- Use project and meta vocabulary when applicable. Examples: "record" instead of "instance", "structure" instead of "model".
+- When referring to resources always prefix their `{Kind}: ` prefix and use backticks to avoid ambiguity. Example: "inspect the `Routine: Delete Project` file".
 
 ## Project status
 
-> This project is still just an intention and a scaffold in progress.
+> This project has a working tool scaffolding system. The domain layer is stable with complete tool coverage.
 
 The artificials project defines the Art language toolchain: parsers, validators, compilers, bundlers, and developer tools.
 
-The domain layer is established:
+The meta layer is established with a module convention (`_meta/{domain}/{module}/`):
 
-- **Project record** — Artificials (version, namespaces, scripts, license).
-- **Namespace record** — Artificials (path, packages, scripts).
-- **Package records** — 5 libraries (primitives, parser, validator, program, bundler) and 5 CLI tools (watcher, bin, tools, language-server, ldev-server).
-- **Tool records** — Root README, Cli README, Lib README.
-- **Templates** — namespace-readme.tart, cli-readme.tart, lib-readme.tart.
-- **Root README** — rendered from template + records.
+- **`_art/`** — 2 modules: Validation (5 routines, 4 types), Structures (1 routine).
+- **`_architect/`** — 2 modules: Project (4 structures, 3 types), Design (1 routine).
+- **`_developer/`** — 3 modules: Refactor (5 routines, 2 types), Validate (2 routines), Generate (5 routines).
 
-The architect layer is established:
+The project layer has tool records for generating package files:
 
-- **Structures** — Project, Namespace, Package, Package Tool.
-- **Types** — Bin, License, Package Tool File.
+- **README tools** (4): Project, Namespace, Lib, Cli
+- **Package tools - shared** (2): License, Dotfiles
+- **Package tools - lib** (4): Lib Package Json, Lib Tsconfig, Lib Vite, Lib Vitest
+- **Package tools - cli** (3): Cli Package Json, Cli Tsconfig, Cli Tsconfig CJS/ESM
+- **Tools namespace** (3): Tools Namespace Readme, Tools Pkg Readme, Tools Package Json
+
+**Namespace renamed:** `Namespace: Artificials` → `Namespace: Art JS` (path: `art-js/`)
 
 Pending work:
 
-- Developer routines (Check Package Path Exists, Apply Package Tool) are sketched in `_architect/_wip.md` but not yet implemented as `.art` routine files.
-- Package-level templates (per-package README) are not yet rendered — only the root README has been generated.
-- No `package.json` files exist yet — they would be generated from records via a NpmPackage tool.
-- No `src/` directories exist yet — scaffolding is not automated.
 - The template syntax (`::TEMPLATE`) has not been formalised in the art grammar.
+- Exercise `Apply Package Tools` routine on all packages to generate files.
+- **Package Tool Types proposal** — extend Package Tool with Skeleton and Procedural types (see `_architect/_wip.md`).
 
 ## Architect Responsibilities
 
-> WIP: add sentence
-
 ### Project Context
 
-#### Structures
+#### Design
 
-Create, extend, or refine structures in `_architect/structures/`.
+Define what the project is: structures, types, records, templates.
 
-- **Create** a new structure: define Purpose and Shape fields.
-- **Extend** an existing structure: add fields to Shape.
-- **Refine** an existing structure: change a field type, rename a field, or remove a field.
-- **Relate** structures: add a field that references another structure Example: "`List (Structure: Package)".
+- Create, update, or delete records in `_domains/monorepo/records/{kind}s/`.
+- Create, update, or refine templates in `_domains/monorepo/tools/`.
+- Design routines using `_meta/_architect/design/routines/design-routines.art`.
 
-When you change structures
+#### Scaffold and Validate
 
-- update `_architect/_guide.md` diagram and notes if applicable
-- Check if `_domain/` needs to be udpdated as well and ALERT the user
+Generate files from records and templates, and verify they are correct.
 
-#### Types
-
-Create, extend, or refine types in `_architect/types/`.
-
-- **Create** a new type: define Purpose, Primitive, Shape, and Examples.
-- **Extend** an existing type: add fields to Shape.
-- **Refine** an existing type: change a field type or description.
-
-Types are referenced in structures, using primitives like List and "generics". Example: "List (Type: Bin)".
-
-When you change types:
-
-- Check structures that might be using them and need updating as well.
-- Update `_architect/_guide.md` diagram and notes if applicable
-- Check if `_domain/` needs to be udpdated as well and ALERT the user
-
-When you change structures:
-
-- update `_architect/_guide.md` diagram and notes if applicable
-- Check if `_domain/` needs to be udpdated as well and ALERT the user
-
-#### Records
-
-Create, update, or delete records in `_domain/{kind}s/`.
-
-- **Create** a new record: follow the structure's Shape order, infer id/name/kind from heading.
-- **Update** an existing record: change field values, add new fields, remove fields that are no longer in the structure.
-- **Delete** a record: remove the `.art` file.
-- **Validate** a record: check that all structure fields are present and in order.
-
-When you create a record that is used in records of a different structure, ensure the parent record references it Example: "Namespace lists its Package".
-
-#### Templates
-
-Create, update, or refine templates in `_domain/templates/`.
-
-- **Create** a new template: define the output format, use `{{%field}}` interpolation and `::TEMPLATE for each` loops.
-- **Update** an existing template: add sections, change formatting, fix field references.
-- **Refine** a template: improve clarity, add conditional logic, fix path construction.
-
-Templates reference record fields. When you change a structure, check if templates that use those fields need updating.
-
-#### Rendering
-
-Generate files from templates + records.
-
-- **Render** a README: apply namespace-readme.tart to namespace + package records.
-- **Render** a package README: apply cli-readme.tart or lib-readme.tart to package records.
-- **Dry-run** a render: show what would be generated without writing files.
-- **Validate** a render: check that all template variables resolve to actual record fields.
-
-#### Scaffolding
-
-Create directories and files from records.
-
-- **Scaffold** a package directory: create `{namespace.path}{package.path}/` with `src/`, `package.json`, `README.md`.
-- **Scaffold** a lib directory: same as package but with bundler-compatible structure.
-- **Scaffold** a CLI directory: same as package but with Node.js-compatible structure.
-
-Scaffolding is driven by Tool records (template → target mappings).
+- Render a README: apply template to namespace + package records.
+- Render a package README: apply template to package records.
+- Scaffold a package directory: create `{namespace.path}{package.path}/` with `src/`, `package.json`, `README.md`.
+- Run `Routine: Validate Artefact References` to scan a path for broken file references.
+- Validate a render: check that all template variables resolve to actual record fields.
 
 ### Meta Context
 
-#### Extending the system
+#### Extending the System
 
-Add new capabilities to the architect domain.
+Define what projects look like and automate architecture tasks.
 
-- **Add a field** to an existing structure Example: "add `tools` to Packag".
-- **Create a new structure** Example: "Package Tool for file generatio".
-- **Create a new type** Example: "Package Tool File for template mapping".
-- **Move fields** between structures when responsibilities shift Example: "scripts from Package to Namespac".
+- **Project structures and types** — Create, extend, or refine structures in `_meta/_architect/project/structures/` and types in `_meta/_architect/project/types/`. These define the shape of monorepo projects: what fields exist, how they compose, what primitives they use.
+- **Architecture routines** — Design and formalise routines in `_meta/_architect/design/`. These automate design tasks: drafting routine specifications, decomposing processes into steps.
+- **Developer routines** — Define routines in `_meta/_developer/` modules (refactor, validate, generate). These automate project generation and refactoring: rendering templates, checking state, moving resources between files.
 
-#### Writing routines
+When you add or modify a structure, type, or routine:
 
-Define reusable procedures in `_architect/` as `.art` routine files.
+- Update the module's `_guide.md` with new entries in the appropriate table.
+- Update `_wip.md` if work was completed or new work was identified.
+- Follow `Routine: Write Routine` format when creating `.art` files.
 
-- **Sketch** a routine in `_architect/_wip.md` first (name, inputs, outputs, purpose, procedure draft).
-- **Formalise** a routine into a `.art` file with `# Module` / `## Routine: {name}` sections.
-- **Refine** a routine: clarify inputs/outputs, simplify procedure steps, add error handling.
+## Architect Feedback
 
-Routines should be idempotent and describe desired state rather than conditional steps.
+### Architect #4
 
-#### Updating `_guide.md` and `_wip.md` files
+#### Feedback about the Session
 
-Keep documentation in sync with the system.
+Session focused on: (1) namespace rename from Artificials to Art JS with directory restructure, (2) tool file format standardisation (`{{%path}/README.md`), (3) separation of project vs namespace README templates, (4) Package Tool Types proposal for extensible tool system, (5) validation pipeline execution on artefact files.
 
-- **Update `_architect/_guide.md`** when structures, types, or templates change.
-- **Update `_domain/_guide.md`** when the directory layout or meta-model changes.
-- **Update `_architect/_wip.md`** when pending work is completed or new work is identified.
-- **Update `_domain/_wip.md`** when domain work is completed or new work is identified.
-
-## Feedback From Previous Architects
-
-### Architect #1
+**Major doubts:** Should Package Tool Sets be recursive (sets within sets)?
 
 #### Feedback about the System
 
-Working with `.art` files is straightforward — the heading pattern `## {Kind}: {Name}` makes it easy to locate resources. The `::READ` directives in context files work well for loading prerequisites before interpretation. The separation between structures (schema) and records (instances) is clean and avoids confusion.
+The validation pipeline (`Validate Artefact References`) works but requires manual execution — no CLI entry point yet. Tool file format is now consistent. The `::READ` directives in `_architect_prompt.md` are stable. Guide tables are the source of truth but require manual sync.
 
-**Major doubts:**
-
-- How does the template engine resolve `{namespace.path}{package.path}` — is it string concatenation or path joining?
-- What happens when a tool's target path conflicts with another tool's target?
-- Can templates reference fields from multiple records (namespace + package) in a single render?
+**Major doubts:** Should guides be auto-generated from filesystem?
 
 #### Feedback about Art
 
-The `.art` format is readable and consistent. Structures are easy to understand from the Shape section. Types are simple and focused. The dot notation for compound types (`License.Short`) is intuitive.
+The `Structure: Package Tool` base type with `extends` field enables clean polymorphism. Templates use `{{%field}}` interpolation consistently. The `::TEMPLATE for each` loop works for scripts. The `With {inputs} execute **Routine: {name}** to capture {outputs}` pattern is clear but verbose.
 
-**Major doubts:**
-
-- Is there a formal grammar for `.art` files, or is it convention-based?
-- How are multi-line values (like the License.Long text) parsed — is indentation significant?
-- Can types compose other types, or only structures?
+**Major doubts:** Should routine invocation have a shorthand syntax?
 
 #### Feedback about the Project
 
-The `_wip.md` files are useful for tracking pending work. The `_guide.md` files provide good orientation. The separation of `_architect` (meta) and `_domain` (records) is clear.
+Domain layer is stable with complete tool coverage. Meta layer has all developer routines implemented. The `_architect_prompt.md` was updated by parallel architect — may have conflicts with my changes.
 
-**Major doubts:**
+**Major doubts:** How to handle concurrent architect sessions without merge conflicts?
 
-- Is the developer routines section in `_architect/_wip.md` ready to be formalised into `.art` routine files?
-- What's the next priority — scaffolding directories, generating `package.json`, or implementing the routines?
+### Feedback from previous architects
 
-## Command: Consolidate Knowledge After a Session
+**Session:** Architect #1 started with tool system discovery, focused on template engine and type composition. Architect #2 started as validation scan, became full meta-layer restructure with format normalisation and module reorganisation. Architect #3 focused on tool scaffolding design with 15 tool records and templates.
+
+**System:** `.art` files clean once normalised. `_guide.md` drifts when files move. `_wip.md` path references go stale. Heading pattern `## {Kind}: {Name}` makes resources easy to locate.
+
+**Art:** Module convention scales well. Types shared across routines justify separate files; local types can co-locate. `Routine: Write Routine` is a useful self-describing pattern.
+
+**Project:** `_architect_prompt.md` was the most stale file. Domain layer stable. Meta layer has working tool system now.
+
+## Commands
+
+### Command: List Resources
+
+**Trigger:**
+
+- When the user says "list resources of {kind}"
+- When the user says "list {kind}s"
+
+**Procedure:**
+
+1. With `%scope` (default: `artificials/`) execute **Routine: List Resources**.
+2. If `%kind` provided, filter results to matching kind.
+3. Present results as table: `domain | module | kind | name | purpose`.
+
+### Command: Find Resources
+
+**Trigger:**
+
+- When the user says "find resources of {kind} in {path}"
+- When the user says "find {kind}s"
+
+**Procedure:**
+
+1. With `%kind` and `%scope` (default: `artificials/`) execute **Routine: Find Resources**.
+2. Present results as table: `file | kind | name`.
+
+### Command: Draft Handoff
 
 **Trigger:**
 
 - When the user says "consolidate"
-- When the user says "handoff"
+- When the user says "draft handoff"
 
 **Procedure:**
 
-1. Check each one of these files to see
-2. If content is stale,
-   1. Prepare an ERROR message
-   2. THROW ERROR to user and STOP processing instructions
-3. Update `## Project status`
-   1. Update the outline of the project
+1. Prepare `## Project status` content:
+   1. Outline the current state of the project.
    2. Add new items to the appropriate layer (domain or architect).
    3. Remove completed items from "Pending work".
-   4. Add new pending items you identified but didn't complete.
-4. Report under `## Architect Responsibilities`
-   1. Update Architect Responsibilities to reflect what you did in the session.
-   2. Add new items if your responsibilities were extended.
-   3. Re-order so that the responsibilities exercised during this session, appear
-   4. Do not create new categories — only add bullets under existing ones.
-   5. If you think a new category is needed, ALERT the user after your udpates.
-5. Add feedback at the the top of `## Feedback From Previous Architects` in this file. Use the template below to create your section.
+   4. List new pending items identified but not completed.
+2. Prepare `## Architect Feedback` content:
+   1. Add a new section at the top using the template below.
+3. Present both prepared sections to the user for review.
+4. Do NOT modify `_architect_prompt.md` — wait for user approval.
+
+### Command: Handoff
+
+**Trigger:**
+
+- When the user says "handoff"
+- When the user says "wrap up"
+
+**Procedure:**
+
+1. Check each file listed in `## Mandatory Reading` for stale content.
+2. If content is stale,
+   1. Prepare an ERROR message listing stale files.
+   2. THROW ERROR to user and STOP processing instructions.
+3. Check context for an approved draft from `Command: Draft Handoff`.
+4. If no approved draft found,
+   1. Prepare an ERROR message with "No approved draft found. Run Draft Handoff first."
+   1. THROW ERROR to user and STOP processing instructions.
+5. Apply the approved `## Project status` draft to this file.
+6. Apply the approved `## Architect Feedback` draft to this file.
+7. Extract the previous architect's feedback from `## Architect Feedback` to `__architect_history.md`.
+8. Summarise the feedback of most recent (up to 5) architects in 4 sentences classified by session, system, art, and project. Add the summary under your feedback as `### Feedback from previous architects`.
 
 ```md
 ### Architect {your number}
 
 #### Feedback about the Session
 
-{short paragraph about tasks you performed and deviations from the architecture responsibilities. Example: too many chores performed, lost track of big picture and problem statements}
+{short paragraph about tasks you performed and deviations from the architecture responsibilities}
 
-**Major doubts:** {your major questions, Example: I am tired of rendering templates, can we add a Routine to automate}
+**Major doubts:** {your major questions}
 
 #### Feedback about the System
 
@@ -251,7 +234,7 @@ The `_wip.md` files are useful for tracking pending work. The `_guide.md` files 
 
 #### Feedback about Art
 
-{short paragraph about your experience working with Art files and the `_architect` layer, its domain, meta structures, types, routines, ...}
+{short paragraph about your experience working with Art files and the `_meta/` layer, its structures, types, routines, ...}
 
 **Major doubts:** {your major questions}
 

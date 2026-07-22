@@ -1,0 +1,23 @@
+# Module
+
+## Namespace: Artificials Tools Build
+
+**Purpose:** Internal build and configuration tooling for the monorepo.
+
+**Description:** These packages are not published.
+
+**Path:** tools/
+
+**Packages:**
+
+- Package: Artificials Build
+
+**Scripts:**
+
+- `build`:
+  - `command`: npm run build
+  - `purpose`: Build the CLI binary.
+
+**Tools:**
+
+- Package Tool: Tools Namespace Readme

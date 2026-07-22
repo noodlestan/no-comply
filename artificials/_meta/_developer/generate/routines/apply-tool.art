@@ -1,0 +1,24 @@
+# Module
+
+## Routine: Apply Tool
+
+**Purpose:** Apply a single tool to generate files from its template-to-target mappings.
+
+**Inputs:**
+
+- `%tool`: Structure: Package Tool
+- `%project`: Structure: Project
+- `%namespace`?: Structure: Namespace
+- `%package`?: Structure: Package
+
+**Outputs:**
+
+- `%files-created`: List of generated file paths
+
+**Procedure:**
+
+1. With each `%file` in `%tool.files`:
+   1. Apply `%file.template` with `%project`, `%namespace`, `%package` context to generate `%output`.
+   2. Write `%output` to `%file.target`.
+   3. Append `%file.target` to `%files-created`.
+2. Return `%files-created`.
