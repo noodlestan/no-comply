@@ -1,0 +1,165 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.action {
+  .Action {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+
+    gap: var(--__action-gap, --space-gap-1);
+    height: var(--__action-height);
+    min-height: var(--__action-height);
+    padding-block: var(--__action-padding-block, 0);
+    padding-inline: var(--__action-padding-inline, var(--space-pad-0));
+
+    border: none;
+    border-width: var(--__action-border-width, var(--action-border-width));
+    border-style: var(--__action-border-style, var(--action-border-style));
+    border-radius: var(--__action-border-radius, var(--action-border-radius));
+    text-decoration: none;
+    transition:
+      color ease var(--animation-duration-blip),
+      background-color ease var(--animation-duration-blip),
+      border-color ease var(--animation-duration-blip);
+
+    @include set-palette(__intent, primary);
+
+    @include set-palette(__fg, primary);
+    @include set-palette(__bg, primary);
+    @include set-palette(__border, primary);
+
+    @include set-level(__fg-rest, fg-primary);
+    @include set-level(__bg-rest, content-bg-2);
+    @include set-level(__border-rest, border-0);
+
+    @include set-level(__fg-hover, fg-contrast);
+    @include set-level(__bg-hover, content-bg-1);
+    @include set-level(__border-hover, border-1);
+
+    @include set-level(__fg-active, fg-contrast);
+    @include set-level(__bg-active, content-bg-0);
+    @include set-level(__border-active, border-2);
+
+    @include set-level(__fg, __fg-rest);
+    @include set-level(__bg, __bg-rest);
+    @include set-level(__border, __border-rest);
+
+    @include set-alpha(__fg-rest, content-fg);
+    @include set-alpha(__bg-rest, content-bg);
+    @include set-alpha(__border-rest, content-bg);
+
+    @include set-alpha(__fg, __fg-rest);
+    @include set-alpha(__bg, __bg-rest);
+    @include set-alpha(__border, __border-rest);
+
+    @include apply-color(color, __fg);
+    @include apply-color(background-color, __bg);
+    @include apply-color(border-color, __border);
+
+    &:focus-visible {
+      border-color: transparent;
+    }
+
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-color(__fg, primary, fg-disabled, content-fg);
+      @include set-color(__bg, primary, bg-disabled, content-bg);
+      @include set-color(__border, __intent, border-muted, content-bg);
+    }
+
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-level(__fg, __fg-hover);
+        @include set-level(__bg, __bg-hover);
+        @include set-level(__border, __border-hover);
+      }
+
+      &:active {
+        @include set-level(__fg, __fg-active);
+        @include set-level(__bg, __bg-active);
+        @include set-level(__border, __border-active);
+      }
+    }
+  }
+
+  .variant-primary {
+    @include set-palette(__fg, __intent);
+    @include set-palette(__bg, __intent);
+    @include set-palette(__border, __intent);
+
+    @include set-level(__fg-rest, static-fg-primary);
+    @include set-level(__bg-rest, static-bg-2);
+    @include set-level(__border-rest, static-border);
+
+    @include set-level(__fg-hover, static-fg-contrast);
+    @include set-level(__bg-hover, static-bg-1);
+    @include set-level(__border-hover, static-bg-3);
+
+    @include set-level(__fg-active, static-fg-contrast);
+    @include set-level(__bg-active, static-bg-3);
+    @include set-level(__border-active, static-fg-saturated);
+  }
+
+  .variant-secondary {
+    @include set-palette(__fg, __intent);
+    @include set-palette(__border, __intent);
+
+    @include set-level(__fg-rest, fg-saturated);
+    @include set-level(__fg-hover, border-2);
+    @include set-level(__bg-rest, content-bg-0);
+
+    @include set-alpha(__border-rest, translucid);
+    @include set-alpha(__border-hover, opaque);
+    @include set-alpha(__border-active, opaque);
+
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-level(__bg, content-bg-2);
+    }
+  }
+
+  .variant-plain {
+    @include set-palette(__fg, __intent);
+
+    @include set-level(__fg-rest, fg-saturated);
+
+    @include set-alpha(__bg, invisible);
+    @include set-alpha(__border, invisible);
+
+    &:is([aria-disabled], [data-inactive]) {
+      @include set-alpha(__bg, invisible);
+      @include set-alpha(__border, transparent);
+    }
+
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-alpha(__bg, opaque);
+
+        &:not(.intent-neutral) {
+          @include set-level(__fg, fg-muted);
+        }
+
+        &:active {
+          @include set-alpha(__bg, opaque);
+        }
+      }
+    }
+  }
+
+  .intent-positive {
+    @include set-palette(__intent, interactive);
+  }
+
+  .intent-negative {
+    @include set-palette(__intent, bad);
+  }
+
+  .intent-neutral.variant-primary:not([aria-disabled], [data-inactive]) {
+    @include set-level(__fg-rest, inverted-fg-primary);
+    @include set-level(__fg-hover, inverted-fg-contrast);
+    @include set-level(__fg-active, inverted-fg-contrast);
+    @include set-level(__bg-rest, inverted-bg-0);
+    @include set-level(__bg-hover, inverted-bg-1);
+    @include set-level(__bg-active, inverted-bg-contrast);
+  }
+}

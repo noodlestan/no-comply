@@ -1,0 +1,28 @@
+@use './responsive.scss' as *;
+
+$NC_LAYOUT_PADDING_VARIANTS: (
+  none: 0,
+  xs: var(--space-pad--1),
+  s: var(--space-pad-0),
+  m: var(--space-pad-1),
+  l: var(--space-pad-2),
+  xl: var(--space-pad-3),
+);
+
+$NC_LAYOUT_GAP_VARIANTS: (
+  none: 0,
+  xs: var(--space-gap--1),
+  s: var(--space-gap-0),
+  m: var(--space-gap-1),
+  l: var(--space-gap-2),
+  xl: var(--space-gap-3),
+  2xl: var(--space-gap-4),
+);
+
+$NC_GRID_COLUMNS_VARIANTS: (
+  none: 0,
+);
+
+$NC_GRID_ROWS_VARIANTS: (
+  none: 0,
+);

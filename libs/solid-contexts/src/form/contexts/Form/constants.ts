@@ -1,0 +1,10 @@
+import { definePropKeys } from '@no-comply/solid-primitives';
+
+import type { FormContextOptions } from './types';
+
+export const FORM_CONTEXT_OPTIONS = definePropKeys<FormContextOptions>()([
+	'disabled',
+	'readonly',
+	'pending',
+	'enableFeedback',
+]);

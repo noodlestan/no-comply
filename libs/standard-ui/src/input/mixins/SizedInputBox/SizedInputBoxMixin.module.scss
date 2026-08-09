@@ -1,0 +1,32 @@
+@layer lib.standard-ui {
+  @layer input-box, sized-input-box;
+}
+
+@layer lib.standard-ui.sized-input-box {
+  .SizedInputBox {
+    // applied to the <AlignFirstLine> wrapper
+    --__first-line-content-height: var(--__input-height);
+    // applied locally to compute the offset
+    --__first-line-element-height: var(--__first-line-content-height);
+  }
+
+  .size-small {
+    --__input-height: var(--size-xs);
+    --__input-padding-inline: var(--space-pad--1);
+  }
+
+  .size-normal {
+    --__input-height: var(--size-s);
+    --__input-padding-inline: var(--space-pad-0);
+  }
+
+  .size-medium {
+    --__input-height: var(--size-m);
+    --__input-padding-inline: var(--space-pad-1);
+  }
+
+  .size-large {
+    --__input-height: var(--size-l);
+    --__input-padding-inline: var(--space-pad-2);
+  }
+}

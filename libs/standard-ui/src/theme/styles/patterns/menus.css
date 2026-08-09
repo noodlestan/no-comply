@@ -1,0 +1,5 @@
+@layer theme.standard.base.patterns {
+  [data-theme-standard] {
+    --menu-border-radius: var(--radius-xs);
+  }
+}

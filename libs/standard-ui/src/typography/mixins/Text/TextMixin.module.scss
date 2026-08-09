@@ -1,0 +1,41 @@
+@layer lib.standard-ui.text {
+  .Text {
+    --__type-family: var(--text-base-family);
+    --__type-font-style: normal;
+    --__type-transform: none;
+    --__type-wrap-style: auto;
+
+    --__type-font-size: var(--__text-font-size, var(--text-base-size));
+    --__type-font-weight: var(--__text-font-weight, var(--text-base-weight));
+    --__type-line-height: var(--__text-line-height, var(--text-base-height));
+    --__type-letter-spacing: var(--__text-letter-spacing, var(--text-base-spacing));
+  }
+
+  .size-small {
+    --__text-font-size: var(--text-size-small-size);
+    --__text-font-weight: var(--text-size-small-weight);
+    --__text-line-height: var(--text-size-small-height);
+    --__text-letter-spacing: var(--text-size-small-spacing);
+  }
+
+  .size-normal {
+    --__text-font-size: var(--text-size-normal-size);
+    --__text-font-weight: var(--text-size-normal-weight);
+    --__text-line-height: var(--text-size-normal-height);
+    --__text-letter-spacing: var(--text-size-normal-spacing);
+  }
+
+  .size-medium {
+    --__text-font-size: var(--text-size-medium-size);
+    --__text-font-weight: var(--text-size-medium-weight);
+    --__text-line-height: var(--text-size-medium-height);
+    --__text-letter-spacing: var(--text-size-medium-spacing);
+  }
+
+  .size-large {
+    --__text-font-size: var(--text-size-large-size);
+    --__text-font-weight: var(--text-size-large-weight);
+    --__text-line-height: var(--text-size-large-height);
+    --__text-letter-spacing: var(--text-size-large-spacing);
+  }
+}

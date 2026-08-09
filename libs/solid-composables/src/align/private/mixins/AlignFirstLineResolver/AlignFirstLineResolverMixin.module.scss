@@ -1,0 +1,10 @@
+@layer composables {
+  .AlignFirstLineResolver {
+    display: contents;
+
+    --__first-line-reference-height: max(
+      var(--__first-line-text-height),
+      var(--__first-line-content-height)
+    );
+  }
+}

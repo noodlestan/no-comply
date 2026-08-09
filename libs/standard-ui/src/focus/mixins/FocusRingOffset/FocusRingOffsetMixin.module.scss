@@ -1,0 +1,23 @@
+@layer lib.standard-ui {
+  @layer focus-ring, focus-ring-offset;
+}
+
+@layer lib.standard-ui.focus-ring-offset {
+  .FocusRingOffset {
+    &:not([aria-disabled], [data-disabled]) {
+      &:active {
+        outline-offset: var(--outline-offset-active);
+      }
+    }
+  }
+
+  .compact {
+    outline-offset: var(--outline-offset-compact);
+
+    &:not([aria-disabled], [data-disabled]) {
+      &:active {
+        outline-offset: var(--outline-offset-compact-active);
+      }
+    }
+  }
+}

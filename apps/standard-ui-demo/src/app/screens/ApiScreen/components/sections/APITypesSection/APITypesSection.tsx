@@ -1,0 +1,75 @@
+import {
+	type ComponentEntityData,
+	type ContextEntityData,
+	type ControllerEntityData,
+	type MixinEntityData,
+	type ModuleEntityData,
+	type ProviderEntityData,
+	type ServiceEntityData,
+	getEntityTypes,
+} from '@no-comply/meta';
+import { type Component, For, Show } from 'solid-js';
+
+import { CodeDeclaration, CodeDocDescription } from '../../../../../../modules/code/components';
+import { DocsItem, DocsSection } from '../../../../../content';
+
+/* prettier-ignore */
+type Props = {
+	ent:
+	| ComponentEntityData
+	| ContextEntityData
+	| ControllerEntityData
+	| MixinEntityData
+	| ModuleEntityData
+	| ProviderEntityData
+	| ServiceEntityData;
+};
+
+export const APITypesSection: Component<Props> = props => {
+	const types = () => getEntityTypes(props.ent);
+	const show = () => types().length > 0;
+	const publicTypes = () => types().filter(t => !t.private);
+	const privateTypes = () => types().filter(t => t.private);
+
+	return (
+		<Show when={show()}>
+			<Show when={publicTypes().length}>
+				<DocsSection title="Types">
+					<For each={publicTypes()}>
+						{declaration => (
+							<DocsSection
+								title={declaration.name + (declaration.private ? ' (private)' : '')}
+								level={4}
+							>
+								<DocsItem gap="m">
+									<CodeDocDescription node={declaration.node}>
+										<CodeDeclaration type={declaration} entity={props.ent} resolve="show" />
+									</CodeDocDescription>
+								</DocsItem>
+							</DocsSection>
+						)}
+					</For>
+				</DocsSection>
+			</Show>
+			<Show when={privateTypes().length}>
+				<DocsSection title="Private Types">
+					<For each={privateTypes()}>
+						{declaration => (
+							<DocsSection
+								label={declaration.name}
+								title={declaration.name + (declaration.private ? ' (private)' : '')}
+								level={4}
+							>
+								<DocsItem gap="m">
+									<CodeDocDescription node={declaration.node}>
+										<CodeDeclaration type={declaration} entity={props.ent} resolve="show" />
+									</CodeDocDescription>
+								</DocsItem>
+							</DocsSection>
+						)}
+					</For>
+				</DocsSection>
+			</Show>
+		</Show>
+	);
+};

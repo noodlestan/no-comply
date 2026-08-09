@@ -1,0 +1,19 @@
+@layer theme.standard.base.patterns {
+  [data-theme-standard] {
+    --data-value-fg-color: var(--color-base-fg);
+
+    --data-focused-fg-color: var(--color-focused-hue-sat), var(--color-fg-light-6);
+    --data-focused-border-color: var(--color-outline);
+
+    --data-hover-border-color: var(--color-outline);
+
+    --data-modified-fg-color: var(--color-modified-hue-sat), var(--color-fg-light-6);
+    --data-modified-border-color: var(--color-modified);
+
+    --data-warning-fg-color: var(--color-meh-hue-sat), var(--color-fg-light-6);
+    --data-warning-border-color: var(--color-meh);
+
+    --data-error-fg-color: var(--color-bad-hue-sat), var(--color-fg-light-6);
+    --data-error-border-color: var(--color-bad);
+  }
+}

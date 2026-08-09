@@ -1,0 +1,28 @@
+@layer lib.standard-ui.field-label {
+  .FieldLabel {
+    color: hsla(var(--label-field-fg-color), var(--o-input-label));
+    font-family: var(--label-type-family);
+    text-transform: uppercase;
+    cursor: unset;
+  }
+
+  .size-small {
+    font-size: var(--label-type-size-xs);
+    font-weight: var(--label-type-weight-s);
+  }
+
+  .size-normal {
+    font-size: var(--label-type-size-s);
+    font-weight: var(--label-type-weight-s);
+  }
+
+  .size-medium {
+    font-size: var(--label-type-size-m);
+    font-weight: var(--label-type-weight-m);
+  }
+
+  .size-large {
+    font-size: var(--label-type-size-l);
+    font-weight: var(--label-type-weight-l);
+  }
+}

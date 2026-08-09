@@ -1,0 +1,9 @@
+@layer lib.standard-ui.segmented-button {
+  .SegmentedButton {
+    display: flex;
+    direction: row;
+    gap: 0;
+    margin: 0;
+    pointer-events: all;
+  }
+}

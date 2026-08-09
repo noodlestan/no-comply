@@ -1,0 +1,103 @@
+import { Button, Callout, Flex, Form, ListInputBox } from '@no-comply/standard-ui';
+import { type Component, Show, createSignal } from 'solid-js';
+
+import { ConfirmPasswordField, CreatePasswordField, CreateUsernameField } from '../../fields';
+
+import { mockSubmit } from './private';
+import type { SignupData } from './types';
+
+const REFERRAL_SOURCES = [
+	'Search engine',
+	'Social media',
+	'Friend or colleague',
+	'Advertisement',
+	'Other',
+];
+
+type Props = {
+	onCancel: () => void;
+	onComplete: () => void;
+};
+
+export const SignupForm: Component<Props> = props => {
+	const [isSubmitting, setIsSubmitting] = createSignal(false);
+	const [submitError, setSubmitError] = createSignal<Error>();
+	const [signupData, setSignupData] = createSignal<Partial<SignupData>>({});
+	const [confirmPassword, setConfirmPassword] = createSignal<string>();
+
+	const handleSubmit = async () => {
+		setIsSubmitting(true);
+		try {
+			await mockSubmit(signupData() as SignupData);
+			props.onComplete();
+		} catch (error) {
+			setSubmitError(error as Error);
+			setIsSubmitting(false);
+		}
+	};
+
+	const handleCancel = () => {
+		props.onCancel();
+	};
+
+	const handleUsernameChange = (value: string) =>
+		setSignupData(prev => ({
+			...prev,
+			username: value,
+		}));
+
+	const handlePasswordChange = (value: string) =>
+		setSignupData(prev => ({
+			...prev,
+			password: value,
+		}));
+
+	const handleReferralSourceChange = (value: string) =>
+		setSignupData(prev => ({
+			...prev,
+			referralSource: value,
+		}));
+
+	return (
+		<>
+			<ListInputBox
+				items={() => REFERRAL_SOURCES}
+				value={() => signupData().referralSource}
+				onValueChange={handleReferralSourceChange}
+				selectedItem={({ key }) => <span>{key}</span>}
+			>
+				{({ key }) => <span>{key}</span>}
+			</ListInputBox>
+			{signupData().referralSource}
+			<Form pending={isSubmitting()} onSubmit={handleSubmit}>
+				{({ form }) => (
+					<Flex direction="column" gap="l">
+						<Button onPress={handleCancel}>close</Button>
+						<Flex direction="column" gap="m">
+							<CreateUsernameField
+								value={signupData().email}
+								onValueChange={handleUsernameChange}
+							/>
+
+							<CreatePasswordField
+								value={signupData().password}
+								onValueChange={handlePasswordChange}
+							/>
+							<ConfirmPasswordField value={confirmPassword()} onValueChange={setConfirmPassword} />
+						</Flex>
+						<Flex direction="column" gap="m">
+							<Button {...form.$submitButton}>Submit</Button>
+							<Show when={submitError()}>
+								<Callout
+									title={submitError()?.message as string}
+									variant="warning"
+									summary="Lorem ipsum"
+								/>
+							</Show>
+						</Flex>
+					</Flex>
+				)}
+			</Form>
+		</>
+	);
+};

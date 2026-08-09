@@ -1,0 +1,61 @@
+@layer lib.standard-ui.tree-list {
+  .TreeListItemDetails {
+    --__tree-list-indent-space: var(--scale-2xs);
+    --__tree-list-item-padding-block: var(--space-gap--1);
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      left: var(--tree-list-item-indent);
+      right: 0;
+      bottom: 1px;
+      border-block-end: var(--surface-divider-alt);
+      border-block-end-color: hsla(var(--surface-divider-alt-color), var(--o-surface-divider));
+    }
+
+    &[data-tree-item-is-selected]::after,
+    &[data-tree-item-is-parent-selected]::after {
+      content: '';
+      position: absolute;
+      top: var(--space-gap--1);
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-top-right-radius: var(--radius-xs);
+      border-width: 0 var(--scale-2xs) var(--scale-2xs) 0;
+      border-color: transparent hsla(var(--color-selected), var(--o-surface-bg-translucid))
+        transparent transparent;
+    }
+
+    &[data-tree-item-is-selected]::after {
+      border-color: transparent hsla(var(--color-selected), var(--o-surface-bg-opaque)) transparent
+        transparent;
+    }
+  }
+
+  .-Toggle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  .-Toggle > button {
+    position: absolute;
+    right: var(--space-gap--1);
+  }
+
+  .-Contents {
+    z-index: 0;
+  }
+
+  .-Focusable {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    padding: var(--space-gap--1);
+    border-radius: var(--radius-xs);
+  }
+}

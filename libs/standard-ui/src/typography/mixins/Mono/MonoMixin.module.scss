@@ -1,0 +1,34 @@
+@layer lib.standard-ui.mono {
+  .Mono {
+    --__type-family: var(--mono-base-family);
+    --__type-font-style: normal;
+    --__type-transform: none;
+    --__type-wrap-style: balance;
+    text-transform: none;
+
+    --__type-font-size: var(--__mono-font-size, var(--mono-base-size));
+    --__type-font-weight: var(--__mono-font-weight, var(--mono-base-weight));
+    --__type-line-height: var(--mono-base-height);
+    --__type-letter-spacing: var(--mono-base-spacing);
+  }
+
+  .size-small {
+    --__mono-font-size: var(--mono-size-small-size);
+    --__mono-line-weight: var(--mono-size-small-weight);
+  }
+
+  .size-normal {
+    --__mono-font-size: var(--mono-size-normal-size);
+    --__mono-line-weight: var(--mono-size-normal-weight);
+  }
+
+  .size-medium {
+    --__mono-font-size: var(--mono-size-medium-size);
+    --__mono-line-weight: var(--mono-size-medium-weight);
+  }
+
+  .size-large {
+    --__mono-font-size: var(--mono-size-large-size);
+    --__mono-line-weight: var(--mono-size-large-weight);
+  }
+}

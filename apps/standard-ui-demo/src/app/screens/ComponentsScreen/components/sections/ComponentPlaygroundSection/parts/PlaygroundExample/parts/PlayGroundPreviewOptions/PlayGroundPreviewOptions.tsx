@@ -1,0 +1,42 @@
+import { VisuallyHidden } from '@no-comply/solid-composables';
+import { type ClassList, shortId } from '@no-comply/solid-primitives';
+import { Flex, Label, SegmentedButton, SegmentedButtonItem } from '@no-comply/standard-ui';
+import { type Component } from 'solid-js';
+
+type Props = {
+	mode: string;
+	setMode: (mode: string) => void;
+	classList: ClassList;
+};
+
+export const PlayGroundPreviewOptions: Component<Props> = props => {
+	const labelId = shortId();
+
+	return (
+		<Flex
+			direction="row"
+			justify="end"
+			gap="s"
+			padding="xs"
+			role="toolbar"
+			aria-label="Preview options"
+			{...props}
+		>
+			<VisuallyHidden>
+				<Label id={labelId} size="small">
+					Select preview mode
+				</Label>
+			</VisuallyHidden>
+			<SegmentedButton
+				name="example-mode-choice"
+				aria-labelledby={labelId}
+				value={props.mode}
+				onValueChange={props.setMode}
+			>
+				<SegmentedButtonItem value="source">Source</SegmentedButtonItem>
+				<SegmentedButtonItem value="preview">Preview</SegmentedButtonItem>
+				<SegmentedButtonItem value="html">Html</SegmentedButtonItem>
+			</SegmentedButton>
+		</Flex>
+	);
+};

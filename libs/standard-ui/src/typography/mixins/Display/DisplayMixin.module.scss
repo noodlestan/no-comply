@@ -1,0 +1,55 @@
+@layer lib.standard-ui.display {
+  .Display {
+    --__type-family: var(--display-base-family);
+    --__type-font-style: normal;
+    --__type-transform: none;
+    --__type-wrap-style: pretty;
+
+    --__type-font-size: var(--__display-font-size, var(--display-base-size));
+    --__type-font-weight: var(--__display-font-weight, var(--display-base-weight));
+    --__type-line-height: var(--__display-line-height, var(--display-base-height));
+    --__type-letter-spacing: var(--__display-letter-spacing, var(--display-base-spacing));
+  }
+
+  .variant-huge {
+    --__display-font-size: var(--display-variant-huge-size);
+    --__display-font-weight: var(--display-variant-huge-weight);
+    --__display-line-height: var(--display-variant-huge-height);
+    --__display-letter-spacing: var(--display-variant-huge-spacing);
+  }
+
+  .variant-tiny {
+    --__display-font-size: var(--display-variant-tiny-size);
+    --__display-font-weight: var(--display-variant-tiny-weight);
+    --__display-line-height: var(--display-variant-tiny-height);
+    --__display-letter-spacing: var(--display-variant-tiny-spacing);
+  }
+
+  .size-large {
+    --__display-font-size: var(--display-size-large-size);
+    --__display-font-weight: var(--display-size-large-weight);
+    --__display-line-height: var(--display-size-large-height);
+    --__display-letter-spacing: var(--display-size-large-spacing);
+  }
+
+  .size-medium {
+    --__display-font-size: var(--display-size-medium-size);
+    --__display-font-weight: var(--display-size-medium-weight);
+    --__display-line-height: var(--display-size-medium-height);
+    --__display-letter-spacing: var(--display-size-medium-spacing);
+  }
+
+  .size-normal {
+    --__display-font-size: var(--display-size-normal-size);
+    --__display-font-weight: var(--display-size-normal-weight);
+    --__display-line-height: var(--display-size-normal-height);
+    --__display-letter-spacing: var(--display-size-normal-spacing);
+  }
+
+  .size-small {
+    --__display-font-size: var(--display-size-small-size);
+    --__display-font-weight: var(--display-size-small-weight);
+    --__display-line-height: var(--display-size-small-height);
+    --__display-letter-spacing: var(--display-size-small-spacing);
+  }
+}

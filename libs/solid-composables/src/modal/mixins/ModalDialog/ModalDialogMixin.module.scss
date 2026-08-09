@@ -1,0 +1,18 @@
+@layer composables {
+  .ModalDialog {
+    min-width: var(--__modal-dialog-min-width, min-content);
+    max-width: var(--__modal-dialog-max-width);
+    min-height: var(--__modal-dialog-min-height);
+    max-height: var(--__modal-dialog-max-height);
+    padding: 0;
+    pointer-events: none;
+
+    &[data-modal-dialog-is-active] {
+      pointer-events: unset;
+    }
+
+    &[data-modal-dialog-is-closing] {
+      transition: all 1ms;
+    }
+  }
+}

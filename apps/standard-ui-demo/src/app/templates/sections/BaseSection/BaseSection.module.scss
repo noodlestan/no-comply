@@ -1,0 +1,19 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+@use '@no-comply/solid-composables/src/scss/mixins/focus.scss' as *;
+
+@layer app {
+  .BaseSection {
+    transition:
+      outline-offset var(--animation-duration-trailing),
+      outline-color var(--animation-duration-trailing);
+
+    @include focus-ring;
+
+    &[data-is-active] {
+      transition-duration: var(--animation-duration-short);
+
+      outline-offset: var(--space-gap-0);
+      outline-color: var(--outline-color);
+    }
+  }
+}

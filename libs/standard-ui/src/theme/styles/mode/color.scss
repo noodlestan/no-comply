@@ -1,0 +1,36 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer theme.standard {
+  @layer base, light;
+}
+
+@layer theme.standard.light.tokens {
+  [data-theme-standard][data-mode-light] {
+    --__desat-light-center: 0.5;
+    --__desat-light-max: 1;
+    --__desat-light-factor: 2.5;
+    --__desat-center: var(--__desat-light-center);
+    --__desat-max: var(--__desat-light-max);
+    --__desat-factor: var(--__desat-light-factor);
+
+    @include def-color-level(shadow, 400);
+
+    @include def-color-level(static-fg-contrast, 1000);
+    @include def-color-level(static-fg-primary, 900);
+    @include def-color-level(static-border, 600);
+    @include def-color-level(static-bg-3, 500);
+    @include def-color-level(static-bg-2, 400);
+    @include def-color-level(static-bg-1, 300);
+    @include def-color-level(static-bg-0, 200);
+    @include def-color-level(static-bg-contrast, 100);
+
+    @include def-color-level(inverted-fg-contrast, 1000);
+    @include def-color-level(inverted-fg-primary, 900);
+    @include def-color-level(inverted-border, 600);
+    @include def-color-level(inverted-bg-3, 500);
+    @include def-color-level(inverted-bg-2, 400);
+    @include def-color-level(inverted-bg-1, 300);
+    @include def-color-level(inverted-bg-0, 200);
+    @include def-color-level(inverted-bg-contrast, 100);
+  }
+}

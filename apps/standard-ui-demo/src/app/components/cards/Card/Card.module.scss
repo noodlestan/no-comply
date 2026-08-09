@@ -1,0 +1,12 @@
+@use '@no-comply/standard-ui/scss/mixins/color.scss' as *;
+
+@layer app {
+  .Card {
+    @include set-color(__border, graphics-1, border-0, opaque);
+    @include apply-color(--__card-color, __border);
+
+    // border-block-end: var(--space-pad-0) solid var(--__card-color);
+    // border-end-start-radius: 0;
+    // border-end-end-radius: 0;
+  }
+}

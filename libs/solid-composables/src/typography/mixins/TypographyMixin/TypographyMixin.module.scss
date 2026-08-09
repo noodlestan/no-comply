@@ -1,0 +1,21 @@
+@layer composables.text {
+  .Typography {
+    margin: 0;
+    font-family: var(--__type-family, --typography-base-family);
+    font-size: var(--__type-font-size, var(--typography-base-size));
+    font-weight: var(--__type-font-weight, var(--typography-base-weight));
+    line-height: var(--__type-line-height, var(--typography-base-height));
+    letter-spacing: var(--__type-letter-spacing, var(--typography-base-spacing));
+    font-style: var(--__type-font-style, normal);
+    text-transform: var(--__type-transform, none);
+    white-space: inherit;
+    text-wrap-style: var(--__type-wrap-style, inherit);
+  }
+
+  .nowrap {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

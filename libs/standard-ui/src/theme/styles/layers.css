@@ -1,0 +1,10 @@
+@layer reset, composables, theme, lib;
+
+@layer theme.standard {
+  @layer base {
+    @layer foundations, surfaces, patterns;
+  }
+  @layer light {
+    @layer foundations, surfaces, patterns;
+  }
+}

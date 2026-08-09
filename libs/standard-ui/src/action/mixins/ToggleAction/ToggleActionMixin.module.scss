@@ -1,0 +1,74 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui {
+  @layer action, toggle-action;
+}
+
+@layer lib.standard-ui.toggle-action {
+  .ToggleAction {
+    padding-inline-start: var(--space-gap-0);
+
+    @include set-palette(__border-block-end, selected);
+    @include set-level(__border-block-end, border-1);
+    @include set-alpha(__border-block-end, content-fg);
+
+    @include set-color(__lit-icon, selected, border-2, opaque);
+  }
+
+  /* looks like ActionMixin variant-secondary */
+  .variant-primary {
+    &:not(is-active) {
+      @include set-level(__fg-rest, fg-saturated);
+      @include set-level(__bg-rest, content-bg-0);
+
+      @include set-level(__fg-hover, fg-contrast);
+      @include set-level(__bg-hover, content-bg-1);
+
+      @include set-level(__fg-active, fg-contrast);
+      @include set-level(__bg-active, content-bg-0);
+
+      @include set-alpha(__border, translucid);
+
+      &:is([aria-disabled], [data-inactive]) {
+        @include set-palette(__bg, primary);
+        @include set-level(__bg, static-bg-1);
+      }
+
+      &:is(:focus-visible, :hover) {
+        @include set-alpha(__border, opaque);
+      }
+    }
+
+    /* looks like primary but using selected pallete for background */
+    &.is-active {
+      @include apply-color(border-block-end-color, __border-block-end);
+
+      &:not([aria-disabled], [data-inactive]) {
+        @include set-level(__fg, inverted-fg-contrast);
+        @include set-palette(__bg, selected);
+        @include set-palette(__border, selected);
+        @include set-level(__bg-rest, inverted-bg-2);
+        @include set-level(__bg-hover, inverted-bg-3);
+        @include set-level(__bg-active, inverted-bg-1);
+
+        svg {
+          @include apply-color(color, __fg);
+        }
+      }
+    }
+
+    &:not([aria-disabled], [data-inactive]) {
+      svg {
+        @include apply-color(color, __lit-icon);
+      }
+    }
+  }
+
+  .variant-secondary {
+    &:not([aria-disabled], [data-inactive]) {
+      svg {
+        @include apply-color(color, __lit-icon);
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+@use '../../../scss/globals/' as *;
+@use '../../../scss/mixins/display.scss' as *;
+@use '../../../scss/mixins/variants.scss' as *;
+
+@layer composables.layout {
+  .Layout {
+    margin: 0;
+    padding: 0;
+
+    @include display(block);
+  }
+
+  @include responsive-variants($NC_LAYOUT_BREAKPOINTS) using ($bp) {
+    @include variant-classes('padding', $NC_LAYOUT_PADDING_VARIANTS, $bp) using ($key, $value) {
+      padding: $value;
+    }
+
+    @include variant-classes('padding-block', $NC_LAYOUT_PADDING_VARIANTS, $bp) using ($key, $value) {
+      padding-block: $value;
+    }
+
+    @include variant-classes('padding-block-start', $NC_LAYOUT_PADDING_VARIANTS, $bp) using
+      ($key, $value) {
+      padding-block-start: $value;
+    }
+
+    @include variant-classes('padding-block-end', $NC_LAYOUT_PADDING_VARIANTS, $bp) using
+      ($key, $value) {
+      padding-block-end: $value;
+    }
+
+    @include variant-classes('padding-inline', $NC_LAYOUT_PADDING_VARIANTS, $bp) using
+      ($key, $value) {
+      padding-inline: $value;
+    }
+
+    @include variant-classes('padding-inline-start', $NC_LAYOUT_PADDING_VARIANTS, $bp) using
+      ($key, $value) {
+      padding-inline-start: $value;
+    }
+
+    @include variant-classes('padding-inline-end', $NC_LAYOUT_PADDING_VARIANTS, $bp) using
+      ($key, $value) {
+      padding-inline-end: $value;
+    }
+
+    @include variant-class('stretch-full', $bp) {
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    @include variant-class('stretch-width', $bp) {
+      width: 100%;
+      height: auto;
+      min-width: 0;
+      min-height: auto;
+    }
+
+    @include variant-class('stretch-height', $bp) {
+      width: auto;
+      height: 100%;
+      min-width: auto;
+      min-height: 0;
+    }
+
+    @include variant-class('stretch-none', $bp) {
+      width: auto;
+      height: auto;
+      min-width: auto;
+      min-height: auto;
+    }
+
+    @include variant-class('uncontained', $bp) {
+      width: calc(100% + var(--__container-inline-start) + var(--__container-inline-end));
+      margin-inline-start: calc(-1 * var(--__container-inline-start));
+      margin-inline-end: calc(-1 * var(--__container-inline-end));
+    }
+
+    @include variant-class('contained', $bp) {
+      width: 100%;
+      margin-inline: 0;
+    }
+
+    @include variant-class('overflow-x-auto', $bp) {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    @include variant-class('overflow-y-auto', $bp) {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    @include variant-class('overflow-auto', $bp) {
+      overflow: auto;
+    }
+
+    @include variant-class('overflow-hidden', $bp) {
+      overflow: hidden;
+    }
+  }
+}

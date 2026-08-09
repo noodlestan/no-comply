@@ -1,0 +1,28 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.toast-message {
+  .ToastMessage {
+    width: var(--_toast-message-width);
+  }
+
+  .-Title {
+    @include set-level(surface-fg, fg-muted);
+
+    @include apply-color(color, surface-fg);
+  }
+
+  .-Icon {
+    @include set-level(surface-fg, graphics);
+
+    @include apply-color(color, surface-fg);
+  }
+
+  .length-full {
+    --_toast-message-width: 100%;
+  }
+
+  .length-compact {
+    --_toast-message-width: max-content;
+    max-width: 600px; // WIP Layout width references
+  }
+}

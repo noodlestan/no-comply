@@ -1,0 +1,19 @@
+@layer theme.standard.base.foundations {
+  [data-theme-standard] {
+    --o-opaque: 1;
+    --o-80: 0.8;
+    --o-60: 0.6;
+    --o-40: 0.4;
+    --o-20: 0.2;
+    --o-transparent: 0;
+
+    --opaque-alpha: var(--o-opaque);
+    --translucid-alpha: var(--o-80);
+    --shadow-alpha: var(--o-60);
+    --transparent-alpha: var(--o-40);
+    --invisible-alpha: 0;
+
+    --setting-fg-alpha: var(--o-surface-fg);
+    --setting-bg-alpha: var(--o-surface-bg);
+  }
+}

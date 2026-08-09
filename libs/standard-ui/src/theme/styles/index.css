@@ -1,0 +1,11 @@
+/* @index(['./*.css', './*.scss'], f => `@import '${f.path}${f.ext}';`) */
+@import './layers.css';
+@import './reset.css';
+/* @endindex */
+
+/* @index(['./**\/index.css'], f => `@import '${f.path}.css';`) */
+@import './foundations/index.css';
+@import './functions/index.css';
+@import './mode/index.css';
+@import './patterns/index.css';
+@import './surfaces/index.css';

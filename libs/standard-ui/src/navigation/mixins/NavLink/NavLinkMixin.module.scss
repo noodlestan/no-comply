@@ -1,0 +1,152 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.nav-link {
+  .NavLink {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-gap-0);
+    font-family: var(--action-base-family);
+    font-weight: var(--action-base-weight);
+    line-height: 1;
+    user-select: none;
+    transition:
+      color ease var(--animation-duration-short),
+      background-color ease var(--animation-duration-short),
+      border-color ease var(--animation-duration-short);
+
+    @include set-color(__bg, surface, content-bg-1, invisible);
+    @include set-color(__highlight, primary, static-border, invisible);
+
+    @include apply-color(background-color, __bg);
+    @include apply-color(--__highlight, __highlight);
+
+    &[data-nav-link-current],
+    &:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover, :active) {
+      text-decoration: none;
+    }
+
+    &[data-nav-link-current] {
+      @include set-alpha(__bg, opaque);
+      @include set-alpha(__highlight, opaque);
+
+      &:not([aria-disabled], [data-inactive]) {
+        @include set-level(__fg, fg-primary);
+        @include set-level(__highlight, fg-muted);
+        @include set-palette(__highlight, interactive);
+      }
+    }
+
+    &:not([aria-disabled], [data-inactive]) {
+      &:is(:focus-visible, :hover) {
+        @include set-level(__fg, fg-contrast);
+        @include set-palette(__highlight, interactive);
+        @include set-alpha(__highlight, opaque);
+
+        &:not([data-nav-link-current]) {
+          @include set-alpha(__bg, opaque);
+        }
+      }
+
+      &:active {
+        @include set-alpha(__bg, invisible);
+        @include set-level(__fg, fg-muted);
+        @include set-level(__highlight, fg-muted);
+      }
+    }
+
+    &::before {
+      display: block;
+      content: '';
+      position: absolute;
+      inset: 0;
+      width: 0;
+      height: 0;
+      background-color: var(--__highlight);
+      transition:
+        width ease var(--animation-duration-short),
+        height ease var(--animation-duration-short),
+        background-color ease var(--animation-duration-blip);
+    }
+  }
+
+  .size-small {
+    height: var(--size-xs);
+    padding-inline: var(--space-gap-1);
+  }
+
+  .size-normal {
+    height: var(--size-s);
+    padding-inline: var(--space-gap-2);
+  }
+
+  .size-medium {
+    height: var(--size-m);
+    padding-inline: var(--space-gap-3);
+  }
+
+  .size-large {
+    height: var(--size-l);
+    padding-inline: var(--space-gap-4);
+  }
+
+  .layout-h {
+    &.size-small {
+      padding-block-end: var(--space-gap--1);
+    }
+
+    &.size-normal {
+      padding-block-end: var(--space-gap--1);
+    }
+
+    &::before {
+      width: auto;
+      height: 1px;
+    }
+
+    &.highlight-before::before {
+      bottom: auto;
+    }
+
+    &.highlight-after::before {
+      inset-block-start: auto;
+    }
+
+    &[data-nav-link-current]::before {
+      width: auto;
+      height: var(--border-width-highlight);
+    }
+
+    &:not([aria-disabled], [data-inactive]):is(:focus-visible, :hover, :active)::before {
+      width: auto;
+      height: var(--border-width-highlight);
+    }
+  }
+
+  .layout-v {
+    &::before {
+      width: 1px;
+      height: auto;
+    }
+
+    &.highlight-before::before {
+      inset-inline-end: auto;
+    }
+
+    &.highlight-after::before {
+      inset-inline-start: auto;
+    }
+
+    &:hover::before,
+    &:active::before,
+    &[data-nav-link-current]::before {
+      width: var(--border-width-highlight);
+      height: auto;
+    }
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,24 @@
+@layer composables {
+  .OverflowItems {
+    position: relative;
+  }
+
+  [data-responsive-items-container] {
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+  }
+
+  [data-responsive-items-is-reflowing] [data-responsive-items-container] {
+    overflow: hidden;
+  }
+
+  .measure {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+}

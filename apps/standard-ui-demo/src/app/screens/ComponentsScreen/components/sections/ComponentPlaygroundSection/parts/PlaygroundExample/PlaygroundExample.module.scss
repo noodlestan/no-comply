@@ -1,0 +1,23 @@
+@layer app {
+  .PlaygroundExample {
+    display: block;
+    flex: 50%;
+  }
+
+  .-Header {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 1.5px 2px var(--__shadow-c);
+  }
+
+  .-Layout {
+    position: relative;
+  }
+
+  .-Options {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: var(--space-gap-0);
+    inset-inline-end: var(--space-gap-1);
+  }
+}

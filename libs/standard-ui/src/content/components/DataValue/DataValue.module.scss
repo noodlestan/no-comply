@@ -1,0 +1,64 @@
+@layer lib.standard-ui.data-value {
+  .DataValue {
+    --data-value-length-s: var(--size-s);
+    --data-value-length-m: var(--size-xl);
+    --data-value-length-l: var(--size-3xl);
+    width: var(--data-value-length);
+    margin: 0;
+    padding: 0;
+    color: hsla(var(--data-value-fg-color), var(--o-surface-fg));
+    font-family: var(--data-base-family);
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: all;
+    user-select: text;
+  }
+
+  .align-right {
+    text-align: right;
+  }
+
+  .wrap {
+    white-space: normal;
+  }
+
+  .size-xs {
+    font-size: var(--data-size-small-size);
+    font-weight: var(--data-size-small-weight);
+  }
+
+  .size-s {
+    font-size: var(--data-size-normal-size);
+    font-weight: var(--data-size-normal-weight);
+  }
+
+  .size-m {
+    font-size: var(--data-size-medium-size);
+    font-weight: var(--data-size-medium-weight);
+  }
+
+  .size-l {
+    font-size: var(--data-size-large-size);
+    font-weight: var(--data-size-large-weight);
+  }
+
+  .is-interactive {
+    cursor: pointer;
+  }
+
+  .is-interactive:hover {
+    color: --f-color(var(--p-interactive));
+    text-decoration: underline;
+  }
+
+  .is-interactive:focus,
+  .is-interactive:focus-visible {
+    text-decoration: underline;
+    outline-offset: var(--outline-offset);
+    outline-style: var(--outline-style);
+    outline-width: var(--outline-width);
+    outline-color: --f-color(var(--outline-palette));
+  }
+}

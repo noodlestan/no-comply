@@ -1,0 +1,20 @@
+@layer composables {
+  .Divider {
+    margin: 0;
+    height: 0;
+    width: 0;
+    border: none;
+
+    &[aria-orientation='vertical'] {
+      height: var(--__divider-length);
+      min-height: min(var(--__divider-length), 100%);
+      max-height: min(var(--__divider-length), 100%);
+    }
+
+    &[aria-orientation='horizontal'] {
+      width: min(var(--__divider-length), 100%);
+      min-width: min(var(--__divider-length), 100%);
+      max-width: min(var(--__divider-length), 100%);
+    }
+  }
+}

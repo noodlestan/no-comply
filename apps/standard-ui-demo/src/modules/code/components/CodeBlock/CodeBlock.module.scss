@@ -1,0 +1,22 @@
+@layer app {
+  .CodeBlock {
+    pre {
+      margin: 0;
+      padding: 0;
+      white-space: pre;
+      overflow: auto;
+    }
+
+    &.padding {
+      pre {
+        padding: var(--space-pad-1);
+      }
+    }
+
+    &.inline {
+      pre {
+        white-space: normal;
+      }
+    }
+  }
+}
