@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@no-comply/meta-extract": "0.0.11",
-    "@purrception/source-fs": "git+ssh://git@github.com/noodlestan/purrception.git#main",
+    "@purrception/source-fs": "^0.0.11",
     "tsx": "^4.22.4",
     "vite": "^8.0.16",
     "vite-plugin-solid": "^2.11.12",
