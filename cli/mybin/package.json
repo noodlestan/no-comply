@@ -49,7 +49,7 @@
     "tsx": "4.22.4"
   },
   "devDependencies": {
-    "@noodlestan/esbuild": "git+ssh://git@github.com/noodlestan/workspace-tooling.git#main",
+    "@noodlestan/esbuild": "^0.0.11",
     "@types/node": "25.9.3"
   }
 }

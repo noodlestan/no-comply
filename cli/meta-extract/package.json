@@ -43,7 +43,7 @@
     "@purrception/source-fs": "git+ssh://git@github.com/noodlestan/purrception.git#main"
   },
   "devDependencies": {
-    "@noodlestan/esbuild": "git+ssh://git@github.com/noodlestan/workspace-tooling.git#main",
+    "@noodlestan/esbuild": "^0.0.11",
     "@types/node": "^25.9.3"
   }
 }
