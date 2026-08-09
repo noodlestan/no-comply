@@ -38,7 +38,7 @@
     "@solidjs/router": "0.16.1",
     "babel-plugin-jsx-dom-expressions": "^0.40.7",
     "dotenv": "17.4.2",
-    "lucide-solid": "1.18.0",
+    "lucide-solid": "^0.453.0",
     "prettier": "3.8.4",
     "shiki": "^4.3.0",
     "solid-js": "1.9.13",
