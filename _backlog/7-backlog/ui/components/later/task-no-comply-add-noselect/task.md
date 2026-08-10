@@ -1,19 +1,19 @@
 # Draft: Add NoSelect (Component + Mixin)
 
-> Generated from NOCOMPLY.md item "Idea: NoSelect - as a component and as a mixin"
+> Generated from NOCOMPLY.md item "Idea: NoSelect — as a component and as a mixin"
 > Status: Draft — classification, API design, decomposition
 
 ---
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `primitive` — CSS-utility wrapper, no complex composition |
-| Structure | `standalone` — single component + single mixin |
-| State | `visual-only` — no state, purely reactive to `when` prop |
-| Visibility | `public` — exported utility for external use |
-| Package | `solid-composables` (mixin) + `standard-ui` (component) |
+| Aspect     | Value                                                     |
+| ---------- | --------------------------------------------------------- |
+| Type       | `primitive` — CSS-utility wrapper, no complex composition |
+| Structure  | `standalone` — single component + single mixin            |
+| State      | `visual-only` — no state, purely reactive to `when` prop  |
+| Visibility | `public` — exported utility for external use              |
+| Package    | `solid-composables` (mixin) + `standard-ui` (component)   |
 
 ---
 
@@ -28,7 +28,7 @@
 ### Context from NOCOMPLY.md
 
 ```
-Idea: NoSelect - as a component and as a mixin
+Idea: NoSelect — as a component and as a mixin
 
 action and link already have pointer-events:all
 (test with rest pointer-events:none)
@@ -44,8 +44,8 @@ think also labels, data values
 
 ### Dependencies
 
-| Dependency | Package | Role |
-|---|---|---|
+| Dependency         | Package                       | Role                          |
+| ------------------ | ----------------------------- | ----------------------------- |
 | `solid-primitives` | `@no-comply/solid-primitives` | Props types, class list utils |
 
 No external behavior dependencies — pure CSS utility.
@@ -54,8 +54,8 @@ No external behavior dependencies — pure CSS utility.
 
 ```tsx
 type NoSelectProps = {
-  when?: boolean;          // conditionally apply (default: true)
-  as?: 'div' | 'span';   // render element (default: 'div')
+  when?: boolean; // conditionally apply (default: true)
+  as?: 'div' | 'span'; // render element (default: 'div')
   children: ComponentProps;
 };
 ```
@@ -68,6 +68,7 @@ type NoSelectProps = {
 ### Alternate approach: data-attribute based
 
 Instead of a wrapper component, the `createNoSelectMixin` could:
+
 - Expose `data-no-select` / `data-not-selectable` attributes based on the `when` prop
 - Be composed into other components/mixins at the attribute level
 - Work with a global CSS reset that targets `[data-no-select]`
@@ -98,30 +99,32 @@ Additionally the `pointer-events: none` aspect is for "interactive disabled" mod
 
 ### Proposed entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `createNoSelectMixin` | Mixin | `solid-composables` | Exposes `data-no-select` attribute based on `when` prop, CSS module with `user-select: none` |
-| `createNotInteractiveMixin` (optional) | Mixin | `solid-composables` | Exposes `pointer-events: none` logic, possibly combined with disabled state |
-| `NoSelect` | Component | `standard-ui` | Thin wrapper component applying the mixin |
+| Entity                                 | Kind      | Package             | Responsibility                                                                               |
+| -------------------------------------- | --------- | ------------------- | -------------------------------------------------------------------------------------------- |
+| `createNoSelectMixin`                  | Mixin     | `solid-composables` | Exposes `data-no-select` attribute based on `when` prop, CSS module with `user-select: none` |
+| `createNotInteractiveMixin` (optional) | Mixin     | `solid-composables` | Exposes `pointer-events: none` logic, possibly combined with disabled state                  |
+| `NoSelect`                             | Component | `standard-ui`       | Thin wrapper component applying the mixin                                                    |
 
 ### WAI: Alternative scope placement
 
 Instead of `content/`, could live under:
+
 - `solid-composables/src/utility/mixins/NoSelect/` — generic utility
 - `standard-ui/src/utility/components/NoSelect/` — themed wrapper
 
 Or its concerns could be folded into:
+
 - `solid-composables/src/accessibility/mixins/PointerEvents/` — if also handling interactive disabled state
 
 ---
 
 ## Deduplication
 
-| Candidate | Match | Action |
-|---|---|---|
-| `user-select: none` in SCSS files | Scattered ad-hoc across 9 files | Consolidate into shared mixin |
-| `pointer-events: none` in disabled/interactive system | Partial overlap | Coordinate with disabled state system |
-| `ActionMixin` (solid-composables) | Already resets pointer-events for actions | NoSelect should not re-override actions |
+| Candidate                                             | Match                                     | Action                                  |
+| ----------------------------------------------------- | ----------------------------------------- | --------------------------------------- |
+| `user-select: none` in SCSS files                     | Scattered ad-hoc across 9 files           | Consolidate into shared mixin           |
+| `pointer-events: none` in disabled/interactive system | Partial overlap                           | Coordinate with disabled state system   |
+| `ActionMixin` (solid-composables)                     | Already resets pointer-events for actions | NoSelect should not re-override actions |
 
 ---
 

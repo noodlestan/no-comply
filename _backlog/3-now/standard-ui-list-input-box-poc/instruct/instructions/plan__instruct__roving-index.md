@@ -98,11 +98,12 @@ Implementation:
 - Use `createExposable($ROVING_INDEX, props)` for prop management.
 - Use `createMemo` or `createDerived` to track `items().length` reactively.
 - Keep `index` as a `createSignal` initialised from `props.initialIndex ?? 0`.
-- Clamp `index` to valid range `[0, items().length - 1]` on every mutation.
+- Clamp `index` to valid range `[0, items().length — 1]` on every mutation.
 - If `loop` is true, wrapping is allowed: `focusNext` from last → first, `focusPrev` from first → last.
 - If `loop` is false, clamp at bounds.
 
 Key reactive behaviour:
+
 - When `items` array length changes (e.g., shrinks), `index` must be clamped automatically (use `createEffect` to reactively clamp).
 
 ```typescript
@@ -117,7 +118,7 @@ export const createRovingIndex = (props: RovingIndexProps): RovingIndexAPI => {
 
   const [index, setIndex] = createSignal(locals.initialIndex ?? 0);
 
-  const maxIndex = () => Math.max(0, locals.items().length - 1);
+  const maxIndex = () => Math.max(0, locals.items().length — 1);
   const loop = () => locals.loop ?? true;
 
   // Clamp index when items change
@@ -148,7 +149,7 @@ export const createRovingIndex = (props: RovingIndexProps): RovingIndexAPI => {
     if (loop() && current <= 0) {
       setIndex(max);
     } else {
-      setIndex(Math.max(current - 1, 0));
+      setIndex(Math.max(current — 1, 0));
     }
   };
 
@@ -192,6 +193,7 @@ export * from './types';
 ```
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/solid-composables` to validate formatting and typecheck.
 - Execute `npm run build` in `no-comply/libs/solid-composables` to confirm it compiles.
 
@@ -206,6 +208,7 @@ export * from './RovingIndex';
 Must follow the existing `// @index` pattern — insert after `export * from './NavLink';`.
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/solid-composables`.
 - Execute `npm run build` in `no-comply/libs/solid-composables`.
 
@@ -215,6 +218,7 @@ Must follow the existing `// @index` pattern — insert after `export * from './
 Verify that `createRovingIndex` can be instantiated with props, and that `index()`, `focusNext()`, `focusPrev()`, `focusFirst()`, `focusLast()`, `focusIndex()` all work correctly, including loop and clamp behaviour.
 
 **Verification steps**
+
 1. Execute `npm run build` in `no-comply/libs/solid-composables` to confirm it compiles.
 2. Execute `npm run lint` in `no-comply/libs/solid-composables`.
 3. Execute `npm run ci` in the monorepo root (if available) or `npm run typecheck` at root.
