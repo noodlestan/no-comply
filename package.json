@@ -14,14 +14,6 @@
   "engines": {
     "node": ">=18"
   },
-  "main": "libs/solid-primitives/src/index.ts",
-  "types": "libs/solid-primitives/src/index.ts",
-  "exports": {
-    ".": {
-      "import": "./libs/solid-primitives/src/index.ts",
-      "types": "./libs/solid-primitives/src/index.ts"
-    }
-  },
   "scripts": {
     "clean": "turbo run build:clean",
     "build": "turbo run build",
