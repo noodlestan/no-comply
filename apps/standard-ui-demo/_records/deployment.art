@@ -1,0 +1,42 @@
+# Deployment: Standard UI Demo
+
+**Project:** `@no-comply/standard-ui-demo`
+
+**Domain:** `noodlestan.org`
+
+**Status:** `PLANNED`
+
+**Environments:**
+
+- **Production:** https://standard-ui-demo.noodlestan.org (bucket: `standard-ui-demo-noodlestan-org-prod`, distribution: `TBD`)
+- **Staging:** https://stage-standard-ui-demo.noodlestan.org (bucket: `standard-ui-demo-noodlestan-org-stage`, distribution: `TBD`)
+
+**Terraform:**
+
+- $WORKSPACE/repos/terraform/domains/noodlestan/main.tf (`module "standard_ui_demo"`)
+- $WORKSPACE/repos/terraform/domains/noodlestan/websites/standard-ui-demo/main.tf
+
+**Build:**
+
+```bash
+cd $WORKSPACE/repos/no-comply/apps/standard-ui-demo
+npm run build
+```
+
+**Deploy:**
+
+Deploy to Production:
+
+```bash
+cd $WORKSPACE/repos/no-comply/apps/standard-ui-demo
+aws s3 sync dist/ s3://standard-ui-demo-noodlestan-org-prod --delete
+aws cloudfront create-invalidation --distribution-id TBD --paths "/*"
+```
+
+Deploy to Staging:
+
+```bash
+cd $WORKSPACE/repos/no-comply/apps/standard-ui-demo
+aws s3 sync dist/ s3://standard-ui-demo-noodlestan-org-stage --delete
+aws cloudfront create-invalidation --distribution-id TBD --paths "/*"
+```
