@@ -1,0 +1,59 @@
+# Module
+
+## Package: Meta Extract
+
+**Purpose:** Purrception extraction tools for No Comply.
+
+**Description:** Purrception extraction tools for the [no-comply] project.
+
+**Owner:** Meta Extract
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `cli/meta-extract/`
+
+**Canonical Name:** `@no-comply/meta-extract`
+
+**Published:** `false`
+
+**Private:** `true`
+
+**Files:**
+
+- `dist`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/meta`
+  - `@purrception/primitives`
+  - `@purrception/lang-ts-extract`
+  - `@purrception/source-fs`
+
+- Dev:
+  - Package Dependency Set: CLI Development
+
+**Scripts:**
+
+- Package Script Set: CLI Build
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: CLI Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

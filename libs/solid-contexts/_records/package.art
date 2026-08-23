@@ -1,0 +1,69 @@
+# Module
+
+## Package: Solid Contexts
+
+**Purpose:** Context-aware services and providers for SolidJS.
+
+**Description:** Context-aware services and providers for SolidJS applications and component libraries.
+
+**Owner:** Solid Contexts
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `libs/solid-contexts/`
+
+**Canonical Name:** `@no-comply/solid-contexts`
+
+**Published:** `true`
+
+**Private:** `false`
+
+**Deployment:** NPM Package Deployment: Solid Contexts
+
+**Files:**
+
+- `src`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/solid-accessibility`
+  - `@no-comply/solid-primitives`
+  - `@solid-primitives/map` @ `0.7.3`
+  - `@solid-primitives/refs` @ `1.1.3`
+  - `@solid-primitives/set` @ `0.7.3`
+  - `solid-services` @ `4.3.2`
+  - `ts-deepmerge` @ `8.0.0`
+
+- Peer:
+  - Package Dependency Set: Solid Lib Peer
+
+- Dev:
+  - Package Dependency Set: Purrfect Extract
+  - Package Dependency Set: Solid Lib Development
+
+**Scripts:**
+
+- Package Script Set: Lib Build
+- Package Script Set: Purrception Extract
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Lib Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

@@ -1,14 +1,17 @@
-## NPM Deployment: Solid Dev Tools
+# Module
+
+## NPM Package Deployment: Solid Dev Tools
+
+**Owner:** Package: Solid Dev Tools
+
+**Status:** `DEPLOYED`
+
+**Build:** Deployment Build: NPM Command
+
+**Deploy:** Deployment Command: NPM Package CLI
 
 **Canonical Name:** `@no-comply/solid-dev-tools`
 
 **Registry:** `https://registry.npmjs.org`
 
 **Access:** `public`
-
-**Prerequisites:**
-
-- Build artifacts exist in `dist/`
-- All dependencies published
-
-**Publish Command:** `cd $WORKSPACE/repos/no-comply/libs/solid-dev-tools && npm publish --access public`

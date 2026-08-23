@@ -1,0 +1,57 @@
+# Module
+
+## Repository: No Comply
+
+**Purpose:** Host and manage the No Comply collection of projects.
+
+**Description:** SolidJS component library, design system, and meta-extraction tooling for codebase introspection. The top-layer consumer of the Noodlestan stack.
+
+**Owner:** Project: No Comply
+
+**Author:** Noodlestan Collective
+
+**Remote:** `git@github.com:noodlestan/no-comply.git`
+
+**Consumers:**
+
+- none yet (consumes `@purrception/*`, `@purrtrait/*`, `@purrpose/*`).
+
+**Private:** `true`
+
+**Workspaces:**
+
+- `libs/*`
+- `cli/*`
+- `apps/*`
+
+**Language:** Typescript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** package.json
+
+**Dependencies:**
+
+- Runtime:
+  - TBD
+- Dev:
+  - TBD
+
+**Scripts:**
+
+- Package Script Set: Root Lifecycle
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Project Skeleton
+- Scaffolder Files: Project README
+- Scaffolder Files: Project Package Json
+- Scaffolder Files: Project Tsconfig
+- Scaffolder Files: Project Turbo
+- Scaffolder Files: Project Lefthook
+
+**License:** License: Noodlestan 2026 MIT

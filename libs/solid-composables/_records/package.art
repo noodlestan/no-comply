@@ -1,0 +1,69 @@
+# Module
+
+## Package: Solid Composables
+
+**Purpose:** Composable components and controllers for SolidJS.
+
+**Description:** Composable components, controllers, and mixins for SolidJS applications and component libraries.
+
+**Owner:** Solid Composables
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `libs/solid-composables/`
+
+**Canonical Name:** `@no-comply/solid-composables`
+
+**Published:** `true`
+
+**Private:** `false`
+
+**Deployment:** NPM Package Deployment: Solid Composables
+
+**Files:**
+
+- `src`
+- `scss`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/solid-contexts`
+  - `@no-comply/solid-accessibility`
+  - `@no-comply/solid-primitives`
+  - `@solid-primitives/set` @ `0.7.3`,
+  - `@solid-primitives/resize-observer` @ `2.1.5`
+
+- Peer:
+  - Package Dependency Set: Solid Lib Peer
+  - Package Dependency Set: Lucide Solid
+
+- Dev:
+  - Package Dependency Set: Purrception Extract
+  - Package Dependency Set: Solid Lib Development
+
+**Scripts:**
+
+- Package Script Set: Lib Build
+- Package Script Set: Purrception Extract
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Lib Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

@@ -10,9 +10,10 @@
     "lint:fix": "prettier . -c --write && eslint . --fix",
     "build:clean": "rm -rf dist",
     "build": "vite build",
+    "test": "echo none yet",
     "preview": "vite preview",
     "start": "vite build && vite preview",
-    "ci": "npm run lint && npm run build"
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
     "@no-comply/meta": "0.0.11",

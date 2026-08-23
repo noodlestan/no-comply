@@ -1,0 +1,17 @@
+# Module
+
+## Package Script Set: Vite App
+
+**Scripts:**
+
+- Package Script: Dev
+  - Purpose: Run development server
+  - Command: `vite`
+
+- Package Script: Build
+  - Purpose: Build application
+  - Command: `vite build`
+
+- Package Script: Preview
+  - Purpose: Preview the application build a local static server
+  - Command: `vite preview`

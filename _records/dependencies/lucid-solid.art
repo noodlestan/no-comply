@@ -1,0 +1,11 @@
+# Module
+
+## Package Dependency: Lucide Solid
+
+**Canonical Name:** `lucide-solid`
+
+**Purpose:** A Lucide icon library package for Solid applications.
+
+**Version:** `^0.453.0`
+
+## Package Dependency Set: Solid Lib Peer

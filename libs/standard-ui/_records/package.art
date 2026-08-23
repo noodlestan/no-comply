@@ -1,0 +1,68 @@
+# Module
+
+## Package: Standard UI
+
+**Purpose:** Themeable component library built with No Comply.
+
+**Description:** Themeable component library built with [No Comply], SolidJS and modern CSS.
+
+**Owner:** Standard UI
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `libs/standard-ui/`
+
+**Canonical Name:** `@no-comply/standard-ui`
+
+**Published:** `true`
+
+**Private:** `false`
+
+**Deployment:** NPM Package Deployment: Standard UI
+
+**Files:**
+
+- `src`
+- `scss`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/solid-contexts`
+  - `@no-comply/solid-accessibility`
+  - `@no-comply/solid-primitives`
+  - `@no-comply/solid-composables`
+
+- Peer:
+  - Package Dependency Set: Solid Lib Peer
+  - Package Dependency Set: Lucide Solid
+
+- Dev:
+  - Package Dependency Set: Purrfect Extract
+  - Package Dependency Set: Solid Lib Development
+
+**Scripts:**
+
+- Package Script Set: CLI Build
+- Package Script Set: Purrception Extract
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Lib Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

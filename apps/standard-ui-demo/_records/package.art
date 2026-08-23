@@ -1,0 +1,83 @@
+# Module
+
+## Package: Standard UI Demo
+
+**Purpose:** Demo application for Standard UI.
+
+**Description:** Demo application showcasing the Standard UI component library.
+
+**Owner:** Standard UI Demo
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `apps/standard-ui-demo/`
+
+**Canonical Name:** `@no-comply/standard-ui-demo`
+
+**Published:** `false`
+
+**Private:** `true`
+
+**Deployment:** Static Web Deployment: Standard UI Demo
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/meta`
+  - `@no-comply/solid-accessibility`
+  - `@no-comply/solid-composables`
+  - `@no-comply/solid-contexts`
+  - `@no-comply/solid-dev-tools`
+  - `@no-comply/solid-primitives`
+  - `@no-comply/standard-ui`
+  - `@purrception/lang-ts`
+  - `@purrpose/client-babel`
+  - `@purrpose/client-babel-preset-solidjs`
+  - `@purrpose/solid-shiki-service`
+  - `@purrtrait/client-tsx`
+  - `@purrtrait/code-renderer`
+  - `@purrtrait/lang-ts`
+  - `@purrtrait/solid-code`
+  - `@purrtrait/view-tsx`
+  - `@solid-primitives/intersection-observer`
+  - `@solid-primitives/mutation-observer`
+  - `@solid-primitives/resize-observer`
+  - `@solid-primitives/storage`
+  - `@solidjs/router`
+  - `babel-plugin-jsx-dom-expressions`
+  - `dotenv`
+  - `lucide-solid`
+  - `prettier`
+  - `shiki`
+  - `solid-js`
+  - `solid-services`
+  - `solidjs-use`
+  - `typescript`
+
+- Dev:
+  - Package Dependency Set: Solid Lib Development
+  - `csstype` @ `3.2.3`
+
+**Scripts:**
+
+- Package Script Set: Vite App
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Vite App
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

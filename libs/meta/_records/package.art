@@ -1,0 +1,61 @@
+# Module
+
+## Package: Meta
+
+**Purpose:** Purrception types, services, and helpers for No Comply.
+
+**Description:** Purrception types, services, and helpers for the [no-comply] project.
+
+**Owner:** Meta
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `libs/meta/`
+
+**Canonical Name:** `@no-comply/meta`
+
+**Published:** `false`
+
+**Private:** `true`
+
+**Files:**
+
+- `src`
+- `scss`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@purrception/lang-ts`
+  - `@purrception/primitives`
+
+- Peer:
+  - Package Dependency Set: Solid Lib Peer
+
+- Dev:
+  - Package Dependency Set: Solid Lib Development
+
+**Scripts:**
+
+- Package Script Set: Lib Build
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Lib Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

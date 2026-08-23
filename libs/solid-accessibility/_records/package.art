@@ -1,0 +1,64 @@
+# Module
+
+## Package: Solid Accessibility
+
+**Purpose:** Foundational layer for No Comply composables.
+
+**Description:** Aria types, primitives, and utils for SolidJS applications and component libraries.
+
+**Owner:** Solid Accessibility
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `libs/solid-accessibility/`
+
+**Canonical Name:** `@no-comply/solid-accessibility`
+
+**Published:** `true`
+
+**Private:** `false`
+
+**Deployment:** NPM Package Deployment: Solid Accessibility
+
+**Files:**
+
+- `src`
+- `scss`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/solid-primitives`
+
+- Peer:
+  - Package Dependency Set: Solid Lib Peer
+
+- Dev:
+  - Package Dependency Set: Purrception Extract
+  - Package Dependency Set: Solid Lib Development
+
+**Scripts:**
+
+- Package Script Set: Lib Build
+- Package Script Set: Purrception Extract
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Lib Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

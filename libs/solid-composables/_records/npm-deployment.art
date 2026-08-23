@@ -1,14 +1,17 @@
-## NPM Deployment: Solid Composables
+# Module
+
+## NPM Package Deployment: Solid Composables
+
+**Owner:** Package: Solid Composables
+
+**Status:** `DEPLOYED`
+
+**Build:** Deployment Build: NPM Command
+
+**Deploy:** Deployment Command: NPM Package CLI
 
 **Canonical Name:** `@no-comply/solid-composables`
 
 **Registry:** `https://registry.npmjs.org`
 
 **Access:** `public`
-
-**Prerequisites:**
-
-- Build artifacts exist in `dist/`
-- All dependencies published
-
-**Publish Command:** `cd $WORKSPACE/repos/no-comply/libs/solid-composables && npm publish --access public`

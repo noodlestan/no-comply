@@ -1,0 +1,65 @@
+# Module
+
+## Package: Solid Dev Tools
+
+**Purpose:** Instrumentation and debug tools for No Comply.
+
+**Description:** Instrumentation and debug tools for [No Comply] applications and libraries.
+
+**Owner:** Solid Dev Tools
+
+**Namespace:** Namespace: No Comply
+
+**Author:** Noodlestan Collective
+
+**Path:** `libs/solid-dev-tools/`
+
+**Canonical Name:** `@no-comply/solid-dev-tools`
+
+**Published:** `true`
+
+**Private:** `false`
+
+**Deployment:** NPM Package Deployment: Solid Dev Tools
+
+**Files:**
+
+- `src`
+- `LICENSE-MIT`
+
+**Language:** TypeScript
+
+**Engines:**
+
+- Node: `>= 22`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Runtime:
+  - `@no-comply/solid-contexts`
+  - `@no-comply/solid-accessibility`
+  - `@no-comply/solid-primitives`
+  - `@no-comply/solid-composables`
+  - `@no-comply/standard-ui`
+
+- Peer:
+  - Package Dependency Set: Solid Lib Peer
+
+- Dev:
+  - Package Dependency Set: Solid Lib Development
+
+**Scripts:**
+
+- Package Script Set: Lib Build
+- Package Script Set: Common Scripts
+
+**Scaffolders:**
+
+- Scaffolder Skeleton: Lib Package
+- Scaffolder Skeleton: Package Common
+
+**License:** License: Noodlestan 2026 MIT

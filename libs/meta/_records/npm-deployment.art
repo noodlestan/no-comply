@@ -1,0 +1,17 @@
+# Module
+
+## NPM Package Deployment: Meta
+
+**Owner:** Package: Meta
+
+**Status:** `PRIVATE`
+
+**Build:** Deployment Build: NPM Command
+
+**Deploy:** Deployment Command: NPM Package CLI
+
+**Canonical Name:** `@no-comply/meta`
+
+**Registry:** `https://registry.npmjs.org`
+
+**Access:** `private`
