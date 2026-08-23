@@ -24,14 +24,6 @@
 
 **Version:** `^0.8.1`
 
-## Package Dependency: Vite Plugin Top Level Await
-
-**Canonical Name:** `vite-plugin-top-level-await`
-
-**Purpose:** Top level await support for Vite.
-
-**Version:** `^1.6.0`
-
 ## Package Dependency: Vitest
 
 **Canonical Name:** `vitest`
@@ -47,5 +39,4 @@
 - Package Dependency: Vite
 - Package Dependency: Vite Plugin Solid
 - Package Dependency: Vite Plugin Solid SVG
-- Package Dependency: Vite Plugin Top Level Await
 - Package Dependency: Vitest

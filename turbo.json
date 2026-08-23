@@ -12,6 +12,14 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**"]
     },
+    "build:meta": {
+      "cache": false,
+      "with": []
+    },
+    "extract": {
+      "cache": false,
+      "dependsOn": ["@no-comply/meta-extract#build"]
+    },
     "ci": {
       "cache": false,
       "dependsOn": ["^ci"]
