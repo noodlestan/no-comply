@@ -14,7 +14,7 @@ Make sure you read the [@no-comply README](../../README.md) first.
 - **$** `npm run build` - uses `Vite` to produce a production build.
 - **$** `npm run preview` - uses `Vite` to preview the build locally.
 
-## MIT License
+## License
 
 Copyright (c) 2025 [Noodlestan](https://noodlestan.org/).
 

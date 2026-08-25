@@ -18,7 +18,7 @@ This library is packaged for use in bundlers such as Vite and Astro. The main en
 - **$** `npm run build` - uses `Vite` to do produce a dry build in `dist/`.
 - **$** `npm run lint` / `npm run lint:fix` - uses [@noodlestan/eslint-config](https://www.npmjs.com/package/@noodlestan/eslint-config).
 
-## MIT License
+## License
 
 Copyright (c) 2025 [Noodlestan](https://noodlestan.org/).
 
