@@ -1,6 +1,10 @@
-# No Comply
+# Guide: No Comply
 
-Context-aware UI system built with SolidJS and modern CSS. A standalone npm workspaces monorepo providing SolidJS primitives, accessibility utilities, context management, composable components, a themeable UI library, dev tools, and meta-extraction tooling.
+> Host and manage the No Comply project roadmap, the packages, and the docs and demo applications.
+
+Monorepo containing the No Comply roadmap, library packages, CLI tools to extract codebase matadata, docs and demo applications, and theior backlogs, and architecture and patterns knowledge.
+
+Uses Workflow: Planning Work with one backlog per package, coordinating with Workflow: Roadmapping from one project-wide roadmap.
 
 ## Recommended Reading
 
@@ -24,18 +28,18 @@ apps/               — application packages
 
 ## Projects
 
-| Project             | Guide                                   | Backlog     |
-| ------------------- | --------------------------------------- | ----------- |
-| No Comply (root)    | `_guide.md`                             | `_backlog/` |
-| Solid Primitives    | `libs/solid-primitives/_guide.md`       | `NONE`      |
-| Solid Accessibility | `libs/solid-accessibility/_guide.md`     | `NONE`      |
-| Solid Contexts      | `libs/solid-contexts/_guide.md`         | `NONE`      |
-| Solid Composables   | `libs/solid-composables/_guide.md`      | `NONE`      |
-| Standard UI         | `libs/standard-ui/_guide.md`            | `NONE`      |
-| Solid Dev Tools     | `libs/solid-dev-tools/_guide.md`        | `NONE`      |
-| Meta                | `libs/meta/_guide.md`                   | `NONE`      |
-| Meta Extract        | `cli/meta-extract/_guide.md`            | `NONE`      |
-| Standard UI Demo    | `apps/standard-ui-demo/_guide.md`       | `NONE`      |
+| Project             | Guide                                | Backlog     |
+| ------------------- | ------------------------------------ | ----------- |
+| No Comply (root)    | `_guide.md`                          | `_backlog/` |
+| Solid Primitives    | `libs/solid-primitives/_guide.md`    | `NONE`      |
+| Solid Accessibility | `libs/solid-accessibility/_guide.md` | `NONE`      |
+| Solid Contexts      | `libs/solid-contexts/_guide.md`      | `NONE`      |
+| Solid Composables   | `libs/solid-composables/_guide.md`   | `NONE`      |
+| Standard UI         | `libs/standard-ui/_guide.md`         | `NONE`      |
+| Solid Dev Tools     | `libs/solid-dev-tools/_guide.md`     | `NONE`      |
+| Meta                | `libs/meta/_guide.md`                | `NONE`      |
+| Meta Extract        | `cli/meta-extract/_guide.md`         | `NONE`      |
+| Standard UI Demo    | `apps/standard-ui-demo/_guide.md`    | `NONE`      |
 
 ## Records Management
 
@@ -60,9 +64,13 @@ This repository maintains reference material at `reference/`:
 
 ## Workflows
 
-### Planning Work
+Projects in this repository use the following workflows:
 
-This project plans its work with the workflow defined in `$DOMAINS/work/workflows/planning-work/workflow.art`.
+| Workflow / Path                                                        | Purpose                                                                                           |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Planning Work** `$DOMAINS/work/workflows/planning-work/workflow.art` | Create and manage work item lifecycles, collecting operational instructions according to context. |
+
+### Planning Work
 
 - The backlog lives at `_backlog/` with subdirectories such as `/3-now` and `/4-next/`.
 

@@ -2,11 +2,11 @@
 
 ## Project: No Comply
 
-**Purpose:** SolidJS component library, design system, and meta-extraction tooling for codebase introspection.
+**Purpose:** Context-aware UI system built with SolidJS and modern CSS.
 
-**Description:** The top-layer consumer of the Noodlestan stack. A standalone npm workspaces project providing SolidJS primitives, accessibility utilities, context management, composable components, a themeable UI library, dev tools, and meta-extraction CLI. Builds, lints, and passes CI on its own with the toolchain fully declared in its own install.
+**Description:** SolidJS layered library ecosystem spanning foundational types, accessibility primitives, contexts and services, composable controllers, a themeable component library, and developer tooling.
 
-**Owner:** Project: Management
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 
@@ -29,5 +29,7 @@
 - Package: Standard UI Demo
 
 **Private:** `false`
+
+**Management:** Uses Workflow: Planning Work with one backlog per package, coordinating with Workflow: Roadmapping from one project-wide roadmap.
 
 **License:** License: Noodlestan 2025 MIT

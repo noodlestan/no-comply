@@ -1,8 +1,8 @@
-# @no-comply
+# No Comply
 
 > Context-aware UI system built with SolidJS and modern CSS.
 
-No Comply is a layered library ecosystem spanning foundational types, accessibility primitives, contexts and servicers, composable controllers, a themeable component library, and developer tooling.
+SolidJS layered library ecosystem spanning foundational types, accessibility primitives, contexts and services, composable controllers, a themeable component library, and developer tooling.
 
 ## Packages
 

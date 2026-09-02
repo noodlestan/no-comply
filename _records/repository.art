@@ -2,9 +2,9 @@
 
 ## Repository: No Comply
 
-**Purpose:** Host and manage the No Comply collection of projects.
+**Purpose:** Host and manage the No Comply project roadmap, the packages, and the docs and demo applications.
 
-**Description:** SolidJS component library, design system, and meta-extraction tooling for codebase introspection. The top-layer consumer of the Noodlestan stack.
+**Description:** Monorepo containing the No Comply roadmap, library packages, CLI tools to extract codebase matadata, docs and demo applications, and theior backlogs, and architecture and patterns knowledge.
 
 **Owner:** Project: No Comply
 
