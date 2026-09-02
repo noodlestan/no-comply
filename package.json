@@ -19,8 +19,8 @@
     "clean": "turbo run build:clean",
     "build": "turbo run build",
     "build:meta": "turbo run build:meta",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
+    "lint": "prettier . -c && turbo run lint",
+    "lint:fix": "prettier . -c --write && turbo run lint:fix",
     "test": "turbo run test",
     "extract": "turbo run extract",
     "ci": "turbo run ci"
