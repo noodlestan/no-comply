@@ -69,9 +69,11 @@ Exposed in `$root`:
 ## Styles
 
 **Structural:**
+
 - `.Badge { display: inline-flex; align-items: center; /* padding, border-radius, gap per size */ }`
 
 **Coordinate system for ComposeColorMixin:**
+
 - Sets `--__compose-color-fg-level` and `--__compose-color-fg-alpha` (and bg/border equivalents) if Badge-specific overrides are needed beyond the defaults.
 
 ## Exposes API

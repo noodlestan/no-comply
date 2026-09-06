@@ -38,4 +38,3 @@ As a reader of code documentation, I need description objects to render as markd
 - `renderMarkdown` is available through the rendering provider API.
 - `CodeDocBody` consumes `useRendering().renderMarkdown`.
 - `<CodeMarkdownBlock>` exists and is the minimal implementation needed for the flow.
-

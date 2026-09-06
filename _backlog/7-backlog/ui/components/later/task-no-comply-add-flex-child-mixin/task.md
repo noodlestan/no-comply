@@ -17,14 +17,14 @@ Currently `flex` props exist only on `Flex` (the container). `FlexChildMixin` mo
 
 ## Dependencies
 
-- `createHeadlessFlexChildMixin` from `solid-composables` (new) — attribute-based `data-flex-*` 
+- `createHeadlessFlexChildMixin` from `solid-composables` (new) — attribute-based `data-flex-*`
 - Or: inline computed props in `standard-ui` mixin
 
 ## Props
 
 ```tsx
 type FlexChildMixinProps = {
-  flex?: string;                // shorthand: flex: 1 1 auto
+  flex?: string; // shorthand: flex: 1 1 auto
   grow?: boolean | number;
   shrink?: boolean | number;
   basis?: string | number;
@@ -36,6 +36,7 @@ type FlexChildMixinProps = {
 ## Composition
 
 `Layout` composes `FlexChildMixin` when `flex` prop is provided:
+
 ```
 Layout
   └── createLayoutMixin()

@@ -59,6 +59,7 @@ Extract inline `<Show when={showNoResults()}>` and `<Show when={showHint()}>` bl
 2. Add exports for `ApiSearchNoResults` and `ApiSearchHint`
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `$PROJECT` to validate format and typecheck
 
 ## Final Verification

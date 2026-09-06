@@ -7,12 +7,12 @@
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `composed` — builds on Surface + Layout mixins, potentially coordinated via context |
-| Structure | `standalone` or `compound` — Panel can be standalone, ToolbarPanel is a Panel with integrated Toolbar |
-| State | `stateful` — optionally collapsible, may track panel identity |
-| Visibility | `public` |
+| Aspect     | Value                                                                                                 |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| Type       | `composed` — builds on Surface + Layout mixins, potentially coordinated via context                   |
+| Structure  | `standalone` or `compound` — Panel can be standalone, ToolbarPanel is a Panel with integrated Toolbar |
+| State      | `stateful` — optionally collapsible, may track panel identity                                         |
+| Visibility | `public`                                                                                              |
 
 ---
 
@@ -25,25 +25,25 @@ A Panel is a **Surface with header and body sections** — a coordinated contain
 ```tsx
 type PanelProps = {
   // Surface props
-  variant?: SurfaceVariant;           // 'panel', 'page', 'stage', etc.
-  tag?: LayoutTagName;                // default: 'section'
+  variant?: SurfaceVariant; // 'panel', 'page', 'stage', etc.
+  tag?: LayoutTagName; // default: 'section'
 
   // Layout
-  padding?: LayoutPadding;            // default: 'm'
+  padding?: LayoutPadding; // default: 'm'
 
   // Panel-specific
-  title?: string;                     // renders a header
-  subtitle?: string;                  // secondary header text
-  headerTag?: 'h1' | 'h2' | 'h3' | 'h4';    // header heading level
+  title?: string; // renders a header
+  subtitle?: string; // secondary header text
+  headerTag?: 'h1' | 'h2' | 'h3' | 'h4'; // header heading level
 
   // Collapsible
   collapsible?: boolean;
   defaultCollapsed?: boolean;
-  collapsed?: boolean;                // controlled
+  collapsed?: boolean; // controlled
   onToggle?: (collapsed: boolean) => void;
 
   // Panel coordination (for split-panel layouts)
-  panelId?: string;                   // identity for coordination
+  panelId?: string; // identity for coordination
   minWidth?: number;
   maxWidth?: number;
 
@@ -54,8 +54,8 @@ type PanelProps = {
 
   // Children
   children: ComponentProps;
-  header?: ComponentProps;            // slot for custom header content
-  footer?: ComponentProps;            // slot for footer content
+  header?: ComponentProps; // slot for custom header content
+  footer?: ComponentProps; // slot for footer content
 };
 ```
 
@@ -68,7 +68,7 @@ type ToolbarPanelProps = PanelProps & {
   // Toolbar props (forwarded)
   toolbarVariant?: SurfaceVariant;
   toolbarDensity?: 'comfortable' | 'compact';
-  toolbarItems?: ToolbarItem[];       // declarative toolbar items
+  toolbarItems?: ToolbarItem[]; // declarative toolbar items
   // or: children pattern with <Toolbar> slot
 };
 ```
@@ -105,12 +105,12 @@ type ToolbarPanelProps = PanelProps & {
 
 ### Decomposition Notes
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `Panel` | Component | `standard-ui` | Surface + header/footer layout, optional collapsible |
-| `ToolbarPanel` | Component | `standard-ui` | Panel with integrated Toolbar in header (extension of Panel) |
-| `createPanelMixin` | Mixin | `standard-ui` | Panel-specific CSS (header, body, footer sections) |
-| `PanelContext` | Context | `solid-contexts` | Optional — for coordinating multiple panels (e.g., resize handles) |
+| Entity             | Kind      | Package          | Responsibility                                                     |
+| ------------------ | --------- | ---------------- | ------------------------------------------------------------------ |
+| `Panel`            | Component | `standard-ui`    | Surface + header/footer layout, optional collapsible               |
+| `ToolbarPanel`     | Component | `standard-ui`    | Panel with integrated Toolbar in header (extension of Panel)       |
+| `createPanelMixin` | Mixin     | `standard-ui`    | Panel-specific CSS (header, body, footer sections)                 |
+| `PanelContext`     | Context   | `solid-contexts` | Optional — for coordinating multiple panels (e.g., resize handles) |
 
 ### Relationship to Existing Components
 

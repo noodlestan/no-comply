@@ -80,7 +80,10 @@ export type ListKeyboardAPI = {
   $root: {
     onKeyDown: (ev: KeyboardEvent) => void;
   };
-} & Pick<RovingIndexAPI, 'index' | 'focusNext' | 'focusPrev' | 'focusFirst' | 'focusLast' | 'focusIndex'>;
+} & Pick<
+  RovingIndexAPI,
+  'index' | 'focusNext' | 'focusPrev' | 'focusFirst' | 'focusLast' | 'focusIndex'
+>;
 ```
 
 **1b. Create `src/navigation/controllers/ListKeyboard/constants.ts`**
@@ -97,9 +100,7 @@ import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
 import { $LIST_KEYBOARD } from './constants';
 import type { ListKeyboardAPI, ListKeyboardProps } from './types';
 
-export const createListKeyboardController = (
-  props: ListKeyboardProps,
-): ListKeyboardAPI => {
+export const createListKeyboardController = (props: ListKeyboardProps): ListKeyboardAPI => {
   const [locals, expose] = createExposable($LIST_KEYBOARD, props);
 
   const onKeyDown = (ev: KeyboardEvent) => {
@@ -165,6 +166,7 @@ export * from './types';
 ```
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/solid-composables`.
 - Execute `npm run build` in `no-comply/libs/solid-composables`.
 
@@ -179,6 +181,7 @@ export * from './ListKeyboard';
 Must follow the existing `// @index` pattern.
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/solid-composables`.
 - Execute `npm run build` in `no-comply/libs/solid-composables`.
 
@@ -188,6 +191,7 @@ Must follow the existing `// @index` pattern.
 Verify that `createListKeyboardController` can be instantiated with a `roving` instance, that `$root.onKeyDown` correctly dispatches to roving methods, and that delegated methods (`index`, `focusNext`, etc.) proxy through to the underlying roving index.
 
 **Verification steps**
+
 1. Execute `npm run build` in `no-comply/libs/solid-composables`.
 2. Execute `npm run lint` in `no-comply/libs/solid-composables`.
 3. Execute `npm run ci` in the monorepo root (if available).

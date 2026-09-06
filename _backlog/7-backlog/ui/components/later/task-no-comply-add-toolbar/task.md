@@ -7,12 +7,12 @@
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `composed` — builds on Surface + Layout mixins |
-| Structure | `standalone` — single component, flexible container |
-| State | `visual-only` — no state, purely presentational container |
-| Visibility | `public` |
+| Aspect     | Value                                                     |
+| ---------- | --------------------------------------------------------- |
+| Type       | `composed` — builds on Surface + Layout mixins            |
+| Structure  | `standalone` — single component, flexible container       |
+| State      | `visual-only` — no state, purely presentational container |
+| Visibility | `public`                                                  |
 
 ---
 
@@ -25,22 +25,22 @@ Toolbar is essentially a **themed Surface** configured for action/tool rows. It 
 ```tsx
 type ToolbarProps = {
   // Surface props (inherited)
-  variant?: SurfaceVariant;         // 'stage', 'panel', etc.
-  tag?: LayoutTagName;              // default: 'div'
+  variant?: SurfaceVariant; // 'stage', 'panel', etc.
+  tag?: LayoutTagName; // default: 'div'
 
   // Layout / Flex props (inherited)
-  padding?: LayoutPadding;          // default: 's' or 'm'
-  gap?: FlexGap;                    // spacing between toolbar items
+  padding?: LayoutPadding; // default: 's' or 'm'
+  gap?: FlexGap; // spacing between toolbar items
   orientation?: 'horizontal' | 'vertical';
   wrap?: boolean;
   justify?: 'start' | 'center' | 'end' | 'space-between';
   align?: 'start' | 'center' | 'end' | 'stretch';
 
   // Toolbar-specific
-  density?: 'comfortable' | 'compact';   // controls padding density
+  density?: 'comfortable' | 'compact'; // controls padding density
 
   // ARIA
-  role?: 'toolbar' | 'group' | 'none';   // default: 'toolbar'
+  role?: 'toolbar' | 'group' | 'none'; // default: 'toolbar'
   'aria-label'?: string;
   'aria-controls'?: string;
 };
@@ -65,10 +65,10 @@ type ToolbarProps = {
 
 ### Decomposition Notes
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `Toolbar` | Component | `standard-ui` | Thin component composing Surface + Flex/Layout mixins with toolbar defaults |
-| `createToolbarMixin` | Mixin | `standard-ui` | Toolbar-specific CSS (density, role styling) — optional, may fold into Surface |
+| Entity               | Kind      | Package       | Responsibility                                                                 |
+| -------------------- | --------- | ------------- | ------------------------------------------------------------------------------ |
+| `Toolbar`            | Component | `standard-ui` | Thin component composing Surface + Flex/Layout mixins with toolbar defaults    |
+| `createToolbarMixin` | Mixin     | `standard-ui` | Toolbar-specific CSS (density, role styling) — optional, may fold into Surface |
 
 ### Relationship to Existing Components
 

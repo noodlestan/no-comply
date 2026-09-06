@@ -18,7 +18,7 @@ Allow consumers to receive forwarded props (e.g. `_icon` from Pressable/ButtonMi
 
 ```tsx
 <Button>
-  {({_icon}) => (
+  {({ _icon }) => (
     <>
       some text
       <Icon icon="" {..._icon} />
@@ -36,7 +36,7 @@ Allow consumers to receive forwarded props (e.g. `_icon` from Pressable/ButtonMi
 
 ```tsx
 type ButtonChildrenRenderProp = {
-  _icon: IconProps;    // icon sizing/color props from ButtonMixin
+  _icon: IconProps; // icon sizing/color props from ButtonMixin
   // future: _label, _spinner, etc.
 };
 ```
@@ -49,9 +49,11 @@ type ButtonChildrenRenderProp = {
 ### Button.tsx (after)
 
 ```tsx
-type Props = ClosedTagProps & PopoverTriggerTagProps & ButtonProps & {
-  children?: MaybeRenderProp<ButtonChildrenRenderProp>;
-};
+type Props = ClosedTagProps &
+  PopoverTriggerTagProps &
+  ButtonProps & {
+    children?: MaybeRenderProp<ButtonChildrenRenderProp>;
+  };
 
 export const Button: Component<Props> = props => {
   const [locals, $others] = splitProps(props, BUTTON_PROPS);

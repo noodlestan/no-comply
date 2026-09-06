@@ -13,6 +13,7 @@ Status: exists — needs completion (value binding, styling, accessibility)
 ## Dependencies
 
 Composes existing:
+
 - `createBaseInput` — root props, id
 - `createTextInputValue` (or dedicated range value controller) — value state
 - `createInputBoxMixin` / `createSizedInputBoxMixin` — sizing
@@ -25,12 +26,12 @@ type RangeInputProps = BaseInputProps &
   SizedInputBoxMixinProps & {
     value: Accessor<number>;
     onChange: (value: number) => void;
-    min?: number;          // default 0
-    max?: number;          // default 100
-    step?: number;         // default 1
-    minLabel?: string;     // aria-valuemin label
-    maxLabel?: string;     // aria-valuemax label
-    showValue?: boolean;   // display current value
+    min?: number; // default 0
+    max?: number; // default 100
+    step?: number; // default 1
+    minLabel?: string; // aria-valuemin label
+    maxLabel?: string; // aria-valuemax label
+    showValue?: boolean; // display current value
   };
 ```
 

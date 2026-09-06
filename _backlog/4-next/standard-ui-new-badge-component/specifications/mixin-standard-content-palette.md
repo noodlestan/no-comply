@@ -17,7 +17,7 @@ template: `.agents/skills/write-no-comply-entity-task/no-comply-new-entity-spec-
 ## Example Usage (composable mixin or controller)
 
 ```tsx
-const { $root, palette } = createContentPaletteMixin({ palette: "color-1" });
+const { $root, palette } = createContentPaletteMixin({ palette: 'color-1' });
 // $root sets --__color-palette via set-palette SCSS mixin
 ```
 

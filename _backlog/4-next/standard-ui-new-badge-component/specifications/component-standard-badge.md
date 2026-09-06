@@ -18,7 +18,7 @@ Documentation pages need a "badges" component to display tags and labels with co
 
 ```tsx
 <Badge palette="color-1" size="medium">
-    {tag.name}
+  {tag.name}
 </Badge>
 ```
 

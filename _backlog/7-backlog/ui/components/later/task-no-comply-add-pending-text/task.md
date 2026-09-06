@@ -6,11 +6,11 @@
 
 ## Entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `PendingText` | Component | `standard-ui` | Wraps children/`resource()` in Suspense, falls back to `SkeletonText` |
-| `SkeletonText` | Component | `standard-ui` | Renders a gray static block matching typography dimensions |
-| `SkeletonTextMixin` | Mixin | `standard-ui` | CSS for skeleton: gray bg, rounded, pulse animation |
+| Entity              | Kind      | Package       | Responsibility                                                        |
+| ------------------- | --------- | ------------- | --------------------------------------------------------------------- |
+| `PendingText`       | Component | `standard-ui` | Wraps children/`resource()` in Suspense, falls back to `SkeletonText` |
+| `SkeletonText`      | Component | `standard-ui` | Renders a gray static block matching typography dimensions            |
+| `SkeletonTextMixin` | Mixin     | `standard-ui` | CSS for skeleton: gray bg, rounded, pulse animation                   |
 
 ## PendingText API
 
@@ -19,11 +19,11 @@ type PendingTextProps = {
   resource?: Resource<unknown>;
   children?: ComponentProps;
   // Forwarded to child typography component
-  as?: ComponentType;       // e.g. Text, Display, Label
+  as?: ComponentType; // e.g. Text, Display, Label
   size?: ContentSize;
   // Skeleton sizing
-  skeletonWidth?: string;   // e.g. '60%', '200px'
-  skeletonHeight?: string;  // overrides line-height default
+  skeletonWidth?: string; // e.g. '60%', '200px'
+  skeletonHeight?: string; // overrides line-height default
 };
 ```
 
@@ -33,7 +33,7 @@ type PendingTextProps = {
 type SkeletonTextProps = {
   width?: string;
   height?: string;
-  lines?: number;           // multi-line skeleton
+  lines?: number; // multi-line skeleton
   class?: string;
 };
 ```

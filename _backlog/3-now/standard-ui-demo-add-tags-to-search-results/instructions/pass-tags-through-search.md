@@ -39,6 +39,7 @@ Update `searchSymbolRecord()` function to pass `tags` from `SearchSymbolRecord` 
 3. Add `tags: record.tags` to the `symbolResult` object
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `$ROOT/libs/meta` to validate format and typecheck
 
 ## Final Verification

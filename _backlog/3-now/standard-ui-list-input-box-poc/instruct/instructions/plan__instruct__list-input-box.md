@@ -121,15 +121,8 @@ This is the main integration component. The architecture:
 - On Escape, the popover closes (native) and focus returns to trigger.
 
 ```tsx
-import {
-  createRovingIndex,
-  createListKeyboardController,
-} from '@no-comply/solid-composables';
-import {
-  combineProps,
-  computedProps,
-  createClassList,
-} from '@no-comply/solid-primitives';
+import { createRovingIndex, createListKeyboardController } from '@no-comply/solid-composables';
+import { combineProps, computedProps, createClassList } from '@no-comply/solid-primitives';
 import {
   AnchoredPopover,
   createInputBoxMixin,
@@ -198,12 +191,7 @@ export const ListInputBox: Component<ListInputBoxProps> = props => {
 
   const $root = computedProps({ classList });
 
-  const $ = combineProps(
-    $inputBoxRoot,
-    $inputStateRoot,
-    $sizedRoot,
-    $root,
-  );
+  const $ = combineProps($inputBoxRoot, $inputStateRoot, $sizedRoot, $root);
 
   const handleTriggerClick = () => {
     if (props.disabled) return;
@@ -244,11 +232,7 @@ export const ListInputBox: Component<ListInputBoxProps> = props => {
       onHide={handleHide}
     >
       {({ $content }) => (
-        <div
-          {...$content}
-          {...keyboard.$root}
-          role="listbox"
-        >
+        <div {...$content} {...keyboard.$root} role="listbox">
           <For each={props.items()}>
             {(key, index) => {
               const isSelected = key === selectedKey();
@@ -287,6 +271,7 @@ export const ListInputBox: Component<ListInputBoxProps> = props => {
 5. The `createRovingIndex` initial index is computed from the current selected value.
 
 **Potential issues to watch for:**
+
 - `AnchoredPopover`'s trigger render prop provides `$trigger` which includes `popoverTarget` and `aria-expanded`. We add `onClick` and `disabled` on top.
 - The popover content receives `$content` (id, aria-labelledby). We add `role="listbox"` and the keyboard `onKeyDown` handler.
 - There may be event conflicts between `AnchoredPopover`'s built-in toggle and our manual `onClick`/`onShow`/`onHide` — this is part of what the POC validates.
@@ -320,6 +305,7 @@ export * from './types';
 ```
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/standard-ui`.
 - Execute `npm run build` in `no-comply/libs/standard-ui`.
 
@@ -334,6 +320,7 @@ export * from './ListInputBox';
 Must follow the existing `// @index` pattern. Also ensure `ListInputBoxItem` is exported (from the previous commit).
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/standard-ui`.
 - Execute `npm run build` in `no-comply/libs/standard-ui`.
 
@@ -343,6 +330,7 @@ Must follow the existing `// @index` pattern. Also ensure `ListInputBoxItem` is 
 Verify that `ListInputBox` renders with a trigger button showing the selected item label, that clicking the trigger opens the popover, and that arrow keys navigate between items. Confirm that Enter selects an item and closes the popover.
 
 **Verification steps**
+
 1. Execute `npm run build` in `no-comply/libs/standard-ui`.
 2. Execute `npm run lint` in `no-comply/libs/standard-ui`.
 3. Confirm that imports from `@no-comply/standard-ui` resolve correctly for `ListInputBoxItem` and `AnchoredPopover`.

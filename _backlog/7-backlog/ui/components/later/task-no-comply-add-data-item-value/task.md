@@ -13,6 +13,7 @@ Status: prototypes exist — need completion (API alignment, styling)
 ## Dependencies
 
 Composes existing:
+
 - `LayoutMixin` — padding/arrangement
 - `Typography` components — label/value rendering
 - (optional) `createDataValue` controller for formatting
@@ -24,7 +25,7 @@ Composes existing:
 type DataItemProps = LayoutMixinProps & {
   label: string;
   orientation?: 'horizontal' | 'vertical';
-  children: ComponentProps;       // the DataValue or custom content
+  children: ComponentProps; // the DataValue or custom content
 };
 
 // DataValue — formatted value display
@@ -32,7 +33,7 @@ type DataValueProps = {
   value: Accessor<unknown>;
   format?: 'text' | 'number' | 'date' | 'code';
   locale?: string;
-  placeholder?: string;           // shown when value is null/undefined
+  placeholder?: string; // shown when value is null/undefined
   size?: ContentSize;
 };
 ```

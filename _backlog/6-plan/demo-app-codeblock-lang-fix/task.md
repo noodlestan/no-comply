@@ -27,14 +27,14 @@ As a reader of the Standard UI demo docs, I need code blocks to render with the 
 - That source should define language attributes such as `purrception-lang-id` and `LanguageName`.
 
 - `source-code/libs/purrception-lang-ts/src/constants.ts` currently defines:
-    - `PurrceptionLanguageId = '@purrception/lang-ts'`
-    - `LanguageName = 'Typescript'`
+  - `PurrceptionLanguageId = '@purrception/lang-ts'`
+  - `LanguageName = 'Typescript'`
 
 - RESEARCH: what are the language identifiers in systems such as vscode, prettier, shiki (what other 2 cross language project can we consider here) - check for commonalities
 - DECISIONS:
-    - can we assume a unique LangID?
-    - should we key everything by purrceptionLangId and then map to the plataform lang ids, or adopt a "common ground" as the key
-    - should we add an aliases member to the language object (as in "also known as")
+  - can we assume a unique LangID?
+  - should we key everything by purrceptionLangId and then map to the plataform lang ids, or adopt a "common ground" as the key
+  - should we add an aliases member to the language object (as in "also known as")
 
 This will be exported, typically as constant (same constant name in every lang package, but also re-exported with the lang id name prefix (or sufixed)) e.g.:
 

@@ -7,13 +7,13 @@
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `composed` — builds on existing Divider + AriaSeparator infrastructure |
-| Structure | `standalone` — single component, optional compound with panel containers |
-| State | `stateful` / `interactive` — owns drag state, responds to pointer events |
-| Visibility | `public` — exported component |
-| Package | `standard-ui` (component) + `solid-composables` (controller) |
+| Aspect     | Value                                                                    |
+| ---------- | ------------------------------------------------------------------------ |
+| Type       | `composed` — builds on existing Divider + AriaSeparator infrastructure   |
+| Structure  | `standalone` — single component, optional compound with panel containers |
+| State      | `stateful` / `interactive` — owns drag state, responds to pointer events |
+| Visibility | `public` — exported component                                            |
+| Package    | `standard-ui` (component) + `solid-composables` (controller)             |
 
 ---
 
@@ -39,20 +39,20 @@ AriaSeparator (solid-accessibility)  ← role="separator", aria-orientation
 
 ### Dependencies
 
-| Dependency | Package | Role |
-|---|---|---|
-| `createAriaSeparator` | `@no-comply/solid-accessibility` | ARIA `separator` role, orientation |
-| `createDividerMixin` (headless) | `@no-comply/solid-composables` | Base data attributes |
-| `createDividerMixin` (themed) | `standard-ui` | Variant + length styling |
-| `createPanelResizer` **(NEW)** | `solid-composables` | Drag resize logic |
+| Dependency                      | Package                          | Role                               |
+| ------------------------------- | -------------------------------- | ---------------------------------- |
+| `createAriaSeparator`           | `@no-comply/solid-accessibility` | ARIA `separator` role, orientation |
+| `createDividerMixin` (headless) | `@no-comply/solid-composables`   | Base data attributes               |
+| `createDividerMixin` (themed)   | `standard-ui`                    | Variant + length styling           |
+| `createPanelResizer` **(NEW)**  | `solid-composables`              | Drag resize logic                  |
 
 #### Props shape (provisional)
 
 ```tsx
 type InteractiveDividerProps = {
   // Divider props
-  variant?: DividerVariant;        // 'base' | 'strong' | 'muted' | 'alt'
-  length?: DividerLengthProp;      // number | 'short' | 'medium' | 'long' | 'full'
+  variant?: DividerVariant; // 'base' | 'strong' | 'muted' | 'alt'
+  length?: DividerLengthProp; // number | 'short' | 'medium' | 'long' | 'full'
   orientation?: 'horizontal' | 'vertical';
 
   // Interactive props
@@ -96,11 +96,11 @@ type InteractiveDividerProps = {
 
 ### Proposed entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `createPanelResizer` | Controller | `solid-composables` | Pointer tracking, delta calculation, keyboard step resize, constraints |
-| `InteractiveDividerMixin` | Mixin | `standard-ui` | Themed styles for interactive states |
-| `InteractiveDivider` | Component | `standard-ui` | Composes resizer + divider mixins, renders themed element |
+| Entity                    | Kind       | Package             | Responsibility                                                         |
+| ------------------------- | ---------- | ------------------- | ---------------------------------------------------------------------- |
+| `createPanelResizer`      | Controller | `solid-composables` | Pointer tracking, delta calculation, keyboard step resize, constraints |
+| `InteractiveDividerMixin` | Mixin      | `standard-ui`       | Themed styles for interactive states                                   |
+| `InteractiveDivider`      | Component  | `standard-ui`       | Composes resizer + divider mixins, renders themed element              |
 
 ### Potential abstractions to solid-composables
 
@@ -112,13 +112,13 @@ type InteractiveDividerProps = {
 
 ## Deduplication
 
-| Candidate | Match | Action |
-|---|---|---|
-| `createAriaSeparator` (solid-accessibility) | Full match for separator role | Compose directly |
-| `createDividerMixin` (solid-composables) | Full match for headless divider | Compose directly |
-| `createDividerMixin` (standard-ui) | Full match for themed styling | Compose directly |
-| `Divider` (standard-ui) | Reference — visual-only, not interactive | Build upon its mixins |
-| Drag/resize logic in codebase | **None found** | New entity |
+| Candidate                                   | Match                                    | Action                |
+| ------------------------------------------- | ---------------------------------------- | --------------------- |
+| `createAriaSeparator` (solid-accessibility) | Full match for separator role            | Compose directly      |
+| `createDividerMixin` (solid-composables)    | Full match for headless divider          | Compose directly      |
+| `createDividerMixin` (standard-ui)          | Full match for themed styling            | Compose directly      |
+| `Divider` (standard-ui)                     | Reference — visual-only, not interactive | Build upon its mixins |
+| Drag/resize logic in codebase               | **None found**                           | New entity            |
 
 ---
 

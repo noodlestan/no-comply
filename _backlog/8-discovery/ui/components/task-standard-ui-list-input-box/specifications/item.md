@@ -15,10 +15,7 @@ Each option item in the ListInputBox needs ARIA option role attributes, press/ke
 ## Example Usage
 
 ```tsx
-<ListInputBoxItem
-  selected={isSelected()}
-  onPress={handleSelect}
->
+<ListInputBoxItem selected={isSelected()} onPress={handleSelect}>
   {getLabel(key)}
 </ListInputBoxItem>
 ```
@@ -39,6 +36,7 @@ Render a single option item within the ListInputBox list. Compose ARIA option at
 ## Composes
 
 Confirmed:
+
 - `createPressable` — click/Enter/Space press handling
 - `createListInputBoxItemMixin` — item styling classes (selected, focused)
 - `_option` API from `createAriaListbox` — role `option`, `aria-selected`, `aria-posinset`, `aria-setsize`

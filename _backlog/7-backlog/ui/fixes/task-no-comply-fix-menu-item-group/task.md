@@ -10,6 +10,7 @@
 **Scope:** Standard-ui `menu/components/MenuItem*` + `menu/mixins/MenuItem*`
 
 **Acceptance criteria:**
+
 - Primary variant has visible hover state (bg or border change)
 - Action variant cannot be combined with primary
 - Descriptions render with muted typography and text overflow

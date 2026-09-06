@@ -30,4 +30,3 @@ As a reader of rendered code examples, I need code blocks to use the language al
 - The app-level `CodeBlock` no longer accepts the removed `lang` prop.
 - All upstream app invocations stop passing the old language prop shape.
 - `CodeBlock` resolves language data from `usePurrtraitProvider()`.
-

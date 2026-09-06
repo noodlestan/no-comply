@@ -16,7 +16,7 @@ The ListInputBox needs a styled container that reflects its open/closed state an
 
 ```tsx
 const { $root } = createListInputBoxMixin({ open: isOpen() });
-<div {...combineProps($root, otherRoot)}>...</div>
+<div {...combineProps($root, otherRoot)}>...</div>;
 ```
 
 ## Identity

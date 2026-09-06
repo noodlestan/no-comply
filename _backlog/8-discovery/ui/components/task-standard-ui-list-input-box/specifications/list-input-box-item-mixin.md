@@ -16,7 +16,7 @@ Each option item in the ListInputBox needs styled visual states: selected, focus
 
 ```tsx
 const { $root } = createListInputBoxItemMixin({ selected: isSelected(), focused: isFocused() });
-<div {...combineProps($root, pressable.$root)}>...</div>
+<div {...combineProps($root, pressable.$root)}>...</div>;
 ```
 
 ## Identity

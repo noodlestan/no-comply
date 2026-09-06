@@ -16,20 +16,20 @@ As a developer using the responsive OverflowItems component, I need the popup tr
 ## Unrefined plan
 
 - **Fix double-render problem**: Memoize children to avoid creating fresh VNodes twice (measure + render containers)
-    - Add `const c = children(() => props.children);`
-    - Use `c()` in measure container: `<OverflowItemsMeasureProvider>{c()}</OverflowItemsMeasureProvider>`
-    - Keep `{props.children}` in render container (or use `c()` - verify behavior)
+  - Add `const c = children(() => props.children);`
+  - Use `c()` in measure container: `<OverflowItemsMeasureProvider>{c()}</OverflowItemsMeasureProvider>`
+  - Keep `{props.children}` in render container (or use `c()` - verify behavior)
 - **Remove dead extraction**: Remove `'children'` from the `splitProps` destructure:
-    ```tsx
-    const [locals, $others] = splitProps(props, OVERFLOW_ITEMS_PROPS);
-    ```
+  ```tsx
+  const [locals, $others] = splitProps(props, OVERFLOW_ITEMS_PROPS);
+  ```
 - The component uses two sibling containers:
-    1. **Measure container** (`<div inert ...$measure>`) - hidden, detects overflow via `scrollWidth > clientWidth`
-    2. **Render container** (`<div ...$render>`) - visible, what users see
+  1. **Measure container** (`<div inert ...$measure>`) - hidden, detects overflow via `scrollWidth > clientWidth`
+  2. **Render container** (`<div ...$render>`) - visible, what users see
 - On resize (via `ResizeObserver`), `createOverflowItems` runs a test loop:
-    - Measures if content overflows the measure container
-    - If overflowing, pops one item from `testVisibleItems` → `testOverflowItems`, re-measures after 100ms timeout
-    - When no more overflow, commits via `finishTest()` → copies test signals to live signals
+  - Measures if content overflows the measure container
+  - If overflowing, pops one item from `testVisibleItems` → `testOverflowItems`, re-measures after 100ms timeout
+  - When no more overflow, commits via `finishTest()` → copies test signals to live signals
 - `OverflowItemsContent` and `OverflowItemsToggle` consume the context to render visible items vs overflow toggle
 
 ### Cannot memoize at the container level

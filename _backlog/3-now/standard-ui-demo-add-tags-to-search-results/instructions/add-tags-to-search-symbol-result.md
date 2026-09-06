@@ -40,6 +40,7 @@ Add `tags` field to `SearchSymbolResult` type to enable tags to be passed throug
 3. Ensure `DocsTags` is imported from `@purrception/primitives`
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `$ROOT/libs/meta` to validate format and typecheck
 
 ## Final Verification

@@ -19,9 +19,9 @@ Replace native `<select>` with a custom-renderable listbox that integrates with 
   items={keys()}
   value={selectedKey()}
   onValueChange={setSelectedKey}
-  selectedItem={({key}) => <ListInputBoxItem>{getLabel(key)}</ListInputBoxItem>}
+  selectedItem={({ key }) => <ListInputBoxItem>{getLabel(key)}</ListInputBoxItem>}
 >
-  {({key}) => <ListInputBoxItem>{getLabel(key)}</ListInputBoxItem>}
+  {({ key }) => <ListInputBoxItem>{getLabel(key)}</ListInputBoxItem>}
 </ListInputBox>
 ```
 
@@ -37,6 +37,7 @@ Id: `component:standard-ui:list-input-box`
 ## Responsibility
 
 Render a listbox selection control with:
+
 - A trigger that shows the selected item (via `selectedItem` render prop)
 - A popover panel containing the list of options
 - Keyboard navigation (arrow keys, home, end, enter, space)
@@ -46,6 +47,7 @@ Render a listbox selection control with:
 ## Composes
 
 Confirmed:
+
 - `createPopover` — for the dropdown panel (open/close, focus-out dismiss)
 - `createAriaListbox` — for ARIA listbox/option attributes on container and items
 - `createListKeyboardController` — keyboard navigation (which composes `createRovingIndex`)
@@ -55,6 +57,7 @@ Confirmed:
 - `createSizedInputBoxMixin` — size variant styling
 
 Unrefined:
+
 - Value controller: `createTextInputValue` may need adaptation for listbox-style value management
 - `createContentLengthMixin` — may or may not be needed
 

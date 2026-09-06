@@ -14,13 +14,13 @@ Status: new entities — thin wrappers around Flex/Layout with opinionated defau
 
 ## Each component
 
-| Component | Defaults | Renders |
-|---|---|---|
-| `<Column>` | `flex-direction: column`, `justify: start`, `align: start` | `<Flex>` |
-| `<Stack>` | `flex-direction: column`, `justify: start`, `align: stretch` | `<Flex>` |
-| `<Row>` | `flex-direction: row`, `justify: start`, `align: start` | `<Flex>` |
-| `<Bar>` | `flex-direction: row`, `justify: between`, `align: center` | `<Flex>` |
-| `<Centered>` | `flex-direction: row`, `justify: center`, `align: center` | `<Flex>` |
+| Component    | Defaults                                                     | Renders  |
+| ------------ | ------------------------------------------------------------ | -------- |
+| `<Column>`   | `flex-direction: column`, `justify: start`, `align: start`   | `<Flex>` |
+| `<Stack>`    | `flex-direction: column`, `justify: start`, `align: stretch` | `<Flex>` |
+| `<Row>`      | `flex-direction: row`, `justify: start`, `align: start`      | `<Flex>` |
+| `<Bar>`      | `flex-direction: row`, `justify: between`, `align: center`   | `<Flex>` |
+| `<Centered>` | `flex-direction: row`, `justify: center`, `align: center`    | `<Flex>` |
 
 All accept standard `FlexProps` — defaults can be overridden.
 
@@ -28,10 +28,10 @@ All accept standard `FlexProps` — defaults can be overridden.
 
 ```tsx
 // All share FlexProps — no new props
-type ColumnProps = FlexProps;   // defaults: direction=column, justify=start, align=start
-type StackProps = FlexProps;    // defaults: direction=column, justify=start, align=stretch
-type RowProps = FlexProps;      // defaults: direction=row, justify=start, align=start
-type BarProps = FlexProps;      // defaults: direction=row, justify=space-between, align=center
+type ColumnProps = FlexProps; // defaults: direction=column, justify=start, align=start
+type StackProps = FlexProps; // defaults: direction=column, justify=start, align=stretch
+type RowProps = FlexProps; // defaults: direction=row, justify=start, align=start
+type BarProps = FlexProps; // defaults: direction=row, justify=space-between, align=center
 type CenteredProps = FlexProps; // defaults: direction=row, justify=center, align=center
 ```
 

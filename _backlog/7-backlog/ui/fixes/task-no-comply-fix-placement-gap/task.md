@@ -5,6 +5,7 @@
 **Scope:** `solid-composables/src/placement/`
 
 **Acceptance criteria:**
+
 - Placement accepts `gap?: number` prop (default 0)
 - Floating element is offset by `gap` pixels from reference
 - Works for all placement directions (top, bottom, left, right, and variations)

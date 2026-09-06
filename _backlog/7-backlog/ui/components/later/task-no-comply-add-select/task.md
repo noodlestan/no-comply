@@ -13,6 +13,7 @@ Status: exists — needs completion (keyboard, ARIA, value binding verified)
 ## Dependencies
 
 Composes existing:
+
 - `createBaseInput` — root props, id
 - `createOptionGroupInput` (solid-composables) — value/option state
 - `createInputBoxMixin` — box styling
@@ -30,7 +31,7 @@ type SelectProps = BaseInputProps &
     onChange: (value: string) => void;
     options: SelectOption[];
     placeholder?: string;
-    native?: boolean;           // use <select> instead of custom
+    native?: boolean; // use <select> instead of custom
   };
 ```
 

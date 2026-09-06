@@ -101,9 +101,9 @@ console.log(roving.index()); // 0
 const roving = createRovingIndex({ items });
 const keyboard = createListKeyboardController({
   roving,
-  onSelect: (i) => console.log('selected', i),
+  onSelect: i => console.log('selected', i),
 });
-<div {...keyboard.$root}>...</div>
+<div {...keyboard.$root}>...</div>;
 ```
 
 ---
@@ -152,9 +152,9 @@ const keyboard = createListKeyboardController({
   items={keys()}
   value={selectedKey()}
   onValueChange={setSelectedKey}
-  selectedItem={({key}) => <span>{labels[key]}</span>}
+  selectedItem={({ key }) => <span>{labels[key]}</span>}
 >
-  {({key}) => <div>{labels[key]}</div>}
+  {({ key }) => <div>{labels[key]}</div>}
 </ListInputBox>
 ```
 

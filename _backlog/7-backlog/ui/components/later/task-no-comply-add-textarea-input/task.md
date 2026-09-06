@@ -14,12 +14,12 @@
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `composed` — mirrors TextInput composition, same mixin stack |
-| Structure | `standalone` — single component |
-| State | `stateful` / `interactive` — owns input value state, responds to user input |
-| Visibility | `public` — exported input component |
+| Aspect     | Value                                                                       |
+| ---------- | --------------------------------------------------------------------------- |
+| Type       | `composed` — mirrors TextInput composition, same mixin stack                |
+| Structure  | `standalone` — single component                                             |
+| State      | `stateful` / `interactive` — owns input value state, responds to user input |
+| Visibility | `public` — exported input component                                         |
 
 ---
 
@@ -49,14 +49,14 @@ createBaseInput(props)
 
 ### Dependencies
 
-| Dependency | Package | Role |
-|---|---|---|
-| `createBaseInput` | `@no-comply/solid-composables` | Base input id, root props |
-| `createTextInputValue` | `@no-comply/solid-composables` | Value state, change handling |
-| `createInputBoxMixin` | `standard-ui` mixins | Box styling (reuse) |
-| `createInputStateMixin` | `standard-ui` mixins | disabled/invalid state (reuse) |
-| `createSizedInputBoxMixin` | `standard-ui` mixins | Size prop (reuse) |
-| `createContentLengthMixin` | `standard-ui` content | Character count (reuse) |
+| Dependency                 | Package                        | Role                           |
+| -------------------------- | ------------------------------ | ------------------------------ |
+| `createBaseInput`          | `@no-comply/solid-composables` | Base input id, root props      |
+| `createTextInputValue`     | `@no-comply/solid-composables` | Value state, change handling   |
+| `createInputBoxMixin`      | `standard-ui` mixins           | Box styling (reuse)            |
+| `createInputStateMixin`    | `standard-ui` mixins           | disabled/invalid state (reuse) |
+| `createSizedInputBoxMixin` | `standard-ui` mixins           | Size prop (reuse)              |
+| `createContentLengthMixin` | `standard-ui` content          | Character count (reuse)        |
 
 #### Props shape (provisional — mirrors TextInput + textarea additions)
 
@@ -72,8 +72,8 @@ type TextareaInputProps = BaseInputProps &
     resize?: 'none' | 'both' | 'horizontal' | 'vertical';
     wrap?: 'hard' | 'soft' | 'off';
     maxLength?: number;
-    showCharacterCount?: boolean;     // display remaining chars
-    autoResize?: boolean;             // grow with content
+    showCharacterCount?: boolean; // display remaining chars
+    autoResize?: boolean; // grow with content
   };
 ```
 
@@ -125,15 +125,16 @@ const TextareaInput: Component<TextareaInputProps> = props => {
 
 ### Proposed entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `TextareaInput` | Component | `standard-ui` | Thin component, renders `<textarea>` |
-| `createTextareaInput` | Composable | `standard-ui` | Factory — same mixin stack as TextInput |
+| Entity                       | Kind       | Package             | Responsibility                                              |
+| ---------------------------- | ---------- | ------------------- | ----------------------------------------------------------- |
+| `TextareaInput`              | Component  | `standard-ui`       | Thin component, renders `<textarea>`                        |
+| `createTextareaInput`        | Composable | `standard-ui`       | Factory — same mixin stack as TextInput                     |
 | `TextareaValueMixin` (maybe) | Controller | `solid-composables` | If textarea-specific value logic emerges (e.g., autoResize) |
 
 ### Key difference from TextInput
 
 TextInput and TextareaInput share the **entire mixin stack**. The only structural difference is:
+
 - `TextInput.tsx` → `<input {...$} />`
 - `TextareaInput.tsx` → `<textarea {...$} />`
 
@@ -143,11 +144,11 @@ This means the composable factory (`createTextInput` → `createTextareaInput`) 
 
 ## Deduplication
 
-| Candidate | Match | Action |
-|---|---|---|
-| `createTextInput` | High — same shape, different render element | Reference architecture directly |
-| `createTextInputValue` | Full match for value state | Compose directly |
-| All input mixins | Full match for styling | Compose directly |
+| Candidate              | Match                                       | Action                          |
+| ---------------------- | ------------------------------------------- | ------------------------------- |
+| `createTextInput`      | High — same shape, different render element | Reference architecture directly |
+| `createTextInputValue` | Full match for value state                  | Compose directly                |
+| All input mixins       | Full match for styling                      | Compose directly                |
 
 ---
 

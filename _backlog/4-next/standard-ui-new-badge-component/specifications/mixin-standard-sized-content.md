@@ -18,9 +18,9 @@ template: `.agents/skills/write-no-comply-entity-task/no-comply-new-entity-spec-
 
 ```tsx
 const sizedContentProps = computedProps({
-    size,
-    scale: () => "down",
-    alignFirstLine: () => true,
+  size,
+  scale: () => 'down',
+  alignFirstLine: () => true,
 });
 const { $root, size, scale } = createSizedContentMixin(sizedContentProps);
 ```

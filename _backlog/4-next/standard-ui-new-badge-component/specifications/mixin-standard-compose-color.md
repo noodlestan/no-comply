@@ -18,8 +18,8 @@ template: `.agents/skills/write-no-comply-entity-task/no-comply-new-entity-spec-
 
 ```tsx
 const { $root } = createComposeColorMixin({
-    foreground: true,
-    background: true,
+  foreground: true,
+  background: true,
 });
 ```
 

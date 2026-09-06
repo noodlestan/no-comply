@@ -17,8 +17,8 @@ A signal-based roving tabindex controller is needed because the existing `create
 ```tsx
 const items = () => ['a', 'b', 'c'];
 const roving = createRovingIndex({ items, loop: true });
-roving.focusNext();   // index() → 0
-roving.focusLast();   // index() → 2
+roving.focusNext(); // index() → 0
+roving.focusLast(); // index() → 2
 ```
 
 ## Identity

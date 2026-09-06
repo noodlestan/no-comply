@@ -67,6 +67,7 @@ export type SignupData = {
 ```
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/apps/standard-ui-demo`.
 - Execute `npm run build` in `no-comply/apps/standard-ui-demo`.
 
@@ -85,11 +86,13 @@ Add the `ListInputBox` field for referral source. The changes are:
 Here is the key integration snippet:
 
 **Import addition:**
+
 ```typescript
 import { Button, Callout, Flex, Form, ListInputBox } from '@no-comply/standard-ui';
 ```
 
 **Constant (inside component or module scope):**
+
 ```typescript
 const REFERRAL_SOURCES = [
   'Search engine',
@@ -101,6 +104,7 @@ const REFERRAL_SOURCES = [
 ```
 
 **Handler:**
+
 ```typescript
 const handleReferralSourceChange = (value: string) =>
   setSignupData(prev => ({
@@ -110,6 +114,7 @@ const handleReferralSourceChange = (value: string) =>
 ```
 
 **Field JSX (add after the username field, before the password fields):**
+
 ```tsx
 <ListInputBox
   items={() => REFERRAL_SOURCES}
@@ -178,10 +183,7 @@ export const SignupForm: Component<Props> = props => {
         <Flex direction="column" gap="l">
           <Button onPress={handleCancel}>close</Button>
           <Flex direction="column" gap="m">
-            <CreateUsernameField
-              value={signupData().email}
-              onValueChange={handleUsernameChange}
-            />
+            <CreateUsernameField value={signupData().email} onValueChange={handleUsernameChange} />
 
             {/* New ListInputBox field */}
             <ListInputBox
@@ -197,10 +199,7 @@ export const SignupForm: Component<Props> = props => {
               value={signupData().password}
               onValueChange={handlePasswordChange}
             />
-            <ConfirmPasswordField
-              value={confirmPassword()}
-              onValueChange={setConfirmPassword}
-            />
+            <ConfirmPasswordField value={confirmPassword()} onValueChange={setConfirmPassword} />
           </Flex>
           <Flex direction="column" gap="m">
             <Button {...form.$submitButton}>Submit</Button>
@@ -220,6 +219,7 @@ export const SignupForm: Component<Props> = props => {
 ```
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/apps/standard-ui-demo`.
 - Execute `npm run build` in `no-comply/apps/standard-ui-demo`.
 
@@ -229,6 +229,7 @@ export const SignupForm: Component<Props> = props => {
 Verify that the `SignupForm` compiles and renders with the new `ListInputBox` field. Confirm that the referral source value is included in the submitted `SignupData` object.
 
 **Verification steps**
+
 1. Execute `npm run build` in `no-comply/apps/standard-ui-demo`.
 2. Execute `npm run lint` in `no-comply/apps/standard-ui-demo`.
 3. Verify the full flow mentally: user opens SignupForm → clicks on ListInputBox → popover opens with referral sources → navigates with arrows → selects an option → popover closes → value is set in signal → submits form.

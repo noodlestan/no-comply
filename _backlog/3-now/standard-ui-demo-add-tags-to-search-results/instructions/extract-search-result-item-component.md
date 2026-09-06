@@ -54,6 +54,7 @@ Extract the for loop content in `ApiSearchResultsEntry.tsx` to a new `ApiSearchR
 2. Add export for `ApiSearchResultItem` if needed
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `$PROJECT` to validate format and typecheck
 
 ## Final Verification

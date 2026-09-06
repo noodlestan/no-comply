@@ -30,7 +30,12 @@ SolidJS layered library ecosystem spanning foundational types, accessibility pri
 
 ## Development
 
-Make sure you read the [root README](../README.md) first.
+### Scripts
+
+- **$** `npm run turbo build` — Build all packages.
+- **$** `npm run turbo test` — Run tests in all packages.
+- **$** `npm run turbo lint` — Lint all packages (Prettier + ESLint).
+- **$** `npm run ci` — Run all CI scripts in all packages.
 
 ## License
 

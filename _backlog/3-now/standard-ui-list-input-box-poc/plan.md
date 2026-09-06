@@ -21,9 +21,9 @@ Build a keyboard-driven ListInputBox POC in standard-ui, validating the two-part
 **Report:** `plan__report__roving-index.md`
 
 - Add `controller:composable:roving-index` to `solid-composables/src/navigation/controllers/RovingIndex/`
-    - `types.ts` — `RovingIndexProps`, `RovingIndexAPI`
-    - `createRovingIndex.ts` — signal-based roving index with reactive bounds tracking via `items` accessor
-    - `index.ts` — barrel export
+  - `types.ts` — `RovingIndexProps`, `RovingIndexAPI`
+  - `createRovingIndex.ts` — signal-based roving index with reactive bounds tracking via `items` accessor
+  - `index.ts` — barrel export
 - Wire into `solid-composables/src/navigation/controllers/index.ts`
 - API: `index`, `focusNext`, `focusPrev`, `focusFirst`, `focusLast`, `focusIndex`
 - Props: `items: Accessor<unknown[]>`, `loop?: boolean` (default true), `initialIndex?: number` (default 0)
@@ -46,9 +46,9 @@ Evidence:
 **Report:** `plan__report__list-keyboard.md`
 
 - Add `controller:composable:list-keyboard` to `solid-composables/src/navigation/controllers/ListKeyboard/`
-    - `types.ts` — `ListKeyboardProps`, `ListKeyboardAPI`
-    - `createListKeyboardController.ts` — consumes `createRovingIndex` instance, maps ArrowUp/ArrowDown/Home/End, exposes `$root.onKeyDown`
-    - `index.ts` — barrel export
+  - `types.ts` — `ListKeyboardProps`, `ListKeyboardAPI`
+  - `createListKeyboardController.ts` — consumes `createRovingIndex` instance, maps ArrowUp/ArrowDown/Home/End, exposes `$root.onKeyDown`
+  - `index.ts` — barrel export
 - Wire into `solid-composables/src/navigation/controllers/index.ts`
 - Props: `roving: ReturnType<typeof createRovingIndex>`, `onSelect?: (index: number) => void`, `onToggle?: (index: number) => void`
 - API: `$root: { onKeyDown }`, delegates `index`, `focusNext`, `focusPrev`, `focusFirst`, `focusLast`, `focusIndex`
@@ -73,10 +73,10 @@ Evidence:
 **Report:** `plan__report__list-input-box-item.md`
 
 - Add `component:standard-ui:list-input-box-item` to `standard-ui/src/input/components/ListInputBoxItem/`
-    - `types.ts` — `ListInputBoxItemProps`
-    - `ListInputBoxItem.tsx` — composes `createPressable`, renders with ARIA option attributes (`role="option"`, `aria-selected`, `aria-posinset`, `aria-setsize`), tabindex handling for roving pattern
-    - `ListInputBoxItem.module.scss` — base styles
-    - `index.ts` — barrel export
+  - `types.ts` — `ListInputBoxItemProps`
+  - `ListInputBoxItem.tsx` — composes `createPressable`, renders with ARIA option attributes (`role="option"`, `aria-selected`, `aria-posinset`, `aria-setsize`), tabindex handling for roving pattern
+  - `ListInputBoxItem.module.scss` — base styles
+  - `index.ts` — barrel export
 - Wire into `standard-ui/src/input/components/index.ts`
 - Props: `children: JSX.Element`, `selected?: boolean`, `onPress?: (ev: Event) => void`
 - Key design decision: hardcode ARIA attributes since `createAriaListbox` doesn't exist yet; pressable handles Enter/Space locally
@@ -99,17 +99,17 @@ Evidence:
 **Report:** `plan__report__list-input-box.md`
 
 - Add `component:standard-ui:list-input-box` to `standard-ui/src/input/components/ListInputBox/`
-    - `types.ts` — `ListInputBoxProps`, `ListInputBoxAPI`
-    - `ListInputBox.tsx` — integrates all pieces:
-        - `createRovingIndex` + `createListKeyboardController` for navigation
-        - `AnchoredPopover` for dropdown panel (combobox-style placement: below, left-aligned)
-        - Render props: `children({ key })` for item rendering, `selectedItem({ key })` for trigger display
-        - Mixins: `createInputBoxMixin`, `createInputStateMixin`, `createSizedInputBoxMixin`
-        - Internal `createSignal` for value management (simplest approach first)
-        - Keyboard UX: Enter opens popover, Arrow keys navigate, Enter confirms & closes, Escape dismisses & reverts
-        - Focus management: on popover open, focus selected item (or first); on close, return focus to trigger
-    - `ListInputBox.module.scss` — base styles
-    - `index.ts` — barrel export
+  - `types.ts` — `ListInputBoxProps`, `ListInputBoxAPI`
+  - `ListInputBox.tsx` — integrates all pieces:
+    - `createRovingIndex` + `createListKeyboardController` for navigation
+    - `AnchoredPopover` for dropdown panel (combobox-style placement: below, left-aligned)
+    - Render props: `children({ key })` for item rendering, `selectedItem({ key })` for trigger display
+    - Mixins: `createInputBoxMixin`, `createInputStateMixin`, `createSizedInputBoxMixin`
+    - Internal `createSignal` for value management (simplest approach first)
+    - Keyboard UX: Enter opens popover, Arrow keys navigate, Enter confirms & closes, Escape dismisses & reverts
+    - Focus management: on popover open, focus selected item (or first); on close, return focus to trigger
+  - `ListInputBox.module.scss` — base styles
+  - `index.ts` — barrel export
 - Wire into `standard-ui/src/input/components/index.ts`
 - Props: `items: Accessor<string[]>`, `value?: Accessor<string | undefined>`, `onValueChange: (key: string) => void`, `children: (props: { key: string }) => JSX.Element`, `selectedItem?: (props: { key: string }) => JSX.Element`, `size?: ContentSize`, `disabled?: boolean`, `invalid?: boolean`, `onShow?: () => void`, `onHide?: () => void`
 
@@ -132,11 +132,11 @@ Evidence:
 **Report:** `plan__report__demo-signup-integration.md`
 
 - Update `standard-ui-demo/src/app/screens/AppHomeScreen/forms/SignupForm/`:
-    - Import `ListInputBox` from `@no-comply/standard-ui`
-    - Add a list/select field (e.g. "How did you hear about us?" or similar) using `ListInputBox`
-    - Wire value state into `signupData` signal
-    - Add the field to the form layout
-    - Verify the full flow: open popover → navigate → select → confirm → close → submit
+  - Import `ListInputBox` from `@no-comply/standard-ui`
+  - Add a list/select field (e.g. "How did you hear about us?" or similar) using `ListInputBox`
+  - Wire value state into `signupData` signal
+  - Add the field to the form layout
+  - Verify the full flow: open popover → navigate → select → confirm → close → submit
 
 Evidence:
 

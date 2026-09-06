@@ -111,10 +111,18 @@ export const ListInputBoxItem: ParentComponent<ListInputBoxItemProps> = props =>
   };
 
   const $root = combineProps($pressableRoot, {
-    get tabIndex() { return merged.tabIndex; },
-    get classList() { return classList; },
-    get 'aria-selected'() { return merged.selected; },
-    get role() { return 'option'; },
+    get tabIndex() {
+      return merged.tabIndex;
+    },
+    get classList() {
+      return classList;
+    },
+    get 'aria-selected'() {
+      return merged.selected;
+    },
+    get role() {
+      return 'option';
+    },
   });
 
   return <div {...$root}>{merged.children}</div>;
@@ -150,6 +158,7 @@ export * from './types';
 ```
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/standard-ui`.
 - Execute `npm run build` in `no-comply/libs/standard-ui`.
 
@@ -164,6 +173,7 @@ export * from './ListInputBoxItem';
 Must follow the existing `// @index` pattern.
 
 **Extra validation commands:**
+
 - Execute `npm run lint` in `no-comply/libs/standard-ui`.
 - Execute `npm run build` in `no-comply/libs/standard-ui`.
 
@@ -173,6 +183,7 @@ Must follow the existing `// @index` pattern.
 Verify that `ListInputBoxItem` renders a `div` with `role="option"`, that `createPressable` handles clicks and Enter/Space on the item, and that the component accepts `selected`, `tabIndex`, and `classList` props.
 
 **Verification steps**
+
 1. Execute `npm run build` in `no-comply/libs/standard-ui`.
 2. Execute `npm run lint` in `no-comply/libs/standard-ui`.
 3. Execute `npm run ci` in the monorepo root (if available).

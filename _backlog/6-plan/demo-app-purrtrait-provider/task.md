@@ -32,4 +32,3 @@ As the demo app bootstraps rendering services, I need a provider that resolves p
 - The app is wrapped with the provider.
 - `usePurrtraitProvider()` is usable from the Components screen test case.
 - `getPurrceptionLang('')` is available through the provider context.
-

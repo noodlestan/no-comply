@@ -7,13 +7,13 @@
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `composed` — built by composing ARIA controllers, selection state, and themed mixins |
-| Structure | `compound` — two components (`RadioGroup` + `RadioGroupItem`) designed to be used together |
-| State | `stateful` / `interactive` — owns selection state, responds to keyboard and pointer input |
-| Visibility | `public` — exported and documented for external use |
-| Package | `standard-ui` (components) + `solid-composables` (controllers) + `solid-accessibility` (ARIA) |
+| Aspect     | Value                                                                                         |
+| ---------- | --------------------------------------------------------------------------------------------- |
+| Type       | `composed` — built by composing ARIA controllers, selection state, and themed mixins          |
+| Structure  | `compound` — two components (`RadioGroup` + `RadioGroupItem`) designed to be used together    |
+| State      | `stateful` / `interactive` — owns selection state, responds to keyboard and pointer input     |
+| Visibility | `public` — exported and documented for external use                                           |
+| Package    | `standard-ui` (components) + `solid-composables` (controllers) + `solid-accessibility` (ARIA) |
 
 ---
 
@@ -29,16 +29,16 @@
 
 #### Existing (can compose)
 
-| Dependency | Package | Role |
-|---|---|---|
-| `createAriaRadioGroup` | `@no-comply/solid-accessibility` | ARIA `radiogroup` role (fieldset), label/description |
-| `createAriaRadio` (new) | `@no-comply/solid-accessibility` | ARIA `radio` role, `aria-checked` — **NEEDS CREATION** |
-| `createOptionGroupInput` | `@no-comply/solid-composables` | Value selection state (existing in `input/controllers/OptionGroupInput`) |
-| `createPressable` | `@no-comply/solid-accessibility` | Pointer/keyboard interaction for items |
-| `createFocusableMixin` | `@no-comply/solid-composables` | Focus management |
-| `InputStateMixin` | `solid-composables` | `disabled`, `invalid` state |
-| `SizedInputBoxMixin` | `standard-ui` mixins | Sizing (match other inputs) |
-| `FieldLabel` | `standard-ui` | Label composition |
+| Dependency               | Package                          | Role                                                                     |
+| ------------------------ | -------------------------------- | ------------------------------------------------------------------------ |
+| `createAriaRadioGroup`   | `@no-comply/solid-accessibility` | ARIA `radiogroup` role (fieldset), label/description                     |
+| `createAriaRadio` (new)  | `@no-comply/solid-accessibility` | ARIA `radio` role, `aria-checked` — **NEEDS CREATION**                   |
+| `createOptionGroupInput` | `@no-comply/solid-composables`   | Value selection state (existing in `input/controllers/OptionGroupInput`) |
+| `createPressable`        | `@no-comply/solid-accessibility` | Pointer/keyboard interaction for items                                   |
+| `createFocusableMixin`   | `@no-comply/solid-composables`   | Focus management                                                         |
+| `InputStateMixin`        | `solid-composables`              | `disabled`, `invalid` state                                              |
+| `SizedInputBoxMixin`     | `standard-ui` mixins             | Sizing (match other inputs)                                              |
+| `FieldLabel`             | `standard-ui`                    | Label composition                                                        |
 
 #### Props shape (provisional)
 
@@ -85,15 +85,15 @@ type RadioGroupItemProps = {
 
 ### Proposed entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `createAriaRadio` | ARIA controller | `solid-accessibility` | ARIA `radio` role, `aria-checked`, `tabindex` coordination — **NEW** |
-| `createRadioGroup` | Controller | `solid-composables` | Selection state, keyboard navigation, wiring between group + items |
-| `createRadioGroupItem` | Controller | `solid-composables` | Item-level checked state, press handling |
-| `RadioGroupMixin` | Mixin | `standard-ui` | Themed styling for the group container |
-| `RadioGroupItemMixin` | Mixin | `standard-ui` | Themed styling for each item |
-| `RadioGroup` | Component | `standard-ui` | Renders `<fieldset>` with legend/label |
-| `RadioGroupItem` | Component | `standard-ui` | Renders `<label><input type="radio">` or custom styled radio |
+| Entity                 | Kind            | Package               | Responsibility                                                       |
+| ---------------------- | --------------- | --------------------- | -------------------------------------------------------------------- |
+| `createAriaRadio`      | ARIA controller | `solid-accessibility` | ARIA `radio` role, `aria-checked`, `tabindex` coordination — **NEW** |
+| `createRadioGroup`     | Controller      | `solid-composables`   | Selection state, keyboard navigation, wiring between group + items   |
+| `createRadioGroupItem` | Controller      | `solid-composables`   | Item-level checked state, press handling                             |
+| `RadioGroupMixin`      | Mixin           | `standard-ui`         | Themed styling for the group container                               |
+| `RadioGroupItemMixin`  | Mixin           | `standard-ui`         | Themed styling for each item                                         |
+| `RadioGroup`           | Component       | `standard-ui`         | Renders `<fieldset>` with legend/label                               |
+| `RadioGroupItem`       | Component       | `standard-ui`         | Renders `<label><input type="radio">` or custom styled radio         |
 
 ### Potential abstractions to solid-composables
 
@@ -104,13 +104,13 @@ type RadioGroupItemProps = {
 
 ## Deduplication
 
-| Candidate | Match | Action |
-|---|---|---|
-| `createAriaRadioGroup` (solid-accessibility) | Full match for ARIA group semantics | Compose directly |
-| `createAriaRadio` | **Does not exist** — must create | New entity |
-| `createOptionGroupInput` (solid-composables) | Partial — value selection pattern | Reference for state design |
-| `SegmentedButton` / `SegmentedButtonItem` (standard-ui) | Similar compound pattern | Reference for decomposition style |
-| `createPressable` (solid-accessibility) | Partial — click/keyboard handling | Compose for item interaction |
+| Candidate                                               | Match                               | Action                            |
+| ------------------------------------------------------- | ----------------------------------- | --------------------------------- |
+| `createAriaRadioGroup` (solid-accessibility)            | Full match for ARIA group semantics | Compose directly                  |
+| `createAriaRadio`                                       | **Does not exist** — must create    | New entity                        |
+| `createOptionGroupInput` (solid-composables)            | Partial — value selection pattern   | Reference for state design        |
+| `SegmentedButton` / `SegmentedButtonItem` (standard-ui) | Similar compound pattern            | Reference for decomposition style |
+| `createPressable` (solid-accessibility)                 | Partial — click/keyboard handling   | Compose for item interaction      |
 
 ---
 

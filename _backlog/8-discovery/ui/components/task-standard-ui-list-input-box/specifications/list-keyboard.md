@@ -19,7 +19,7 @@ const items = () => ['a', 'b', 'c'];
 const roving = createRovingIndex({ items });
 const keyboard = createListKeyboardController({ roving, onSelect: handleSelect });
 // Bind to container:
-<div {...keyboard.$root}>...</div>
+<div {...keyboard.$root}>...</div>;
 ```
 
 ## Identity
@@ -55,14 +55,14 @@ Composes `createRovingIndex` directly (receives the instance as a prop, does not
 
 **Keyboard:**
 
-| Key | Action |
-|-----|--------|
-| ArrowUp | `focusPrev` |
-| ArrowDown | `focusNext` |
-| Home | `focusFirst` |
-| End | `focusLast` |
-| Enter | Calls `onSelect` |
-| Space | Calls `onToggle` (if provided) |
+| Key       | Action                         |
+| --------- | ------------------------------ |
+| ArrowUp   | `focusPrev`                    |
+| ArrowDown | `focusNext`                    |
+| Home      | `focusFirst`                   |
+| End       | `focusLast`                    |
+| Enter     | Calls `onSelect`               |
+| Space     | Calls `onToggle` (if provided) |
 
 ## Unrefined
 

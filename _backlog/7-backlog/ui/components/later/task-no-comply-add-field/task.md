@@ -6,10 +6,10 @@
 
 ## Entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
+| Entity        | Kind       | Package             | Responsibility                                                   |
+| ------------- | ---------- | ------------------- | ---------------------------------------------------------------- |
 | `createField` | Controller | `solid-composables` | WIP — must wire `touched`, `invalid`, `modified`, `showFeedback` |
-| `Field` | Component | `standard-ui` | Consumer-facing component |
+| `Field`       | Component  | `standard-ui`       | Consumer-facing component                                        |
 
 ## API
 
@@ -19,8 +19,8 @@ type FieldProps = {
   touched?: Accessor<boolean>;
   invalid?: Accessor<boolean>;
   modified?: Accessor<boolean>;
-  showFeedback?: boolean;          // show validation UI
-  children: ComponentProps;        // slots for label, input, feedback
+  showFeedback?: boolean; // show validation UI
+  children: ComponentProps; // slots for label, input, feedback
 };
 ```
 

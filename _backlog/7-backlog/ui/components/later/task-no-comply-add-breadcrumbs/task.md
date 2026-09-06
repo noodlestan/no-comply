@@ -6,12 +6,12 @@
 
 ## Classification
 
-| Aspect | Value |
-|---|---|
-| Type | `composed` — compound: Breadcrumbs container + BreadcrumbItem |
-| Structure | `compound` — two components designed to be used together |
-| State | `interactive` — items navigate (Link/NavLink-based), last item is current page |
-| Visibility | `public` |
+| Aspect     | Value                                                                          |
+| ---------- | ------------------------------------------------------------------------------ |
+| Type       | `composed` — compound: Breadcrumbs container + BreadcrumbItem                  |
+| Structure  | `compound` — two components designed to be used together                       |
+| State      | `interactive` — items navigate (Link/NavLink-based), last item is current page |
+| Visibility | `public`                                                                       |
 
 ---
 
@@ -22,25 +22,25 @@
 ```tsx
 type BreadcrumbsProps = {
   // Structure
-  items?: BreadcrumbItemData[];         // alt: render children pattern
+  items?: BreadcrumbItemData[]; // alt: render children pattern
   separator?: 'slash' | 'chevron' | 'dot' | ComponentType<{ class?: string }>;
-  maxItems?: number;                    // collapse threshold (e.g., 4)
-  collapsedLabel?: string;              // e.g. "..." or "More"
+  maxItems?: number; // collapse threshold (e.g., 4)
+  collapsedLabel?: string; // e.g. "..." or "More"
   expandOnClick?: boolean;
 
   // ARIA
-  'aria-label'?: string;               // default: "Breadcrumbs"
+  'aria-label'?: string; // default: "Breadcrumbs"
 
   // Visual
   size?: ContentSize;
-  variant?: 'base' | 'muted';          // style variant
+  variant?: 'base' | 'muted'; // style variant
 };
 
 type BreadcrumbItemData = {
-  href?: string;                       // omit for current/last item
+  href?: string; // omit for current/last item
   label: string;
   icon?: IconComponent;
-  current?: boolean;                   // aria-current="page"
+  current?: boolean; // aria-current="page"
 };
 ```
 
@@ -68,22 +68,25 @@ type BreadcrumbItemProps = {
 ```html
 <nav aria-label="Breadcrumbs">
   <ol>
-    <li><a href="/">Home</a></li>         <!-- BreadcrumbItem -->
-    <li aria-hidden="true">/</li>         <!-- separator -->
+    <li><a href="/">Home</a></li>
+    <!-- BreadcrumbItem -->
+    <li aria-hidden="true">/</li>
+    <!-- separator -->
     <li><a href="/components">Components</a></li>
     <li aria-hidden="true">/</li>
-    <li aria-current="page">Button</li>   <!-- current page, no href -->
+    <li aria-current="page">Button</li>
+    <!-- current page, no href -->
   </ol>
 </nav>
 ```
 
 ### Decomposition Notes
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
-| `Breadcrumbs` | Component | `standard-ui` | Container — renders `<nav>` > `<ol>` > items + separators |
-| `BreadcrumbItem` | Component | `standard-ui` | Wraps NavLink with breadcrumb-specific styling |
-| `createBreadcrumbItemMixin` | Mixin | `standard-ui` | Breadcrumb-specific CSS (compact, separator spacing) |
+| Entity                      | Kind      | Package       | Responsibility                                            |
+| --------------------------- | --------- | ------------- | --------------------------------------------------------- |
+| `Breadcrumbs`               | Component | `standard-ui` | Container — renders `<nav>` > `<ol>` > items + separators |
+| `BreadcrumbItem`            | Component | `standard-ui` | Wraps NavLink with breadcrumb-specific styling            |
+| `createBreadcrumbItemMixin` | Mixin     | `standard-ui` | Breadcrumb-specific CSS (compact, separator spacing)      |
 
 ### Styling Expectations
 

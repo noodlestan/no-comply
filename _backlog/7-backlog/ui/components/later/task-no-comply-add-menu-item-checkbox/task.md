@@ -6,8 +6,8 @@
 
 ## Entities
 
-| Entity | Kind | Package | Responsibility |
-|---|---|---|---|
+| Entity             | Kind      | Package       | Responsibility                           |
+| ------------------ | --------- | ------------- | ---------------------------------------- |
 | `MenuItemCheckbox` | Component | `standard-ui` | MenuItem with integrated Checkbox render |
 
 ## API
