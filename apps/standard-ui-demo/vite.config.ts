@@ -4,6 +4,9 @@ import SolidSVG from 'vite-plugin-solid-svg';
 
 export default defineConfig({
 	plugins: [solidPlugin(), SolidSVG()],
+	optimizeDeps: {
+		exclude: ['@purrtrait/solid-code'],
+	},
 	server: {
 		port: 3000,
 	},
