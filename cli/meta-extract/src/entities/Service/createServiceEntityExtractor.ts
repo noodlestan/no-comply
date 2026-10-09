@@ -1,7 +1,7 @@
 import type { ServiceEntityData, ServiceEntityFiles, ServiceEntityPartial } from '@no-comply/meta';
 import { type DirectoryExtractorFactory, defineDirectoryExtractor } from '@purrception/source-fs';
 
-import { entityExtractor, entityMatcher, fileResolver } from './private';
+import { entityExtractor, entityMatcher, fileResolver } from './private/index.js';
 
 export const createServiceEntityExtractor: DirectoryExtractorFactory<
 	ServiceEntityPartial,

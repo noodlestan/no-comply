@@ -1,7 +1,7 @@
 import type { ControllerEntityFiles, ControllerEntityPartial } from '@no-comply/meta';
 import type { EntityFileResolver } from '@purrception/source-fs';
 
-import { findFactoryFile, findIndexFile, findTypesFile } from '../../../utils';
+import { findFactoryFile, findIndexFile, findTypesFile } from '../../../utils/index.js';
 
 export const fileResolver: EntityFileResolver<
 	ControllerEntityPartial,

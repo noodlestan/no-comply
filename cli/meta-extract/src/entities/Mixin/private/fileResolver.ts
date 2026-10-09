@@ -1,7 +1,7 @@
 import type { MixinEntityFiles, MixinEntityPartial } from '@no-comply/meta';
 import type { EntityFileResolver } from '@purrception/source-fs';
 
-import { findFactoryFile, findIndexFile, findTypesFile } from '../../../utils';
+import { findFactoryFile, findIndexFile, findTypesFile } from '../../../utils/index.js';
 
 export const fileResolver: EntityFileResolver<MixinEntityPartial, MixinEntityFiles> = async ctx => {
 	const index = findIndexFile(ctx);
