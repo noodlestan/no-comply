@@ -1,7 +1,7 @@
-import type { SearchSymbolResult } from '../../types';
-import type { SearchSymbolRecord } from '../types';
+import type { SearchSymbolResult } from '../../types.js';
+import type { SearchSymbolRecord } from '../types.js';
 
-import { calcSearchSymbolResultScore } from './calcSearchSymbolResultScore';
+import { calcSearchSymbolResultScore } from './calcSearchSymbolResultScore.js';
 
 export function searchSymbolRecords(
 	symbols: SearchSymbolRecord[],

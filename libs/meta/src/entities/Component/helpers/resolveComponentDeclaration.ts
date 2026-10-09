@@ -1,6 +1,6 @@
 import { type ComponentDeclaration, isComponentDeclaration } from '@purrception/lang-ts';
 
-import type { ComponentEntityData } from '../types';
+import type { ComponentEntityData } from '../types.js';
 
 export function resolveComponentDeclaration(entity: ComponentEntityData): ComponentDeclaration {
 	const name = entity.component;

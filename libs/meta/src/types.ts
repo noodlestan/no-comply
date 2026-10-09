@@ -1,6 +1,6 @@
 import type { DeclaredSymbol, EntityDataBase } from '@purrception/primitives';
 
-import type { ModuleEntityData, NoComplyEntityData } from './entities';
+import type { ModuleEntityData, NoComplyEntityData } from './entities/index.js';
 
 export type SearchSymbolResult = {
 	symbol: DeclaredSymbol;

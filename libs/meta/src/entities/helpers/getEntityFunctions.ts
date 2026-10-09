@@ -1,6 +1,6 @@
 import { type FunctionDeclaration, isFunctionDeclaration } from '@purrception/lang-ts';
 
-import type { NoComplyEntityData } from '../types';
+import type { NoComplyEntityData } from '../types.js';
 
 type FilterFunction = (func: FunctionDeclaration) => boolean;
 type Filter = string[] | FilterFunction;

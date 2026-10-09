@@ -1,6 +1,6 @@
 import type { DeclaredSymbol, DocsTags } from '@purrception/primitives';
 
-import type { NoComplyEntityData } from '../entities';
+import type { NoComplyEntityData } from '../entities/index.js';
 
 export type ResolvedExpression = {
 	pkg?: string;

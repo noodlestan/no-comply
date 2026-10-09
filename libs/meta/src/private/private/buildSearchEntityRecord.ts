@@ -1,8 +1,8 @@
 import type { DeclaredSymbolTypes } from '@purrception/lang-ts';
 import type { LanguageDeclaredSymbol } from '@purrception/primitives';
 
-import type { NoComplyEntityData } from '../../entities';
-import type { SearchEntityRecord, SearchSymbolRecord } from '../types';
+import type { NoComplyEntityData } from '../../entities/index.js';
+import type { SearchEntityRecord, SearchSymbolRecord } from '../types.js';
 
 export function buildSearchEntityRecord(entity: NoComplyEntityData): SearchEntityRecord {
 	const symbols: SearchSymbolRecord[] = [];

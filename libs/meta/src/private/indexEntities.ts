@@ -1,4 +1,4 @@
-import type { NoComplyEntityData } from '../entities';
+import type { NoComplyEntityData } from '../entities/index.js';
 
 type IndexByName = Record<string, NoComplyEntityData>;
 type IndexByType = Record<string, IndexByName>;

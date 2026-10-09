@@ -3,7 +3,7 @@ import {
 	SEARCH_MATCH_SCORE_SYMBOL_DESCRIPTION_VERBATIM,
 	SEARCH_MATCH_SCORE_SYMBOL_NAME_GREEDY,
 	SEARCH_MATCH_SCORE_SYMBOL_NAME_VERBATIM,
-} from '../constants';
+} from '../constants.js';
 
 export function calcSearchSymbolResultScore(
 	verbatimName: boolean,

@@ -1,7 +1,0 @@
-{
-  "extends": "@noodlestan/tsconfig/libs/tsconfig-vite.json",
-  "compilerOptions": {
-    "rootDir": "src/"
-  },
-  "include": ["src/"]
-}

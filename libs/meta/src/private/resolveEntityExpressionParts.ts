@@ -1,6 +1,6 @@
-import { ENTITY_TYPES } from '../constants';
+import { ENTITY_TYPES } from '../constants.js';
 
-import type { ResolvedExpression } from './types';
+import type { ResolvedExpression } from './types.js';
 
 /**
  * Parses a link expression string into its parts: pkg, type and name.

@@ -1,4 +1,4 @@
 // @index(['./*.{ts,tsx}', './!(private|parts|functions)*/index.{ts,tsx}'], f => `export * from '${f.path.replace(/\/index$/, '')}';`)
-export * from './createMixinEntityPartial';
-export * from './helpers';
-export * from './types';
+export * from './createMixinEntityPartial.js';
+export * from './helpers/index.js';
+export * from './types.js';

@@ -1,6 +1,6 @@
 import type { EntityDataBase } from '@purrception/primitives';
 
-import type { ModuleEntityData, NoComplyEntityData } from './entities';
+import type { ModuleEntityData, NoComplyEntityData } from './entities/index.js';
 import {
 	buildSearchEntityRecords,
 	indexEntities,
@@ -8,9 +8,9 @@ import {
 	resolveEntityExpressionParts,
 	resolveSymbolImport,
 	searchEntityRecords,
-} from './private';
-import type { ResolvedExpression } from './private';
-import type { NoComplyMetaAPI, NoComplyMetaOptions, SearchEntityResult } from './types';
+} from './private/index.js';
+import type { ResolvedExpression } from './private/index.js';
+import type { NoComplyMetaAPI, NoComplyMetaOptions, SearchEntityResult } from './types.js';
 
 export function createNoComplyMetaService(
 	entities: NoComplyEntityData[],

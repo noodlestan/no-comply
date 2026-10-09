@@ -1,6 +1,6 @@
 import type { EntityDataBasePartial } from '@purrception/primitives';
 
-import type { MixinEntityPartial } from './types';
+import type { MixinEntityPartial } from './types.js';
 
 export function createMixinEntityPartial(
 	partial: EntityDataBasePartial<'mixin'>,

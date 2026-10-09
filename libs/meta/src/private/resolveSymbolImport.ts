@@ -1,6 +1,6 @@
 import type { ImportedSymbol } from '@purrception/primitives';
 
-import type { NoComplyEntityData } from '../entities/types';
+import type { NoComplyEntityData } from '../entities/types.js';
 
 export type SymbolImportResult =
 	| { status: 'local' }

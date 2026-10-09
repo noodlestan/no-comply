@@ -1,6 +1,6 @@
 import type { EntityDataBasePartial } from '@purrception/primitives';
 
-import type { ProviderEntityPartial } from './types';
+import type { ProviderEntityPartial } from './types.js';
 
 export function createProviderEntityPartial(
 	partial: EntityDataBasePartial<'provider'>,

@@ -1,6 +1,6 @@
 import { type FunctionDeclaration, isFunctionDeclaration } from '@purrception/lang-ts';
 
-import type { ComponentEntityData } from '../types';
+import type { ComponentEntityData } from '../types.js';
 
 export function resolveComponentFactoryDeclaration(
 	entity: ComponentEntityData,

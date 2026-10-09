@@ -1,6 +1,6 @@
 import type { EntityDataBasePartial } from '@purrception/primitives';
 
-import type { ContextEntityPartial } from './types';
+import type { ContextEntityPartial } from './types.js';
 
 export function createContextEntityPartial(
 	partial: EntityDataBasePartial<'context'>,

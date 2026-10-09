@@ -1,7 +1,7 @@
-import type { NoComplyEntityData } from '../entities';
+import type { NoComplyEntityData } from '../entities/index.js';
 
-import { buildSearchEntityRecord } from './private';
-import type { SearchEntityRecord } from './types';
+import { buildSearchEntityRecord } from './private/index.js';
+import type { SearchEntityRecord } from './types.js';
 
 export function buildSearchEntityRecords(entities: NoComplyEntityData[]): SearchEntityRecord[] {
 	return entities.map(buildSearchEntityRecord);

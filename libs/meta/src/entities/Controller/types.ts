@@ -1,4 +1,4 @@
-import type { NoComplyEntityData, NoComplyEntityPartial } from '../types';
+import type { NoComplyEntityData, NoComplyEntityPartial } from '../types.js';
 
 export type ControllerEntityFiles = {
 	index: string;

@@ -1,8 +1,8 @@
-import type { SearchEntityResult } from '../types';
+import type { SearchEntityResult } from '../types.js';
 
-import { ENTITY_SEARCH_LIMIT } from './constants';
-import { calcSearchEntityResultScore, searchSymbolRecords } from './private/';
-import type { SearchEntityRecord } from './types';
+import { ENTITY_SEARCH_LIMIT } from './constants.js';
+import { calcSearchEntityResultScore, searchSymbolRecords } from './private//index.js';
+import type { SearchEntityRecord } from './types.js';
 
 function escapeRegExp(value: string): string {
 	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
