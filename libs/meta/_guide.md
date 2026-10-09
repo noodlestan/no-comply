@@ -29,6 +29,12 @@ Records are co-located with the resources they describe in `_records/` directori
 
 This package maintains an architecture reference at `architecture/meta.md`.
 
+## Conventions
+
+This package follows strict conventions.
+
+::READ `../../_guide.md` for repository-wide conventions.
+
 ## Operating Instructions
 
 ### Operating Instructions: Setting Up
