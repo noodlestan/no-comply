@@ -27,10 +27,6 @@
   "dependencies": {
     "solid-js": "1.9.13"
   },
-  "overrides": {
-    "@purrception/primitives": "0.1.0",
-    "@purrception/lang-ts": "0.1.0"
-  },
   "devDependencies": {
     "@noodlestan/conventions-typescript": "0.1.0",
     "@noodlestan/conventions-unit-tests": "0.1.0",
