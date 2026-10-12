@@ -8,14 +8,14 @@ Agents SHOULD scan these files for definitions and resource locations when faced
 
 - `_guide.md` — this file: package overview, layout, records, and operating instructions.
 - `README.md` — package readme.
-- `architecture/meta.md` — the package architecture reference.
+- `knowledge/meta.md` — the package knowledge reference.
 
 ## Package Layout
 
 ```
-_records/           — package records
-architecture/       — architecture reference
-src/                — source code
+_records/        — package records
+knowledge/       — knowledge reference
+src/             — source code
 ```
 
 ## Records Management
@@ -27,7 +27,7 @@ Records are co-located with the resources they describe in `_records/` directori
 
 ## Knowledge References
 
-This package maintains an architecture reference at `architecture/meta.md`.
+This package maintains an knowledge reference at `knowledge/meta.md`.
 
 ## Conventions
 

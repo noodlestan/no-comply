@@ -4,7 +4,7 @@
 
 **Purpose:** Host and manage the No Comply project roadmap, the packages, and the docs and demo applications.
 
-**Description:** Monorepo containing the No Comply roadmap, library packages, CLI tools to extract codebase matadata, docs and demo applications, and theior backlogs, and architecture and patterns knowledge.
+**Description:** Monorepo containing the No Comply roadmap, library packages, CLI tools to extract codebase matadata, docs and demo applications, and their backlogs, and knowledge.
 
 **Owner:** Project: No Comply
 
