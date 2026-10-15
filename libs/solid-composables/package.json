@@ -2,6 +2,11 @@
   "name": "@no-comply/solid-composables",
   "version": "0.0.11",
   "description": "Composable components, controllers, and mixins for SolidJS applications and component libraries",
+  "keywords": [
+    "solidjs",
+    "composables",
+    "components"
+  ],
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

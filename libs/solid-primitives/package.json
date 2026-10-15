@@ -2,6 +2,11 @@
   "name": "@no-comply/solid-primitives",
   "version": "0.0.11",
   "description": "Basic primitives and types for SolidJS applications and component libraries.",
+  "keywords": [
+    "solidjs",
+    "primitives",
+    "types"
+  ],
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

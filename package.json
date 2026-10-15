@@ -2,6 +2,16 @@
   "name": "no-comply",
   "version": "0.0.11",
   "description": "SolidJS layered library ecosystem spanning foundational types, accessibility primitives, contexts and services, composable controllers, a themeable component library, and developer tooling.",
+  "keywords": [
+    "solidjs",
+    "ui",
+    "components",
+    "accessibility",
+    "component-library",
+    "css",
+    "frontend",
+    "theming"
+  ],
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,

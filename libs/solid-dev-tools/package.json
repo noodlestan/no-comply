@@ -2,6 +2,11 @@
   "name": "@no-comply/solid-dev-tools",
   "version": "0.0.11",
   "description": "Instrumentation and debug tools for [No Comply] applications and libraries",
+  "keywords": [
+    "solidjs",
+    "dev-tools",
+    "debugging"
+  ],
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

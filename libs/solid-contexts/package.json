@@ -2,6 +2,11 @@
   "name": "@no-comply/solid-contexts",
   "version": "0.0.11",
   "description": "Context-aware services and providers for SolidJS applications and component libraries.",
+  "keywords": [
+    "solidjs",
+    "contexts",
+    "services"
+  ],
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": false,

@@ -4,6 +4,8 @@
 
 SolidJS layered library ecosystem spanning foundational types, accessibility primitives, contexts and services, composable controllers, a themeable component library, and developer tooling.
 
+**Keywords:** solidjs, ui, components, accessibility, component-library, css, frontend, theming.
+
 ## Packages
 
 ### Libraries

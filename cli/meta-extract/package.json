@@ -2,6 +2,11 @@
   "name": "@no-comply/meta-extract",
   "version": "0.0.11",
   "description": "Purrception extraction tools for the [no-comply] project.",
+  "keywords": [
+    "metadata",
+    "extraction",
+    "purrception"
+  ],
   "author": "Noodlestan Collective",
   "license": "MIT",
   "private": true,
