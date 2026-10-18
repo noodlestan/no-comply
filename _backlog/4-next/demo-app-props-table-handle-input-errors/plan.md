@@ -20,11 +20,12 @@
 
 ## Path Variables
 
-| Variable     | Resolved Path                | Purpose                              |
-| ------------ | ---------------------------- | ------------------------------------ |
-| `$WORKSPACE` | Current working directory    | Workspace root directory.            |
-| `$PROJECT`   | Provided with prompt         | Repository root for all code changes |
-| `$DOMAINS`   | `$WORKSPACE/.agents/domains` | agent context files                  |
+| Variable     | Resolved Path                    | Purpose                              |
+| ------------ | -------------------------------- | ------------------------------------ |
+| `$WORKSPACE` | Current working directory        | Workspace root directory.            |
+| `$PROJECT`   | Provided with prompt             | Repository root for all code changes |
+| `$DOMAINS`   | `$WORKSPACE/.agents/domains`     | agent context files                  |
+| `$APP`       | `$PROJECT/apps/standard-ui-demo` | Demo application                     |
 
 ## Summary
 
@@ -63,7 +64,7 @@ Prevent invalid prop input in the Standard UI demo props table from crashing the
 
 ## Scope
 
-Work occurs in `$APP = $PROJECT/apps/standard-ui-demo`. The primary change is extracting input logic from `ComponentPropsTableRow` into a new `ComponentPropInput` component that handles error state, preventing app crashes when users enter invalid prop values.
+Work occurs in `$APP = $PROJECT/apps/standard-ui-demo`. The primary change is extracting input logic from `ComponentPropsTableRow` (`$APP/src/modules/props/components/ComponentPropsTable/parts/`) into a new `ComponentPropInput` component that handles error state, preventing app crashes when users enter invalid prop values.
 
 ### (Scope) Application: Standard UI Demo
 
@@ -78,7 +79,7 @@ Work occurs in `$APP = $PROJECT/apps/standard-ui-demo`. The primary change is ex
 
 **Changes:**
 
-- Create new `ComponentPropInput` component under `$APP/src/app/components/code`
+- Create new `ComponentPropInput` component under `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropInput`
 - Update `ComponentPropsTableRow` to use the new component
 - Add error state handling for invalid prop inputs
 - Wire up `TextInput`'s `invalid` prop to reflect invalid input state
@@ -93,7 +94,7 @@ Work occurs in `$APP = $PROJECT/apps/standard-ui-demo`. The primary change is ex
 
 ## Execution Context
 
-Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/no-comply` on the `main` branch, with application-specific work under `$APP/src/app/components/code/`.
+Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/no-comply` on the `main` branch, with application-specific work under `$APP/src/modules/props/components/ComponentPropsTable/parts/`.
 
 ---
 
@@ -112,14 +113,14 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/
 
 **Purpose:** Extract `TextInput` usage from `ComponentPropsTableRow` into a standalone `ComponentPropInput` component without changing behavior.
 
-**Description:** Pure refactor — move the prop input field from `ComponentPropsTableRow` into a new `ComponentPropInput` component under `$APP/src/app/components/code/`. The component accepts the same props and calls `onChange` on every input. No validation logic yet.
+**Description:** Pure refactor — move the prop input field from `ComponentPropsTableRow` into a new `ComponentPropInput` component under `$APP/src/modules/props/components/ComponentPropsTable/parts/`. The component accepts the same props and calls `onValueChange` on every input. No validation logic yet.
 
 **Instructions:** `./instructions/extract-component-prop-input.md`
 
 **Changes:**
 
-- Create `ComponentPropInput.tsx` under `$APP/src/app/components/code/`
-- Accept props: `value`, `onChange`, and any existing props forwarded to `TextInput`
+- Create `ComponentPropInput.tsx` (with `index.ts` barrel) under `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropInput/`
+- Accept the props the row forwards to `TextInput`: `id`, `size`, `value`, `disabled`, `onValueChange`, `aria-label`
 - Move `TextInput` rendering from `ComponentPropsTableRow` into `ComponentPropInput`
 - Update `ComponentPropsTableRow` to render `ComponentPropInput` in place of inline `TextInput`
 - Update barrel exports
@@ -152,21 +153,21 @@ refactor(standard-ui-demo): Extract ComponentPropInput from ComponentPropsTableR
 
 **Purpose:** Add eager validation using `evaluateValue()` inside `ComponentPropInput` so invalid inputs are caught before propagating changes.
 
-**Description:** Import `evaluateValue` from `@purrtrait/client-tsx` and use it inside `ComponentPropInput` to evaluate the input value as a `TSXNode` via try-catch. On success, call `onChange` with the raw string. On failure, set `TextInput`'s `invalid` prop to `true` and swallow the change — no value reaches the store or the reactive render tree.
+**Description:** Import `evaluateValue` from `@purrtrait/client-tsx` and use it inside `ComponentPropInput` to evaluate the input value as a `TSXNode` via try-catch. On success, call `onValueChange` with the raw string. On failure, set `TextInput`'s `invalid` prop to `true` and swallow the change — no value reaches the store or the reactive render tree.
 
 **Instructions:** `./instructions/add-input-value-validation.md`
 
 **Changes:**
 
-- Add `compiler` prop to `ComponentPropInput` (the `@purrpose/client-babel` instance)
+- Add optional `compiler` prop to `ComponentPropInput` (`CompilerAPI`; skip validation while it is undefined)
 - Import `evaluateValue` and `TSXNode` from `@purrtrait/client-tsx`
-- Import `STATIC_SCOPE` from `$APP/src/app/controllers/RenderExample/constants`
+- Import `STATIC_SCOPE` from `$APP/src/app/controllers/RenderExample`
 - Add local `invalid` signal state to track validation result
 - On input change: construct `TSXNode { type: 'jsx', serialized: inputValue }`, call `evaluateValue(compiler, node, STATIC_SCOPE)` in try-catch
-- On success: clear `invalid`, call `onChange(rawString)`
-- On failure: set `invalid=true`, do NOT call `onChange`
+- On success: clear `invalid`, call `onValueChange(rawString)`
+- On failure: set `invalid=true`, do NOT call `onValueChange`
 - Wire `invalid` signal to `TextInput`'s `invalid` prop
-- Thread `compiler` prop from `ComponentPropsTableRow` (or its parent) into `ComponentPropInput`
+- Lift the compiler `createResource` from `PlaygroundExample` to `ComponentPlaygroundSection`, pass it to `PlaygroundExample` and `PlaygroundProps`, and thread it through `ComponentPropsTable` → group → row → `ComponentPropInput`
 
 **Dependencies:**
 
@@ -215,7 +216,7 @@ Create the `ComponentPropInput` component by extracting the input logic from `Co
 
 - Invalid prop input in the props table does not crash the app
 - Invalid prop input is reflected through `TextInput`'s `invalid` prop
-- `ComponentPropInput` component exists under `$APP/src/app/components/code`
+- `ComponentPropInput` component exists under `$APP/src/modules/props/components/ComponentPropsTable/parts`
 
 ### Findings
 
@@ -226,9 +227,10 @@ Create the `ComponentPropInput` component by extracting the input logic from `Co
 
 ### Decisions
 
-- **Place new component** under `$APP/src/app/components/code`
-- **Use `evaluateValue()` for eager validation** — Call `evaluateValue(compiler, node, STATIC_SCOPE)` inside `ComponentPropInput` with try-catch before calling `onChange`. Invalid values never reach the store or the reactive render tree.
-- **Swallow invalid changes** — On evaluation failure, set `TextInput` `invalid` prop to `true` and do NOT call `onChange`. The last valid value remains in the store.
+- **Place new component** as a sibling of `ComponentPropsTableRow` under `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropInput` (corrected from the non-existent `$APP/src/app/components/code`, chosen with the user)
+- **Lift the compiler to `ComponentPlaygroundSection`** — the compiler is created in `PlaygroundExample`, a sibling of `PlaygroundProps`; a single instance is lifted to their common parent and passed down (optional on the table so the module stays usable without it)
+- **Use `evaluateValue()` for eager validation** — Call `evaluateValue(compiler, node, STATIC_SCOPE)` inside `ComponentPropInput` with try-catch before calling `onValueChange`. Invalid values never reach the store or the reactive render tree.
+- **Swallow invalid changes** — On evaluation failure, set `TextInput` `invalid` prop to `true` and do NOT call `onValueChange`. The last valid value remains in the store.
 - **Two-iteration split** — First iteration is a pure refactor (extract component, no behavior change). Second iteration adds validation logic. This keeps the refactor verifiable before adding new behavior.
 
 ### Knowledge to Update

@@ -16,7 +16,7 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 1. Summarise the current context, asking: are you reporting completion or a BLOCKER?
 2. Gather the evidence of changes made and outcomes achieved, or the blocker error details.
-3. Use the `render-template` skill with the `.agents/domains/plans/templates/instructions-report.tart` to render your report and write it next to this instruction file: `plan-demo-app-props-table-handle-input-errors/instructions/extract-component-prop-input__report.md`. No separate delegation record is created.
+3. Use the `render-template` skill with the `.agents/domains/plans/templates/instructions-report.tart` to render your report and write it next to this instruction file: `demo-app-props-table-handle-input-errors/instructions/extract-component-prop-input__report.md`. No separate delegation record is created.
 4. If your prompt included a `DIRECTIVE FEEDBACK:` include the feedback sections in the rendered report.
 5. Generate the response and send it back to the delegator.
 6. Keep the response terse per the Working Agreements: happy face + up to 3 bullet points (done `extract-component-prop-input`, created `{artefacts}`, thumbs up). The full trail lives in the report file; never repeat it in chat.
@@ -39,7 +39,7 @@ The plan workflow (see the entry point guide → Planning Workflow → Working T
 
 ## Goals
 
-Extract the `TextInput` usage from `ComponentPropsTableRow` into a new standalone `ComponentPropInput` component. This is a pure refactor — no behavior change. The component accepts the same props and calls `onChange` on every input, exactly as `ComponentPropsTableRow` does today.
+Extract the `TextInput` usage from `ComponentPropsTableRow` into a new standalone `ComponentPropInput` component. This is a pure refactor — no behavior change. The component accepts the same props and calls `onValueChange` on every input, exactly as `ComponentPropsTableRow` does today.
 
 ## Mandatory Reading
 
@@ -80,7 +80,7 @@ npm run ci # lint, build and test
 
 ## Changes
 
-Extract `TextInput` from `ComponentPropsTableRow` into a new `ComponentPropInput` component, update the parent to use it, and wire barrel exports.
+Extract `TextInput` from `ComponentPropsTableRow` into a new `ComponentPropInput` component (a sibling under `parts/`), update the row to use it, and wire barrel exports.
 
 - Step 1 / 3 — Create `ComponentPropInput` component
 - Step 2 / 3 — Update `ComponentPropsTableRow` to use `ComponentPropInput`
@@ -90,25 +90,27 @@ Extract `TextInput` from `ComponentPropsTableRow` into a new `ComponentPropInput
 
 ### Step `1 / 3` — Create `ComponentPropInput` component
 
-Create a new file at `$APP/src/app/components/code/ComponentPropInput/ComponentPropInput.tsx`.
+Create a new component folder `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropInput/` with:
+
+- `ComponentPropInput.tsx` — the component.
+- `index.ts` — barrel: `export * from './ComponentPropInput';`
 
 The component should:
 
-- Accept the same props that `ComponentPropsTableRow` currently passes to `TextInput` for prop value editing: `value`, `onChange`, and any other relevant props (e.g., `size`).
-- Render a `TextInput` with those props forwarded.
-- Export the component from its own barrel file at `$APP/src/app/components/code/ComponentPropInput/index.ts`.
+- Accept the props that `ComponentPropsTableRow` currently passes to `TextInput`: `id`, `size`, `value`, `disabled`, `onValueChange` and `aria-label`. Note the callback is named `onValueChange` (not `onChange`).
+- Render a `TextInput` with those props forwarded, unchanged.
 
-Reference: look at the current `TextInput` usage in `$APP/src/app/screens/ApiScreen/pages/ApiComponentPage/parts/ComponentPropsTableRow/ComponentPropsTableRow.tsx` to identify the exact props being passed.
+Add `export * from './ComponentPropInput';` to the barrel `$APP/src/modules/props/components/ComponentPropsTable/parts/index.ts` (keep the exports alphabetical, as the `@index` comment generates them).
 
-Update the barrel file at `$APP/src/app/components/code/index.ts` to export `ComponentPropInput`.
+Reference: the current `TextInput` usage in `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropsTableRow/ComponentPropsTableRow.tsx`.
 
 ### Step `2 / 3` — Update `ComponentPropsTableRow` to use `ComponentPropInput`
 
-In `$APP/src/app/screens/ApiScreen/pages/ApiComponentPage/parts/ComponentPropsTableRow/ComponentPropsTableRow.tsx`:
+In `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropsTableRow/ComponentPropsTableRow.tsx`:
 
-- Import `ComponentPropInput` from `$APP/src/app/components/code`.
-- Replace the inline `TextInput` usage for prop value editing with `<ComponentPropInput>`.
-- Pass the same props that were previously passed to `TextInput`.
+- Import `ComponentPropInput` from `'../ComponentPropInput'` (sibling folder under `parts/`).
+- Replace the inline `<TextInput ... />` for prop value editing with `<ComponentPropInput ... />`, passing the same props (`id`, `size`, `value`, `disabled`, `onValueChange`, `aria-label`).
+- Remove the `TextInput` import from `@no-comply/standard-ui` if it is no longer used (keep the other imports).
 - Verify the component renders identically — this is a pure refactor with no behavior change.
 
 ---
@@ -130,8 +132,8 @@ refactor(standard-ui-demo): Extract ComponentPropInput from ComponentPropsTableR
 **Instructions:**
 
 - Verify that the commit has been executed and NOT pushed, per the `NOPUSH` policy.
-- Verify that `ComponentPropInput` component exists at `$APP/src/app/components/code/ComponentPropInput/ComponentPropInput.tsx`.
-- Verify that `ComponentPropInput` is exported from the `$APP/src/app/components/code/` barrel.
+- Verify that `ComponentPropInput` exists at `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropInput/ComponentPropInput.tsx`.
+- Verify that `ComponentPropInput` is exported from the `$APP/src/modules/props/components/ComponentPropsTable/parts/index.ts` barrel.
 - Verify that `ComponentPropsTableRow` imports and renders `ComponentPropInput` instead of an inline `TextInput`.
 - Verify the app still renders prop inputs identically (no behavior change).
 - Execute the **Verifying Completion** step as defined in the "Operating Instructions" section.
