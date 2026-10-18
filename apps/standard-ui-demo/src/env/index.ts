@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 const env = import.meta.env;
 
-const FORCED_DELAY = 2000;
+const FORCED_DELAY = 0;
 
 const API_PORT = env['VITE_API_PORT'] ?? 8008;
 const API_BASE_URL = env['VITE_API_BASE_URL'] ?? `http://localhost:${API_PORT}`;
