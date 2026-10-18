@@ -2,7 +2,7 @@
 
 **ID:** `demo-app-props-table-handle-input-errors`
 
-**Status:** `READY`
+**Status:** `WORKING`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -102,20 +102,22 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/
 
 | Iteration / Instructions                                                               | Status  |
 | -------------------------------------------------------------------------------------- | ------- |
-| Iteration: Extract ComponentPropInput `./instructions/extract-component-prop-input.md` | `READY` |
+| Iteration: Extract ComponentPropInput `./instructions/extract-component-prop-input.md` | `DONE`  |
 | Iteration: Add Input Value Validation `./instructions/add-input-value-validation.md`   | `READY` |
 
 ### Iteration: Extract ComponentPropInput
 
 **Id:** `extract-component-prop-input`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Extract `TextInput` usage from `ComponentPropsTableRow` into a standalone `ComponentPropInput` component without changing behavior.
 
 **Description:** Pure refactor — move the prop input field from `ComponentPropsTableRow` into a new `ComponentPropInput` component under `$APP/src/modules/props/components/ComponentPropsTable/parts/`. The component accepts the same props and calls `onValueChange` on every input. No validation logic yet.
 
 **Instructions:** `./instructions/extract-component-prop-input.md`
+
+**Report:** `./instructions/extract-component-prop-input__report.md`
 
 **Changes:**
 
@@ -131,9 +133,9 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/
 
 #### Commits:
 
-| ID                             | Repository / Checkout / Branch  | Policy   | Hash  | Status     |
-| ------------------------------ | ------------------------------- | -------- | ----- | ---------- |
-| `extract-component-prop-input` | No Comply / `$PROJECT` / `main` | `NOPUSH` | (TBD) | `AUTHORED` |
+| ID                             | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
+| ------------------------------ | ------------------------------- | -------- | --------- | ----------- |
+| `extract-component-prop-input` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `a2dc8ef` | `COMMITTED` |
 
 ##### Commit: extract-component-prop-input
 
@@ -196,7 +198,7 @@ build(standard-ui-demo): Validate prop inputs with evaluateValue() before propag
 
 ### Next
 
-Create the `ComponentPropInput` component by extracting the input logic from `ComponentPropsTableRow`. Then add error handling to prevent crashes when invalid prop values are entered.
+Delegate Iteration: Add Input Value Validation (`READY`) — lift the compiler to `ComponentPlaygroundSection` and add eager `evaluateValue()` validation in `ComponentPropInput`.
 
 ### Blockers
 
