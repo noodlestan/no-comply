@@ -1,5 +1,5 @@
 import { TextInput, type TextInputProps } from '@no-comply/standard-ui';
-import { type TSXNode, evaluateValue } from '@purrtrait/client-tsx';
+import { type TSXNode, evaluateValue as createValueEvaluator } from '@purrtrait/client-tsx';
 import { type Component, createSignal } from 'solid-js';
 
 import { STATIC_SCOPE } from '../../../../../../app/controllers/RenderExample';
@@ -21,7 +21,8 @@ export const ComponentPropInput: Component<Props> = props => {
 		}
 		const node: TSXNode = { type: 'jsx', serialized: inputValue } as TSXNode;
 		try {
-			evaluateValue(compiler, node, STATIC_SCOPE);
+			const evaluateValue = createValueEvaluator(compiler, node, STATIC_SCOPE, true);
+			evaluateValue();
 			setInvalid(false);
 			props.onValueChange?.(inputValue);
 		} catch {
