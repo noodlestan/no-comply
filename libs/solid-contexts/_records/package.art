@@ -22,9 +22,13 @@
 
 **Keywords:**
 
-- solidjs
+- library
 - contexts
 - services
+- solidjs
+- ui
+- components
+- component-library
 
 **Deployment:** NPM Package Deployment: Solid Contexts
 

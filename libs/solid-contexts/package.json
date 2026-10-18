@@ -3,9 +3,13 @@
   "version": "0.0.11",
   "description": "Context-aware services and providers for SolidJS applications and component libraries.",
   "keywords": [
-    "solidjs",
+    "library",
     "contexts",
-    "services"
+    "services",
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

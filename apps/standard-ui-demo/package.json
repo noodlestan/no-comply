@@ -1,9 +1,12 @@
 {
   "name": "@no-comply/standard-ui-demo",
   "keywords": [
-    "solidjs",
+    "web-app",
     "demo",
-    "ui"
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "version": "0.0.11",
   "author": "Noodlestan Collective",

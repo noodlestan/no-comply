@@ -3,9 +3,14 @@
   "version": "0.0.11",
   "description": "Purrception types, services, and helpers for the [no-comply] project.",
   "keywords": [
+    "library",
     "metadata",
     "services",
-    "purrception"
+    "purrception",
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

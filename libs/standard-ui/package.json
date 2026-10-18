@@ -3,10 +3,12 @@
   "version": "0.0.11",
   "description": "Themeable component library built with [No Comply], SolidJS and modern CSS",
   "keywords": [
+    "library",
+    "theming",
     "solidjs",
     "ui",
     "components",
-    "theming"
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

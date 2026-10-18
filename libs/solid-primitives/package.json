@@ -3,9 +3,13 @@
   "version": "0.0.11",
   "description": "Basic primitives and types for SolidJS applications and component libraries.",
   "keywords": [
-    "solidjs",
+    "library",
     "primitives",
-    "types"
+    "types",
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

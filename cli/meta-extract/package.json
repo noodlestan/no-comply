@@ -3,9 +3,14 @@
   "version": "0.0.11",
   "description": "Purrception extraction tools for the [no-comply] project.",
   "keywords": [
+    "cli",
     "metadata",
     "extraction",
-    "purrception"
+    "purrception",
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

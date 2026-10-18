@@ -3,9 +3,13 @@
   "version": "0.0.11",
   "description": "Aria types, primitives, and utils for SolidJS applications and component libraries",
   "keywords": [
-    "solidjs",
+    "library",
     "accessibility",
-    "primitives"
+    "primitives",
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

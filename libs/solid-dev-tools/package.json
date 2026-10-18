@@ -3,9 +3,13 @@
   "version": "0.0.11",
   "description": "Instrumentation and debug tools for [No Comply] applications and libraries",
   "keywords": [
-    "solidjs",
+    "library",
     "dev-tools",
-    "debugging"
+    "debugging",
+    "solidjs",
+    "ui",
+    "components",
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",

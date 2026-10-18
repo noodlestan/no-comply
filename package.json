@@ -6,11 +6,7 @@
     "solidjs",
     "ui",
     "components",
-    "accessibility",
-    "component-library",
-    "css",
-    "frontend",
-    "theming"
+    "component-library"
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",
