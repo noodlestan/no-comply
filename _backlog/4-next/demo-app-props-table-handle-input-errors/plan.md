@@ -100,10 +100,10 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/
 
 ## Items:
 
-| Iteration / Instructions                                                               | Status  |
-| -------------------------------------------------------------------------------------- | ------- |
-| Iteration: Extract ComponentPropInput `./instructions/extract-component-prop-input.md` | `DONE`  |
-| Iteration: Add Input Value Validation `./instructions/add-input-value-validation.md`   | `READY` |
+| Iteration / Instructions                                                               | Status |
+| -------------------------------------------------------------------------------------- | ------ |
+| Iteration: Extract ComponentPropInput `./instructions/extract-component-prop-input.md` | `DONE` |
+| Iteration: Add Input Value Validation `./instructions/add-input-value-validation.md`   | `DONE` |
 
 ### Iteration: Extract ComponentPropInput
 
@@ -151,13 +151,15 @@ refactor(standard-ui-demo): Extract ComponentPropInput from ComponentPropsTableR
 
 **Id:** `add-input-value-validation`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Add eager validation using `evaluateValue()` inside `ComponentPropInput` so invalid inputs are caught before propagating changes.
 
 **Description:** Import `evaluateValue` from `@purrtrait/client-tsx` and use it inside `ComponentPropInput` to evaluate the input value as a `TSXNode` via try-catch. On success, call `onValueChange` with the raw string. On failure, set `TextInput`'s `invalid` prop to `true` and swallow the change — no value reaches the store or the reactive render tree.
 
 **Instructions:** `./instructions/add-input-value-validation.md`
+
+**Report:** `./instructions/add-input-value-validation__report.md`
 
 **Changes:**
 
@@ -177,11 +179,13 @@ refactor(standard-ui-demo): Extract ComponentPropInput from ComponentPropsTableR
 
 #### Commits:
 
-| ID                           | Repository / Checkout / Branch  | Policy   | Hash  | Status     |
-| ---------------------------- | ------------------------------- | -------- | ----- | ---------- |
-| `add-input-value-validation` | No Comply / `$PROJECT` / `main` | `NOPUSH` | (TBD) | `AUTHORED` |
+| ID                           | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
+| ---------------------------- | ------------------------------- | -------- | --------- | ----------- |
+| `add-input-value-validation` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `06d17e0` | `COMMITTED` |
 
 ##### Commit: add-input-value-validation
+
+**Note:** The delegated change did not catch invalid values; it was corrected by follow-up commit `3da8be1` (`fix(standard-ui-demo): Invoke evaluateValue thunk to catch invalid prop inputs.`), debugged and applied by the user.
 
 **Repository:** No Comply
 
@@ -223,7 +227,7 @@ Delegate Iteration: Add Input Value Validation (`READY`) — lift the compiler t
 ### Findings
 
 - **Crash path is in the render tree, not the input handler** — The stack trace shows: `handleInput` → `setStore` → SolidJS reactivity → `TSXViewTargetPlaceholder.ownProps` → `client-babel.value` → crash. The value is stored first, then evaluated lazily during render via `@purrpose/client-babel`.
-- **`evaluateValue()` from `@purrtrait/client-tsx` is suitable for eager validation** — Found in `$APP/src/app/controllers/RenderExample/createRenderExample.ts`. Signature: `evaluateValue(compiler, node: TSXNode, scope)`. Already used to evaluate prop overrides (lines 36–41). Can be called in isolation with try-catch.
+- **`evaluateValue()` from `@purrtrait/client-tsx` returns a thunk, it does not evaluate** — Found in `$APP/src/app/controllers/RenderExample/createRenderExample.ts`. Signature: `evaluateValue(compiler, node: TSXNode, scope, debug?)` returns `() => value`. Calling it only compiles `() => (expr)`; the value is evaluated when the returned function is invoked. A `try/catch` around the call alone never catches invalid values (this was the bug in the first delegated version).
 - **`STATIC_SCOPE` is available** — Importable from `$APP/src/app/controllers/RenderExample/constants`.
 - **`evaluateValue()` path in `createRenderExample.ts` vs render-time crash** — It's unclear whether `evaluateValue()` in `createRenderExample` is a separate call path from the one that crashes in `TSXViewTargetPlaceholder`. Both use the same compiler instance. Investigation deferred as a follow-up.
 
@@ -231,7 +235,7 @@ Delegate Iteration: Add Input Value Validation (`READY`) — lift the compiler t
 
 - **Place new component** as a sibling of `ComponentPropsTableRow` under `$APP/src/modules/props/components/ComponentPropsTable/parts/ComponentPropInput` (corrected from the non-existent `$APP/src/app/components/code`, chosen with the user)
 - **Lift the compiler to `ComponentPlaygroundSection`** — the compiler is created in `PlaygroundExample`, a sibling of `PlaygroundProps`; a single instance is lifted to their common parent and passed down (optional on the table so the module stays usable without it)
-- **Use `evaluateValue()` for eager validation** — Call `evaluateValue(compiler, node, STATIC_SCOPE)` inside `ComponentPropInput` with try-catch before calling `onValueChange`. Invalid values never reach the store or the reactive render tree.
+- **Use `evaluateValue()` for eager validation, and invoke the thunk** — Inside `ComponentPropInput`, in a try-catch, call `evaluateValue(compiler, node, STATIC_SCOPE, true)` (imported as `createValueEvaluator`) and then invoke the returned function before calling `onValueChange`. Invalid values never reach the store or the reactive render tree.
 - **Swallow invalid changes** — On evaluation failure, set `TextInput` `invalid` prop to `true` and do NOT call `onValueChange`. The last valid value remains in the store.
 - **Two-iteration split** — First iteration is a pure refactor (extract component, no behavior change). Second iteration adds validation logic. This keeps the refactor verifiable before adding new behavior.
 
@@ -241,8 +245,8 @@ Delegate Iteration: Add Input Value Validation (`READY`) — lift the compiler t
 
 ### Follow Ups
 
-- **Investigate `evaluateValue()` dual paths** — Clarify whether `evaluateValue()` in `createRenderExample.ts` and the render-time evaluation in `TSXViewTargetPlaceholder` are the same or separate call paths. If separate, the render-time path may still need hardening.
 - **Consider shared validation utilities** — If other input components need JSX value validation, extract the try-catch `evaluateValue` pattern into a reusable helper.
+- **Rename `evaluateValue` in the purr lib** — Refactor `evaluateValue` in `@purrtrait/client-tsx` so the exported function is called `createValueEvaluator`, matching the alias now used in `ComponentPropInput`.
 
 ### Feedback
 
