@@ -7,8 +7,9 @@ import {
 } from '@no-comply/solid-primitives';
 import { Flex, Layout, Scrollable, Surface } from '@no-comply/standard-ui';
 import { type TSXView, viewTargetProps } from '@purrtrait/view-tsx';
-import { type Component, createSignal, mergeProps } from 'solid-js';
+import { type Accessor, type Component, createSignal, mergeProps } from 'solid-js';
 
+import type { CompilerAPI } from '../../../../../../../../modules/TSXCompilerModule';
 import { ComponentPropsTable } from '../../../../../../../../modules/props/components';
 import { $ID_PLAYGROUND_PROPS_TITLE } from '../../../../../constants';
 import { useComponentPlayground, useComponentPlaygroundProps } from '../../../../../providers';
@@ -18,6 +19,7 @@ import { PlaygroundPropControls, PlaygroundPropsHeader } from './parts';
 
 type Props = {
 	component: ComponentEntityData;
+	compiler: Accessor<CompilerAPI | undefined>;
 };
 
 export const PlaygroundProps: Component<Props> = props => {
@@ -102,6 +104,7 @@ export const PlaygroundProps: Component<Props> = props => {
 								component={props.component}
 								showDocs={showDocs()}
 								showGroups={showGroups()}
+								compiler={props.compiler}
 								propValues={propValuesWithOverrides}
 								onChangeProp={handleChangeProp}
 								propControls={prop => (

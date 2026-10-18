@@ -3,12 +3,12 @@ import { staticClassList } from '@no-comply/solid-primitives';
 import { Display, Divider, Flex, Scrollable, Surface } from '@no-comply/standard-ui';
 import type { TSXView } from '@purrtrait/view-tsx';
 import {
+	type Accessor,
 	type Component,
 	Match,
 	Show,
 	Suspense,
 	Switch,
-	createResource,
 	createSignal,
 } from 'solid-js';
 
@@ -29,18 +29,17 @@ import {
 	PlaygroundExampleSelect,
 } from './parts';
 
-export const PlaygroundExample: Component = () => {
+type Props = {
+	compiler: Accessor<CompilerAPI | undefined>;
+};
+
+export const PlaygroundExample: Component<Props> = props => {
 	const { currentExample, currentExampleParsed, currentExampleIndex } = useComponentPlayground();
 	const { hasExampleOverrides, resetExampleOverrides } = useComponentPlaygroundProps();
 
 	const [mode, setMode] = createSignal('preview');
 
 	const { examplePropsOverrides: exampleOverrides } = useComponentPlaygroundProps();
-
-	const [compiler] = createResource(async () => {
-		const compilerModule = await import('../../../../../../../../modules/TSXCompilerModule');
-		return compilerModule.createTSXCompilerModule().createCompiler();
-	});
 
 	const propOverrides = () => {
 		const index = currentExampleIndex();
@@ -113,17 +112,17 @@ export const PlaygroundExample: Component = () => {
 								>
 									<Switch>
 										<Match when={mode() === 'source'}>SOURCE CODE</Match>
-										<Match when={mode() === 'preview' && compiler()}>
+										<Match when={mode() === 'preview' && props.compiler()}>
 											<ComponentPlaygroundPreview
 												view={currentExampleParsed() as TSXView}
-												compiler={compiler() as CompilerAPI}
+												compiler={props.compiler() as CompilerAPI}
 												overrides={propOverrides()}
 											/>
 										</Match>
 										<Match when={mode() === 'html'}>
 											<ComponentPlaygroundHTML
 												view={currentExampleParsed() as TSXView}
-												compiler={compiler() as CompilerAPI}
+												compiler={props.compiler() as CompilerAPI}
 												overrides={propOverrides()}
 											/>
 										</Match>

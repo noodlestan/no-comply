@@ -3,9 +3,10 @@ import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
 import { VisuallyHidden } from '@no-comply/solid-composables';
 import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
-import { type Component, type JSX, type Resource, Show } from 'solid-js';
+import { type Accessor, type Component, type JSX, type Resource, Show } from 'solid-js';
 
 import { routeFor } from '../../../../../../app/navigation';
+import type { CompilerAPI } from '../../../../../TSXCompilerModule';
 import { CodeBlock } from '../../../../../code/components/CodeBlock';
 import { CodeDocDescription } from '../../../../../code/components/CodeDocDescription';
 import type { ComponentProp, ComponentPropsGroup } from '../../types';
@@ -21,6 +22,7 @@ type Props = {
 	showGroups: boolean;
 	propValues: Resource<Record<string, unknown>>;
 	onChangeProp: (name: string, value: unknown) => void;
+	compiler?: Accessor<CompilerAPI | undefined>;
 	propControls?: (prop: ComponentProp) => JSX.Element;
 };
 
@@ -65,6 +67,7 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 							size="small"
 							value={String(propValue())}
 							disabled={props.propValues.loading}
+							compiler={props.compiler?.()}
 							onValueChange={handleValueChange}
 							aria-label={label()}
 						/>

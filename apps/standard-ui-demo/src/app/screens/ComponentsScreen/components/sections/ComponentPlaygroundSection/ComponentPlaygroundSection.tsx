@@ -1,5 +1,5 @@
 import { Flex, Layout } from '@no-comply/standard-ui';
-import { type Component } from 'solid-js';
+import { type Component, createResource } from 'solid-js';
 
 import { $ID_PLAYGROUND_STATUS, $ID_PLAYGROUND_TITLE } from '../../../constants';
 import {
@@ -12,6 +12,11 @@ import { ComponentPlaygroundHeader, PlaygroundExample, PlaygroundProps } from '.
 
 export const ComponentPlaygroundSection: Component = () => {
 	const { component, exampleList } = useComponentExamples();
+
+	const [compiler] = createResource(async () => {
+		const compilerModule = await import('../../../../../../modules/TSXCompilerModule');
+		return compilerModule.createTSXCompilerModule().createCompiler();
+	});
 
 	return (
 		<ComponentPlaygroundProvider examples={exampleList}>
@@ -28,8 +33,8 @@ export const ComponentPlaygroundSection: Component = () => {
 					<Flex direction="column" gap="m" stretch="full">
 						<ComponentPlaygroundHeader />
 						<Flex direction={{ _: 'column', l: 'row' }} gap="s" stretch="full">
-							<PlaygroundExample />
-							<PlaygroundProps component={component()} />
+							<PlaygroundExample compiler={compiler} />
+							<PlaygroundProps component={component()} compiler={compiler} />
 						</Flex>
 					</Flex>
 				</Layout>
