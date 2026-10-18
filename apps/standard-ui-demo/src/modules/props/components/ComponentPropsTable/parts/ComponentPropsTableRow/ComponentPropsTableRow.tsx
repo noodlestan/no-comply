@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import type { ComponentEntityData, NoComplyEntityData } from '@no-comply/meta';
 import { VisuallyHidden } from '@no-comply/solid-composables';
-import { Display, Flex, Link, Text, TextInput } from '@no-comply/standard-ui';
+import { Display, Flex, Link, Text } from '@no-comply/standard-ui';
 import { PurrceptionLanguageId } from '@purrtrait/lang-ts';
 import { type Component, type JSX, type Resource, Show } from 'solid-js';
 
@@ -9,6 +9,7 @@ import { routeFor } from '../../../../../../app/navigation';
 import { CodeBlock } from '../../../../../code/components/CodeBlock';
 import { CodeDocDescription } from '../../../../../code/components/CodeDocDescription';
 import type { ComponentProp, ComponentPropsGroup } from '../../types';
+import { ComponentPropInput } from '../ComponentPropInput';
 
 type Props = {
 	id: string;
@@ -59,7 +60,7 @@ export const ComponentPropsTableRow: Component<Props> = props => {
 				</Flex>
 				<Flex direction="row" align="center" justify="between" gap="s">
 					<Flex direction="row" align="center" gap="s">
-						<TextInput
+						<ComponentPropInput
 							id={id()}
 							size="small"
 							value={String(propValue())}
