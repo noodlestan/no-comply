@@ -14,11 +14,14 @@
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",
-  "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrezero/no-comply.git",
+    "url": "https://github.com/noodlestan/no-comply.git",
     "directory": "cli/meta-extract"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22"
   },
   "type": "module",
   "exports": {
@@ -27,10 +30,6 @@
       "import": "./dist/index.mjs"
     }
   },
-  "files": [
-    "dist",
-    "LICENSE-MIT"
-  ],
   "scripts": {
     "dev": "esbuild-cli-watch",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
@@ -43,10 +42,10 @@
     "ci": "npm run lint && npm run build && npm run test:ci"
   },
   "dependencies": {
-    "@no-comply/meta": "0.0.11",
-    "@purrception/primitives": "^0.1.0",
-    "@purrception/lang-ts-extract": "^0.1.0",
-    "@purrception/source-fs": "^0.1.0"
+    "@no-comply/meta": "*",
+    "@purrception/primitives": "0.1.0",
+    "@purrception/lang-ts-extract": "0.1.0",
+    "@purrception/source-fs": "0.1.1"
   },
   "devDependencies": {}
 }

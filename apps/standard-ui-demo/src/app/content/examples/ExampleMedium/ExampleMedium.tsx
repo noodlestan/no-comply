@@ -10,7 +10,7 @@ import {
 	TextInput,
 } from '@no-comply/standard-ui';
 import LockIcon from 'lucide-solid/icons/lock';
-import UnlockIcon from 'lucide-solid/icons/unlock';
+import LockOpenIcon from 'lucide-solid/icons/lock-open';
 import { type Component } from 'solid-js';
 
 type Props = { title?: string };
@@ -31,7 +31,7 @@ export const ExampleMedium: Component<Props> = props => {
 			<Flex direction="row" gap="m" align="center">
 				<IconButton variant="primary" intent="negative" icon={LockIcon} label="Lock" />
 				<Button variant="secondary">
-					<Icon icon={UnlockIcon} />
+					<Icon icon={LockOpenIcon} />
 					Unlock
 				</Button>
 			</Flex>

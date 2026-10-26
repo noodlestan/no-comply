@@ -1,5 +1,5 @@
 import { AnchoredPopover, IconButton, Menu } from '@no-comply/standard-ui';
-import MoreHorizontalIcon from 'lucide-solid/icons/more-horizontal';
+import EllipsisIcon from 'lucide-solid/icons/ellipsis';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
@@ -11,9 +11,7 @@ export default createDocsSectionData({
 		createDocsItemData({ title: 'Triggered by AnchoredPopover', props }, () => (
 			<AnchoredPopover
 				direction="inline"
-				trigger={trigger => (
-					<IconButton icon={MoreHorizontalIcon} label="More options" {...trigger} />
-				)}
+				trigger={trigger => <IconButton icon={EllipsisIcon} label="More options" {...trigger} />}
 			>
 				{content => (
 					<Menu aria-labelledby={content['aria-labelledby']}>

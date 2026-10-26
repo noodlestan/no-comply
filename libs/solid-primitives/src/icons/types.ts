@@ -16,8 +16,7 @@ export type IconComponentValue = {
  * @noresolve
  */
 export type IconValue<A extends unknown[] = []> =
-	| IconComponentValue
-	| ((...args: A) => IconComponent);
+	IconComponentValue | ((...args: A) => IconComponent);
 
 /**
  * @noresolve

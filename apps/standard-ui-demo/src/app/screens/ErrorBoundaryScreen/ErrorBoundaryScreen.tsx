@@ -3,9 +3,9 @@ import { type IconComponent, staticClassList } from '@no-comply/solid-primitives
 import { Display, Flex, Icon, Layout } from '@no-comply/standard-ui';
 import BugIcon from 'lucide-solid/icons/bug';
 import CloudRainIcon from 'lucide-solid/icons/cloud-rain';
+import OctagonXIcon from 'lucide-solid/icons/octagon-x';
 import ServerCrashIcon from 'lucide-solid/icons/server-crash';
 import SkullIcon from 'lucide-solid/icons/skull';
-import XOctagon from 'lucide-solid/icons/x-octagon';
 import { type ParentComponent, createSignal, onCleanup } from 'solid-js';
 
 import styles from './ErrorBoundaryScreen.module.scss';
@@ -25,7 +25,7 @@ const COLOR_NAMES = [
 	'indigo',
 	'violet',
 ];
-const ICONS = [ServerCrashIcon, BugIcon, SkullIcon, CloudRainIcon, XOctagon];
+const ICONS = [ServerCrashIcon, BugIcon, SkullIcon, CloudRainIcon, OctagonXIcon];
 const SPEED = 15;
 
 export const ErrorScreen: ParentComponent = () => {

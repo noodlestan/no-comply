@@ -36,7 +36,9 @@
 
 - `src`
 - `scss`
+- `README.md`
 - `LICENSE-MIT`
+- `CHANGELOG.md`
 
 **Language:** TypeScript
 

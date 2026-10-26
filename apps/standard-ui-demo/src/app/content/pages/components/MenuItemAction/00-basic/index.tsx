@@ -1,5 +1,5 @@
 import { Menu, MenuItemAction } from '@no-comply/standard-ui';
-import UnlockIcon from 'lucide-solid/icons/unlock';
+import LockOpenIcon from 'lucide-solid/icons/lock-open';
 
 import { createDocsItemData, createDocsSectionData } from '../../../../types';
 import { itemProps as props } from '../constants';
@@ -14,7 +14,7 @@ export default createDocsSectionData({
 		)),
 		createDocsItemData({ title: 'With an icon', props }, () => (
 			<Menu aria-label="foo">
-				<MenuItemAction label="Unlock items" icon={UnlockIcon} />
+				<MenuItemAction label="Unlock items" icon={LockOpenIcon} />
 			</Menu>
 		)),
 	],

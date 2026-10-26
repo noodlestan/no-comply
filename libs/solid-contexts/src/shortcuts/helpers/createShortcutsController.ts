@@ -15,8 +15,7 @@ export const createShortcutsController = (
 	service: ShortcutsServiceAPI,
 	meta: UIControllerMetaWithShortcuts,
 	controllerOrControllerMap:
-		| ShortcutCommandController
-		| Record<UIControllerCommand, ShortcutCommandController>,
+		ShortcutCommandController | Record<UIControllerCommand, ShortcutCommandController>,
 ): ShortcutsControllerAPI => {
 	const { addController, addShortcuts, removeController, removeShortcuts } = service;
 

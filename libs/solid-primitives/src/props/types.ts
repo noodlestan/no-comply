@@ -54,9 +54,7 @@ export type PickProps<T, K extends keyof T> = {
  * @noresolve
  */
 export type AxisShorthandPropValues<T> =
-	| readonly []
-	| readonly [T | undefined]
-	| readonly [T | undefined, T | undefined];
+	readonly [] | readonly [T | undefined] | readonly [T | undefined, T | undefined];
 
 /**
  * @noresolve

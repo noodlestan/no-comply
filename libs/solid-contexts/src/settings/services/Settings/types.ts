@@ -1,11 +1,5 @@
 export type SettingType =
-	| 'params'
-	| 'boolean'
-	| 'number'
-	| 'range'
-	| 'string'
-	| 'options'
-	| 'color-name';
+	'params' | 'boolean' | 'number' | 'range' | 'string' | 'options' | 'color-name';
 
 export type SettingValue = object | string | number | boolean;
 

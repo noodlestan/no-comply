@@ -6,11 +6,12 @@ import solidPlugin from 'vite-plugin-solid';
 import SolidSVG from 'vite-plugin-solid-svg';
 
 const NAME = JSON.parse(readFileSync('package.json', 'utf8')).name;
+const dirname = import.meta.dirname;
 
 export default defineConfig({
 	plugins: [solidPlugin(), SolidSVG()],
 	resolve: {
-		alias: [{ find: '@', replacement: resolve(__dirname, 'src') }],
+		alias: [{ find: '@', replacement: resolve(dirname, 'src') }],
 	},
 	server: {
 		port: 3000,
@@ -20,7 +21,7 @@ export default defineConfig({
 		emptyOutDir: true,
 		target: 'esnext',
 		lib: {
-			entry: resolve(__dirname, 'src/index.ts'),
+			entry: resolve(dirname, 'src/index.ts'),
 			name: NAME,
 			fileName: 'index',
 			formats: ['es'],

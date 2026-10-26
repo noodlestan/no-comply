@@ -29,10 +29,4 @@ export type FlexJustify = 'start' | 'center' | 'end' | 'between' | 'around' | 's
 
 export type GridFlow = 'row' | 'column' | 'dense' | 'row-dense' | 'column-dense';
 export type GridAlign =
-	| 'start'
-	| 'end'
-	| 'center'
-	| 'stretch'
-	| 'space-between'
-	| 'space-around'
-	| 'space-evenly';
+	'start' | 'end' | 'center' | 'stretch' | 'space-between' | 'space-around' | 'space-evenly';

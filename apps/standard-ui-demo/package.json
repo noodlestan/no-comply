@@ -1,5 +1,7 @@
 {
   "name": "@no-comply/standard-ui-demo",
+  "version": "0.0.11",
+  "description": "Demo application showcasing the Standard UI component library.",
   "keywords": [
     "web-app",
     "demo",
@@ -8,10 +10,17 @@
     "components",
     "component-library"
   ],
-  "version": "0.0.11",
   "author": "Noodlestan Collective",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "apps/standard-ui-demo"
+  },
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
@@ -26,33 +35,33 @@
     "ci": "npm run lint && npm run build && npm run test:ci"
   },
   "dependencies": {
-    "@no-comply/meta": "0.0.11",
-    "@no-comply/solid-accessibility": "0.0.11",
-    "@no-comply/solid-composables": "0.0.11",
-    "@no-comply/solid-contexts": "0.0.11",
-    "@no-comply/solid-dev-tools": "0.0.11",
-    "@no-comply/solid-primitives": "0.0.11",
-    "@no-comply/standard-ui": "0.0.11",
-    "@purrception/lang-ts": "^0.0.11",
-    "@purrpose/client-babel": "^0.0.11",
-    "@purrpose/client-babel-preset-solidjs": "^0.0.11",
-    "@purrpose/solid-shiki-service": "^0.0.11",
-    "@purrtrait/client-tsx": "^0.0.11",
-    "@purrtrait/code-renderer": "^0.0.11",
-    "@purrtrait/lang-ts": "^0.0.11",
-    "@purrtrait/solid-code": "^0.0.11",
-    "@purrtrait/view-tsx": "^0.0.11",
+    "@no-comply/meta": "*",
+    "@no-comply/solid-accessibility": "*",
+    "@no-comply/solid-composables": "*",
+    "@no-comply/solid-contexts": "*",
+    "@no-comply/solid-dev-tools": "*",
+    "@no-comply/solid-primitives": "*",
+    "@no-comply/standard-ui": "*",
+    "@purrception/lang-ts": "0.1.0",
+    "@purrpose/client-babel": "0.0.11",
+    "@purrpose/client-babel-preset-solidjs": "0.0.12",
+    "@purrpose/solid-shiki-service": "0.0.13",
+    "@purrtrait/client-tsx": "0.0.11",
+    "@purrtrait/code-renderer": "0.0.11",
+    "@purrtrait/lang-ts": "0.0.11",
+    "@purrtrait/solid-code": "0.0.12",
+    "@purrtrait/view-tsx": "0.0.11",
     "@solid-primitives/intersection-observer": "2.2.4",
-    "@solid-primitives/mutation-observer": "^1.2.3",
+    "@solid-primitives/mutation-observer": "1.2.3",
     "@solid-primitives/resize-observer": "2.1.5",
     "@solid-primitives/storage": "4.3.4",
     "@solidjs/router": "0.16.1",
-    "babel-plugin-jsx-dom-expressions": "^0.40.7",
+    "babel-plugin-jsx-dom-expressions": "0.40.7",
     "dotenv": "17.4.2",
-    "lucide-solid": "^0.453.0",
-    "prettier": "3.8.4",
-    "shiki": "^4.3.0",
-    "solid-js": "1.9.13",
+    "lucide-solid": "1.61.0",
+    "prettier": "3.9.10",
+    "shiki": "4.3.0",
+    "solid-js": "1.9.17",
     "solid-services": "4.3.2",
     "solidjs-use": "2.3.0",
     "typescript": "5.9.3"
@@ -60,7 +69,7 @@
   "devDependencies": {
     "csstype": "3.2.3",
     "jsdom": "30.0.1",
-    "vite-plugin-solid": "2.11.12",
+    "vite-plugin-solid": "2.11.14",
     "vite-plugin-solid-svg": "0.8.1"
   }
 }

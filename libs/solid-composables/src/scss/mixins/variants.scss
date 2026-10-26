@@ -1,7 +1,7 @@
 @use 'sass:string';
 
 @mixin variant-class($class, $bp: null) {
-  $suffix: if(sass($bp ==null or $bp ==_): '' ; else: '-#{$bp}');
+  $suffix: if(sass($bp ==null or $bp ==_): ''; else: '-#{$bp}');
 
   .#{$class}#{$suffix} {
     @content;
@@ -10,7 +10,7 @@
 
 @mixin variant-classes($prefix, $map, $bp: null) {
   @each $key, $value in $map {
-    $suffix: if(sass($bp ==null or $bp ==_): '' ; else: '-#{$bp}');
+    $suffix: if(sass($bp ==null or $bp ==_): ''; else: '-#{$bp}');
 
     .#{$prefix}-#{$key}#{$suffix} {
       @content ($key, $value);

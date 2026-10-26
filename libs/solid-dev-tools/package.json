@@ -13,22 +13,27 @@
   ],
   "author": "Noodlestan Collective",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/no-comply.git",
+    "directory": "libs/solid-dev-tools"
+  },
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/andrezero/no-comply.git",
-    "directory": "libs/solid-dev-tools"
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE-MIT",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
   },
   "type": "module",
   "sideEffects": false,
   "main": "./src/index.ts",
-  "files": [
-    "src",
-    "LICENSE-MIT"
-  ],
   "scripts": {
     "dev": "vite build --watch",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
@@ -41,18 +46,18 @@
     "ci": "npm run lint && npm run build && npm run test:ci"
   },
   "dependencies": {
-    "@no-comply/solid-contexts": "0.0.11",
-    "@no-comply/solid-accessibility": "0.0.11",
-    "@no-comply/solid-primitives": "0.0.11",
-    "@no-comply/solid-composables": "0.0.11",
-    "@no-comply/standard-ui": "0.0.11"
+    "@no-comply/solid-contexts": "*",
+    "@no-comply/solid-accessibility": "*",
+    "@no-comply/solid-primitives": "*",
+    "@no-comply/solid-composables": "*",
+    "@no-comply/standard-ui": "*"
   },
   "peerDependencies": {
-    "lucide-solid": "^0.453.0",
-    "solid-js": "^1.9.5"
+    "lucide-solid": "^1.61.0",
+    "solid-js": "^1.9.17"
   },
   "devDependencies": {
-    "vite-plugin-solid": "2.11.12",
+    "vite-plugin-solid": "2.11.14",
     "vite-plugin-solid-svg": "0.8.1"
   }
 }
