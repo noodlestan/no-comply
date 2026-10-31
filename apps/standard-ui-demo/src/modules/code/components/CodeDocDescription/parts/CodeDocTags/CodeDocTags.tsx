@@ -1,6 +1,6 @@
 import { VisuallyHidden } from '@no-comply/solid-composables';
 import { type ContentSize, Flex, Text } from '@no-comply/standard-ui';
-import type { TagItem } from '@purrtrait/solid-code';
+import type { TagItem } from '@purrtrait/jsdoc-renderer';
 import { type Component, For, Show } from 'solid-js';
 
 type Props = {

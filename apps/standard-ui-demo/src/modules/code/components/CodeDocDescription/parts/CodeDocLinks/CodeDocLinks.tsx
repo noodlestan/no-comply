@@ -1,5 +1,5 @@
 import { type ContentSize, Flex, Link, Text } from '@no-comply/standard-ui';
-import type { JsDocLinkItem } from '@purrtrait/solid-code';
+import type { JsDocLinkItem } from '@purrtrait/jsdoc-renderer';
 import { type Component, For, Show } from 'solid-js';
 
 type Props = {

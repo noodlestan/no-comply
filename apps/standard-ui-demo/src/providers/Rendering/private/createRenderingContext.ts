@@ -4,9 +4,9 @@ import {
 	createCodeRendererOptions,
 	createCodeSerializer,
 } from '@purrtrait/code-renderer';
+import { createJsDocBlockRenderer, createJsDocLinkResolver } from '@purrtrait/jsdoc-renderer';
 import { tsCodeLayout } from '@purrtrait/lang-ts';
 import type { CodeLinkComponent } from '@purrtrait/solid-code';
-import { createJsDocBlockRenderer, createJsDocLinkResolver } from '@purrtrait/solid-code';
 
 import { useMeta } from '../../Meta';
 import type { RenderingContext } from '../types';

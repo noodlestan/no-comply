@@ -1,10 +1,7 @@
 import type { SyntaxHighlighterAPI } from '@purrpose/solid-shiki-service';
 import type { CodeLayoutAPI, CodeSerializerAPI } from '@purrtrait/code-renderer';
-import type {
-	CodeLinkComponent,
-	JsDocBlockRendererAPI,
-	JsDocLinkResolverAPI,
-} from '@purrtrait/solid-code';
+import type { JsDocBlockRendererAPI, JsDocLinkResolverAPI } from '@purrtrait/jsdoc-renderer';
+import type { CodeLinkComponent } from '@purrtrait/solid-code';
 
 export type RenderingContext = {
 	resolveLink: JsDocLinkResolverAPI['resolveLink'];
