@@ -135,7 +135,7 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$WORKSPACE/checkouts/
 
 | ID                             | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
 | ------------------------------ | ------------------------------- | -------- | --------- | ----------- |
-| `extract-component-prop-input` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `a2dc8ef` | `COMMITTED` |
+| `extract-component-prop-input` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `f813e73` | `COMMITTED` |
 
 ##### Commit: extract-component-prop-input
 
@@ -181,11 +181,11 @@ refactor(standard-ui-demo): Extract ComponentPropInput from ComponentPropsTableR
 
 | ID                           | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
 | ---------------------------- | ------------------------------- | -------- | --------- | ----------- |
-| `add-input-value-validation` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `06d17e0` | `COMMITTED` |
+| `add-input-value-validation` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `ec05108` | `COMMITTED` |
 
 ##### Commit: add-input-value-validation
 
-**Note:** The delegated change did not catch invalid values; it was corrected by follow-up commit `3da8be1` (`fix(standard-ui-demo): Invoke evaluateValue thunk to catch invalid prop inputs.`), debugged and applied by the user.
+**Note:** The delegated change did not catch invalid values; it was corrected by follow-up commit `d6f3e5c` (`fix(standard-ui-demo): Invoke evaluateValue thunk to catch invalid prop inputs.`), debugged and applied by the user.
 
 **Repository:** No Comply
 
@@ -202,7 +202,7 @@ build(standard-ui-demo): Validate prop inputs with evaluateValue() before propag
 
 ### Next
 
-Delegate Iteration: Add Input Value Validation (`READY`) — lift the compiler to `ComponentPlaygroundSection` and add eager `evaluateValue()` validation in `ComponentPropInput`.
+None — all iterations are `DONE`. Verify the Evidence conditions in the running app, then close the plan.
 
 ### Blockers
 
@@ -250,4 +250,4 @@ Delegate Iteration: Add Input Value Validation (`READY`) — lift the compiler t
 
 ### Feedback
 
-- None yet
+- `add-input-value-validation`: the worker did not invoke the thunk returned by `evaluateValue()`, so invalid values were not caught; corrected by `d6f3e5c`. The worker's behavioral checks were not exercised in a browser.
