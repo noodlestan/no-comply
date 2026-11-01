@@ -1,0 +1,31 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.compose-colors {
+  .ComposeColors {
+    @include set-palette(__composed-colors, primary);
+
+    @include set-palette(__composed-colors-fg, __composed-colors);
+    @include set-palette(__composed-colors-bg, __composed-colors);
+    @include set-palette(__composed-colors-border, __composed-colors);
+
+    @include set-level(__composed-colors-fg, fg-primary);
+    @include set-level(__composed-colors-bg, content-bg-0);
+    @include set-level(__composed-colors-border, border-0);
+
+    @include set-alpha(__composed-colors-fg, content-fg);
+    @include set-alpha(__composed-colors-bg, content-fg);
+    @include set-alpha(__composed-colors-border, content-fg);
+
+    &.fg {
+      @include apply-color(color, __composed-colors-fg);
+    }
+
+    &.bg {
+      @include apply-color(background-color, __composed-colors-bg);
+    }
+
+    &.border {
+      @include apply-color(border-color, __composed-colors-border);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.content-palette {
+  // The variant names are aliases of existing theme palettes
+  // (neutral -> primary, color-N -> graphics-N). Only the palette variable is set.
+  .palette-neutral {
+    @include set-palette(__content-palette, primary);
+  }
+
+  .palette-color-1 {
+    @include set-palette(__content-palette, graphics-1);
+  }
+
+  .palette-color-2 {
+    @include set-palette(__content-palette, graphics-2);
+  }
+
+  .palette-color-3 {
+    @include set-palette(__content-palette, graphics-3);
+  }
+
+  .palette-color-4 {
+    @include set-palette(__content-palette, graphics-4);
+  }
+
+  .palette-color-5 {
+    @include set-palette(__content-palette, graphics-5);
+  }
+
+  .palette-color-6 {
+    @include set-palette(__content-palette, graphics-6);
+  }
+
+  .palette-color-7 {
+    @include set-palette(__content-palette, graphics-7);
+  }
+}
