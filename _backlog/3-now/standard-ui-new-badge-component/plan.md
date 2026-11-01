@@ -2,7 +2,7 @@
 
 **ID:** `standard-ui-new-badge-component`
 
-**Status:** `READY`
+**Status:** `WORKING`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -114,7 +114,7 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$PROJECT` on branch `
 
 | Iteration / Instructions                                           | Status  |
 | ------------------------------------------------------------------ | ------- |
-| Iteration: Add Sized Content `./instructions/add-sized-content.md` | `READY` |
+| Iteration: Add Sized Content `./instructions/add-sized-content.md` | `DONE`  |
 | Iteration: Add Color Module `./instructions/add-color-module.md`   | `READY` |
 | Iteration: Add Badge `./instructions/add-badge.md`                 | `READY` |
 
@@ -122,7 +122,7 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$PROJECT` on branch `
 
 **Id:** `add-sized-content`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Introduce the unified size + scale mixin and move its consumers onto it.
 
@@ -140,16 +140,18 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$PROJECT` on branch `
 
 **Instructions:** `./instructions/add-sized-content.md`
 
+**Report:** `./instructions/add-sized-content__report.md`
+
 **Dependencies:**
 
 - None.
 
 #### Commits:
 
-| ID                      | Repository / Checkout / Branch  | Policy   | Hash  | Status     |
-| ----------------------- | ------------------------------- | -------- | ----- | ---------- |
-| `add-sized-content`     | No Comply / `$PROJECT` / `main` | `NOPUSH` | (TBD) | `AUTHORED` |
-| `migrate-sized-content` | No Comply / `$PROJECT` / `main` | `NOPUSH` | (TBD) | `AUTHORED` |
+| ID                      | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
+| ----------------------- | ------------------------------- | -------- | --------- | ----------- |
+| `add-sized-content`     | No Comply / `$PROJECT` / `main` | `NOPUSH` | `830ea34` | `COMMITTED` |
+| `migrate-sized-content` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `99afc27` | `COMMITTED` |
 
 ##### Commit: add-sized-content
 
@@ -254,7 +256,7 @@ build(standard-ui): Add Badge mixin and component.
 
 ### Next
 
-Delegate Iteration: Add Sized Content (`READY`).
+Delegate Iteration: Add Color Module (`READY`), then Add Badge.
 
 ### Blockers
 
@@ -320,4 +322,5 @@ Run from `$PACKAGE`: `npm run ci`.
 
 ### Feedback
 
-- None yet.
+- **`add-sized-content`** — completed, `npm run ci` and the pre-commit hook passed. The worker also added `Icon.module.scss` (maps `--__icon-size` to `--__content-height`, which the instructions did not mention) and renamed SizedIcon doc comments in `solid-composables`.
+- **Extract hook vs backlog specs** — on the first attempt at commit 2 the hook's `extract` step generated `Badge` entries into two demo-app files from the backlog specs and broke the demo typecheck; the worker discarded them with `git checkout apps`. May recur in later iterations.
