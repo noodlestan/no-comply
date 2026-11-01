@@ -12,6 +12,8 @@
 
 **Remote:** `git@github.com:noodlestan/no-comply.git`
 
+**Canonical:** `noodlestan/no-comply`
+
 **Consumers:**
 
 - none yet (consumes `@purrception/*`, `@purrtrait/*`, `@purrpose/*`).
