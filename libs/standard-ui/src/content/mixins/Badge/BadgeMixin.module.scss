@@ -7,7 +7,13 @@
     height: var(--__content-height);
     padding-inline: var(--__badge-padding-inline, var(--space-pad-0));
     border-radius: var(--radius-m);
+    border-style: solid;
+    border-width: var(--border-width-thin);
 
     @include set-palette(__composed-colors, __content-palette);
+
+    @include set-level(__composed-colors-fg, fg-saturated);
+    @include set-level(__composed-colors-bg, bg-4);
+    @include set-level(__composed-colors-border, border-2);
   }
 }
