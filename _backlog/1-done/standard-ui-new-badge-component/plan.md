@@ -2,7 +2,7 @@
 
 **ID:** `standard-ui-new-badge-component`
 
-**Status:** `DELIVERED`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -260,7 +260,7 @@ build(standard-ui): Add Badge mixin and component.
 
 ### Next
 
-All iterations are `DONE`. Review the Evidence (including a visual check of Badge, which no test covers), then close the plan and move it to `1-done`.
+None — all iterations are `DONE` and the Evidence has been verified in the browser.
 
 ### Blockers
 
@@ -322,11 +322,11 @@ Run from `$PACKAGE`: `npm run ci`.
 
 - **SizedTypography `scale`** — investigate whether Badge needs a downscaled typography.
 - **ComposeColors independent variables** — task for bg/fg/border variables from peers.
-- **Badge demo example** — no sandbox exists in the package; add a Badge example in `$PROJECT/apps/standard-ui-demo` as a separate task.
 - **FeedbackPaletteMixin, Callout, ToastMessage, FeedbackText** — separate tasks.
 
 ### Feedback
 
+- **Post-delivery fixes** — after a visual check in the demo app, Badge colour levels and border were fixed (`f847c9d`) and Badge examples were added to the demo app (`7f84d17`). Remaining visual issues are in the parking lot.
 - **`add-sized-content`** — completed, `npm run ci` and the pre-commit hook passed. The worker also added `Icon.module.scss` (maps `--__icon-size` to `--__content-height`, which the instructions did not mention) and renamed SizedIcon doc comments in `solid-composables`.
 - **`add-color-module`, first attempt** — worker reported a BLOCKER (theme has no `neutral` or `color-N` palettes); no changes made. Resolved by the alias decision above; instructions updated and re-delegated; completed in `63242c2` (no `extract`/`apps` quirk this time; the package has no test files, so no unit tests were added).
 - **`add-badge`** — completed in `21bdb44`; the hook changed nothing under `apps`, so the earlier extract quirk was caused by Badge not yet existing. No unit test added: the package has no test files. The worker rendered its report by hand because the `render-template` skill was unavailable to it. Badge has not been rendered visually.
