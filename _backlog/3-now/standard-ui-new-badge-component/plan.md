@@ -2,7 +2,7 @@
 
 **ID:** `standard-ui-new-badge-component`
 
-**Status:** `WORKING`
+**Status:** `DELIVERED`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -112,11 +112,11 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$PROJECT` on branch `
 
 ## Items:
 
-| Iteration / Instructions                                           | Status  |
-| ------------------------------------------------------------------ | ------- |
-| Iteration: Add Sized Content `./instructions/add-sized-content.md` | `DONE`  |
-| Iteration: Add Color Module `./instructions/add-color-module.md`   | `DONE`  |
-| Iteration: Add Badge `./instructions/add-badge.md`                 | `READY` |
+| Iteration / Instructions                                           | Status |
+| ------------------------------------------------------------------ | ------ |
+| Iteration: Add Sized Content `./instructions/add-sized-content.md` | `DONE` |
+| Iteration: Add Color Module `./instructions/add-color-module.md`   | `DONE` |
+| Iteration: Add Badge `./instructions/add-badge.md`                 | `DONE` |
 
 ### Iteration: Add Sized Content
 
@@ -217,7 +217,7 @@ build(standard-ui): Add color module with ContentPalette and ComposeColors; remo
 
 **Id:** `add-badge`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Deliver the Badge component.
 
@@ -233,6 +233,8 @@ build(standard-ui): Add color module with ContentPalette and ComposeColors; remo
 
 **Instructions:** `./instructions/add-badge.md`
 
+**Report:** `./instructions/add-badge__report.md`
+
 **Dependencies:**
 
 - Iteration: Add Sized Content must be completed first.
@@ -240,9 +242,9 @@ build(standard-ui): Add color module with ContentPalette and ComposeColors; remo
 
 #### Commits:
 
-| ID          | Repository / Checkout / Branch  | Policy   | Hash  | Status     |
-| ----------- | ------------------------------- | -------- | ----- | ---------- |
-| `add-badge` | No Comply / `$PROJECT` / `main` | `NOPUSH` | (TBD) | `AUTHORED` |
+| ID          | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
+| ----------- | ------------------------------- | -------- | --------- | ----------- |
+| `add-badge` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `21bdb44` | `COMMITTED` |
 
 ##### Commit: add-badge
 
@@ -258,7 +260,7 @@ build(standard-ui): Add Badge mixin and component.
 
 ### Next
 
-Delegate Iteration: Add Badge (`READY`).
+All iterations are `DONE`. Review the Evidence (including a visual check of Badge, which no test covers), then close the plan and move it to `1-done`.
 
 ### Blockers
 
@@ -327,4 +329,5 @@ Run from `$PACKAGE`: `npm run ci`.
 
 - **`add-sized-content`** — completed, `npm run ci` and the pre-commit hook passed. The worker also added `Icon.module.scss` (maps `--__icon-size` to `--__content-height`, which the instructions did not mention) and renamed SizedIcon doc comments in `solid-composables`.
 - **`add-color-module`, first attempt** — worker reported a BLOCKER (theme has no `neutral` or `color-N` palettes); no changes made. Resolved by the alias decision above; instructions updated and re-delegated; completed in `63242c2` (no `extract`/`apps` quirk this time; the package has no test files, so no unit tests were added).
+- **`add-badge`** — completed in `21bdb44`; the hook changed nothing under `apps`, so the earlier extract quirk was caused by Badge not yet existing. No unit test added: the package has no test files. The worker rendered its report by hand because the `render-template` skill was unavailable to it. Badge has not been rendered visually.
 - **Extract hook vs backlog specs** — on the first attempt at commit 2 the hook's `extract` step generated `Badge` entries into two demo-app files from the backlog specs and broke the demo typecheck; the worker discarded them with `git checkout apps`. May recur in later iterations.
