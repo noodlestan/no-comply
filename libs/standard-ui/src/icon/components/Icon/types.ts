@@ -4,10 +4,10 @@ import type {
 	IconMixinAPI,
 } from '@no-comply/solid-composables';
 
-import type { SizedIconMixinAPI, SizedIconMixinProps } from '../../mixins';
+import type { SizedContentMixinAPI, SizedContentMixinProps } from '../../../content';
 
-export type IconProps = HeadlessIconProps & SizedIconMixinProps;
+export type IconProps = HeadlessIconProps & Omit<SizedContentMixinProps, 'scale'>;
 
 export type IconAPI = {
-	$root: HeadlessIconAPI['$root'] & IconMixinAPI['$root'] & SizedIconMixinAPI['$root'];
+	$root: HeadlessIconAPI['$root'] & IconMixinAPI['$root'] & SizedContentMixinAPI['$root'];
 };

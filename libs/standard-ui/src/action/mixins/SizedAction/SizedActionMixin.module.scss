@@ -4,32 +4,25 @@
 
 @layer lib.standard-ui.sized-action {
   .SizedAction {
-    // applied to the <AlignFirstLine> wrapper
-    --__first-line-content-height: var(--__action-height);
-    // applied locally to compute the offset
-    --__first-line-element-height: var(--__first-line-content-height);
+    --__action-height: var(--__content-height);
   }
 
   .size-small {
-    --__action-height: var(--size-xs);
     --__action-gap: var(--space-gap--1);
     --__action-padding-inline: var(--space-pad-0);
   }
 
   .size-normal {
-    --__action-height: var(--size-s);
     --__action-gap: var(--space-gap-0);
     --__action-padding-inline: var(--space-pad-1);
   }
 
   .size-medium {
-    --__action-height: var(--size-m);
     --__action-gap: var(--space-gap-0);
     --__action-padding-inline: var(--space-pad-2);
   }
 
   .size-large {
-    --__action-height: var(--size-l);
     --__action-gap: var(--space-gap-1);
     --__action-padding-inline: var(--space-pad-3);
   }

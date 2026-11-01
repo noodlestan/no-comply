@@ -1,9 +1,11 @@
 import { createIcon as createHeadlessIcon, createIconMixin } from '@no-comply/solid-composables';
 import { createExposable, exposeAPI } from '@no-comply/solid-contexts';
-import { combineProps } from '@no-comply/solid-primitives';
+import { combineProps, computedProps, createClassList } from '@no-comply/solid-primitives';
+import { mergeProps } from 'solid-js';
 
-import { createSizedIconMixin } from '../../mixins';
+import { createSizedContentMixin } from '../../../content';
 
+import styles from './Icon.module.scss';
 import { $ICON } from './constants';
 import type { IconAPI, IconProps } from './types';
 
@@ -12,9 +14,15 @@ export const createIcon = (props: IconProps): IconAPI => {
 
 	const { $root: $iconRoot } = compose(createHeadlessIcon(locals));
 	const { $root: $iconMixinRoot } = compose(createIconMixin());
-	const { $root: $sizedIconMixinRoot } = compose(createSizedIconMixin(locals));
+	const { $root: $sizedContentMixinRoot } = compose(
+		createSizedContentMixin(mergeProps(locals, { scale: 'down' as const })),
+	);
+
+	const $root = computedProps({
+		classList: createClassList(styles, () => ['Icon']),
+	});
 
 	return exposeAPI(expose, '$root', {
-		$root: combineProps($iconRoot, $iconMixinRoot, $sizedIconMixinRoot),
+		$root: combineProps($iconRoot, $iconMixinRoot, $sizedContentMixinRoot, $root),
 	});
 };
