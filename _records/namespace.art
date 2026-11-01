@@ -2,6 +2,10 @@
 
 ## Namespace: No Comply
 
+**Purpose:** Publish the No Comply SolidJS packages under a shared identity.
+
+**Description:** SolidJS libraries for accessibility, composables, contexts, dev tooling, and primitives, with the meta extraction CLI and standard UI demo.
+
 **Canonical Name:** `@no-comply`
 
 **Owner:** Project: No Comply
