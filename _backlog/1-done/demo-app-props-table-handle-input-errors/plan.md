@@ -2,7 +2,7 @@
 
 **ID:** `demo-app-props-table-handle-input-errors`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -202,7 +202,7 @@ build(standard-ui-demo): Validate prop inputs with evaluateValue() before propag
 
 ### Next
 
-None — all iterations are `DONE`. Verify the Evidence conditions in the running app, then close the plan.
+None — all iterations are `DONE` and the Evidence has been verified.
 
 ### Blockers
 
