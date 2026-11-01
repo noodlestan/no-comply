@@ -4,6 +4,40 @@ import type { ComponentDocsData } from '../types';
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 const data = {
+	Badge: {
+		examples: [
+			{
+				title: 'Basic usage',
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
+					<Badge tsx-view-target>New</Badge>
+				</Flex>`,
+			},
+			{
+				title: 'All colors',
+				lockedProps: ['color'],
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
+					<Badge tsx-view-target color="neutral">neutral</Badge>
+					<Badge tsx-view-target color="color-1">color-1</Badge>
+					<Badge tsx-view-target color="color-2">color-2</Badge>
+					<Badge tsx-view-target color="color-3">color-3</Badge>
+					<Badge tsx-view-target color="color-4">color-4</Badge>
+					<Badge tsx-view-target color="color-5">color-5</Badge>
+					<Badge tsx-view-target color="color-6">color-6</Badge>
+					<Badge tsx-view-target color="color-7">color-7</Badge>
+				</Flex>`,
+			},
+			{
+				title: 'All sizes',
+				lockedProps: ['size'],
+				tsx: `<Flex padding="l" direction="row" gap="m" align="center" wrap>
+					<Badge tsx-view-target size="small">Small</Badge>
+					<Badge tsx-view-target size="normal">Normal</Badge>
+					<Badge tsx-view-target size="medium">Medium</Badge>
+					<Badge tsx-view-target size="large">Large</Badge>
+				</Flex>`,
+			},
+		],
+	},
 	Button: {
 		examples: [
 			{

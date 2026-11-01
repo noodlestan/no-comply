@@ -1,6 +1,7 @@
 import { AlignFirstLine } from '@no-comply/solid-composables';
 import {
 	ActionLabel,
+	Badge,
 	Button,
 	Callout,
 	Canvas,
@@ -52,6 +53,7 @@ export const STATIC_SCOPE = {
 	IconButton,
 	ToggleButton,
 	// content
+	Badge,
 	Callout,
 	Canvas,
 	DataItem,
