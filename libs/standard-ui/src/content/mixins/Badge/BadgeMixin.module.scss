@@ -1,0 +1,13 @@
+@use '../../../theme/mixins/color.scss' as *;
+
+@layer lib.standard-ui.badge {
+  .Badge {
+    display: inline-flex;
+    align-items: center;
+    height: var(--__content-height);
+    padding-inline: var(--__badge-padding-inline, var(--space-pad-0));
+    border-radius: var(--radius-m);
+
+    @include set-palette(__composed-colors, __content-palette);
+  }
+}
