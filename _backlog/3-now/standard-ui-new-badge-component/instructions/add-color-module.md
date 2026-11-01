@@ -63,6 +63,7 @@ Add the `color/` module to Standard UI with `ContentPaletteMixin` (sets only the
 - `ContentPaletteVariant` has 8 values: `'neutral' | 'color-1' | 'color-2' | 'color-3' | 'color-4' | 'color-5' | 'color-6' | 'color-7'`, as in the content-palette spec (the task text lists only 3 and is outdated).
 - Name the mixin `ComposeColorsMixin` and the factory `createComposeColorsMixin` (the spec title says `ComposeColorMixin`).
 - The specs' `ContentColor` path `standard-ui/src/content/mixins/ContentColor/` is `$PACKAGE/src/content/mixins/ContentColor/`.
+- Palette names map as described in Step 2 (`neutral` → `primary`, `color-N` → `graphics-N`); this was decided after a previous attempt reported that the theme has no such palettes.
 - Write the SCSS with `@include set-palette(...)` etc.; the specs' bare `set-palette(...)` lines are shorthand.
 
 - RULE: You MUST follow any links under `## Mandatory Reading` sections found in the listed files.
@@ -117,7 +118,7 @@ Create `$PACKAGE/src/color/` with `index.ts` (re-exporting `types` and `mixins`)
 
 1. `$PACKAGE/src/color/mixins/ContentPalette/` (`createContentPaletteMixin.ts`, `constants.ts`, `types.ts`, `ContentPaletteMixin.module.scss`, `index.ts`), following the spec and the `ContentColor` file set:
    - Prop `palette?: ContentPaletteVariant` (default `'neutral'`); API `$root` (class list `palette-{palette}`) and `palette()`.
-   - SCSS in `@layer lib.standard-ui.content-palette`: one `.palette-{variant}` class per variant, each doing `@include set-palette(__content-palette, {variant})`. It must never set `color`, `background` or `border`. Check which palette names the theme actually defines (look at `$PACKAGE/src/theme/mixins/color.scss` and the theme tokens); if `color-1` to `color-7` or `neutral` map to nothing, REPORT A BLOCKER with what you found instead of inventing names.
+   - SCSS in `@layer lib.standard-ui.content-palette`: one `.palette-{variant}` class per variant, each doing `@include set-palette(__content-palette, {variant})`. It must never set `color`, `background` or `border`. The theme defines no `neutral` or `color-N` palettes, so `ContentPaletteVariant` is an alias layer: map each class to an existing theme palette in the SCSS only (no JavaScript mapping, the `palette` prop keeps the spec's names): `neutral` → `primary`, `color-1` to `color-7` → `graphics-1` to `graphics-7`. Example: `.palette-neutral { @include set-palette(__content-palette, primary); }` and `.palette-color-1 { @include set-palette(__content-palette, graphics-1); }`. The palettes live in `$PACKAGE/src/theme/styles/foundations/color.scss`; do not edit the theme. Add a comment above the classes saying the names are aliases of theme palettes.
 2. `$PACKAGE/src/color/mixins/ComposeColors/` (same file set, `ComposeColorsMixin.module.scss`):
    - Props `fg?`, `bg?`, `border?` booleans (default `false`); API `$root` with class list `ComposeColors` plus `fg`, `bg`, `border` when enabled.
    - SCSS as in the spec: the `.ComposeColors` class sets default palette, level and alpha variables for `__composed-colors`, `-fg`, `-bg` and `-border`; the `.fg`, `.bg`, `.border` classes apply colours with `apply-color(color | background-color | border-color, ...)`. Scope the boolean classes so they only apply together with `.ComposeColors`.

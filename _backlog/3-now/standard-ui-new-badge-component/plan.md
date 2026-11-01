@@ -115,7 +115,7 @@ Execution occurs from `$WORKSPACE/`; work is performed in `$PROJECT` on branch `
 | Iteration / Instructions                                           | Status  |
 | ------------------------------------------------------------------ | ------- |
 | Iteration: Add Sized Content `./instructions/add-sized-content.md` | `DONE`  |
-| Iteration: Add Color Module `./instructions/add-color-module.md`   | `READY` |
+| Iteration: Add Color Module `./instructions/add-color-module.md`   | `DONE`  |
 | Iteration: Add Badge `./instructions/add-badge.md`                 | `READY` |
 
 ### Iteration: Add Sized Content
@@ -175,7 +175,7 @@ refactor(standard-ui): Compose Icon and SizedAction from SizedContent; remove Si
 
 **Id:** `add-color-module`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Provide palette-based colour composition for content such as badges.
 
@@ -191,15 +191,17 @@ refactor(standard-ui): Compose Icon and SizedAction from SizedContent; remove Si
 
 **Instructions:** `./instructions/add-color-module.md`
 
+**Report:** `./instructions/add-color-module__report.md`
+
 **Dependencies:**
 
 - None.
 
 #### Commits:
 
-| ID                 | Repository / Checkout / Branch  | Policy   | Hash  | Status     |
-| ------------------ | ------------------------------- | -------- | ----- | ---------- |
-| `add-color-module` | No Comply / `$PROJECT` / `main` | `NOPUSH` | (TBD) | `AUTHORED` |
+| ID                 | Repository / Checkout / Branch  | Policy   | Hash      | Status      |
+| ------------------ | ------------------------------- | -------- | --------- | ----------- |
+| `add-color-module` | No Comply / `$PROJECT` / `main` | `NOPUSH` | `63242c2` | `COMMITTED` |
 
 ##### Commit: add-color-module
 
@@ -256,7 +258,7 @@ build(standard-ui): Add Badge mixin and component.
 
 ### Next
 
-Delegate Iteration: Add Color Module (`READY`), then Add Badge.
+Delegate Iteration: Add Badge (`READY`).
 
 ### Blockers
 
@@ -303,6 +305,7 @@ Run from `$PACKAGE`: `npm run ci`.
 
 ### Decisions
 
+- **Palette variants are aliases** — `ContentPaletteVariant` keeps the spec's names; `ContentPaletteMixin`'s SCSS maps `neutral` → `primary` and `color-1` to `color-7` → `graphics-1` to `graphics-7`, because the theme defines no `neutral` or `color-N` palettes. Resolved in CSS, no runtime mapping.
 - **Three iterations** — `Icon` and `SizedAction` migrate with `SizedContent` in one iteration.
 - **Use 8 palette variants** from the content-palette spec.
 - **Badge prop is `color`**, per the task acceptance criteria; the component forwards all `BadgeMixin` props.
@@ -323,4 +326,5 @@ Run from `$PACKAGE`: `npm run ci`.
 ### Feedback
 
 - **`add-sized-content`** — completed, `npm run ci` and the pre-commit hook passed. The worker also added `Icon.module.scss` (maps `--__icon-size` to `--__content-height`, which the instructions did not mention) and renamed SizedIcon doc comments in `solid-composables`.
+- **`add-color-module`, first attempt** — worker reported a BLOCKER (theme has no `neutral` or `color-N` palettes); no changes made. Resolved by the alias decision above; instructions updated and re-delegated; completed in `63242c2` (no `extract`/`apps` quirk this time; the package has no test files, so no unit tests were added).
 - **Extract hook vs backlog specs** — on the first attempt at commit 2 the hook's `extract` step generated `Badge` entries into two demo-app files from the backlog specs and broke the demo typecheck; the worker discarded them with `git checkout apps`. May recur in later iterations.
