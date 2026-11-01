@@ -1,0 +1,45 @@
+@layer lib.standard-ui.sized-content {
+  .SizedContent {
+    // applied to the <AlignFirstLine> wrapper
+    --__first-line-content-height: var(--__content-height);
+    // applied locally to compute the offset
+    --__first-line-element-height: var(--__first-line-content-height);
+  }
+
+  .scale-down {
+    --__content-scaled-size-small: var(--size-2xs);
+    --__content-scaled-size-normal: var(--size-xs);
+    --__content-scaled-size-medium: var(--size-s);
+    --__content-scaled-size-large: var(--size-m);
+  }
+
+  .scale-normal {
+    --__content-scaled-size-small: var(--size-xs);
+    --__content-scaled-size-normal: var(--size-s);
+    --__content-scaled-size-medium: var(--size-m);
+    --__content-scaled-size-large: var(--size-l);
+  }
+
+  .scale-up {
+    --__content-scaled-size-small: var(--size-s);
+    --__content-scaled-size-normal: var(--size-m);
+    --__content-scaled-size-medium: var(--size-l);
+    --__content-scaled-size-large: var(--size-xl);
+  }
+
+  .size-small {
+    --__content-height: var(--__content-scaled-size-small);
+  }
+
+  .size-normal {
+    --__content-height: var(--__content-scaled-size-normal);
+  }
+
+  .size-medium {
+    --__content-height: var(--__content-scaled-size-medium);
+  }
+
+  .size-large {
+    --__content-height: var(--__content-scaled-size-large);
+  }
+}

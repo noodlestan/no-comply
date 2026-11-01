@@ -2,3 +2,4 @@
 export * from './AlignContentHeight';
 export * from './ContentColor';
 export * from './ContentLength';
+export * from './SizedContent';
