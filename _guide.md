@@ -93,17 +93,18 @@ This repository maintains one repository level backlog:
 - The backlog lives at `_backlog/` with subdirectories such as `/3-now` and `/4-next/`.
 - The short-term focus is captured in `_backlog/_parking-lot.md`.lot.md`.
 
-## Operating Instructions
+## Spec Templates
 
-### Operating Instructions: Setting Up
+This section documents the available spec templates that can be used to generate specifications from backlog tasks. Templates are organized by type (`add`, `modify`) and include metadata about the entity kind, package, and required inputs.
 
-**Instructions:**
+### Available Templates
 
-Run from the repository root (monorepo):
+| Template Type | Template Name      | Template Path                                             | Entity Kind                         | Skill                         |
+| ------------- | ------------------ | --------------------------------------------------------- | ----------------------------------- | ----------------------------- |
+| `add`         | New Entity Spec    | `./knowledge/specs/no-comply-new-entity-spec-template.md` | component, mixin, provider, service | `write-no-comply-entity-task` |
+| `modify`      | Modify Entity Spec | `./knowledge/specs/no-comply-mod-entity-spec-template.md` | component, mixin, removal, refactor | `write-no-comply-entity-task` |
 
-```bash
-npm ci # to install dependencies.
-```
+---
 
 ### Operating Instructions: Verifying Completion
 
